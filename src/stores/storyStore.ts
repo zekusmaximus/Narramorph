@@ -12,6 +12,8 @@ import type {
   TransformationState,
   UnlockedTransformation,
   VisitRecord,
+  StoryNode,
+  Connection,
 } from '@/types';
 import { saveToStorage, loadFromStorage, STORAGE_KEYS } from '@/utils/storage';
 import { validateSavedState } from '@/utils/validation';
@@ -65,7 +67,13 @@ function createInitialStats(): ReadingStats {
 }
 
 /**
- * Determines the current transformation state for a node
+ * Determines the current transformation state for a node based on visit history
+ * and unlock conditions.
+ *
+ * @param nodeId - The unique identifier of the node
+ * @param visitRecord - The visit history for this node, if any
+ * @param unlockedTransformations - Array of special transformations unlocked
+ * @returns The current transformation state
  */
 function determineTransformationState(
   nodeId: string,
@@ -82,13 +90,107 @@ function determineTransformationState(
   // Standard visit-based transformation
   const visitCount = visitRecord?.visitCount || 0;
 
-  if (visitCount === 0) {
+  if (visitCount === 1) {
     return 'initial';
-  } else if (visitCount === 1) {
+  } else if (visitCount === 2) {
     return 'firstRevisit';
-  } else {
+  } else if (visitCount >= 3) {
     return 'metaAware';
+  } else {
+    return 'initial'; // Default for 0 visits
   }
+}
+
+/**
+ * Checks if any special transformations should be unlocked after a visit.
+ *
+ * @param _visitedNodeId - The node that was just visited (unused but kept for future optimization)
+ * @param nodes - Array of all story nodes
+ * @param progress - Current user progress
+ * @returns Array of newly unlocked transformations
+ */
+function checkSpecialTransformations(
+  _visitedNodeId: string,
+  nodes: StoryNode[],
+  progress: UserProgress
+): UnlockedTransformation[] {
+  const newlyUnlocked: UnlockedTransformation[] = [];
+
+  for (const node of nodes) {
+    if (!node.unlockConditions?.specialTransforms) continue;
+
+    for (const transform of node.unlockConditions.specialTransforms) {
+      // Check if already unlocked
+      const alreadyUnlocked = progress.specialTransformations.some(
+        t => t.nodeId === node.id && t.transformationId === transform.id
+      );
+
+      if (alreadyUnlocked) continue;
+
+      // Check required prior nodes (any order)
+      const hasRequiredNodes = transform.requiredPriorNodes.every(
+        nodeId => progress.visitedNodes[nodeId]
+      );
+
+      if (!hasRequiredNodes) continue;
+
+      // Check required sequence (if specified)
+      if (transform.requiredSequence) {
+        const pathString = progress.readingPath.join(',');
+        const sequenceString = transform.requiredSequence.join(',');
+        if (!pathString.includes(sequenceString)) continue;
+      }
+
+      // All conditions met - unlock!
+      newlyUnlocked.push({
+        nodeId: node.id,
+        transformationId: transform.id,
+        unlockedAt: new Date().toISOString()
+      });
+    }
+  }
+
+  return newlyUnlocked;
+}
+
+/**
+ * Determines if a connection should be visible based on reveal conditions.
+ *
+ * @param connection - The connection to check
+ * @param progress - Current user progress
+ * @returns true if the connection should be visible
+ */
+function shouldRevealConnection(
+  connection: Connection,
+  progress: UserProgress
+): boolean {
+  // If no reveal conditions, always visible
+  if (!connection.revealConditions) {
+    return true;
+  }
+
+  const { requiredVisits, requiredSequence } = connection.revealConditions;
+
+  // Check required visits
+  if (requiredVisits) {
+    for (const [nodeId, minCount] of Object.entries(requiredVisits)) {
+      const visitRecord = progress.visitedNodes[nodeId];
+      if (!visitRecord || visitRecord.visitCount < minCount) {
+        return false;
+      }
+    }
+  }
+
+  // Check required sequence
+  if (requiredSequence) {
+    const pathString = progress.readingPath.join(',');
+    const sequenceString = requiredSequence.join(',');
+    if (!pathString.includes(sequenceString)) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 /**
@@ -143,28 +245,33 @@ export const useStoryStore = create<StoryStore>()(
     },
 
     visitNode: (nodeId: string) => {
-      set((state) => {
-        const node = state.nodes.get(nodeId);
-        if (!node) {
-          console.error(`Node not found: ${nodeId}`);
-          return;
-        }
+      // Validate node exists first
+      const state = get();
+      const node = state.nodes.get(nodeId);
+      if (!node) {
+        console.error(`Node not found: ${nodeId}`);
+        return;
+      }
 
+      // Update state using Immer
+      set((draftState) => {
         const now = new Date().toISOString();
-        const existingRecord = state.progress.visitedNodes[nodeId];
+        const existingRecord = draftState.progress.visitedNodes[nodeId];
 
         if (existingRecord) {
+          // Node has been visited before - update existing record
           existingRecord.visitCount++;
           existingRecord.visitTimestamps.push(now);
           existingRecord.lastVisited = now;
-          // Update transformation state
+          // Update transformation state based on new visit count
           existingRecord.currentState = determineTransformationState(
             nodeId,
             existingRecord,
-            state.progress.specialTransformations
+            draftState.progress.specialTransformations
           );
         } else {
-          state.progress.visitedNodes[nodeId] = {
+          // First visit - create new record
+          draftState.progress.visitedNodes[nodeId] = {
             visitCount: 1,
             visitTimestamps: [now],
             currentState: 'initial',
@@ -174,13 +281,45 @@ export const useStoryStore = create<StoryStore>()(
         }
 
         // Add to reading path
-        state.progress.readingPath.push(nodeId);
+        draftState.progress.readingPath.push(nodeId);
 
-        // Update timestamp
-        state.progress.lastActiveTimestamp = now;
+        // Update last active timestamp
+        draftState.progress.lastActiveTimestamp = now;
       });
 
-      // Save after visit
+      // Post-state side effects using fresh state
+      const freshState = get();
+
+      // Check for newly unlocked special transformations
+      const newTransforms = checkSpecialTransformations(
+        nodeId,
+        Array.from(freshState.nodes.values()),
+        freshState.progress
+      );
+
+      if (newTransforms.length > 0) {
+        set((draftState) => {
+          draftState.progress.specialTransformations.push(...newTransforms);
+        });
+      }
+
+      // Check for newly revealed connections
+      const connectionsToReveal: string[] = [];
+      for (const [connId, conn] of freshState.connections) {
+        if (shouldRevealConnection(conn, freshState.progress)) {
+          if (!freshState.progress.unlockedConnections.includes(connId)) {
+            connectionsToReveal.push(connId);
+          }
+        }
+      }
+
+      if (connectionsToReveal.length > 0) {
+        set((draftState) => {
+          draftState.progress.unlockedConnections.push(...connectionsToReveal);
+        });
+      }
+
+      // Save progress to localStorage
       get().saveProgress();
     },
 
@@ -239,7 +378,7 @@ export const useStoryStore = create<StoryStore>()(
         return;
       }
 
-      // TODO: Handle version migration if needed
+      // Handle version migration if needed
       const currentVersion = '1.0.0';
       if (saved.version !== currentVersion) {
         console.warn(`Version mismatch: saved ${saved.version}, current ${currentVersion}`);
@@ -387,8 +526,41 @@ export const useStoryStore = create<StoryStore>()(
     },
 
     getAvailableTransformations: () => {
-      // TODO: Implement transformation availability logic
-      return [];
+      const state = get();
+      const availableTransformations: string[] = [];
+
+      // Find nodes that have transformations available based on visit count
+      for (const [nodeId, visitRecord] of Object.entries(state.progress.visitedNodes)) {
+        const node = state.nodes.get(nodeId);
+        if (!node) continue;
+
+        // Check if node has special transformations that could be unlocked
+        if (node.unlockConditions?.specialTransforms) {
+          for (const transform of node.unlockConditions.specialTransforms) {
+            const alreadyUnlocked = state.progress.specialTransformations.some(
+              t => t.nodeId === nodeId && t.transformationId === transform.id
+            );
+
+            if (!alreadyUnlocked) {
+              // Check if requirements are close to being met
+              const hasRequiredNodes = transform.requiredPriorNodes.every(
+                id => state.progress.visitedNodes[id]
+              );
+
+              if (hasRequiredNodes) {
+                availableTransformations.push(`${nodeId}:${transform.id}`);
+              }
+            }
+          }
+        }
+
+        // Standard transformation availability
+        if (visitRecord.visitCount > 0 && visitRecord.currentState !== 'metaAware') {
+          availableTransformations.push(nodeId);
+        }
+      }
+
+      return availableTransformations;
     },
 
     getReadingStats: (): ReadingStats => {
@@ -404,12 +576,24 @@ export const useStoryStore = create<StoryStore>()(
         human: { visited: 0, total: 0 },
       };
 
+      let criticalPathNodesTotal = 0;
+      let criticalPathNodesVisited = 0;
+
       for (const [nodeId, node] of state.nodes) {
         characterBreakdown[node.character].total++;
+        if (node.metadata.criticalPath) {
+          criticalPathNodesTotal++;
+        }
+
         if (visitedNodeIds.includes(nodeId)) {
           characterBreakdown[node.character].visited++;
+          if (node.metadata.criticalPath) {
+            criticalPathNodesVisited++;
+          }
         }
       }
+
+      const availableTransformations = get().getAvailableTransformations();
 
       return {
         totalNodesVisited: totalVisited,
@@ -417,17 +601,25 @@ export const useStoryStore = create<StoryStore>()(
         percentageExplored: totalNodes > 0 ? (totalVisited / totalNodes) * 100 : 0,
         totalTimeSpent: state.progress.totalTimeSpent,
         averageTimePerNode: totalVisited > 0 ? state.progress.totalTimeSpent / totalVisited : 0,
-        transformationsAvailable: 0, // TODO: Calculate
-        criticalPathNodesVisited: 0, // TODO: Calculate
-        criticalPathNodesTotal: 0, // TODO: Calculate
+        transformationsAvailable: availableTransformations.length,
+        criticalPathNodesVisited,
+        criticalPathNodesTotal,
         characterBreakdown,
       };
     },
 
     canVisitNode: (nodeId: string) => {
-      // TODO: Implement node accessibility logic based on connections and unlock conditions
       const state = get();
-      return state.nodes.has(nodeId);
+      const node = state.nodes.get(nodeId);
+
+      if (!node) return false;
+
+      // For now, all existing nodes are visitable
+      // In the future, implement logic based on:
+      // - Connection accessibility
+      // - Unlock conditions
+      // - Story progression requirements
+      return true;
     },
   }))
 );
