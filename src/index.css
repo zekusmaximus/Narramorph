@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+@layer base {
+  html {
+    @apply h-full;
+  }
+
+  body {
+    @apply h-full font-sans antialiased bg-story-background text-story-text;
+  }
+
+  #root {
+    @apply h-full;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-500;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar styles */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Button variants */
+  .btn-primary {
+    @apply bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+
+  .btn-ghost {
+    @apply text-gray-600 hover:text-gray-900 hover:bg-gray-100 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+
+  /* Character-themed elements */
+  .character-archaeologist {
+    @apply text-archaeologist-500 border-archaeologist-200 bg-archaeologist-50;
+  }
+
+  .character-algorithm {
+    @apply text-algorithm-500 border-algorithm-200 bg-algorithm-50;
+  }
+
+  .character-human {
+    @apply text-human-500 border-human-200 bg-human-50;
+  }
+
+  /* Loading animations */
+  .loading-dots::after {
+    content: '';
+    @apply inline-block w-4 text-left;
+    animation: loading-dots 1.5s infinite;
+  }
+
+  @keyframes loading-dots {
+    0%, 20% { content: ''; }
+    40% { content: '.'; }
+    60% { content: '..'; }
+    80%, 100% { content: '...'; }
+  }
+
+  /* Screen reader only content */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  /* Fade transitions */
+  .fade-enter {
+    @apply opacity-0;
+  }
+
+  .fade-enter-active {
+    @apply opacity-100 transition-opacity duration-300;
+  }
+
+  .fade-exit {
+    @apply opacity-100;
+  }
+
+  .fade-exit-active {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+}
+
+/* Utility styles */
+@layer utilities {
+  /* Text selection colors */
+  ::selection {
+    @apply bg-blue-200 text-blue-900;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    backdrop-filter: blur(16px) saturate(180%);
+    @apply bg-white/20 border border-white/20 rounded-lg;
+  }
+
+  /* Dark theme overrides */
+  .dark {
+    @apply bg-gray-900 text-gray-100;
+  }
+
+  .dark .story-background {
+    @apply bg-gray-900;
+  }
+
+  .dark .story-text {
+    @apply text-gray-100;
+  }
+
+  .dark .story-muted {
+    @apply text-gray-400;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .btn-primary {
+      @apply border-2 border-current;
+    }
+
+    .btn-secondary {
+      @apply border-2 border-current;
+    }
+  }
+}
