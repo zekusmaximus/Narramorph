@@ -17,6 +17,7 @@ import type {
 } from '@/types';
 import { saveToStorage, loadFromStorage, STORAGE_KEYS } from '@/utils/storage';
 import { validateSavedState } from '@/utils/validation';
+import { loadStoryContent, ContentLoadError } from '@/utils/contentLoader';
 
 /**
  * Creates initial empty user progress
@@ -217,30 +218,65 @@ export const useStoryStore = create<StoryStore>()(
     // Actions
     loadStory: async (storyId: string) => {
       try {
-        // This is a placeholder - in real implementation, would load from files
-        console.warn(`Loading story ${storyId} - implementation needed`);
+        // TODO: Add loading indicator
+        // console.log(`Loading story: ${storyId}`);
 
-        // For now, set up empty story structure
+        // Load story content from files
+        const storyData = await loadStoryContent(storyId);
+
         set((state) => {
-          state.storyData = {
-            metadata: {
-              id: storyId,
-              title: 'Eternal Return of the Digital Self',
-              author: 'Author Name',
-              version: '1.0.0',
-              description: 'A recursive narrative exploring digital consciousness across time',
-              estimatedPlaytime: 90,
-            },
-            nodes: [],
-            configuration: {
-              startNodeId: 'archaeologist-001',
-              endingNodeIds: [],
-              requiredNodesForCompletion: [],
-            },
-          };
+          // Clear existing state
+          state.nodes.clear();
+          state.connections.clear();
+          state.progress = createInitialProgress();
+
+          // Set story data
+          state.storyData = storyData;
+
+          // Populate nodes map
+          storyData.nodes.forEach((node) => {
+            state.nodes.set(node.id, node);
+          });
+
+          // Populate connections map
+          if (storyData.connections) {
+            storyData.connections.forEach((connection) => {
+              state.connections.set(connection.id, connection);
+            });
+          }
+
+          // Update viewport bounds based on node positions
+          if (storyData.nodes.length > 0) {
+            const positions = storyData.nodes.map(node => node.position);
+            const minX = Math.min(...positions.map(p => p.x)) - 100;
+            const maxX = Math.max(...positions.map(p => p.x)) + 100;
+            const minY = Math.min(...positions.map(p => p.y)) - 100;
+            const maxY = Math.max(...positions.map(p => p.y)) + 100;
+
+            state.viewport.bounds = { minX, maxX, minY, maxY };
+            state.viewport.center = {
+              x: (minX + maxX) / 2,
+              y: (minY + maxY) / 2,
+            };
+          }
         });
+
+        // Update reading statistics
+        get().updateStats();
+
+        // TODO: Add success notification
+        // console.log(`Successfully loaded story: ${storyData.metadata.title}`);
+
       } catch (error) {
         console.error('Failed to load story:', error);
+
+        if (error instanceof ContentLoadError) {
+          // Handle content loading errors with user-friendly messages
+          throw new Error(`Story loading failed: ${error.message}`);
+        } else {
+          // Handle unexpected errors
+          throw new Error(`Unexpected error loading story: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
       }
     },
 
@@ -606,6 +642,13 @@ export const useStoryStore = create<StoryStore>()(
         criticalPathNodesTotal,
         characterBreakdown,
       };
+    },
+
+    updateStats: () => {
+      const stats = get().getReadingStats();
+      set((state) => {
+        state.stats = stats;
+      });
     },
 
     canVisitNode: (nodeId: string) => {

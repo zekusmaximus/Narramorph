@@ -148,5 +148,6 @@ export interface StoryStore {
   getConnectionState: (connectionId: string) => ConnectionUIState;
   getAvailableTransformations: () => string[];
   getReadingStats: () => ReadingStats;
+  updateStats: () => void;
   canVisitNode: (nodeId: string) => boolean;
 }

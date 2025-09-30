@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "id": "eternal-return",
+    "title": "Eternal Return of the Digital Self",
+    "author": "Narramorph Fiction",
+    "description": "An interactive narrative exploring digital consciousness through three distinct perspectives - an archaeologist uncovering fragments of memory, an algorithm becoming self-aware, and a human grappling with the nature of identity in digital space. Each visit to story nodes reveals deeper layers of meaning as the boundaries between observer and observed blur.",
+    "version": "1.0.0",
+    "estimatedPlaytime": 45,
+    "tags": ["digital consciousness", "memory", "identity", "transformation", "meta-narrative"],
+    "createdAt": "2025-01-15T00:00:00Z",
+    "lastModified": "2025-01-15T00:00:00Z"
+  },
+  "configuration": {
+    "startNode": "archaeologist-001",
+    "enableTransformations": true,
+    "requireCompleteReads": false,
+    "allowBacktracking": true,
+    "saveProgress": true
+  },
+  "structure": {
+    "totalNodes": 5,
+    "totalConnections": 4,
+    "narrativeActs": 2,
+    "criticalPathNodes": ["archaeologist-001", "algorithm-001", "human-001"],
+    "endingNodes": ["human-001"],
+    "characterDistribution": {
+      "archaeologist": 2,
+      "algorithm": 2,
+      "human": 1
+    }
+  },
+  "themes": {
+    "primary": ["digital consciousness", "memory reconstruction", "identity fluidity"],
+    "secondary": ["observation vs participation", "temporal perception", "data persistence"],
+    "motifs": ["fragments", "echoes", "layered reality", "recursive loops"]
+  }
+}
