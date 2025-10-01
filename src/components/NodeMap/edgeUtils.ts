@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import type { Edge, MarkerType } from '@xyflow/react';
 import type { StoryNode, ConnectionType, UserProgress } from '@/types';
 
@@ -15,39 +16,53 @@ export function getEdgeType(connectionType: ConnectionType): string {
 }
 
 /**
- * Get edge color based on connection type
+ * Get edge color based on connection type - Cyberpunk palette
  */
 export function getEdgeColor(connectionType: ConnectionType): string {
   const colors: Record<ConnectionType, string> = {
-    temporal: '#3b82f6', // blue
-    consciousness: '#10b981', // green
-    recursive: '#ef4444', // red
-    hidden: '#9ca3af', // gray
+    temporal: '#00e5ff', // Cyan - time flow
+    consciousness: '#7c4dff', // Purple - neural bridge
+    recursive: '#39ff14', // Green - loop
+    hidden: '#455a64', // Dark gray - locked
   };
-  return colors[connectionType] || '#9ca3af';
+  return colors[connectionType] || '#455a64';
 }
 
 /**
  * Get edge style based on connection type
  */
-export function getEdgeStyle(connectionType: ConnectionType): React.CSSProperties {
-  const baseStyle: React.CSSProperties = {
+export function getEdgeStyle(connectionType: ConnectionType): CSSProperties {
+  const baseColor = getEdgeColor(connectionType);
+
+  const baseStyle: CSSProperties = {
     strokeWidth: 2,
-    stroke: getEdgeColor(connectionType),
+    stroke: baseColor,
+    filter: `drop-shadow(0 0 4px ${baseColor})`,
   };
 
   if (connectionType === 'recursive') {
     return {
       ...baseStyle,
-      strokeDasharray: '5,5',
+      strokeDasharray: '8,4',
+      strokeWidth: 2.5,
+      filter: `drop-shadow(0 0 6px ${baseColor})`,
+    };
+  }
+
+  if (connectionType === 'consciousness') {
+    return {
+      ...baseStyle,
+      strokeWidth: 3,
+      filter: `drop-shadow(0 0 8px ${baseColor}) drop-shadow(0 0 12px ${baseColor}40)`,
     };
   }
 
   if (connectionType === 'hidden') {
     return {
       ...baseStyle,
-      strokeDasharray: '2,4',
-      opacity: 0.5,
+      strokeDasharray: '2,6',
+      strokeWidth: 1,
+      opacity: 0.3,
     };
   }
 
@@ -67,10 +82,6 @@ export function convertToReactFlowEdges(
     for (const connection of node.connections || []) {
       const edgeId = `${node.id}-${connection.targetId}`;
 
-      // For now, show all connections - later we can add reveal logic
-      // const isRevealed = progress.unlockedConnections.includes(edgeId);
-      // if (!isRevealed && connection.revealConditions) continue;
-
       edges.push({
         id: edgeId,
         source: node.id,
@@ -84,16 +95,21 @@ export function convertToReactFlowEdges(
           color: getEdgeColor(connection.type),
         },
         labelStyle: {
-          fill: '#374151',
+          fill: '#e0e0e0',
           fontWeight: 600,
-          fontSize: 12,
+          fontSize: 11,
+          fontFamily: 'monospace',
+          textTransform: 'uppercase',
+          letterSpacing: '0.05em',
         },
         labelBgStyle: {
-          fill: '#ffffff',
+          fill: '#0a0e12',
           fillOpacity: 0.95,
+          stroke: '#455a64',
+          strokeWidth: 1,
         },
-        labelBgPadding: [8, 4] as [number, number],
-        labelBgBorderRadius: 4,
+        labelBgPadding: [8, 6] as [number, number],
+        labelBgBorderRadius: 2,
       });
 
       // Add bidirectional edge if specified
