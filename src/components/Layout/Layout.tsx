@@ -10,9 +10,9 @@ interface LayoutProps {
  */
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen bg-story-background">
+    <div className="flex flex-col h-screen bg-story-background">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
+      <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo/Title */}
@@ -65,7 +65,7 @@ export default function Layout({ children }: LayoutProps) {
       </header>
 
       {/* Main content area */}
-      <main className="flex-1 relative">
+      <main className="flex-1 relative overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -77,7 +77,7 @@ export default function Layout({ children }: LayoutProps) {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white/50 backdrop-blur-sm border-t border-gray-200 mt-auto">
+      <footer className="bg-white/50 backdrop-blur-sm border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-12">
             <p className="text-sm text-story-muted">

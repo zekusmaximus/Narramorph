@@ -102,6 +102,9 @@ export default {
         '90': '90',
         '100': '100',
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
     },
   },
   plugins: [],

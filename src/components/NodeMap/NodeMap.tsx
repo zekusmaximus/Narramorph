@@ -1,304 +1,235 @@
 import { useCallback, useEffect, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import {
+  ReactFlow,
+  Background,
+  Controls,
+  MiniMap,
+  useNodesState,
+  useEdgesState,
+  type Node,
+  BackgroundVariant,
+  type OnNodesChange,
+  type OnEdgesChange,
+} from '@xyflow/react';
+import '@xyflow/react/dist/style.css';
 import { useStoryStore } from '@/stores';
+import type { StoryNode, NodeUIState } from '@/types';
+import CustomStoryNode, { type CustomStoryNodeData } from './CustomStoryNode';
+import { convertToReactFlowEdges } from './edgeUtils';
 
 interface NodeMapProps {
   className?: string;
 }
 
 /**
- * Interactive node map component for visualizing story structure
- * This is a placeholder implementation - will be enhanced with React Flow
+ * Character themes for mini-map node coloring
+ */
+const CHARACTER_THEMES = {
+  archaeologist: '#3b82f6',
+  algorithm: '#10b981',
+  human: '#ef4444',
+} as const;
+
+/**
+ * Convert StoryNode to React Flow node format
+ */
+function convertToReactFlowNodes(
+  storyNodes: Map<string, StoryNode>,
+  getNodeState: (id: string) => NodeUIState,
+  selectedNode: string | null
+): Node[] {
+  return Array.from(storyNodes.values()).map((node) => {
+    const nodeState = getNodeState(node.id);
+
+    return {
+      id: node.id,
+      type: 'storyNode',
+      position: node.position,
+      data: {
+        node,
+        nodeState,
+        isSelected: selectedNode === node.id,
+      } as Record<string, unknown>,
+      draggable: false,
+      selectable: true,
+      focusable: true,
+    };
+  });
+}
+
+/**
+ * Default edge options for consistent styling
+ */
+const defaultEdgeOptions = {
+  style: { strokeWidth: 2 },
+};
+
+/**
+ * Node types for React Flow
+ */
+const nodeTypes = {
+  storyNode: CustomStoryNode,
+} as const;
+
+/**
+ * Interactive node map component with React Flow visualization
  */
 export default function NodeMap({ className = '' }: NodeMapProps) {
   const {
-    nodes,
+    nodes: storyNodes,
     selectedNode,
-    hoveredNode,
-    viewport,
     selectNode,
-    setHoveredNode,
     openStoryView,
-    updateViewport,
     getNodeState,
+    progress,
   } = useStoryStore();
 
-  // Convert Map to array for easier iteration
-  const nodeArray = useMemo(() => Array.from(nodes.values()), [nodes]);
+  // Convert to React Flow format
+  const initialNodes = useMemo(
+    () => convertToReactFlowNodes(storyNodes, getNodeState, selectedNode),
+    []
+  );
 
-  // Handle node click
-  const handleNodeClick = useCallback(
-    (nodeId: string) => {
-      selectNode(nodeId);
-      openStoryView(nodeId);
+  const initialEdges = useMemo(
+    () => convertToReactFlowEdges(storyNodes, progress),
+    []
+  );
+
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+
+  // Update nodes when selection or state changes
+  useEffect(() => {
+    setNodes(convertToReactFlowNodes(storyNodes, getNodeState, selectedNode));
+  }, [storyNodes, selectedNode, getNodeState, setNodes]);
+
+  // Update edges when story nodes or progress changes
+  useEffect(() => {
+    setEdges(convertToReactFlowEdges(storyNodes, progress));
+  }, [storyNodes, progress, setEdges]);
+
+  // Handle node click - select and open story view
+  const onNodeClick = useCallback(
+    (_event: React.MouseEvent, node: Node) => {
+      selectNode(node.id);
+      openStoryView(node.id);
     },
     [selectNode, openStoryView]
   );
 
-  // Handle node hover
-  const handleNodeHover = useCallback(
-    (nodeId: string | null) => {
-      setHoveredNode(nodeId);
-    },
-    [setHoveredNode]
-  );
+  // Get node color for mini-map
+  const getNodeColor = useCallback((node: Node) => {
+    const nodeData = node.data as unknown as CustomStoryNodeData;
+    const character = nodeData?.node?.character;
+    return CHARACTER_THEMES[character as keyof typeof CHARACTER_THEMES] || '#9ca3af';
+  }, []);
 
-  // Handle viewport pan (placeholder)
-  const handleViewportChange = useCallback(
-    (deltaX: number, deltaY: number) => {
-      updateViewport({
-        center: {
-          x: viewport.center.x + deltaX,
-          y: viewport.center.y + deltaY,
-        },
-      });
-    },
-    [viewport.center, updateViewport]
-  );
-
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.target !== document.body) return;
-
-      switch (event.key) {
-        case 'Escape':
-          selectNode(null);
-          break;
-        case 'ArrowLeft':
-          event.preventDefault();
-          handleViewportChange(-50, 0);
-          break;
-        case 'ArrowRight':
-          event.preventDefault();
-          handleViewportChange(50, 0);
-          break;
-        case 'ArrowUp':
-          event.preventDefault();
-          handleViewportChange(0, -50);
-          break;
-        case 'ArrowDown':
-          event.preventDefault();
-          handleViewportChange(0, 50);
-          break;
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handleViewportChange, selectNode]);
+  // Calculate stats for info overlay
+  const totalNodes = storyNodes.size;
+  const visitedCount = Object.keys(progress.visitedNodes).length;
 
   return (
     <div
-      className={`relative w-full h-full bg-gradient-to-br from-blue-50 to-purple-50 overflow-hidden ${className}`}
+      className={`relative w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 ${className}`}
+      style={{ minHeight: '100%' }}
       role="region"
       aria-label="Interactive story node map"
-      aria-describedby="map-instructions"
     >
-      {/* Instructions for screen readers */}
-      <div id="map-instructions" className="sr-only">
-        Interactive map showing story nodes. Use arrow keys to navigate the view.
-        Click on nodes to read their content. Press Escape to deselect nodes.
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange as OnNodesChange}
+        onEdgesChange={onEdgesChange as OnEdgesChange}
+        onNodeClick={onNodeClick}
+        nodeTypes={nodeTypes}
+        defaultEdgeOptions={defaultEdgeOptions}
+        fitView
+        minZoom={0.2}
+        maxZoom={2}
+        className="touch-none"
+        nodesDraggable={false}
+        nodesConnectable={false}
+        elementsSelectable={true}
+        zoomOnDoubleClick={false}
+        panOnScroll={true}
+        preventScrolling={true}
+      >
+        {/* Background grid with subtle pattern */}
+        <Background
+          color="#d1d5db"
+          gap={24}
+          size={1}
+          variant={BackgroundVariant.Lines}
+        />
+
+        {/* Zoom/pan controls */}
+        <Controls
+          className="bg-white/90 backdrop-blur-sm shadow-lg rounded-lg border border-gray-200"
+          showInteractive={false}
+        />
+
+        {/* Mini-map for overview */}
+        <MiniMap
+          className="bg-white/90 backdrop-blur-sm shadow-lg rounded-lg border border-gray-200"
+          nodeColor={getNodeColor}
+          maskColor="rgba(0, 0, 0, 0.1)"
+          pannable
+          zoomable
+        />
+      </ReactFlow>
+
+      {/* Info overlay */}
+      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-3 rounded-lg shadow-lg border border-gray-200 pointer-events-none">
+        <div className="text-sm font-semibold text-gray-800 mb-2">
+          Eternal Return of the Digital Self
+        </div>
+        <div className="text-xs text-gray-600 space-y-1">
+          <div>
+            Nodes: {totalNodes}
+          </div>
+          <div>
+            Visited: {visitedCount} / {totalNodes}
+          </div>
+          <div className="text-gray-500 mt-2">
+            {visitedCount === 0
+              ? 'Click any node to begin'
+              : `${Math.round((visitedCount / totalNodes) * 100)}% explored`}
+          </div>
+        </div>
       </div>
 
-      {/* Map container */}
-      <div
-        className="absolute inset-0 cursor-grab active:cursor-grabbing"
-        style={{
-          transform: `translate(${-viewport.center.x}px, ${-viewport.center.y}px) scale(${viewport.zoom})`,
-          transformOrigin: 'center center',
-        }}
-      >
-        {/* Placeholder grid for visual reference */}
-        <div className="absolute inset-0">
-          <svg
-            className="absolute inset-0 w-full h-full"
-            style={{ width: '200%', height: '200%', left: '-50%', top: '-50%' }}
-          >
-            <defs>
-              <pattern
-                id="grid"
-                width="50"
-                height="50"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M 50 0 L 0 0 0 50"
-                  fill="none"
-                  stroke="#e5e7eb"
-                  strokeWidth="1"
-                  opacity="0.3"
-                />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-          </svg>
+      {/* Legend */}
+      <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-3 rounded-lg shadow-lg border border-gray-200 pointer-events-none">
+        <div className="text-xs font-semibold text-gray-700 mb-2">Characters</div>
+        <div className="space-y-1.5 text-xs">
+          <div className="flex items-center space-x-2">
+            <div className="w-3 h-3 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 shadow-sm" />
+            <span className="text-gray-600">Archaeologist 🔍</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-3 h-3 rounded-full bg-gradient-to-br from-green-400 to-green-600 shadow-sm" />
+            <span className="text-gray-600">Algorithm 🧠</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-3 h-3 rounded-full bg-gradient-to-br from-red-400 to-red-600 shadow-sm" />
+            <span className="text-gray-600">Human 👤</span>
+          </div>
         </div>
 
-        {/* Render nodes */}
-        <AnimatePresence>
-          {nodeArray.map((node) => {
-            const nodeState = getNodeState(node.id);
-            const isSelected = selectedNode === node.id;
-            const isHovered = hoveredNode === node.id;
-
-            return (
-              <motion.div
-                key={node.id}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="absolute cursor-pointer"
-                style={{
-                  left: node.position.x,
-                  top: node.position.y,
-                  transform: 'translate(-50%, -50%)',
-                }}
-                onClick={() => handleNodeClick(node.id)}
-                onMouseEnter={() => handleNodeHover(node.id)}
-                onMouseLeave={() => handleNodeHover(null)}
-              >
-                {/* Node circle */}
-                <div
-                  className={`
-                    relative w-16 h-16 rounded-full border-2 flex items-center justify-center
-                    transition-all duration-200
-                    ${nodeState.visited ? 'border-gray-300' : 'border-gray-200'}
-                    ${isSelected ? 'ring-4 ring-blue-300 ring-opacity-50' : ''}
-                    ${isHovered ? 'shadow-lg' : 'shadow'}
-                    character-${node.character}
-                  `}
-                  style={{
-                    backgroundColor: nodeState.visualProperties.color,
-                    opacity: nodeState.visualProperties.opacity,
-                  }}
-                >
-                  {/* Character indicator */}
-                  <span className="text-white font-semibold text-sm">
-                    {node.character[0].toUpperCase()}
-                  </span>
-
-                  {/* Visit indicator */}
-                  {nodeState.visited && (
-                    <div className="absolute -top-1 -right-1 w-5 h-5 bg-green-500 border-2 border-white rounded-full flex items-center justify-center">
-                      <span className="text-white text-xs font-bold">
-                        {nodeState.visitCount}
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Glow effect for selected */}
-                  {isSelected && (
-                    <div className="absolute inset-0 rounded-full bg-blue-400 opacity-20 animate-pulse" />
-                  )}
-                </div>
-
-                {/* Node label */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-center">
-                  <div className="bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-xs font-medium text-gray-800 shadow-sm">
-                    {node.title}
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </AnimatePresence>
-
-        {/* Placeholder message when no nodes */}
-        {nodeArray.length === 0 && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center"
-            >
-              <div className="w-24 h-24 mx-auto mb-4 bg-gray-200 rounded-full flex items-center justify-center">
-                <svg
-                  className="w-12 h-12 text-gray-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 01.553-.894L9 2l6 3 5.447-2.724A1 1 0 0121 3.382v10.764a1 1 0 01-.553.894L15 18l-6-3z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-700 mb-2">
-                No Story Loaded
-              </h3>
-              <p className="text-gray-500 max-w-sm">
-                Load a story to begin exploring the interactive narrative map.
-              </p>
-            </motion.div>
+        <div className="text-xs font-semibold text-gray-700 mb-2 mt-3">Connections</div>
+        <div className="space-y-1.5 text-xs">
+          <div className="flex items-center space-x-2">
+            <div className="w-4 h-0.5 bg-blue-500" />
+            <span className="text-gray-600">Temporal</span>
           </div>
-        )}
-      </div>
-
-      {/* Map controls */}
-      <div className="absolute bottom-4 right-4 flex flex-col space-y-2">
-        <button
-          type="button"
-          className="btn-secondary w-10 h-10 p-0 flex items-center justify-center"
-          onClick={() => updateViewport({ zoom: Math.min(viewport.zoom * 1.2, 3) })}
-          aria-label="Zoom in"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-            />
-          </svg>
-        </button>
-        <button
-          type="button"
-          className="btn-secondary w-10 h-10 p-0 flex items-center justify-center"
-          onClick={() => updateViewport({ zoom: Math.max(viewport.zoom / 1.2, 0.1) })}
-          aria-label="Zoom out"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M18 12H6"
-            />
-          </svg>
-        </button>
-        <button
-          type="button"
-          className="btn-secondary w-10 h-10 p-0 flex items-center justify-center"
-          onClick={() => updateViewport({ center: { x: 0, y: 0 }, zoom: 1 })}
-          aria-label="Reset view"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"
-            />
-          </svg>
-        </button>
-      </div>
-
-      {/* Status indicator */}
-      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg shadow-sm">
-        <div className="text-sm text-gray-600">
-          <span className="font-medium">Nodes:</span> {nodeArray.length}
-          {selectedNode && (
-            <>
-              <span className="mx-2">•</span>
-              <span className="font-medium">Selected:</span> {selectedNode}
-            </>
-          )}
+          <div className="flex items-center space-x-2">
+            <div className="w-4 h-0.5 bg-green-500" />
+            <span className="text-gray-600">Consciousness</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-4 h-0.5 bg-red-500" style={{ backgroundImage: 'repeating-linear-gradient(to right, #ef4444 0, #ef4444 3px, transparent 3px, transparent 8px)' }} />
+            <span className="text-gray-600">Recursive</span>
+          </div>
         </div>
       </div>
     </div>
