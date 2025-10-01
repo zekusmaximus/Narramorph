@@ -87,12 +87,15 @@ const defaultEdgeOptions = {
   },
   labelBgStyle: {
     fill: '#0a0e12',
-    fillOpacity: 0.95,
+    fillOpacity: 0.98,
     stroke: '#455a64',
     strokeWidth: 1,
+    rx: 2,
+    ry: 2,
   },
   labelBgPadding: [8, 6] as [number, number],
   labelBgBorderRadius: 2,
+  zIndex: 1000,
 };
 
 /**
@@ -314,6 +317,8 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
       </div>
 
       <motion.div
+        className="w-full h-full"
+        style={{ width: '100%', height: '100%' }}
         animate={screenShake ? {
           x: [0, -2, 2, -2, 2, 0],
           y: [0, 2, -2, 2, -2, 0],
@@ -353,6 +358,7 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
         nodesDraggable={false}
         nodesConnectable={false}
         elementsSelectable={true}
+        elevateEdgesOnSelect={true}
         zoomOnDoubleClick={false}
         panOnScroll={true}
         preventScrolling={true}
