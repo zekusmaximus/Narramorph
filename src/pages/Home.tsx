@@ -57,68 +57,6 @@ export default function Home() {
 
         {/* Overlay story view */}
         <StoryView />
-
-        {/* Getting started guide overlay (for new users) */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="absolute top-6 left-6 max-w-sm"
-        >
-          <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg p-4 border border-gray-200">
-            <h3 className="font-semibold text-gray-900 mb-2">
-              🗺️ Getting Started
-            </h3>
-            <p className="text-sm text-gray-600 mb-3">
-              Click on nodes to explore the story. Each character offers a unique perspective
-              on the narrative.
-            </p>
-            <div className="flex items-center space-x-2 text-xs">
-              <div className="flex items-center space-x-1">
-                <div className="w-3 h-3 rounded-full bg-archaeologist-500"></div>
-                <span>Archaeologist</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <div className="w-3 h-3 rounded-full bg-algorithm-500"></div>
-                <span>Algorithm</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <div className="w-3 h-3 rounded-full bg-human-500"></div>
-                <span>Human</span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Progress indicator */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 1 }}
-          className="absolute top-6 right-6"
-        >
-          <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg p-4 border border-gray-200">
-            <h4 className="font-semibold text-gray-900 text-sm mb-2">
-              📊 Progress
-            </h4>
-            <div className="space-y-2 text-xs text-gray-600">
-              <div className="flex justify-between">
-                <span>Nodes Visited:</span>
-                <span className="font-medium">0/0</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Story Progress:</span>
-                <span className="font-medium">0%</span>
-              </div>
-              <div className="w-full bg-gray-200 rounded-full h-1.5 mt-2">
-                <div
-                  className="bg-blue-500 h-1.5 rounded-full transition-all duration-300"
-                  style={{ width: '0%' }}
-                ></div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </div>
   );

@@ -179,18 +179,26 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
       </ReactFlow>
 
       {/* Info overlay */}
-      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-3 rounded-lg shadow-lg border border-gray-200 pointer-events-none">
+      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-3 rounded-lg shadow-lg border border-gray-200 pointer-events-none max-w-xs">
         <div className="text-sm font-semibold text-gray-800 mb-2">
           Eternal Return of the Digital Self
         </div>
         <div className="text-xs text-gray-600 space-y-1">
-          <div>
-            Nodes: {totalNodes}
+          <div className="flex items-center justify-between">
+            <span>Nodes:</span>
+            <span className="font-semibold">{totalNodes}</span>
           </div>
-          <div>
-            Visited: {visitedCount} / {totalNodes}
+          <div className="flex items-center justify-between">
+            <span>Visited:</span>
+            <span className="font-semibold text-blue-600">{visitedCount}</span>
           </div>
-          <div className="text-gray-500 mt-2">
+          <div className="flex items-center justify-between">
+            <span>Progress:</span>
+            <span className="font-semibold text-green-600">
+              {totalNodes > 0 ? Math.round((visitedCount / totalNodes) * 100) : 0}%
+            </span>
+          </div>
+          <div className="text-gray-500 mt-2 text-center">
             {visitedCount === 0
               ? 'Click any node to begin'
               : `${Math.round((visitedCount / totalNodes) * 100)}% explored`}
@@ -199,7 +207,7 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
       </div>
 
       {/* Legend */}
-      <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-3 rounded-lg shadow-lg border border-gray-200 pointer-events-none">
+      <div className="absolute bottom-20 left-4 bg-white/95 backdrop-blur-sm px-4 py-3 rounded-lg shadow-lg border border-gray-200 pointer-events-none">
         <div className="text-xs font-semibold text-gray-700 mb-2">Characters</div>
         <div className="space-y-1.5 text-xs">
           <div className="flex items-center space-x-2">
