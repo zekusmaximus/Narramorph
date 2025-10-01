@@ -25,9 +25,9 @@ interface NodeMapProps {
  * Character themes for mini-map node coloring
  */
 const CHARACTER_THEMES = {
-  archaeologist: '#3b82f6',
-  algorithm: '#10b981',
-  human: '#ef4444',
+  archaeologist: { hex: '#3b82f6', rgb: '59, 130, 246' },
+  algorithm: { hex: '#10b981', rgb: '16, 185, 129' },
+  human: { hex: '#ef4444', rgb: '239, 68, 68' },
 } as const;
 
 /**
@@ -121,7 +121,8 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
   const getNodeColor = useCallback((node: Node) => {
     const nodeData = node.data as unknown as CustomStoryNodeData;
     const character = nodeData?.node?.character;
-    return CHARACTER_THEMES[character as keyof typeof CHARACTER_THEMES] || '#9ca3af';
+    const theme = CHARACTER_THEMES[character as keyof typeof CHARACTER_THEMES];
+    return theme ? theme.hex : '#9ca3af';
   }, []);
 
   // Calculate stats for info overlay
@@ -144,6 +145,11 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
         nodeTypes={nodeTypes}
         defaultEdgeOptions={defaultEdgeOptions}
         fitView
+        fitViewOptions={{
+          padding: 0.3,
+          minZoom: 0.3,
+          maxZoom: 1.2,
+        }}
         minZoom={0.2}
         maxZoom={2}
         className="touch-none"
@@ -171,6 +177,7 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
         {/* Mini-map for overview */}
         <MiniMap
           className="bg-white/90 backdrop-blur-sm shadow-lg rounded-lg border border-gray-200"
+          style={{ width: 200, height: 150 }}
           nodeColor={getNodeColor}
           maskColor="rgba(0, 0, 0, 0.1)"
           pannable
