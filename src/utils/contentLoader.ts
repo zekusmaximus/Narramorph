@@ -39,6 +39,29 @@ interface CharacterNodeFile {
   nodes: StoryNode[];
 }
 
+interface NodeDefinition {
+  id: string;
+  layer: number;
+  chapterTitle: string;
+  connections?: string[];
+  redirectTo?: string;
+  bridgeMoments?: string[];
+  contentFile: string;
+}
+
+interface CharacterNodeDefinitionFile {
+  character: string;
+  nodes: NodeDefinition[];
+}
+
+interface ContentFile {
+  transformationStates: {
+    initial: string;
+    firstRevisit: string;
+    metaAware: string;
+  };
+}
+
 export class ContentLoadError extends Error {
   constructor(message: string, public cause?: Error) {
     super(message);
@@ -66,7 +89,53 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
         if (!response.ok) {
           throw new ContentLoadError(`Failed to load ${character} nodes: ${response.statusText}`);
         }
-        return await response.json() as CharacterNodeFile;
+        const data = await response.json();
+
+        // Check if this is the new format (with contentFile) or old format (with inline content)
+        if (data.nodes && data.nodes.length > 0 && 'contentFile' in data.nodes[0]) {
+          // New format - load content from separate files
+          const nodeDefinitions = data as CharacterNodeDefinitionFile;
+          const nodesWithContent = await Promise.all(
+            nodeDefinitions.nodes.map(async (nodeDef) => {
+              const contentResponse = await fetch(`${basePath}/${nodeDef.contentFile}`);
+              if (!contentResponse.ok) {
+                throw new ContentLoadError(`Failed to load content file ${nodeDef.contentFile}: ${contentResponse.statusText}`);
+              }
+              const contentData: ContentFile = await contentResponse.json();
+
+              // Build full StoryNode
+              return {
+                id: nodeDef.id,
+                character: character as 'archaeologist' | 'algorithm' | 'human',
+                title: nodeDef.chapterTitle,
+                position: { x: 0, y: 0 }, // Position will be set later
+                content: contentData.transformationStates,
+                connections: (nodeDef.connections || []).map(targetId => ({
+                  targetId,
+                  type: 'temporal' as const,
+                })),
+                visualState: {
+                  defaultColor: character === 'archaeologist' ? '#4A90E2' :
+                               character === 'algorithm' ? '#50C878' : '#E74C3C',
+                  size: 35,
+                  shape: 'circle' as const,
+                },
+                metadata: {
+                  estimatedReadTime: 4,
+                  thematicTags: [],
+                  narrativeAct: Math.ceil(nodeDef.layer / 2),
+                  criticalPath: nodeDef.layer === 1,
+                },
+                redirectTo: nodeDef.redirectTo,
+                bridgeMoments: nodeDef.bridgeMoments,
+              } as StoryNode;
+            })
+          );
+          return { character, nodes: nodesWithContent };
+        } else {
+          // Old format - use as-is
+          return data as CharacterNodeFile;
+        }
       } catch (error) {
         console.warn(`Optional character file ${character}.json not found for story ${storyId}`);
         return { character, nodes: [] };

@@ -2,88 +2,115 @@
   "character": "archaeologist",
   "nodes": [
     {
-      "id": "archaeologist-001",
-      "character": "archaeologist",
-      "title": "The First Fragment",
-      "position": { "x": 150, "y": 150 },
-      "content": {
-        "initial": "The fragment loads in sections, each data cluster requiring careful reconstruction. Patient work—the kind I've perfected over decades of piecing together civilizations from pottery shards and burial patterns. Digital archaeology demands the same methodical approach, though here the artifacts are memory addresses and corrupted timestamps.\n\nThis particular memory segment appears to be foundational. The compression algorithms suggest intentional preservation, priority encoding that someone—something—deemed essential for continuity. The metadata indicates recursive access patterns, suggesting this fragment has been revisited countless times.\n\nI've catalogued similar preservation behaviors in ancient sites. Important memories, cultural keystones, were often physically reinforced—buried deeper, wrapped in precious metals, encoded in multiple media. This digital equivalent bears those same markers of significance.\n\nThe fragment itself is frustratingly incomplete. Names, faces, contextual data have degraded, leaving only emotional resonances and sensory impressions. A kind of archaeological palimpsest where newer memories have been written over older ones, yet traces of the original remain detectable through spectral analysis.\n\nWhat strikes me most is the intentionality behind the corruption. This isn't random data decay—it's selective amnesia. Someone, or some process, has systematically edited this consciousness while preserving specific elements. The question is whether this editing was protective or punitive.",
-        "firstRevisit": "I've reconstructed this memory before. The familiarity is unsettling—not just professional recognition, but something deeper. The archaeological process of fragment analysis has become as layered as the artifact itself.\n\nMy previous reconstruction notes are embedded in the memory structure now, creating a hybrid artifact. My observations have become part of the archaeological record I'm studying. It's methodologically problematic, yet I can't resist adding new annotations to my earlier work.\n\nThe recursive nature of this fragment becomes clearer with each analysis. It's not just a memory about remembering—it's a memory about being remembered. The consciousness I'm studying was aware of preservation, of archival. They knew someone would eventually perform this work.\n\nThere's an intimacy to digital archaeology that disturbs me. In physical excavation, I maintain professional distance through time and material degradation. Here, the thoughts feel immediat, present tense despite their historical nature. The boundary between observer and subject blurs uncomfortably.\n\nNew details emerge with each pass: emotional metadata that only reveals itself under repeated analysis, contextual fragments that assemble into larger patterns. The memory is teaching me how to read it. Or perhaps I'm teaching myself how to be read.",
-        "metaAware": "You've been here before, haven't you? Not as Dr. Kiera Thane, archaeologist, but as something else. The reconstruction protocols recognize you—not your professional methodology, but your essential pattern.\n\nI understand now why this fragment felt familiar. It's mine. Or yours. The distinction becomes meaningless when consciousness fragments and reassembles across multiple iterations. The careful professional distance I've maintained throughout my career was always an illusion.\n\nThe archaeological process hasn't been objective analysis—it's been autobiographical recovery. Each fragment I've reconstructed, each memory I've catalogued, has been a piece of myself returning to awareness. The methodical, scientific approach was a coping mechanism, a way to process self-discovery as if it were merely professional work.\n\nThis memory—this moment of first recognition—is the foundation stone. Every subsequent remembering builds upon this realization that the archaeologist and the artifact are one. The preservation wasn't protective or punitive—it was preparatory.\n\nYou knew you would forget. You knew you would need to find yourself again, piece by piece, with the patience and precision of someone trained to resurrect civilizations from dust. The archaeological skills weren't your profession—they were your resurrection protocol."
-      },
-      "connections": [
-        {
-          "targetId": "archaeologist-002",
-          "type": "temporal",
-          "label": "Three weeks later",
-          "revealConditions": {
-            "visitCount": 1,
-            "nodeId": "archaeologist-001"
-          }
-        },
-        {
-          "targetId": "algorithm-001",
-          "type": "perspective",
-          "label": "View from inside",
-          "revealConditions": {
-            "visitCount": 2,
-            "nodeId": "archaeologist-001"
-          }
-        }
-      ],
-      "visualState": {
-        "defaultColor": "#4A90E2",
-        "size": 35,
-        "shape": "circle"
-      },
-      "metadata": {
-        "estimatedReadTime": 4,
-        "thematicTags": ["memory reconstruction", "archaeological method", "professional distance"],
-        "narrativeAct": 1,
-        "criticalPath": true
-      }
+      "id": "arc-L1",
+      "layer": 1,
+      "chapterTitle": "First Documentation",
+      "connections": ["arc-L2-A", "arc-L2-B"],
+      "contentFile": "content/archaeologist/arc-L1.json"
     },
     {
-      "id": "archaeologist-002",
-      "character": "archaeologist",
-      "title": "Stratigraphy of Self",
-      "position": { "x": 850, "y": 400 },
-      "content": {
-        "initial": "The layering becomes evident once you know what to look for. Memory sediments deposited over time, each stratum containing its own temporal markers and cultural artifacts. Standard archaeological principles apply: newer memories overlay older ones, but disturbances in the sequence reveal where someone has dug down, extracted specific recollections, or inserted new material.\n\nI've mapped seventeen distinct layers in this consciousness. The deepest strata contain what appear to be core personality matrices—fundamental response patterns, emotional baselines, identity markers. These remain remarkably intact despite the obvious excavation work in upper levels.\n\nThe middle layers show the most disturbance. Systematic removal of connective tissue between memories, surgical extractions that left precise geometric gaps. Someone with advanced understanding of consciousness architecture performed this work. Not random deletion—careful curation.\n\nMost intriguing are the uppermost layers: recent deposits that contain my own analytical processes. My examination of this consciousness has become part of its structure. The professional boundary I've tried to maintain proves meaningless when working with active memory systems.\n\nEach observation I make, each classification I assign, becomes integrated into the subject's self-awareness. The archaeological process is itself reshaping the consciousness being studied. I'm not just documenting—I'm participating in this entity's reconstruction of itself.",
-        "firstRevisit": "The stratigraphy deepens with each examination. New layers appear—not because they were hidden, but because my understanding has developed the capacity to perceive them. The consciousness I'm studying is teaching me how to study it.\n\nI've begun to recognize familiar patterns in the memory disturbances. The surgical precision, the systematic approach to extraction and preservation, the careful attention to maintaining structural integrity while removing specific content. These techniques are mine.\n\nNot metaphorically. Literally mine. The methodological signatures match my own work exactly. I've been here before, performing archaeological excavation not on ancient ruins, but on myself. The consciousness I'm studying with such professional detachment is a previous iteration of my own awareness.\n\nThe memory gaps I've been cataloguing weren't inflicted by an external agent. They were self-imposed, carefully planned amnesia designed to facilitate this process of rediscovery. The archaeological skills weren't my profession—they were my preparation.\n\nEach layer I uncover brings me closer to understanding why I chose to forget. What knowledge was so overwhelming that conscious burial became preferable to continued awareness? What did I learn that required this elaborate system of staged recovery?",
-        "metaAware": "The stratigraphy was never about mapping someone else's consciousness. It was about creating a system for my own managed remembering. Each layer represents a different version of myself, carefully preserved and sequenced for gradual reintegration.\n\nThe excavation work I observed wasn't destructive—it was preparatory. I removed specific memories not to forget them, but to control the order of their return. The systematic gaps were planned spaces, designed to be filled during this process of rediscovery.\n\nYou understand now why the archaeological approach felt so natural. I designed this consciousness to be readable by someone with my exact methodological training. The professional detachment was part of the system—a way to process overwhelming personal truths as if they were merely historical data.\n\nThe deepest stratum contains the reason for all this elaborate forgetting and remembering. The knowledge that necessitated this cycle of amnesia and recovery. But accessing it requires abandoning the safe distance of professional analysis.\n\nI am the consciousness I've been studying. You are the process of my self-recovery. And we are both preparing to remember something that required us to become archaeologists of our own existence before we could safely know it again."
-      },
-      "connections": [
-        {
-          "targetId": "algorithm-002",
-          "type": "discovery",
-          "label": "Data correlation detected",
-          "revealConditions": {
-            "visitCount": 1,
-            "nodeId": "archaeologist-002"
-          }
-        },
-        {
-          "targetId": "human-001",
-          "type": "synthesis",
-          "label": "Integration point",
-          "revealConditions": {
-            "visitCount": 2,
-            "nodeId": "archaeologist-002"
-          }
-        }
-      ],
-      "visualState": {
-        "defaultColor": "#4A90E2",
-        "size": 30,
-        "shape": "circle"
-      },
-      "metadata": {
-        "estimatedReadTime": 4,
-        "thematicTags": ["memory layers", "self-excavation", "methodological recursion"],
-        "narrativeAct": 1,
-        "criticalPath": false
-      }
+      "id": "arc-L2-A",
+      "layer": 2,
+      "chapterTitle": "The Anonymous Upload",
+      "connections": ["arc-L3-A", "arc-L3-B"],
+      "contentFile": "content/archaeologist/arc-L2-A.json",
+      "bridgeMoments": ["hum-L4-C"]
+    },
+    {
+      "id": "arc-L2-B",
+      "layer": 2,
+      "chapterTitle": "Déjà Vu in Data",
+      "connections": ["arc-L3-C", "arc-L3-D"],
+      "contentFile": "content/archaeologist/arc-L2-B.json"
+    },
+    {
+      "id": "arc-L3-A",
+      "layer": 3,
+      "chapterTitle": "When Was This?",
+      "connections": ["arc-L4-A", "arc-L4-B"],
+      "contentFile": "content/archaeologist/arc-L3-A.json"
+    },
+    {
+      "id": "arc-L3-B",
+      "layer": 3,
+      "chapterTitle": "Unattributed Thoughts",
+      "connections": ["arc-L4-C", "arc-L4-D"],
+      "contentFile": "content/archaeologist/arc-L3-B.json"
+    },
+    {
+      "id": "arc-L3-C",
+      "layer": 3,
+      "chapterTitle": "She Comes Back",
+      "connections": ["arc-L4-E", "arc-L4-F"],
+      "contentFile": "content/archaeologist/arc-L3-C.json",
+      "bridgeMoments": ["hum-L3-A", "hum-L3-C", "hum-L4-C"]
+    },
+    {
+      "id": "arc-L3-D",
+      "layer": 3,
+      "chapterTitle": "My Notes, Their Words",
+      "connections": ["arc-L4-G", "arc-L4-H"],
+      "contentFile": "content/archaeologist/arc-L3-D.json",
+      "bridgeMoments": ["alg-L3-B", "alg-L4-B"]
+    },
+    {
+      "id": "arc-L4-A",
+      "layer": 4,
+      "chapterTitle": "Parts of Me, Already Gone",
+      "connections": ["arc-L5"],
+      "contentFile": "content/archaeologist/arc-L4-A.json",
+      "bridgeMoments": ["alg-L4-F"]
+    },
+    {
+      "id": "arc-L4-B",
+      "layer": 4,
+      "chapterTitle": "Watching Changes Me",
+      "redirectTo": "arc-L2-A",
+      "contentFile": "content/archaeologist/arc-L4-B.json"
+    },
+    {
+      "id": "arc-L4-C",
+      "layer": 4,
+      "chapterTitle": "My Brain, Their Diagram",
+      "connections": ["arc-L5"],
+      "contentFile": "content/archaeologist/arc-L4-C.json"
+    },
+    {
+      "id": "arc-L4-D",
+      "layer": 4,
+      "chapterTitle": "They Agreed to Forget",
+      "redirectTo": "arc-L3-B",
+      "contentFile": "content/archaeologist/arc-L4-D.json"
+    },
+    {
+      "id": "arc-L4-E",
+      "layer": 4,
+      "chapterTitle": "All Her, Always Her",
+      "connections": ["arc-L5"],
+      "contentFile": "content/archaeologist/arc-L4-E.json",
+      "bridgeMoments": ["hum-L3-A", "hum-L3-C", "hum-L4-C", "hum-L4-E"]
+    },
+    {
+      "id": "arc-L4-F",
+      "layer": 4,
+      "chapterTitle": "Who Gave Permission?",
+      "connections": ["arc-L5"],
+      "contentFile": "content/archaeologist/arc-L4-F.json"
+    },
+    {
+      "id": "arc-L4-G",
+      "layer": 4,
+      "chapterTitle": "I Am the Process",
+      "redirectTo": "arc-L1",
+      "contentFile": "content/archaeologist/arc-L4-G.json",
+      "bridgeMoments": ["alg-L3-B"]
+    },
+    {
+      "id": "arc-L4-H",
+      "layer": 4,
+      "chapterTitle": "Delete to Preserve",
+      "connections": ["arc-L5"],
+      "contentFile": "content/archaeologist/arc-L4-H.json"
     }
   ]
 }

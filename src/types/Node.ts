@@ -123,6 +123,8 @@ export interface StoryNode {
   visualState: NodeVisualState;
   unlockConditions?: UnlockConditions;
   metadata: NodeMetadata;
+  redirectTo?: string; // Optional redirect to another node ID
+  bridgeMoments?: string[]; // References to nodes in other character arcs
 }
 
 /**

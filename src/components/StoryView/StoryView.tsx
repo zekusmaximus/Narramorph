@@ -222,21 +222,30 @@ export default function StoryView({ className = '' }: StoryViewProps) {
 
   // Connection navigation handler
   const handleConnectionClick = useCallback((targetNodeId: string) => {
+    const currentNode = nodes.get(selectedNode || '');
+
+    // Check if current node has a redirect instead of normal connections
+    let finalTargetId = targetNodeId;
+    if (currentNode?.redirectTo) {
+      // This is a redirect node - go to redirectTo target instead of choice target
+      finalTargetId = currentNode.redirectTo;
+    }
+
     // Close current story view
     closeStoryView();
 
     // Small delay for smooth transition
     setTimeout(() => {
       // Select the target node
-      selectNode(targetNodeId);
+      selectNode(finalTargetId);
 
       // Visit the target node (triggers state update)
-      visitNode(targetNodeId);
+      visitNode(finalTargetId);
 
       // Open story view for target node
-      openStoryView(targetNodeId);
+      openStoryView(finalTargetId);
     }, 150);
-  }, [closeStoryView, selectNode, visitNode, openStoryView]);
+  }, [closeStoryView, selectNode, visitNode, openStoryView, nodes, selectedNode]);
 
   // Reading time tracking
   useEffect(() => {
