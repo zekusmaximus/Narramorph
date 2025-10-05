@@ -16,7 +16,8 @@
       "Bash(npm run dev:*)",
       "Bash(npx tsc:*)",
       "Bash(npx eslint:*)",
-      "Bash(node -e \"console.log(require(''''./src/stores/storyStore.test.ts''''))\")"
+      "Bash(node -e \"console.log(require(''''./src/stores/storyStore.test.ts''''))\")",
+      "Bash(npx vitest run:*)"
     ],
     "deny": [],
     "ask": []
