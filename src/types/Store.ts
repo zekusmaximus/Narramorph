@@ -40,6 +40,14 @@ export interface UserProgress {
   currentNode?: string; // ID of currently active node (if in session)
   totalTimeSpent: number; // Total seconds in story
   lastActiveTimestamp: string; // ISO-8601 timestamp of last activity
+
+  // Temporal awareness tracking for Eternal Return
+  temporalAwarenessLevel: number; // 0-100, tracks cross-temporal exploration
+  characterNodesVisited: {
+    archaeologist: number;
+    algorithm: number;
+    lastHuman: number;
+  };
 }
 
 /**
@@ -78,7 +86,7 @@ export interface ReadingStats {
   characterBreakdown: {
     archaeologist: { visited: number; total: number };
     algorithm: { visited: number; total: number };
-    human: { visited: number; total: number };
+    lastHuman: { visited: number; total: number };
   };
 }
 
@@ -128,6 +136,7 @@ export interface StoryStore {
   // Actions
   loadStory: (storyId: string) => Promise<void>;
   visitNode: (nodeId: string) => void;
+  updateTemporalAwareness: () => void;
   updateViewport: (viewport: Partial<MapViewport>) => void;
   selectNode: (nodeId: string | null) => void;
   setHoveredNode: (nodeId: string | null) => void;

@@ -218,8 +218,8 @@ export default function Layout({ children }: LayoutProps) {
                         <span className="text-sm text-gray-300 font-mono">Human</span>
                       </div>
                       <span className="text-sm font-semibold text-red-400 font-mono">
-                        {stats.characterBreakdown.human.visited}/
-                        {stats.characterBreakdown.human.total}
+                        {stats.characterBreakdown.lastHuman.visited}/
+                        {stats.characterBreakdown.lastHuman.total}
                       </span>
                     </div>
                   </div>

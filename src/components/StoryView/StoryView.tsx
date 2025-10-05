@@ -28,11 +28,17 @@ const characterThemes: Record<CharacterType, {
     bg: 'bg-green-50',
     text: 'text-green-800',
   },
-  human: {
+  'last-human': {
     accent: 'from-red-500 to-red-600',
     border: 'border-red-200',
     bg: 'bg-red-50',
     text: 'text-red-800',
+  },
+  'multi-perspective': {
+    accent: 'from-purple-500 to-purple-600',
+    border: 'border-purple-200',
+    bg: 'bg-purple-50',
+    text: 'text-purple-800',
   },
 };
 

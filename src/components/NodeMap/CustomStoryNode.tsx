@@ -67,7 +67,7 @@ const CHARACTER_THEMES = {
     `,
   },
 
-  human: {
+  'last-human': {
     // Organic warmth, mortality
     primary: '#d32f2f',
     secondary: '#b71c1c',
@@ -91,6 +91,30 @@ const CHARACTER_THEMES = {
       0 0 160px rgba(255, 110, 64, 0.4)
     `,
   },
+  'multi-perspective': {
+    // Convergence, unified consciousness
+    primary: '#9c27b0',
+    secondary: '#7b1fa2',
+    tertiary: '#ce93d8',
+    accent: '#f3e5f5',
+    rgb: '156, 39, 176',
+
+    gradient: 'from-purple-500 via-purple-600 to-purple-800',
+    glowColor: '#9c27b0',
+    glowSecondary: '#ce93d8',
+
+    glow: `
+      0 0 45px #9c27b0,
+      0 0 85px rgba(156, 39, 176, 0.5),
+      0 0 125px rgba(206, 147, 216, 0.25),
+      inset 0 0 25px #f3e5f5
+    `,
+    pulseGlow: `
+      0 0 55px #9c27b0,
+      0 0 105px rgba(156, 39, 176, 0.6),
+      0 0 155px rgba(206, 147, 216, 0.4)
+    `,
+  },
 } as const;
 
 /**
@@ -102,8 +126,10 @@ function getCharacterIcon(character: CharacterType): string {
       return '🔍';
     case 'algorithm':
       return '🧠';
-    case 'human':
+    case 'last-human':
       return '👤';
+    case 'multi-perspective':
+      return '🔮';
     default:
       return '•';
   }
@@ -380,7 +406,7 @@ function CustomStoryNode({ data, selected }: NodeProps) {
           )}
 
           {/* Breathing effect for Human */}
-          {node.character === 'human' && (
+          {node.character === 'last-human' && (
             <motion.div
               className="absolute inset-0 rounded-full"
               style={{
@@ -545,7 +571,7 @@ function CustomStoryNode({ data, selected }: NodeProps) {
             )}
 
             {/* Human: Rising embers */}
-            {node.character === 'human' && (
+            {node.character === 'last-human' && (
               <div className="absolute inset-0 pointer-events-none">
                 {[...Array(4)].map((_, i) => (
                   <motion.div

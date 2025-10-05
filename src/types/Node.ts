@@ -1,7 +1,7 @@
 /**
  * Character types in the narrative
  */
-export type CharacterType = 'archaeologist' | 'algorithm' | 'human';
+export type CharacterType = 'archaeologist' | 'algorithm' | 'last-human' | 'multi-perspective';
 
 /**
  * Transformation states for node content

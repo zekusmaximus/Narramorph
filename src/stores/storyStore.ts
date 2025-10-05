@@ -35,6 +35,12 @@ function createInitialProgress(): UserProgress {
     specialTransformations: [],
     totalTimeSpent: 0,
     lastActiveTimestamp: new Date().toISOString(),
+    temporalAwarenessLevel: 0,
+    characterNodesVisited: {
+      archaeologist: 0,
+      algorithm: 0,
+      lastHuman: 0,
+    },
   };
 }
 
@@ -67,44 +73,56 @@ function createInitialStats(): ReadingStats {
     characterBreakdown: {
       archaeologist: { visited: 0, total: 0 },
       algorithm: { visited: 0, total: 0 },
-      human: { visited: 0, total: 0 },
+      lastHuman: { visited: 0, total: 0 },
     },
   };
 }
 
 /**
- * Determines the current transformation state for a node based on visit history
- * and unlock conditions.
+ * Determines transformation state based on visit count AND temporal awareness.
  *
- * @param nodeId - The unique identifier of the node
- * @param visitRecord - The visit history for this node, if any
- * @param unlockedTransformations - Array of special transformations unlocked
- * @returns The current transformation state
+ * For Eternal Return:
+ * - initial: First visit, reader hasn't explored other time periods
+ * - firstRevisit (temporal bleeding): Revisit after exploring other perspectives
+ * - metaAware: Multiple revisits OR high temporal awareness
+ *
+ * @param nodeId - Node being evaluated
+ * @param visitRecord - Visit history for this node
+ * @param unlockedTransformations - Special transformations unlocked
+ * @param temporalAwarenessLevel - Current temporal awareness (0-100)
+ * @returns Appropriate transformation state
  */
 function determineTransformationState(
   nodeId: string,
   visitRecord: VisitRecord | undefined,
-  unlockedTransformations: UnlockedTransformation[]
+  unlockedTransformations: UnlockedTransformation[],
+  temporalAwarenessLevel: number
 ): TransformationState {
-  // Check for special transformations first
+  // Priority 1: Special transformations always show metaAware
   const specialUnlocked = unlockedTransformations.find((t) => t.nodeId === nodeId);
-
   if (specialUnlocked) {
-    return 'metaAware'; // Special transforms show meta-aware state
+    return 'metaAware';
   }
 
-  // Standard visit-based transformation
   const visitCount = visitRecord?.visitCount || 0;
 
-  if (visitCount === 1) {
+  // First visit: always initial state
+  if (visitCount === 0 || visitCount === 1) {
     return 'initial';
-  } else if (visitCount === 2) {
-    return 'firstRevisit';
-  } else if (visitCount >= 3) {
-    return 'metaAware';
-  } else {
-    return 'initial'; // Default for 0 visits
   }
+
+  // Second visit: temporal bleeding if awareness threshold met
+  if (visitCount === 2) {
+    return temporalAwarenessLevel > 20 ? 'firstRevisit' : 'initial';
+  }
+
+  // Third+ visit OR high awareness: full meta-aware
+  if (visitCount >= 3 || temporalAwarenessLevel > 50) {
+    return 'metaAware';
+  }
+
+  // Fallback (shouldn't normally reach here)
+  return 'firstRevisit';
 }
 
 /**
@@ -285,6 +303,44 @@ export const useStoryStore = create<StoryStore>()(
       }
     },
 
+    /**
+     * Calculates temporal awareness based on cross-temporal exploration.
+     *
+     * Algorithm:
+     * - Diversity bonus: 20 points per unique character perspective
+     * - Exploration score: (total_visits / 10) * 40, capped at 40
+     * - Total: min(diversity + exploration, 100)
+     */
+    updateTemporalAwareness: () => {
+      set((draftState) => {
+        const { archaeologist, algorithm, lastHuman } =
+          draftState.progress.characterNodesVisited;
+
+        const total = archaeologist + algorithm + lastHuman;
+
+        if (total === 0) {
+          draftState.progress.temporalAwarenessLevel = 0;
+          return;
+        }
+
+        // Calculate diversity of exploration
+        const perspectivesVisited = [
+          archaeologist > 0,
+          algorithm > 0,
+          lastHuman > 0,
+        ].filter(Boolean).length;
+
+        // Temporal awareness formula
+        const diversityBonus = perspectivesVisited * 20; // 0, 20, 40, or 60
+        const explorationScore = Math.min((total / 10) * 40, 40); // Cap at 40
+
+        draftState.progress.temporalAwarenessLevel = Math.min(
+          diversityBonus + explorationScore,
+          100
+        );
+      });
+    },
+
     visitNode: (nodeId: string) => {
       // Validate node exists first
       const state = get();
@@ -294,24 +350,16 @@ export const useStoryStore = create<StoryStore>()(
         return;
       }
 
-      // Update state using Immer
+      // Update visit record
       set((draftState) => {
         const now = new Date().toISOString();
         const existingRecord = draftState.progress.visitedNodes[nodeId];
 
         if (existingRecord) {
-          // Node has been visited before - update existing record
           existingRecord.visitCount++;
           existingRecord.visitTimestamps.push(now);
           existingRecord.lastVisited = now;
-          // Update transformation state based on new visit count
-          existingRecord.currentState = determineTransformationState(
-            nodeId,
-            existingRecord,
-            draftState.progress.specialTransformations
-          );
         } else {
-          // First visit - create new record
           draftState.progress.visitedNodes[nodeId] = {
             visitCount: 1,
             visitTimestamps: [now],
@@ -321,21 +369,44 @@ export const useStoryStore = create<StoryStore>()(
           };
         }
 
-        // Add to reading path
-        draftState.progress.readingPath.push(nodeId);
+        // Track character-specific visits
+        if (node.character === 'archaeologist') {
+          draftState.progress.characterNodesVisited.archaeologist++;
+        } else if (node.character === 'algorithm') {
+          draftState.progress.characterNodesVisited.algorithm++;
+        } else if (node.character === 'last-human') {
+          draftState.progress.characterNodesVisited.lastHuman++;
+        }
+        // multi-perspective nodes don't increment character counters
 
-        // Update last active timestamp
+        draftState.progress.readingPath.push(nodeId);
         draftState.progress.lastActiveTimestamp = now;
       });
 
-      // Post-state side effects using fresh state
-      const freshState = get();
+      // Update temporal awareness after visit
+      get().updateTemporalAwareness();
 
-      // Check for newly unlocked special transformations
+      // Re-determine transformation states for ALL visited nodes with new awareness
+      const freshState = get();
+      set((draftState) => {
+        for (const [visitedNodeId, visitRec] of Object.entries(
+          draftState.progress.visitedNodes
+        )) {
+          visitRec.currentState = determineTransformationState(
+            visitedNodeId,
+            visitRec,
+            freshState.progress.specialTransformations,
+            freshState.progress.temporalAwarenessLevel
+          );
+        }
+      });
+
+      // Check for special transformations
+      const freshStateAgain = get();
       const newTransforms = checkSpecialTransformations(
         nodeId,
-        Array.from(freshState.nodes.values()),
-        freshState.progress
+        Array.from(freshStateAgain.nodes.values()),
+        freshStateAgain.progress
       );
 
       if (newTransforms.length > 0) {
@@ -344,23 +415,23 @@ export const useStoryStore = create<StoryStore>()(
         });
       }
 
-      // Check for newly revealed connections
-      const connectionsToReveal: string[] = [];
-      for (const [connId, conn] of freshState.connections) {
-        if (shouldRevealConnection(conn, freshState.progress)) {
-          if (!freshState.progress.unlockedConnections.includes(connId)) {
-            connectionsToReveal.push(connId);
+      // Update connection visibility
+      const finalState = get();
+      const connectionsToAdd: string[] = [];
+      for (const [connId, conn] of finalState.connections) {
+        if (shouldRevealConnection(conn, finalState.progress)) {
+          if (!finalState.progress.unlockedConnections.includes(connId)) {
+            connectionsToAdd.push(connId);
           }
         }
       }
 
-      if (connectionsToReveal.length > 0) {
+      if (connectionsToAdd.length > 0) {
         set((draftState) => {
-          draftState.progress.unlockedConnections.push(...connectionsToReveal);
+          draftState.progress.unlockedConnections.push(...connectionsToAdd);
         });
       }
 
-      // Save progress to localStorage
       get().saveProgress();
     },
 
@@ -419,11 +490,54 @@ export const useStoryStore = create<StoryStore>()(
         return;
       }
 
-      // Handle version migration if needed
-      const currentVersion = '1.0.0';
-      if (saved.version !== currentVersion) {
-        console.warn(`Version mismatch: saved ${saved.version}, current ${currentVersion}`);
-        // In the future, implement migration logic here
+      // Migration for old saves without temporal awareness
+      if (saved.progress.temporalAwarenessLevel === undefined) {
+        console.log('Migrating old save to temporal awareness system...');
+
+        // Initialize new fields
+        saved.progress.temporalAwarenessLevel = 0;
+        saved.progress.characterNodesVisited = {
+          archaeologist: 0,
+          algorithm: 0,
+          lastHuman: 0,
+        };
+
+        // Reconstruct character visit counts from existing data
+        const state = get();
+        for (const nodeId of Object.keys(saved.progress.visitedNodes)) {
+          const node = state.nodes.get(nodeId);
+          if (!node) continue;
+
+          if (node.character === 'archaeologist') {
+            saved.progress.characterNodesVisited.archaeologist++;
+          } else if (node.character === 'algorithm') {
+            saved.progress.characterNodesVisited.algorithm++;
+          } else if (node.character === 'last-human') {
+            saved.progress.characterNodesVisited.lastHuman++;
+          }
+        }
+
+        // Calculate temporal awareness from migrated data
+        const { archaeologist, algorithm, lastHuman } =
+          saved.progress.characterNodesVisited;
+        const total = archaeologist + algorithm + lastHuman;
+
+        if (total > 0) {
+          const perspectivesVisited = [
+            archaeologist > 0,
+            algorithm > 0,
+            lastHuman > 0,
+          ].filter(Boolean).length;
+
+          const diversityBonus = perspectivesVisited * 20;
+          const explorationScore = Math.min((total / 10) * 40, 40);
+          saved.progress.temporalAwarenessLevel = Math.min(
+            diversityBonus + explorationScore,
+            100
+          );
+        }
+
+        console.log(`Migration complete. Temporal awareness: ${saved.progress.temporalAwarenessLevel}%`);
       }
 
       set((state) => {
@@ -614,20 +728,36 @@ export const useStoryStore = create<StoryStore>()(
       const characterBreakdown = {
         archaeologist: { visited: 0, total: 0 },
         algorithm: { visited: 0, total: 0 },
-        human: { visited: 0, total: 0 },
+        lastHuman: { visited: 0, total: 0 },
       };
 
       let criticalPathNodesTotal = 0;
       let criticalPathNodesVisited = 0;
 
       for (const [nodeId, node] of state.nodes) {
-        characterBreakdown[node.character].total++;
+        // Map character types to breakdown categories
+        if (node.character === 'archaeologist') {
+          characterBreakdown.archaeologist.total++;
+        } else if (node.character === 'algorithm') {
+          characterBreakdown.algorithm.total++;
+        } else if (node.character === 'last-human') {
+          characterBreakdown.lastHuman.total++;
+        }
+        // multi-perspective nodes don't count in character breakdown
+
         if (node.metadata.criticalPath) {
           criticalPathNodesTotal++;
         }
 
         if (visitedNodeIds.includes(nodeId)) {
-          characterBreakdown[node.character].visited++;
+          if (node.character === 'archaeologist') {
+            characterBreakdown.archaeologist.visited++;
+          } else if (node.character === 'algorithm') {
+            characterBreakdown.algorithm.visited++;
+          } else if (node.character === 'last-human') {
+            characterBreakdown.lastHuman.visited++;
+          }
+
           if (node.metadata.criticalPath) {
             criticalPathNodesVisited++;
           }

@@ -39,7 +39,8 @@ interface NodeMapProps {
 const CHARACTER_THEMES = {
   archaeologist: { hex: '#3b82f6', rgb: '59, 130, 246' },
   algorithm: { hex: '#10b981', rgb: '16, 185, 129' },
-  human: { hex: '#ef4444', rgb: '239, 68, 68' },
+  'last-human': { hex: '#ef4444', rgb: '239, 68, 68' },
+  'multi-perspective': { hex: '#9c27b0', rgb: '156, 39, 176' },
 } as const;
 
 /**
@@ -183,7 +184,8 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
         const colors = {
           archaeologist: '#00e5ff',
           algorithm: '#39ff14',
-          human: '#d32f2f',
+          'last-human': '#d32f2f',
+          'multi-perspective': '#9c27b0',
         };
         setGlitchColor(colors[nodeData.node.character] || '#00e5ff');
         setGlitchActive(true);
@@ -254,7 +256,8 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
           const colors = {
             archaeologist: 'rgba(0, 229, 255, 0.03)',
             algorithm: 'rgba(57, 255, 20, 0.03)',
-            human: 'rgba(211, 47, 47, 0.03)',
+            'last-human': 'rgba(211, 47, 47, 0.03)',
+            'multi-perspective': 'rgba(156, 39, 176, 0.03)',
           };
 
           return (

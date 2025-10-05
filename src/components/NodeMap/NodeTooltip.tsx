@@ -23,7 +23,8 @@ export function NodeTooltip({ nodeId, position }: NodeTooltipProps) {
   const colors = {
     archaeologist: '#00e5ff',
     algorithm: '#39ff14',
-    human: '#d32f2f',
+    'last-human': '#d32f2f',
+    'multi-perspective': '#9c27b0',
   };
 
   return (
