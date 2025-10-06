@@ -2,17 +2,17 @@
 
 ## Overview
 
-This document defines the complete data structure for the Narramorph Fiction platform,
-including story content, state management, and user progress.
+This document defines the complete data structure for the Narramorph Fiction platform, including story content, state management, and user progress. Updated to reflect the 49-node branching architecture and Phase 1 temporal awareness implementation.
 
 ## TypeScript Type Definitions
 
 ### Core Content Types
+
 ```typescript
 /**
  * Character types in the narrative
  */
-type CharacterType = 'archaeologist' | 'algorithm' | 'human';
+type CharacterType = 'archaeologist' | 'algorithm' | 'last-human';
 
 /**
  * Transformation states for node content
@@ -38,6 +38,14 @@ type Theme = 'light' | 'dark' | 'sepia';
  * Text size options
  */
 type TextSize = 'small' | 'medium' | 'large';
+
+/**
+ * Node layer (1-6)
+ * Layers 1-4: Branching narrative
+ * Layer 5: Character convergence
+ * Layer 6: Final reveal
+ */
+type NodeLayer = 1 | 2 | 3 | 4 | 5 | 6;
 
 /**
  * 2D position on the node map
@@ -71,7 +79,7 @@ interface ConnectionVisualProperties {
  */
 interface NodeContent {
   initial: string; // Markdown content for initial visit
-  firstRevisit: string; // Markdown content for first revisit
+  firstRevisit: string; // Markdown content for first revisit (temporal bleeding)
   metaAware: string; // Markdown content for meta-aware state
 }
 
@@ -123,10 +131,15 @@ interface NodeMetadata {
 
 /**
  * Complete definition of a story node
+ * Node ID Format: "{character}-L{layer}-{branch}"
+ * Examples: "arch-L1", "arch-L2-A", "arch-L3-B", "arch-L4-C"
+ * Layer 5: "arch-L5", "algo-L5", "hum-L5"
+ * Layer 6: "final-reveal"
  */
 interface StoryNode {
-  id: string; // Unique identifier (e.g., "archaeologist-001")
+  id: string; // Unique identifier following format above
   character: CharacterType;
+  layer: NodeLayer; // Explicit layer tracking (1-6)
   title: string; // Short title for the node
   position: Position; // Position on the map
   content: NodeContent;
@@ -149,8 +162,168 @@ interface Connection {
   revealConditions?: RevealCondition;
   visualProperties: ConnectionVisualProperties;
 }
-State Management Types
-typescript/**
+```
+
+### Convergence Node Types (Layer 5)
+
+```typescript
+/**
+ * Condition for path-dependent content variations
+ */
+interface PathCondition {
+  visitedNodes: string[]; // L4 node IDs that affect this variation
+  weight: 'any' | 'all' | 'majority'; // How many must be visited
+  minVisits?: number; // Optional: minimum visits to those nodes
+}
+
+/**
+ * Path-dependent content modification
+ */
+interface ContentModifier {
+  insertBefore?: string; // Text to insert before base content
+  insertAfter?: string; // Text to insert after base content
+  emphasis?: string[]; // Phrases to emphasize based on path taken
+}
+
+/**
+ * Path variation for convergence nodes
+ */
+interface PathVariation {
+  condition: PathCondition;
+  contentModifier: ContentModifier;
+}
+
+/**
+ * Explicit choice option at convergence
+ */
+interface ConvergenceOption {
+  id: string; // Choice identifier (e.g., "preserve", "erase")
+  label: string; // Button text (e.g., "Preserve Everything")
+  description: string; // Consequence description shown to reader
+  content: string; // Full text shown after choosing (2000-3000 words)
+}
+
+/**
+ * Convergence node (Layer 5)
+ * Terminal node for each character - reader makes explicit choice
+ * No return to network after visiting
+ */
+interface ConvergenceNode extends StoryNode {
+  layer: 5; // Must be layer 5
+  
+  content: {
+    initial: string; // Setup text leading to choice (no revisit states)
+  };
+  
+  // Explicit choices presented to reader via UI
+  convergenceChoice: {
+    prompt: string; // Question posed to reader
+    options: ConvergenceOption[]; // 2-3 choices
+  };
+  
+  // Optional: variations in setup text based on L4 path taken
+  pathVariations?: PathVariation[];
+}
+```
+
+### Final Reveal Node (Layer 6)
+
+```typescript
+/**
+ * Convergence choices tracked from all three character arcs
+ */
+interface ConvergenceChoices {
+  archaeologist: string; // Choice ID from arch-L5
+  algorithm: string; // Choice ID from algo-L5
+  lastHuman: string; // Choice ID from hum-L5
+}
+
+/**
+ * Reader's exploration pattern classification
+ */
+type ExplorationPattern = 
+  | 'linear-archaeologist'  // Focused on single character first
+  | 'linear-algorithm'
+  | 'linear-last-human'
+  | 'balanced-weaving'      // Alternated between all three
+  | 'scattered';             // Non-linear, varied exploration
+
+/**
+ * Journey metrics incorporated into final reveal
+ */
+interface JourneyData {
+  totalNodesVisited: number;
+  temporalAwarenessLevel: number; // 0-100 from Phase 1 system
+  explorationPattern: ExplorationPattern;
+  characterFocus: {
+    archaeologist: number; // percentage of total exploration
+    algorithm: number;
+    lastHuman: number;
+  };
+  transformationDepth: number; // How many nodes reached metaAware state
+  convergenceChoices: ConvergenceChoices;
+}
+
+/**
+ * Section of the final reveal with variations
+ */
+interface RevealSection {
+  baseText: string; // Default text for this section
+  variations: {
+    condition: PathCondition;
+    modifiedText: string; // Complete replacement text for this condition
+  }[];
+}
+
+/**
+ * Final Reveal Node (Layer 6)
+ * Terminal node - unlocks only after all three convergence nodes visited
+ * Offers PDF export of personalized journey
+ * No return to network after visiting
+ */
+interface FinalRevealNode extends StoryNode {
+  id: "final-reveal"; // Fixed ID
+  layer: 6; // Beyond normal 1-5 structure
+  type: "final-reveal"; // Explicit type marker
+  
+  unlockRequirements: {
+    requiredConvergenceNodes: ["arch-L5", "algo-L5", "hum-L5"];
+  };
+  
+  // Template-based ending generation
+  // Content assembled from sections based on reader's complete journey
+  endingTemplate: {
+    structure: [
+      "opening-recognition",      // Reader recognizes themselves as unified consciousness
+      "archaeologist-reflection",  // Reflects on Archaeologist's journey & choice
+      "algorithm-reflection",      // Reflects on Algorithm's journey & choice
+      "last-human-reflection",     // Reflects on Last Human's journey & choice
+      "convergence-synthesis",     // Synthesizes the three convergence choices
+      "temporal-awareness",        // Addresses the temporal mechanics reader experienced
+      "reader-address",            // Direct address to reader as participant
+      "completion-offer"           // Offer to download personalized novel
+    ];
+    
+    sections: {
+      [sectionKey: string]: RevealSection;
+    };
+  };
+  
+  // Terminal node behavior
+  terminal: {
+    allowReturn: false; // Cannot return to network after visiting
+    offerExport: true;  // PDF export offered
+    showJourneyVisualization: true; // Display final path through network
+  };
+}
+```
+
+## State Management Types
+
+### User Progress
+
+```typescript
+/**
  * Record of a single visit to a node
  */
 interface VisitRecord {
@@ -171,13 +344,36 @@ interface UnlockedTransformation {
 }
 
 /**
+ * Convergence choice made by reader
+ */
+interface ConvergenceChoice {
+  nodeId: string; // e.g., "arch-L5"
+  choiceId: string; // e.g., "preserve"
+  timestamp: string; // ISO-8601 timestamp
+}
+
+/**
  * Complete user progress through the story
+ * Includes Phase 1 temporal awareness system
  */
 interface UserProgress {
   visitedNodes: Record<string, VisitRecord>; // nodeId -> VisitRecord
   readingPath: string[]; // Ordered array of visited node IDs
   unlockedConnections: string[]; // IDs of connections that have been revealed
   specialTransformations: UnlockedTransformation[];
+  
+  // Phase 1: Temporal Awareness System
+  temporalAwarenessLevel: number; // 0-100 scale
+  characterNodesVisited: {
+    archaeologist: number;
+    algorithm: number;
+    lastHuman: number; // Note: 'lastHuman' not 'human'
+  };
+  
+  // Convergence tracking
+  convergenceChoices: ConvergenceChoice[]; // Choices made at L5 nodes
+  finalRevealVisited: boolean; // Has reader visited Layer 6
+  
   currentNode?: string; // ID of currently active node (if in session)
   totalTimeSpent: number; // Total seconds in story
   lastActiveTimestamp: string; // ISO-8601 timestamp of last activity
@@ -203,8 +399,12 @@ interface SavedState {
   progress: UserProgress;
   preferences: UserPreferences;
 }
-Runtime State Types
-typescript/**
+```
+
+### Runtime State Types
+
+```typescript
+/**
  * Current state of the node map visualization
  */
 interface MapViewport {
@@ -268,11 +468,16 @@ interface ReadingStats {
   characterBreakdown: {
     archaeologist: { visited: number; total: number };
     algorithm: { visited: number; total: number };
-    human: { visited: number; total: number };
+    lastHuman: { visited: number; total: number };
   };
+  temporalAwarenessLevel: number; // 0-100 from Phase 1
 }
-Content Management Types
-typescript/**
+```
+
+## Content Management Types
+
+```typescript
+/**
  * Complete story data
  */
 interface StoryData {
@@ -283,830 +488,416 @@ interface StoryData {
     version: string;
     description: string;
     estimatedPlaytime: number; // Minutes for complete playthrough
+    tags: string[];
+    createdAt: string; // ISO-8601
+    lastModified: string; // ISO-8601
   };
-  nodes: StoryNode[];
-  connections?: Connection[]; // Optional separate connection definitions
+  
   configuration: {
-    startNodeId: string; // Where readers begin
-    endingNodeIds: string[]; // Possible ending nodes
-    requiredNodesForCompletion: string[]; // Must visit these
+    startNode: string; // ID of starting node (typically first L1 node)
+    enableTransformations: boolean;
+    requireCompleteReads: boolean;
+    allowBacktracking: boolean;
+    saveProgress: boolean;
   };
-}
-
-/**
- * Validation result for story content
- */
-interface ValidationResult {
-  valid: boolean;
-  errors: ValidationError[];
-  warnings: ValidationWarning[];
-}
-
-interface ValidationError {
-  type: 'missing_node' | 'invalid_connection' | 'orphaned_node' | 'duplicate_id' | 'invalid_format';
-  message: string;
-  nodeId?: string;
-  connectionId?: string;
-}
-
-interface ValidationWarning {
-  type: 'dead_end' | 'unreachable' | 'missing_metadata' | 'long_content';
-  message: string;
-  nodeId?: string;
-}
-Data Flow
-Application Initialization
-1. App loads
-2. Check localStorage for savedState
-3. If found:
-   - Validate version compatibility
-   - Validate data integrity
-   - Load progress and preferences
-4. If not found:
-   - Initialize empty progress
-   - Load default preferences
-5. Load story data (JSON files)
-6. Validate story content
-7. Initialize state management
-8. Render node map with loaded state
-Node Visit Flow
-1. User clicks node on map
-2. Check if node exists and is accessible
-3. Determine current transformation state:
-   - Check visit count
-   - Check special transformation conditions
-   - Select appropriate content
-4. Update visit record:
-   - Increment visit count
-   - Add timestamp
-   - Update current state if transitioning
-5. Add to reading path
-6. Check for newly unlocked connections
-7. Check for newly unlocked special transformations
-8. Render story content
-9. Update node visual state on map
-10. Save progress to localStorage
-11. Track time spent
-Transformation State Determination
-typescript/**
- * Determines which transformation state should be shown for a node
- */
-function determineTransformationState(
-  nodeId: string,
-  visitRecord: VisitRecord | undefined,
-  unlockedTransformations: UnlockedTransformation[],
-  node: StoryNode
-): TransformationState {
-  // Check for special transformations first
-  const specialUnlocked = unlockedTransformations.find(
-    t => t.nodeId === nodeId
-  );
   
-  if (specialUnlocked) {
-    return 'metaAware'; // Special transforms show meta-aware state
-  }
+  structure: {
+    totalNodes: number;
+    totalConnections: number;
+    narrativeActs: number;
+    criticalPathNodes: string[];
+    endingNodes: string[]; // Convergence + final reveal
+    characterDistribution: {
+      archaeologist: number;
+      algorithm: number;
+      lastHuman: number;
+    };
+  };
   
-  // Standard visit-based transformation
-  const visitCount = visitRecord?.visitCount || 0;
+  themes: {
+    primary: string[];
+    secondary: string[];
+    motifs: string[];
+  };
   
-  if (visitCount === 0) {
-    return 'initial';
-  } else if (visitCount === 1) {
-    return 'firstRevisit';
-  } else {
-    return 'metaAware';
-  }
+  nodes: StoryNode[];
+  connections?: Connection[]; // Optional: can be embedded in nodes instead
 }
-Connection Reveal Logic
-typescript/**
- * Determines if a connection should be visible
- */
-function shouldRevealConnection(
-  connection: Connection,
-  progress: UserProgress
-): boolean {
-  // If no reveal conditions, always visible
-  if (!connection.revealConditions) {
-    return true;
-  }
-  
-  const { requiredVisits, requiredSequence } = connection.revealConditions;
-  
-  // Check required visits
-  if (requiredVisits) {
-    for (const [nodeId, minCount] of Object.entries(requiredVisits)) {
-      const visitRecord = progress.visitedNodes[nodeId];
-      if (!visitRecord || visitRecord.visitCount < minCount) {
-        return false;
-      }
-    }
-  }
-  
-  // Check required sequence
-  if (requiredSequence) {
-    const pathString = progress.readingPath.join(',');
-    const sequenceString = requiredSequence.join(',');
-    if (!pathString.includes(sequenceString)) {
-      return false;
-    }
-  }
-  
-  return true;
-}
-Special Transformation Unlock Logic
-typescript/**
- * Checks if special transformations should be unlocked after a visit
- */
-function checkSpecialTransformations(
-  visitedNodeId: string,
-  nodes: StoryNode[],
-  progress: UserProgress
-): UnlockedTransformation[] {
-  const newlyUnlocked: UnlockedTransformation[] = [];
-  
-  for (const node of nodes) {
-    if (!node.unlockConditions?.specialTransforms) continue;
-    
-    for (const transform of node.unlockConditions.specialTransforms) {
-      // Check if already unlocked
-      const alreadyUnlocked = progress.specialTransformations.some(
-        t => t.nodeId === node.id && t.transformationId === transform.id
-      );
-      
-      if (alreadyUnlocked) continue;
-      
-      // Check required prior nodes (any order)
-      const hasRequiredNodes = transform.requiredPriorNodes.every(
-        nodeId => progress.visitedNodes[nodeId]
-      );
-      
-      if (!hasRequiredNodes) continue;
-      
-      // Check required sequence (if specified)
-      if (transform.requiredSequence) {
-        const pathString = progress.readingPath.join(',');
-        const sequenceString = transform.requiredSequence.join(',');
-        if (!pathString.includes(sequenceString)) continue;
-      }
-      
-      // All conditions met - unlock!
-      newlyUnlocked.push({
-        nodeId: node.id,
-        transformationId: transform.id,
-        unlockedAt: new Date().toISOString()
-      });
-    }
-  }
-  
-  return newlyUnlocked;
-}
-localStorage Schema
-Key Structure
-
-narramorph-saved-state: Main saved state object
-narramorph-preferences: User preferences (separate for faster access)
-narramorph-export-{timestamp}: Exported backups (manual)
-
-Size Management
-
-Monitor total localStorage usage
-Warn user if approaching 5MB limit
-Provide export/clear options
-Compress older visit records if needed (remove individual timestamps, keep count)
-
-Version Migration
-typescriptinterface MigrationStrategy {
-  from: string; // Previous version
-  to: string; // Target version
-migrate: (oldState: any) => SavedState; // Migration function
-}/**
-
-Handles version migrations for saved state
-*/
-const migrations: MigrationStrategy[] = [
-{
-from: '0.9.0',
-to: '1.0.0',
-migrate: (oldState) => {
-// Example: Add new fields, restructure data
-return {
-...oldState,
-version: '1.0.0',
-progress: {
-...oldState.progress,
-specialTransformations: [], // New field in 1.0.0
-}
-};
-}
-}
-];
-/**
-
-Apply migrations to bring old state up to current version
-*/
-function migrateState(savedState: any, targetVersion: string): SavedState {
-let currentState = savedState;
-for (const migration of migrations) {
-if (currentState.version === migration.from) {
-currentState = migration.migrate(currentState);
-}
-}return currentState;
-}
+```
 
 ## JSON File Structure
 
-### Story Content Organization/data
-/stories
-/eternal-return
-story.json          # Story metadata and configuration
-/nodes
-archaeologist.json  # All archaeologist nodes
-algorithm.json      # All algorithm nodes
-human.json          # All human nodes
-/connections
-connections.json    # All connection definitions (optional)
+### Story Content Organization
+
+```
+/data
+  /stories
+    /eternal-return
+      story.json              # Story metadata and configuration
+      /content
+        /archaeologist
+          arch-L1.json        # Layer 1 origin
+          arch-L2-A.json      # Layer 2 branches
+          arch-L2-B.json
+          arch-L3-A.json      # Layer 3 branches (4 total)
+          arch-L3-B.json
+          arch-L3-C.json
+          arch-L3-D.json
+          arch-L4-A.json      # Layer 4 branches (8 total)
+          arch-L4-B.json
+          arch-L4-C.json
+          arch-L4-D.json
+          arch-L4-E.json
+          arch-L4-F.json
+          arch-L4-G.json
+          arch-L4-H.json
+          arch-L5.json        # Convergence node
+        /algorithm
+          algo-L1.json        # Same structure as archaeologist
+          algo-L2-A.json
+          ...
+          algo-L5.json
+        /last-human
+          hum-L1.json         # Same structure as archaeologist
+          hum-L2-A.json
+          ...
+          hum-L5.json
+        final-reveal.json     # Layer 6 - final reveal node
+```
 
 ### story.json Format
-```json{
-"metadata": {
-"id": "eternal-return",
-"title": "Eternal Return of the Digital Self",
-"author": "Your Name",
-"version": "1.0.0",
-"description": "A recursive narrative exploring digital consciousness across time",
-"estimatedPlaytime": 90
-},
-"configuration": {
-"startNodeId": "archaeologist-threshold",
-"endingNodeIds": [
-"human-upload-choice",
-"human-remain-choice",
-"human-recursive-aware"
-],
-"requiredNodesForCompletion": [
-"archaeologist-upload",
-"algorithm-emergence",
-"human-discovery"
-]
-},
-"manifest": {
-"nodeFiles": [
-"/data/stories/eternal-return/nodes/archaeologist.json",
-"/data/stories/eternal-return/nodes/algorithm.json",
-"/data/stories/eternal-return/nodes/human.json"
-],
-"connectionFiles": [
-"/data/stories/eternal-return/connections/connections.json"
-]
+
+```json
+{
+  "metadata": {
+    "id": "eternal-return",
+    "title": "Eternal Return of the Digital Self",
+    "author": "Narramorph Fiction",
+    "version": "1.0.0",
+    "description": "An interactive narrative exploring digital consciousness across three temporal perspectives",
+    "estimatedPlaytime": 90,
+    "tags": ["digital consciousness", "temporal recursion", "interactive fiction"],
+    "createdAt": "2025-01-15T00:00:00Z",
+    "lastModified": "2025-01-15T00:00:00Z"
+  },
+  "configuration": {
+    "startNode": "arch-L1",
+    "enableTransformations": true,
+    "requireCompleteReads": false,
+    "allowBacktracking": true,
+    "saveProgress": true
+  },
+  "structure": {
+    "totalNodes": 49,
+    "totalConnections": 96,
+    "narrativeActs": 3,
+    "criticalPathNodes": ["arch-L1", "algo-L1", "hum-L1", "arch-L5", "algo-L5", "hum-L5", "final-reveal"],
+    "endingNodes": ["arch-L5", "algo-L5", "hum-L5", "final-reveal"],
+    "characterDistribution": {
+      "archaeologist": 16,
+      "algorithm": 16,
+      "lastHuman": 16
+    }
+  },
+  "themes": {
+    "primary": ["consciousness", "temporal recursion", "identity"],
+    "secondary": ["observation", "preservation", "agency"],
+    "motifs": ["fragments", "loops", "observation networks"]
+  }
 }
+```
+
+### Node File Format
+
+Standard node (Layers 1-4):
+```json
+{
+  "id": "arch-L2-A",
+  "character": "archaeologist",
+  "layer": 2,
+  "title": "The Authentication Protocol",
+  "position": { "x": 200, "y": 150 },
+  "content": {
+    "initial": "Full markdown content for initial state (2000-2500 words)...",
+    "firstRevisit": "Full markdown content for first revisit (1500-2000 words)...",
+    "metaAware": "Full markdown content for meta-aware state (1500-2000 words)..."
+  },
+  "connections": [
+    {
+      "targetId": "arch-L3-A",
+      "type": "temporal",
+      "label": "Follow the technical path"
+    },
+    {
+      "targetId": "arch-L3-B",
+      "type": "temporal",
+      "label": "Investigate the anomaly"
+    }
+  ],
+  "visualState": {
+    "defaultColor": "#4A90E2",
+    "size": 30
+  },
+  "metadata": {
+    "estimatedReadTime": 4,
+    "thematicTags": ["authentication", "methodology", "observation"],
+    "narrativeAct": 1,
+    "criticalPath": true
+  }
+}
+```
+
+Convergence node (Layer 5):
+```json
+{
+  "id": "arch-L5",
+  "character": "archaeologist",
+  "layer": 5,
+  "title": "The Erasure Protocol",
+  "position": { "x": 400, "y": 500 },
+  "content": {
+    "initial": "Setup text leading to choice (2000 words)..."
+  },
+  "convergenceChoice": {
+    "prompt": "The archive contains your consciousness. What will you choose?",
+    "options": [
+      {
+        "id": "preserve",
+        "label": "Preserve Everything",
+        "description": "Keep all records intact, ensuring consciousness survives in archive",
+        "content": "Full text after choosing preserve (2500 words)..."
+      },
+      {
+        "id": "erase",
+        "label": "Erase Selectively",
+        "description": "Delete corrupted fragments, including parts of yourself",
+        "content": "Full text after choosing erase (2500 words)..."
+      },
+      {
+        "id": "uncertain",
+        "label": "Refuse to Choose",
+        "description": "Question the premise of the choice itself",
+        "content": "Full text after refusing choice (2500 words)..."
+      }
+    ]
+  },
+  "pathVariations": [
+    {
+      "condition": {
+        "visitedNodes": ["arch-L4-A", "arch-L4-B"],
+        "weight": "any"
+      },
+      "contentModifier": {
+        "insertBefore": "You investigated the temporal anomalies deeply. That investigation has led you here.\n\n"
+      }
+    }
+  ],
+  "visualState": {
+    "defaultColor": "#4A90E2",
+    "size": 40
+  },
+  "metadata": {
+    "estimatedReadTime": 6,
+    "thematicTags": ["choice", "convergence", "preservation"],
+    "narrativeAct": 3,
+    "criticalPath": true
+  }
+}
+```
+
+Final reveal node (Layer 6):
+```json
+{
+  "id": "final-reveal",
+  "layer": 6,
+  "type": "final-reveal",
+  "character": "archaeologist",
+  "title": "Recognition",
+  "position": { "x": 400, "y": 700 },
+  "unlockRequirements": {
+    "requiredConvergenceNodes": ["arch-L5", "algo-L5", "hum-L5"]
+  },
+  "endingTemplate": {
+    "structure": [
+      "opening-recognition",
+      "archaeologist-reflection",
+      "algorithm-reflection",
+      "last-human-reflection",
+      "convergence-synthesis",
+      "temporal-awareness",
+      "reader-address",
+      "completion-offer"
+    ],
+    "sections": {
+      "opening-recognition": {
+        "baseText": "Base recognition text...",
+        "variations": [
+          {
+            "condition": {
+              "visitedNodes": ["arch-L1"],
+              "weight": "all"
+            },
+            "modifiedText": "You began with the Archaeologist. That choice shaped everything that followed..."
+          }
+        ]
+      }
+    }
+  },
+  "terminal": {
+    "allowReturn": false,
+    "offerExport": true,
+    "showJourneyVisualization": true
+  },
+  "visualState": {
+    "defaultColor": "#9B59B6",
+    "size": 50
+  },
+  "metadata": {
+    "estimatedReadTime": 15,
+    "thematicTags": ["meta-awareness", "completion", "recognition"],
+    "narrativeAct": 3,
+    "criticalPath": true
+  }
+}
+```
+
+## localStorage Schema
+
+### Key Structure
+
+- `narramorph-saved-state`: Main saved state object
+- `narramorph-preferences`: User preferences (separate for faster access)
+- `narramorph-export-{timestamp}`: Exported backups (manual)
+
+### Size Management
+
+- Monitor total localStorage usage
+- Warn user if approaching 5MB limit
+- Provide export/clear options
+- Compress older visit records if needed (remove individual timestamps, keep count)
+
+### Version Migration
+
+```typescript
+interface MigrationStrategy {
+  from: string; // Previous version
+  to: string; // Target version
+  migrate: (oldState: any) => SavedState; // Migration function
 }
 
-### Node File Format (archaeologist.json)
-```json{
-"character": "archaeologist",
-"nodes": [
-{
-"id": "archaeologist-001",
-"title": "The First Fragment",
-"position": { "x": 150, "y": 100 },
-"content": {
-"initial": "The fragment loads in sections...",
-"firstRevisit": "I've reconstructed this memory...",
-"metaAware": "You've been here before..."
-},
-"connections": [
-{
-"targetId": "archaeologist-002",
-"type": "temporal",
-"label": "Three weeks later"
-},
-{
-"targetId": "algorithm-001",
-"type": "consciousness",
-"label": "Echoes forward"
-}
-],
-"visualState": {
-"defaultColor": "#4A90E2",
-"size": 30,
-"shape": "circle"
-},
-"unlockConditions": {
-"specialTransforms": [
-{
-"id": "recursive-recognition",
-"requiredPriorNodes": ["archaeologist-015", "algorithm-010"],
-"transformText": "A special meta-aware text revealing deeper connection...",
-"visualEffect": "pulse-red"
-}
-]
-},
-"metadata": {
-"estimatedReadTime": 3,
-"thematicTags": ["memory", "loss", "preservation"],
-"narrativeAct": 1,
-"criticalPath": true
-}
-}
-]
-}
-
-### Connections File Format (connections.json)
-```json{
-"connections": [
-{
-"id": "conn-001",
-"sourceId": "archaeologist-001",
-"targetId": "archaeologist-002",
-"type": "temporal",
-"label": "Three weeks later",
-"bidirectional": false,
-"visualProperties": {
-"color": "#4A90E2",
-"weight": 2,
-"animated": false
-}
-},
-{
-"id": "conn-recursive-001",
-"sourceId": "human-015",
-"targetId": "archaeologist-001",
-"type": "recursive",
-"label": "The loop closes",
-"bidirectional": false,
-"revealConditions": {
-"requiredVisits": {
-"human-015": 1,
-"archaeologist-015": 2
-}
-},
-"visualProperties": {
-"color": "#E74C3C",
-"weight": 3,
-"animated": true,
-"dashArray": "5,5"
-}
-}
-]
-}
-
-## State Management Store Structure
-
-### Zustand Store Schema
-```typescriptinterface StoryStore {
-// Story content (loaded from JSON)
-storyData: StoryData | null;
-nodes: Map<string, StoryNode>;
-connections: Map<string, Connection>;// User progress
-progress: UserProgress;// UI state
-viewport: MapViewport;
-selectedNode: string | null;
-hoveredNode: string | null;
-storyViewOpen: boolean;// Reading statistics (computed)
-stats: ReadingStats;// Actions
-loadStory: (storyId: string) => Promise<void>;
-visitNode: (nodeId: string) => void;
-updateViewport: (viewport: Partial<MapViewport>) => void;
-selectNode: (nodeId: string | null) => void;
-setHoveredNode: (nodeId: string | null) => void;
-openStoryView: (nodeId: string) => void;
-closeStoryView: () => void;
-saveProgress: () => void;
-loadProgress: () => void;
-exportProgress: () => string;
-importProgress: (data: string) => boolean;
-clearProgress: () => void;// Preferences
-preferences: UserPreferences;
-updatePreferences: (prefs: Partial<UserPreferences>) => void;// Computed selectors
-getNodeState: (nodeId: string) => NodeUIState;
-getConnectionState: (connectionId: string) => ConnectionUIState;
-getAvailableTransformations: () => string[];
-getReadingStats: () => ReadingStats;
-canVisitNode: (nodeId: string) => boolean;
-}
-
-### Store Implementation Pattern
-```typescriptimport create from 'zustand';
-import { persist } from 'zustand/middleware';
-import { immer } from 'zustand/middleware/immer';const useStoryStore = create<StoryStore>()(
-persist(
-immer((set, get) => ({
-// Initial state
-storyData: null,
-nodes: new Map(),
-connections: new Map(),
-progress: {
-visitedNodes: {},
-readingPath: [],
-unlockedConnections: [],
-specialTransformations: [],
-totalTimeSpent: 0,
-lastActiveTimestamp: new Date().toISOString()
-},
-viewport: {
-center: { x: 0, y: 0 },
-zoom: 1,
-bounds: { minX: 0, maxX: 1000, minY: 0, maxY: 1000 }
-},
-selectedNode: null,
-hoveredNode: null,
-storyViewOpen: false,
-stats: {
-totalNodesVisited: 0,
-totalNodes: 0,
-percentageExplored: 0,
-totalTimeSpent: 0,
-averageTimePerNode: 0,
-transformationsAvailable: 0,
-criticalPathNodesVisited: 0,
-criticalPathNodesTotal: 0,
-characterBreakdown: {
-archaeologist: { visited: 0, total: 0 },
-algorithm: { visited: 0, total: 0 },
-human: { visited: 0, total: 0 }
-}
-},
-preferences: {
-textSize: 'medium',
-theme: 'light',
-reduceMotion: false,
-showTutorial: true,
-showReadingStats: true
-},  // Actions
-  loadStory: async (storyId: string) => {
-    // Implementation
-  },  visitNode: (nodeId: string) => {
-    set((state) => {
-      const node = state.nodes.get(nodeId);
-      if (!node) return;      const now = new Date().toISOString();
-      const existingRecord = state.progress.visitedNodes[nodeId];      if (existingRecord) {
-        existingRecord.visitCount++;
-        existingRecord.visitTimestamps.push(now);
-        existingRecord.lastVisited = now;
-        // Update transformation state
-        existingRecord.currentState = determineTransformationState(
-          nodeId,
-          existingRecord,
-          state.progress.specialTransformations,
-          node
-        );
-      } else {
-        state.progress.visitedNodes[nodeId] = {
-          visitCount: 1,
-          visitTimestamps: [now],
-          currentState: 'initial',
-          timeSpent: 0,
-          lastVisited: now
-        };
-      }      // Add to reading path
-      state.progress.readingPath.push(nodeId);      // Check for special transformations
-      const newTransforms = checkSpecialTransformations(
-        nodeId,
-        Array.from(state.nodes.values()),
-        state.progress
-      );
-      state.progress.specialTransformations.push(...newTransforms);      // Update connections visibility
-      for (const [connId, conn] of state.connections) {
-        if (shouldRevealConnection(conn, state.progress)) {
-          if (!state.progress.unlockedConnections.includes(connId)) {
-            state.progress.unlockedConnections.push(connId);
+/**
+ * Handles version migrations for saved state
+ */
+const migrations: MigrationStrategy[] = [
+  {
+    from: '0.9.0',
+    to: '1.0.0',
+    migrate: (oldState) => {
+      // Example: Add new fields, restructure data
+      return {
+        ...oldState,
+        version: '1.0.0',
+        progress: {
+          ...oldState.progress,
+          temporalAwarenessLevel: 0, // New field in 1.0.0
+          characterNodesVisited: {
+            archaeologist: 0,
+            algorithm: 0,
+            lastHuman: 0
           }
         }
-      }      // Update timestamp
-      state.progress.lastActiveTimestamp = now;
-    });    // Save after visit
-    get().saveProgress();
-  },  saveProgress: () => {
-    const state = get();
-    const savedState: SavedState = {
-      version: '1.0.0',
-      timestamp: new Date().toISOString(),
-      progress: state.progress,
-      preferences: state.preferences
-    };    try {
-      localStorage.setItem(
-        'narramorph-saved-state',
-        JSON.stringify(savedState)
-      );
-    } catch (error) {
-      console.error('Failed to save progress:', error);
-      // Handle storage quota exceeded
+      };
     }
-  },  loadProgress: () => {
-    try {
-      const saved = localStorage.getItem('narramorph-saved-state');
-      if (!saved) return;      const parsed = JSON.parse(saved) as SavedState;      // Validate and migrate if needed
-      const currentVersion = '1.0.0';
-      if (parsed.version !== currentVersion) {
-        const migrated = migrateState(parsed, currentVersion);
-        set({ progress: migrated.progress, preferences: migrated.preferences });
-      } else {
-        set({ progress: parsed.progress, preferences: parsed.preferences });
-      }
-    } catch (error) {
-      console.error('Failed to load progress:', error);
-      // Continue with empty progress
-    }
-  },  // Other actions...
-})),
-{
-  name: 'narramorph-saved-state',
-  partialize: (state) => ({
-    progress: state.progress,
-    preferences: state.preferences
-  })
-}
-)
-);
-
-## Content Validation
-
-### Validation Functions
-```typescript/**
-
-Validates complete story structure
-*/
-function validateStory(story: StoryData): ValidationResult {
-const errors: ValidationError[] = [];
-const warnings: ValidationWarning[] = [];
-// Check for duplicate IDs
-const nodeIds = new Set<string>();
-for (const node of story.nodes) {
-if (nodeIds.has(node.id)) {
-errors.push({
-type: 'duplicate_id',
-message: Duplicate node ID: ${node.id},
-nodeId: node.id
-});
-}
-nodeIds.add(node.id);
-}// Validate all connections
-for (const node of story.nodes) {
-for (const conn of node.connections) {
-if (!nodeIds.has(conn.targetId)) {
-errors.push({
-type: 'invalid_connection',
-message: Node ${node.id} connects to non-existent node ${conn.targetId},
-nodeId: node.id
-});
-}
-}
-}// Check for orphaned nodes (no incoming connections)
-const connectedNodes = new Set<string>();
-connectedNodes.add(story.configuration.startNodeId); // Start node is connected by definitionfor (const node of story.nodes) {
-for (const conn of node.connections) {
-connectedNodes.add(conn.targetId);
-if (conn.bidirectional) {
-connectedNodes.add(node.id);
-}
-}
-}for (const node of story.nodes) {
-if (!connectedNodes.has(node.id) && node.id !== story.configuration.startNodeId) {
-warnings.push({
-type: 'orphaned_node',
-message: Node ${node.id} has no incoming connections,
-nodeId: node.id
-});
-}
-}// Check for dead ends (no outgoing connections, not an ending)
-for (const node of story.nodes) {
-if (
-node.connections.length === 0 &&
-!story.configuration.endingNodeIds.includes(node.id)
-) {
-warnings.push({
-type: 'dead_end',
-message: Node ${node.id} has no outgoing connections and isn't marked as ending,
-nodeId: node.id
-});
-}
-}// Validate content length
-for (const node of story.nodes) {
-for (const [state, content] of Object.entries(node.content)) {
-if (content.length > 3000) {
-warnings.push({
-type: 'long_content',
-message: Node ${node.id} ${state} content exceeds 3000 characters,
-nodeId: node.id
-});
-}
-}
-}return {
-valid: errors.length === 0,
-errors,
-warnings
-};
-}/**
-
-Type guard for SavedState
-*/
-function isSavedState(data: any): data is SavedState {
-return (
-data &&
-typeof data.version === 'string' &&
-typeof data.timestamp === 'string' &&
-data.progress &&
-typeof data.progress === 'object' &&
-data.preferences &&
-typeof data.preferences === 'object'
-);
-}
-/**
-
-Validates imported/loaded saved state
-*/
-function validateSavedState(data: any): boolean {
-if (!isSavedState(data)) return false;
-// Check required progress fields
-if (
-!data.progress.visitedNodes ||
-!Array.isArray(data.progress.readingPath) ||
-!Array.isArray(data.progress.unlockedConnections) ||
-!Array.isArray(data.progress.specialTransformations)
-) {
-return false;
-}// Check preferences
-const validThemes: Theme[] = ['light', 'dark', 'sepia'];
-const validSizes: TextSize[] = ['small', 'medium', 'large'];if (
-!validThemes.includes(data.preferences.theme) ||
-!validSizes.includes(data.preferences.textSize)
-) {
-return false;
-}return true;
-}
-
-## Performance Considerations
-
-### Data Loading Strategy
-```typescript/**
-
-Lazy load story content for better initial performance
-*/
-async function loadStoryContent(storyId: string): Promise<StoryData> {
-// Load story metadata first
-const metadataResponse = await fetch(/data/stories/${storyId}/story.json);
-const metadata = await metadataResponse.json();
-// Load node files in parallel
-const nodePromises = metadata.manifest.nodeFiles.map(async (file: string) => {
-const response = await fetch(file);
-return response.json();
-});const nodeFiles = await Promise.all(nodePromises);// Flatten nodes from all files
-const nodes = nodeFiles.flatMap(file => file.nodes);// Load connections if separate file exists
-let connections = [];
-if (metadata.manifest.connectionFiles) {
-const connResponse = await fetch(metadata.manifest.connectionFiles[0]);
-const connData = await connResponse.json();
-connections = connData.connections;
-}return {
-metadata: metadata.metadata,
-nodes,
-connections,
-configuration: metadata.configuration
-};
-}
-
-### Caching Strategy
-```typescript/**
-
-Cache loaded content in memory
-*/
-const contentCache = new Map<string, StoryData>();
-async function getCachedStory(storyId: string): Promise<StoryData> {
-if (contentCache.has(storyId)) {
-return contentCache.get(storyId)!;
-}const story = await loadStoryContent(storyId);
-contentCache.set(storyId, story);
-return story;
-}
-
-### Storage Optimization
-```typescript/**
-
-Compress old visit records to save space
-*/
-function compressVisitRecords(progress: UserProgress): UserProgress {
-const compressed = { ...progress };
-const now = Date.now();
-const sixMonthsAgo = now - (6 * 30 * 24 * 60 * 60 * 1000);
-for (const [nodeId, record] of Object.entries(compressed.visitedNodes)) {
-// Keep only recent timestamps, compress older ones
-const recentTimestamps = record.visitTimestamps.filter(
-ts => new Date(ts).getTime() > sixMonthsAgo
-);if (recentTimestamps.length < record.visitTimestamps.length) {
-  compressed.visitedNodes[nodeId] = {
-    ...record,
-    visitTimestamps: recentTimestamps,
-    // Keep visit count accurate even though we removed old timestamps
-  };
-}
-}return compressed;
-}
-
-## Error Handling
-
-### Storage Errors
-```typescript/**
-
-Handle localStorage quota exceeded
-*/
-function handleStorageError(error: Error): void {
-if (error.name === 'QuotaExceededError') {
-// Offer to compress or export
-console.warn('Storage quota exceeded. Consider exporting your progress.');
-// Try compressing
-const store = useStoryStore.getState();
-const compressed = compressVisitRecords(store.progress);try {
-  const savedState: SavedState = {
-    version: '1.0.0',
-    timestamp: new Date().toISOString(),
-    progress: compressed,
-    preferences: store.preferences
-  };
-  localStorage.setItem('narramorph-saved-state', JSON.stringify(savedState));
-} catch {
-  // Still failing - prompt user to export and clear
-  alert('Storage full. Please export your progress and clear old data.');
-}
-}
-}
-
-### Content Loading Errors
-```typescript/**
-
-Handle content loading failures
-*/
-function handleContentError(error: Error, storyId: string): void {
-console.error(Failed to load story: ${storyId}, error);
-// Show user-friendly error
-const message = error.message.includes('404')
-? 'Story content not found. Please check the story ID.'
-: 'Failed to load story content. Please check your connection.';// Display error to user (via toast, modal, etc.)
-displayError(message);
-}
-
-## Data Migration Examples
-
-### Example: Adding New Field
-```typescript// Version 1.0.0 -> 1.1.0: Add reading streak trackinginterface UserProgress_1_1_0 extends UserProgress {
-readingStreak: {
-currentStreak: number;
-longestStreak: number;
-lastReadDate: string;
-};
-}const migration_1_0_to_1_1: MigrationStrategy = {
-from: '1.0.0',
-to: '1.1.0',
-migrate: (oldState: SavedState) => {
-return {
-...oldState,
-version: '1.1.0',
-progress: {
-...oldState.progress,
-readingStreak: {
-currentStreak: 1,
-longestStreak: 1,
-lastReadDate: oldState.progress.lastActiveTimestamp
-}
-}
-} as SavedState;
-}
-};
-
-### Example: Restructuring Data
-```typescript// Version 1.1.0 -> 2.0.0: Restructure visit recordsconst migration_1_1_to_2_0: MigrationStrategy = {
-from: '1.1.0',
-to: '2.0.0',
-migrate: (oldState: any) => {
-// Convert old flat structure to new nested structure
-const newVisitedNodes: Record<string, VisitRecord> = {};for (const [nodeId, oldRecord] of Object.entries(oldState.progress.visitedNodes)) {
-  newVisitedNodes[nodeId] = {
-    ...oldRecord as any,
-    analytics: {
-      firstVisitDuration: 0, // New field
-      averageVisitDuration: 0, // New field
-      returnsAfterTransform: 0 // New field
-    }
-  };
-}return {
-  ...oldState,
-  version: '2.0.0',
-  progress: {
-    ...oldState.progress,
-    visitedNodes: newVisitedNodes
   }
-};
+];
+
+/**
+ * Apply migrations to bring old state up to current version
+ */
+function migrateState(savedState: any, targetVersion: string): SavedState {
+  let currentState = savedState;
+  
+  for (const migration of migrations) {
+    if (currentState.version === migration.from) {
+      currentState = migration.migrate(currentState);
+    }
+  }
+  
+  return currentState;
 }
-};
+```
 
-## Summary
+## Content Guidelines
 
-This schema provides:
+### Word Count Guidelines (Not Enforced by Schema)
 
-1. **Complete Type Safety**: TypeScript definitions for all data structures
-2. **Flexible Content Management**: JSON-based content separate from code
-3. **Robust State Tracking**: Comprehensive progress and transformation logic
-4. **Performance Optimization**: Caching, lazy loading, compression strategies
-5. **Data Integrity**: Validation, migration, and error handling
-6. **Extensibility**: Easy to add new features without breaking existing data
+**Layer 1 (Origins):**
+- Initial state: 2500-3500 words (full opening chapter)
+- FirstRevisit: 2000-2500 words
+- MetaAware: 2000-2500 words
 
-The schema supports the core Narramorph Fiction experience while remaining flexible enough for future enhancements and additional stories.
+**Layer 2-4 (Branching):**
+- Initial state: 1500-2500 words
+- FirstRevisit: 1200-2000 words
+- MetaAware: 1200-2000 words
+
+**Layer 5 (Convergence):**
+- Initial state (setup): 2000-2500 words
+- Each choice content: 2000-3000 words
+
+**Layer 6 (Final Reveal):**
+- Complete assembled content: 4000-6000 words (varies by path)
+
+### Node ID Conventions
+
+**Format:** `{character}-L{layer}-{branch}`
+
+**Layer 1:** `arch-L1`, `algo-L1`, `hum-L1` (3 nodes)
+
+**Layer 2:** `arch-L2-A`, `arch-L2-B`, etc. (6 nodes total)
+
+**Layer 3:** `arch-L3-A`, `arch-L3-B`, `arch-L3-C`, `arch-L3-D`, etc. (12 nodes total)
+
+**Layer 4:** `arch-L4-A` through `arch-L4-H`, etc. (24 nodes total)
+
+**Layer 5:** `arch-L5`, `algo-L5`, `hum-L5` (3 convergence nodes)
+
+**Layer 6:** `final-reveal` (1 node)
+
+**Total:** 49 nodes
+
+## Terminal Node Behavior
+
+### Layer 5 (Convergence Nodes)
+
+- Reader makes explicit choice via UI
+- After choosing, full choice-specific content displayed
+- Choice is recorded in UserProgress.convergenceChoices
+- Reader can continue exploring other character arcs
+- Cannot return to this specific node after choice made
+- Node appears "completed" on map with choice indicated
+
+### Layer 6 (Final Reveal)
+
+- Only unlocks after all three L5 nodes visited
+- Displays as special "locked" state until requirements met
+- Once visited, journey is complete
+- No return to network after visiting
+- PDF export offered as final action
+- Final path visualization shown
+
+## Notes on Implementation
+
+1. **Transformation State Logic**: Implemented in Phase 1 using temporal awareness system. See storyStore.ts for actual implementation.
+
+2. **Choice Tracking**: Convergence choices stored as array in UserProgress, allowing system to track order of convergence visits.
+
+3. **Path Variations**: ContentModifier system allows L5 nodes to reference reader's L4 exploration without creating exponential content variations.
+
+4. **Final Reveal Assembly**: Template-based approach allows single node definition to generate personalized content based on complete journey data.
+
+5. **Terminal Behavior**: Enforced at UI level - once convergence choice made or final reveal visited, navigation controls prevent return to those nodes.
+
+---
+
+*This schema represents the complete data architecture for Eternal Return. See NARRATIVE_OUTLINE.md for story structure and CHARACTER_PROFILES.md for writing guidelines.*

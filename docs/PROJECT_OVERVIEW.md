@@ -89,15 +89,21 @@ experience that mirrors the philosophical questions at its heart.
 
 ### Launch Version (MVP)
 - Single complete story: "Eternal Return of the Digital Self"
-- Three character perspectives with 40-50 total nodes
-- Three transformation states per node
-- Interactive node map with mini-map for navigation
-- Local storage for session persistence
+- Three character perspectives across 49 nodes in 6 layers:
+  - Layer 1: 3 origin nodes (reader entry points)
+  - Layer 2: 6 nodes (first branch)
+  - Layer 3: 12 nodes (second branch)
+  - Layer 4: 24 nodes (third branch)
+  - Layer 5: 3 convergence nodes (explicit choices, terminal)
+  - Layer 6: 1 final reveal node (terminal, PDF export)
+- Three transformation states per node (147 total content pieces)
+- Interactive node map with temporal awareness system
+- Local storage for session persistence with backward-compatible migration
 - Responsive design (desktop and tablet)
 
 ### Post-Launch Enhancements (Future)
 - User accounts with cloud save
-- Reading analytics (path tracking, time spent)
+- Reading analytics (path tracking, time spent, exploration patterns)
 - Author tools for creating new stories
 - Community features (shared annotations, recommended paths)
 - Mobile-optimized experience
@@ -114,56 +120,82 @@ experience that mirrors the philosophical questions at its heart.
 
 1. **Complete Implementations**: No placeholder code or TODO comments in production
 2. **Content First**: Technical decisions serve narrative needs, not vice versa
-3. **Iterative Polish**: Better to have 30 perfect nodes than 100 rough drafts
+3. **Iterative Polish**: Better to have 49 perfect nodes than 100 rough drafts
 4. **Reader Testing**: Regular feedback from target audience throughout development
 5. **Documentation as Code**: Every architectural decision documented with rationale
 
 ## Timeline Overview
 
-- **Weeks 1-2**: Foundation (repository, schemas, documentation)
-- **Weeks 3-4**: Core mechanics (state management, transformations)
-- **Weeks 5-6**: First complete character arc with all transformations
-- **Weeks 7-8**: Remaining content and visual polish
-- **Weeks 9-10**: Testing, refinement, launch preparation
+**Current Phase**: Phase 2 - Content Creation (Layer 1)
+
+See [Development State Tracker](Development%20State%20Tracker.md) for detailed milestone tracking and current status.
+
+### High-Level Timeline
+- **Phase 1: Technical Foundation** - Complete (Jan 2025)
+  - Temporal awareness system
+  - Transformation state logic
+  - Test suite and build verification
+  
+- **Phase 2: Content Creation** - In Progress (Jan-Jun 2025)
+  - Layer 1 (Feb 2025)
+  - Layer 2 (Mar 2025)
+  - Layer 3 (Apr 2025)
+  - Layer 4 (May 2025)
+  - Layers 5-6 (Jun 2025)
+  
+- **Phase 3: Testing & Polish** - Planned (Jul 2025)
+  - Beta reader testing
+  - Performance optimization
+  - Visual polish and accessibility refinement
+  
+- **Phase 4: Launch** - Target (Aug 2025)
+  - Public release
+  - Documentation finalization
+  - Community engagement
 
 ## Success Metrics
 
 ### Engagement
 - Average session duration > 30 minutes
-- Completion rate > 60% (reaching narrative climax)
+- Completion rate > 60% (reaching final reveal)
 - Revisit rate > 40% (returning after first session)
+- Multiple character arcs explored per reader
 
 ### Technical
 - Page load time < 2 seconds
 - Interaction response time < 100ms
 - Zero data loss from state management bugs
 - Accessibility score 95+ on Lighthouse
+- All transformation triggers functioning correctly
+- Temporal awareness calculation accurate
 
 ### Narrative
 - Readers report discovering new connections on revisit
 - Transformation reveals feel meaningful, not repetitive
 - Story themes resonate in both content and experience
 - Multiple valid interpretations emerge from different reading paths
+- Voice remains consistent within each character across all nodes
+- Cross-character connections emerge naturally through exploration
 
 ## Risk Assessment
 
 ### High Risk
 - **Narrative Complexity Overwhelm**: Too many transformations create confusion 
-  - Mitigation: Extensive user testing, optional reading guides
-- **Content Volume Underestimation**: Three states per node requires significant writing
-  - Mitigation: Start with single complete arc before expanding
-- **Technical Performance with Large Graphs**: 100+ nodes could impact rendering
-  - Mitigation: Virtualization, level-of-detail rendering
+  - Mitigation: Extensive user testing, optional reading guides, clear visual indicators
+- **Content Volume Underestimation**: Three states per node requires significant writing (~300,000 words total)
+  - Mitigation: Layer-by-layer development, testing at each stage, realistic timeline (6 months for content)
+- **Technical Performance with Large Graphs**: 49 nodes with complex state management could impact rendering
+  - Mitigation: Virtualization, level-of-detail rendering, performance budgets, Phase 1 optimization
 
 ### Medium Risk
 - **State Management Bugs**: Lost progress destroys trust
-  - Mitigation: Comprehensive testing, redundant persistence
+  - Mitigation: Comprehensive testing (23 tests passing), redundant persistence, backward-compatible migrations
 - **Mobile Experience Degradation**: Complex visuals may not translate
-  - Mitigation: Responsive design from start, tablet testing priority
+  - Mitigation: Responsive design from start, tablet testing priority, mobile optimization post-launch
 
 ### Low Risk
 - **Browser Compatibility**: Modern web tech may exclude some users
-  - Mitigation: Progressive enhancement, clear system requirements
+  - Mitigation: Progressive enhancement, clear system requirements, support for modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)
 
 ## Contact and Collaboration
 
@@ -171,3 +203,20 @@ This is a solo-authored project with AI assistance (Claude 4.5, Claude Code).
 
 Development will be open-source after launch to inspire other creators in the 
 Narramorph Fiction space.
+
+---
+
+## Related Documentation
+
+For detailed information about specific aspects of the project:
+
+- **[NARRATIVE_OUTLINE.md](NARRATIVE_OUTLINE.md)** - Complete 49-node structure and layer architecture
+- **[NARRATIVE_STRUCTURE.md](NARRATIVE_STRUCTURE.md)** - Story mechanics and transformation philosophy
+- **[CHARACTER_PROFILES.md](CHARACTER_PROFILES.md)** - Character development and voice guidelines
+- **[DATA_SCHEMA.md](DATA_SCHEMA.md)** - TypeScript types and node structure
+- **[TECHNICAL_REQUIREMENTS.md](TECHNICAL_REQUIREMENTS.md)** - Functional and non-functional requirements
+- **[Development State Tracker](Development%20State%20Tracker.md)** - Current status, milestones, and next steps
+
+---
+
+*Last updated: 2025-01-20 following completion of Phase 1 and finalization of 49-node architecture.*
