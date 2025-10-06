@@ -1,6 +1,19 @@
 import '@testing-library/jest-dom';
 import { vi } from 'vitest';
 
+// Mock storage utilities
+vi.mock('@/utils/storage', () => ({
+  saveToStorage: () => true,
+  loadFromStorage: () => null,
+  STORAGE_KEYS: {
+    SAVED_STATE: 'narramorph-saved-state',
+  },
+}));
+
+vi.mock('@/utils/validation', () => ({
+  validateSavedState: () => true,
+}));
+
 // Mock localStorage
 Object.defineProperty(window, 'localStorage', {
   value: {

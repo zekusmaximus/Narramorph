@@ -17,7 +17,12 @@
       "Bash(npx tsc:*)",
       "Bash(npx eslint:*)",
       "Bash(node -e \"console.log(require(''''./src/stores/storyStore.test.ts''''))\")",
-      "Bash(npx vitest run:*)"
+      "Bash(npx vitest run:*)",
+      "Bash(cat:*)",
+      "Bash(npx vitest list:*)",
+      "Bash(npx vitest:*)",
+      "Bash(DEBUG=vite:*)",
+      "Bash(npm outdated:*)"
     ],
     "deny": [],
     "ask": []

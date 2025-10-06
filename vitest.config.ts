@@ -5,10 +5,25 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [react()],
   test: {
-    globals: true,
+    globals: false,
     environment: 'jsdom',
-    setupFiles: './tests/setup.ts',
+    // setupFiles: './tests/setup.ts',
     css: true,
+    // Test file discovery pattern
+    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    // Pool configuration - use threads for better compatibility
+    pool: 'threads',
+    poolOptions: {
+      threads: {
+        singleThread: true,
+      },
+    },
+    // Server configuration
+    server: {
+      deps: {
+        inline: ['zustand'],
+      },
+    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
