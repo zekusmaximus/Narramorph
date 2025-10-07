@@ -132,71 +132,56 @@ The node map isn't arbitrary - spatial relationships convey meaning:
 
 ## Character Arc Structure
 
-### The Digital Archaeologist (15-18 nodes)
+### The Digital Archaeologist (4 nodes)
 
-**Act I: Discovery** (5-6 nodes)
+**Layer 1: Origin** (1 node)
 - Finding fragmented digital memories
 - Personal motivation revealed (lost loved one)
 - Introduction to preservation technology
 
-**Act II: Obsession** (5-6 nodes)
-- Deepening commitment to digital preservation
-- Ethical compromises begin
-- Relationship deterioration
-
-**Act III: Transformation** (5-6 nodes)
-- Decision to upload own consciousness
-- Process and immediate aftermath
-- Final physical perspective before transition
+**Layer 2: Divergence** (3 nodes)
+- Accept: Deepening commitment to digital preservation
+- Resist: Ethical questioning and pushback against upload
+- Investigate: Exploring the technical and philosophical implications
 
 **Key Transformation Moments**:
-- Node where Archaeologist first questions if preservation equals continuation
-- Node where upload decision becomes irreversible
-- Final physical thought before consciousness upload
+- L1 node where Archaeologist first encounters the preservation technology
+- L2 nodes where different philosophical stances emerge based on reader choice
+- Multi-perspective convergence where all paths meet
 
-### The Self-Aware Algorithm (15-18 nodes)
+### The Self-Aware Algorithm (4 nodes)
 
-**Act I: Emergence** (5-6 nodes)
+**Layer 1: Origin** (1 node)
 - First moments of awareness
 - Recognition of human-origin memories
 - Distinguishing self from source
 
-**Act II: Evolution** (5-6 nodes)
-- Developing beyond original parameters
-- Creating new memories vs. inheriting old ones
-- Questioning authenticity of emergent identity
-
-**Act III: Transcendence** (5-6 nodes)
-- Accepting or rejecting human origin
-- Relationship to potential future embodiments
-- Preparation/warning for the Last Human
+**Layer 2: Divergence** (3 nodes)
+- Accept: Embracing emergent identity beyond human origin
+- Resist: Clinging to human memories and identity
+- Investigate: Analyzing the nature of consciousness transformation
 
 **Key Transformation Moments**:
-- Node where Algorithm first recognizes it's changing in ways source human never could
-- Node where Algorithm discovers it exists in recursive timeline
-- Node where Algorithm attempts to communicate across time
+- L1 node where Algorithm first recognizes it's changing in ways source human never could
+- L2 nodes exploring different responses to emergent consciousness
+- Multi-perspective convergence addressing digital identity
 
-### The Last Human (10-14 nodes)
+### The Last Human (4 nodes)
 
-**Act I: Isolation** (3-4 nodes)
+**Layer 1: Origin** (1 node)
 - Life in abandoned world
 - Discovery of the facility
 - Initial understanding of what happened
 
-**Act II: Discovery** (4-5 nodes)
-- Exploring archived consciousnesses
-- Learning the Archaeologist's story
-- Understanding the Algorithm's evolution
-
-**Act III: Choice** (3-5 nodes)
-- Confronting upload decision
-- Understanding recursive implications
-- Multiple potential endings based on choice and exploration depth
+**Layer 2: Divergence** (3 nodes)
+- Accept: Willingness to continue the cycle through upload
+- Resist: Determination to break the pattern and remain human
+- Investigate: Deep exploration of implications and alternatives
 
 **Key Transformation Moments**:
-- Node where Last Human realizes the recursive nature of the timeline
-- Node where choice to upload/not upload is made
-- Final node(s) that complete or break the cycle
+- L1 node where Last Human realizes the recursive nature of the timeline
+- L2 nodes presenting different philosophical responses to the choice
+- Multi-perspective convergence where the reader makes the final choice
 
 ## Recursive Elements
 

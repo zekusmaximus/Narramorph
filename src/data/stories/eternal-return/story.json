@@ -18,15 +18,15 @@
     "saveProgress": true
   },
   "structure": {
-    "totalNodes": 5,
-    "totalConnections": 4,
-    "narrativeActs": 2,
-    "criticalPathNodes": ["archaeologist-001", "algorithm-001", "human-001"],
-    "endingNodes": ["human-001"],
+    "totalNodes": 12,
+    "totalConnections": 18,
+    "narrativeActs": 3,
+    "criticalPathNodes": ["arch-L1", "algo-L1", "hum-L1", "L3-preserve", "L3-release", "L3-transform", "final-reveal"],
+    "endingNodes": ["L3-preserve", "L3-release", "L3-transform", "final-reveal"],
     "characterDistribution": {
-      "archaeologist": 2,
-      "algorithm": 2,
-      "human": 1
+      "archaeologist": 4,
+      "algorithm": 4,
+      "lastHuman": 4
     }
   },
   "themes": {

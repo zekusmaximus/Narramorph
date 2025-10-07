@@ -4,6 +4,15 @@
 export type CharacterType = 'archaeologist' | 'algorithm' | 'last-human' | 'multi-perspective';
 
 /**
+ * Node layer (1-4)
+ * Layer 1: 3 origin nodes (reader entry points)
+ * Layer 2: 9 divergence nodes (3 per character: accept/resist/investigate)
+ * Layer 3: 3 convergence nodes (multi-perspective terminal choices: preserve/release/transform)
+ * Layer 4: 1 final reveal (personalized assembly, terminal, PDF export)
+ */
+export type NodeLayer = 1 | 2 | 3 | 4;
+
+/**
  * Transformation states for node content
  */
 export type TransformationState = 'initial' | 'firstRevisit' | 'metaAware';

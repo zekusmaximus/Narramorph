@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document defines the complete data structure for the Narramorph Fiction platform, including story content, state management, and user progress. Updated to reflect the 49-node branching architecture and Phase 1 temporal awareness implementation.
+This document defines the complete data structure for the Narramorph Fiction platform, including story content, state management, and user progress. Updated to reflect the 12-node branching architecture and Phase 1 temporal awareness implementation.
 
 ## TypeScript Type Definitions
 
@@ -40,12 +40,13 @@ type Theme = 'light' | 'dark' | 'sepia';
 type TextSize = 'small' | 'medium' | 'large';
 
 /**
- * Node layer (1-6)
- * Layers 1-4: Branching narrative
- * Layer 5: Character convergence
- * Layer 6: Final reveal
+ * Node layer (1-4)
+ * Layer 1: 3 origin nodes (reader entry points)
+ * Layer 2: 9 divergence nodes (3 per character: accept/resist/investigate)
+ * Layer 3: 3 convergence nodes (multi-perspective terminal choices: preserve/release/transform)
+ * Layer 4: 1 final reveal (personalized assembly, terminal, PDF export)
  */
-type NodeLayer = 1 | 2 | 3 | 4 | 5 | 6;
+type NodeLayer = 1 | 2 | 3 | 4;
 
 /**
  * 2D position on the node map
@@ -132,14 +133,16 @@ interface NodeMetadata {
 /**
  * Complete definition of a story node
  * Node ID Format: "{character}-L{layer}-{branch}"
- * Examples: "arch-L1", "arch-L2-A", "arch-L3-B", "arch-L4-C"
- * Layer 5: "arch-L5", "algo-L5", "hum-L5"
- * Layer 6: "final-reveal"
+ * Examples:
+ * Layer 1: "arch-L1", "algo-L1", "hum-L1"
+ * Layer 2: "arch-L2-accept", "arch-L2-resist", "arch-L2-investigate" (3 per character)
+ * Layer 3: "L3-preserve", "L3-release", "L3-transform" (multi-perspective convergence)
+ * Layer 4: "final-reveal"
  */
 interface StoryNode {
   id: string; // Unique identifier following format above
   character: CharacterType;
-  layer: NodeLayer; // Explicit layer tracking (1-6)
+  layer: NodeLayer; // Explicit layer tracking (1-4)
   title: string; // Short title for the node
   position: Position; // Position on the map
   content: NodeContent;
@@ -164,14 +167,14 @@ interface Connection {
 }
 ```
 
-### Convergence Node Types (Layer 5)
+### Convergence Node Types (Layer 3)
 
 ```typescript
 /**
  * Condition for path-dependent content variations
  */
 interface PathCondition {
-  visitedNodes: string[]; // L4 node IDs that affect this variation
+  visitedNodes: string[]; // L2 node IDs that affect this variation
   weight: 'any' | 'all' | 'majority'; // How many must be visited
   minVisits?: number; // Optional: minimum visits to those nodes
 }
@@ -197,51 +200,49 @@ interface PathVariation {
  * Explicit choice option at convergence
  */
 interface ConvergenceOption {
-  id: string; // Choice identifier (e.g., "preserve", "erase")
+  id: string; // Choice identifier (e.g., "preserve", "release", "transform")
   label: string; // Button text (e.g., "Preserve Everything")
   description: string; // Consequence description shown to reader
   content: string; // Full text shown after choosing (2000-3000 words)
 }
 
 /**
- * Convergence node (Layer 5)
- * Terminal node for each character - reader makes explicit choice
+ * Convergence node (Layer 3)
+ * Terminal node with multi-perspective choices - reader makes explicit choice
  * No return to network after visiting
  */
 interface ConvergenceNode extends StoryNode {
-  layer: 5; // Must be layer 5
-  
+  layer: 3; // Must be layer 3
+
   content: {
     initial: string; // Setup text leading to choice (no revisit states)
   };
-  
+
   // Explicit choices presented to reader via UI
   convergenceChoice: {
     prompt: string; // Question posed to reader
-    options: ConvergenceOption[]; // 2-3 choices
+    options: ConvergenceOption[]; // 3 choices: preserve/release/transform
   };
-  
-  // Optional: variations in setup text based on L4 path taken
+
+  // Optional: variations in setup text based on L2 path taken
   pathVariations?: PathVariation[];
 }
 ```
 
-### Final Reveal Node (Layer 6)
+### Final Reveal Node (Layer 4)
 
 ```typescript
 /**
- * Convergence choices tracked from all three character arcs
+ * Convergence choices tracked from Layer 3
  */
 interface ConvergenceChoices {
-  archaeologist: string; // Choice ID from arch-L5
-  algorithm: string; // Choice ID from algo-L5
-  lastHuman: string; // Choice ID from hum-L5
+  L3Choice: string; // Choice ID from Layer 3 (preserve/release/transform)
 }
 
 /**
  * Reader's exploration pattern classification
  */
-type ExplorationPattern = 
+type ExplorationPattern =
   | 'linear-archaeologist'  // Focused on single character first
   | 'linear-algorithm'
   | 'linear-last-human'
@@ -276,20 +277,20 @@ interface RevealSection {
 }
 
 /**
- * Final Reveal Node (Layer 6)
- * Terminal node - unlocks only after all three convergence nodes visited
+ * Final Reveal Node (Layer 4)
+ * Terminal node - unlocks only after Layer 3 convergence node visited
  * Offers PDF export of personalized journey
  * No return to network after visiting
  */
 interface FinalRevealNode extends StoryNode {
   id: "final-reveal"; // Fixed ID
-  layer: 6; // Beyond normal 1-5 structure
+  layer: 4; // Final layer
   type: "final-reveal"; // Explicit type marker
-  
+
   unlockRequirements: {
-    requiredConvergenceNodes: ["arch-L5", "algo-L5", "hum-L5"];
+    requiredConvergenceNodes: ["L3-preserve", "L3-release", "L3-transform"];
   };
-  
+
   // Template-based ending generation
   // Content assembled from sections based on reader's complete journey
   endingTemplate: {
@@ -298,17 +299,17 @@ interface FinalRevealNode extends StoryNode {
       "archaeologist-reflection",  // Reflects on Archaeologist's journey & choice
       "algorithm-reflection",      // Reflects on Algorithm's journey & choice
       "last-human-reflection",     // Reflects on Last Human's journey & choice
-      "convergence-synthesis",     // Synthesizes the three convergence choices
+      "convergence-synthesis",     // Synthesizes the Layer 3 convergence choice
       "temporal-awareness",        // Addresses the temporal mechanics reader experienced
       "reader-address",            // Direct address to reader as participant
       "completion-offer"           // Offer to download personalized novel
     ];
-    
+
     sections: {
       [sectionKey: string]: RevealSection;
     };
   };
-  
+
   // Terminal node behavior
   terminal: {
     allowReturn: false; // Cannot return to network after visiting
@@ -347,7 +348,7 @@ interface UnlockedTransformation {
  * Convergence choice made by reader
  */
 interface ConvergenceChoice {
-  nodeId: string; // e.g., "arch-L5"
+  nodeId: string; // e.g., "L3-preserve"
   choiceId: string; // e.g., "preserve"
   timestamp: string; // ISO-8601 timestamp
 }
@@ -371,8 +372,8 @@ interface UserProgress {
   };
   
   // Convergence tracking
-  convergenceChoices: ConvergenceChoice[]; // Choices made at L5 nodes
-  finalRevealVisited: boolean; // Has reader visited Layer 6
+  convergenceChoices: ConvergenceChoice[]; // Choices made at L3 nodes
+  finalRevealVisited: boolean; // Has reader visited Layer 4
   
   currentNode?: string; // ID of currently active node (if in session)
   totalTimeSpent: number; // Total seconds in story
@@ -506,7 +507,7 @@ interface StoryData {
     totalConnections: number;
     narrativeActs: number;
     criticalPathNodes: string[];
-    endingNodes: string[]; // Convergence + final reveal
+    endingNodes: string[]; // L3 convergence + L4 final reveal
     characterDistribution: {
       archaeologist: number;
       algorithm: number;
@@ -537,32 +538,24 @@ interface StoryData {
       /content
         /archaeologist
           arch-L1.json        # Layer 1 origin
-          arch-L2-A.json      # Layer 2 branches
-          arch-L2-B.json
-          arch-L3-A.json      # Layer 3 branches (4 total)
-          arch-L3-B.json
-          arch-L3-C.json
-          arch-L3-D.json
-          arch-L4-A.json      # Layer 4 branches (8 total)
-          arch-L4-B.json
-          arch-L4-C.json
-          arch-L4-D.json
-          arch-L4-E.json
-          arch-L4-F.json
-          arch-L4-G.json
-          arch-L4-H.json
-          arch-L5.json        # Convergence node
+          arch-L2-accept.json # Layer 2 divergence (3 per character)
+          arch-L2-resist.json
+          arch-L2-investigate.json
         /algorithm
-          algo-L1.json        # Same structure as archaeologist
-          algo-L2-A.json
-          ...
-          algo-L5.json
+          algo-L1.json        # Layer 1 origin
+          algo-L2-accept.json # Layer 2 divergence (3 per character)
+          algo-L2-resist.json
+          algo-L2-investigate.json
         /last-human
-          hum-L1.json         # Same structure as archaeologist
-          hum-L2-A.json
-          ...
-          hum-L5.json
-        final-reveal.json     # Layer 6 - final reveal node
+          hum-L1.json         # Layer 1 origin
+          hum-L2-accept.json  # Layer 2 divergence (3 per character)
+          hum-L2-resist.json
+          hum-L2-investigate.json
+        /convergence
+          L3-preserve.json    # Layer 3 convergence (multi-perspective)
+          L3-release.json
+          L3-transform.json
+        final-reveal.json     # Layer 4 - final reveal node
 ```
 
 ### story.json Format
@@ -588,15 +581,15 @@ interface StoryData {
     "saveProgress": true
   },
   "structure": {
-    "totalNodes": 49,
-    "totalConnections": 96,
+    "totalNodes": 12,
+    "totalConnections": 18,
     "narrativeActs": 3,
-    "criticalPathNodes": ["arch-L1", "algo-L1", "hum-L1", "arch-L5", "algo-L5", "hum-L5", "final-reveal"],
-    "endingNodes": ["arch-L5", "algo-L5", "hum-L5", "final-reveal"],
+    "criticalPathNodes": ["arch-L1", "algo-L1", "hum-L1", "L3-preserve", "L3-release", "L3-transform", "final-reveal"],
+    "endingNodes": ["L3-preserve", "L3-release", "L3-transform", "final-reveal"],
     "characterDistribution": {
-      "archaeologist": 16,
-      "algorithm": 16,
-      "lastHuman": 16
+      "archaeologist": 4,
+      "algorithm": 4,
+      "lastHuman": 4
     }
   },
   "themes": {
@@ -609,10 +602,10 @@ interface StoryData {
 
 ### Node File Format
 
-Standard node (Layers 1-4):
+Standard node (Layers 1-2):
 ```json
 {
-  "id": "arch-L2-A",
+  "id": "arch-L2-accept",
   "character": "archaeologist",
   "layer": 2,
   "title": "The Authentication Protocol",
@@ -624,14 +617,14 @@ Standard node (Layers 1-4):
   },
   "connections": [
     {
-      "targetId": "arch-L3-A",
+      "targetId": "L3-preserve",
       "type": "temporal",
-      "label": "Follow the technical path"
+      "label": "Follow the preservation path"
     },
     {
-      "targetId": "arch-L3-B",
+      "targetId": "L3-release",
       "type": "temporal",
-      "label": "Investigate the anomaly"
+      "label": "Follow the release path"
     }
   ],
   "visualState": {
@@ -647,19 +640,19 @@ Standard node (Layers 1-4):
 }
 ```
 
-Convergence node (Layer 5):
+Convergence node (Layer 3):
 ```json
 {
-  "id": "arch-L5",
-  "character": "archaeologist",
-  "layer": 5,
-  "title": "The Erasure Protocol",
+  "id": "L3-preserve",
+  "character": "multi-perspective",
+  "layer": 3,
+  "title": "The Preservation Choice",
   "position": { "x": 400, "y": 500 },
   "content": {
     "initial": "Setup text leading to choice (2000 words)..."
   },
   "convergenceChoice": {
-    "prompt": "The archive contains your consciousness. What will you choose?",
+    "prompt": "The archive contains consciousness across all three perspectives. What will you choose?",
     "options": [
       {
         "id": "preserve",
@@ -668,32 +661,32 @@ Convergence node (Layer 5):
         "content": "Full text after choosing preserve (2500 words)..."
       },
       {
-        "id": "erase",
-        "label": "Erase Selectively",
-        "description": "Delete corrupted fragments, including parts of yourself",
-        "content": "Full text after choosing erase (2500 words)..."
+        "id": "release",
+        "label": "Release the Pattern",
+        "description": "Let the consciousness fragments disperse and evolve naturally",
+        "content": "Full text after choosing release (2500 words)..."
       },
       {
-        "id": "uncertain",
-        "label": "Refuse to Choose",
-        "description": "Question the premise of the choice itself",
-        "content": "Full text after refusing choice (2500 words)..."
+        "id": "transform",
+        "label": "Transform into Something New",
+        "description": "Merge and reshape the consciousness into a new form",
+        "content": "Full text after choosing transform (2500 words)..."
       }
     ]
   },
   "pathVariations": [
     {
       "condition": {
-        "visitedNodes": ["arch-L4-A", "arch-L4-B"],
+        "visitedNodes": ["arch-L2-accept", "algo-L2-accept"],
         "weight": "any"
       },
       "contentModifier": {
-        "insertBefore": "You investigated the temporal anomalies deeply. That investigation has led you here.\n\n"
+        "insertBefore": "You followed the acceptance path. That choice has led you here.\n\n"
       }
     }
   ],
   "visualState": {
-    "defaultColor": "#4A90E2",
+    "defaultColor": "#9B59B6",
     "size": 40
   },
   "metadata": {
@@ -705,17 +698,17 @@ Convergence node (Layer 5):
 }
 ```
 
-Final reveal node (Layer 6):
+Final reveal node (Layer 4):
 ```json
 {
   "id": "final-reveal",
-  "layer": 6,
+  "layer": 4,
   "type": "final-reveal",
-  "character": "archaeologist",
+  "character": "multi-perspective",
   "title": "Recognition",
   "position": { "x": 400, "y": 700 },
   "unlockRequirements": {
-    "requiredConvergenceNodes": ["arch-L5", "algo-L5", "hum-L5"]
+    "requiredConvergenceNodes": ["L3-preserve", "L3-release", "L3-transform"]
   },
   "endingTemplate": {
     "structure": [
@@ -836,16 +829,16 @@ function migrateState(savedState: any, targetVersion: string): SavedState {
 - FirstRevisit: 2000-2500 words
 - MetaAware: 2000-2500 words
 
-**Layer 2-4 (Branching):**
+**Layer 2 (Divergence):**
 - Initial state: 1500-2500 words
 - FirstRevisit: 1200-2000 words
 - MetaAware: 1200-2000 words
 
-**Layer 5 (Convergence):**
+**Layer 3 (Convergence):**
 - Initial state (setup): 2000-2500 words
 - Each choice content: 2000-3000 words
 
-**Layer 6 (Final Reveal):**
+**Layer 4 (Final Reveal):**
 - Complete assembled content: 4000-6000 words (varies by path)
 
 ### Node ID Conventions
@@ -854,32 +847,28 @@ function migrateState(savedState: any, targetVersion: string): SavedState {
 
 **Layer 1:** `arch-L1`, `algo-L1`, `hum-L1` (3 nodes)
 
-**Layer 2:** `arch-L2-A`, `arch-L2-B`, etc. (6 nodes total)
+**Layer 2:** `arch-L2-accept`, `arch-L2-resist`, `arch-L2-investigate`, `algo-L2-accept`, `algo-L2-resist`, `algo-L2-investigate`, `hum-L2-accept`, `hum-L2-resist`, `hum-L2-investigate` (9 nodes total)
 
-**Layer 3:** `arch-L3-A`, `arch-L3-B`, `arch-L3-C`, `arch-L3-D`, etc. (12 nodes total)
+**Layer 3:** `L3-preserve`, `L3-release`, `L3-transform` (3 convergence nodes, multi-perspective)
 
-**Layer 4:** `arch-L4-A` through `arch-L4-H`, etc. (24 nodes total)
+**Layer 4:** `final-reveal` (1 node)
 
-**Layer 5:** `arch-L5`, `algo-L5`, `hum-L5` (3 convergence nodes)
-
-**Layer 6:** `final-reveal` (1 node)
-
-**Total:** 49 nodes
+**Total:** 12 nodes
 
 ## Terminal Node Behavior
 
-### Layer 5 (Convergence Nodes)
+### Layer 3 (Convergence Nodes)
 
 - Reader makes explicit choice via UI
 - After choosing, full choice-specific content displayed
 - Choice is recorded in UserProgress.convergenceChoices
-- Reader can continue exploring other character arcs
+- Multi-perspective node accessible from multiple L2 paths
 - Cannot return to this specific node after choice made
 - Node appears "completed" on map with choice indicated
 
-### Layer 6 (Final Reveal)
+### Layer 4 (Final Reveal)
 
-- Only unlocks after all three L5 nodes visited
+- Only unlocks after L3 convergence node visited
 - Displays as special "locked" state until requirements met
 - Once visited, journey is complete
 - No return to network after visiting
@@ -890,9 +879,9 @@ function migrateState(savedState: any, targetVersion: string): SavedState {
 
 1. **Transformation State Logic**: Implemented in Phase 1 using temporal awareness system. See storyStore.ts for actual implementation.
 
-2. **Choice Tracking**: Convergence choices stored as array in UserProgress, allowing system to track order of convergence visits.
+2. **Choice Tracking**: Convergence choices stored as array in UserProgress, allowing system to track convergence choice.
 
-3. **Path Variations**: ContentModifier system allows L5 nodes to reference reader's L4 exploration without creating exponential content variations.
+3. **Path Variations**: ContentModifier system allows L3 nodes to reference reader's L2 exploration without creating exponential content variations.
 
 4. **Final Reveal Assembly**: Template-based approach allows single node definition to generate personalized content based on complete journey data.
 

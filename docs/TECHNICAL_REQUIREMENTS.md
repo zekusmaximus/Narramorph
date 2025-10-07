@@ -13,7 +13,7 @@ The platform consists of three primary layers:
 ### FR1: Node Map Visualization
 
 **FR1.1 - Interactive Node Display**
-- Display 40-50 nodes simultaneously without performance degradation
+- Display 12+ nodes simultaneously without performance degradation
 - Each node rendered as clickable circle/shape with unique identifier
 - Node visual properties (color, size, opacity) reflect current state
 - Smooth pan and zoom controls (mouse drag, scroll wheel, pinch gestures)
@@ -194,7 +194,7 @@ The platform consists of three primary layers:
 - CPU usage during idle: Minimal (no continuous animations)
 
 **Scalability**
-- Support up to 100 nodes without performance degradation
+- Support up to 100 nodes without performance degradation (future stories)
 - Handle 1000+ state save/load operations
 - Graceful degradation with larger graphs (level of detail rendering)
 
@@ -507,7 +507,7 @@ Accessibility keyboard navigation
 
 Performance Tests
 
-Large graph rendering (100 nodes)
+Large graph rendering (100+ nodes for future stories)
 Rapid navigation between nodes
 Memory leak detection
 Bundle size monitoring
