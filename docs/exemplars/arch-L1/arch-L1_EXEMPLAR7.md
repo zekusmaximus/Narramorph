@@ -1,13 +1,33 @@
-Exemplar #7: After Multiple Resistance Path Nodes (arch-L1 firstRevisit)
-Condition: Second visit, awareness 30-60%, reader has explored multiple "resist" path nodes (arch-L2-resist, algo-L2-resist, hum-L2-resist)—seeking boundaries, demanding proof, testing limits.
-What this variation captures:
+exemplar_id: arch-L1-exemplar-07
+variation_type: firstRevisit
+word_count: 1513
+conditions:
+  visit_count: 2
+  awareness: 30-60%
+  cross_character: true
+  visited_nodes: [arch-L2-resist, algo-L2-resist, hum-L2-resist]
+  dominant_path: resist
+themes:
+  - Verification paradox intensified
+  - Proof impossibility
+  - Boundary dissolution under scrutiny
+  - Testing limits reveals limitlessness
+transformation_focus: "Resistance path culmination. Seventeen verification tests all fail to prove consciousness. The harder she demands proof, the less provable anything becomes. Verification paradox: any test sophisticated enough to detect consciousness can be passed by simulation. Impossibility accepted, work continues anyway."
+conditional_insertions:
+  - "Seventeen failed verification tests (400-500 words)"
+  - "Professional crisis - job is impossible"
+  - "Certification despite unprovability"
+reusable_patterns:
+  - "Test after test reveals inadequacy of testing"
+  - "Resistance creates impossibility recognition"
+  - "Professional duty continues despite philosophical impossibility"
+---
 
-Verification paradox intensified: The more she demands proof, the less provable consciousness becomes
-Boundaries dissolving under scrutiny: Resistance reveals there are no clean boundaries
-Professional crisis: Her methodology fundamentally inadequate
-The harder she looks, the less she sees: Heisenberg uncertainty for consciousness
-Resistance as revelation: Fighting impossibility reveals why it's impossible
+# Exemplar #7: After Multiple Resistance Path Nodes
 
+**Condition:** Second visit, awareness 30-60%, explored resist path
+
+---
 
 The archaeologist returns to Fragment 2749-A demanding proof.
 Not certification. Not professional judgment. Not acceptable parameters within margin of error. Proof. Definitive. Absolute. Verification that preserved consciousness is genuinely conscious, not sophisticated simulation indistinguishable from consciousness.

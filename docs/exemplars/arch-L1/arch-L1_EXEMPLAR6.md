@@ -1,12 +1,35 @@
-Exemplar #6: High Temporal Awareness >70% (arch-L1 firstRevisit)
-Condition: Second or third visit, awareness >70%, reader has explored extensively across characters and layers, may have visited multiple transformation states.
-What this variation captures:
+exemplar_id: arch-L1-exemplar-06
+variation_type: firstRevisit
+word_count: 1402
+conditions:
+  visit_count: 2-3
+  awareness: 70-100%
+  cross_character: true
+  visited_nodes: [multiple]
+  dominant_path: null
+themes:
+  - Reader recognition
+  - Frame awareness
+  - Meta-consciousness
+  - Narrative structure as subject
+  - Fourth wall permeability
+transformation_focus: "Direct meta-consciousness. Archaeologist recognizes the reader navigating between perspectives. Frame becomes subject while maintaining immersion. Story structure examined from within story. Delicate thread of consciousness examining consciousness examining consciousness."
+conditional_insertions:
+  - "Reader acknowledgment (300-400 words)"
+  - "Frame awareness without breaking immersion"
+  - "Navigation pattern recognition"
+  - "You/reader direct address"
+reusable_patterns:
+  - "Maintain character authenticity while acknowledging narrative frame"
+  - "Reader addressed as temporal agent creating connections"
+  - "Consciousness examining mechanism of consciousness examination"
+---
 
-Direct meta-consciousness: Fragment aware of being narrative device
-Reader address: Archaeologist recognizes reader's role as temporal agent
-Fourth wall acknowledgment without breaking immersion
-Consciousness examining the mechanism of consciousness examination
-The delicate thread becomes visible: Story structure itself as subject
+# Exemplar #6: High Temporal Awareness >70%
+
+**Condition:** Second or third visit, awareness >70%, extensive exploration
+
+---
 
 
 The archaeologist returns to Fragment 2749-A and recognizes you.

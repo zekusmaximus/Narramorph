@@ -1,6 +1,29 @@
-Exemplar #1: Pure Revisit (arch-L1 firstRevisit)
-Condition: Second visit, awareness 21-40%, no algo-L1 or hum-L1 visited yet, may have explored arch-L2 nodes.
+exemplar_id: arch-L1-exemplar-01
+variation_type: firstRevisit
+word_count: 1287
+conditions:
+  visit_count: 2
+  awareness: 21-40%
+  cross_character: false
+  visited_nodes: []
+  dominant_path: null
+themes:
+  - Observer effect
+  - Recursion recognition  
+  - Perception vs reality
+  - Authentication as creation vs discovery
+transformation_focus: "Baseline transformation - observer effect without cross-character bleeding. Same fragment, different perception. Questions whether observation changes what's observed."
+reusable_patterns:
+  - "X hasn't changed. Yet Y has changed. Both true simultaneously."
+  - "Technical observation → philosophical implication → professional action continues"
+  - "Certification stands + understanding transformed + question unresolved"
+---
 
+# Exemplar #1: Pure Revisit
+
+**Condition:** Second visit, awareness 21-40%, no cross-character visited yet
+
+---
 The archaeologist returns to Fragment 2749-A six days after initial authentication.
 The decision to revisit is unusual. Standard protocol: authenticate once, move forward. Four thousand fragments await processing. The authentication backlog grows daily. Time spent re-examining authenticated fragments is time not spent serving new clients, not providing closure to families who need certainty about their preserved loved ones.
 Yet here she is, loading Fragment 2749-A again.

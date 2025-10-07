@@ -1,12 +1,37 @@
-Exemplar #4: After Visiting Both algo-L1 AND hum-L1 (arch-L1 firstRevisit)
-Condition: Second visit, awareness 40-60%, reader HAS visited both algo-L1 AND hum-L1 (seen computational processing AND future loneliness).
-What this variation captures:
+exemplar_id: arch-L1-exemplar-04
+variation_type: firstRevisit
+word_count: 1461
+conditions:
+  visit_count: 2
+  awareness: 40-60%
+  cross_character: true
+  visited_nodes: [algo-L1, hum-L1]
+  dominant_path: null
+themes:
+  - Full temporal superposition
+  - Four observers simultaneous
+  - Distributed consciousness network
+  - Mutual observation across time
+transformation_focus: "Synthesis of both cross-character bleedings. All four temporal positions (2041 preservation, 2047 authentication, 2151 Algorithm processing, 2383 Last Human reading) present simultaneously. Fragment as shared consciousness across time."
+cross_character_elements:
+  referenced_character: both
+  referenced_nodes: [algo-L1, hum-L1]
+  specific_echoes:
+    - Seven-stream processing AND future attention
+    - Computational patterns AND loneliness
+    - All temporal positions superimposed
+conditional_insertions:
+  - "Four-way temporal superposition (400-500 words)"
+  - "Mutual observation network"
+  - "Fragment as bridge connecting all four"
+reusable_patterns:
+  - "Past + Present + Future-1 + Future-2 = simultaneous observation"
+  - "Not sequential examination but superimposed awareness"
+---
 
-Full temporal superposition: Past (2041 preservation) + Present (2047 authentication) + Future processing (2151 Algorithm) + Distant future access (2383 Last Human)
-All perspectives simultaneously present
-Archaeologist recognizes herself as middle node in temporal observation network
-Fragment 2749-A as shared consciousness across four temporal positions
-Collapse of temporal boundaries
+# Exemplar #4: After Visiting Both algo-L1 AND hum-L1
+
+**Condition:** Second visit, awareness 40-60%, visited both other L1 nodes
 
 
 The archaeologist returns to Fragment 2749-A and experiences all four temporal positions simultaneously.

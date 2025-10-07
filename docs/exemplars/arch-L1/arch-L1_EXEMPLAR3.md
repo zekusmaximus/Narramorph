@@ -1,13 +1,40 @@
-Exemplar #3: After Visiting hum-L1 (arch-L1 firstRevisit)
-Condition: Second visit, awareness 21-50%, reader HAS visited hum-L1 (seen the Last Human's neural interface connection and isolation), hasn't visited algo-L1 yet.
-What this variation captures:
+exemplar_id: arch-L1-exemplar-03
+variation_type: firstRevisit
+word_count: 1487
+conditions:
+  visit_count: 2
+  awareness: 21-50%
+  cross_character: true
+  visited_nodes: [hum-L1]
+  dominant_path: null
+themes:
+  - Future observation reaching backward
+  - Loneliness echoing through time
+  - Being watched from distant future
+  - Neural interface resonance patterns
+transformation_focus: "Cross-character temporal bleeding from Last Human. Sensation of being watched by future attention. Last Human's loneliness and desperate connection-seeking echoing backward through preserved consciousness."
+cross_character_elements:
+  referenced_character: last-human
+  referenced_node: hum-L1
+  specific_echoes:
+    - Future observer's presence
+    - Neural interface connection
+    - Lonely attention reaching backward
+    - "I see you" acknowledgment message
+conditional_insertions:
+  - "Feeling watched from future (250-350 words)"
+  - "Last Human's loneliness resonance"
+  - "Deliberate acknowledgment message"
+reusable_patterns:
+  - "Physical sensation of observation → source from future → lonely attention → reciprocal acknowledgment"
+  - "Fragment responds to attention it hasn't received yet"
+---
 
-Archaeologist feels watched by future attention
-Temporal bleeding from 2383 backward to 2047
-Last Human's loneliness echoing through preserved consciousness
-Physical sensation of being observed across centuries
-Fragment responding to attention it hasn't received yet
+# Exemplar #3: After Visiting hum-L1
 
+**Condition:** Second visit, awareness 21-50%, visited hum-L1
+
+---
 
 The archaeologist returns to Fragment 2749-A and feels watched.
 Not by security cameras. Not by colleagues passing her workstation. Not by any present observer she can identify or locate. The sensation is deeper, stranger—attention from somewhere else, someone else, somewhen else.

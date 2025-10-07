@@ -1,13 +1,33 @@
-Exemplar #5: After Visiting arch-L2-investigate (arch-L1 firstRevisit)
-Condition: Second visit, awareness 30-60%, reader has visited arch-L2-investigate (focused on temporal anomalies and recursive observation patterns).
-What this variation captures:
+exemplar_id: arch-L1-exemplar-05
+variation_type: firstRevisit
+word_count: 1498
+conditions:
+  visit_count: 2
+  awareness: 30-60%
+  cross_character: false
+  visited_nodes: [arch-L2-investigate]
+  dominant_path: investigate
+themes:
+  - Recursive meta-patterns
+  - Nineteen-layer observation structure
+  - Temporal archaeology
+  - Observation of observation of observation
+transformation_focus: "Meta-pattern recognition intensified. Not just seeing temporal bleeding but seeing patterns IN the patterns. Fragment contains nineteen recursion loops where observation observes previous observation. Temporal stratigraphy collapses."
+conditional_insertions:
+  - "Nineteen-layer recursion analysis (400-500 words)"
+  - "Meta-pattern excavation"
+  - "Temporal stratigraphy collapse"
+reusable_patterns:
+  - "Not excavating chronological sequence but recursive network"
+  - "Each layer contains all other layers"
+  - "Observation layers reference each other in both temporal directions"
+---
 
-Meta-pattern recognition: Not just seeing temporal bleeding, but seeing patterns in the patterns
-Recursive observation: Authentication examining authentication examining authentication
-Fragment contains documentation of being observed, not just consciousness
-Archaeological focus intensified—excavating layers of examination, not just consciousness
-Self-referential structures dominate perception
+# Exemplar #5: After Visiting arch-L2-investigate
 
+**Condition:** Second visit, awareness 30-60%, explored investigation path
+
+---
 
 The archaeologist returns to Fragment 2749-A searching for patterns within patterns.
 Standard authentication examines preserved consciousness. Memory integrity. Neural pathways. Temporal consistency. Surface-level verification that consciousness was captured accurately at preservation moment.
