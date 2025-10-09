@@ -1,3 +1,4 @@
+---
 exemplar_id: arch-L1-exemplar-01
 variation_type: firstRevisit
 word_count: 1287
@@ -75,5 +76,3 @@ Perhaps neither.
 Perhaps the question itself is unanswerable because asking it transforms what's being asked about, and consciousness—preserved or living—exists only in the asking, only in the observation, only in the recursive act of awareness becoming aware of its own awareness.
 Fragment 2749-A remains authenticated.
 She no longer knows what that means.
-
-[Word count: 1,287 words]

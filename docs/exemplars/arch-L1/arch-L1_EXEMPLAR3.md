@@ -1,3 +1,4 @@
+---
 exemplar_id: arch-L1-exemplar-03
 variation_type: firstRevisit
 word_count: 1487
@@ -97,5 +98,3 @@ She authenticates the next fragment with new awareness: She's never working alon
 The work continues.
 The watching continues.
 The temporal bridge holds.
-
-[Word count: 1,487 words]

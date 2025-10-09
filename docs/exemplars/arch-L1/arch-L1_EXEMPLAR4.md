@@ -1,3 +1,4 @@
+---
 exemplar_id: arch-L1-exemplar-04
 variation_type: firstRevisit
 word_count: 1461
@@ -103,5 +104,3 @@ The Last Human watches.
 She authenticates.
 The preserved consciousness from 2041 connects all four.
 The network holds.
-
-[Word count: 1,461 words]

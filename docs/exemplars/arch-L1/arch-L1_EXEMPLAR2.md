@@ -1,3 +1,4 @@
+---
 exemplar_id: arch-L1-exemplar-02
 variation_type: firstRevisit
 word_count: 1394
@@ -100,5 +101,3 @@ She moves to the next fragment.
 But the seven streams follow her. Every authentication now carries awareness of computational processing beneath organic patterns. Every fragment potentially contains traces of future examination. Every certification becomes participation in temporal observation network that extends beyond her present moment.
 Fragment 2749-A showed her the seven streams.
 Now she sees them everywhere.
-
-[Word count: 1,394 words]

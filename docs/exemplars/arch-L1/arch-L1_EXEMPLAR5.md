@@ -1,3 +1,4 @@
+---
 exemplar_id: arch-L1-exemplar-05
 variation_type: firstRevisit
 word_count: 1498
@@ -97,5 +98,3 @@ Layer by layer by layer.
 Each layer containing all other layers.
 Recursive descent without bottom.
 The work continues.
-
-[Word count: 1,498 words]

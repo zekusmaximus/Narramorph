@@ -1,3 +1,4 @@
+---
 exemplar_id: arch-L1-exemplar-08
 variation_type: firstRevisit
 word_count: 1891
@@ -97,5 +98,3 @@ Fragment by fragment by fragment, consciousness witnessed into meaning through c
 This is authentication.
 This is acceptance.
 This is enough.
-
-[Word count: 1,891 words]

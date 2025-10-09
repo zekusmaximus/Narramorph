@@ -1,3 +1,4 @@
+---
 exemplar_id: arch-L1-exemplar-06
 variation_type: firstRevisit
 word_count: 1402
