@@ -89,12 +89,14 @@ experience that mirrors the philosophical questions at its heart.
 
 ### Launch Version (MVP)
 - Single complete story: "Eternal Return of the Digital Self"
-- Three character perspectives across 12 nodes in 4 layers:
+- Three character perspectives across 49 nodes in 6 layers:
   - Layer 1: 3 origin nodes (reader entry points)
-  - Layer 2: 9 divergence nodes (3 per character: accept/resist/investigate)
-  - Layer 3: 3 convergence nodes (multi-perspective terminal choices: preserve/release/transform)
-  - Layer 4: 1 final reveal (personalized assembly, terminal, PDF export)
-- Three transformation states per node for L1-L2 (36 initial states + ~570 variations)
+  - Layer 2: 6 nodes (first branch)
+  - Layer 3: 12 nodes (second branch)
+  - Layer 4: 24 nodes (third branch)
+  - Layer 5: 3 convergence nodes (explicit choices, terminal)
+  - Layer 6: 1 final reveal node (terminal, PDF export)
+- Three transformation states per node (147 total content pieces)
 - Interactive node map with temporal awareness system
 - Local storage for session persistence with backward-compatible migration
 - Responsive design (desktop and tablet)
@@ -182,7 +184,7 @@ See [Development State Tracker](Development%20State%20Tracker.md) for detailed m
   - Mitigation: Extensive user testing, optional reading guides, clear visual indicators
 - **Content Volume Underestimation**: Three states per node requires significant writing (~300,000 words total)
   - Mitigation: Layer-by-layer development, testing at each stage, realistic timeline (6 months for content)
-- **Technical Performance with Large Graphs**: 12 nodes with complex state management should perform well
+- **Technical Performance with Large Graphs**: 49 nodes with complex state management could impact rendering
   - Mitigation: Virtualization, level-of-detail rendering, performance budgets, Phase 1 optimization
 
 ### Medium Risk
@@ -208,7 +210,7 @@ Narramorph Fiction space.
 
 For detailed information about specific aspects of the project:
 
-- **[NARRATIVE_OUTLINE.md](NARRATIVE_OUTLINE.md)** - Complete 12-node structure and layer architecture
+- **[NARRATIVE_OUTLINE.md](NARRATIVE_OUTLINE.md)** - Complete 49-node structure and layer architecture
 - **[NARRATIVE_STRUCTURE.md](NARRATIVE_STRUCTURE.md)** - Story mechanics and transformation philosophy
 - **[CHARACTER_PROFILES.md](CHARACTER_PROFILES.md)** - Character development and voice guidelines
 - **[DATA_SCHEMA.md](DATA_SCHEMA.md)** - TypeScript types and node structure
@@ -217,4 +219,4 @@ For detailed information about specific aspects of the project:
 
 ---
 
-*Last updated: 2025-01-20 following completion of Phase 1 and finalization of 12-node architecture.*
+*Last updated: 2025-01-20 following completion of Phase 1 and finalization of 49-node architecture.*
