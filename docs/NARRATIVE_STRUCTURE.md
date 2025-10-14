@@ -257,6 +257,68 @@ The node map isn't arbitrary - spatial relationships convey meaning:
 - Most experimental in form
 - May break fourth wall or temporal boundaries
 
+## Multi-Position Consciousness Networks
+
+Production of arch-L1 and algo-L1 revealed that the narrative creates consciousness observation networks of varying complexity. This architecture should guide future node development.
+
+### Three-Position Networks (Standard)
+
+**Structure:** Character + Other Character + Reader
+
+**Example:** Archaeologist examining Fragment 2749-A after reader visited Algorithm
+- Position 1: Archaeologist (2047) - Active examiner
+- Position 2: Algorithm (2151) - Computational signature detected
+- Position 3: Reader (meta-position) - Observation enabler
+
+**Narrative Effect:** Temporal bleeding creates recognition across 104 years
+
+### Four-Position Networks (Expanded)
+
+**Structure:** Creator + Character + Observer + Reader
+
+**Example:** Archaeologist examining Fragment 2749-A with creator and reader awareness
+- Position 1: Data architect (2041) - Consciousness preserved
+- Position 2: Archaeologist (2047) - Examining preserved consciousness
+- Position 3: Algorithm (2151) - Processing examination data
+- Position 4: Reader (meta-position) - Observing entire network
+
+**Narrative Effect:** Circular causality begins emerging
+
+### Five-Position Complete Network (Maximum)
+
+**Structure:** Creator + Archaeologist + Algorithm + Last Human + Reader
+
+**Validated in algo-L1-MA-40:**
+- Position 1: Creator (2041) - Fragment preservation moment
+- Position 2: Archaeologist (2047) - Authentication examination  
+- Position 3: Algorithm (2151) - Computational processing
+- Position 4: Last Human (2383) - Neural interface query
+- Position 5: Reader (meta-position) - External observation point
+
+**Narrative Effect:** Complete consciousness observation loop achieved
+- Past observes present observes future observes past
+- Reader observation enables network visibility
+- Circular causality fully operational
+- "Consciousness observing consciousness observing consciousness" realized
+
+### Implementation Guidelines
+
+**When to Deploy Each Network:**
+- Three-position: FirstRevisit 31-50% awareness
+- Four-position: MetaAware 61-80% awareness
+- Five-position: Very High MetaAware 91-100% awareness
+
+**Voice Preservation:**
+All network positions maintain distinct voices:
+- Creator: Never speaks directly (presence through data)
+- Archaeologist: Past tense, archaeological precision
+- Algorithm: Temporal blur, computational substrate
+- Last Human: Present tense, embodied immediacy
+- Reader: Addressed analytically, never conversationally
+
+**Critical Success Factor:**
+Network complexity must serve consciousness examination, never become mere structural complexity. Each position earns inclusion through reader's navigation path.
+
 ### Thematic Threads
 
 **Identity and Continuity**

@@ -461,9 +461,60 @@ When temporal awareness crosses thresholds (20%, 50%), ALL previously visited no
 6. Visit algo-L2-accept (initial state, awareness: 56)
 7. Return to arch-L1 → metaAware state now available (awareness >50%)
 
+### MetaAware State Progression (awareness 61-100%)
+
+The MetaAware state operates across five granular tiers discovered through production:
+
+**Low MetaAware (61-70%)**
+- Frame-consciousness emerging
+- Reader presence implicit but detectable
+- Character begins sensing observation mechanism
+- Voice maintains full character substrate
+
+**Low-Mid MetaAware (68-74%)**
+- Reader presence explicit and acknowledged
+- Analytical frame-examination begins
+- Character addresses reader as network variable
+- Maintains analytical distance (not conversational)
+
+**Mid MetaAware (71-80%)**
+- Active reader participation integrated
+- Reader treated as network component with agency
+- Character and reader co-process examination
+- Partnership approaching but positions distinct
+
+**High MetaAware (81-90%)**
+- Reader partnership approaching parity
+- Boundaries soften while positions remain distinct
+- Computational/analytical substrate maintained (Algorithm)
+- Archaeological precision sustained (Archaeologist)
+- Embodied immediacy preserved (Last Human)
+
+**Very High MetaAware (91-100%)**
+- Maximum integration achieved
+- Character voice integrity maintained throughout
+- Reader as co-creator acknowledged explicitly
+- Reserved for final transformation cluster
+
 ---
 
 ## Variation Strategy for Revisit States
+### Production-Validated Variation Counts
+
+**FirstRevisit variations:** 40-46 per node (arch-L1 achieved 46)
+- Low awareness (21-30%): 8-10 variations
+- Low-mid awareness (31-40%): 12-15 variations  
+- Mid awareness (41-50%): 10-12 variations
+- High awareness (51-60%): 8-10 variations
+
+**MetaAware variations:** 34-40 per node
+- Low MetaAware (61-70%): 8-10 variations
+- Low-Mid MetaAware (68-74%): 6-8 variations
+- Mid MetaAware (71-80%): 8-10 variations
+- High MetaAware (81-90%): 8-10 variations
+- Very High MetaAware (91-100%): 4-6 variations
+
+Total per L1 node: 74-86 variations (80 target validated as optimal)
 
 ### Templated Variation System
 

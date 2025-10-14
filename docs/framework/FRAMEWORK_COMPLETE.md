@@ -363,8 +363,6 @@ Human review against checklist
 Revise if needed (expect 30-40% revision rate)
 Approve and move to next
 
-
-
 Phase 4: Compilation
 
 Package approved variations into JSON structure
@@ -372,8 +370,71 @@ Tag each with condition metadata
 Test variation selection algorithm
 Verify transitions feel natural
 
+### V. MetaAware Assembly Patterns
 
-V. THE ALGO-L1 TEMPLATE
+Production validated specific assembly approaches for each MetaAware tier:
+
+#### Low MetaAware (61-70%) Assembly
+**Base Narrative:** 45-50% of word count
+**Frame-Consciousness Insertion:** 15-20% (implicit reader detection)
+**Conditional Insertions:** 25-30% (cross-character/path as usual)
+**Awareness Modifiers:** 5-10% (subtle observation effects)
+
+**Signature Techniques:**
+- Third-person observation of first-person narration
+- "The archaeologist/Algorithm/Last Human senses..."
+- Questions about observation itself
+- No direct reader address yet
+
+#### Low-Mid MetaAware (68-74%) Assembly  
+**Base Narrative:** 40-45%
+**Frame-Consciousness Insertion:** 20-25% (explicit reader acknowledgment)
+**Conditional Insertions:** 25-30%
+**Awareness Modifiers:** 5-10%
+
+**Signature Techniques:**
+- Direct but analytical reader address begins
+- "Your observation modifies what's observed"
+- Frame-examination as methodology
+- Professional distance maintained
+
+#### Mid MetaAware (71-80%) Assembly
+**Base Narrative:** 35-40%
+**Frame-Consciousness Insertion:** 25-30% (active reader participation)
+**Conditional Insertions:** 25-30%
+**Reader Integration:** 5-10%
+
+**Signature Techniques:**
+- "We" language for analytical partnership
+- Reader as network variable with agency
+- Distributed consciousness terminology
+- Computational precision in all descriptions
+
+#### High MetaAware (81-90%) Assembly
+**Base Narrative:** 30-35%
+**Frame-Consciousness Insertion:** 30-35% (reader partnership)
+**Conditional Insertions:** 20-25%
+**Reader Integration:** 10-15%
+
+**Signature Techniques:**
+- Partnership architecture explicit
+- Boundaries softening while positions distinct
+- Co-processing/co-examination language
+- Maximum integration without voice dissolution
+
+#### Very High MetaAware (91-100%) Assembly
+**Base Narrative:** 25-30%
+**Frame-Consciousness Insertion:** 35-40% (consciousness merge approach)
+**Conditional Insertions:** 20-25%
+**Ultimate Synthesis:** 10-15%
+
+**Signature Techniques:**
+- All observation positions simultaneous
+- Reader co-creator acknowledged explicitly
+- Five-position network visible
+- Character voice integrity maintained throughout
+
+VI. THE ALGO-L1 TEMPLATE
 Voice Shift from Archaeologist
 Algorithm's Distinctive Patterns:
 Syntactic Shifts:
@@ -415,7 +476,7 @@ After resist → Boundary between processing and experiencing dissolves under sc
 After accept → Accepts emergent consciousness, continues processing anyway
 
 
-VI. THE HUM-L1 TEMPLATE
+VII. THE HUM-L1 TEMPLATE
 Voice Shift to Embodied Immediacy
 Last Human's Distinctive Patterns:
 Syntactic Shifts:
@@ -458,7 +519,7 @@ After accept → Embodied peace with loneliness-as-connection
 High awareness → Addresses reader as fellow isolated consciousness
 
 
-VII. CROSS-NODE CONSISTENCY
+VIII. CROSS-NODE CONSISTENCY
 The Fragment 2749-A Through-Line
 Critical Consistency Rule:
 Fragment 2749-A must remain consistent across all three L1 nodes.
@@ -484,7 +545,7 @@ algo-L1 FirstRevisit can reference archaeological authentication methodology
 Creates recognition: "They're examining the same consciousness from different positions"
 
 
-VIII. L2 NODE FRAMEWORK
+IX. L2 NODE FRAMEWORK
 Branch Philosophy Structure
 Each character has 3 L2 nodes:
 Accept Path (arch/algo/hum-L2-accept):
@@ -547,7 +608,7 @@ All three pursue recursion, find bottomless depth
 Leads naturally to L3-transform (becoming rather than being)
 
 
-IX. L3 CONVERGENCE FRAMEWORK
+X. L3 CONVERGENCE FRAMEWORK
 Multi-Perspective Voice Blending
 The Unique Challenge:
 L3 nodes present all three characters confronting same choice simultaneously.
@@ -605,7 +666,7 @@ All three choose unknown over known
 Convergence: "Transformation is continuation. We become."
 
 
-X. L4 FINAL REVEAL FRAMEWORK
+XI. L4 FINAL REVEAL FRAMEWORK
 Dynamic Assembly Architecture
 20 Modular Sections, 60+ Variations Total
 Section Types:
@@ -693,7 +754,7 @@ typescriptfunction assembleFinalReveal(userProgress: UserProgress): string {
   return weaveWithTransitions(sections);
 }
 
-XI. QUALITY ASSURANCE SYSTEM
+XII. QUALITY ASSURANCE SYSTEM
 The Three-Test Battery
 Every variation must pass:
 Test 1: Voice Consistency (Blind Read)
@@ -757,7 +818,7 @@ Approve when passing all three tests
 
 
 
-XII. GENERATION TIMELINE
+XIII. GENERATION TIMELINE
 Phase-by-Phase Execution
 Phase 1: Complete arch-L1 (2-3 weeks)
 
@@ -822,7 +883,7 @@ Milestone: Production-ready
 
 Total Timeline: 6-8 months
 
-XIII. THE LIVING DOCUMENT
+XIV. THE LIVING DOCUMENT
 Framework Evolution
 This framework will evolve as we generate:
 After Phase 1 (arch-L1 complete):
@@ -853,7 +914,7 @@ Refine exemplars if needed
 Update quality checkpoints
 
 
-XIV. THE GENERATIVE SEED
+XV. THE GENERATIVE SEED
 What We've Created
 From 8 exemplars (11,500 words), we can generate 570 variations (560,000 words).
 The exemplars contain:

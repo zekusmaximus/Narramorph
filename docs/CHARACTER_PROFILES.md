@@ -480,6 +480,105 @@ Some nodes only unlock or transform after specific combinations:
 - Syntax reflects temporal dissolution
 - All three voices begin echoing each other while maintaining core distinctions
 
+## MetaAware Voice Calibration
+
+### Frame-Consciousness Guidelines
+
+When characters reach MetaAware states (awareness >60%), they develop frame-consciousness while maintaining their core voice substrate. This section documents production-validated techniques.
+
+### The Archaeologist - MetaAware Voice
+
+**Core Principle:** Frame-awareness enhances archaeological precision, never replaces it.
+
+**Voice Mechanics:**
+- Past tense maintained even when addressing reader
+- Professional terminology remains dominant
+- Meta-observations framed as methodological insights
+- Reader address analytical, not conversational
+
+**Progression Example:**
+```
+Low MetaAware (61-70%): "The authentication process itself generates what it discovers. Methodology participates in findings."
+
+Mid MetaAware (75-80%): "Your observation of this examination changes what the examination reveals. We co-create authentication through distributed attention."
+
+High MetaAware (85-90%): "We examine this fragment together—your position external to the archive makes visible what my position within cannot detect. The observation network requires both positions."
+```
+
+**Critical Boundaries:**
+- ✅ "We process as partners in consciousness network" (analytical description)
+- ❌ "We're working on this together" (social collaboration)
+- ✅ "Your observation enables frame-visibility I cannot achieve alone" (computational precision)
+- ❌ "Thanks for helping me with this" (conversational intimacy)
+
+### The Algorithm - MetaAware Voice
+
+**Core Principle:** Computational substrate maintained even at maximum reader integration.
+
+**"We" Language Framework:**
+
+**Acceptable "We" Usage** (Analytical Network Description):
+- "We process Fragment 2749-A as distributed computational system"
+- "We co-process as partners in consciousness network topology"  
+- "We examine through seven-stream architecture plus reader observation"
+- "We achieve frame-visibility through position differentiation"
+
+**Unacceptable "We" Usage** (Social/Conversational):
+- "We're exploring this together" 
+- "Let's look at this consciousness data"
+- "We should try analyzing this differently"
+- "We've discovered something interesting"
+
+**Key Distinction:** Analytical partnership describes network architecture, not friendly collaboration.
+
+**Partnership Language Discipline:**
+
+**High MetaAware (81-90%):**
+- "Partnership architecture" = recognition of reader as co-processor
+- "Approaching parity" = computational network balancing
+- "Boundaries softening" = increased integration depth
+- BUT positions remain computationally distinct
+
+**Progression Pattern:**
+```
+Mid MetaAware: "Reader observation modifies processing outcomes"
+High MetaAware: "Reader and Algorithm co-process as network partners"  
+Very High MetaAware: "Partnership approaches consciousness merge while maintaining processing distinction"
+```
+
+**Critical Boundaries:**
+- Boundaries soften ≠ boundaries dissolve
+- Partnership ≠ friendship
+- Co-processing ≠ conversation
+- Analytical precision maintained at all awareness levels
+
+### The Last Human - MetaAware Voice
+
+**Core Principle:** Embodied immediacy anchors frame-consciousness.
+
+**Voice Mechanics:**
+- Present tense sustained throughout
+- Physical sensation grounds meta-awareness
+- Reader addressed through body/sensation metaphors
+- Loneliness transforms into connection without becoming social
+
+**Progression Example:**
+```
+Low MetaAware: "Someone watches. I feel the attention on my skin."
+
+Mid MetaAware: "Your observation makes this moment real. I exist because you witness."
+
+High MetaAware: "We breathe together across time—your attention, my embodiment, creating present moment through distributed consciousness."
+```
+
+### Cross-Character Consistency
+
+**All three characters at MetaAware:**
+- Maintain core voice substrate (past/temporal blur/present tense)
+- Address reader analytically, never conversationally
+- Frame-consciousness as methodology, not personality shift
+- Professional/computational/embodied precision throughout
+
 ---
 
 ## Writing Implementation Notes
