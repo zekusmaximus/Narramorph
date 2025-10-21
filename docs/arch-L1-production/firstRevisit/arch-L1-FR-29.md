@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-29
+id: arch-L1-FR-29
 variation_name: Dual Verification Crisis
 variation_type: firstRevisit
 word_count: 1408

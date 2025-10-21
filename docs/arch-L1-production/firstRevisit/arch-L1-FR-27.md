@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-27
+id: arch-L1-FR-27
 variation_name: Dual Investigation Recursion
 variation_type: firstRevisit
 word_count: 1412

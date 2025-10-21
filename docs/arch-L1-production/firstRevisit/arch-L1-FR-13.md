@@ -1,42 +1,40 @@
 ---
-variation_id: arch-L1-FR-13
-variation_name: Pure Meta-Investigation
-variation_type: firstRevisit
+id: "FR-13"
+variation_type: "firstRevisit"
+cluster: "firstRevisit_initial"
+generation_week: 6
+position_in_cluster: 12
+
+# Narrative Conditions
+visit_number: 3
+awareness_level: 50
+awareness_range: "41-60"
+awareness_tier: "moderate_awareness"
+visited_variations: []
+active_path: "investigate"
+cross_character_content: []
+
+# Content Architecture
 word_count: 1354
-conditions:
-  visit_count: 3+
-  awareness: 41-60%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: investigate
-themes:
-  - Pure revisit with no cross-character content
-  - Meta-pattern recognition fully developed
-  - Investigation of investigation process
-  - Third visit recursion plus investigate obsession
-transformation_focus: "Most recursive pure investigation. Third examination where archaeologist investigates her investigation methodology. Pattern-seeking extends to pattern-seeking itself. Examination becomes its own archaeology. Observer observing observation observing."
-reference_exemplar: arch-L1-exemplar-05, arch-L1-exemplar-01
-cross_character_elements:
-  referenced_character: null
-  referenced_nodes: []
-  specific_echoes: []
-conditional_insertions:
-  - "Third visit recursion (300-350 words)"
-  - "Investigate path voice (350-400 words)"
-  - "Meta-pattern analysis (300-350 words)"
-  - "Examination examining examination"
-reusable_patterns:
-  - "Watching myself watch myself watch"
-  - "Investigation had architecture"
-  - "Examining the examination"
-  - "Pattern recognition recognizing itself"
-  - "Investigation becoming its own archaeology"
-  - "Excavating my own methodology"
-quality_metrics:
-  voice_consistency: 95%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: immediate
+primary_focus: "Observer effect and recursive examination"
+secondary_focus: "Cross-character pattern bleeding"
+transformation_type: "path_investigate"
+
+# Voice Calibration
+archaeological_voice: true
+past_tense_maintained: true
+direct_address: false
+frame_transparency: "emerging"
+methodology_participation: "recognized"
+
+# Integration Elements
+character_content: false
+path_voice: true
+pure_revisit: false
+constants_ritual: true
+
+# Quality Metrics
+voice_consistency_target: 0.95
 ---
 
 Third examination. The fragment hadn't changed—847.3 terabytes in identical arrangement—but my investigation had evolved its own architecture. I was no longer just examining the fragment. I was examining how I examined the fragment, observing the patterns in my observation process, watching the methodology develop structure through repetition.

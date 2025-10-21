@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-14
+id: arch-L1-MA-14
 variation_name: Investigation of Shared Architecture Investigating
 variation_type: metaAware
 word_count: 1682

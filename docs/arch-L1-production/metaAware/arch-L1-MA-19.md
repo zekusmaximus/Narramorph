@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-19
+id: arch-L1-MA-19
 variation_name: Investigation Co-Creating Investigated
 variation_type: metaAware
 word_count: 1803

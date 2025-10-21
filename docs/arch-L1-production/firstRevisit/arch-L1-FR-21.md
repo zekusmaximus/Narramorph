@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-21
+id: arch-L1-FR-21
 variation_name: Computational Verification Crisis Emerges
 variation_type: firstRevisit
 word_count: 1248

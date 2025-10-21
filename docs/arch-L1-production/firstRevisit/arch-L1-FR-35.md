@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-35
+id: arch-L1-FR-35
 variation_name: Temporal Connection Acceptance and Resistance
 variation_type: firstRevisit
 word_count: 1448

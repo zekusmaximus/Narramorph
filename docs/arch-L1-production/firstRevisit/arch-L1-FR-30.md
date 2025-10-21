@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-30
+id: arch-L1-FR-30
 variation_name: Temporal Superposition Mixed Paths
 variation_type: firstRevisit
 word_count: 1451

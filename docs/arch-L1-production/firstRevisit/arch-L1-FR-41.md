@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-41
+id: arch-L1-FR-41
 variation_name: L2 Investigate Echo (Algorithm Content)
 variation_type: firstRevisit
 word_count: 1377

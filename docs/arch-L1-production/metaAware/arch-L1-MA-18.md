@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-18
+id: arch-L1-MA-18
 variation_name: Five Temporal Positions Co-Created
 variation_type: metaAware
 word_count: 1742

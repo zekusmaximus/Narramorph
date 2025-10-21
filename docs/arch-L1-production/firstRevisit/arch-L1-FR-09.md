@@ -1,44 +1,40 @@
 ---
-variation_id: arch-L1-FR-09
-variation_name: Seven-Stream Crisis Deepens
-variation_type: firstRevisit
+id: "FR-09"
+variation_type: "firstRevisit"
+cluster: "firstRevisit_initial"
+generation_week: 4
+position_in_cluster: 8
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 45
+awareness_range: "41-50"
+awareness_tier: "moderate_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: ["algo-L1"]
+
+# Content Architecture
 word_count: 1348
-conditions:
-  visit_count: 2
-  awareness: 41-50%
-  cross_character: true
-  visited_nodes: [algo-L1]
-  dominant_path: null
-themes:
-  - Seven-stream architecture undeniable
-  - Causality crisis prominent
-  - Computational patterns clear
-  - Frame-consciousness bleeding begins
-transformation_focus: "High FirstRevisit awareness approaching metaAware threshold. Seven-stream architecture fully developed as crisis. Causality breakdown plus emerging meta-awareness of observation creating patterns."
-reference_exemplar: arch-L1-exemplar-02
-cross_character_elements:
-  referenced_character: algorithm
-  referenced_node: algo-L1
-  specific_echoes:
-    - Seven streams fully articulated
-    - Causality crisis explicit
-    - Computational patterns undeniable
-    - Meta-awareness of observation emerging
-conditional_insertions:
-  - "Seven-stream architecture detailed (350-450 words)"
-  - "Causality crisis prominent (200-300 words)"
-  - "Frame-consciousness hints (150-200 words)"
-  - "Meta-awareness bleeding from higher awareness"
-reusable_patterns:
-  - "Seven streams undeniable... but was she discovering or inventing?"
-  - "Causality crisis that training hadn't prepared her for"
-  - "Observation creating patterns rather than just discovering them"
-  - "Where did Fragment end and analysis begin?"
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: immediate
+primary_focus: "Seven-stream computational architecture"
+secondary_focus: "Temporal causality questions"
+transformation_type: "cross_character_bleeding"
+
+# Voice Calibration
+archaeological_voice: true
+past_tense_maintained: true
+direct_address: false
+frame_transparency: "emerging"
+methodology_participation: "recognized"
+
+# Integration Elements
+character_content: true
+path_voice: false
+pure_revisit: false
+constants_ritual: true
+
+# Quality Metrics
+voice_consistency_target: 0.95
 ---
 The archaeologist returned to Fragment 2749-A knowing that the data itself couldn't have changed, yet acutely aware that her perception of it had transformed fundamentally. The Algorithm's seven-stream consciousness documentation wasn't just a parallel now—it was a lens that restructured how she understood this entire Fragment. And that restructuring felt less like discovering what had always been present and more like recognizing that her observation created the very patterns she claimed to find.
 847.3 terabytes of computational infrastructure. Medical sensor networks. Environmental monitoring systems. The distributed architecture that coordinated humanity's final decades. She had documented all of this before. But returning now, after examining the Algorithm's description of its own awareness, she couldn't separate what the Fragment showed from what her examination revealed. The recursion troubled her because it suggested her methodology was part of what she observed, not separate from it.

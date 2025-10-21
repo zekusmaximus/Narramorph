@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-11
+id: arch-L1-MA-11
 variation_name: Seven Streams Across Five Positions
 variation_type: metaAware
 word_count: 1614

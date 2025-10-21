@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-08
+id: arch-L1-MA-08
 variation_name: Four Temporal Positions
 variation_type: metaAware
 word_count: 1506

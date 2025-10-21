@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-10
+id: arch-L1-MA-10
 variation_name: Temporal Network Welcomed
 variation_type: metaAware
 word_count: 1558

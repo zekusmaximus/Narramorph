@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-45
+id: arch-L1-FR-45
 variation_name: L2 Accept Echo (Last Human Content)
 variation_type: firstRevisit
 word_count: 1382

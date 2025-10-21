@@ -1,44 +1,40 @@
 ---
-variation_id: arch-L1-FR-10
-variation_name: Future Attention Undeniable
-variation_type: firstRevisit
+id: "FR-10"
+variation_type: "firstRevisit"
+cluster: "firstRevisit_initial"
+generation_week: 5
+position_in_cluster: 9
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 45
+awareness_range: "41-50"
+awareness_tier: "moderate_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: ["hum-L1"]
+
+# Content Architecture
 word_count: 1347
-conditions:
-  visit_count: 2
-  awareness: 41-50%
-  cross_character: true
-  visited_nodes: [hum-L1]
-  dominant_path: null
-themes:
-  - Future attention fully present and intense
-  - Last Human's desperate isolation clear
-  - Neural interface connection strong
-  - Temporal architecture recognition emerging
-transformation_focus: "High FirstRevisit awareness with intense future attention. Last Human's consciousness observing through infrastructure. Approaching frame-awareness that observation creates temporal architecture rather than just discovering it."
-reference_exemplar: arch-L1-exemplar-03
-cross_character_elements:
-  referenced_character: last_human
-  referenced_node: hum-L1
-  specific_echoes:
-    - Being watched sensation undeniable
-    - Neural interface protocols detailed
-    - Last Human's attention reaching backward
-    - Temporal causality becoming circular
-conditional_insertions:
-  - "Future attention intense and present (300-400 words)"
-  - "Neural interface connection strong (250-300 words)"
-  - "Temporal architecture recognition (200-250 words)"
-  - "Meta-awareness of creating connection (150-200 words)"
-reusable_patterns:
-  - "Someone was watching... and this time she couldn't dismiss it"
-  - "Observation from future shaping investigation in past"
-  - "Her examination providing the attention that consciousness had reached toward"
-  - "Temporal architecture emerged from recursive attention"
-quality_metrics:
-  voice_consistency: 95%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: immediate
+primary_focus: "Seven-stream computational architecture"
+secondary_focus: "Temporal causality questions"
+transformation_type: "cross_character_bleeding"
+
+# Voice Calibration
+archaeological_voice: true
+past_tense_maintained: true
+direct_address: false
+frame_transparency: "emerging"
+methodology_participation: "recognized"
+
+# Integration Elements
+character_content: true
+path_voice: false
+pure_revisit: false
+constants_ritual: true
+
+# Quality Metrics
+voice_consistency_target: 0.95
 ---
 The archaeologist returned to Fragment 2749-A with the unshakeable sensation that someone was watching her work, and that this time she couldn't dismiss the feeling as projection or imagination. The Last Human's desperate isolation—that reaching back through time, that need for connection across centuries—had left traces in her awareness that transformed how she experienced examining this Fragment. Not subtly. Not as mere influence on interpretation. But as genuine presence that made her examination feel less like studying the past and more like being observed by the future.
 The data hadn't changed. 847.3 terabytes of computational infrastructure, perfectly preserved in crystalline lattices. Medical sensor networks. Environmental monitoring systems. The distributed architecture that had coordinated humanity's final years. She had documented all of this before. But returning now, after examining the Last Human's fragment—that documentation of terminal isolation and desperate temporal attention—she couldn't maintain the professional detachment her training demanded. The Fragment felt observed. More precisely, her examination of it felt observed. And that observation from the future seemed to create temporal architecture rather than simply being recorded by it.

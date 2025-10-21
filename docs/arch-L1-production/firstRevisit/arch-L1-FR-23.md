@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-23
+id: arch-L1-FR-23
 variation_name: Verification Crisis Mature
 variation_type: firstRevisit
 word_count: 1351

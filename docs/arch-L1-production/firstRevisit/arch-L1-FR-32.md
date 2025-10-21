@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-32
+id: arch-L1-FR-32
 variation_name: Seven-Stream Investigation and Acceptance
 variation_type: firstRevisit
 word_count: 1447

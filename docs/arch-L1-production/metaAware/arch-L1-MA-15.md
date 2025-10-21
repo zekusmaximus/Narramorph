@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-15
+id: arch-L1-MA-15
 variation_name: Five Positions Welcomed Mutually
 variation_type: metaAware
 word_count: 1671

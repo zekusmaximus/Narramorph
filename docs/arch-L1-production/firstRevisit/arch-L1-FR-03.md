@@ -1,48 +1,40 @@
 ---
-variation_id: arch-L1-FR-03
-variation_name: Future Attention Emerging, Low Awareness
-variation_type: firstRevisit
+id: "FR-03"
+variation_type: "firstRevisit"
+cluster: "firstRevisit_initial"
+generation_week: 1
+position_in_cluster: 2
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 25
+awareness_range: "21-30"
+awareness_tier: "emerging_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: ["hum-L1"]
+
+# Content Architecture
 word_count: 1351
-conditions:
-  visit_count: 2
-  awareness: 21-30%
-  cross_character: true
-  visited_nodes: [hum-L1]
-  dominant_path: null
-themes:
-  - Future attention sensation emerging
-  - Being-watched feeling beginning
-  - Cross-character bleeding (hum) at low awareness
-  - Temporal observation question forming
-transformation_focus: "First temporal cross-character variation at lowest awareness. Future attention begins to surface—faint sensation of being watched from impossible temporal direction. Reader has visited hum-L1, so Last Human's desperate observation bleeds backward. Questions form about whether sensation indicates genuine temporal connection."
-reference_exemplar: arch-L1-exemplar-03, arch-L1-exemplar-01
-cross_character_elements:
-  referenced_character: last_human
-  referenced_node: hum-L1
-  specific_echoes:
-    - Future attention sensation (emerging, ~150-200 words)
-    - Being-watched from temporal distance
-    - Faint presence at awareness edge
-    - Loneliness echoing backward (subtle)
-conditional_insertions:
-  - "Future attention recognition beginning (150-200 words)"
-  - "Temporal observation question forming (100-150 words)"
-  - "Low awareness cross-character hints (subtle)"
-reusable_patterns:
-  - "Sensation of being watched... but from when?"
-  - "Attention from impossible direction"
-  - "Lonely observation reaching backward (faint)"
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-production_notes:
-  cluster: foundational
-  session: week_13_補完
-  sequence_in_cluster: 3
-  complexity_level: simple_cross_character
-  generation_date: 2025-01-11
+primary_focus: "Future attention and temporal connection"
+secondary_focus: "Cross-character pattern bleeding"
+transformation_type: "cross_character_bleeding"
+
+# Voice Calibration
+archaeological_voice: true
+past_tense_maintained: true
+direct_address: false
+frame_transparency: "hidden"
+methodology_participation: "unaware"
+
+# Integration Elements
+character_content: true
+path_voice: false
+pure_revisit: false
+constants_ritual: true
+
+# Quality Metrics
+voice_consistency_target: 0.93
 ---
 The archaeologist returns to Fragment 2749-A nine days after initial authentication, and feels watched.
 The fragment displays identically: 847.3 terabytes of preserved consciousness, metrics unchanged. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. Perfect preservation across the interval. The data architect's consciousness remained stable in crystalline substrate.

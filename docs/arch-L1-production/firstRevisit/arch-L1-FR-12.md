@@ -1,45 +1,40 @@
 ---
-variation_id: arch-L1-FR-12
-variation_name: Temporal Investigation Begins
-variation_type: firstRevisit
+id: "FR-12"
+variation_type: "firstRevisit"
+cluster: "firstRevisit_initial"
+generation_week: 6
+position_in_cluster: 11
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 25
+awareness_range: "21-30"
+awareness_tier: "emerging_awareness"
+visited_variations: []
+active_path: "investigate"
+cross_character_content: ["hum-L1"]
+
+# Content Architecture
 word_count: 1251
-conditions:
-  visit_count: 2
-  awareness: 21-30%
-  cross_character: true
-  visited_nodes: [hum-L1]
-  dominant_path: investigate
-themes:
-  - Faint future attention with low awareness
-  - Pattern-seeking in observation experience
-  - Investigation of being-watched sensation
-  - Recursive questioning about temporal attention
-transformation_focus: "Investigate path applied to temporal architecture. Archaeologist experiencing future attention begins analyzing the structure of that experience. Not just feeling watched—examining how watching works, how observation creates temporal connection, how methodology itself is temporal."
-reference_exemplar: arch-L1-exemplar-05, arch-L1-exemplar-03
-cross_character_elements:
-  referenced_character: last_human
-  referenced_node: hum-L1
-  specific_echoes:
-    - Forward-directed attention
-    - Past documentation anticipating future examination
-    - Temporal structure of observation
-    - Being-watched as structural phenomenon
-conditional_insertions:
-  - "Future attention hints (200-250 words)"
-  - "Investigate path voice (250-300 words)"
-  - "Temporal methodology examination (200-250 words)"
-  - "Recursive temporal observation"
-reusable_patterns:
-  - "Watching how I watched"
-  - "Analyzing the analysis"
-  - "Examination creates temporal connection"
-  - "Investigation process itself was temporal"
-  - "Observation has architecture"
-quality_metrics:
-  voice_consistency: 93%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: immediate
+primary_focus: "Future attention and temporal connection"
+secondary_focus: "Temporal causality questions"
+transformation_type: "cross_character_bleeding"
+
+# Voice Calibration
+archaeological_voice: true
+past_tense_maintained: true
+direct_address: false
+frame_transparency: "hidden"
+methodology_participation: "unaware"
+
+# Integration Elements
+character_content: true
+path_voice: true
+pure_revisit: false
+constants_ritual: true
+
+# Quality Metrics
+voice_consistency_target: 0.93
 ---
 
 The fragment waited. 847.3 terabytes in unchanged formation, but I was aware of being aware this time. That sensation of future attention I'd felt before—I was examining it now instead of just experiencing it. Watching how I watched. Analyzing the analysis.

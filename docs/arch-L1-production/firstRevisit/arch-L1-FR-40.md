@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-40
+id: arch-L1-FR-40
 variation_name: L2 Resist Echo (Pure Archaeologist)
 variation_type: firstRevisit
 word_count: 1349

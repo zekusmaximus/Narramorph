@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-36
+id: arch-L1-FR-36
 variation_name: Dual Integration Investigation Maximum
 variation_type: firstRevisit
 word_count: 1502

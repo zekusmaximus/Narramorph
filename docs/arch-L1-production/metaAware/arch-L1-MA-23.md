@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-23
+id: arch-L1-MA-23
 variation_name: Welcoming AND Testing Temporal Positions Simultaneously
 variation_type: metaAware
 word_count: 1815

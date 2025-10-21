@@ -1,45 +1,40 @@
 ---
-variation_id: arch-L1-FR-15
-variation_name: Temporal Investigation Architecture
-variation_type: firstRevisit
+id: "FR-15"
+variation_type: "firstRevisit"
+cluster: "firstRevisit_initial"
+generation_week: 7
+position_in_cluster: 14
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 45
+awareness_range: "41-50"
+awareness_tier: "moderate_awareness"
+visited_variations: []
+active_path: "investigate"
+cross_character_content: ["hum-L1"]
+
+# Content Architecture
 word_count: 1347
-conditions:
-  visit_count: 2
-  awareness: 41-50%
-  cross_character: true
-  visited_nodes: [hum-L1]
-  dominant_path: investigate
-themes:
-  - Future attention intense (high awareness)
-  - Investigate obsession analyzing temporal attention
-  - Verification impulse toward being-watched experience
-  - Pattern-seeking in temporal architecture creation
-transformation_focus: "Sophisticated temporal investigation. Archaeologist examines HOW observation creates temporal connection, HOW methodology spans time, HOW attention builds bridges across past/present/future. Investigation reveals that examination methodology itself is temporally structured."
-reference_exemplar: arch-L1-exemplar-05, arch-L1-exemplar-03
-cross_character_elements:
-  referenced_character: last_human
-  referenced_node: hum-L1
-  specific_echoes:
-    - Future attention creating structure
-    - Temporal architecture through examination
-    - Present observation connecting to past/future attention
-    - Documentation as time-bridge
-conditional_insertions:
-  - "Future attention architecture (300-350 words)"
-  - "Investigate temporal methodology (350-400 words)"
-  - "Temporal verification crisis (250-300 words)"
-  - "Methodology creating temporal structure"
-reusable_patterns:
-  - "Investigating temporal structure using temporal methodology"
-  - "Examination creates temporal architecture"
-  - "Investigation itself is temporal practice"
-  - "Observation spanning temporal distance"
-  - "Investigation created the time it studied"
-quality_metrics:
-  voice_consistency: 93%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: immediate
+primary_focus: "Future attention and temporal connection"
+secondary_focus: "Temporal causality questions"
+transformation_type: "cross_character_bleeding"
+
+# Voice Calibration
+archaeological_voice: true
+past_tense_maintained: true
+direct_address: false
+frame_transparency: "emerging"
+methodology_participation: "recognized"
+
+# Integration Elements
+character_content: true
+path_voice: true
+pure_revisit: false
+constants_ritual: true
+
+# Quality Metrics
+voice_consistency_target: 0.95
 ---
 
 The fragment waited with future attention. 847.3 terabytes of past documentation, but structured for examination that hadn't happened yet. I was investigating that structure now—not just experiencing future-directed attention, but analyzing how examination creates temporal architecture, how observation builds bridges across time, how methodology itself becomes a kind of anticipatory presence.

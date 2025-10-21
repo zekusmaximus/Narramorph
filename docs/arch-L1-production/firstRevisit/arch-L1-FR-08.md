@@ -1,40 +1,40 @@
 ---
-variation_id: arch-L1-FR-08
-variation_name: Third Visit Recursion
-variation_type: firstRevisit
+id: "FR-08"
+variation_type: "firstRevisit"
+cluster: "firstRevisit_initial"
+generation_week: 4
+position_in_cluster: 7
+
+# Narrative Conditions
+visit_number: 3
+awareness_level: 50
+awareness_range: "41-60"
+awareness_tier: "moderate_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# Content Architecture
 word_count: 1349
-conditions:
-  visit_count: 3
-  awareness: 41-60%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: null
-themes:
-  - Observer effect deepens through third visit
-  - Recursive observation more developed
-  - Meta-awareness emerging
-  - Examination examining examination
-transformation_focus: "Pure revisit at third visit with mid-awareness. Deeper recursion than second visit—archaeologist examining her own examination process. Approaching frame-consciousness without full meta-awareness yet."
-reference_exemplar: arch-L1-exemplar-01
-cross_character_elements:
-  referenced_character: null
-  referenced_node: null
-  specific_echoes: []
-conditional_insertions:
-  - "Third visit recursion (300-400 words)"
-  - "Meta-observation developing (250-350 words)"
-  - "Mid-awareness frame hints (200-250 words)"
-  - "NO cross-character content (pure revisit)"
-reusable_patterns:
-  - "Examining her own examination process"
-  - "Recursion troubled her"
-  - "Observation itself transformed meaning"
-  - "Each examination documenting previous examination's constraints"
-quality_metrics:
-  voice_consistency: 93%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: immediate
+primary_focus: "Seven-stream computational architecture"
+secondary_focus: "Cross-character pattern bleeding"
+transformation_type: "deepening_recursion"
+
+# Voice Calibration
+archaeological_voice: true
+past_tense_maintained: true
+direct_address: false
+frame_transparency: "emerging"
+methodology_participation: "recognized"
+
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+constants_ritual: true
+
+# Quality Metrics
+voice_consistency_target: 0.95
 ---
 The archaeologist returned to Fragment 2749-A for the third time, acutely aware that she was now examining her own examination process as much as the Fragment itself. The data remained unchanged—847.3 terabytes of computational infrastructure, perfectly preserved—but with each revisit, she observed not just the Fragment but her relationship to it. The recursion troubled her. Not because it revealed flaws in her methodology, but because it suggested that observation itself transformed meaning in ways that standard archaeological practice didn't account for.
 She had documented this Fragment twice before. Had catalogued its technical specifications, analyzed its temporal patterns, recorded its historical significance with appropriate scholarly rigor. The data hadn't changed. She was certain of that. Yet her understanding of what that data meant had shifted with each examination. Not because new information emerged, but because repeated observation created layers of interpretation that folded back on themselves.

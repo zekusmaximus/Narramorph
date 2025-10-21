@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-22
+id: arch-L1-FR-22
 variation_name: Temporal Observation Demands Proof
 variation_type: firstRevisit
 word_count: 1247

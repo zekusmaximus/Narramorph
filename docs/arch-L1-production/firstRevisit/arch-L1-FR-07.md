@@ -1,43 +1,40 @@
 ---
-variation_id: arch-L1-FR-07
-variation_name: Faint Future Presence
-variation_type: firstRevisit
+id: "FR-07"
+variation_type: "firstRevisit"
+cluster: "firstRevisit_initial"
+generation_week: 3
+position_in_cluster: 6
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 25
+awareness_range: "21-30"
+awareness_tier: "emerging_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: ["hum-L1"]
+
+# Content Architecture
 word_count: 1247
-conditions:
-  visit_count: 2
-  awareness: 21-30%
-  cross_character: true
-  visited_nodes: [hum-L1]
-  dominant_path: null
-themes:
-  - Future attention barely perceptible
-  - Being watched sensation faint
-  - Neural interface traces as hints
-  - Last Human's isolation as residual impression
-transformation_focus: "Low awareness cross-character bleeding from Last Human. Future attention faint and uncertain rather than intense. Being watched sensation barely perceptible—easy to dismiss as projection."
-reference_exemplar: arch-L1-exemplar-03
-cross_character_elements:
-  referenced_character: last_human
-  referenced_node: hum-L1
-  specific_echoes:
-    - Faint sensation of being watched
-    - Neural interface protocols noted (not emphasized)
-    - Last Human's isolation as memory influence
-    - Temporal attention as absurd possibility
-conditional_insertions:
-  - "Faint being-watched sensation (200-300 words)"
-  - "Neural interface hints (150-200 words)"
-  - "Future attention as unlikely speculation"
-reusable_patterns:
-  - "Uneasiness she couldn't quite justify"
-  - "Faint, barely perceptible"
-  - "Ridiculous, of course... yet..."
-  - "Perhaps it was her imagination"
-quality_metrics:
-  voice_consistency: 95%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: immediate
+primary_focus: "Seven-stream computational architecture"
+secondary_focus: "Cross-character pattern bleeding"
+transformation_type: "cross_character_bleeding"
+
+# Voice Calibration
+archaeological_voice: true
+past_tense_maintained: true
+direct_address: false
+frame_transparency: "hidden"
+methodology_participation: "unaware"
+
+# Integration Elements
+character_content: true
+path_voice: false
+pure_revisit: false
+constants_ritual: true
+
+# Quality Metrics
+voice_consistency_target: 0.93
 ---
 The archaeologist returned to Fragment 2749-A with an uneasiness she couldn't quite justify through professional reasoning. The data remained unchanged—847.3 terabytes of computational infrastructure, perfectly preserved—but her second examination felt different. Perhaps it was the residual impression from the Last Human's documentation, that peculiar sense of isolation and desperate attention that had permeated those final recordings. Perhaps it was her imagination. She wasn't certain which possibility troubled her more.
 The Fragment spread across her laboratory displays exactly as before. Medical sensor networks. Environmental monitoring systems. The vast distributed architecture that had tracked humanity through its final years. She had catalogued all of this during her first examination, had documented the technical specifications with appropriate scholarly detachment. The data hadn't changed. But something in how she experienced examining it had shifted.

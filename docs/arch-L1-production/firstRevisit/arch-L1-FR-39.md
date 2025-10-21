@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-39
+id: arch-L1-FR-39
 variation_name: L2 Accept Echo (Pure Archaeologist)
 variation_type: firstRevisit
 word_count: 1353

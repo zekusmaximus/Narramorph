@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-25
+id: arch-L1-FR-25
 variation_name: Temporal Mechanics Transcend Verification
 variation_type: firstRevisit
 word_count: 1349

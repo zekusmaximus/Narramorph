@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-37
+id: arch-L1-FR-37
 variation_name: Triple Philosophy Maximum Complexity
 variation_type: firstRevisit
 word_count: 1554

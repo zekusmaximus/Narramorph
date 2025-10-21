@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-26
+id: arch-L1-FR-26
 variation_name: Dual Emergence Without Path
 variation_type: firstRevisit
 word_count: 1359

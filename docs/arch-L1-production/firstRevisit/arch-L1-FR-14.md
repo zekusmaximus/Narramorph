@@ -1,45 +1,40 @@
 ---
-variation_id: arch-L1-FR-14
-variation_name: Seven-Stream Investigation Crisis
-variation_type: firstRevisit
+id: "FR-14"
+variation_type: "firstRevisit"
+cluster: "firstRevisit_initial"
+generation_week: 7
+position_in_cluster: 13
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 45
+awareness_range: "41-50"
+awareness_tier: "moderate_awareness"
+visited_variations: []
+active_path: "investigate"
+cross_character_content: ["algo-L1"]
+
+# Content Architecture
 word_count: 1348
-conditions:
-  visit_count: 2
-  awareness: 41-50%
-  cross_character: true
-  visited_nodes: [algo-L1]
-  dominant_path: investigate
-themes:
-  - Seven-stream architecture clear (high awareness)
-  - Investigate obsession fully developed
-  - Verification crisis about verification methodology
-  - Pattern-seeking examining pattern-recognition itself
-transformation_focus: "Investigation crisis at high awareness. Seven-stream architecture fully visible, but archaeologist questions whether structure exists in data or in examination methodology. Observer matches observed. Recursive trap where investigation methodology has same structure as what's being investigated."
-reference_exemplar: arch-L1-exemplar-05, arch-L1-exemplar-02
-cross_character_elements:
-  referenced_character: algorithm
-  referenced_node: algo-L1
-  specific_echoes:
-    - Seven streams organizing everything
-    - Seven-category framework automatic
-    - Causality crisis extending to methodology
-    - Pattern imposed versus pattern discovered
-conditional_insertions:
-  - "Seven-stream architecture (300-350 words)"
-  - "Investigate crisis voice (350-400 words)"
-  - "Verification methodology questioning (250-300 words)"
-  - "Observer-observed recursion"
-reusable_patterns:
-  - "Questioning the organization itself"
-  - "Seven-stream methodology examining seven-stream architecture"
-  - "Pattern recognizing itself recognizing pattern"
-  - "Investigation had absorbed seven-stream thinking"
-  - "Trapped in recursive verification"
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: immediate
+primary_focus: "Seven-stream computational architecture"
+secondary_focus: "Temporal causality questions"
+transformation_type: "cross_character_bleeding"
+
+# Voice Calibration
+archaeological_voice: true
+past_tense_maintained: true
+direct_address: false
+frame_transparency: "emerging"
+methodology_participation: "recognized"
+
+# Integration Elements
+character_content: true
+path_voice: true
+pure_revisit: false
+constants_ritual: true
+
+# Quality Metrics
+voice_consistency_target: 0.95
 ---
 
 The fragment waited in seven streams. 847.3 terabytes organized into distinct architectural layers, but I was questioning the organization itself now. Not just what the seven streams were, but why I recognized them as seven, how my pattern-recognition process had learned to see that specific structure, what it meant that I could perceive fragmentation so clearly.

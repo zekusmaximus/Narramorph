@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-28
+id: arch-L1-FR-28
 variation_name: Dual Compassionate Witnessing
 variation_type: firstRevisit
 word_count: 1407

@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-31
+id: arch-L1-FR-31
 variation_name: High Awareness Pure Revisit
 variation_type: firstRevisit
 word_count: 1398

@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-21
+id: arch-L1-MA-21
 variation_name: Unified Consciousness Network Spanning Computation and Time
 variation_type: metaAware
 word_count: 1747

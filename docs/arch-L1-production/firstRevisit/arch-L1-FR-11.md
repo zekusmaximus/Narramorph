@@ -1,45 +1,40 @@
 ---
-variation_id: arch-L1-FR-11
-variation_name: Seven-Stream Investigation Emerges
-variation_type: firstRevisit
+id: "FR-11"
+variation_type: "firstRevisit"
+cluster: "firstRevisit_initial"
+generation_week: 5
+position_in_cluster: 10
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 25
+awareness_range: "21-30"
+awareness_tier: "emerging_awareness"
+visited_variations: []
+active_path: "investigate"
+cross_character_content: ["algo-L1"]
+
+# Content Architecture
 word_count: 1247
-conditions:
-  visit_count: 2
-  awareness: 21-30%
-  cross_character: true
-  visited_nodes: [algo-L1]
-  dominant_path: investigate
-themes:
-  - Seven-stream hints with low awareness
-  - Pattern-seeking applied to examination methodology
-  - Recursive questioning beginning
-  - Investigation of investigation process emerging
-transformation_focus: "First investigate path variation. Archaeologist encountering seven-stream architecture begins examining her own analytical process. Pattern recognition becomes recursive—noticing patterns in how she notices patterns. Investigation extends from fragment to methodology itself."
-reference_exemplar: arch-L1-exemplar-05, arch-L1-exemplar-02
-cross_character_elements:
-  referenced_character: algorithm
-  referenced_node: algo-L1
-  specific_echoes:
-    - Seven streams organizing automatically
-    - Seven-category sorting happening unconsciously
-    - Multiple simultaneous verification systems
-    - Pattern in pattern-recognition process
-conditional_insertions:
-  - "Seven-stream hints (200-250 words)"
-  - "Investigate path voice (250-300 words)"
-  - "Recursive examination methodology (200-250 words)"
-  - "Pattern-seeking extending to process itself"
-reusable_patterns:
-  - "Examining how I cataloged"
-  - "Watching myself make divisions"
-  - "Patterns in the pattern-finding process"
-  - "Investigation had architecture now"
-  - "Looking at the looking"
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: immediate
+primary_focus: "Seven-stream computational architecture"
+secondary_focus: "Path philosophy developing"
+transformation_type: "cross_character_bleeding"
+
+# Voice Calibration
+archaeological_voice: true
+past_tense_maintained: true
+direct_address: false
+frame_transparency: "hidden"
+methodology_participation: "unaware"
+
+# Integration Elements
+character_content: true
+path_voice: true
+pure_revisit: false
+constants_ritual: true
+
+# Quality Metrics
+voice_consistency_target: 0.93
 ---
 
 The fragment waited in the same position. 847.3 terabytes, identical arrangement, but I approached the data differently this time. Not just cataloging—examining how I cataloged. The seven streams I'd noticed before seemed more organized now, though I couldn't articulate why. My classification process itself had started to feel structured.

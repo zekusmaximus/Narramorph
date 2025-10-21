@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-33
+id: arch-L1-FR-33
 variation_name: Temporal Mechanics Investigation and Resistance
 variation_type: firstRevisit
 word_count: 1454

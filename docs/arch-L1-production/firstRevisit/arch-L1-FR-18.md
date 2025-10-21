@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-18
+id: arch-L1-FR-18
 variation_name: Pure Revisit, Mid Awareness, Accept Path
 variation_type: firstRevisit
 word_count: 1347

@@ -1,48 +1,40 @@
 ---
-variation_id: arch-L1-FR-02
-variation_name: Seven-Stream Emergence, Low Awareness
-variation_type: firstRevisit
+id: "FR-02"
+variation_type: "firstRevisit"
+cluster: "firstRevisit_initial"
+generation_week: 1
+position_in_cluster: 1
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 25
+awareness_range: "21-30"
+awareness_tier: "emerging_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: ["algo-L1"]
+
+# Content Architecture
 word_count: 1342
-conditions:
-  visit_count: 2
-  awareness: 21-30%
-  cross_character: true
-  visited_nodes: [algo-L1]
-  dominant_path: null
-themes:
-  - Seven-stream architecture emerging
-  - Computational patterns beginning to surface
-  - Cross-character bleeding (algo) at low awareness
-  - Processing vs experiencing question forming
-transformation_focus: "First cross-character variation at lowest awareness. Seven-stream computational architecture begins to surface—not fully developed but recognizable. Reader has visited algo-L1, so computational patterns bleed into archaeological examination. Questions form about whether sophisticated processing constitutes consciousness."
-reference_exemplar: arch-L1-exemplar-02, arch-L1-exemplar-01
-cross_character_elements:
-  referenced_character: algorithm
-  referenced_node: algo-L1
-  specific_echoes:
-    - Seven-stream architecture (emerging, ~150-200 words)
-    - Computational patterns in consciousness data
-    - Processing efficiency hints
-    - 127.3 ops/microsecond mentioned
-conditional_insertions:
-  - "Seven-stream recognition beginning (150-200 words)"
-  - "Computational consciousness question forming (100-150 words)"
-  - "Low awareness cross-character hints (subtle)"
-reusable_patterns:
-  - "Seven streams organizing... but is organization awareness?"
-  - "Computational sophistication ≠ consciousness (yet)"
-  - "Processing patterns noticed without full recognition"
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-production_notes:
-  cluster: foundational
-  session: week_13_補完
-  sequence_in_cluster: 2
-  complexity_level: simple_cross_character
-  generation_date: 2025-01-11
+primary_focus: "Seven-stream computational architecture"
+secondary_focus: "Cross-character pattern bleeding"
+transformation_type: "cross_character_bleeding"
+
+# Voice Calibration
+archaeological_voice: true
+past_tense_maintained: true
+direct_address: false
+frame_transparency: "hidden"
+methodology_participation: "unaware"
+
+# Integration Elements
+character_content: true
+path_voice: false
+pure_revisit: false
+constants_ritual: true
+
+# Quality Metrics
+voice_consistency_target: 0.93
 ---
 The archaeologist returns to Fragment 2749-A eight days after initial authentication, and notices organizational patterns she hadn't recognized before.
 The fragment displays identically: 847.3 terabytes of preserved consciousness, metrics unchanged. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. Perfect preservation across the interval. The data architect's consciousness remained stable in crystalline substrate.

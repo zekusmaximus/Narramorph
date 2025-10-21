@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-43
+id: arch-L1-FR-43
 variation_name: L2 Resist Echo (Algorithm Content)
 variation_type: firstRevisit
 word_count: 1378

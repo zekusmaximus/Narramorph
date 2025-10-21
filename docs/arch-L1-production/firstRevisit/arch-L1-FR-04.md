@@ -1,42 +1,40 @@
 ---
-variation_id: arch-L1-FR-04
-variation_name: Seven-Stream Causality Crisis
-variation_type: firstRevisit
+id: "FR-04"
+variation_type: "firstRevisit"
+cluster: "firstRevisit_initial"
+generation_week: 2
+position_in_cluster: 3
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 40
+awareness_range: "31-50"
+awareness_tier: "moderate_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: ["algo-L1"]
+
+# Content Architecture
 word_count: 1347
-conditions:
-  visit_count: 2
-  awareness: 31-50%
-  cross_character: true
-  visited_nodes: [algo-L1]
-  dominant_path: null
-themes:
-  - Seven-stream computational architecture
-  - Causality violation deepens
-  - Effect preceding cause
-  - Future analysis embedded in past data
-transformation_focus: "Cross-character temporal bleeding from Algorithm intensifies. Causality crisis deepens from recognition (FR-02) to impossibility. Computational architecture becomes undeniable despite chronological violation."
-reference_exemplar: arch-L1-exemplar-02
-cross_character_elements:
-  referenced_character: algorithm
-  referenced_node: algo-L1
-  specific_echoes:
-    - Seven parallel processing streams detailed
-    - Stream-7 meta-observation focus
-    - Causality violation explicit
-    - Computational synchronization patterns
-conditional_insertions:
-  - "Seven-stream architecture (300-400 words)"
-  - "Causality crisis deepening"
-  - "Temporal paradox confrontation"
-reusable_patterns:
-  - "Data unchanged, perception shifted through cross-character path"
-  - "Stream-1 through Stream-7 detailed examination"
-  - "Causality violation acknowledged but work proceeds"
-quality_metrics:
-  voice_consistency: 95%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: immediate
+primary_focus: "Seven-stream computational architecture"
+secondary_focus: "Cross-character pattern bleeding"
+transformation_type: "cross_character_bleeding"
+
+# Voice Calibration
+archaeological_voice: true
+past_tense_maintained: true
+direct_address: false
+frame_transparency: "emerging"
+methodology_participation: "suspected"
+
+# Integration Elements
+character_content: true
+path_voice: false
+pure_revisit: false
+constants_ritual: true
+
+# Quality Metrics
+voice_consistency_target: 0.94
 ---
 The archaeologist returns to Fragment 2749-A nine days after initial authentication, and the computational architecture has become impossible to ignore.
 The fragment's preservation data remains constant. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. Every authentication marker she verified nine days ago displays identically. The consciousness preserved in 2041 hasn't degraded. Crystalline substrate maintains perfect molecular fidelity. What was captured remains captured.

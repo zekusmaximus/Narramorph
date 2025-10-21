@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-46
+id: arch-L1-FR-46
 variation_name: L2 Resist Echo (Last Human Content)
 variation_type: firstRevisit
 word_count: 1377

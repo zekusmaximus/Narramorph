@@ -1,28 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git init:*)",
-      "Bash(npm install)",
-      "Bash(npm run type-check:*)",
-      "Bash(npm install:*)",
-      "Bash(npm run lint)",
-      "Bash(npm run test:*)",
-      "Bash(npm run build:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(npm run validate:*)",
-      "Bash(npm test)",
-      "Bash(npm test:*)",
-      "Bash(npm run dev:*)",
-      "Bash(npx tsc:*)",
-      "Bash(npx eslint:*)",
-      "Bash(node -e \"console.log(require(''''./src/stores/storyStore.test.ts''''))\")",
-      "Bash(npx vitest run:*)",
-      "Bash(cat:*)",
-      "Bash(npx vitest list:*)",
-      "Bash(npx vitest:*)",
-      "Bash(DEBUG=vite:*)",
-      "Bash(npm outdated:*)"
+      "Bash(do if grep -q \"^variation_id:\" \"$f\")",
+      "Bash(then sed -i 's/^variation_id:/id:/' \"$f\")",
+      "Bash(echo:*)",
+      "Bash(fi)",
+      "Bash(for f in arch-L1-MA-*.md)"
     ],
     "deny": [],
     "ask": []

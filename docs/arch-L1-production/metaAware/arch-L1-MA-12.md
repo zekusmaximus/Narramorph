@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-12
+id: arch-L1-MA-12
 variation_name: Seven-Stream Shared Observation
 variation_type: metaAware
 word_count: 1637

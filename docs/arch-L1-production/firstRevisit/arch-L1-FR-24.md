@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-24
+id: arch-L1-FR-24
 variation_name: Computational Sophistication Unprovable
 variation_type: firstRevisit
 word_count: 1348

@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-17
+id: arch-L1-MA-17
 variation_name: Seven-Stream Co-Creation Network
 variation_type: metaAware
 word_count: 1747

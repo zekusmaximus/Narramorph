@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-17
+id: arch-L1-FR-17
 variation_name: After hum-L1, Low Awareness, Accept Path
 variation_type: firstRevisit
 word_count: 1251

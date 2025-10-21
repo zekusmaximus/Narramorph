@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-20
+id: arch-L1-MA-20
 variation_name: Welcoming Co-Creating Welcomed
 variation_type: metaAware
 word_count: 1808

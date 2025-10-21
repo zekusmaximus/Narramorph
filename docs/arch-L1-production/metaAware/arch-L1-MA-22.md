@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-22
+id: arch-L1-MA-22
 variation_name: Verification Co-Creating Verification Impossibility
 variation_type: metaAware
 word_count: 1809

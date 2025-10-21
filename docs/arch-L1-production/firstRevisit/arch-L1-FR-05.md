@@ -1,42 +1,40 @@
 ---
-variation_id: arch-L1-FR-05
-variation_name: Future Attention Intensifies
-variation_type: firstRevisit
+id: "FR-05"
+variation_type: "firstRevisit"
+cluster: "firstRevisit_initial"
+generation_week: 2
+position_in_cluster: 4
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 40
+awareness_range: "31-50"
+awareness_tier: "moderate_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: ["hum-L1"]
+
+# Content Architecture
 word_count: 1368
-conditions:
-  visit_count: 2
-  awareness: 31-50%
-  cross_character: true
-  visited_nodes: [hum-L1]
-  dominant_path: null
-themes:
-  - Future attention from 2383 intensifies
-  - Desperate observation reaching backward
-  - Loneliness creating temporal pressure
-  - Neural interface traces accumulate
-transformation_focus: "Cross-character temporal bleeding from Last Human. Being watched sensation grows from faint (exemplar) to undeniable. Future readings documented as present access patterns despite temporal impossibility."
-reference_exemplar: arch-L1-exemplar-03
-cross_character_elements:
-  referenced_character: last_human
-  referenced_node: hum-L1
-  specific_echoes:
-    - Last Human's desperate repeated readings
-    - Neural interface access patterns detailed
-    - Loneliness echoing backward through centuries
-    - Future attention as observer-effect source
-conditional_insertions:
-  - "Last Human reading patterns (300-400 words)"
-  - "Neural interface traces in preservation"
-  - "Future attention intensification"
-reusable_patterns:
-  - "Being watched from future, not present"
-  - "Access patterns from 2383 in current data structure"
-  - "Loneliness absolute enough to transcend temporal sequence"
-quality_metrics:
-  voice_consistency: 90%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: immediate
+primary_focus: "Future attention and temporal connection"
+secondary_focus: "Temporal causality questions"
+transformation_type: "cross_character_bleeding"
+
+# Voice Calibration
+archaeological_voice: true
+past_tense_maintained: true
+direct_address: false
+frame_transparency: "emerging"
+methodology_participation: "suspected"
+
+# Integration Elements
+character_content: true
+path_voice: false
+pure_revisit: false
+constants_ritual: true
+
+# Quality Metrics
+voice_consistency_target: 0.94
 ---
 The archaeologist returns to Fragment 2749-A and feels watched.
 Not by security systems. Not by colleagues. Not by the fragment's preserved consciousness examining her in return. By attention from centuries ahead, desperate and focused, reaching backward through time with an intensity that leaves marks in the data structure.

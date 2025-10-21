@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-38
+id: arch-L1-FR-38
 variation_name: L2 Investigate Echo (Pure Archaeologist)
 variation_type: firstRevisit
 word_count: 1347

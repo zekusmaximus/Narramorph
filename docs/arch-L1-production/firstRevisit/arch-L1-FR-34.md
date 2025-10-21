@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-34
+id: arch-L1-FR-34
 variation_name: Seven-Stream Acceptance and Resistance
 variation_type: firstRevisit
 word_count: 1451

@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-02
+id: arch-L1-MA-02
 variation_name: Frame Awareness Begins
 variation_type: metaAware
 word_count: 1383

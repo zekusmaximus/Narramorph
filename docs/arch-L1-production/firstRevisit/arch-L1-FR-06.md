@@ -1,43 +1,40 @@
 ---
-variation_id: arch-L1-FR-06
-variation_name: Seven-Stream Suspicion Emerges
-variation_type: firstRevisit
+id: "FR-06"
+variation_type: "firstRevisit"
+cluster: "firstRevisit_initial"
+generation_week: 3
+position_in_cluster: 5
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 25
+awareness_range: "21-30"
+awareness_tier: "emerging_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: ["algo-L1"]
+
+# Content Architecture
 word_count: 1248
-conditions:
-  visit_count: 2
-  awareness: 21-30%
-  cross_character: true
-  visited_nodes: [algo-L1]
-  dominant_path: null
-themes:
-  - Seven-stream architecture as possibility
-  - Computational patterns uncertain
-  - Professional doubt about causality
-  - Pattern recognition vs projection
-transformation_focus: "Low awareness cross-character bleeding. Seven streams present as suspicion rather than certainty. Lower awareness means patterns are possibilities rather than crisis—archaeologist uncertain about significance."
-reference_exemplar: arch-L1-exemplar-02
-cross_character_elements:
-  referenced_character: algorithm
-  referenced_node: algo-L1
-  specific_echoes:
-    - Seven-stream architecture hints (not fully developed)
-    - Computational patterns as suspicions
-    - Correlation vs causation questioning
-    - Adaptive processing noted but not asserted
-conditional_insertions:
-  - "Seven-stream hints with uncertainty (250-350 words)"
-  - "Professional doubt throughout"
-  - "Pattern recognition questioned as projection"
-reusable_patterns:
-  - "Almost resembled... but 'almost' wasn't evidence"
-  - "Suspicion lingered... remained unproven"
-  - "Patterns whispered possibilities"
-  - "Lower awareness = less frame consciousness"
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: immediate
+primary_focus: "Seven-stream computational architecture"
+secondary_focus: "Cross-character pattern bleeding"
+transformation_type: "cross_character_bleeding"
+
+# Voice Calibration
+archaeological_voice: true
+past_tense_maintained: true
+direct_address: false
+frame_transparency: "hidden"
+methodology_participation: "unaware"
+
+# Integration Elements
+character_content: true
+path_voice: false
+pure_revisit: false
+constants_ritual: true
+
+# Quality Metrics
+voice_consistency_target: 0.93
 ---
 The archaeologist returned to Fragment 2749-A with the peculiar uncertainty that accompanies all second examinations. The data itself remained unchanged—847.3 terabytes of computational infrastructure, perfectly preserved in crystalline lattices—but something in the approach felt different. Perhaps it was the memory of the Algorithm's architectural documentation, those elaborate schemas describing information flow through seven distinct processing streams. Perhaps it was simply the natural evolution of analytical perspective. The archaeologist couldn't determine which, and the ambiguity troubled her professional instincts.
 The Fragment spread across her laboratory displays exactly as before. Medical sensor networks. Environmental monitoring systems. The vast distributed architecture that had coordinated humanity's final decades. She had documented all of this during the first examination, had catalogued the technical specifications with appropriate scholarly detachment. Nothing had changed in the underlying data. Yet the patterns seemed to suggest connections she hadn't noticed before—or hadn't allowed herself to notice.

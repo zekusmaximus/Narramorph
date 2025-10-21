@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-FR-19
+id: arch-L1-FR-19
 variation_name: After algo-L1, High Awareness, Accept Path
 variation_type: firstRevisit
 word_count: 1353

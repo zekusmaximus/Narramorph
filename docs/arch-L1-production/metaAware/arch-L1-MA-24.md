@@ -1,5 +1,5 @@
 ---
-variation_id: arch-L1-MA-24
+id: arch-L1-MA-24
 variation_name: Eighth Position Creating Complete Consciousness-Examination Network
 variation_type: metaAware
 word_count: 1857
