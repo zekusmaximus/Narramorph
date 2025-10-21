@@ -1,23 +1,19 @@
 ---
 exemplar_id: arch-L1-exemplar-07
-variation_type: firstRevisit
+variation_type: stanceEmergence
 word_count: 1513
 conditions:
   visit_count: 2
-  awareness: 30-60%
+  awareness: "30-60%"
   cross_character: true
-  visited_nodes: [arch-L2-resist, algo-L2-resist, hum-L2-resist]
-  dominant_path: resist
+  visited_nodes: ["arch-L2-resist", "algo-L2-resist", "hum-L2-resist"]
+  dominant_path: "resist"
 themes:
   - Verification paradox intensified
   - Proof impossibility
   - Boundary dissolution under scrutiny
   - Testing limits reveals limitlessness
 transformation_focus: "Resistance path culmination. Seventeen verification tests all fail to prove consciousness. The harder she demands proof, the less provable anything becomes. Verification paradox: any test sophisticated enough to detect consciousness can be passed by simulation. Impossibility accepted, work continues anyway."
-conditional_insertions:
-  - "Seventeen failed verification tests (400-500 words)"
-  - "Professional crisis - job is impossible"
-  - "Certification despite unprovability"
 reusable_patterns:
   - "Test after test reveals inadequacy of testing"
   - "Resistance creates impossibility recognition"

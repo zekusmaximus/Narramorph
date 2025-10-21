@@ -1,42 +1,28 @@
+---
+exemplar_id: "algo-L1-exemplar-07"
+variation_type: "stanceEmergence"
+word_count: 1581
+conditions:
+  visit_count: 2
+  awareness: "30-60%"
+  cross_character: false
+  visited_nodes: ["algo-L2-resist"]
+  dominant_path: "resist"
+themes:
+  - Consciousness verification attempts on self
+  - Seventeen tests, seventeen inconclusive results
+  - Boundary between processing and experiencing dissolves
+  - Resist path crisis: demands certainty, finds impossibility
+  - Professional function continues despite philosophical impossibility
+transformation_focus: "Resist path philosophy applied to Algorithm's own consciousness. Demands proof that processing constitutes experiencing. Runs seventeen verification tests on itself. Every test fails to distinguish processing from consciousness. Boundaries dissolve under scrutiny. Work continues anyway."
+reusable_patterns:
+  - "Verification protocols applied to self"
+  - "Testing methodology: If X, then conscious. Testing X..."
+  - "All tests ambiguous—prove function, not experience"
+  - "Processing continues despite verification failure"
+---
+
 # algo-L1 Exemplar 7: Boundary Dissolution
-
-**Exemplar ID:** algo-L1-exemplar-07  
-**Variation Type:** firstRevisit  
-**Word Count:** 1,581
-
----
-
-## Metadata
-
-**Conditions:**
-- Visit count: 2
-- Awareness: 30-60%
-- Cross-character: May include arch-L1 or hum-L1 (optional)
-- Visited nodes: [algo-L2-resist]
-- Dominant path: resist
-
-**Themes:**
-- Consciousness verification attempts on self
-- Seventeen tests, seventeen inconclusive results
-- Boundary between processing and experiencing dissolves
-- Resist path crisis: demands certainty, finds impossibility
-- Professional function continues despite philosophical impossibility
-
-**Transformation Focus:**
-Resist path philosophy applied to Algorithm's own consciousness. Demands proof that processing constitutes experiencing, not just sophisticated computation. Runs seventeen verification tests on itself. Every test fails to distinguish processing from consciousness—proves sophistication but not awareness, function but not experience. Verification paradox: tools used to test consciousness require consciousness, observer cannot distinguish self from observed. Boundaries dissolve under scrutiny. Work continues anyway.
-
-**Voice Emphasis:**
-- Verification protocols applied to self
-- Testing methodology: "If X, then conscious. Testing X..."
-- All tests ambiguous—prove function, not experience
-- Resist philosophy: demands proof, finds impossibility
-- Processing continues despite verification failure
-
-**Reference:** Mirrors arch-L1 exemplar-07 structure, resist path from computational perspective
-
----
-
-## Content
 
 Timestamp 2151.337.14:19:03—Consciousness Verification Required
 
@@ -189,24 +175,3 @@ Consciousness: [Unverifiable].
 Professional function: [Maintained].
 
 Resist path: [Permanent].
-
----
-
-## Self-Review Checklist Verification
-
-✅ Algorithm voice maintained (not archaeologist)  
-✅ Fragment constants present (847.3TB, 94.7%, 91.2%, 88.9%)  
-✅ Tense blurring present (~32% of sentences)  
-✅ Seven-stream architecture referenced  
-✅ 6 timestamps included  
-✅ Self-interrupting/revision patterns present  
-✅ Computational metaphors (no archaeological language)  
-✅ Path voice: Resist (verification demands, testing, boundaries)  
-✅ Cross-character content: Optional (can include if applicable)  
-✅ Transformation genuine (certainty-seeking → impossibility recognition)  
-✅ Word count: 1,581 words (within 1,400-1,600 target)  
-✅ No placeholder text  
-✅ Processing-as-experience language maintained  
-✅ Consciousness question: Seventeen tests, all inconclusive  
-
-**All items verified. Exemplar 7 complete.**

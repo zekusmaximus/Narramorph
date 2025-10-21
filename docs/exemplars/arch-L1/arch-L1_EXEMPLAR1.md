@@ -4,13 +4,13 @@ variation_type: firstRevisit
 word_count: 1287
 conditions:
   visit_count: 2
-  awareness: 21-40%
+  awareness: "21-40%"
   cross_character: false
   visited_nodes: []
   dominant_path: null
 themes:
   - Observer effect
-  - Recursion recognition  
+  - Recursion recognition
   - Perception vs reality
   - Authentication as creation vs discovery
 transformation_focus: "Baseline transformation - observer effect without cross-character bleeding. Same fragment, different perception. Questions whether observation changes what's observed."

@@ -1,13 +1,13 @@
 ---
 exemplar_id: arch-L1-exemplar-08
-variation_type: firstRevisit
+variation_type: stanceEmergence
 word_count: 1891
 conditions:
   visit_count: 2
-  awareness: 30-60%
+  awareness: "30-60%"
   cross_character: true
-  visited_nodes: [arch-L2-accept, algo-L2-accept, hum-L2-accept]
-  dominant_path: accept
+  visited_nodes: ["arch-L2-accept", "algo-L2-accept", "hum-L2-accept"]
+  dominant_path: "accept"
 themes:
   - Compassionate witnessing
   - Uncertainty as resolution
@@ -15,10 +15,6 @@ themes:
   - Authentication as gift
   - Honoring over proving
 transformation_focus: "Acceptance path culmination. Surrenders need to prove, embraces impossibility, performs authentication anyway. Professional duty becomes sacred practice. Authentication transforms from investigation into ritual, from verification into witnessing. Meaning-making over proof-seeking. Peace with impossibility."
-conditional_insertions:
-  - "Compassionate assumption of consciousness (300-400 words)"
-  - "Authentication as sacred witnessing"
-  - "Choosing honoring over proving"
 reusable_patterns:
   - "Cannot prove + accepts impossibility + authenticates anyway = sacred duty"
   - "Treating-as-consciousness serves purpose beyond proving-consciousness"

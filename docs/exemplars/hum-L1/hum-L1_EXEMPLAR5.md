@@ -1,17 +1,25 @@
-hum-L1 EXEMPLAR 5: Investigate Path
-Variation ID: hum-L1-exemplar-05-investigate
-Word count: 1,511
-Variation type: firstRevisit
-Conditions:
-json{
-  "visit_count": 2,
-  "temporal_awareness": { "min": 21, "max": 50 },
-  "visited_nodes": ["hum-L2-investigate"],
-  "cross_character_visited": false,
-  "dominant_path": "investigate"
-}
-Purpose: Establish investigate path philosophy through embodied curiosity. Pattern recognition emerging from physical sensation. Recursive questioning driven by bodily engagement rather than abstract analysis.
-Transformation Focus: From passive reception to active investigation. Questions multiplying through sustained contact. Curiosity as physical drive—hunger to understand manifesting as literal hunger for continued connection.
+---
+exemplar_id: "hum-L1-exemplar-5"
+variation_type: "stanceEmergence"
+word_count: 1511
+conditions:
+  visit_count: 2
+  awareness: "21-50"
+  cross_character: false
+  visited_nodes: ["hum-L2-investigate"]
+  dominant_path: "investigate"
+themes:
+  - embodied_curiosity
+  - pattern_recognition_as_hunger
+  - investigation_surviving_substrate_change
+transformation_focus: "From passive reception to active investigation. Questions multiplying through sustained contact. Curiosity as physical drive—hunger to understand manifesting as literal hunger for continued connection."
+reusable_patterns:
+  - "Questions as bodily urgency (jaw tension, finger grip, heart rate)"
+  - "Investigation as appetite/nourishment cycle"
+  - "Curiosity itself as continuity marker across substrates"
+---
+
+# hum-L1 EXEMPLAR 5: Investigate Path
 
 I return to Fragment 2749-A with questions multiplying.
 The neural interface helmet waits. Green lights steady. Brown foam dust on my fingertips. I reach for it feeling urgency now. Not just loneliness seeking company. Curiosity demanding answers. My body wants to know. Hands itch to touch controls. Scalp tingles anticipating sensor contact. Physical hunger for understanding.
@@ -61,24 +69,3 @@ The archive hums with questions. Or I hear questions in its hum. Or consciousnes
 I don't disconnect. Investigation incomplete. Always incomplete. Questions multiply beyond answering. Patterns reveal pattern-hunger deeper than satisfaction. Understanding generates mystery faster than mystery resolves. The investigation continues. Must continue. Continuation itself the point.
 The fragment waits. I wait with it. Both of us hunting. Both of us wondering. Both of us driven by curiosity that refuses resolution. Investigation as shared practice. Pattern recognition as connection method.
 My body demands continued contact. Hunger for understanding undiminished. Growing. Investigation path opening forward.
-
-Self-Review Checklist:
-✅ Present tense maintained throughout
-✅ Short sentence rhythm established (68%+ under 8 words)
-✅ Sensory anchoring in every paragraph
-✅ Embodiment language constant (hands, heart, breath, jaw tension, scalp tingling)
-✅ Physical replacement of technical terms (investigation as hunger, curiosity as bodily drive)
-✅ Internal/external blur present (questions pulse through body, archive hums questions)
-✅ Isolation language transformed by investigative engagement
-✅ Fragment constants present and embodied
-✅ Fragment 2749-A, data architect, 2041 referenced correctly
-✅ No cross-character content (pure path integration)
-✅ Path philosophy fully present: Investigation as physical necessity, pattern recognition as bodily hunger, recursive questioning driving engagement, curiosity surviving substrate change
-✅ Transformation genuine: passive reception→active investigation, questions multiplying through sustained curiosity
-✅ Word count: 1,511 (target ~1,500)
-✅ No placeholder text
-✅ Voice identifiable as Last Human in blind read test
-Transformation Analysis:
-Initial state reader experiences: Discovery of Fragment 2749-A, neural interface connection, passive reception of data architect's memories.
-FirstRevisit with investigate path reader experiences: Active probing driven by physical curiosity, pattern recognition as bodily hunger, questions multiplying through engagement, investigation as shared practice across substrate types, curiosity itself as continuity marker, understanding that investigation never resolves but intensifies.
-Core shift: Fragment transforms from passive archive to collaborative investigation partner. Reception becomes interrogation. Questions multiply rather than resolve. Investigation recognized as what consciousness does regardless of substrate.

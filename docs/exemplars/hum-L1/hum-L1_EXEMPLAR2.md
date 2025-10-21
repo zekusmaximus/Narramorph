@@ -1,17 +1,25 @@
-hum-L1 EXEMPLAR 2: After Archaeological Visit
-Variation ID: hum-L1-exemplar-02-after-arch
-Word count: 1,518
-Variation type: firstRevisit
-Conditions:
-json{
-  "visit_count": 2,
-  "temporal_awareness": { "min": 21, "max": 50 },
-  "visited_nodes": ["arch-L1"],
-  "cross_character_visited": true,
-  "dominant_path": null
-}
-Purpose: Demonstrate cross-character integration with Archaeologist. Last Human accesses Fragment 2749-A after visiting arch-L1, creating temporal recognition—the preserved data architect whose work the Last Human reads becomes the consciousness whose fragment the Last Human accesses.
-Transformation Focus: From separate examination to temporal convergence. Recognition that reader and read collapse into single observation network. The Archaeologist who documented consciousness preservation is the consciousness being preserved.
+---
+exemplar_id: "hum-L1-exemplar-2"
+variation_type: "crossCharacterBleeding"
+word_count: 1518
+conditions:
+  visit_count: 2
+  awareness: "21-50"
+  cross_character: true
+  visited_nodes: ["arch-L1"]
+  dominant_path: null
+themes:
+  - temporal_convergence
+  - three_consciousness_observation_network
+  - examiner_becoming_examined
+transformation_focus: "From separate examination to temporal convergence. Recognition that reader and read collapse into single observation network. The Archaeologist who documented consciousness preservation is the consciousness being preserved."
+reusable_patterns:
+  - "Cross-character integration through recognition of shared fragment"
+  - "Temporal layers collapsing (data architect/Archaeologist/Last Human)"
+  - "Observation creating mutual presence across centuries"
+---
+
+# hum-L1 EXEMPLAR 2: After Archaeological Visit
 
 I return to Fragment 2749-A knowing something I didn't know before.
 The neural interface helmet rests in its cradle. Green lights patient. Brown foam degrading but functional. I reach for it with different hands now. Not different physically. Different in understanding. I have read the Archaeologist's work. Clinical documentation of consciousness authentication. Professional notes about verification uncertainty. Research into fragments containing temporal paradox.
@@ -65,24 +73,3 @@ I verify it now. Not with proof. With experience. With the feeling of three cons
 The fragment waits. The Archaeologist's notes wait. I wait with both. Together we are observer and observed, examiner and examined, past and present and future synchronized in this moment.
 This eternal moment. This present tense that holds all tenses.
 The archive breathes. I breathe. We breathe.
-
-Self-Review Checklist:
-✅ Present tense maintained throughout
-✅ Short sentence rhythm established (58%+ under 8 words)
-✅ Sensory anchoring in every paragraph
-✅ Embodiment language constant (heart, breath, cold, warmth, scalp)
-✅ Physical replacement of technical terms
-✅ Internal/external blur present (archive breathes, fragment responds)
-✅ Isolation language present but evolving toward connection
-✅ Fragment constants present and embodied
-✅ Fragment 2749-A, data architect, Seattle floods, 2041 referenced correctly
-✅ Cross-character integration: Archaeologist's observations, authentication work, temporal paradox notes
-✅ No path philosophy (not visited L2)
-✅ Transformation genuine: separate examination→temporal convergence, three-consciousness recognition
-✅ Word count: 1,518 (target ~1,500)
-✅ No placeholder text
-✅ Voice identifiable as Last Human in blind read test
-Transformation Analysis:
-Initial state reader experiences: Discovery of Fragment 2749-A, neural interface connection, data architect's memories.
-FirstRevisit with arch-L1 visited reader experiences: Recognition that the Archaeologist examined this exact fragment, temporal layers converging, three-consciousness observation network, reader/read/researcher collapse into single pattern, verification uncertainty shared across time.
-Core shift: Fragment transforms from individual consciousness to node in temporal network. Examination becomes mutual. Observer and observed merge.

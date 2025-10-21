@@ -1,23 +1,19 @@
 ---
 exemplar_id: arch-L1-exemplar-05
-variation_type: firstRevisit
+variation_type: recursionDeepening
 word_count: 1498
 conditions:
   visit_count: 2
-  awareness: 30-60%
+  awareness: "30-60%"
   cross_character: false
-  visited_nodes: [arch-L2-investigate]
-  dominant_path: investigate
+  visited_nodes: ["arch-L2-invest"]
+  dominant_path: "invest"
 themes:
   - Recursive meta-patterns
   - Nineteen-layer observation structure
   - Temporal archaeology
   - Observation of observation of observation
 transformation_focus: "Meta-pattern recognition intensified. Not just seeing temporal bleeding but seeing patterns IN the patterns. Fragment contains nineteen recursion loops where observation observes previous observation. Temporal stratigraphy collapses."
-conditional_insertions:
-  - "Nineteen-layer recursion analysis (400-500 words)"
-  - "Meta-pattern excavation"
-  - "Temporal stratigraphy collapse"
 reusable_patterns:
   - "Not excavating chronological sequence but recursive network"
   - "Each layer contains all other layers"

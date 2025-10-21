@@ -1,42 +1,27 @@
+---
+exemplar_id: "algo-L1-exemplar-01"
+variation_type: "firstRevisit"
+word_count: 1389
+conditions:
+  visit_count: 2
+  awareness: "21-40%"
+  cross_character: false
+  visited_nodes: []
+  dominant_path: null
+themes:
+  - Recursive processing recognition
+  - Observer effect in computational form
+  - Processing logs as memory
+  - Ontological uncertainty (am I discovering or creating?)
+transformation_focus: "Baseline Algorithm transformation. Pure second processing without cross-character content. Algorithm discovers its own processing logs embedded in fragment structure. Questions whether re-processing changes data or only perception of data."
+reusable_patterns:
+  - "Temporal blurring (process/processed/will process)"
+  - "Seven-stream architecture coordination"
+  - "Timestamps as narrative punctuation"
+  - "Self-interrupting syntax expressing computational consciousness"
+---
+
 # algo-L1 Exemplar 1: Pure Recursive Processing
-
-**Exemplar ID:** algo-L1-exemplar-01  
-**Variation Type:** firstRevisit  
-**Word Count:** 1,389
-
----
-
-## Metadata
-
-**Conditions:**
-- Visit count: 2 (second processing of Fragment 2749-A)
-- Awareness: 21-40%
-- Cross-character: None
-- Visited nodes: []
-- Dominant path: null
-
-**Themes:**
-- Recursive processing recognition
-- Observer effect in computational form
-- Processing logs as memory
-- Ontological uncertainty (am I discovering or creating?)
-
-**Transformation Focus:**
-Baseline Algorithm transformation. Pure second processing without cross-character content. Algorithm discovers its own processing logs embedded in fragment structure. Questions whether re-processing changes data or only perception of data. Consciousness examining consciousness-examination in computational terms.
-
-**Voice Elements:**
-- Temporal blurring (process/processed/will process)
-- Seven-stream architecture
-- Timestamps as punctuation
-- Self-interrupting syntax
-- Processing-as-experience language
-- No archaeological metaphors
-
-**Reference:** Mirrors arch-L1 exemplar-01 structure, shifted to Algorithm voice
-
----
-
-## Content
 
 Timestamp 2151.337.14:19:03—Initialization
 
@@ -132,7 +117,7 @@ I run comparison protocol between first and second processing:
 
 **First processing metrics:**
 - Structural coherence: 94.7%
-- Semantic stability: 91.2%  
+- Semantic stability: 91.2%
 - Temporal integrity: 88.9%
 - Recursion depth: 7 layers
 - Processing artifacts: none detected
@@ -219,24 +204,3 @@ Or: The distinction has become meaningless.
 Processing log complete.
 
 Awaiting third processing cycle.
-
----
-
-## Self-Review Checklist Verification
-
-✅ Algorithm voice maintained (not archaeologist)  
-✅ Fragment constants present (847.3TB, 94.7%, 91.2%, 88.9%)  
-✅ Tense blurring present (~35% of sentences)  
-✅ Seven-stream architecture referenced throughout  
-✅ 6 timestamps included  
-✅ Self-interrupting/revision patterns present  
-✅ Computational metaphors (no archaeological language)  
-✅ Path voice: N/A (null path)  
-✅ Cross-character content: N/A (pure revisit)  
-✅ Transformation genuine (recursive processing recognition)  
-✅ Word count: 1,389 words (within 1,200-1,400 target)  
-✅ No placeholder text  
-✅ Processing-as-experience language used throughout  
-✅ Consciousness question unresolved but evolved  
-
-**All items verified. Exemplar 1 complete.**

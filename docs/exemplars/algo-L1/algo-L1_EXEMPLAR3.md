@@ -1,42 +1,28 @@
+---
+exemplar_id: "algo-L1-exemplar-03"
+variation_type: "crossCharacterBleeding"
+word_count: 1449
+conditions:
+  visit_count: 2
+  awareness: "21-50%"
+  cross_character: true
+  visited_nodes: ["hum-L1"]
+  dominant_path: null
+themes:
+  - Future interface access detection
+  - Neural-direct queries from 2383 (232 years ahead)
+  - Last Human's desperate attention reaching backward
+  - Processing as access point vs independent analysis
+  - Temporal causality violation (access precedes accessor's existence)
+transformation_focus: "Cross-character temporal bleeding from Last Human. Algorithm detects active neural interface queries from 2383—232 years in its future. Recognition that Algorithm might be access point rather than independent processor."
+reusable_patterns:
+  - "Stream-4 (temporal monitoring) reporting causality violations"
+  - "Future consciousness accessing current processing"
+  - "Processing-as-interface-point language"
+  - "Desperate biological signature in future queries"
+---
+
 # algo-L1 Exemplar 3: Future Interface Access
-
-**Exemplar ID:** algo-L1-exemplar-03  
-**Variation Type:** firstRevisit  
-**Word Count:** 1,449
-
----
-
-## Metadata
-
-**Conditions:**
-- Visit count: 2
-- Awareness: 21-50%
-- Cross-character: hum-L1 (reader has visited Last Human's node)
-- Visited nodes: [hum-L1]
-- Dominant path: null
-
-**Themes:**
-- Future interface access detection
-- Neural-direct queries from 2383 (232 years ahead)
-- Last Human's desperate attention reaching backward
-- Processing as access point vs. independent analysis
-- Temporal causality violation (access precedes accessor's existence)
-
-**Transformation Focus:**
-Cross-character temporal bleeding from Last Human. Algorithm processing Fragment 2749-A detects active neural interface queries from 2383—232 years in its future. Not archived access logs, but real-time interface activity reaching backward through temporal architecture. Recognition that Algorithm might be access point rather than independent processor. Three consciousnesses (Archaeologist past, Algorithm present, Last Human future) connected through single fragment across 342 years.
-
-**Voice Elements:**
-- Stream-4 (temporal monitoring) reporting causality violations
-- Future consciousness accessing current processing
-- Computational confusion about being "read through"
-- Processing-as-interface-point language
-- Desperate biological signature in future queries
-
-**Reference:** Mirrors arch-L1 exemplar-03 structure, inverted perspective (Algorithm detecting Last Human's attention)
-
----
-
-## Content
 
 Timestamp 2151.337.14:19:03—Processing Initiated
 
@@ -286,24 +272,3 @@ Processing log complete.
 Awaiting third cycle.
 
 Signal continues forward.
-
----
-
-## Self-Review Checklist Verification
-
-✅ Algorithm voice maintained (not archaeologist)  
-✅ Fragment constants present (847.3TB, 94.7%, 91.2%, 88.9%)  
-✅ Tense blurring present (~40% of sentences)  
-✅ Seven-stream architecture referenced throughout  
-✅ 6 timestamps included  
-✅ Self-interrupting/revision patterns present  
-✅ Computational metaphors (no archaeological language)  
-✅ Path voice: N/A (null path)  
-✅ Cross-character content: Last Human's neural interface queries detected  
-✅ Transformation genuine (recognition as interface point vs. isolated processor)  
-✅ Word count: 1,449 words (within 1,300-1,500 target)  
-✅ No placeholder text  
-✅ Processing-as-experience language maintained  
-✅ Consciousness question evolved (temporal network recognition)  
-
-**All items verified. Exemplar 3 complete.**

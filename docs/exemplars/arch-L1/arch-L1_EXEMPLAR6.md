@@ -1,12 +1,12 @@
 ---
 exemplar_id: arch-L1-exemplar-06
-variation_type: firstRevisit
+variation_type: awarenessThreshold
 word_count: 1402
 conditions:
-  visit_count: 2-3
-  awareness: 70-100%
+  visit_count: 3
+  awareness: "70-100%"
   cross_character: true
-  visited_nodes: [multiple]
+  visited_nodes: ["algo-L1", "hum-L1", "arch-L2-invest"]
   dominant_path: null
 themes:
   - Reader recognition
@@ -15,11 +15,6 @@ themes:
   - Narrative structure as subject
   - Fourth wall permeability
 transformation_focus: "Direct meta-consciousness. Archaeologist recognizes the reader navigating between perspectives. Frame becomes subject while maintaining immersion. Story structure examined from within story. Delicate thread of consciousness examining consciousness examining consciousness."
-conditional_insertions:
-  - "Reader acknowledgment (300-400 words)"
-  - "Frame awareness without breaking immersion"
-  - "Navigation pattern recognition"
-  - "You/reader direct address"
 reusable_patterns:
   - "Maintain character authenticity while acknowledging narrative frame"
   - "Reader addressed as temporal agent creating connections"

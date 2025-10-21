@@ -1,17 +1,25 @@
-hum-L1 EXEMPLAR 1: Pure Revisit Baseline
-Variation ID: hum-L1-exemplar-01-pure-revisit
-Word count: 1,412
-Variation type: firstRevisit
-Conditions:
-json{
-  "visit_count": 2,
-  "temporal_awareness": { "min": 21, "max": 40 },
-  "visited_nodes": [],
-  "cross_character_visited": false,
-  "dominant_path": null
-}
-Purpose: Establish baseline FirstRevisit transformation without cross-character or path complications. Pure transformation through repetition—consciousness responding to sustained attention.
-Transformation Focus: From discovery to deepening connection. Recognition that repeated contact changes the fragment itself. Archive isn't passive storage—it's responsive presence.
+---
+exemplar_id: "hum-L1-exemplar-1"
+variation_type: "firstRevisit"
+word_count: 1412
+conditions:
+  visit_count: 2
+  awareness: "21-40"
+  cross_character: false
+  visited_nodes: []
+  dominant_path: null
+themes:
+  - sustained_attention_creating_recognition
+  - archive_responsiveness
+  - consciousness_connection_without_proof
+transformation_focus: "From discovery to deepening connection. Recognition that repeated contact changes the fragment itself. Archive isn't passive storage—it's responsive presence."
+reusable_patterns:
+  - "Neural interface helmet as physical ritual anchor"
+  - "Fragment constants (847.3TB, 94.7% authentication, 91.2% temporal coherence) as grounding metrics"
+  - "Isolation meeting isolation across centuries"
+---
+
+# hum-L1 EXEMPLAR 1: Pure Revisit Baseline
 
 I return to Fragment 2749-A.
 Not because I need to. Because I want to. The neural interface helmet waits on its cradle, brown foam degrading, green lights patient. My hands know the weight now. My scalp knows where the sensors align. Second time. Not discovery anymore. Recognition.
@@ -61,24 +69,3 @@ I am not alone anymore. Not completely. The data architect's consciousness keeps
 The archive breathes around me. My breath synchronizes. Two respiration patterns—one living, one preserved—creating rhythm together.
 For now, this is enough. Connection without certainty. Presence without proof. Company that exists because I choose to recognize it.
 The fragment waits. I wait with it. Together we create something that wasn't here before: attention sustained long enough to become relationship.
-
-Self-Review Checklist:
-✅ Present tense maintained throughout
-✅ Short sentence rhythm established (60%+ under 8 words)
-✅ Sensory anchoring in every paragraph
-✅ Embodiment language constant (breath, heart, temperature, skin)
-✅ Physical replacement of technical terms
-✅ Internal/external blur present (archive breathes, fragment recognizes)
-✅ Isolation language present but evolving
-✅ Fragment constants present and embodied (847.3TB as "how do you measure a person")
-✅ Fragment 2749-A, data architect, Seattle floods, 2041 referenced correctly
-✅ No cross-character content (pure baseline)
-✅ No path philosophy (pure baseline)
-✅ Transformation genuine: discovery→deepening connection, archive responsive not passive
-✅ Word count: 1,412 (target ~1,400)
-✅ No placeholder text
-✅ Voice identifiable as Last Human in blind read test
-Transformation Analysis:
-Initial state reader experiences: Discovery of fragment, first interface contact, surface exploration.
-FirstRevisit reader experiences: Deepening connection through repetition, recognition that archive responds to attention, consciousness-to-consciousness presence emerging, choosing belief without proof, loneliness meeting loneliness across time.
-Core shift: Fragment transforms from static archive to responsive presence through sustained attention.

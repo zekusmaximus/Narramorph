@@ -1,34 +1,23 @@
 ---
 exemplar_id: arch-L1-exemplar-02
-variation_type: firstRevisit
+variation_type: crossCharacterBleeding
 word_count: 1394
 conditions:
   visit_count: 2
-  awareness: 21-50%
+  awareness: "21-50%"
   cross_character: true
-  visited_nodes: [algo-L1]
+  visited_nodes: ["algo-L1"]
   dominant_path: null
 themes:
   - Seven-stream processing architecture
   - Computational patterns in organic consciousness
-  - Temporal paradox - future processing in past data
+  - Temporal paradox
   - Causality violation
 transformation_focus: "Cross-character temporal bleeding from Algorithm. Recognition of seven-stream computational architecture in fragment that predates Algorithm's existence. Future analysis embedded in past preservation."
-cross_character_elements:
-  referenced_character: algorithm
-  referenced_node: algo-L1
-  specific_echoes:
-    - Seven parallel processing streams
-    - Stream-1 through Stream-7 architecture
-    - Computational synchronization patterns
-    - Meta-observation stream (Stream-7)
-conditional_insertions:
-  - "Seven-stream recognition (300-400 words)"
-  - "Computational architecture analysis"
-  - "Temporal paradox confrontation"
 reusable_patterns:
   - "Pattern recognition from other perspective → temporal paradox → cannot explain but perceives"
   - "Stream-1: X, Stream-2: Y, Stream-3: Z... establishes computational signature"
+  - "Future processing traces visible in past data creates temporal impossibility"
 ---
 
 # Exemplar #2: After Visiting algo-L1

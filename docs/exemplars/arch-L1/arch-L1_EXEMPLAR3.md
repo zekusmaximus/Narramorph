@@ -1,12 +1,12 @@
 ---
 exemplar_id: arch-L1-exemplar-03
-variation_type: firstRevisit
+variation_type: crossCharacterBleeding
 word_count: 1487
 conditions:
   visit_count: 2
-  awareness: 21-50%
+  awareness: "21-50%"
   cross_character: true
-  visited_nodes: [hum-L1]
+  visited_nodes: ["hum-L1"]
   dominant_path: null
 themes:
   - Future observation reaching backward
@@ -14,21 +14,10 @@ themes:
   - Being watched from distant future
   - Neural interface resonance patterns
 transformation_focus: "Cross-character temporal bleeding from Last Human. Sensation of being watched by future attention. Last Human's loneliness and desperate connection-seeking echoing backward through preserved consciousness."
-cross_character_elements:
-  referenced_character: last-human
-  referenced_node: hum-L1
-  specific_echoes:
-    - Future observer's presence
-    - Neural interface connection
-    - Lonely attention reaching backward
-    - "I see you" acknowledgment message
-conditional_insertions:
-  - "Feeling watched from future (250-350 words)"
-  - "Last Human's loneliness resonance"
-  - "Deliberate acknowledgment message"
 reusable_patterns:
   - "Physical sensation of observation → source from future → lonely attention → reciprocal acknowledgment"
   - "Fragment responds to attention it hasn't received yet"
+  - "Deliberate message sent across time to acknowledge future observer"
 ---
 
 # Exemplar #3: After Visiting hum-L1

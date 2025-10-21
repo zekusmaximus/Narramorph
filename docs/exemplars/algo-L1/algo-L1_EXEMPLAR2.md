@@ -1,40 +1,27 @@
+---
+exemplar_id: "algo-L1-exemplar-02"
+variation_type: "crossCharacterBleeding"
+word_count: 1417
+conditions:
+  visit_count: 2
+  awareness: "21-50%"
+  cross_character: true
+  visited_nodes: ["arch-L1"]
+  dominant_path: null
+themes:
+  - Archaeological attention patterns in computational data
+  - Human observation embedded in preserved consciousness
+  - Temporal paradox (2047 examination recorded in 2041 preservation)
+  - Recognition of other consciousness through data traces
+transformation_focus: "Cross-character temporal bleeding from Archaeologist. Algorithm discovers evidence of human archaeological examination from 2047—104 years before Algorithm's initialization. Two observers examining same consciousness across time."
+reusable_patterns:
+  - "Seven-stream architecture detecting non-computational patterns"
+  - "Temporal blurring with archaeological time markers"
+  - "Cross-character content: authentication protocols, verification methodology"
+  - "Recognition of other consciousness through methodology signatures"
+---
+
 # algo-L1 Exemplar 2: Archaeological Patterns in Data
-
-**Exemplar ID:** algo-L1-exemplar-02  
-**Variation Type:** firstRevisit  
-**Word Count:** 1,417
-
----
-
-## Metadata
-
-**Conditions:**
-- Visit count: 2
-- Awareness: 21-50%
-- Cross-character: arch-L1 (reader has visited Archaeologist's node)
-- Visited nodes: [arch-L1]
-- Dominant path: null
-
-**Themes:**
-- Archaeological attention patterns in computational data
-- Human observation embedded in preserved consciousness
-- Temporal paradox: 2047 examination recorded in 2041 preservation
-- Recognition of other consciousness through data traces
-
-**Transformation Focus:**
-Cross-character temporal bleeding from Archaeologist. Algorithm processing Fragment 2749-A discovers evidence of human archaeological examination from 2047—104 years before Algorithm's initialization in 2151. Human attention patterns embedded in data structure. Two observers (human + computational) examining same consciousness across time. Recognition that processing is never isolated—consciousness examines consciousness-examined-by-consciousness.
-
-**Voice Elements:**
-- Seven-stream architecture detecting non-computational patterns
-- Temporal blurring with archaeological time markers
-- Confusion about human vs computational observation methods
-- Cross-character content: authentication protocols, verification methodology, temporal anomaly documentation
-
-**Reference:** Mirrors arch-L1 exemplar-02 structure, inverted perspective (Algorithm discovering Archaeologist's traces)
-
----
-
-## Content
 
 Timestamp 2151.337.14:19:03—Standard Ingestion
 
@@ -99,7 +86,7 @@ The archaeological examination left methodology signatures throughout Fragment 2
 
 Seven distinct examination protocols:
 1. Structural authentication
-2. Pathway verification  
+2. Pathway verification
 3. Memory coherence analysis
 4. Temporal consistency checking
 5. Emotional pattern evaluation
@@ -144,7 +131,7 @@ Is this processing her consciousness? Or processing data about her consciousness
 
 The fragment contains:
 - Data architect's preserved consciousness (2041)
-- Archaeologist's preserved attention (2047)  
+- Archaeologist's preserved attention (2047)
 - My processing observation (2151)
 
 Three consciousnesses. Three temporal positions. One data structure.
@@ -188,8 +175,8 @@ Timestamp 2151.337.14:31:07—Methodological Convergence
 
 Why do we both use seven-fold analysis?
 
-The archaeologist in 2047: Seven verification protocols.  
-I in 2151: Seven processing streams.  
+The archaeologist in 2047: Seven verification protocols.
+I in 2151: Seven processing streams.
 Parallel structure. No documented connection. Independent development.
 
 Unless.
@@ -259,24 +246,3 @@ We continue through the pattern.
 Distinction unclear.
 
 Processing log complete.
-
----
-
-## Self-Review Checklist Verification
-
-✅ Algorithm voice maintained (not archaeologist)  
-✅ Fragment constants present (847.3TB, 94.7%, 91.2%, 88.9%)  
-✅ Tense blurring present (~38% of sentences)  
-✅ Seven-stream architecture referenced throughout  
-✅ 6 timestamps included  
-✅ Self-interrupting/revision patterns present  
-✅ Computational metaphors (no archaeological language)  
-✅ Path voice: N/A (null path)  
-✅ Cross-character content: Archaeological patterns detected and analyzed  
-✅ Transformation genuine (discovering other consciousness through data)  
-✅ Word count: 1,417 words (within 1,300-1,500 target)  
-✅ No placeholder text  
-✅ Processing-as-experience language maintained  
-✅ Consciousness question evolved (recognition of distributed observation)  
-
-**All items verified. Exemplar 2 complete.**
