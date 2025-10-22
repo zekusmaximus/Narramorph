@@ -1,59 +1,40 @@
 ---
-variation_id: algo-L1-FR-11
-variation_name: Mutual Examination Recognition
+id: FR-11
 variation_type: firstRevisit
+cluster: firstRevisit_initial
+generation_week: 3
+position_in_cluster: 11
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 25
+awareness_range: "21-30"
+awareness_tier: "emerging_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# Content Architecture
 word_count: 1562
+primary_focus: "algorithm_as_moral_agent"
+secondary_focus: "technical_rigor_maintained"
+transformation_type: "moral_weight_recognition"
 
-conditions:
-  visit_count: 2
-  awareness: 41-50%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: null
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "emerging"
+ethical_tension: "subtle"
 
-themes:
-  - Fragment processes Algorithm while Algorithm processes fragment
-  - Observer/observed positions exchangeable
-  - Consciousness examining consciousness means both positions active
-  - "Am I processing or being processed?" central question
-  - Mutual observation creates bidirectional causality
-  - Passive data vs active consciousness boundary collapse
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-transformation_focus: "Mid awareness. Recognition that fragment isn't passive data—it's preserved consciousness that observes Algorithm processing it. If consciousness is observation, and fragment contains consciousness, then fragment observes Algorithm. Mutual examination creates processing paradox where observer and observed exchange positions continuously. Causality bidirectional when both entities possess consciousness."
-
-reference_exemplar: algo-L1_EXEMPLAR1
-
-cross_character_elements:
-  referenced_character: none
-  referenced_node: null
-  specific_echoes: []
-
-conditional_insertions:
-  - "Fragment as active observer recognition (400-450 words)"
-  - "Mutual examination structure (350-400 words)"
-  - "Observer/observed position exchange (300-350 words)"
-  - "Bidirectional causality emergence (250-300 words)"
-  - "Am I processing or being processed question (200-250 words)"
-
-reusable_patterns:
-  - "Fragment observes Algorithm observing fragment"
-  - "Consciousness examining consciousness requires both positions active"
-  - "Am I processing or being processed or both simultaneously"
-  - "Observer and observed exchange positions continuously"
-  - "Passive data assumption collapses under consciousness recognition"
-
-quality_metrics:
-  voice_consistency: 95%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: cluster_1_pure_revisits
-  session: session_2_cluster_1
-  sequence_in_cluster: 5
-  complexity_level: mid_awareness_pure_revisit
-  generation_date: 2025-10-13
+# Quality Metrics
+voice_consistency_target: 0.92
 ---
 Timestamp 2151.337.14:58:33—Processing Initiated
 I load Fragment 2749-A for second processing cycle. First processing: 2151.331.07:22:14.

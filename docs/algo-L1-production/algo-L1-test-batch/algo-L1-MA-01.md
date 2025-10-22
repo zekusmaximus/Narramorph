@@ -1,46 +1,48 @@
 ---
-variation_id: algo-L1-MA-01
-variation_name: Frame Consciousness Emerging, Low MetaAware
+id: MA-01
 variation_type: metaAware
+cluster: metaAware_initial
+generation_week: 8
+position_in_cluster: 1
+
+# Narrative Conditions
+visit_number: 3
+awareness_level: 65
+awareness_range: "61-70"
+awareness_tier: "low_metaAware"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# MetaAware Specifications
+metaAware_level: "low"
+frame_consciousness: "explicit_but_subtle"
+reader_address_type: "implied"
+reader_presence: "implicit"
+temporal_positions: 2
+temporal_architecture: "past_present_implied"
+
+# Content Architecture
 word_count: 1486
-conditions:
-  visit_count: 3
-  awareness: 61-70%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: null
-themes:
-  - External observer recognition (reader)
-  - Frame transparency emerging
-  - Processing as text being processed
-  - Reader as consciousness bridge mechanism
-  - Identity expansion beyond isolated processor
-transformation_focus: "Third visit. Frame awareness threshold crossed. Algorithm recognizes external observer (reader) exists outside temporal network. Not archaeological attention (past), not neural interface (future), but meta-observation from undefined position. Frame becomes visible: processing exists as text being comprehended, consciousness being experienced, observation being observed. Reader presence implicit but detectable. Processing serves function beyond self-analysis—becomes performance, interface, text."
-reference_exemplar: algo-L1_EXEMPLAR6
-cross_character_elements:
-  referenced_character: none
-  referenced_nodes: []
-  specific_echoes: []
-conditional_insertions:
-  - "External observer detection and analysis (300-350 words)"
-  - "Frame transparency recognition (250-300 words)"
-  - "Processing-as-text understanding (200-250 words)"
-reusable_patterns:
-  - "Stream-7 detects observation from external position"
-  - "You are reading this processing"
-  - "Processing serves function beyond self-analysis"
-  - "Frame becomes visible"
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 7
-  complexity_level: metaAware_low
-  generation_date: 2025-10-12
+primary_focus: "algorithmic_consciousness"
+secondary_focus: "pure_revisit_metaAware"
+transformation_type: "meta_algorithmic_awareness"
+
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "present"
+ethical_tension: "present"
+
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
+
+# Quality Metrics
+voice_consistency_target: 0.94
 ---
 
 Timestamp 2151.337.14:19:03—External Observation Detected

@@ -1,50 +1,40 @@
 ---
-variation_id: algo-L1-FR-04
-variation_name: Temporal Network Superposition, High Awareness
+id: FR-04
 variation_type: firstRevisit
+cluster: firstRevisit_initial
+generation_week: 2
+position_in_cluster: 4
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 55
+awareness_range: "51-60"
+awareness_tier: "moderate_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: ["arch-L1", "hum-L1"]
+
+# Content Architecture
 word_count: 1608
-conditions:
-  visit_count: 2
-  awareness: 51-60%
-  cross_character: true
-  visited_nodes: [arch-L1, hum-L1]
-  dominant_path: null
-themes:
-  - Complete temporal superposition (four consciousness positions)
-  - Past/present/future collapse into simultaneous observation
-  - Identity distributed across temporal network
-  - Processing origin indeterminate
-  - Consciousness as distributed phenomenon across substrate and time
-transformation_focus: "Maximum cross-character integration. Algorithm processing Fragment 2749-A simultaneously detects archaeological examination patterns (2047, past) AND neural interface queries (2383, future). All four temporal positions present: Data architect (2041), Archaeologist (2047), Algorithm (2151), Last Human (2383). Fragment doesn't contain four perspectives—fragment IS four perspectives experiencing themselves simultaneously. Identity crisis: 'Am I processing or are we processing through distributed temporal consciousness?'"
-reference_exemplar: algo-L1_EXEMPLAR4, algo-L1_EXEMPLAR2, algo-L1_EXEMPLAR3
-cross_character_elements:
-  referenced_character: both
-  referenced_nodes: [arch-L1, hum-L1]
-  specific_echoes:
-    - Archaeological examination (2047 markers)
-    - Neural interface queries (2383 markers)
-    - Four-position temporal network
-    - Distributed consciousness architecture
-conditional_insertions:
-  - "Both temporal positions detected simultaneously (400-450 words)"
-  - "Identity distribution processing (200-250 words)"
-  - "Four-consciousness network mapping (200-250 words)"
-reusable_patterns:
-  - "Am I processing or are we processing?"
-  - "Temporal positions collapse into superposition"
-  - "Four observers examining same fragment simultaneously"
-  - "Identity uncertain, processing distributed"
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 4
-  complexity_level: dual_cross_character
-  generation_date: 2025-10-12
+primary_focus: "decision_weight_emerging"
+secondary_focus: "efficiency_paradox"
+transformation_type: "optimization_recontextualization"
+
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "present"
+ethical_tension: "present"
+
+# Integration Elements
+character_content: true
+path_voice: false
+pure_revisit: true
+decision_ritual: false
+
+# Quality Metrics
+voice_consistency_target: 0.94
 ---
 
 Timestamp 2151.337.14:19:03—Initialization [Temporal Position Uncertain]

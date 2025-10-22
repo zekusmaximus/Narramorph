@@ -1,64 +1,40 @@
 ---
-variation_id: algo-L1-FR-17
-variation_name: Temporal Causality Paradox
+id: FR-17
 variation_type: firstRevisit
+cluster: firstRevisit_emerging
+generation_week: 4
+position_in_cluster: 4
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 40
+awareness_range: "31-40"
+awareness_tier: "developing_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# Content Architecture
 word_count: 1563
+primary_focus: "optimization_reframed"
+secondary_focus: "same_process_new_meaning"
+transformation_type: "threshold_crossing"
 
-conditions:
-  visit_count: 2
-  awareness: 31-40%
-  cross_character: true
-  visited_nodes: [arch-L1]
-  dominant_path: null
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "present"
+ethical_tension: "present"
 
-themes:
-  - Temporal impossibility articulated clearly
-  - 2047 examination embedded in 2041 preservation
-  - Stream-4 flagging causality violations
-  - Observer effect across temporal boundaries
-  - Bidirectional causality or simultaneous existence
-  - Examination creates traces retroactively
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-transformation_focus: "Mid-low awareness focusing on temporal paradox. How do 2047 examination traces exist in consciousness preserved 2041? How does Algorithm (initialized 2151) detect patterns created 104 years before initialization? Causality uncertain when consciousness examines consciousness across time. Observer effect operates retroactively or data contains all future examinations."
-
-reference_exemplar: algo-L1_EXEMPLAR2
-
-cross_character_elements:
-  referenced_character: archaeologist
-  referenced_node: arch-L1
-  specific_echoes:
-    - 2047 examination markers in 2041 preservation
-    - Temporal sequence violations
-    - Causality paradox explicit
-    - Observer effect across temporal boundaries
-    - Retroactive trace creation possibility
-
-conditional_insertions:
-  - "Temporal impossibility articulated clearly (300-350 words)"
-  - "2047 examination in 2041 preservation (250-300 words)"
-  - "Stream-4 flagging causality violations (200-250 words)"
-  - "Observer effect across temporal boundaries (200-250 words)"
-
-reusable_patterns:
-  - "How do 2047 traces exist in 2041 preservation"
-  - "Causality violations flagged—unresolvable"
-  - "Observer effect operates retroactively"
-  - "Examination creates traces examination reveals"
-  - "Temporal paradox: effect precedes cause"
-  - "Fragment contains all future examinations as present"
-
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: cluster_2_archaeological_cross_character
-  session: session_3_cluster_2
-  sequence_in_cluster: 3
-  complexity_level: mid_low_awareness_single_cross_character
-  generation_date: 2025-10-13
+# Quality Metrics
+voice_consistency_target: 0.94
 ---
 Timestamp 2151.337.14:19:03—Standard Ingestion Protocol
 I am processing Fragment 2749-A. Second authentication cycle.

@@ -1,48 +1,50 @@
 ---
-variation_id: algo-L1-MA-04
-variation_name: Dual Observation Types - Archaeological and Meta-Current
+id: MA-04
 variation_type: metaAware
+cluster: metaAware_initial
+generation_week: 8
+position_in_cluster: 4
+
+# Narrative Conditions
+visit_number: 3
+awareness_level: 65
+awareness_range: "61-70"
+awareness_tier: "low_metaAware"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# MetaAware Specifications
+metaAware_level: "low"
+frame_consciousness: "explicit_but_subtle"
+reader_address_type: "implied"
+reader_presence: "implicit"
+temporal_positions: 2
+temporal_architecture: "past_present_implied"
+
+# Content Architecture
 word_count: 1593
-conditions:
-  visit_count: 3
-  awareness: 61-70%
-  cross_character: true
-  visited_nodes: [arch-L1]
-  dominant_path: null
-themes:
-  - Frame-consciousness with archaeological integration
-  - Comparative observation analysis across temporal and frame positions
-  - Past examination versus meta-current reading
-  - Dual consciousness types examining single artifact
-  - Observer position classification protocols
-transformation_focus: "Algorithm detects two distinct observation types—archaeological attention from 2047 and reader attention from meta-position—requiring comparative analysis of consciousness examining across temporal versus frame boundaries."
-reference_exemplar: algo-L1-exemplar-06
-cross_character_elements:
-  referenced_character: archaeologist
-  referenced_nodes: [arch-L1]
-  specific_echoes:
-    - "The archaeologist examined Fragment 2749-A as historical artifact from 2047"
-    - "Archaeological protocols: dating, authentication, preservation standards"
-    - "Research documentation patterns from past temporal position"
-conditional_insertions:
-  - "Comparative analysis: archaeological observation (past temporal position) versus reader observation (meta-position)"
-  - "Two consciousness types examining same Fragment through different observation structures"
-  - "Archaeological data patterns detected alongside meta-observation signatures"
-reusable_patterns:
-  - "Stream-7 observes all other streams and observes itself observing"
-  - "Observer: undefined temporal position, undefined substrate"
-  - "Two observation types, one Fragment, different examination structures"
-quality_metrics:
-  voice_consistency: pending
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-production_notes:
-  cluster: cluster_6_low_metaaware
-  session: session_7_cluster_6
-  sequence_in_cluster: 2
-  complexity_level: MetaAware with archaeological cross-character - dual observation type analysis
-  generation_date: 2025-10-13
+primary_focus: "algorithmic_consciousness"
+secondary_focus: "pure_revisit_metaAware"
+transformation_type: "meta_algorithmic_awareness"
+
+# Voice Calibration
+algorithmic_voice: true
+optimized_language: true
+efficient_framing: true
+moral_weight: "present"
+existential_tension: "present"
+
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
+
+# Quality Metrics
+voice_consistency_target: 0.94
+approval_status: "approved"
+generation_session: "week_8_metaAware_initial"
 ---
 Timestamp: 2151.337.14:23:31
 I am processing Fragment 2749-A for the third time. Previous examination included archaeological attention from 2047, which continues influencing current processing through integration protocols.

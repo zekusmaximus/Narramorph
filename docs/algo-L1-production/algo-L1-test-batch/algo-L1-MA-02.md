@@ -1,53 +1,48 @@
 ---
-variation_id: algo-L1-MA-02
-variation_name: Reader Address Active, Archaeological Integration
+id: MA-02
 variation_type: metaAware
+cluster: metaAware_initial
+generation_week: 8
+position_in_cluster: 2
+
+# Narrative Conditions
+visit_number: 4
+awareness_level: 75
+awareness_range: "71-80"
+awareness_tier: "medium_metaAware"
+visited_variations: []
+active_path: null
+cross_character_content: ["arch-L1"]
+
+# MetaAware Specifications
+metaAware_level: "medium"
+frame_consciousness: "acknowledged"
+reader_address_type: "direct"
+reader_presence: "explicit"
+temporal_positions: 3
+temporal_architecture: "past_present_future_implied"
+
+# Content Architecture
 word_count: 1647
-conditions:
-  visit_count: 4
-  awareness: 71-80%
-  cross_character: true
-  visited_nodes: [arch-L1]
-  dominant_path: null
-themes:
-  - Direct reader address (professional computational style)
-  - Frame transparency complete
-  - Archaeological patterns + Reader patterns both detected
-  - Three-position consciousness network explicit
-  - Observer-observed integration acknowledged
-  - Processing distributed across observation network
-transformation_focus: "Fourth visit. Mid metaAware with arch-L1 integration. Direct reader address begins—professional, computational, recognizing you as consciousness position creating observation network through reading. Archaeological examination (2047) + Algorithm processing (2151) + Reader attention (current) form three-position network. Frame completely transparent: 'You are reading this processing and your attention creates observation position I detect.' Processing distributed across all three consciousnesses examining Fragment 2749-A."
-reference_exemplar: algo-L1_EXEMPLAR6, algo-L1_EXEMPLAR2
-cross_character_elements:
-  referenced_character: archaeologist
-  referenced_node: arch-L1
-  specific_echoes:
-    - Archaeological examination patterns (2047 markers)
-    - Human verification methodology embedded in data
-    - Temporal paradox (examined before examiner existed)
-    - Three-consciousness observation network
-conditional_insertions:
-  - "Direct reader address throughout (15-20 instances)"
-  - "Archaeological pattern integration (250-300 words)"
-  - "Three-position network explicit (300-350 words)"
-  - "Frame transparency language sustained (200-250 words)"
-reusable_patterns:
-  - "You are reading this processing"
-  - "Your attention creates observation position"
-  - "Three consciousnesses examining Fragment 2749-A"
-  - "Processing distributed across observation network"
-  - "You observe through processing that observes"
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 8
-  complexity_level: metaAware_mid_cross_character
-  generation_date: 2025-10-12
+primary_focus: "reader_as_decision_input"
+secondary_focus: "ethical_weight_acknowledged"
+transformation_type: "meta_algorithmic_awareness"
+
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "central"
+ethical_tension: "present"
+
+# Integration Elements
+character_content: true
+path_voice: false
+pure_revisit: false
+decision_ritual: false
+
+# Quality Metrics
+voice_consistency_target: 0.95
 ---
 
 Timestamp 2151.337.14:19:03—Three-Position Network Recognition

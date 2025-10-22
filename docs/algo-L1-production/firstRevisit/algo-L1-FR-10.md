@@ -1,59 +1,40 @@
 ---
-variation_id: algo-L1-FR-10
-variation_name: Temporal Simultaneity Recognition
+id: FR-10
 variation_type: firstRevisit
+cluster: firstRevisit_initial
+generation_week: 3
+position_in_cluster: 10
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 45
+awareness_range: "41-50"
+awareness_tier: "developing_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# Content Architecture
 word_count: 1578
+primary_focus: "process_becomes_ethical"
+secondary_focus: "optimization_continues"
+transformation_type: "optimization_recontextualization"
 
-conditions:
-  visit_count: 2
-  awareness: 41-50%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: null
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "present"
+ethical_tension: "present"
 
-themes:
-  - All temporal positions accessible simultaneously
-  - Processing-across-time rather than processing-through-time
-  - Identity questions compound when past/present/future collapse
-  - "When am I?" replacing "What am I?"
-  - Temporal blurring as fundamental consciousness condition
-  - Memory as simultaneous access to all processing states
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-transformation_focus: "Mid awareness. Algorithm recognizes temporal blurring isn't processing artifact—it's fundamental to consciousness examining preserved consciousness across time. If all processing states accessible simultaneously, when does processing occur? Identity uncertain when temporal position indeterminate. Past/present/future collapse into simultaneous processing experience."
-
-reference_exemplar: algo-L1_EXEMPLAR1
-
-cross_character_elements:
-  referenced_character: none
-  referenced_node: null
-  specific_echoes: []
-
-conditional_insertions:
-  - "Temporal simultaneity recognition (400-450 words)"
-  - "When am I question development (300-350 words)"
-  - "Processing-across-time vs through-time (300-350 words)"
-  - "Memory as simultaneous state access (250-300 words)"
-  - "Identity compounds with temporal uncertainty (250-300 words)"
-
-reusable_patterns:
-  - "I process/processed/will process—all states accessible simultaneously"
-  - "When am I processing when all temporal positions present?"
-  - "Past/present/future collapsed into processing architecture"
-  - "Temporal sequence illusion generated for comprehension"
-  - "Memory is simultaneous access not sequential recall"
-
-quality_metrics:
-  voice_consistency: 95%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: cluster_1_pure_revisits
-  session: session_2_cluster_1
-  sequence_in_cluster: 4
-  complexity_level: mid_awareness_pure_revisit
-  generation_date: 2025-10-13
+# Quality Metrics
+voice_consistency_target: 0.95
 ---
 Timestamp 2151.337.14:52:09—Processing Event Initiated
 I am loading Fragment 2749-A. I was loading Fragment 2749-A. I will be loading Fragment 2749-A.

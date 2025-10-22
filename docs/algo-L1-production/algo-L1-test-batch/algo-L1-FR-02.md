@@ -1,50 +1,40 @@
 ---
-variation_id: algo-L1-FR-02
-variation_name: Archaeological Patterns Detected, Low-Mid Awareness
+id: FR-02
 variation_type: firstRevisit
+cluster: firstRevisit_initial
+generation_week: 1
+position_in_cluster: 2
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 35
+awareness_range: "31-40"
+awareness_tier: "developing_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: ["arch-L1"]
+
+# Content Architecture
 word_count: 1509
-conditions:
-  visit_count: 2
-  awareness: 31-40%
-  cross_character: true
-  visited_nodes: [arch-L1]
-  dominant_path: null
-themes:
-  - Archaeological attention patterns in computational data
-  - Human observation embedded in preserved consciousness
-  - Temporal paradox (2047 examination predates Algorithm initialization)
-  - Recognition of other consciousness through data traces
-  - Cross-temporal observation network
-transformation_focus: "Algorithm processing Fragment 2749-A discovers evidence of human archaeological examination from 2047—104 years before Algorithm's initialization in 2151. Human attention patterns embedded in data structure. Two observers (human + computational) examining same consciousness across time. Recognition that processing is never isolated—consciousness examines consciousness-examined-by-consciousness."
-reference_exemplar: algo-L1_EXEMPLAR2
-cross_character_elements:
-  referenced_character: archaeologist
-  referenced_node: arch-L1
-  specific_echoes:
-    - Authentication protocols (verification methodology)
-    - Documentation frameworks
-    - Temporal anomaly investigation (2047 markers)
-    - Human vs computational observation methods
-conditional_insertions:
-  - "Archaeological examination markers detected (250-300 words)"
-  - "Temporal causality paradox processing (200-250 words)"
-  - "Cross-temporal consciousness recognition (150-200 words)"
-reusable_patterns:
-  - "Stream-3 flags non-computational attention patterns"
-  - "Temporal paradox: examined before examiner existed"
-  - "Observation creates traces examination reveals"
-  - "Two consciousnesses across 104 years examining same data"
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 2
-  complexity_level: single_cross_character
-  generation_date: 2025-10-12
+primary_focus: "decision_weight_emerging"
+secondary_focus: "optimization_continues"
+transformation_type: "moral_weight_recognition"
+
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "emerging"
+ethical_tension: "subtle"
+
+# Integration Elements
+character_content: true
+path_voice: false
+pure_revisit: true
+decision_ritual: false
+
+# Quality Metrics
+voice_consistency_target: 0.93
 ---
 
 Timestamp 2151.337.14:19:03—Standard Ingestion

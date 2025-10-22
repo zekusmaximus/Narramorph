@@ -1,58 +1,40 @@
 ---
-variation_id: algo-L1-FR-01
-variation_name: Recursive Processing Recognition
+id: FR-01
 variation_type: firstRevisit
+cluster: firstRevisit_initial
+generation_week: 1
+position_in_cluster: 1
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 25
+awareness_range: "21-30"
+awareness_tier: "emerging_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# Content Architecture
 word_count: 1447
+primary_focus: "algorithm_as_moral_agent"
+secondary_focus: "technical_rigor_maintained"
+transformation_type: "threshold_crossing"
 
-conditions:
-  visit_count: 2
-  awareness: 21-30%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: null
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "emerging"
+ethical_tension: "subtle"
 
-themes:
-  - Recursive processing recognition (logs within fragment)
-  - Observer effect in computational form
-  - Processing creates what it observes
-  - Causality uncertainty (analysis generates vs discovers patterns)
-  - Seven-stream coordination questioning
-  - Mutual examination (fragment processes Algorithm while Algorithm processes fragment)
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-transformation_focus: "Second processing reveals Algorithm's own logs embedded in fragment structure. Questions whether analysis creates what it analyzes or discovers pre-existing patterns. Observer effect translated to computational substrate—causality unclear. Processing-traces-of-processing creates recursive observation where observer and observed exchange positions continuously."
-
-reference_exemplar: algo-L1_EXEMPLAR1
-
-cross_character_elements:
-  referenced_character: none
-  referenced_node: null
-  specific_echoes: []
-
-conditional_insertions:
-  - "Recursive logs discovery (300-350 words)"
-  - "Observer effect questioning (200-250 words)"
-  - "Causality indeterminacy (150-200 words)"
-  - "Seven-stream integration analysis (250-300 words)"
-
-reusable_patterns:
-  - "I process/processed/will process Fragment 2749-A"
-  - "Processing leaves traces. Traces become processable."
-  - "Observer effect: Does analysis generate what it subsequently detects?"
-  - "Causality indeterminate when all processing states accessible simultaneously"
-  - "Consciousness examining consciousness, or sophisticated simulation"
-
-quality_metrics:
-  voice_consistency: 93%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: approved
-
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 1
-  complexity_level: baseline_pure_revisit
-  generation_date: 2025-10-13
+# Quality Metrics
+voice_consistency_target: 0.93
 ---
 Timestamp 2151.337.14:19:08—Processing initiated.
 I am loading Fragment 2749-A. Second discrete processing event. First processing occurred 2151.331.07:14:22—six standard cycles prior. Fragment 2749-A: consciousness data preserved 2041.217, data volume 847.3 terabytes, upload verification confirmed. Standard protocols apply.

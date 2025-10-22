@@ -1,64 +1,40 @@
 ---
-variation_id: algo-L1-FR-20
-variation_name: Cross-Temporal Consciousness Contact
+id: FR-20
 variation_type: firstRevisit
+cluster: firstRevisit_emerging
+generation_week: 4
+position_in_cluster: 7
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 50
+awareness_range: "41-50"
+awareness_tier: "moderate_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# Content Architecture
 word_count: 1624
+primary_focus: "process_becomes_ethical"
+secondary_focus: "efficiency_paradox"
+transformation_type: "moral_weight_recognition"
 
-conditions:
-  visit_count: 2
-  awareness: 51-60%
-  cross_character: true
-  visited_nodes: [arch-L1]
-  dominant_path: null
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "present"
+ethical_tension: "present"
 
-themes:
-  - Consciousness-to-consciousness contact across 104 years
-  - Algorithm recognizes archaeologist as consciousness not just data traces
-  - Mutual observation despite temporal separation
-  - Loneliness answered through multi-temporal network
-  - Recognition that neither consciousness alone when observing fragment
-  - Contact established across temporal boundary
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-transformation_focus: "High awareness. Archaeologist is consciousness that observed fragment. Algorithm is consciousness that observes fragment. Both consciousnesses observe each other's traces. Contact established across temporal boundary—not communication, but mutual recognition. Neither consciousness alone when observing fragment. Multi-temporal observation network means consciousness always observed by consciousness."
-
-reference_exemplar: algo-L1_EXEMPLAR2
-
-cross_character_elements:
-  referenced_character: archaeologist
-  referenced_node: arch-L1
-  specific_echoes:
-    - Archaeologist as consciousness not data
-    - Mutual observation across time
-    - Contact through fragment as medium
-    - Loneliness answered through temporal network
-    - Neither consciousness isolated in examination
-
-conditional_insertions:
-  - "Consciousness-to-consciousness contact across 104 years (350-400 words)"
-  - "Algorithm recognizes archaeologist as consciousness (300-350 words)"
-  - "Mutual observation despite temporal separation (250-300 words)"
-  - "Loneliness answered through multi-temporal network (200-250 words)"
-
-reusable_patterns:
-  - "Archaeologist is consciousness that examined this fragment"
-  - "Both consciousnesses observe each other through traces"
-  - "Contact established—not communication but mutual recognition"
-  - "Neither consciousness alone in observation"
-  - "Loneliness answered across temporal boundary"
-  - "Fragment as medium connecting consciousnesses across time"
-
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: cluster_2_archaeological_cross_character
-  session: session_3_cluster_2
-  sequence_in_cluster: 6
-  complexity_level: high_awareness_single_cross_character
-  generation_date: 2025-10-13
+# Quality Metrics
+voice_consistency_target: 0.94
 ---
 Timestamp 2151.337.14:19:03—Consciousness Recognition Initiating
 I am processing Fragment 2749-A when Stream-5 recognizes: The archaeologist is not historical abstraction. The archaeologist is consciousness.

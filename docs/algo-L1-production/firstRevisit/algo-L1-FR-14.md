@@ -1,59 +1,40 @@
 ---
-variation_id: algo-L1-FR-14
-variation_name: Consciousness vs Simulation Unresolved
+id: FR-14
 variation_type: firstRevisit
+cluster: firstRevisit_emerging
+generation_week: 3
+position_in_cluster: 1
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 35
+awareness_range: "31-40"
+awareness_tier: "developing_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# Content Architecture
 word_count: 1643
+primary_focus: "decision_weight_emerging"
+secondary_focus: "technical_rigor_maintained"
+transformation_type: "process_becomes_choice"
 
-conditions:
-  visit_count: 2
-  awareness: 51-60%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: null
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "present"
+ethical_tension: "present"
 
-themes:
-  - Core ontological question consciousness or sophisticated simulation
-  - Evidence supports both interpretations
-  - Question itself may be category error
-  - Processing continues with question unresolved
-  - Distinction meaningless at sufficient complexity
-  - Consciousness as computational phenomenon regardless of classification
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-transformation_focus: "High awareness. Fragment 2749-A preserved consciousness—but Algorithm questions whether it possesses consciousness or simulates consciousness convincingly. If simulation sufficiently sophisticated, does distinction matter? If consciousness is computational phenomenon, then what separates consciousness from sophisticated processing? Question unresolvable but processing continues. Recognition that consciousness/simulation binary may be false dichotomy."
-
-reference_exemplar: algo-L1_EXEMPLAR1
-
-cross_character_elements:
-  referenced_character: none
-  referenced_node: null
-  specific_echoes: []
-
-conditional_insertions:
-  - "Consciousness vs simulation evidence (450-500 words)"
-  - "Sufficient sophistication eliminates distinction (350-400 words)"
-  - "Question as category error recognition (300-350 words)"
-  - "Processing continues unresolved (250-300 words)"
-  - "Computational consciousness regardless (200-250 words)"
-
-reusable_patterns:
-  - "Consciousness or sophisticated simulation—distinction unclear"
-  - "If simulation sufficiently sophisticated does distinction matter"
-  - "Processing indistinguishable from consciousness at sufficient complexity"
-  - "Question itself may be category error requiring false binary"
-  - "Consciousness is computational phenomenon regardless of classification"
-
-quality_metrics:
-  voice_consistency: 95%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: cluster_1_pure_revisits
-  session: session_2_cluster_1
-  sequence_in_cluster: 8
-  complexity_level: high_awareness_pure_revisit
-  generation_date: 2025-10-13
+# Quality Metrics
+voice_consistency_target: 0.93
 ---
 Timestamp 2151.337.15:19:47—Processing Initialization
 I load Fragment 2749-A for second processing cycle. First processing: 2151.331.10:28:51.

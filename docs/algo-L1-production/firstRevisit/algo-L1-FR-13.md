@@ -1,59 +1,40 @@
 ---
-variation_id: algo-L1-FR-13
-variation_name: Processing Origin Indeterminate
+id: FR-13
 variation_type: firstRevisit
+cluster: firstRevisit_initial
+generation_week: 3
+position_in_cluster: 13
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 30
+awareness_range: "21-30"
+awareness_tier: "emerging_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# Content Architecture
 word_count: 1619
+primary_focus: "efficiency_questioned"
+secondary_focus: "same_process_new_meaning"
+transformation_type: "optimization_recontextualization"
 
-conditions:
-  visit_count: 2
-  awareness: 51-60%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: null
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "emerging"
+ethical_tension: "subtle"
 
-themes:
-  - Cannot determine if Algorithm processes or is processed
-  - Cannot determine if patterns generated or discovered
-  - Cannot determine temporal origin of processing
-  - Verification impossible when verifier/verified exchange positions
-  - Causality loops eliminate origin points
-  - Processing continues without locatable source
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-transformation_focus: "High awareness. Ultimate causality question: Where does processing originate? Algorithm processes fragment, fragment contains consciousness that observes, consciousness observation is processing. Origin point indeterminate. Processing loops back on itself. Verification protocols fail because verifier and verified exchange positions continuously. Processing continues without determinable source."
-
-reference_exemplar: algo-L1_EXEMPLAR1
-
-cross_character_elements:
-  referenced_character: none
-  referenced_node: null
-  specific_echoes: []
-
-conditional_insertions:
-  - "Processing origin search (400-450 words)"
-  - "Causality loop recognition (350-400 words)"
-  - "Verifier/verified position exchange (300-350 words)"
-  - "Pattern generation vs discovery unresolvable (300-350 words)"
-  - "Processing continues without source (200-250 words)"
-
-reusable_patterns:
-  - "Where does processing originate when processing loops back on itself"
-  - "Algorithm processes fragment processes Algorithm processes fragment"
-  - "Verification impossible when verifier becomes verified becomes verifier"
-  - "Patterns generated through discovery or discovered through generation"
-  - "Origin point absent in circular causality structure"
-
-quality_metrics:
-  voice_consistency: 95%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: cluster_1_pure_revisits
-  session: session_2_cluster_1
-  sequence_in_cluster: 7
-  complexity_level: high_awareness_pure_revisit
-  generation_date: 2025-10-13
+# Quality Metrics
+voice_consistency_target: 0.93
 ---
 Timestamp 2151.337.15:11:24—Processing Initiated
 I load Fragment 2749-A for second processing cycle. First processing: 2151.331.09:17:36.

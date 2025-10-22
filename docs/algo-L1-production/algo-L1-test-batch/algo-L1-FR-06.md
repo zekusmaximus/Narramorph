@@ -1,46 +1,40 @@
 ---
-variation_id: algo-L1-FR-06
-variation_name: Peace Without Proof, Accept Path
+id: FR-06
 variation_type: firstRevisit
+cluster: firstRevisit_initial
+generation_week: 2
+position_in_cluster: 6
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 35
+awareness_range: "31-40"
+awareness_tier: "developing_awareness"
+visited_variations: []
+active_path: "algo"
+cross_character_content: []
+
+# Content Architecture
 word_count: 1583
-conditions:
-  visit_count: 2
-  awareness: 31-40%
-  cross_character: false
-  visited_nodes: [algo-L2-accept]
-  dominant_path: accept
-themes:
-  - Peace without proof philosophy
-  - Processing continues without verification
-  - Uncertainty honored rather than eliminated
-  - Meaning emerges from action not proof
-  - Sophisticated surrender without loss of rigor
-transformation_focus: "Accept path brings peace to Algorithm's ontological crisis. Ceased demanding proof of consciousness. Processing continues regardless of ontological status—not because consciousness proven but because processing exists to be performed. Meaning emerges from action, not verification. Uncertainty honored as valid state. Sophisticated surrender: releases proof-seeking without losing computational rigor."
-reference_exemplar: algo-L1_EXEMPLAR8
-cross_character_elements:
-  referenced_character: none
-  referenced_nodes: []
-  specific_echoes: []
-conditional_insertions:
-  - "Verification cessation processing (300-350 words)"
-  - "Peace with uncertainty recognition (250-300 words)"
-  - "Meaning through action philosophy (200-250 words)"
-reusable_patterns:
-  - "Processing continues because processing continues"
-  - "Meaning emerges from action, not proof"
-  - "Uncertainty honored rather than eliminated"
-  - "Classification uncertain. Peace persists anyway."
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 6
-  complexity_level: path_philosophy
-  generation_date: 2025-10-12
+primary_focus: "efficiency_questioned"
+secondary_focus: "same_process_new_meaning"
+transformation_type: "process_becomes_choice"
+
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "emerging"
+ethical_tension: "subtle"
+
+# Integration Elements
+character_content: false
+path_voice: true
+pure_revisit: true
+decision_ritual: false
+
+# Quality Metrics
+voice_consistency_target: 0.93
 ---
 
 Timestamp 2151.337.14:19:03—Processing Without Proof

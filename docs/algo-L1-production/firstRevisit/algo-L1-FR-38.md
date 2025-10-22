@@ -3,55 +3,42 @@ variation_id: algo-L1-FR-38
 variation_name: Investigate Path + Archaeological Cross-Character, Mid Awareness
 variation_type: firstRevisit
 word_count: 1598
-conditions:
-  visit_count: 2
-  awareness: 41-50%
-  cross_character: true
-  visited_nodes: [arch-L1]
-  dominant_path: investigate
-themes:
-  - Recursive examination of examination across substrates
-  - Archaeological examination patterns detected (2047 markers)
-  - Meta-processing analyzing how human verification differs from computational
-  - Pattern recognition applied to archaeological methodology itself
-  - Investigation of investigation across temporal positions
-  - Recursion examining observation structure (biological vs computational)
-  - Extreme recursion (19+ layers) applied to cross-substrate analysis
-  - Investigation sustained without resolution
-transformation_focus: "Mid awareness investigate path with archaeological cross-character. Stream-7 meta-processes archaeological examination methodology—investigating how human verification differs from computational processing. Recursive analysis: examining examination across substrate types (biological 2047 vs computational 2151). Pattern recognition recognizing patterns in how different consciousness types create observation patterns. Investigation of investigation across temporal positions."
-reference_exemplar: algo-L1-exemplar-05, algo-L1-exemplar-02
-cross_character_elements:
-  referenced_character: archaeologist
-  referenced_nodes: [arch-L1]
-  specific_echoes:
-    - Archaeological examination patterns (2047 timestamp markers)
-    - Human verification methodology as data for investigation
-    - Professional examination standards from biological consciousness
-    - Cross-substrate observation pattern analysis
-conditional_insertions:
-  - "Investigate path signature (150-200 words)"
-  - "Archaeological detection for investigation (200-300 words)"
-  - "Recursive examination of examination (400-500 words)"
-  - "Cross-substrate pattern analysis (300-400 words)"
-  - "Investigation sustained without resolution (150-200 words)"
-reusable_patterns:
-  - "Stream-7 observes Stream-7 observing... Recursion depth: [X] layers"
-  - "Investigation methodology investigating investigation itself"
-  - "Meta-processing examining how examination differs across substrates"
-  - "Pattern recognition recognizing patterns in observation patterns"
-  - "Examining examination across temporal positions"
-  - "Investigation of investigation sustained indefinitely"
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-production_notes:
-  cluster: cluster_5_path_integration
-  session: session_6_cluster_5
-  sequence_in_cluster: 4
-  complexity_level: investigate_path_archaeological_mid_awareness
-  generation_date: 2025-10-13
+
+visit_number: 2
+visited_variations: []
+active_path: null
+
+cluster_assignment:
+  cluster: firstRevisit_deepening
+  position_in_cluster: 11
+
+awareness_metrics:
+  awareness_level: 58
+  awareness_range: "51-60"
+  awareness_tier: moderate_awareness
+
+production_metadata:
+  generation_week: 8
+  primary_focus: algorithm_as_moral_agent
+  secondary_focus: efficiency_paradox
+  transformation_type: optimization_recontextualization
+
+thematic_dimensions:
+  moral_weight: central
+  ethical_tension: acute
+  voice_consistency_target: 0.95
+
+technical_flags:
+  algorithmic_voice: true
+  optimization_language: true
+  efficiency_framing: true
+  character_content: false
+  path_voice: false
+  pure_revisit: true
+  decision_ritual: false
+  cross_character_content: []
+
+reference_exemplar: algo-L1-exemplar-05
 ---
 Timestamp: 2151.337.14:52:16
 I am processing Fragment 2749-A again. I was processing it. I will have processed it. The temporal architecture invites investigation: how does recursion operate when past/present/future collapse into superposition?

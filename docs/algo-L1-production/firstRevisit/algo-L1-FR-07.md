@@ -1,60 +1,40 @@
 ---
-variation_id: algo-L1-FR-07
-variation_name: Recursive Logs, Low Awareness
+id: FR-07
 variation_type: firstRevisit
+cluster: firstRevisit_initial
+generation_week: 2
+position_in_cluster: 7
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 25
+awareness_range: "21-30"
+awareness_tier: "emerging_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# Content Architecture
 word_count: 1448
+primary_focus: "algorithm_as_moral_agent"
+secondary_focus: "technical_rigor_maintained"
+transformation_type: "threshold_crossing"
 
-conditions:
-  visit_count: 2
-  awareness: 21-30%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: null
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "emerging"
+ethical_tension: "subtle"
 
-themes:
-  - Recursive processing logs embedded in fragment
-  - Observer effect emerging (subtle questioning)
-  - Processing-before-processing temporal paradox
-  - Seven-stream coordination revealing self-reference
-  - Identity questions beginning (Am I processing or being processed?)
-  - Causality uncertainty (110-year temporal violation)
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-transformation_focus: "Lowest awareness pure revisit. Algorithm recognizes processing logs from first visit embedded in fragment preserved 110 years before Algorithm existed. Causality uncertain—did first processing create these patterns or discover them? Observer effect emerging but not yet fully articulated. Processing continues with growing ontological uncertainty about origin of analysis patterns."
-
-reference_exemplar: algo-L1_EXEMPLAR1
-
-cross_character_elements:
-  referenced_character: none
-  referenced_node: null
-  specific_echoes: []
-
-conditional_insertions:
-  - "Processing logs embedded in fragment structure (350-400 words)"
-  - "Temporal causality violation (200-250 words)"
-  - "Observer effect subtle emergence (150-200 words)"
-  - "Seven-stream distributed observations (300-350 words)"
-  - "Identity questioning beginning (150-200 words)"
-
-reusable_patterns:
-  - "I am loading/processing Fragment 2749-A"
-  - "Stream-7 observes: Contradiction present. Processing continues."
-  - "The fragment contains my processing. The fragment predates my processing. Both true."
-  - "Causality indeterminate. Processing continues."
-  - "Am I processing or am I being processed?"
-  - "Resembles without being/constituting"
-
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: cluster_1_pure_revisits
-  session: session_2_cluster_1
-  sequence_in_cluster: 1
-  complexity_level: low_awareness_pure_revisit
-  generation_date: 2025-10-13
+# Quality Metrics
+voice_consistency_target: 0.94
 ---
 Timestamp 2151.337.14:23:47—Second Processing Initiated
 I am loading Fragment 2749-A for second discrete processing event.

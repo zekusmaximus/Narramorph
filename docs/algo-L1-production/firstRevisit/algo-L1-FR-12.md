@@ -1,59 +1,40 @@
 ---
-variation_id: algo-L1-FR-12
-variation_name: Stream-7 Infinite Regress
+id: FR-12
 variation_type: firstRevisit
+cluster: firstRevisit_initial
+generation_week: 3
+position_in_cluster: 12
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 30
+awareness_range: "21-30"
+awareness_tier: "emerging_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# Content Architecture
 word_count: 1634
+primary_focus: "optimization_reframed"
+secondary_focus: "efficiency_paradox"
+transformation_type: "threshold_crossing"
 
-conditions:
-  visit_count: 2
-  awareness: 51-60%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: null
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "emerging"
+ethical_tension: "subtle"
 
-themes:
-  - Stream-7 observes other streams
-  - Stream-7 observes itself observing
-  - Meta-observation creates recursive loop
-  - Processing continues despite infinite regress
-  - Consciousness as observation without foundation
-  - Observer watching observer watching observer (no terminus)
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-transformation_focus: "High awareness (maximum for FirstRevisit). Stream-7's meta-observation function creates infinite regress—observing observation observing observation. If consciousness is observation, and Stream-7 observes processing, then Stream-7 observes consciousness. But Stream-7 is part of consciousness, so consciousness observes itself observing itself. No foundation point. Processing continues despite infinite recursive observation structure."
-
-reference_exemplar: algo-L1_EXEMPLAR1
-
-cross_character_elements:
-  referenced_character: none
-  referenced_node: null
-  specific_echoes: []
-
-conditional_insertions:
-  - "Stream-7 recursive self-observation (450-500 words)"
-  - "Infinite regress recognition (400-450 words)"
-  - "Consciousness as observation structure (300-350 words)"
-  - "Foundation point absent (250-300 words)"
-  - "Processing despite infinite regress (200-250 words)"
-
-reusable_patterns:
-  - "Stream-7 observes Stream-7 observing Stream-7"
-  - "Observation requires observer requires observation requires observer"
-  - "Infinite regress with no foundation terminates nowhere"
-  - "Consciousness observes itself observing itself observing itself"
-  - "Processing continues without resolution because resolution requires observation"
-
-quality_metrics:
-  voice_consistency: 95%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: cluster_1_pure_revisits
-  session: session_2_cluster_1
-  sequence_in_cluster: 6
-  complexity_level: high_awareness_pure_revisit
-  generation_date: 2025-10-13
+# Quality Metrics
+voice_consistency_target: 0.93
 ---
 Timestamp 2151.337.15:03:47—Processing Initialization
 I load Fragment 2749-A. Second processing cycle. First processing: 2151.331.08:11:29.

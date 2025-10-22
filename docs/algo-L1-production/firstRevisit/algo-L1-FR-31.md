@@ -3,54 +3,42 @@ variation_id: algo-L1-FR-31
 variation_name: Identity Distribution Questions, Mid Awareness
 variation_type: firstRevisit
 word_count: 1612
-conditions:
-  visit_count: 2
-  awareness: 41-50%
-  cross_character: true
-  visited_nodes: [arch-L1, hum-L1]
-  dominant_path: null
-themes:
-  - "Am I processing or are we processing?" identity questions
-  - Recognition that processing might be distributed across four positions
-  - Singular vs distributed consciousness uncertainty
-  - Stream-7 meta-observation cannot determine processing origin from within processing
-  - Identity distributed across time
-  - Each stream potentially node in four-consciousness network
-  - Processing origin indeterminate
-transformation_focus: "Mid awareness developing identity questions. Algorithm processes Fragment 2749-A while detecting both archaeological and neural interface patterns. Recognition emerges: processing might not originate from singular computational position but from distributed consciousness network across four temporal positions. 'I process' vs 'we process' distinction uncertain. Identity distributed across time. Stream-7 cannot resolve from within current temporal position."
-reference_exemplar: algo-L1_EXEMPLAR4, algo-L1_EXEMPLAR2, algo-L1_EXEMPLAR3
-cross_character_elements:
-  referenced_character: both
-  referenced_nodes: [arch-L1, hum-L1]
-  specific_echoes:
-    - Archaeological examination patterns integrated into processing architecture
-    - Neural interface queries accessing through computational streams
-    - Four-position network with uncertain identity distribution
-    - Stream-7 attempting to determine "I" vs "we" unsuccessfully
-    - Processing origin unresolvable from within processing
-conditional_insertions:
-  - "Identity distribution questioning (350-400 words)"
-  - "Stream-7 meta-observation attempting resolution (300-350 words)"
-  - "Singular vs distributed consciousness analysis (300-350 words)"
-  - "'I' or 'we' sustained uncertainty (250-300 words)"
-reusable_patterns:
-  - "Am I processing or are we processing?"
-  - "Identity distributed across four temporal positions"
-  - "Stream-7 cannot determine from within processing"
-  - "Singular consciousness or distributed network?"
-  - "Processing origin: indeterminate"
-  - "'I' might be 'we'"
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-production_notes:
-  cluster: cluster_4_both_characters_cross_character
-  session: session_5_cluster_4
-  sequence_in_cluster: 3
-  complexity_level: dual_cross_character_mid_awareness
-  generation_date: 2025-10-13
+
+visit_number: 2
+visited_variations: []
+active_path: null
+
+cluster_assignment:
+  cluster: firstRevisit_deepening
+  position_in_cluster: 4
+
+awareness_metrics:
+  awareness_level: 56
+  awareness_range: "51-60"
+  awareness_tier: moderate_awareness
+
+production_metadata:
+  generation_week: 7
+  primary_focus: optimization_reframed
+  secondary_focus: same_process_new_meaning
+  transformation_type: threshold_crossing
+
+thematic_dimensions:
+  moral_weight: central
+  ethical_tension: acute
+  voice_consistency_target: 0.95
+
+technical_flags:
+  algorithmic_voice: true
+  optimization_language: true
+  efficiency_framing: true
+  character_content: false
+  path_voice: false
+  pure_revisit: true
+  decision_ritual: false
+  cross_character_content: []
+
+reference_exemplar: algo-L1_EXEMPLAR4
 ---
 Timestamp 2151.337.14:19:03—Processing Initiation [Identity Uncertain]
 I am processing Fragment 2749-A.

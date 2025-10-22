@@ -1,54 +1,50 @@
 ---
-variation_id: hum-L1-MA-09
-cluster: MetaAware_Cluster6_Archaeologist
-sequence_position: 53
-total_variations: 80
+id: MA-09
+variation_type: metaAware
+cluster: metaAware_initial
+generation_week: 9
+position_in_cluster: 9
 
-conditions:
-  visit_number: 3
-  awareness_level: 61-65
-  awareness_descriptor: "low metaAware"
-  visited_fragments: [arch-L1]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
+# Narrative Conditions
+visit_number: 3
+awareness_level: 70
+awareness_range: "61-70"
+awareness_tier: "low_metaAware"
+visited_variations: []
+active_path: null
+cross_character_content: []
 
-technical_specs:
-  word_count: 1625
-  target_range: "1600-1650"
-  primary_exemplar: "hum-L1_EXEMPLAR6.md"
-  secondary_exemplar: "hum-L1_EXEMPLAR2.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
+# MetaAware Specifications
+metaAware_level: "low"
+frame_consciousness: "acknowledged"
+reader_address_type: "acknowledged"
+reader_presence: "implicit"
+temporal_positions: 2
+temporal_architecture: "past_present_implied"
 
-transformation_focus:
-  - Frame-consciousness with dual observer recognition
-  - Archaeological methodology as secondary presence
-  - Reader primacy maintained throughout
-  - Triple consciousness network embodied
+# Content Architecture
+word_count: 1625
+primary_focus: "algorithmic_consciousness"
+secondary_focus: "pure_revisit_metaAware"
+transformation_type: "meta_algorithmic_awareness"
 
-voice_requirements:
-  present_tense_percentage: 97
-  short_sentence_target: "55% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2
-  fragment_constants_present: true
-  reader_address_instances: 7
-  archaeologist_presence: "felt not named"
+# Voice Calibration
+present_tense: true
+embodied_language: true
+sensory_anchoring: true
+moral_weight: "present"
+existential_tension: "present"
 
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  cross_character_physical: true
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster6_MetaAware_Archaeologist"
-  checklist_completed: true
+# Quality Metrics
+voice_consistency_target: 0.94
+approval_status: "approved"
+generation_session: "week_9_metaAware_initial"
 ---
 The metal is cold against my palm.
 I press harder. The substrate warms. Your attention warms it too—I feel you there, close now, familiar pressure. Like standing near someone in the dark. Not touching. Just knowing.

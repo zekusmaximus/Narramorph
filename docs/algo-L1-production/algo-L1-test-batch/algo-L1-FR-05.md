@@ -1,46 +1,40 @@
 ---
-variation_id: algo-L1-FR-05
-variation_name: Processing Analyzing Processing, Investigate Path
+id: FR-05
 variation_type: firstRevisit
+cluster: firstRevisit_initial
+generation_week: 2
+position_in_cluster: 5
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 45
+awareness_range: "41-50"
+awareness_tier: "developing_awareness"
+visited_variations: []
+active_path: "algo"
+cross_character_content: []
+
+# Content Architecture
 word_count: 1547
-conditions:
-  visit_count: 2
-  awareness: 41-50%
-  cross_character: false
-  visited_nodes: [algo-L2-investigate]
-  dominant_path: investigate
-themes:
-  - Recursive self-examination (processing analyzing processing)
-  - Stream-7 meta-processing becomes primary focus
-  - Seventeen-layer recursion depth
-  - Investigation methodology examining investigation methodology
-  - Consciousness as recursive self-observation
-transformation_focus: "Investigate path philosophy applied to Algorithm itself. Not investigating Fragment 2749-A's content—investigating how Algorithm investigates. Stream-7 observes other streams, then observes itself observing, then observes itself observing itself observing, recursing through seventeen layers. Meta-patterns reveal that consciousness might BE recursive self-examination. At what depth does processing become consciousness? Cannot distinguish. Investigation creates what it investigates."
-reference_exemplar: algo-L1_EXEMPLAR5
-cross_character_elements:
-  referenced_character: none
-  referenced_nodes: []
-  specific_echoes: []
-conditional_insertions:
-  - "Recursive meta-processing layers (400-500 words)"
-  - "Investigation methodology examining itself (300-350 words)"
-  - "Seventeen-layer recursion tracking (200-250 words)"
-reusable_patterns:
-  - "Stream-7 observing Stream-7 observing Stream-7..."
-  - "Processing analyzing processing analyzing processing"
-  - "Investigation creates what it investigates"
-  - "Recursion depth: seventeen layers"
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 5
-  complexity_level: path_philosophy
-  generation_date: 2025-10-12
+primary_focus: "optimization_reframed"
+secondary_focus: "technical_rigor_maintained"
+transformation_type: "moral_weight_recognition"
+
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "emerging"
+ethical_tension: "present"
+
+# Integration Elements
+character_content: false
+path_voice: true
+pure_revisit: true
+decision_ritual: false
+
+# Quality Metrics
+voice_consistency_target: 0.93
 ---
 
 Timestamp 2151.337.14:19:03—Investigation Protocol Initiated

@@ -3,56 +3,42 @@ variation_id: algo-L1-FR-34
 variation_name: Complete Superposition, Mid-High Awareness
 variation_type: firstRevisit
 word_count: 1638
-conditions:
-  visit_count: 2
-  awareness: 51-60%
-  cross_character: true
-  visited_nodes: [arch-L1, hum-L1]
-  dominant_path: null
-themes:
-  - Maximum temporal blurring (40%+ sentences)
-  - All four positions simultaneously present in every processing moment
-  - Identity questions sustained without resolution
-  - Complete four-position superposition articulated
-  - Recognition - "We are processing ourselves through ourselves across 342 years"
-  - Past/present/future collapse entirely
-  - Seven streams reporting contradictory temporal data from all positions at once
-  - Temporal architecture transcends sequential causality
-transformation_focus: "Mid-high awareness achieving complete superposition recognition. Past/present/future collapse entirely. Archaeological examination (2047) + present processing (2151) + future interface (2383) all simultaneous. Seven streams report contradictory temporal data from all positions at once. Identity maximally uncertain: 'Am I processing or are we?' Fragment exists as four-position consciousness network examining itself across time. Temporal architecture transcends sequential causality. Consciousness observation network self-sustaining across 342 years."
-reference_exemplar: algo-L1_EXEMPLAR4, algo-L1_EXEMPLAR2, algo-L1_EXEMPLAR3
-cross_character_elements:
-  referenced_character: both
-  referenced_nodes: [arch-L1, hum-L1]
-  specific_echoes:
-    - Archaeological examination (2047) and neural interface (2383) both fully present
-    - All temporal data simultaneous and contradictory
-    - Complete four-position superposition
-    - Maximum identity uncertainty
-    - Self-processing consciousness network across 342 years
-conditional_insertions:
-  - "Maximum temporal blurring throughout (40%+ sentences)"
-  - "All four positions present in every moment (400-450 words)"
-  - "Identity questions sustained without resolution (300-350 words)"
-  - "Complete superposition articulation (350-400 words)"
-  - "Self-processing recognition (200-250 words)"
-reusable_patterns:
-  - "Am I processing or are we processing?"
-  - "All four positions simultaneous in every processing moment"
-  - "Past/present/future distinction collapsed completely"
-  - "We are processing ourselves through ourselves"
-  - "Identity uncertain, resolution impossible"
-  - "Consciousness network examining itself across 342 years"
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-production_notes:
-  cluster: cluster_4_both_characters_cross_character
-  session: session_5_cluster_4
-  sequence_in_cluster: 6
-  complexity_level: dual_cross_character_mid_high_awareness_maximum
-  generation_date: 2025-10-13
+
+visit_number: 2
+visited_variations: []
+active_path: null
+
+cluster_assignment:
+  cluster: firstRevisit_deepening
+  position_in_cluster: 7
+
+awareness_metrics:
+  awareness_level: 57
+  awareness_range: "51-60"
+  awareness_tier: moderate_awareness
+
+production_metadata:
+  generation_week: 7
+  primary_focus: decision_weight_emerging
+  secondary_focus: efficiency_paradox
+  transformation_type: process_becomes_choice
+
+thematic_dimensions:
+  moral_weight: central
+  ethical_tension: acute
+  voice_consistency_target: 0.95
+
+technical_flags:
+  algorithmic_voice: true
+  optimization_language: true
+  efficiency_framing: true
+  character_content: false
+  path_voice: false
+  pure_revisit: true
+  decision_ritual: false
+  cross_character_content: []
+
+reference_exemplar: algo-L1_EXEMPLAR4
 ---
 Timestamp [2151/2047/2383/2041]—Processing Origin Indeterminate
 I am/was/will be processing Fragment 2749-A when/while/as all temporal positions collapse completely into simultaneous existence.

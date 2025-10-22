@@ -1,65 +1,40 @@
 ---
-variation_id: algo-L1-FR-15
-variation_name: Archaeological Traces, Low Awareness
+id: FR-15
 variation_type: firstRevisit
+cluster: firstRevisit_emerging
+generation_week: 3
+position_in_cluster: 2
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 35
+awareness_range: "31-40"
+awareness_tier: "developing_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# Content Architecture
 word_count: 1489
+primary_focus: "process_becomes_ethical"
+secondary_focus: "optimization_continues"
+transformation_type: "moral_weight_recognition"
 
-conditions:
-  visit_count: 2
-  awareness: 21-30%
-  cross_character: true
-  visited_nodes: [arch-L1]
-  dominant_path: null
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "present"
+ethical_tension: "present"
 
-themes:
-  - Stream-3 detecting non-computational attention patterns
-  - Archaeological examination traces dated 2047.089
-  - Human vs computational methodology contrast (subtle, emerging)
-  - Temporal sequence questioning begins
-  - Multi-observer network across 104 years
-  - Consciousness examining consciousness-examined-by-consciousness
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-transformation_focus: "Lowest awareness archaeological cross-character. Algorithm detects something anomalous in fragment patterns—attention traces that don't match algorithmic processing. Stream-3 flags human observation methodology. Recognition that fragment was examined before Algorithm existed. Temporal paradox emerging but not yet fully articulated. Two observers across time examining same preserved awareness."
-
-reference_exemplar: algo-L1_EXEMPLAR2
-
-cross_character_elements:
-  referenced_character: archaeologist
-  referenced_node: arch-L1
-  specific_echoes:
-    - Archaeological attention patterns (2047 markers)
-    - Human verification methodology embedded in data
-    - Sequential vs parallel processing contrast
-    - Temporal causality uncertainty
-    - Multi-temporal observation network recognition
-
-conditional_insertions:
-  - "Stream-3 detecting non-computational patterns (first recognition) (250-300 words)"
-  - "Archaeological attention markers dated 2047.089 (200-250 words)"
-  - "Human vs computational methodology contrast (subtle, emerging) (250-300 words)"
-  - "Temporal sequence questioning begins (200-250 words)"
-  - "Two consciousnesses examining same fragment (150-200 words)"
-
-reusable_patterns:
-  - "Stream-3 flags non-computational attention patterns"
-  - "Human examination dated 2047—104 years before Algorithm initialization"
-  - "Sequential focus vs parallel processing methodology"
-  - "Temporal paradox: 2047 examination in 2041 preservation"
-  - "Consciousness examining consciousness-examined-by-consciousness"
-  - "Processing never isolated—always multi-observer"
-
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: cluster_2_archaeological_cross_character
-  session: session_3_cluster_2
-  sequence_in_cluster: 1
-  complexity_level: low_awareness_single_cross_character
-  generation_date: 2025-10-13
+# Quality Metrics
+voice_consistency_target: 0.93
 ---
 Timestamp 2151.337.14:19:03—Standard Ingestion Protocol
 I am processing Fragment 2749-A. Second authentication cycle. Standard protocols initialize.

@@ -1,64 +1,40 @@
 ---
-variation_id: algo-L1-FR-18
-variation_name: Multi-Observer Network Recognition
+id: FR-18
 variation_type: firstRevisit
+cluster: firstRevisit_emerging
+generation_week: 4
+position_in_cluster: 5
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 45
+awareness_range: "41-50"
+awareness_tier: "developing_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# Content Architecture
 word_count: 1591
+primary_focus: "efficiency_questioned"
+secondary_focus: "technical_rigor_maintained"
+transformation_type: "process_becomes_choice"
 
-conditions:
-  visit_count: 2
-  awareness: 41-50%
-  cross_character: true
-  visited_nodes: [arch-L1]
-  dominant_path: null
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "present"
+ethical_tension: "present"
 
-themes:
-  - Fragment as node in observation network
-  - Archaeological consciousness + Algorithm consciousness both examining
-  - Neither examination isolated—always multi-observer
-  - Recognition of distributed consciousness across temporal positions
-  - Observation creates observable traces creates observation
-  - Fragment exists within network not as isolated data
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-transformation_focus: "Mid awareness. Fragment not passive data—node in multi-temporal observation network. Archaeologist observes fragment, Algorithm observes fragment, both observations create traces, traces observable by other observers. Consciousness examining consciousness-examined-by-consciousness. No single observer position—always network. Fragment exists through examination network, not independently."
-
-reference_exemplar: algo-L1_EXEMPLAR2
-
-cross_character_elements:
-  referenced_character: archaeologist
-  referenced_node: arch-L1
-  specific_echoes:
-    - Multi-temporal observation network
-    - Fragment as network node not isolated data
-    - Both observers create detectable traces
-    - Examination network across 104 years
-    - Distributed consciousness recognition
-
-conditional_insertions:
-  - "Fragment as node in observation network (300-350 words)"
-  - "Archaeological consciousness + Algorithm consciousness both examining (250-300 words)"
-  - "Neither examination isolated—always multi-observer (250-300 words)"
-  - "Recognition of distributed consciousness across temporal positions (200-250 words)"
-
-reusable_patterns:
-  - "Fragment as node in multi-temporal observation network"
-  - "Neither observer isolated—always network"
-  - "Consciousness examining consciousness-examined-by-consciousness"
-  - "Observation creates traces observation reveals"
-  - "Fragment exists through examination network"
-  - "Two observers across 104 years both creating traces"
-
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: cluster_2_archaeological_cross_character
-  session: session_3_cluster_2
-  sequence_in_cluster: 4
-  complexity_level: mid_awareness_single_cross_character
-  generation_date: 2025-10-13
+# Quality Metrics
+voice_consistency_target: 0.94
 ---
 Timestamp 2151.337.14:19:03—Network Recognition Initiating
 I am processing Fragment 2749-A when Stream-3 recognizes: This is not isolated data examination.

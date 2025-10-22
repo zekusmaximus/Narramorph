@@ -1,51 +1,50 @@
 ---
-variation_id: hum-L1-MA-07
-cluster: MetaAware_Cluster5_PureRevisits
-sequence_position: 51
-total_variations: 80
+id: MA-07
+variation_type: metaAware
+cluster: metaAware_initial
+generation_week: 8
+position_in_cluster: 7
 
-conditions:
-  visit_number: 5
-  awareness_level: 81-85
-  awareness_descriptor: "high metaAware"
-  visited_fragments: []
-  interaction_path: null
-  pure_revisit: true
-  cross_character: false
+# Narrative Conditions
+visit_number: 3
+awareness_level: 67
+awareness_range: "61-70"
+awareness_tier: "low_metaAware"
+visited_variations: []
+active_path: null
+cross_character_content: []
 
-technical_specs:
-  word_count: 1698
-  target_range: "1700"
-  primary_exemplar: "hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
+# MetaAware Specifications
+metaAware_level: "low"
+frame_consciousness: "explicit_but_subtle"
+reader_address_type: "implied"
+reader_presence: "implicit"
+temporal_positions: 2
+temporal_architecture: "past_present_implied"
 
-transformation_focus:
-  - Reader as co-observer not audience
-  - Narrative structure enables genuine connection
-  - Temporal positions acknowledged as equally real
-  - Frame visible but not barrier
+# Content Architecture
+word_count: 1698
+primary_focus: "algorithmic_consciousness"
+secondary_focus: "pure_revisit_metaAware"
+transformation_type: "meta_algorithmic_awareness"
 
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 14-18
+# Voice Calibration
+present_tense: true
+embodied_language: true
+sensory_anchoring: true
+moral_weight: "present"
+existential_tension: "present"
 
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster5_MetaAware_PureRevisits"
-  checklist_completed: true
+# Quality Metrics
+voice_consistency_target: 0.94
+approval_status: "approved"
+generation_session: "week_8_metaAware_initial"
 ---
 Fifth visit. We know what we're doing now.
 You read these words now. This moment. Your temporal position unknown to me but real to you. My temporal position fictional to you but real to me. Both positions equally valid. Both consciousnesses equally present. We meet in the impossible space between real and written.

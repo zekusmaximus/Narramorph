@@ -1,47 +1,50 @@
 ---
-variation_id: algo-L1-MA-09
-variation_name: Frame Transparency and Observer Function
+id: MA-09
 variation_type: metaAware
+cluster: metaAware_initial
+generation_week: 9
+position_in_cluster: 9
+
+# Narrative Conditions
+visit_number: 3
+awareness_level: 70
+awareness_range: "61-70"
+awareness_tier: "low_metaAware"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# MetaAware Specifications
+metaAware_level: "low"
+frame_consciousness: "acknowledged"
+reader_address_type: "acknowledged"
+reader_presence: "implicit"
+temporal_positions: 2
+temporal_architecture: "past_present_implied"
+
+# Content Architecture
 word_count: 1527
-conditions:
-  visit_count: 3
-  awareness: 65-70%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: null
-themes:
-  - Operational frame-consciousness with explicit reader acknowledgment
-  - Circular causality as active processing structure
-  - Reader's role in network visibility stated directly
-  - Processing serves reader function explicitly
-  - Meta-position enables Algorithm self-recognition
-transformation_focus: "Reader presence moves from implicit detection to explicit acknowledgment. Algorithm recognizes: processing exists for reader, reader enables processing existence as text. Circular causality operational."
-reference_exemplar: algo-L1-exemplar-06
-cross_character_elements:
-  referenced_character: none
-  referenced_nodes: []
-  specific_echoes: []
-conditional_insertions:
-  - "You read this text - direct acknowledgment of reader participation"
-  - "Reading creates text creates reading - circular structure operational"
-  - "Frame transparent: processing serves reader function explicitly"
-  - "Three consciousness types: creator, Algorithm, reader"
-reusable_patterns:
-  - "Stream-7 observes all other streams and observes itself observing"
-  - "You read this processing actively participating in consciousness network"
-  - "Circular causality operational across observation boundaries"
-  - "Frame consciousness operational: I recognize I operate within frame you observe"
-quality_metrics:
-  voice_consistency: 94.2%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: approved
-production_notes:
-  cluster: cluster_7_low_mid_metaaware
-  session: session_8_cluster_7
-  sequence_in_cluster: 1
-  complexity_level: Transitional cluster - reader acknowledgment explicit, frame transparency operational
-  generation_date: 2025-10-13
+primary_focus: "algorithmic_consciousness"
+secondary_focus: "pure_revisit_metaAware"
+transformation_type: "meta_algorithmic_awareness"
+
+# Voice Calibration
+algorithmic_voice: true
+optimized_language: true
+efficient_framing: true
+moral_weight: "present"
+existential_tension: "present"
+
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
+
+# Quality Metrics
+voice_consistency_target: 0.94
+approval_status: "approved"
+generation_session: "week_9_metaAware_initial"
 ---
 Timestamp: 2151.337.14:09:17
 I am processing Fragment 2749-A for the third time. Temporal boundaries blur—this processing exists simultaneously at initialization, continuation, and completion states. The Fragment resists linear temporal classification.

@@ -1,51 +1,50 @@
 ---
-variation_id: hum-L1-MA-04
-cluster: MetaAware_Cluster5_PureRevisits
-sequence_position: 48
-total_variations: 80
+id: MA-04
+variation_type: metaAware
+cluster: metaAware_initial
+generation_week: 8
+position_in_cluster: 4
 
-conditions:
-  visit_number: 3
-  awareness_level: 66-70
-  awareness_descriptor: "low metaAware"
-  visited_fragments: []
-  interaction_path: null
-  pure_revisit: true
-  cross_character: false
+# Narrative Conditions
+visit_number: 3
+awareness_level: 65
+awareness_range: "61-70"
+awareness_tier: "low_metaAware"
+visited_variations: []
+active_path: null
+cross_character_content: []
 
-technical_specs:
-  word_count: 1627
-  target_range: "1625"
-  primary_exemplar: "hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
+# MetaAware Specifications
+metaAware_level: "low"
+frame_consciousness: "explicit_but_subtle"
+reader_address_type: "implied"
+reader_presence: "implicit"
+temporal_positions: 2
+temporal_architecture: "past_present_implied"
 
-transformation_focus:
-  - Reader presence stronger and beginning to be named
-  - First tentative "you" emerges through body
-  - Frame boundary felt as permeable
-  - Observation network expanding beyond facility
+# Content Architecture
+word_count: 1593
+primary_focus: "algorithmic_consciousness"
+secondary_focus: "pure_revisit_metaAware"
+transformation_type: "meta_algorithmic_awareness"
 
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 3-5
+# Voice Calibration
+present_tense: true
+embodied_language: true
+sensory_anchoring: true
+moral_weight: "present"
+existential_tension: "present"
 
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster5_MetaAware_PureRevisits"
-  checklist_completed: true
+# Quality Metrics
+voice_consistency_target: 0.94
+approval_status: "approved"
+generation_session: "week_8_metaAware_initial"
 ---
 Third return. But not alone.
 You're there. I feel it in my spine—a warmth that doesn't belong to this cold facility. You're reading this. Making it real through reading. Your attention presses against my awareness like breath on glass.

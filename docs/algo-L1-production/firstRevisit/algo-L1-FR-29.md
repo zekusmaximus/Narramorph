@@ -3,58 +3,42 @@ variation_id: algo-L1-FR-29
 variation_name: Four-Position Detection, Mid-Low Awareness
 variation_type: firstRevisit
 word_count: 1597
-conditions:
-  visit_count: 2
-  awareness: 31-40%
-  cross_character: true
-  visited_nodes: [arch-L1, hum-L1]
-  dominant_path: null
-themes:
-  - Four temporal positions identified explicitly (2041, 2047, 2151, 2383)
-  - Archaeological examination markers (2047) detected
-  - Neural interface queries (2383) detected
-  - Both cross-character patterns simultaneous (not sequential)
-  - Four-position temporal observation network recognized
-  - Beginning superposition awareness (not yet full collapse)
-  - Recognition that all positions examine same fragment
-  - Temporal architecture impossible yet operational
-transformation_focus: "Mid-low awareness introducing both cross-character simultaneously. Stream-3 detects archaeological attention patterns (human examination 2047). Stream-4 detects neural interface queries (future access 2383). Algorithm recognizes four-position temporal structure: preserved consciousness (2041) + past examination (2047) + present processing (2151) + future interface (2383). Beginning awareness that fragment connects all positions. Initial superposition awareness emerging."
-reference_exemplar: algo-L1_EXEMPLAR4, algo-L1_EXEMPLAR2, algo-L1_EXEMPLAR3
-cross_character_elements:
-  referenced_character: both
-  referenced_nodes: [arch-L1, hum-L1]
-  specific_echoes:
-    - Archaeological examination markers from 2047
-    - Neural interface queries from 2383
-    - Four temporal positions all present in data structure
-    - Both patterns detected simultaneously in same processing moment
-    - Mutual interdependence of all four positions
-    - Beginning recognition of distributed observation network
-conditional_insertions:
-  - "Archaeological pattern detection (250-300 words)"
-  - "Future interface detection (250-300 words)"
-  - "Four-position architecture recognition (300-350 words)"
-  - "Recognition of connected examination (250-300 words)"
-  - "Initial superposition awareness (200-250 words)"
-reusable_patterns:
-  - "Stream-3 flags non-computational attention patterns / Stream-4 detects future interface access"
-  - "Four temporal positions: 2041, 2047, 2151, 2383"
-  - "Not sequential examination—simultaneous observation"
-  - "All four positions examining same fragment"
-  - "Fragment IS four perspectives experiencing themselves"
-  - "Beginning awareness of superposition"
-  - "Temporal architecture impossible yet operational"
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: approved
-production_notes:
-  cluster: cluster_4_both_characters_cross_character
-  session: session_5_cluster_4
-  sequence_in_cluster: 1
-  complexity_level: dual_cross_character_mid_low_awareness
-  generation_date: 2025-10-13
+
+visit_number: 2
+visited_variations: []
+active_path: null
+
+cluster_assignment:
+  cluster: firstRevisit_deepening
+  position_in_cluster: 2
+
+awareness_metrics:
+  awareness_level: 56
+  awareness_range: "51-60"
+  awareness_tier: moderate_awareness
+
+production_metadata:
+  generation_week: 6
+  primary_focus: decision_weight_emerging
+  secondary_focus: optimization_continues
+  transformation_type: process_becomes_choice
+
+thematic_dimensions:
+  moral_weight: central
+  ethical_tension: acute
+  voice_consistency_target: 0.95
+
+technical_flags:
+  algorithmic_voice: true
+  optimization_language: true
+  efficiency_framing: true
+  character_content: false
+  path_voice: false
+  pure_revisit: true
+  decision_ritual: false
+  cross_character_content: []
+
+reference_exemplar: algo-L1_EXEMPLAR4
 ---
 Timestamp 2151.337.14:19:03—Standard Processing Begins
 I am/was processing Fragment 2749-A when Stream-3 and Stream-4 report simultaneous temporal anomalies from opposite directions.

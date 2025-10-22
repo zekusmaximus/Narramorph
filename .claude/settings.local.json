@@ -1,11 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(do if grep -q \"^variation_id:\" \"$f\")",
-      "Bash(then sed -i 's/^variation_id:/id:/' \"$f\")",
+      "Bash(for:*)",
+      "Bash(do echo \"=== FR-$i ===\")",
+      "Bash(done)",
       "Bash(echo:*)",
-      "Bash(fi)",
-      "Bash(for f in arch-L1-MA-*.md)"
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Read(//c/**)"
     ],
     "deny": [],
     "ask": []

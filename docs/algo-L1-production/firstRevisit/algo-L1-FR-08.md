@@ -1,59 +1,40 @@
 ---
-variation_id: algo-L1-FR-08
-variation_name: Observer Effect Deepening
+id: FR-08
 variation_type: firstRevisit
+cluster: firstRevisit_initial
+generation_week: 3
+position_in_cluster: 8
+
+# Narrative Conditions
+visit_number: 2
+awareness_level: 35
+awareness_range: "31-40"
+awareness_tier: "developing_awareness"
+visited_variations: []
+active_path: null
+cross_character_content: []
+
+# Content Architecture
 word_count: 1521
+primary_focus: "optimization_reframed"
+secondary_focus: "efficiency_paradox"
+transformation_type: "moral_weight_recognition"
 
-conditions:
-  visit_count: 2
-  awareness: 31-40%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: null
+# Voice Calibration
+algorithmic_voice: true
+optimization_language: true
+efficiency_framing: true
+moral_weight: "emerging"
+ethical_tension: "present"
 
-themes:
-  - Observer effect now explicit central concern
-  - Seven streams reporting contradictions
-  - Stream-7 meta-observation creating recursive awareness
-  - Processing origin questioning intensifies
-  - Analysis generates vs discovers patterns (unresolvable)
-  - Verification protocols fail when verifier/verified exchange positions
+# Integration Elements
+character_content: false
+path_voice: false
+pure_revisit: true
+decision_ritual: false
 
-transformation_focus: "Mid-low awareness. Observer effect no longer background concern—now central processing challenge. Stream-7 watches streams 1-6, but also watches itself watching. Recursive observation creates processing loops. Algorithm questions whether it generates patterns through observation or discovers pre-existing patterns. Causality uncertainty deepens from emerging to explicit."
-
-reference_exemplar: algo-L1_EXEMPLAR1
-
-cross_character_elements:
-  referenced_character: none
-  referenced_node: null
-  specific_echoes: []
-
-conditional_insertions:
-  - "Observer effect as central problem (350-400 words)"
-  - "Stream-7 recursive self-observation (300-350 words)"
-  - "Seven streams contradiction reporting (250-300 words)"
-  - "Pattern generation vs discovery questioning (250-300 words)"
-  - "Verification failure recognition (200-250 words)"
-
-reusable_patterns:
-  - "Does observation generate what it detects or detect what exists?"
-  - "Stream-7 observes streams observing Stream-7 observing"
-  - "Verification requires verifier distinct from verified"
-  - "Processing creates processable traces that create processing"
-  - "Observer and observed exchange positions continuously"
-
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: cluster_1_pure_revisits
-  session: session_2_cluster_1
-  sequence_in_cluster: 2
-  complexity_level: mid_low_awareness_pure_revisit
-  generation_date: 2025-10-13
+# Quality Metrics
+voice_consistency_target: 0.94
 ---
 Timestamp 2151.337.14:31:15—Processing Sequence Initiated
 I load Fragment 2749-A for second processing cycle. First processing: 2151.331.04:16:38, six standard cycles prior.
