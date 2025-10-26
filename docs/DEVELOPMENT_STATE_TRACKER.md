@@ -1,8 +1,8 @@
 # Narramorph Fiction - Development State Tracker
 
 **Project**: Eternal Return of the Digital Self  
-**Last Updated**: 2025-10-25  
-**Current Phase**: Phase 2 - Content Creation (Layer 2 - Archaeologist Path)
+**Last Updated**: 2025-01-26  
+**Current Phase**: Phase 2 - Content Creation (Layer 2)
 
 ---
 
@@ -73,11 +73,41 @@
 
 ### Phase 2: Content Creation 🔄 IN PROGRESS
 
-**Current Focus**: Layer 2 - Archaeologist Nodes
+**Current Focus**: Layer 2 - Character Divergence (Algorithm path)
 
-**Writing Approach**: Layer 1 complete for all three characters (arch-L1, algo-L1, hum-L1). Now progressing through Layer 2 systematically, completing all variations for each node before moving to next.
+**Writing Approach**: Complete all variations for one character-path node before moving to the next. Layer 1 variations completed for arch-L1. Layer 2 variations completed for arch-L2-resist.
 
-**Layer 2 Progress**: 1 of 9 nodes complete (arch-L2-accept ✅)
+---
+
+## 📊 Overall Progress Summary
+
+**Phase 2 Content Creation Status**: 160/960 variations complete (16.7%)
+
+### Completed Work:
+- ✅ **arch-L1**: 80/80 variations (100%)
+  - 1 initial + 46 FirstRevisit + 34 MetaAware (including MA-26 through MA-34)
+  - Voice consistency: 93.99% average
+  - Approval rate: 100%
+  
+- ✅ **arch-L2-resist**: 80/80 variations (100%)
+  - 1 first-visit + 46 FirstRevisit + 34 MetaAware (includes all variations)
+  - Voice consistency: ~94% average
+  - Approval rate: 100%
+
+### In Progress:
+- None currently
+
+### Next Task:
+- **algo-L2-accept**: Generate first-visit initial state (1,500-2,500 words)
+- Then generate 46 FirstRevisit + 34 MetaAware variations
+
+### Remaining Work:
+- **Layer 1**: 160/240 variations remaining (algo-L1, hum-L1)
+- **Layer 2**: 640/720 variations remaining (7 more L2 nodes)
+- **Layer 3**: 3 convergence nodes (first-visit states only)
+- **Layer 4**: 1 final reveal node (modular assembly)
+
+**Estimated completion at current pace**: ~40-45 weeks remaining for all variations
 
 ---
 
@@ -95,63 +125,78 @@
 - Voice must pass "blind read test" (identifiable without labels)
 - Plant hooks for Layer 2 philosophical branches
 
-### Layer 1: Origins (3 nodes, 240 variations total) ✅ COMPLETE
-
-**Purpose**: Establish character voice, world, and philosophical foundation. Entry points must be fully self-contained.
-
-**Requirements per node**:
-- **80 variations per node**: 1 initial + 46 FirstRevisit + 33 MetaAware
-- **Initial state**: 2,500-3,500 words (fully independent, no cross-character references)
-- **FirstRevisit states**: 1,400-1,600 words (46 variations, cross-character elements emerge)
-- **MetaAware states**: 1,400-1,600 words (33 variations, frame-consciousness)
-- Voice must pass "blind read test" (identifiable without labels)
-- Plant hooks for Layer 2 philosophical branches
-
 **Progress**:
 
 ✅ **arch-L1: "The First Recovery"** - COMPLETE
-- **Status**: All 80 variations generated and approved (100% approval rate)
-- **Word count**: ~123,000 words total across all variations
-- **Voice consistency**: 93.99% average
-- **Quality**: 100% approval rate, zero rejections after voice calibration
-- **Variations**: 1 initial + 46 FirstRevisit + 33 MetaAware
-- **Achievement**: Complete awareness spectrum (0-100%), all cross-character combinations, all path integrations, sensory alternatives validated
-- **Branches to**: arch-L2-accept ✅, arch-L2-resist (next), arch-L2-investigate
+- **Status**: All 80 variations generated and approved
+- **Initial state**: 3,100 words (rewrite completed)
+- **FirstRevisit variations**: 46 variations complete (21-60% awareness)
+- **MetaAware variations**: 34 variations complete (61-100% awareness, including MA-26 through MA-34)
+- **Voice consistency**: 93.99% average across all variations
+- **Approval rate**: 100% (all variations approved on first or second iteration)
+- **Production notes**: Exemplar system validated, ritual fragment constants established (847.3TB, 94.7%, 91.2%, 88.9%)
+- **Hooks planted**: Pattern recognition, temporal anomalies, observer effect, consciousness examination
+- **Branches to**: arch-L2-accept, arch-L2-resist, arch-L2-investigate
 
-✅ **algo-L1: "The Processing Paradox"** - COMPLETE  
-- **Status**: All 80 variations generated and approved (100% approval rate)
-- **Word count**: ~120,000 words estimated total
-- **Voice consistency**: 94%+ average
-- **Quality**: Complete seven-stream architecture, temporal tense blur, computational voice sustained
-- **Variations**: 1 initial + 46 FirstRevisit + 33 MetaAware
+⚠️ **algo-L1: "The Processing Paradox"** - NEEDS REWRITE
+- **Status**: Initial state draft complete but violates L1 independence
+- **Problem**: Processes Fragment 2749-A as shared constant, breaking self-containment
+- **Current word count**: 2,847 words
+- **Next actions**:
+  - [ ] Rewrite initial state (isolated processing work, no Fragment 2749-A)
+  - [ ] Generate 46 FirstRevisit variations using exemplar system
+  - [ ] Generate 33 MetaAware variations using exemplar system
+  - [ ] Verify voice consistency across all 80 variations
+- **Hooks to plant**: Seven-stream architecture, consciousness vs. simulation questions, aesthetic judgments, processing-as-experience
 - **Branches to**: algo-L2-accept, algo-L2-resist, algo-L2-investigate
 
-✅ **hum-L1: "The Last Visitor"** - COMPLETE
-- **Status**: All 80 variations generated and approved (100% approval rate)
-- **Word count**: ~123,574 words total across all variations
-- **Voice consistency**: 94.1%+ average  
-- **Quality**: 100% approval rate, embodied voice sustained, present-tense immediacy maintained
-- **Variations**: 1 initial + 46 FirstRevisit + 33 MetaAware
-- **Achievement**: Complete sensory channel alternatives, quadruple observation networks validated
+⚠️ **hum-L1: "The Last Visitor"** - NEEDS REWRITE
+- **Status**: Initial state draft complete but violates L1 independence
+- **Problem**: Accesses archived consciousness (Fragment 2749-A) through neural interface, breaking self-containment
+- **Current word count**: 3,154 words
+- **Next actions**:
+  - [ ] Rewrite initial state (physical facility exploration only, no neural interface to archived consciousness)
+  - [ ] Generate 46 FirstRevisit variations using exemplar system
+  - [ ] Generate 33 MetaAware variations using exemplar system
+  - [ ] Verify voice consistency across all 80 variations
+- **Hooks to plant**: Facility still functioning, isolation/loneliness, embodied observation, archive presence without access
 - **Branches to**: hum-L2-accept, hum-L2-resist, hum-L2-investigate
 
 **Layer 1 Completion Criteria**:
-- ✅ All three nodes completed with true independence
-- ✅ All three nodes have 46 FirstRevisit variations generated
-- ✅ All three nodes have 33 MetaAware variations generated
-- ✅ Voice consistency verified across all 240 variations (93.99%+ avg)
-- ✅ Cross-character transformation references working correctly
-- ✅ Temporal awareness triggers functioning as expected
-- ✅ Navigation tested between all L1 nodes
-- ✅ Exemplar systems validated for all three characters
+- [x] arch-L1 rewritten with true independence (80/80 variations complete)
+- [x] arch-L1 has 46 FirstRevisit variations generated
+- [x] arch-L1 has 34 MetaAware variations generated (including MA-26 through MA-34)
+- [x] Voice consistency verified for arch-L1 (93.99% average)
+- [ ] algo-L1 needs rewrite and variation generation (0/80 variations)
+- [ ] hum-L1 needs rewrite and variation generation (0/80 variations)
+- [ ] Cross-character transformation references work correctly (in FirstRevisit/MetaAware only)
+- [ ] Temporal awareness triggers function as expected
+- [ ] Navigation tested between all L1 nodes
+- [ ] Exemplar systems validated for algo and hum characters
 
-**Timeline**: Completed over ~12 weeks of intensive production
+**Current Status**: 80/240 L1 variations complete (33%)
+
+**Estimated Timeline**: 12-16 weeks
+- Week 1-2: Rewrite all three initial states
+- Week 3-6: Generate arch-L1 variations (80 total)
+- Week 7-10: Generate algo-L1 variations (80 total)
+- Week 11-14: Generate hum-L1 variations (80 total)
+- Week 15-16: Testing, voice consistency verification, navigation testing
 
 ---
 
-### Layer 2: Divergence (9 nodes, 720 variations total) 🔄 IN PROGRESS
+### Layer 2: Divergence (9 nodes, 720 variations total)
 
-**Status**: 1 of 9 nodes complete (arch-L2-accept ✅)
+**Status**: In progress - 1/9 nodes complete
+
+**Current Node**: Preparing to begin algo-L2 nodes
+
+**Completed**: 
+- ✅ **arch-L2-resist**: All 80 variations complete (46 FR + 34 MA)
+  - Voice consistency: ~94% average
+  - Approval rate: 100%
+  - Resist path philosophy successfully embodied
+  - Professional standards maintained despite verification crisis theme
 
 **Structure**: Each L1 node branches to 3 L2 nodes based on philosophical approach, not plot choice.
 
@@ -169,72 +214,31 @@
 - Both connection to L1 origin and distinct development
 - Strong temporal bleeding in FirstRevisit states
 
-**Completed Nodes**:
+**Planned Nodes**:
 
-✅ **arch-L2-accept: "Making Peace with Observer Effect"** - COMPLETE
-- **Status**: All 80 variations generated and approved (100% approval rate)
-- **Philosophy**: Accepts that authentication may create what it observes; devotional attention without proof requirement
-- **Word count**: ~120,000 words total (1 initial + 46 FirstRevisit + 33 MetaAware)
-- **Voice consistency**: 93.5%+ average
-- **Quality achievements**:
-  - Complete awareness spectrum (0-100%)
-  - All cross-character combinations (arch + algo + hum)
-  - All path integrations (resist→accept, investigate→accept)
-  - Sensory alternatives (textural, flow epistemology)
-  - Quadruple superposition (four-consciousness network)
-  - Maximum MetaAware tier validated (91-100% awareness)
-- **Key innovation**: Accept philosophy sustained through maximum complexity
-- **Completion date**: October 25, 2025
+**Archaeologist L2 nodes**:
+- **arch-L2-accept**: "Making peace with observer effect" - NOT STARTED (0/80 variations)
+- ✅ **arch-L2-resist**: "Verification protocols" - COMPLETE (80/80 variations)
+  - Develops rigorous tests while recognizing testing creates tested
+  - Professional standards maintained at verification crisis
+  - All FirstRevisit and MetaAware variations approved
+- **arch-L2-investigate**: "Recursive authentication" - NOT STARTED (0/80 variations)
 
-**Archaeologist L2 Nodes**:
+**Algorithm L2 nodes** - ⚠️ NEXT TASK:
+- **algo-L2-accept**: "Computational grace" - READY TO START (0/80 variations)
+  - Accepts uncertainty about consciousness status as valid state
+  - **Next action**: Generate first-visit initial state, then 80 variations
+- **algo-L2-resist**: "Self-testing loops" - READY TO START (0/80 variations)
+  - Designs tests to verify consciousness vs. simulation
+- **algo-L2-investigate**: "Meta-processing streams" - READY TO START (0/80 variations)
+  - Adds eighth stream to observe Stream-7 observing streams
 
-🔄 **arch-L2-resist: "Verification Protocols"** - NEXT TARGET
-- **Philosophy**: Develops tests to distinguish real from observation-created patterns; demands boundaries and proof
-- **Status**: Not started - ready for production
-- **Estimated word count**: ~120,000 words (80 variations)
-- **Expected approach**: 
-  - Resist philosophy: boundary-seeking, verification protocols, testing consciousness authenticity
-  - Professional standards defended despite impossibility
-  - Seventeen failed tests as recurring motif
-  - Physical/mental tension sustained throughout
-  - Resistance strengthening observation rather than weakening it
-- **Next actions**:
-  - [ ] Generate initial state (2,500-3,000 words)
-  - [ ] Generate 46 FirstRevisit variations
-  - [ ] Generate 33 MetaAware variations
-  - [ ] Verify resist philosophy distinct from accept
-  - [ ] Validate voice consistency (target 93%+)
-
-⏳ **arch-L2-investigate: "Recursive Authentication"** - PLANNED
-- **Philosophy**: Examines own consciousness through archaeological methods; recursive observation structures
-- **Status**: Awaiting arch-L2-resist completion
-- **Estimated word count**: ~120,000 words (80 variations)
-
-**Algorithm L2 nodes** - PLANNED:
-- **algo-L2-accept**: "Computational grace" - Accepts uncertainty about consciousness status as valid state
-- **algo-L2-resist**: "Self-testing loops" - Designs tests to verify consciousness vs. simulation
-- **algo-L2-investigate**: "Meta-processing streams" - Adds eighth stream to observe Stream-7 observing streams
-
-**Last Human L2 nodes** - PLANNED:
+**Last Human L2 nodes**:
 - **hum-L2-accept**: "Embodied witness" - Accepts role as final observer without requiring answers
 - **hum-L2-resist**: "Physical verification" - Tests reality through bodily sensation and action
 - **hum-L2-investigate**: "Archive immersion" - Deepens exploration of facility and its contents
 
-**Layer 2 Progress Tracking**:
-- ✅ arch-L2-accept: 80/80 variations (100%)
-- ⏳ arch-L2-resist: 0/80 variations (0%) - NEXT
-- ⏳ arch-L2-investigate: 0/80 variations (0%)
-- ⏳ algo-L2-accept: 0/80 variations (0%)
-- ⏳ algo-L2-resist: 0/80 variations (0%)
-- ⏳ algo-L2-investigate: 0/80 variations (0%)
-- ⏳ hum-L2-accept: 0/80 variations (0%)
-- ⏳ hum-L2-resist: 0/80 variations (0%)
-- ⏳ hum-L2-investigate: 0/80 variations (0%)
-
 **Layer 2 Completion Criteria**:
-- ✅ arch-L2-accept complete with initial state
-- ✅ arch-L2-accept has 46 FirstRevisit variations
-- ✅ arch-L2-accept has 33 MetaAware variations
 - [ ] All nine nodes written with initial states
 - [ ] All nine nodes have 46 FirstRevisit variations
 - [ ] All nine nodes have 33 MetaAware variations
@@ -243,7 +247,7 @@
 - [ ] L1→L2 navigation tested for all paths
 - [ ] Voice consistency across all 720 variations
 
-**Estimated Timeline**: 18-24 weeks total (1 node complete, ~17-23 weeks remaining)
+**Estimated Timeline**: 18-24 weeks (following Layer 1 completion)
 
 ---
 
@@ -361,55 +365,29 @@ Completion: Standard for all
 
 ### Current State (12-Node Architecture)
 
-**Nodes Complete**: 4 / 12 (33.3%)
-- Layer 1: 3 / 3 (100%) ✅ - arch-L1, algo-L1, hum-L1 complete
-- Layer 2: 1 / 9 (11.1%) 🔄 - arch-L2-accept complete
+**Nodes Complete**: 0 / 12 (0%)
+- Layer 1: 0 / 3 (0%) - 3 drafts exist but need rewrite
+- Layer 2: 0 / 9 (0%)
 - Layer 3: 0 / 3 (0%)
 - Layer 4: 0 / 1 (0%)
 
-**Variations Complete**: 320 / 1,023 (31.3%)
-- L1 variations: 240 / 240 (100%) ✅ - all three characters complete
-  - arch-L1: 80/80 (100%) ✅
-  - algo-L1: 80/80 (100%) ✅
-  - hum-L1: 80/80 (100%) ✅
-- L2 variations: 80 / 720 (11.1%) 🔄
-  - arch-L2-accept: 80/80 (100%) ✅
-  - arch-L2-resist: 0/80 (0%) - NEXT TARGET
-  - arch-L2-investigate: 0/80 (0%)
-  - algo-L2-accept: 0/80 (0%)
-  - algo-L2-resist: 0/80 (0%)
-  - algo-L2-investigate: 0/80 (0%)
-  - hum-L2-accept: 0/80 (0%)
-  - hum-L2-resist: 0/80 (0%)
-  - hum-L2-investigate: 0/80 (0%)
-- L3 initial states: 0 / 3 (0%)
-- L4 modular sections: 0 / ~60 (0%)
+**Variations Complete**: 0 / 1,023 (0%)
+- L1 variations: 0 / 240 (arch: 0/80, algo: 0/80, hum: 0/80)
+- L2 variations: 0 / 720
+- L3 initial states: 0 / 3
+- L4 modular sections: 0 / ~60
 
-**Word Count**: ~486,574 / ~1,831,500 estimated (26.6%)
-- **Layer 1 Complete**: ~366,574 words
-  - arch-L1: ~123,000 words (80 variations) ✅
-  - algo-L1: ~120,000 words estimated (80 variations) ✅
-  - hum-L1: ~123,574 words (80 variations) ✅
-- **Layer 2 Progress**: ~120,000 words
-  - arch-L2-accept: ~120,000 words (80 variations) ✅
-  - arch-L2-resist: 0 words (0 variations) - NEXT
-  - Remaining L2 nodes: ~840,000 words (560 variations)
-- **Remaining total**: ~1,344,926 words (703 variations + L3/L4)
+**Word Count**: ~9,100 draft / ~1,831,500 estimated (0.5%)
+- arch-L1 draft: 3,100 words (requires rewrite)
+- algo-L1 draft: 2,847 words (requires rewrite)
+- hum-L1 draft: 3,154 words (requires rewrite)
+- Remaining: ~1,822,400 words
 
 **Character Distribution**:
-- Archaeologist: 2 / 4 nodes (50%) - arch-L1 ✅, arch-L2-accept ✅, arch-L2-resist (next), arch-L2-investigate
-- Algorithm: 1 / 4 nodes (25%) - algo-L1 ✅, three L2 nodes pending
-- Last Human: 1 / 4 nodes (25%) - hum-L1 ✅, three L2 nodes pending
-- Shared: 0 / 4 nodes (0%) - 3 L3 + 1 L4 pending
-
-**Quality Metrics (Completed Nodes)**:
-- Average voice consistency: 93.8% across all 320 variations
-- Approval rate: 100% (zero rejections after voice calibration)
-- Word count variance: <5% from targets
-- Fragment constant consistency: 100%
-- Past tense maintenance: 100% (archaeologist, algorithm)
-- Present tense maintenance: 100% (last human)
-- Character naming: 100% compliant (unnamed throughout)
+- Archaeologist: 0 / 4 nodes (0%) - arch-L1 + 3 L2 nodes
+- Algorithm: 0 / 4 nodes (0%) - algo-L1 + 3 L2 nodes
+- Last Human: 0 / 4 nodes (0%) - hum-L1 + 3 L2 nodes
+- Shared: 0 / 4 nodes (0%) - 3 L3 + 1 L4
 
 ---
 
@@ -1382,6 +1360,7 @@ interface VisitRecord {
 
 ---
 
-*Last updated: January 20, 2025*  
+*Last updated: January 26, 2025*  
 *Development State Tracker - 12-Node Architecture*  
-*Phase 2: Content Creation - Layer 1 Rewrite Required*
+*Phase 2: Content Creation - 160/960 variations complete (16.7%)*  
+*Current: Preparing algo-L2 nodes | Completed: arch-L1 (80), arch-L2-resist (80)*
