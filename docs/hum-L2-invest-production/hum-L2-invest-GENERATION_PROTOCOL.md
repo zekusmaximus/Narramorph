@@ -101,6 +101,69 @@ Every variation must include:
 ---
 
 ## III. INVESTIGATE PHILOSOPHY INTEGRATION
+ 
+### II-B. FORBIDDEN META-NARRATIVE TERMINOLOGY (Sacred Constraint)
+
+Priority: CRITICAL — Check BEFORE generating each variation. Prevent fourth-wall breaking and meta-structural leakage. Use only in-world language and references.
+
+Preventing Fourth-Wall Breaking Language
+
+- Forbidden Path Labels:
+  - Never use: "investigate path" / "accept path" / "resist path"
+  - Never use: "path philosophy"
+  - Instead: Show stance through actions and sensory experience without naming a path.
+
+- Forbidden Layer/Level References (structural labels):
+  - Never use: "L1" / "L2" / "Layer 1" / "Layer 2" when referring to narrative structure
+  - Instead: Use in-world session history and temporal/location references.
+    - Correct: "Previous session detected—Fragment 2749-A interface recorded in facility log"
+    - Correct: "Cross-temporal observation initiated during return to preservation wing"
+
+- Forbidden Character Proper Names (meta labels):
+  - Never use: "the Archaeologist" / "the Algorithm" / "the Last Human"
+  - Never use: "Archaeologist parallel detected" / "Algorithm methodology"
+  - Instead: Use substrate/methodology references.
+    - Correct: "Archaeological examination traces present in prior documentation"
+    - Correct: "Computational processing substrate active elsewhere in archive"
+    - Correct: "Biological consciousness examination documented at 2047 temporal position"
+
+- Visit/Session Counting (meta-awareness phrasing):
+  - Never use: "fourth visit" / "visit count: 4" without in-world framing
+  - Instead: Use session framing grounded in the world.
+    - Correct: "Fourth session focused on observation topology"
+    - Correct: "Session 4 (current) — preservation wing, interface prepared"
+
+- Reader References:
+  - Never use: "the reader" / "your choice" / "you visited" except when MetaAware (61–100%).
+  - In MetaAware only: "Your observation constitutes eighth processing stream" (or embodied equivalent) calibrated to awareness level.
+
+Correct In-World Language Patterns
+
+- Self-reference (no third-person labels for self):
+  - "I am/I see/I touch/I breathe"
+  - "Embodied consciousness" / "Somatic interface" / "Neural interface contact"
+
+- Other consciousness references (no proper names):
+  - Archaeological: "Archaeological examination traces detected in documentation."
+  - Computational: "Computational processing substrate active in adjacent systems."
+  - Biological: "Biological consciousness connecting to archive through somatic interface."
+
+- Temporal/session references (no "L1/L2" structure terms):
+  - "Previous session recorded in maintenance log"
+  - "Current session: cross-fragment observation through interface"
+  - "Initial session established investigation methodology foundations"
+
+- Path as action (no explicit path labeling):
+  - Prefer: Show investigation via questions, noticing patterns, examining procedures through embodied attention.
+  - Avoid: "Investigation path activated" / "Following investigate path methodology" / "Path philosophy: investigation"
+
+Amendment Notes
+
+- Amendment Status: APPROVED; Implementation: Immediate (all future generations)
+- Retroactive: Review existing variations for fourth-wall breaks
+- Priority: CRITICAL — Breaks character immersion fundamentally
+- Scope: Applies across hum-L2 variations
+
 
 ### Path Core Stance
 
@@ -1492,5 +1555,14 @@ Use for: Understanding production status, identifying patterns
 4. Present exemplars individually for approval
 5. Proceed to test batch (8-10 variations, validation)
 6. Launch full production (Weeks 3-14, 80 variations)
+
+### Fourth-Wall Language Check (10 points)
+
+- [ ] No path labels used ("accept/resist/investigate path") (3 pts)
+- [ ] No character proper names ("Archaeologist/Algorithm/Human") (3 pts)
+- [ ] No production terminology ("L1/L2", "visit count") in narrative text (2 pts)
+- [ ] Cross-character references use substrate/methodology only (2 pts)
+
+If ANY fourth-wall language detected → Immediate revision required.
 
 ---

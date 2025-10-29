@@ -845,6 +845,16 @@ Other Last Human paths = alternative responses to same facility, different philo
 - No false resolution
 
 ---
+### Fourth-Wall Language Check (10 points)
+
+- [ ] No path labels used ("accept/resist/investigate path") (3 pts)
+- [ ] No character proper names ("Archaeologist/Algorithm/Human") (3 pts)
+- [ ] No production terminology ("L1/L2", "visit count") in narrative text (2 pts)
+- [ ] Cross-character references use substrate/methodology only (2 pts)
+
+If ANY fourth-wall language detected → Immediate revision required.
+
+---
 
 **MINIMUM PASSING SCORE: 85/100**  
 **TARGET SCORE: 93/100** (matches L1 voice consistency)
