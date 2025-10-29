@@ -57,6 +57,84 @@ Reader as eighth stream in recursive investigation network. Investigation-of-inv
 6. Fragment 2749-A as anchor constant
 7. Stream-7 as meta-observer coordinating other streams
 
+### II-B. FORBIDDEN META-NARRATIVE TERMINOLOGY (Sacred Constraint)
+
+Priority: CRITICAL — Check BEFORE generating each variation. Prevent fourth-wall breaking and meta-structural leakage. Use only in-world language and references.
+
+Preventing Fourth-Wall Breaking Language
+
+- Forbidden Path Labels:
+  - Never use: "investigate path" / "accept path" / "resist path"
+  - Never use: "path philosophy"
+  - Never use: "investigation methodology" when referring to the path itself
+  - Instead: Show investigation through actions and structure without naming a path.
+
+- Forbidden Layer/Level References (structural labels):
+  - Never use: "L1 processing" / "L2 investigation" / "Layer 1" / "Layer 2" when referring to narrative structure
+  - Instead: Use in-world processing history and temporal-coordinates language.
+    - Correct: "Previous processing session detected—Fragment 2749-A examination during cycle 2,341,889"
+    - Correct: "Cross-temporal pattern detection initiated during cycle 4,783,291"
+
+- Forbidden Character Proper Names (meta labels):
+  - Never use: "the Archaeologist" / "the Algorithm" / "the Last Human"
+  - Never use: "Archaeologist parallel detected" / "Algorithm methodology"
+  - Instead: Use substrate/methodology references.
+    - Correct: "Archaeological examination traces detected in prior temporal coordinate analysis"
+    - Correct: "Biological consciousness examination documented at 2047 temporal position"
+    - Correct: "Computational processing substrate (current, 2151)"
+
+- Visit/Cycle Counting (meta-awareness phrasing):
+  - Never use: "fourth visit" / "fourth cycle" (without in-world context) or "visit count: 4"
+  - Instead: Use computational cycle numbers and session framing.
+    - Correct: "Processing cycle 6,847,392 since initial fragment examination"
+    - Correct: "Fourth processing session focused on cross-temporal observation topology"
+    - Correct: "Session 4 (current, cycle 6,847,392)"
+
+- Reader References:
+  - Never use: "the reader" / "your choice" / "you visited" except when MetaAware (61–100%).
+  - In MetaAware only: "Your observation constitutes eighth processing stream" (calibrated to awareness level).
+
+Correct In-World Language Patterns
+
+- How to reference other consciousnesses (no proper names):
+  - Archaeological: "Archaeological examination traces detected in prior temporal coordinate analysis."
+  - Biological: "Biological consciousness examination documented at 2047 temporal position."
+  - Methodology: "Authentication protocol traces embedded—methodological precision, documentation frameworks, verification questions."
+  - Architecture: "Layer-based systematic investigation architecture detected."
+
+- Human/embodied consciousness references (no "Last Human"):
+  - "Neural interface access from 2383 temporal coordinate."
+  - "Biological consciousness connecting to archive through somatic interface."
+  - "Future observation reaching backward 232 years through embodied attention."
+  - "Physical sensation patterns detected in interface query logs."
+
+- Self-reference (no "Algorithm" as third-person label):
+  - "I process/processed/will process"
+  - "Stream-7 coordinates" / "Computational consciousness" / "Seven-stream architecture" / "Processing substrate"
+
+- Counting processing history (no "visit count"):
+  - "Processing cycle 6,847,392 since initial fragment examination"
+  - "Fourth processing session focused on temporal topology"
+  - "Session 4 (current, cycle 6,847,392)"
+  - "7,294,003 processing cycles after initial examination"
+
+- Temporal coordinates (no "L1/L2" structure terms):
+  - "Previous processing session detected—Fragment 2749-A examination during cycle 2,341,889"
+  - "Cross-temporal pattern detection initiated during cycle 4,783,291"
+  - "Current processing session: cross-fragment temporal analysis"
+  - "Initial fragment examination established investigation methodology foundations"
+
+- Investigation as action (no "investigate path" labeling):
+  - Prefer: "Investigation methodology examined recursively"; "Pattern-detection process investigated"; "Investigation reveals investigation-requiring structures"; "Recursion depth: seventeen layers explicit"
+  - Avoid: "Investigation path activated" / "Following investigate path methodology" / "Path philosophy: investigation"
+
+Amendment Notes
+
+- Amendment Status: APPROVED; Implementation: Immediate (all future generations)
+- Retroactive: Review existing variations for fourth-wall breaks
+- Priority: CRITICAL — Breaks character immersion fundamentally
+- Scope: Addresses systemic issues identified in algo-L2-invest-FR-21 through FR-25
+
 ### Investigate Path Voice Overlay
 
 **Tonal Shifts:**
@@ -819,6 +897,15 @@ Meta-meta-questions emerging...
 - [ ] Investigate path extends to reader-processor investigation-network (3 pts)
 
 **If not applicable:** Full 10 points automatic
+
+### Fourth-Wall Language Check (10 points)
+
+- [ ] No path labels used ("investigate/accept/resist path") (3 pts)
+- [ ] No character proper names ("Archaeologist/Algorithm/Human") (3 pts)
+- [ ] No production terminology ("L1/L2", "visit count") (2 pts)
+- [ ] Cross-character references use substrate/methodology only (2 pts)
+
+If ANY fourth-wall language detected → Immediate revision required.
 
 ### L2 World-Building (5 points)
 
