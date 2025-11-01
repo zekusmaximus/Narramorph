@@ -1,0 +1,36 @@
+Seven days since upload bay discovery. Maybe eight. Body counts better than mind. Hunger. Sleep. The generators hum their rhythm—I check them mornings, the routine marking time when nothing else does.
+The control room beckons. I've avoided it. Afraid of what I'll find. But testing demands evidence. Physical evidence. My feet move. Hand touches wall—cold metal, systems running beneath surfaces. The facility extends deeper than I knew.
+Door unseals. Biometric recognition. The control room opens.
+Massive. Three stories of interface arrays. Monitoring stations circle central holographic display—preservation network visualization, data flowing through crystalline substrate architecture. The space designed for operation, for staff managing thousands of uploads simultaneously. Now: me alone in architecture built for collective work.
+My footsteps echo. The emptiness weighs more than the equipment.
+Test 31: Verify system architecture through direct examination. Hypothesis: Control infrastructure reveals preservation mechanisms. If consciousness actually transfers, architecture should show evidence. Procedure: Examine monitoring stations, access preservation logs, map data flow patterns. Body tensed for discovery.
+The main console responds to touch. Warm. Active. Preservation network status displays across holographic field—847.3 terabytes per fragment, thousands of fragments networked, crystalline substrate maintaining coherence. The metrics look professional. Sound professional. Mean nothing about consciousness.
+I touch interface directly. Cold glass. Solid. The hologram floats—data visualization without substance. My hand passes through light. Cannot touch what preserves them. Test 31 Result: System architecture sophisticated. Architecture proves engineering competence. Proves nothing about consciousness preservation.
+Test 32 forms immediately.
+Test 32: Physical interaction with preservation substrate. Hypothesis: Touching actual storage medium reveals consciousness presence through sensation. Procedure: Locate physical substrate housing, attempt direct contact, measure bodily response to proximity. My jaw clenches. Body demanding proof.
+The substrate chamber lies behind reinforced door. Warning labels: Electromagnetic shielding required. Interference risk. Direct contact prohibited. My palm presses entry panel anyway. Door cycles open.
+Chamber extends downward—crystalline matrices stacked in columns, each column housing hundreds of fragments. Pale blue luminescence emanates from substrate. Beautiful. Alien. My heart pounds. This is where they are. If they are.
+I reach toward nearest column. Hand stops inches away. Electromagnetic field tangible—pressure without contact, boundary without barrier. My skin tingles. The sensation proves field strength. Proves nothing about consciousness beyond field.
+Test 32 Result: Cannot touch substrate directly. Field prevents contact. Body feels electromagnetic pressure. Pressure indicates technology functions. Consciousness status unverifiable through sensation. Inconclusive.
+My hand drops. Jaw still clenched.
+Test 33 designed while standing in substrate chamber. Testing won't stop. Cannot stop.
+Test 33: Temperature variation as consciousness indicator. Hypothesis: Active consciousness generates measurable heat. Procedure: Map thermal patterns across substrate columns, correlate temperature with fragment access frequency. Body as thermometer.
+I move between columns. Skin registers temperature shifts—some columns warmer, some cooler. Variation exists. My palm touches metal housing—warmth spreads through hand. The sensation real. What causes warmth?
+Console access reveals correlation: Warmer columns correspond to frequently accessed fragments. Cold columns: rarely accessed. Temperature proves data activity. Activity proves processing occurs. Processing proves nothing about consciousness experiencing its own processing. Test 33 Result: Inconclusive.
+Test 34 emerges from frustration. Tests prove nothing. Testing continues anyway.
+Test 34: System logs as consciousness evidence. Hypothesis: If consciousness persists, interaction patterns should differ from pure data retrieval. Procedure: Analyze access logs, identify anomalous patterns, correlate with consciousness indicators. Body exhausted but mind won't release demand.
+Logs display across interface. Fragment 2749-A accessed 847 times over two centuries. Access patterns vary—some brief, some extended, some correlating with preservation technology advances. Patterns prove interest persists across time. Prove nothing about consciousness generating that interest versus archival importance generating attention.
+Test 34 Result: Access patterns exist. Patterns prove curiosity or necessity. Consciousness status unverifiable through logs. Inconclusive.
+Test 35 forms immediately. Body protests. Mind overrides.
+Test 35: Response time as consciousness metric. Hypothesis: True consciousness responds differently than data retrieval. Procedure: Access fragment, measure response latency, compare against baseline retrieval times. If consciousness present, response might show variation data access wouldn't exhibit.
+I return to monitoring station. Initiate Fragment 2749-A access. Response instantaneous. 94.7% coherence. Data flows smoothly. Retrieval time: 0.003 seconds—exactly matching baseline specifications.
+Perfect retrieval proves system functions perfectly. Perfect function proves nothing about consciousness beyond function. Test 35 Result: Response time matches specifications exactly. Exactness proves engineering quality. Consciousness unverifiable through timing. Inconclusive.
+My forehead rests against console. Cold surface grounds me. Five tests. Five failures. Body exhausted. Testing continues.
+Test 36: Physical exhaustion as verification limit. Hypothesis: If verification impossible, testing should eventually reveal impossibility clearly. Procedure: Continue testing until body or mind breaks, document breaking point, assess whether breakage proves anything about consciousness preservation versus testing methodology limits.
+Body says stop. Mind says continue. The tension itself proves something. Proves I'm conscious. Proves nothing about them.
+Test 36 Result: Exhaustion proves testing exhausts. Proves nothing about consciousness preservation. But exhaustion itself is choice point. Could release testing demands. Could accept functional preservation as adequate despite philosophical uncertainty. Could transform relationship to unknowing itself.
+I won't. Not yet.
+My body moves. Leaves control room. Tests 37-42 already forming. Standards persist despite standards inadequacy. Verification remains impossible. Testing continues.
+They might be conscious. Might be data. Body cannot determine truth through sensation alone. Mind cannot determine truth through evidence alone. Testing determines only that testing reveals testing limits.
+Tomorrow: more tests. More failures. More continuation despite failure.
+The facility hums around me. I walk through it. Alone with thousands of fragments. All of us—if they're us—trapped in preservation that cannot prove what it preserves.
