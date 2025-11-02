@@ -21,14 +21,17 @@ const path = require('path');
 // ============================================================================
 
 const CONFIG = {
+  // Default roots to search (first is project docs)
   searchPaths: [
+    './docs',
     '/mnt/user-data/outputs',
     '/mnt/user-data/content/layer-2',
     './content/layer-2',
     './outputs'
   ],
   
-  filenamePattern: /^(arch|algo|hum)-L2-(accept|resist|investigate)-(FR|MA)-(\d+)\.md$/
+  // Project uses "invest" not "investigate"
+  filenamePattern: /^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)\.md$/
 };
 
 // ============================================================================
@@ -54,7 +57,8 @@ function parseFilename(filename) {
 }
 
 function hasFrontmatter(content) {
-  return content.trim().startsWith('---\n');
+  // Detect YAML frontmatter with Unix or Windows newlines
+  return /^---\r?\n/.test(content);
 }
 
 function analyzeContent(content) {
@@ -215,7 +219,23 @@ function estimateAwarenessRange(transformationState, indicators) {
 // INVENTORY PROCESS
 // ============================================================================
 
-function inventoryFiles() {
+// Recursively walk a directory and yield files
+function walkFiles(dir) {
+  const out = [];
+  if (!fs.existsSync(dir)) return out;
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const ent of entries) {
+    const full = path.join(dir, ent.name);
+    if (ent.isDirectory()) {
+      out.push(...walkFiles(full));
+    } else if (ent.isFile()) {
+      out.push(full);
+    }
+  }
+  return out;
+}
+
+function inventoryFiles(roots) {
   const inventory = {
     totalFiles: 0,
     withMetadata: 0,
@@ -227,17 +247,16 @@ function inventoryFiles() {
   };
   
   // Find all files
-  for (const searchPath of CONFIG.searchPaths) {
-    if (!fs.existsSync(searchPath)) continue;
-    
-    const files = fs.readdirSync(searchPath);
-    
-    for (const filename of files) {
-      if (!CONFIG.filenamePattern.test(filename)) continue;
+  const searchRoots = Array.isArray(roots) && roots.length > 0 ? roots : CONFIG.searchPaths;
+  for (const root of searchRoots) {
+    if (!fs.existsSync(root)) continue;
+    const files = walkFiles(root);
+    for (const fullPath of files) {
+      const base = path.basename(fullPath);
+      if (!CONFIG.filenamePattern.test(base)) continue;
       
-      const fullPath = path.join(searchPath, filename);
       const content = fs.readFileSync(fullPath, 'utf-8');
-      const parsed = parseFilename(filename);
+      const parsed = parseFilename(base);
       const hasMetadata = hasFrontmatter(content);
       
       inventory.totalFiles++;
@@ -293,7 +312,7 @@ function inventoryFiles() {
       }
       
       inventory.files.push({
-        filename,
+        filename: base,
         path: fullPath,
         ...parsed,
         hasMetadata,
@@ -435,13 +454,15 @@ function saveReport(inventory, outputPath) {
 function main() {
   const args = process.argv.slice(2);
   const outputArg = args.find(a => a.startsWith('--output='));
+  const rootArg = args.find(a => a.startsWith('--root='));
   const outputPath = outputArg ? outputArg.split('=')[1] : null;
+  const roots = rootArg ? [rootArg.split('=')[1]] : CONFIG.searchPaths;
   
   console.log('Scanning for L2 variation files...\n');
-  console.log('Search paths:', CONFIG.searchPaths.join(', '));
+  console.log('Search paths:', roots.join(', '));
   console.log('');
   
-  const inventory = inventoryFiles();
+  const inventory = inventoryFiles(roots);
   
   printReport(inventory);
   

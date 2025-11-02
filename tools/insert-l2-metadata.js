@@ -24,14 +24,15 @@ const yaml = require('js-yaml');
 const CONFIG = {
   // Directories to search for L2 variations
   searchPaths: [
+    './docs',
     '/mnt/user-data/outputs',
     '/mnt/user-data/content/layer-2',
     './content/layer-2',
     './outputs'
   ],
   
-  // Pattern to match L2 variation files
-  filenamePattern: /^(arch|algo|hum)-L2-(accept|resist|investigate)-(FR|MA)-(\d+)\.md$/,
+  // Pattern to match L2 variation files (project uses "invest")
+  filenamePattern: /^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)\.md$/,
   
   // Backup directory
   backupDir: './metadata-backups',
@@ -114,22 +115,34 @@ const CONFIG = {
 /**
  * Find all L2 variation files in configured directories
  */
-function findL2VariationFiles() {
+function walkFiles(dir) {
+  const out = [];
+  if (!fs.existsSync(dir)) return out;
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const ent of entries) {
+    const full = path.join(dir, ent.name);
+    if (ent.isDirectory()) {
+      out.push(...walkFiles(full));
+    } else if (ent.isFile()) {
+      out.push(full);
+    }
+  }
+  return out;
+}
+
+function findL2VariationFiles(roots) {
   const found = [];
-  
-  for (const searchPath of CONFIG.searchPaths) {
-    if (!fs.existsSync(searchPath)) continue;
-    
-    const files = fs.readdirSync(searchPath);
-    
-    for (const file of files) {
-      if (CONFIG.filenamePattern.test(file)) {
-        const fullPath = path.join(searchPath, file);
-        found.push(fullPath);
+  const searchRoots = Array.isArray(roots) && roots.length > 0 ? roots : CONFIG.searchPaths;
+  for (const root of searchRoots) {
+    if (!fs.existsSync(root)) continue;
+    const files = walkFiles(root);
+    for (const full of files) {
+      const base = path.basename(full);
+      if (CONFIG.filenamePattern.test(base)) {
+        found.push(full);
       }
     }
   }
-  
   return found;
 }
 
@@ -309,7 +322,8 @@ function determineAwarenessRange(transformationState, content) {
  * Check if file already has frontmatter
  */
 function hasFrontmatter(content) {
-  return content.trim().startsWith('---\n');
+  // Detect YAML frontmatter with Unix or Windows newlines
+  return /^---\r?\n/.test(content);
 }
 
 /**
@@ -317,8 +331,8 @@ function hasFrontmatter(content) {
  */
 function extractFrontmatter(content) {
   if (!hasFrontmatter(content)) return null;
-  
-  const match = content.match(/^---\n([\s\S]*?)\n---/);
+  // Support CRLF or LF line endings
+  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!match) return null;
   
   try {
@@ -650,7 +664,11 @@ async function main() {
   const options = {
     dryRun: args.includes('--dry-run'),
     batch: args.includes('--batch'),
-    file: args.find(a => a.startsWith('--file='))?.split('=')[1]
+    file: args.find(a => a.startsWith('--file='))?.split('=')[1],
+    roots: (() => {
+      const r = args.find(a => a.startsWith('--root='));
+      return r ? [r.split('=')[1]] : CONFIG.searchPaths;
+    })()
   };
   
   console.log('\n╔════════════════════════════════════════════════════════════════╗');
@@ -670,7 +688,7 @@ async function main() {
   if (options.file) {
     files = [options.file];
   } else {
-    files = findL2VariationFiles();
+    files = findL2VariationFiles(options.roots);
   }
   
   if (files.length === 0) {
