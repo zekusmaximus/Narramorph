@@ -1,0 +1,30 @@
+{
+  "name": "narramorph-l2-metadata-tools",
+  "version": "1.0.0",
+  "description": "Tooling suite for adding comprehensive metadata to L2 variation markdown files",
+  "main": "insert-l2-metadata.js",
+  "scripts": {
+    "inventory": "node inventory-l2-variations.js",
+    "inventory:report": "node inventory-l2-variations.js --output=inventory-report.json",
+    "insert": "node insert-l2-metadata.js",
+    "insert:batch": "node insert-l2-metadata.js --batch",
+    "insert:dry-run": "node insert-l2-metadata.js --dry-run",
+    "test": "node inventory-l2-variations.js && echo '\n\nInventory complete. Ready to insert metadata.'"
+  },
+  "keywords": [
+    "narramorph",
+    "metadata",
+    "markdown",
+    "frontmatter",
+    "yaml"
+  ],
+  "author": "Narramorph Fiction Project",
+  "license": "ISC",
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
