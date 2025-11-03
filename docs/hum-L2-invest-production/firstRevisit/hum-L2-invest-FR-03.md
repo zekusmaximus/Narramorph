@@ -1,3 +1,92 @@
+---
+variationId: hum-L2-invest-FR-03
+nodeId: hum-L2-invest
+character: lastHuman
+layer: 2
+pathPhilosophy: invest
+transformationState: firstRevisit
+awarenessRange:
+  - 41
+  - 50
+wordCount: 1298
+createdDate: '2025-11-02'
+thematicContent:
+  primaryThemes:
+    - preservation
+    - acceptance
+    - consciousness
+    - observer-effect
+    - temporal
+  secondaryThemes: []
+  consciousnessQuestion: observation-and-inquiry-transform-consciousness-and-proof
+  philosophicalStance: pursue-inquiry-despite-instability-embrace-transformation
+  observerEffect: method-alters-observer-and-observed
+  crossCharacterReferences: []
+narrativeElements:
+  worldBuildingFocus:
+    - facility
+    - room
+    - station
+    - lab
+    - substrate
+    - interface
+    - protocol
+    - system
+    - consciousness
+    - memory
+  locationElements: []
+  technicalDetails: []
+  emotionalTone: skeptical
+  observerPosition: REVIEW_REQUIRED
+  temporalBleedingLevel: REVIEW_REQUIRED
+  voiceSignature: REVIEW_REQUIRED
+  narrativeArc: REVIEW_REQUIRED
+  pacing: REVIEW_REQUIRED
+l3SeedContributions:
+  preserve:
+    text: REVIEW_REQUIRED
+    weight: moderate
+    keyPhrases: []
+  release:
+    text: REVIEW_REQUIRED
+    weight: moderate
+    keyPhrases: []
+  transform:
+    text: >-
+      Inquiry changes both observer and observed—method becomes evolution rather
+      than mere measurement, expressed through embodied doubt and physical cost.
+    weight: strong
+    keyPhrases: []
+generationHints:
+  keyPhrases:
+    - What prepared consciousness for substrate migration?
+    - >-
+      Welcome message displays: "Consciousness Preservation Training Module 1:
+      Understanding Neural Mapping.
+    - Neural mapping captures consciousness through layer-by-layer scanning.
+    - Consciousness remains active during mapping.
+    - Awareness of own consciousness examination.
+    - Burden of consciousness shared through perfect documentation?
+    - Consciousness distributed across multiple storage levels.
+    - Seven-substrate consciousness different from biological unity?
+    - Consciousness maintains continuity through overlap period.
+    - 'Questions fracture: What does dual-substrate consciousness feel like?'
+  philosophicalCulmination: inquiry-reveals-method-as-agent-of-change
+  convergenceAlignment: transform
+  narrativeProgression: REVIEW_REQUIRED
+  characterDevelopment: REVIEW_REQUIRED
+  emotionalJourney: REVIEW_REQUIRED
+characterDevelopment:
+  stanceEvolution: REVIEW_REQUIRED
+  relationshipToArchive: REVIEW_REQUIRED
+  relationshipToMethod: REVIEW_REQUIRED
+  awarenessOfOthers: REVIEW_REQUIRED
+  selfAwareness: REVIEW_REQUIRED
+  philosophicalEvolution: REVIEW_REQUIRED
+_batchGenerated: true
+_requiresManualReview: true
+---
+
 Six days exploration. Body keeping count through hunger cycles. Three meals daily when remembered. Sleep when exhaustion forces. Investigation when awake. Which is always. Curiosity stronger than rest needs.
 Upload bay three accessed this morning. Different from bays one and two. Specialized. Technical schematics on walls. Training materials preserved. Educational facility for upload preparation. People learned process before experiencing. Questions immediate: What did they need to know? Why education required? What prepared consciousness for substrate migration?
 The room temperature stable. Twenty degrees. Comfortable for biological bodies during extended sessions. Chairs arranged classroom style. Twelve positions. Viewing screen dominant. Interface stations at each seat. Hands-on training. Theory plus practice. Upload process taught comprehensively. Questions multiply: How long was training? What failure rate existed? Did anyone change mind after education?

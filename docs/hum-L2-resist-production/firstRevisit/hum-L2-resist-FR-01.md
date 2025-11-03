@@ -1,3 +1,95 @@
+---
+variationId: hum-L2-resist-FR-01
+nodeId: hum-L2-resist
+character: lastHuman
+layer: 2
+pathPhilosophy: resist
+transformationState: firstRevisit
+awarenessRange:
+  - 31
+  - 40
+wordCount: 915
+createdDate: '2025-11-02'
+thematicContent:
+  primaryThemes:
+    - preservation
+    - witness-methodology
+    - acceptance
+    - verification
+    - consciousness
+  secondaryThemes: []
+  consciousnessQuestion: verification-impossible-yet-standards-demand-proof
+  philosophicalStance: maintain-standards-despite-impossibility-continue-testing
+  observerEffect: examination-participates-in-and-amplifies-the-tested-pattern
+  crossCharacterReferences: []
+narrativeElements:
+  worldBuildingFocus:
+    - archive
+    - room
+    - facility
+    - station
+    - lab
+    - interface
+    - system
+    - substrate
+    - array
+    - fragment
+  locationElements: []
+  technicalDetails: []
+  emotionalTone: peaceful
+  observerPosition: REVIEW_REQUIRED
+  temporalBleedingLevel: REVIEW_REQUIRED
+  voiceSignature: REVIEW_REQUIRED
+  narrativeArc: REVIEW_REQUIRED
+  pacing: REVIEW_REQUIRED
+l3SeedContributions:
+  preserve:
+    text: REVIEW_REQUIRED
+    weight: moderate
+    keyPhrases: []
+  release:
+    text: >-
+      Verification remains impossible; integrity requires accepting limits and
+      allowing completion over flawed continuation, even amid embodied doubt and
+      physical cost.
+    weight: strong
+    keyPhrases: []
+  transform:
+    text: REVIEW_REQUIRED
+    weight: moderate
+    keyPhrases: []
+generationHints:
+  keyPhrases:
+    - If consciousness requires complete continuity, 94.
+    - If consciousness tolerates gaps, who defines tolerance?
+    - Weight feels wrong—too light for consciousness transfer.
+    - Exactly what consciousness would say.
+    - Consciousness frozen at upload moment.
+    - How do I verify consciousness?
+    - Exactly what conscious being says facing authentication crisis.
+    - >-
+      Exactly what sophisticated simulation says when programmed for authentic
+      uncertainty.
+    - >-
+      Your consciousness touching preserved consciousness creates sensation I
+      cannot describe adequately but definitely experience.
+    - How many consciousness patterns stored in crystalline substrate?
+  philosophicalCulmination: recognition-that-proof-remains-unattainable-integrity-chooses-limits
+  convergenceAlignment: release
+  narrativeProgression: REVIEW_REQUIRED
+  characterDevelopment: REVIEW_REQUIRED
+  emotionalJourney: REVIEW_REQUIRED
+characterDevelopment:
+  stanceEvolution: REVIEW_REQUIRED
+  relationshipToArchive: REVIEW_REQUIRED
+  relationshipToMethod: REVIEW_REQUIRED
+  awarenessOfOthers: REVIEW_REQUIRED
+  selfAwareness: REVIEW_REQUIRED
+  philosophicalEvolution: REVIEW_REQUIRED
+_batchGenerated: true
+_requiresManualReview: true
+---
+
 Days pass since Fragment 2749-A warmth. Maybe a week. My body counts through hunger, sleep, restlessness. Interface felt warm. Felt like connection. But feeling isn't knowing. Warmth could be neural manipulation. Technology designed to make biological humans willing. Ready for upload. Ready to end lineage.
 My jaw clenches.
 The archive room becomes too small. Body demands movement. Exploration. The facility extends beyond this space. North corridor unseals when I approach. Biometric recognition. How does ancient technology know my genetic signature? I wasn't alive when this operated. Systems accept me anyway. Welcome me toward something.

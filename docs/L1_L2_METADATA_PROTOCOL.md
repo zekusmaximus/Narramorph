@@ -20,6 +20,7 @@
 9. [Addition Workflow](#addition-workflow)
 10. [Validation & Quality Control](#validation--quality-control)
 11. [Tooling Requirements](#tooling-requirements)
+12. [Tooling Usage](#tooling-usage)
 
 ---
 
@@ -1531,5 +1532,20 @@ function printProgressReport(report: ProgressReport): void {
 - [ ] Tooling requirements confirmed
 
 ---
+
+## Tooling Usage
+
+Use the integrated scripts to inventory and add metadata directly under `docs/`.
+
+- Inventory variations: `npm run metadata:inventory`
+- Save inventory report: `npm run metadata:inventory:report`
+- Interactive insert: `npm run metadata:insert`
+- Batch insert: `npm run metadata:insert:batch`
+- Dry run preview: `npm run metadata:insert:dry`
+- Generate stub YAML sidecars: `npm run metadata:stub`
+
+Notes
+- The tools now scan recursively under `docs/` and match filenames using `invest` (not `investigate`).
+- Backups are written to `metadata-backups/` when modifying files.
 
 **END L1/L2 METADATA ADDITION PROTOCOL v1.0**
