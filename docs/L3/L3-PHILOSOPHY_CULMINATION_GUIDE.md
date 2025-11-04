@@ -28,10 +28,10 @@ At L3, these philosophies reach natural culmination—not resolution, but their 
 - Resist path nodes: arch-L2-resist, algo-L2-resist, hum-L2-resist
 - Investigate path nodes: arch-L2-investigate, algo-L2-investigate, hum-L2-investigate
 
-**Philosophy dominant if >40% of L2 visits:**
-- 6+ accept visits out of 12 total L2 → Accept dominant
-- 5+ resist visits out of 10 total L2 → Resist dominant
-- 4+ investigate visits out of 9 total L2 → Investigate dominant
+**Philosophy dominant if ≥40% of L2 visits:**
+- 5+ accept visits out of 12 total L2 → Accept dominant (≥42%)
+- 4+ resist visits out of 10 total L2 → Resist dominant (≥40%)
+- 4+ investigate visits out of 9 total L2 → Investigate dominant (≥44%)
 
 **Balanced path (<40% any single):**
 - Default to Accept for L3 generation
@@ -690,6 +690,7 @@ When generating L3 character section with path philosophy:
 - [ ] Thought pattern examples reviewed
 
 ### Step 3: Generate Core Content
+- [ ] Word count target met (900 words for character sections, 1800 for convergent synthesis)
 - [ ] Character voice pure (philosophy affects content, not voice)
 - [ ] Philosophy enacted through observation (not stated)
 - [ ] Culmination depth appropriate (deepest expression before convergence)
@@ -742,14 +743,15 @@ In typical reader population:
 ## Related Documents
 
 **Character Voice DNA:**
-- arch-L2_CHARACTER_PROTOCOL.md
-- algo-L2_CHARACTER_PROTOCOL.md
-- hum-L2_CHARACTER_PROTOCOL.md
+- arch-L2-*-GENERATION_PROTOCOL.md (accept/resist/investigate protocols)
+- algo-L2-*-GENERATION_PROTOCOL.md (accept/resist/investigate protocols)
+- hum-L2-*-GENERATION_PROTOCOL.md (accept/resist/investigate protocols)
+- CHARACTER_PROFILES.md
 
 **Other L3 Factors:**
 - L3-JOURNEY_PATTERN_GUIDE.md (SS/SB/SD/BL/ML)
 - L3-AWARENESS_CALIBRATION_GUIDE.md (L/M/H)
-- L3-CONVERGENT_SYNTHESIS_PROTOCOL.md (multi-voice)
+- conv-L3-production/L3-CONVERGENT_SYNTHESIS_PROTOCOL.md (multi-voice)
 
 **Architecture:**
 - L3_GENERATION_BIBLE.md (complete L3 specification)
