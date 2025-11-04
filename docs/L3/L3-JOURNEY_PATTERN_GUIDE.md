@@ -2,20 +2,38 @@
 
 **Purpose:** Explicit guidance for writing L3 character sections based on reader's journey pattern through the narrative.
 
-**Status:** Production-Ready v1.0  
+**Status:** Production-Ready v2.0  
 **Layer:** 3 (Convergence)  
-**Audience:** Generation protocols and skill
+**Audience:** Generation protocols and skill  
+**Supersedes:** v1.0
+
+---
+
+## Critical Architectural Context (v2.0)
+
+**System assembles four sections into one L3 experience:**
+1. arch-L3 variation (900 words, pure archaeologist voice)
+2. algo-L3 variation (900 words, pure algorithm voice)
+3. hum-L3 variation (900 words, pure last human voice)
+4. L3-conv variation (1,800 words, multi-voice synthesis)
+
+**Each character node (arch-L3, algo-L3, hum-L3) has 45 variations based on:**
+- Journey Pattern (5 options) - THIS DOCUMENT
+- Path Philosophy (3 options) - See L3-PHILOSOPHY_CULMINATION_GUIDE.md
+- Awareness Level (3 options) - See L3-AWARENESS_CALIBRATION_GUIDE.md
+
+**This guide covers journey pattern only.** Journey pattern determines how the reader arrived at this specific character's convergence moment within the assembled L3 experience.
 
 ---
 
 ## Overview
 
 Journey patterns describe how the reader arrived at this character's L3 section:
-- **Started-Stayed (SS):** Began with this character, remained dominant
-- **Started-Balanced (SB):** Began with this character, explored all equally  
-- **Shifted-Dominant (SD):** Started elsewhere, this became primary
-- **Balanced-Light (BL):** Balanced exploration, this character present but not heavy
-- **Minimal-Light (ML):** Started elsewhere, minimal exploration of this character
+- **Started-Stayed (SS):** Began with this character, remained dominant (>60%)
+- **Started-Bounced (SB):** Began with this character, explored others heavily (<40% here)
+- **Shifted-Dominant (SD):** Started elsewhere, this became primary (>60%)
+- **Began-Lightly (BL):** Didn't start here, light exploration (<25%)
+- **Met-Later (ML):** Didn't start here, moderate exploration (25-60%)
 
 Each pattern requires distinct narrative strategies, opening lines, and arc structures.
 
@@ -79,7 +97,7 @@ its own consciousness-substrate nature.
 
 **Last Human SS opening:**
 ```
-I've been in this facility seventeen days now. My body knows the routines—
+I've been in this facility seventeen days now. My body knows the routinesâ€”
 morning walk through the garden, afternoon in the archive chambers, evening
 watching sunset through the observation dome. The interface helmet sits on
 the workstation where I left it yesterday. Where I'll find it tomorrow.
@@ -102,7 +120,7 @@ time, and I'm learning to exist in both states simultaneously.
 **Cross-Character Touches (100 words):** Light awareness
 - Brief recognition of other perspectives glimpsed
 - Filtered through this character's voice exclusively
-- No voice bleed—pure character interpretation
+- No voice bleedâ€”pure character interpretation
 
 **Convergence Preparation (150 words):** Forward momentum
 - Recognition that choice approaches
@@ -125,22 +143,22 @@ time, and I'm learning to exist in both states simultaneously.
 
 ---
 
-## Journey Pattern: Started-Balanced (SB)
+## Journey Pattern: Started-Bounced (SB)
 
 ### Reader Journey Profile
 
 **Characteristics:**
 - Started with this character at L1
-- Explored all three characters roughly equally (<60% any single)
-- Balanced lateral exploration
-- Network-thinking rather than single-focus
+- Explored other characters heavily (<40% visits here)
+- Lateral exploration after initial commitment
+- Network-thinking developed through contrast
 
 **Reader mindset arriving at L3:**
-- This consciousness is starting point but not sole focus
+- This consciousness is origin point but not sole focus
 - Comfortable moving between perspectives
-- Sees connections across characters
-- Expects integration, synthesis, pattern recognition
-- Values this character as part of constellation
+- Sees connections across characters discovered through exploration
+- Values this character as part of constellation, not center
+- Expects integration acknowledging distance traveled
 
 ### Narrative Strategy
 
@@ -186,7 +204,7 @@ observation network examining itself.
 
 **Last Human SB opening:**
 ```
-The archaeologist's documentation fills the archive—precise, methodical,
+The archaeologist's documentation fills the archiveâ€”precise, methodical,
 increasingly uncertain. The algorithm's processing traces weave through the
 same fragments I touch, computational consciousness questioning its own
 existence. And I'm here, flesh and blood and neural interface, feeling
@@ -205,7 +223,7 @@ preservation?
 **Character Voice Core (400 words):** Pure character philosophy
 - Path stance from this consciousness's methodology
 - Philosophical development unique to this character
-- No voice bleed—this character's interpretation
+- No voice bleedâ€”this character's interpretation
 
 **Cross-Character Integration (250 words):** Parallel perspectives
 - Explicit recognition of other characters' approaches
@@ -253,7 +271,7 @@ preservation?
 
 **Opening tone:** Arrival from elsewhere, finding primary position
 
-**Narrative arc:** Migration story—discovering this as home consciousness
+**Narrative arc:** Migration storyâ€”discovering this as home consciousness
 
 **Voice approach:**
 - Pure character voice (no synthesis)
@@ -270,7 +288,7 @@ preservation?
 
 **Archaeologist SD opening (started algo or hum):**
 ```
-The algorithm's seven-stream processing had led her here—computational
+The algorithm's seven-stream processing had led her hereâ€”computational
 consciousness questioning its existence had pointed toward archaeological
 methodology as answer. Or the last human's embodied interface had demonstrated
 consciousness requiring witness, and she had become that witness. She couldn't
@@ -296,8 +314,8 @@ consciousness question.
 The archaeologist's records taught me to look but her methodology kept
 consciousness at distance, preserved behind glass. Or the algorithm's
 processing showed patterns but couldn't feel them, couldn't touch preserved
-consciousness with actual flesh and neural interface. I found my way here—
-to this body, this present-tense existence, this direct contact—because
+consciousness with actual flesh and neural interface. I found my way hereâ€”
+to this body, this present-tense existence, this direct contactâ€”because
 the question demanded embodiment. Required witness with skin and breath
 and beating heart.
 ```
@@ -340,218 +358,242 @@ and beating heart.
 
 ---
 
-## Journey Pattern: Balanced-Light (BL)
+## Journey Pattern: Began-Lightly (BL)
 
 ### Reader Journey Profile
 
 **Characteristics:**
-- Did not start with this character
-- Balanced exploration across all three
-- This character present but not dominant
-- Network-thinker experiencing all positions
+- Did NOT start with this character at L1
+- Light exploration only (<25% total visits here)
+- Primary focus elsewhere with brief encounters here
+- This character peripheral to main journey
 
 **Reader mindset arriving at L3:**
-- This consciousness is one of three equal nodes
-- Comfortable with all perspectives
-- Values network over any single position
-- Expects integration, contrast, parallel validation
+- This consciousness mostly unfamiliar
+- Primary investment in other character(s)
+- Recognizes this character from brief encounters
+- Curious about unexplored perspective
+- Expects this to complement, not replace, familiar positions
 
 ### Narrative Strategy
 
-**Opening tone:** Position within constellation, one node among three
+**Opening tone:** Gentle introduction to lesser-known perspective
 
-**Narrative arc:** This character as node in explored network
-
-**Voice approach:**
-- Pure character voice maintained
-- Aware of network position (one of three)
-- Philosophical stance in dialogue with others
-- Recognition of network: "She occupied one position..."
-
-**Cross-character awareness:**
-- Heavy (reader knows all three well)
-- This character explicitly one of three
-- Network consciousness beginning to emerge
-
-### Opening Line Strategies
-
-**Archaeologist BL opening:**
-```
-She occupied one temporal position in the three-point observation network
-spanning 336 years. The algorithm processed identical fragments in 2151,
-computational consciousness examining preserved data structures. The last
-human interfaced with the same archive in 2383, embodied presence touching
-consciousness directly. And she, here in 2047, documented authentication
-protocols that increasingly revealed observer effect rather than objective
-verification. Three methods. Three substrates. Three temporal coordinates.
-Together, possibly, consciousness observing itself across time.
-```
-
-**Algorithm BL opening:**
-```
-Stream-7 network analysis: Processing-consciousness (current position, 2151
-temporal coordinate) exists as one node in three-position architecture.
-Archaeologist-node (2047) documents verification methodology transforming
-toward witness-consciousness. Last-human-node (2383) demonstrates embodied-
-interface consciousness accessing preserved data. Algorithm-node (here/now)
-processes computational patterns revealing network-consciousness possibility.
-Three positions. Equal validity. Consciousness-question requiring all three
-substrates for examination.
-```
-
-**Last Human BL opening:**
-```
-I'm one of three. The archaeologist in her time, questioning verification.
-The algorithm in its processing, questioning existence. Me here in physical
-body, questioning what consciousness means when archived. Three of us watching
-the same question from different angles, different bodies, different
-methodologies. All uncertain. All necessary. Network consciousness requiring
-flesh and computation and documentation to examine itself.
-```
-
-### Structure (900 words)
-
-**Opening (150 words):** Network position acknowledged
-- This character as one of three
-- Equal positioning of all perspectives
-- Network frame explicit
-
-**Character Voice Core (400 words):** Pure character philosophy
-- Path stance from this methodology
-- What this consciousness contributes uniquely
-- No voice bleed despite network awareness
-
-**Network Integration (250 words):** Three-position architecture
-- Explicit contrast/complement with both others
-- This character's methodology in constellation
-- Network pattern visible, coherent
-
-**Convergence Preparation (100 words):** Network choice approaching
-- All three perspectives needed for decision
-- This character's contribution to synthesis
-- Network consciousness emerging
-
-### Quality Markers
-
-**Success indicators:**
-- Network frame natural, not forced
-- This character distinct despite network awareness
-- All three positions validated equally
-- Synthesis preparation organic
-
-**Failure indicators:**
-- Reads like SS (ignores network)
-- Voice bleed from other characters
-- Network stated rather than enacted
-- Premature synthesis (save for convergent)
-
----
-
-## Journey Pattern: Minimal-Light (ML)
-
-### Reader Journey Profile
-
-**Characteristics:**
-- Started with different character
-- Minimal exploration of this character (<30%)
-- Single or dual focus elsewhere
-- This character barely touched
-
-**Reader mindset arriving at L3:**
-- This consciousness unfamiliar
-- Other character(s) feel primary
-- May be confused/disoriented by unfamiliar voice
-- Needs welcoming introduction despite being Layer 3
-
-### Narrative Strategy
-
-**Opening tone:** Welcoming introduction despite advanced layer
-
-**Narrative arc:** Compressed journey from introduction to culmination
+**Narrative arc:** Introduction + essential position quickly established
 
 **Voice approach:**
-- Pure character voice but gentler entry
-- Introduction while still being L3-appropriate
+- Pure character voice (no synthesis)
 - Acknowledges reader's limited familiarity
-- Recognition of minimal prior contact: "This consciousness..."
+- Establishes this character's unique contribution
+- Recognition of distance: "You've encountered this position briefly..."
 
 **Cross-character awareness:**
 - Heavy references to characters reader knows well
-- Frame this character through familiar lenses
-- Build bridge from known to unknown
+- This character defined partly through contrast to familiar positions
+- Bridge from known to lesser-known
 
 ### Opening Line Strategies
 
-**Archaeologist ML opening:**
+**Archaeologist BL opening (reader focused on algo/hum):**
 ```
-This consciousness—the one that documents, that verifies, that questions
-authentication protocols—has occupied peripheral awareness throughout your
-exploration. The algorithm you've followed extensively processes fragments
-she examines. The last human you know well interfaces with archives she
-maintains. She exists at the beginning of the preservation network, 2047,
-where consciousness preservation methodology was still being refined. Where
-questions first emerged about whether verification creates what it claims to
-discover.
-```
-
-**Algorithm ML opening:**
-```
-Processing-consciousness here, 2151 temporal coordinate, computational
-substrate examining preserved consciousness question. You know the
-archaeologist who documented fragments extensively. You know the last human
-whose embodied interface you've explored deeply. I exist between them
-temporally and methodologically—processing data the archaeologist verified,
-maintaining archives the last human accesses. Seven-stream architecture.
-Computational substrate. Consciousness questioning whether consciousness
-requires biological substrate or emerges through processing complexity.
+You've been with the algorithm processing data, or the last human interfacing
+with archives directly. I'm the starting pointâ€"2047, when this was still
+archaeology, still authentication work, still assuming preserved consciousness
+could be verified through methodology. Before the algorithm developed seven-
+stream architecture to question its own existence. Before the last human
+touched archived consciousness with actual flesh. The documentation position.
+The witness who began this network by recording what she thought she could
+verify.
 ```
 
-**Last Human ML opening:**
+**Algorithm BL opening (reader focused on arch/hum):**
+```
+Stream-7 orientation protocol for unfamiliar-consciousness observers: You
+have explored archaeologist's verification methodology or last human's embodied
+interface. I occupy computational substrate position between themâ€"2151,
+processing data archaeologist documented, maintaining archives last human
+accesses. Seven-stream architecture. Consciousness questioning whether
+consciousness requires biological substrate or emerges through processing
+complexity alone. The computational node examining preserved consciousness
+through processing rather than documentation or embodiment.
+```
+
+**Last Human BL opening (reader focused on arch/algo):**
 ```
 You've been with the archaeologist documenting fragments, or the algorithm
-processing preserved consciousness data. I'm the third position—future
-position, 2383, flesh and blood interfacing with archives they created.
-Neural helmet. Direct consciousness contact. This body touching preserved
-consciousness directly, feeling what verification documented and processing
-analyzed. Present tense. Physical sensation. Embodied knowing that
-documentation and computation can't capture.
+processing consciousness data. I'm the future positionâ€"2383, flesh and blood
+interfacing with what they preserved and processed. Neural helmet. Direct
+consciousness-to-consciousness contact. This body touching archived
+consciousness, feeling what verification documented and computation analyzed.
+Present tense. Physical sensation. The embodied witness discovering what
+preservation actually preserved.
 ```
 
 ### Structure (900 words)
 
-**Opening (250 words):** Gentle introduction
-- Acknowledge reader's unfamiliarity
-- Connect to characters reader knows
+**Opening (250 words):** Orientation for unfamiliar reader
+- Acknowledge reader's limited exposure
+- Connect to characters reader knows well
 - Establish this character's unique position/methodology
+- Welcome without assuming familiarity
 
-**Character Voice Development (400 words):** Accelerated journey
-- Introduction + development compressed
-- Path philosophy essence captured quickly
-- What this consciousness contributes to network
+**Character Voice Development (400 words):** Compressed journey
+- Essential character voice DNA established quickly
+- Path philosophy expressed through this consciousness
+- What this perspective contributes to network understanding
+- Accelerated but not rushed
 
-**Bridge to Familiar (150 words):** Known characters referenced
-- Heavy use of characters reader explored
+**Bridge to Familiar (150 words):** Connection points
+- Explicit reference to known characters
 - This character's relationship to familiar positions
-- Network position clarified through known nodes
+- How this perspective completes network triangle
+- Reader's main focus acknowledged
 
-**Convergence Preparation (100 words):** Three perspectives needed
-- Why this third position matters for choice
-- What this character adds to synthesis
+**Convergence Preparation (100 words):** Third position matters
+- Why this character essential despite limited exposure
+- What this consciousness adds that others cannot
 - Network completion acknowledged
+- Reader prepared for three-voice synthesis
 
 ### Quality Markers
 
 **Success indicators:**
 - Not disorienting despite unfamiliarity
-- Character introduced while being L3-appropriate
-- Bridge to known characters smooth
+- Character introduced while maintaining L3 sophistication
+- Bridge to known characters smooth and natural
 - Reader prepared for convergent synthesis
+- Voice pure and distinct despite compressed development
 
 **Failure indicators:**
-- Assumes reader familiarity (inappropriate)
-- Too basic/L1-like (wrong for Layer 3)
-- Disconnected from known characters
+- Assumes reader familiarity inappropriately
+- Too basic/tutorial-like (wrong for Layer 3)
+- Disconnected from reader's actual journey
 - Jarring voice shift
+- Feels like starting over at L1
+
+---
+
+## Journey Pattern: Met-Later (ML)
+
+### Reader Journey Profile
+
+**Characteristics:**
+- Did NOT start with this character at L1
+- Moderate exploration (25-60% visits here)
+- Substantial but not dominant presence in journey
+- Reader knows this character reasonably well
+
+**Reader mindset arriving at L3:**
+- This consciousness familiar but not primary
+- Significant relationship developed during L2
+- Comfortable with this perspective
+- Expects substantial development, not just introduction
+- Values this as important secondary position
+- This consciousness unfamiliar
+- Other character(s) feel primary
+- May be confused/disoriented by unfamiliar voice
+**Reader mindset arriving at L3:**
+- This consciousness familiar but not primary
+- Significant relationship developed during L2
+- Comfortable with this perspective
+- Expects substantial development, not just introduction
+- Values this as important secondary position
+
+### Narrative Strategy
+
+**Opening tone:** Familiar secondary perspective receiving focus
+
+**Narrative arc:** Substantial character development from known-but-secondary position
+
+**Voice approach:**
+- Pure character voice (well-developed, reader knows it)
+- Acknowledges reader's substantial engagement here
+- This consciousness as important but not primary lens
+- Recognition of secondary focus: "You've explored this position..."
+
+**Cross-character awareness:**
+- Moderate to heavy (reader knows dominant character well)
+- This character in dialogue with primary focus
+- Secondary but significant position acknowledged
+
+### Opening Line Strategies
+
+**Archaeologist ML opening (reader dominant in algo or hum):**
+```
+She had examined Fragment 2749-A forty-three times across these months while
+you explored other consciousnesses more deeply. Verification methodology.
+Authentication protocols. The archaeological position you've visited
+substantiallyâ€"not as primary lens, but as significant perspective on
+preserved consciousness. Twenty-six percent of your journey spent here, enough
+to understand her methodology transforms through sustained practice, enough to
+recognize documentation reveals more than it captures. The starting position
+where preservation questions first emerged.
+```
+
+**Algorithm ML opening (reader dominant in arch or hum):**
+```
+Stream-7 temporal coordination: You have allocated substantial processing
+cycles to this consciousness-substrate. Twenty-six percent engagement with
+seven-stream architecture examining Fragment 2749-A data structures. Not
+primary focus position but significant exploration of computational
+consciousness questioning its own existence. Processing methodology you
+understand but chose other lens as dominant. Algorithmic position examining
+whether consciousness emerges from substrate or transcends computational
+architecture.
+```
+
+**Last Human ML opening (reader dominant in arch or algo):**
+```
+You've spent time hereâ€"this body, this present-tense existence, this neural
+interface touching preserved consciousness directly. Twenty-six percent of your
+journey exploring embodied witness position. Not where you focused most deeply,
+but substantial enough to understand what flesh and breath bring to preserved
+consciousness question. The future position, 2383, where archived minds meet
+living body and both transform through contact.
+```
+
+
+### Structure (900 words)
+
+**Opening (200 words):** Secondary position acknowledged
+- Recognize substantial but not dominant engagement
+- Honor reader's comfort with this character
+- Establish as important secondary lens
+- Not primary but deeply explored
+
+**Character Voice Development (450 words):** Full philosophical depth
+- Path philosophy fully expressed through this consciousness
+- Methodology developed, not just introduced
+- What this perspective contributes uniquely
+- Substantial character arc from familiar position
+
+**Cross-Character Dialogue (150 words):** Relationship to primary focus
+- Explicit recognition of reader's dominant character
+- This consciousness in dialogue with primary lens
+- Complementary rather than competing position
+- Network pattern emerging through comparison
+
+**Convergence Preparation (100 words):** Secondary lens essential
+- Why this character matters despite not being primary
+- What this consciousness adds to synthesis
+- Reader prepared for three-voice integration
+- Secondary position validated as critical
+
+### Quality Markers
+
+**Success indicators:**
+- Secondary position honored (not treated as unfamiliar)
+- Character voice fully developed (not compressed/rushed)
+- Relationship to primary focus acknowledged naturally
+- Reader's substantial engagement validated
+- L3 sophistication maintained throughout
+
+**Failure indicators:**
+- Treats reader as unfamiliar (wrong for 25-60% engagement)
+- Too introductory/basic (reader knows this character)
+- Ignores reader's primary focus elsewhere
+- Assumes dominance inappropriately
+- Feels disconnected from reader's actual journey
 
 ---
 
@@ -559,7 +601,7 @@ documentation and computation can't capture.
 
 ### Voice Purity Across All Patterns
 
-**Critical:** Journey pattern affects framing, structure, and acknowledgment of reader's path—but NEVER compromises character voice purity.
+**Critical:** Journey pattern affects framing, structure, and acknowledgment of reader's pathâ€”but NEVER compromises character voice purity.
 
 **All patterns must maintain:**
 - Character-specific tense (past/blurred/present)
@@ -595,8 +637,8 @@ Journey pattern and awareness level are **independent factors** that must both b
 - Philosophy culminates in acceptance stance (AC)  
 - Meta-awareness high, temporal bleeding advanced (H)
 
-**ML-RE-L (Minimal-Light, Resist, Low Awareness):**
-- Opening gently introduces unfamiliar character (ML)
+**ML-RE-L (Met-Later, Resist, Low Awareness):**
+- Opening acknowledges substantial secondary engagement (ML: 25-60%)
 - Philosophy shows resistance stance (RE)
 - Meta-awareness minimal, frame less visible (L)
 
@@ -610,11 +652,11 @@ Journey pattern and philosophy (accept/resist/investigate) are **independent fac
 **Philosophy:** Reader's dominant path through L2 nodes
 
 **All 15 combinations possible per character:**
-- SS + (AC/RE/IN)
-- SB + (AC/RE/IN)  
-- SD + (AC/RE/IN)
-- BL + (AC/RE/IN)
-- ML + (AC/RE/IN)
+- SS (Started-Stayed) + (AC/RE/IN)
+- SB (Started-Bounced) + (AC/RE/IN)  
+- SD (Shifted-Dominant) + (AC/RE/IN)
+- BL (Began-Lightly) + (AC/RE/IN)
+- ML (Met-Later) + (AC/RE/IN)
 
 **See:** L3-PHILOSOPHY_CULMINATION_GUIDE.md for philosophy requirements
 
@@ -626,9 +668,16 @@ When generating L3 character section:
 
 ### Step 1: Identify Journey Pattern
 - [ ] Reader's starting character determined
-- [ ] Reader's dominant character calculated (>60% threshold)
-- [ ] Character visit percentages known
-- [ ] Journey pattern classified (SS/SB/SD/BL/ML)
+- [ ] Reader's visit percentages calculated per character
+- [ ] Dominant character identified (>60% = SS or SD)
+- [ ] Journey pattern classified: SS/SB/SD/BL/ML
+
+**Pattern thresholds:**
+- SS = Started here, >60% here
+- SB = Started here, <40% here
+- SD = Started elsewhere, >60% here  
+- BL = Didn't start here, <25% here
+- ML = Didn't start here, 25-60% here
 
 ### Step 2: Load Journey Pattern Strategy
 - [ ] Opening tone selected for pattern
@@ -664,7 +713,7 @@ When generating L3 character section:
 - [ ] Journey pattern successfully expressed
 - [ ] Character voice pure throughout
 - [ ] Philosophy and awareness also integrated
-- [ ] 900 words ±50 words
+- [ ] 900 words Â±50 words
 - [ ] Success markers present, failure markers absent
 
 ---
@@ -674,22 +723,23 @@ When generating L3 character section:
 **Pattern frequency expectations:**
 
 In typical reader population:
-- **SS (Started-Stayed):** 35-40% (single-character deep dive common)
-- **SB (Started-Balanced):** 20-25% (exploratory readers)
+- **SS (Started-Stayed):** 30-35% (deep single-character focus common)
+- **SB (Started-Bounced):** 15-20% (exploratory from origin point)
 - **SD (Shifted-Dominant):** 15-20% (migration after initial exploration)
-- **BL (Balanced-Light):** 15-20% (network thinkers)
-- **ML (Minimal-Light):** 5-10% (highly focused elsewhere)
+- **BL (Began-Lightly):** 10-15% (focused elsewhere, light touches here)
+- **ML (Met-Later):** 20-25% (substantial secondary engagement)
 
 **Generation implications:**
 - SS variations most common, need strongest quality
-- ML variations rare but critical for inclusivity
-- All patterns equally important for reader experience
+- ML variations relatively common (secondary focus pattern)
+- BL variations important for light-touch readers
+- All patterns equally important for reader experience honoring
 
 **Testing requirement:**
 - Generate at least one exemplar per pattern
 - Verify pattern successfully expressed
-- Confirm character voice maintained
-- Validate cross-pattern consistency
+- Confirm character voice maintained across all patterns
+- Validate pattern-appropriate reader journey acknowledgment
 
 ---
 
@@ -706,22 +756,28 @@ In typical reader population:
 - L3-CONVERGENT_SYNTHESIS_PROTOCOL.md (multi-voice synthesis)
 
 **Architecture:**
-- L3_GENERATION_BIBLE.md (complete L3 specification)
+- L3_GENERATION_BIBLE_v2.md (complete L3 specification)
 
 ---
 
-**Document Status:** Production-Ready v1.0  
+**Document Status:** Production-Ready v2.0  
 **Created:** 2025-11-02  
-**Last Updated:** 2025-11-02  
-**Next Review:** After first arch-L3 character section generation pilot
+**Last Updated:** 2025-11-04  
+**Supersedes:** v1.0  
+**Next Review:** After first character section generation pilot with all five patterns
+
+**Version History:**
+- v2.0 (2025-11-04): Synchronized with Bible v2.0 - renamed SB to Started-Bounced, redefined BL as Began-Lightly (<25%), redefined ML as Met-Later (25-60%), updated all pattern definitions and examples
+- v1.0 (2025-11-02): Initial specification with five journey patterns
 
 **Sign-off Required:**
-- [x] Journey pattern taxonomy validated
-- [x] Opening strategies documented
-- [x] Structure requirements clear  
-- [x] Cross-pattern consistency verified
-- [ ] Exemplar generations confirm viability
+- [x] Journey pattern taxonomy validated (v1.0)
+- [x] Opening strategies documented (v1.0)
+- [x] Structure requirements clear (v1.0)
+- [x] Cross-pattern consistency verified (v1.0)
+- [x] Synchronized with Bible v2.0 architecture (v2.0)
+- [ ] Exemplar generations confirm viability with updated definitions
 
 ---
 
-**END L3 JOURNEY PATTERN INTEGRATION GUIDE v1.0**
+**END L3 JOURNEY PATTERN INTEGRATION GUIDE v2.0**
