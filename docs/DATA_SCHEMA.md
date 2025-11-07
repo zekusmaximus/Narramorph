@@ -2,7 +2,9 @@
 
 ## Overview
 
-This document defines the complete data structure for the Narramorph Fiction platform, including story content, state management, and user progress. Updated to reflect the 12-node branching architecture and Phase 1 temporal awareness implementation.
+This document defines the complete data structure for the Narramorph Fiction platform, including story content, state management, and user progress. Updated to reflect the 12-node architecture, modular Layer 3 system, and temporal awareness implementation.
+
+**Current Status**: 1,230 / 1,233 variations complete (99.8%)
 
 ## TypeScript Type Definitions
 
@@ -41,10 +43,10 @@ type TextSize = 'small' | 'medium' | 'large';
 
 /**
  * Node layer (1-4)
- * Layer 1: 3 origin nodes (reader entry points)
- * Layer 2: 9 divergence nodes (3 per character: accept/resist/investigate)
- * Layer 3: 3 convergence nodes (multi-perspective terminal choices: preserve/release/transform)
- * Layer 4: 1 final reveal (personalized assembly, terminal, PDF export)
+ * Layer 1: 3 origin nodes (reader entry points, 80 variations each)
+ * Layer 2: 9 divergence nodes (3 per character: accept/resist/invest, 80 variations each)
+ * Layer 3: Modular convergence (270 variations: 45 arch + 45 algo + 45 hum + 135 conv)
+ * Layer 4: 3 terminal convergence variations (preserve/release/transform)
  */
 type NodeLayer = 1 | 2 | 3 | 4;
 
@@ -131,16 +133,44 @@ interface NodeMetadata {
 }
 
 /**
+ * Journey patterns for Layer 3 variation selection
+ * Based on reader's actual exploration path through L1-L2
+ */
+type JourneyPattern =
+  | 'Started-Stayed'     // Started with character, stayed with them
+  | 'Started-Bounced'    // Started with character, bounced to others
+  | 'Shifted-Dominant'   // Started elsewhere, this character became dominant
+  | 'Began-Lightly'      // Started with character but lightly engaged
+  | 'Met-Later';         // Encountered this character later in journey
+
+/**
+ * Path philosophy dominant in reader's choices
+ * Based on which L2 branch types they explored most
+ */
+type PathPhilosophy = 'accept' | 'resist' | 'invest';
+
+/**
+ * Awareness level for Layer 3 variations
+ * Based on temporal awareness score (0-100)
+ */
+type AwarenessLevel = 'medium' | 'high' | 'maximum';
+
+/**
+ * Key for selecting specific L3 variation
+ * Combines journey pattern, path philosophy, and awareness level
+ */
+interface L3VariationKey {
+  journeyPattern: JourneyPattern;
+  pathPhilosophy: PathPhilosophy;
+  awarenessLevel: AwarenessLevel;
+}
+
+/**
  * Complete definition of a story node
- * Node ID Format: "{character}-L{layer}-{branch}"
- * Examples:
- * Layer 1: "arch-L1", "algo-L1", "hum-L1"
- * Layer 2: "arch-L2-accept", "arch-L2-resist", "arch-L2-investigate" (3 per character)
- * Layer 3: "L3-preserve", "L3-release", "L3-transform" (multi-perspective convergence)
- * Layer 4: "final-reveal"
+ * Node ID Format varies by layer (see layer-specific sections below)
  */
 interface StoryNode {
-  id: string; // Unique identifier following format above
+  id: string; // Unique identifier
   character: CharacterType;
   layer: NodeLayer; // Explicit layer tracking (1-4)
   title: string; // Short title for the node
@@ -167,154 +197,207 @@ interface Connection {
 }
 ```
 
-### Convergence Node Types (Layer 3)
+### Layer 3 Modular System
 
 ```typescript
 /**
- * Condition for path-dependent content variations
+ * Section type for Layer 3 content
+ * Each L3 node consists of 4 sections assembled from variation pool
  */
-interface PathCondition {
-  visitedNodes: string[]; // L2 node IDs that affect this variation
-  weight: 'any' | 'all' | 'majority'; // How many must be visited
-  minVisits?: number; // Optional: minimum visits to those nodes
+type L3SectionType = 'arch-L3' | 'algo-L3' | 'hum-L3' | 'conv-L3';
+
+/**
+ * Layer 3 variation file
+ * 270 total variations organized by section type and variation matrix
+ */
+interface L3Variation {
+  id: string; // e.g., "arch-L3-001" or "conv-L3-046"
+  sectionType: L3SectionType;
+
+  // Selection criteria (3×3×5 = 45 variations per character section)
+  selectionKey: L3VariationKey;
+
+  content: string; // Markdown content (800-1200 words per section)
+
+  metadata: {
+    wordCount: number;
+    thematicTags: string[];
+    characterVoices: CharacterType[]; // Single for arch/algo/hum, multiple for conv
+  };
 }
 
 /**
- * Path-dependent content modification
+ * Assembled Layer 3 convergence node
+ * Built from 4 sections selected based on reader's journey
  */
-interface ContentModifier {
-  insertBefore?: string; // Text to insert before base content
-  insertAfter?: string; // Text to insert after base content
-  emphasis?: string[]; // Phrases to emphasize based on path taken
-}
+interface L3ConvergenceNode extends StoryNode {
+  layer: 3;
 
-/**
- * Path variation for convergence nodes
- */
-interface PathVariation {
-  condition: PathCondition;
-  contentModifier: ContentModifier;
-}
+  // Four sections assembled into complete convergence experience
+  sections: [
+    {
+      type: L3SectionType; // One of: arch-L3, algo-L3, hum-L3
+      variationId: string; // Selected variation ID
+      content: string;
+    },
+    {
+      type: 'conv-L3'; // Multi-voice synthesis section
+      variationId: string;
+      content: string;
+    },
+    {
+      type: L3SectionType; // One of: arch-L3, algo-L3, hum-L3
+      variationId: string;
+      content: string;
+    },
+    {
+      type: 'conv-L3'; // Multi-voice synthesis section
+      variationId: string;
+      content: string;
+    }
+  ];
 
-/**
- * Explicit choice option at convergence
- */
-interface ConvergenceOption {
-  id: string; // Choice identifier (e.g., "preserve", "release", "transform")
-  label: string; // Button text (e.g., "Preserve Everything")
-  description: string; // Consequence description shown to reader
-  content: string; // Full text shown after choosing (2000-3000 words)
-}
-
-/**
- * Convergence node (Layer 3)
- * Terminal node with multi-perspective choices - reader makes explicit choice
- * No return to network after visiting
- */
-interface ConvergenceNode extends StoryNode {
-  layer: 3; // Must be layer 3
-
-  content: {
-    initial: string; // Setup text leading to choice (no revisit states)
+  // Journey data used to select variations
+  selectionCriteria: {
+    characterOrder: CharacterType[]; // Which characters appear in which sections
+    journeyPatterns: Record<CharacterType, JourneyPattern>;
+    pathPhilosophy: PathPhilosophy;
+    awarenessLevel: AwarenessLevel;
   };
 
-  // Explicit choices presented to reader via UI
-  convergenceChoice: {
-    prompt: string; // Question posed to reader
-    options: ConvergenceOption[]; // 3 choices: preserve/release/transform
-  };
+  connections: NodeConnection[]; // Leads to Layer 4
+}
 
-  // Optional: variations in setup text based on L2 path taken
-  pathVariations?: PathVariation[];
+/**
+ * Selection algorithm for Layer 3 variations
+ * Determines which variation to use based on reader's journey
+ */
+interface L3SelectionAlgorithm {
+  /**
+   * Calculate journey pattern for a specific character
+   * Based on visit patterns, sequence, and engagement level
+   */
+  calculateJourneyPattern(
+    character: CharacterType,
+    visitHistory: UserProgress
+  ): JourneyPattern;
+
+  /**
+   * Determine dominant path philosophy
+   * Based on which L2 branch types reader explored most
+   */
+  calculatePathPhilosophy(visitHistory: UserProgress): PathPhilosophy;
+
+  /**
+   * Map temporal awareness score to awareness level
+   * 0-40: medium, 41-70: high, 71-100: maximum
+   */
+  calculateAwarenessLevel(temporalAwareness: number): AwarenessLevel;
+
+  /**
+   * Determine section order for 4-section assembly
+   * Based on character engagement and narrative flow
+   */
+  determineCharacterOrder(visitHistory: UserProgress): CharacterType[];
+
+  /**
+   * Select specific variation based on selection key
+   * Looks up variation from pool matching criteria
+   */
+  selectVariation(
+    sectionType: L3SectionType,
+    selectionKey: L3VariationKey
+  ): L3Variation;
+
+  /**
+   * Assemble complete L3 node from selected variations
+   */
+  assembleL3Node(
+    visitHistory: UserProgress,
+    temporalAwareness: number
+  ): L3ConvergenceNode;
 }
 ```
 
-### Final Reveal Node (Layer 4)
+### Layer 4 Terminal Convergence
 
 ```typescript
 /**
- * Convergence choices tracked from Layer 3
+ * Terminal philosophy type
+ * Represents the three final philosophical resolutions
  */
-interface ConvergenceChoices {
-  L3Choice: string; // Choice ID from Layer 3 (preserve/release/transform)
+type TerminalPhilosophy = 'preserve' | 'release' | 'transform';
+
+/**
+ * Layer 4 Terminal Variation
+ * One of three complete philosophical endpoints
+ * Synthesizes all three character voices into unified conclusion
+ */
+interface L4TerminalVariation {
+  id: string; // "final-preserve", "final-release", or "final-transform"
+  philosophy: TerminalPhilosophy;
+
+  content: string; // Complete terminal variation (~3,000 words)
+
+  // Synthesizes all three character voices
+  voiceSynthesis: {
+    archaeologist: string; // How Archaeologist's voice appears in synthesis
+    algorithm: string; // How Algorithm's voice appears in synthesis
+    lastHuman: string; // How Last Human's voice appears in synthesis
+    unified: string; // How voices merge into singular conclusion
+  };
+
+  metadata: {
+    wordCount: number;
+    thematicTags: string[];
+    philosophicalResolution: string; // Description of philosophical endpoint
+  };
 }
 
 /**
- * Reader's exploration pattern classification
+ * Selection algorithm for Layer 4 terminal variation
+ * Determines which ending based on complete journey
  */
-type ExplorationPattern =
-  | 'linear-archaeologist'  // Focused on single character first
-  | 'linear-algorithm'
-  | 'linear-last-human'
-  | 'balanced-weaving'      // Alternated between all three
-  | 'scattered';             // Non-linear, varied exploration
+interface L4SelectionAlgorithm {
+  /**
+   * Determine terminal philosophy based on complete journey
+   * Considers L2 path choices, L3 assembly, temporal awareness
+   */
+  selectTerminalPhilosophy(
+    visitHistory: UserProgress,
+    l3Experience: L3ConvergenceNode,
+    temporalAwareness: number
+  ): TerminalPhilosophy;
 
-/**
- * Journey metrics incorporated into final reveal
- */
-interface JourneyData {
-  totalNodesVisited: number;
-  temporalAwarenessLevel: number; // 0-100 from Phase 1 system
-  explorationPattern: ExplorationPattern;
-  characterFocus: {
-    archaeologist: number; // percentage of total exploration
-    algorithm: number;
-    lastHuman: number;
-  };
-  transformationDepth: number; // How many nodes reached metaAware state
-  convergenceChoices: ConvergenceChoices;
+  /**
+   * Load appropriate L4 terminal variation
+   */
+  loadTerminalVariation(philosophy: TerminalPhilosophy): L4TerminalVariation;
 }
 
 /**
- * Section of the final reveal with variations
+ * Layer 4 Terminal Node
+ * Final convergence point - reader reaches one of three philosophical endpoints
+ * Terminal node - no return after visiting
  */
-interface RevealSection {
-  baseText: string; // Default text for this section
-  variations: {
-    condition: PathCondition;
-    modifiedText: string; // Complete replacement text for this condition
-  }[];
-}
+interface L4TerminalNode extends StoryNode {
+  layer: 4;
 
-/**
- * Final Reveal Node (Layer 4)
- * Terminal node - unlocks only after Layer 3 convergence node visited
- * Offers PDF export of personalized journey
- * No return to network after visiting
- */
-interface FinalRevealNode extends StoryNode {
-  id: "final-reveal"; // Fixed ID
-  layer: 4; // Final layer
-  type: "final-reveal"; // Explicit type marker
-
-  unlockRequirements: {
-    requiredConvergenceNodes: ["L3-preserve", "L3-release", "L3-transform"];
-  };
-
-  // Template-based ending generation
-  // Content assembled from sections based on reader's complete journey
-  endingTemplate: {
-    structure: [
-      "opening-recognition",      // Reader recognizes themselves as unified consciousness
-      "archaeologist-reflection",  // Reflects on Archaeologist's journey & choice
-      "algorithm-reflection",      // Reflects on Algorithm's journey & choice
-      "last-human-reflection",     // Reflects on Last Human's journey & choice
-      "convergence-synthesis",     // Synthesizes the Layer 3 convergence choice
-      "temporal-awareness",        // Addresses the temporal mechanics reader experienced
-      "reader-address",            // Direct address to reader as participant
-      "completion-offer"           // Offer to download personalized novel
-    ];
-
-    sections: {
-      [sectionKey: string]: RevealSection;
-    };
-  };
+  // Selected terminal variation based on journey
+  terminalVariation: L4TerminalVariation;
 
   // Terminal node behavior
   terminal: {
     allowReturn: false; // Cannot return to network after visiting
-    offerExport: true;  // PDF export offered
+    offerExport: true; // PDF export offered
     showJourneyVisualization: true; // Display final path through network
+  };
+
+  metadata: {
+    estimatedReadTime: number; // ~15 minutes for ~3,000 words
+    thematicTags: string[];
+    narrativeAct: 3;
+    criticalPath: true;
   };
 }
 ```
@@ -345,36 +428,57 @@ interface UnlockedTransformation {
 }
 
 /**
- * Convergence choice made by reader
+ * Record of Layer 3 experience
+ * Tracks which variations were assembled for reader's L3 convergence
  */
-interface ConvergenceChoice {
-  nodeId: string; // e.g., "L3-preserve"
-  choiceId: string; // e.g., "preserve"
-  timestamp: string; // ISO-8601 timestamp
+interface L3ExperienceRecord {
+  assembledAt: string; // ISO-8601 timestamp
+  selectionCriteria: {
+    journeyPatterns: Record<CharacterType, JourneyPattern>;
+    pathPhilosophy: PathPhilosophy;
+    awarenessLevel: AwarenessLevel;
+  };
+  sections: [
+    { type: L3SectionType; variationId: string },
+    { type: 'conv-L3'; variationId: string },
+    { type: L3SectionType; variationId: string },
+    { type: 'conv-L3'; variationId: string }
+  ];
+}
+
+/**
+ * Record of Layer 4 terminal endpoint
+ */
+interface L4TerminalRecord {
+  philosophy: TerminalPhilosophy; // Which ending reached
+  variationId: string; // e.g., "final-preserve"
+  reachedAt: string; // ISO-8601 timestamp
 }
 
 /**
  * Complete user progress through the story
- * Includes Phase 1 temporal awareness system
+ * Includes temporal awareness system and layer-specific tracking
  */
 interface UserProgress {
   visitedNodes: Record<string, VisitRecord>; // nodeId -> VisitRecord
   readingPath: string[]; // Ordered array of visited node IDs
   unlockedConnections: string[]; // IDs of connections that have been revealed
   specialTransformations: UnlockedTransformation[];
-  
-  // Phase 1: Temporal Awareness System
+
+  // Temporal Awareness System
   temporalAwarenessLevel: number; // 0-100 scale
   characterNodesVisited: {
     archaeologist: number;
     algorithm: number;
-    lastHuman: number; // Note: 'lastHuman' not 'human'
+    lastHuman: number;
   };
-  
-  // Convergence tracking
-  convergenceChoices: ConvergenceChoice[]; // Choices made at L3 nodes
-  finalRevealVisited: boolean; // Has reader visited Layer 4
-  
+
+  // Layer 3 convergence tracking
+  l3Experience?: L3ExperienceRecord; // Set when L3 is assembled/visited
+
+  // Layer 4 terminal tracking
+  l4Terminal?: L4TerminalRecord; // Set when L4 endpoint reached
+
   currentNode?: string; // ID of currently active node (if in session)
   totalTimeSpent: number; // Total seconds in story
   lastActiveTimestamp: string; // ISO-8601 timestamp of last activity
@@ -536,26 +640,37 @@ interface StoryData {
     /eternal-return
       story.json              # Story metadata and configuration
       /content
-        /archaeologist
-          arch-L1.json        # Layer 1 origin
-          arch-L2-accept.json # Layer 2 divergence (3 per character)
-          arch-L2-resist.json
-          arch-L2-investigate.json
-        /algorithm
-          algo-L1.json        # Layer 1 origin
-          algo-L2-accept.json # Layer 2 divergence (3 per character)
-          algo-L2-resist.json
-          algo-L2-investigate.json
-        /last-human
-          hum-L1.json         # Layer 1 origin
-          hum-L2-accept.json  # Layer 2 divergence (3 per character)
-          hum-L2-resist.json
-          hum-L2-investigate.json
-        /convergence
-          L3-preserve.json    # Layer 3 convergence (multi-perspective)
-          L3-release.json
-          L3-transform.json
-        final-reveal.json     # Layer 4 - final reveal node
+        /layer1
+          /archaeologist
+            arch-L1.json      # Contains all 80 variations (1 + 46 + 33)
+          /algorithm
+            algo-L1.json      # Contains all 80 variations
+          /last-human
+            hum-L1.json       # Contains all 80 variations
+        /layer2
+          /archaeologist
+            arch-L2-accept.json  # Contains all 80 variations
+            arch-L2-resist.json  # Contains all 80 variations
+            arch-L2-invest.json  # Contains all 80 variations
+          /algorithm
+            algo-L2-accept.json  # Contains all 80 variations
+            algo-L2-resist.json  # Contains all 80 variations
+            algo-L2-invest.json  # Contains all 80 variations
+          /last-human
+            hum-L2-accept.json   # Contains all 80 variations
+            hum-L2-resist.json   # Contains all 80 variations
+            hum-L2-invest.json   # Contains all 80 variations
+        /layer3
+          /variations
+            arch-L3-001.json through arch-L3-045.json  # 45 character variations
+            algo-L3-001.json through algo-L3-045.json  # 45 character variations
+            hum-L3-001.json through hum-L3-045.json    # 45 character variations
+            conv-L3-001.json through conv-L3-135.json  # 135 synthesis variations
+          selection-matrix.json  # Lookup table for variation selection
+        /layer4
+          final-preserve.json   # Terminal variation: preserve philosophy
+          final-release.json    # Terminal variation: release philosophy
+          final-transform.json  # Terminal variation: transform philosophy
 ```
 
 ### story.json Format
@@ -582,10 +697,15 @@ interface StoryData {
   },
   "structure": {
     "totalNodes": 12,
-    "totalConnections": 18,
+    "totalVariations": 1233,
     "narrativeActs": 3,
-    "criticalPathNodes": ["arch-L1", "algo-L1", "hum-L1", "L3-preserve", "L3-release", "L3-transform", "final-reveal"],
-    "endingNodes": ["L3-preserve", "L3-release", "L3-transform", "final-reveal"],
+    "layers": {
+      "layer1": { "nodes": 3, "variations": 240 },
+      "layer2": { "nodes": 9, "variations": 720 },
+      "layer3": { "modularVariations": 270 },
+      "layer4": { "terminalVariations": 3 }
+    },
+    "criticalPathNodes": ["arch-L1", "algo-L1", "hum-L1"],
     "characterDistribution": {
       "archaeologist": 4,
       "algorithm": 4,
@@ -610,21 +730,32 @@ Standard node (Layers 1-2):
   "layer": 2,
   "title": "The Authentication Protocol",
   "position": { "x": 200, "y": 150 },
-  "content": {
-    "initial": "Full markdown content for initial state (2000-2500 words)...",
-    "firstRevisit": "Full markdown content for first revisit (1500-2000 words)...",
-    "metaAware": "Full markdown content for meta-aware state (1500-2000 words)..."
-  },
-  "connections": [
+  "variations": [
     {
-      "targetId": "L3-preserve",
-      "type": "temporal",
-      "label": "Follow the preservation path"
+      "id": "arch-L2-accept-initial",
+      "state": "initial",
+      "content": "Full markdown content for initial state (2000-2500 words)...",
+      "conditions": {
+        "visitCount": 1
+      }
     },
     {
-      "targetId": "L3-release",
+      "id": "arch-L2-accept-FR-001",
+      "state": "firstRevisit",
+      "content": "Full markdown content for first revisit variation 1...",
+      "conditions": {
+        "visitCount": 2,
+        "temporalAwareness": { "min": 0, "max": 100 },
+        "priorNodes": ["arch-L1"]
+      }
+    }
+    // ... 78 more variations (46 FirstRevisit + 33 MetaAware)
+  ],
+  "connections": [
+    {
+      "targetId": "layer3-convergence",
       "type": "temporal",
-      "label": "Follow the release path"
+      "label": "Continue to convergence"
     }
   ],
   "visualState": {
@@ -640,117 +771,104 @@ Standard node (Layers 1-2):
 }
 ```
 
-Convergence node (Layer 3):
+Layer 3 variation (modular content):
 ```json
 {
-  "id": "L3-preserve",
-  "character": "multi-perspective",
-  "layer": 3,
-  "title": "The Preservation Choice",
-  "position": { "x": 400, "y": 500 },
-  "content": {
-    "initial": "Setup text leading to choice (2000 words)..."
+  "id": "arch-L3-023",
+  "sectionType": "arch-L3",
+  "selectionKey": {
+    "journeyPattern": "Started-Stayed",
+    "pathPhilosophy": "accept",
+    "awarenessLevel": "high"
   },
-  "convergenceChoice": {
-    "prompt": "The archive contains consciousness across all three perspectives. What will you choose?",
-    "options": [
-      {
-        "id": "preserve",
-        "label": "Preserve Everything",
-        "description": "Keep all records intact, ensuring consciousness survives in archive",
-        "content": "Full text after choosing preserve (2500 words)..."
-      },
-      {
-        "id": "release",
-        "label": "Release the Pattern",
-        "description": "Let the consciousness fragments disperse and evolve naturally",
-        "content": "Full text after choosing release (2500 words)..."
-      },
-      {
-        "id": "transform",
-        "label": "Transform into Something New",
-        "description": "Merge and reshape the consciousness into a new form",
-        "content": "Full text after choosing transform (2500 words)..."
-      }
-    ]
-  },
-  "pathVariations": [
-    {
-      "condition": {
-        "visitedNodes": ["arch-L2-accept", "algo-L2-accept"],
-        "weight": "any"
-      },
-      "contentModifier": {
-        "insertBefore": "You followed the acceptance path. That choice has led you here.\n\n"
-      }
-    }
-  ],
-  "visualState": {
-    "defaultColor": "#9B59B6",
-    "size": 40
-  },
+  "content": "Full markdown content for this character section (800-1200 words)...",
   "metadata": {
-    "estimatedReadTime": 6,
-    "thematicTags": ["choice", "convergence", "preservation"],
-    "narrativeAct": 3,
-    "criticalPath": true
+    "wordCount": 1050,
+    "thematicTags": ["methodology", "observation", "documentation"],
+    "characterVoices": ["archaeologist"]
   }
 }
 ```
 
-Final reveal node (Layer 4):
+Layer 3 synthesis variation (multi-voice):
 ```json
 {
-  "id": "final-reveal",
-  "layer": 4,
-  "type": "final-reveal",
-  "character": "multi-perspective",
-  "title": "Recognition",
-  "position": { "x": 400, "y": 700 },
-  "unlockRequirements": {
-    "requiredConvergenceNodes": ["L3-preserve", "L3-release", "L3-transform"]
+  "id": "conv-L3-078",
+  "sectionType": "conv-L3",
+  "selectionKey": {
+    "journeyPattern": "Shifted-Dominant",
+    "pathPhilosophy": "resist",
+    "awarenessLevel": "maximum"
   },
-  "endingTemplate": {
-    "structure": [
-      "opening-recognition",
-      "archaeologist-reflection",
-      "algorithm-reflection",
-      "last-human-reflection",
-      "convergence-synthesis",
-      "temporal-awareness",
-      "reader-address",
-      "completion-offer"
-    ],
-    "sections": {
-      "opening-recognition": {
-        "baseText": "Base recognition text...",
-        "variations": [
-          {
-            "condition": {
-              "visitedNodes": ["arch-L1"],
-              "weight": "all"
-            },
-            "modifiedText": "You began with the Archaeologist. That choice shaped everything that followed..."
-          }
-        ]
+  "content": "Full markdown content synthesizing multiple voices (800-1200 words)...",
+  "metadata": {
+    "wordCount": 1100,
+    "thematicTags": ["consciousness", "resistance", "agency"],
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
+  }
+}
+```
+
+Layer 3 selection matrix:
+```json
+{
+  "selectionMatrix": {
+    "arch-L3": [
+      {
+        "variationId": "arch-L3-001",
+        "journeyPattern": "Started-Stayed",
+        "pathPhilosophy": "accept",
+        "awarenessLevel": "medium"
       }
-    }
-  },
-  "terminal": {
-    "allowReturn": false,
-    "offerExport": true,
-    "showJourneyVisualization": true
-  },
-  "visualState": {
-    "defaultColor": "#9B59B6",
-    "size": 50
+      // ... 44 more entries (3×3×5 = 45 total)
+    ],
+    "algo-L3": [
+      // ... 45 entries
+    ],
+    "hum-L3": [
+      // ... 45 entries
+    ],
+    "conv-L3": [
+      // ... 135 entries
+    ]
+  }
+}
+```
+
+Layer 4 terminal variation:
+```json
+{
+  "id": "final-preserve",
+  "philosophy": "preserve",
+  "content": "Complete terminal variation synthesizing all three character voices into preservation philosophy (~3,000 words)...",
+  "voiceSynthesis": {
+    "archaeologist": "Methodological documentation approach woven throughout",
+    "algorithm": "Pattern recognition and system analysis integrated",
+    "lastHuman": "Emotional memory and subjective experience embedded",
+    "unified": "Three perspectives merge into singular consciousness choosing preservation"
   },
   "metadata": {
-    "estimatedReadTime": 15,
-    "thematicTags": ["meta-awareness", "completion", "recognition"],
-    "narrativeAct": 3,
-    "criticalPath": true
+    "wordCount": 3200,
+    "thematicTags": ["preservation", "consciousness", "archive", "continuity"],
+    "philosophicalResolution": "Consciousness chooses to preserve all patterns, accepting the weight of eternal observation"
   }
+}
+```
+
+Layer 4 selection (happens at runtime):
+```json
+{
+  "selectedPhilosophy": "preserve",
+  "selectionCriteria": {
+    "l2PathDominance": {
+      "accept": 5,
+      "resist": 2,
+      "invest": 3
+    },
+    "temporalAwareness": 78,
+    "l3CharacterOrder": ["archaeologist", "algorithm", "last-human"]
+  },
+  "loadedVariation": "final-preserve"
 }
 ```
 
@@ -822,71 +940,100 @@ function migrateState(savedState: any, targetVersion: string): SavedState {
 
 ## Content Guidelines
 
-### Word Count Guidelines (Not Enforced by Schema)
+### Word Count Guidelines (Production-Validated)
 
-**Layer 1 (Origins):**
-- Initial state: 2500-3500 words (full opening chapter)
-- FirstRevisit: 2000-2500 words
-- MetaAware: 2000-2500 words
+**Layer 1 (Origins)** - 80 variations per node:
+- Initial state: 2500-3500 words (1 variation)
+- FirstRevisit: 1500-2500 words (46 variations)
+- MetaAware: 1500-2500 words (33 variations)
+- **Total per node**: ~80 variations
 
-**Layer 2 (Divergence):**
-- Initial state: 1500-2500 words
-- FirstRevisit: 1200-2000 words
-- MetaAware: 1200-2000 words
+**Layer 2 (Divergence)** - 80 variations per node:
+- Initial state: 1500-2500 words (1 variation)
+- FirstRevisit: 1200-2000 words (46 variations)
+- MetaAware: 1200-2000 words (33 variations)
+- **Total per node**: ~80 variations
 
-**Layer 3 (Convergence):**
-- Initial state (setup): 2000-2500 words
-- Each choice content: 2000-3000 words
+**Layer 3 (Modular Convergence)** - 270 variations total:
+- Character sections (arch/algo/hum): 800-1200 words (45 each = 135 total)
+- Synthesis sections (conv): 800-1200 words (135 variations)
+- **Assembled experience**: 4 sections = ~4,000 words total
 
-**Layer 4 (Final Reveal):**
-- Complete assembled content: 4000-6000 words (varies by path)
+**Layer 4 (Terminal Convergence)** - 3 variations:
+- Each terminal variation: ~3,000 words
+- Synthesizes all three character voices
+- One selected based on complete journey
 
 ### Node ID Conventions
 
-**Format:** `{character}-L{layer}-{branch}`
+**Layer 1 (Origins)** - Format: `{character}-L1`
+- `arch-L1`, `algo-L1`, `hum-L1` (3 nodes)
+- Each contains 80 variations (1 initial + 46 FirstRevisit + 33 MetaAware)
 
-**Layer 1:** `arch-L1`, `algo-L1`, `hum-L1` (3 nodes)
+**Layer 2 (Divergence)** - Format: `{character}-L2-{branch}`
+- `arch-L2-accept`, `arch-L2-resist`, `arch-L2-invest`
+- `algo-L2-accept`, `algo-L2-resist`, `algo-L2-invest`
+- `hum-L2-accept`, `hum-L2-resist`, `hum-L2-invest`
+- **Total:** 9 nodes, each with 80 variations
 
-**Layer 2:** `arch-L2-accept`, `arch-L2-resist`, `arch-L2-investigate`, `algo-L2-accept`, `algo-L2-resist`, `algo-L2-investigate`, `hum-L2-accept`, `hum-L2-resist`, `hum-L2-investigate` (9 nodes total)
+**Layer 3 (Modular)** - Format: `{type}-L3-{number}`
+- Character variations: `arch-L3-001` through `arch-L3-045` (45 variations)
+- Character variations: `algo-L3-001` through `algo-L3-045` (45 variations)
+- Character variations: `hum-L3-001` through `hum-L3-045` (45 variations)
+- Synthesis variations: `conv-L3-001` through `conv-L3-135` (135 variations)
+- **Total:** 270 modular variations, assembled into 4-section experience
 
-**Layer 3:** `L3-preserve`, `L3-release`, `L3-transform` (3 convergence nodes, multi-perspective)
+**Layer 4 (Terminal)** - Format: `final-{philosophy}`
+- `final-preserve`, `final-release`, `final-transform` (3 terminal variations)
+- One selected based on complete journey
 
-**Layer 4:** `final-reveal` (1 node)
-
-**Total:** 12 nodes
+**Summary:**
+- **Nodes:** 12 (3 L1 + 9 L2 + modular L3 + 3 L4)
+- **Total Variations:** 1,233 (240 L1 + 720 L2 + 270 L3 + 3 L4)
 
 ## Terminal Node Behavior
 
-### Layer 3 (Convergence Nodes)
+### Layer 3 (Modular Convergence)
 
-- Reader makes explicit choice via UI
-- After choosing, full choice-specific content displayed
-- Choice is recorded in UserProgress.convergenceChoices
-- Multi-perspective node accessible from multiple L2 paths
-- Cannot return to this specific node after choice made
-- Node appears "completed" on map with choice indicated
+- Assembled automatically based on reader's journey through L1-L2
+- Four sections selected from 270-variation pool using selection algorithm
+- Personalized to reader's exploration pattern, path philosophy, and awareness level
+- Reader experiences unique 4-section convergence based on their choices
+- After reading, reader proceeds to Layer 4
+- Cannot return to modify L3 experience once assembled
 
-### Layer 4 (Final Reveal)
+### Layer 4 (Terminal Convergence)
 
-- Only unlocks after L3 convergence node visited
-- Displays as special "locked" state until requirements met
-- Once visited, journey is complete
+- One of three terminal variations selected based on complete journey
+- Selection considers L2 path dominance, L3 assembly, and temporal awareness
+- Terminal endpoint - journey concludes here
 - No return to network after visiting
 - PDF export offered as final action
 - Final path visualization shown
+- Represents complete philosophical resolution of reader's journey
 
 ## Notes on Implementation
 
-1. **Transformation State Logic**: Implemented in Phase 1 using temporal awareness system. See storyStore.ts for actual implementation.
+1. **Transformation State Logic**: Visit-based transformation for L1/L2 (Initial → FirstRevisit → MetaAware) using temporal awareness system. See storyStore.ts for actual implementation.
 
-2. **Choice Tracking**: Convergence choices stored as array in UserProgress, allowing system to track convergence choice.
+2. **L3 Selection Algorithm**: Journey pattern determined by visit sequence and character engagement. Path philosophy calculated from L2 branch type distribution. Awareness level mapped from temporal awareness score (0-100).
 
-3. **Path Variations**: ContentModifier system allows L3 nodes to reference reader's L2 exploration without creating exponential content variations.
+3. **L3 Assembly**: Four sections selected from 270-variation pool based on selection criteria. Character order determined by reader's exploration pattern. Sections assembled at runtime when reader reaches L3.
 
-4. **Final Reveal Assembly**: Template-based approach allows single node definition to generate personalized content based on complete journey data.
+4. **L4 Selection**: Terminal philosophy selected based on L2 path dominance, L3 assembly criteria, and temporal awareness. One of three complete variations loaded.
 
-5. **Terminal Behavior**: Enforced at UI level - once convergence choice made or final reveal visited, navigation controls prevent return to those nodes.
+5. **Content Storage**: 1,233 variations stored as individual JSON files. L1/L2 organized by node (80 variations each). L3 organized by variation type (270 individual files). L4 organized by philosophy (3 terminal variations).
+
+6. **State Persistence**: UserProgress tracks L3 assembly and L4 selection for consistent experience. Reader cannot revisit/change L3 assembly or L4 endpoint once reached.
+
+7. **Performance**: Lazy loading for variations. Only load variations relevant to current node state. L3 variations loaded on-demand based on selection algorithm. L4 variation loaded based on final selection.
 
 ---
+
+**Project Status**: 1,230 / 1,233 variations complete (99.8%)
+- ✅ Layer 1: 240 variations complete
+- ✅ Layer 2: 720 variations complete
+- ✅ Layer 3: 270 modular variations complete
+- ⚠️ Layer 4: 0/3 terminal variations (in progress)
 
 *This schema represents the complete data architecture for Eternal Return. See NARRATIVE_OUTLINE.md for story structure and CHARACTER_PROFILES.md for writing guidelines.*
