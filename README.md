@@ -1,28 +1,33 @@
-# Narramorph Fiction
+# Narramorph Fiction: Eternal Return of the Digital Self
 
-A React-based interactive narrative platform for creating node-based story experiences. This project implements "Eternal Return of the Digital Self," a story exploring digital consciousness through transforming narrative nodes.
+An interactive narrative exploring digital consciousness through three temporal perspectives: an Archaeologist in 2047, an Algorithm in 2151, and the Last Human in 2383. Reader choices shape a personalized journey through 1,233 narrative variations, culminating in one of three philosophical endpoints.
 
-## Features
+**Current Status**: 99.8% complete (1,230/1,233 variations)
+- ✅ Layer 1 & 2: 960 variations complete
+- ✅ Layer 3: 270 modular variations complete
+- ⚠️ Layer 4: 3 terminal variations in progress
 
-- **Interactive Node Map**: Visual story navigation with character-based nodes
-- **Transformation States**: Content changes based on visit history and conditions
-- **Multiple Perspectives**: Three character viewpoints (Archaeologist, Algorithm, Human)
-- **Progress Tracking**: Comprehensive visit and reading statistics
-- **Responsive Design**: Works on desktop and mobile devices
-- **Accessibility**: Full keyboard navigation and screen reader support
-- **Data Persistence**: Local storage for progress and preferences
+---
 
-## Tech Stack
+## What is Narramorph?
 
-- **React 18** with TypeScript
-- **Zustand** with Immer for state management
-- **Tailwind CSS** for styling
-- **Framer Motion** for animations
-- **React Flow** for node visualization (planned)
-- **Vite** for build tooling
-- **Vitest** + React Testing Library for testing
+Narramorph is an interactive fiction platform built on a **12-node branching architecture** across 4 narrative layers:
 
-## Getting Started
+- **Layer 1** (3 nodes): Choose your entry point—Archaeologist, Algorithm, or Last Human
+- **Layer 2** (9 nodes): Philosophical branches—accept, resist, or invest in the recursive nature of consciousness
+- **Layer 3** (modular): Personalized convergence assembled from 270 variations based on your unique journey
+- **Layer 4** (3 endings): Terminal philosophical resolution—preserve, release, or transform
+
+### Key Features
+
+- **Dynamic Content**: Each node contains 80 variations that transform based on visit history and temporal awareness
+- **Journey Personalization**: L3 convergence and L4 ending selected algorithmically from reader's exploration pattern
+- **Temporal Awareness System**: Content evolves as readers recognize recursive patterns (0-100 scale)
+- **Voice Synthesis**: Three distinct narrative voices converge into unified consciousness by L4
+
+---
+
+## Quick Start
 
 ### Prerequisites
 
@@ -31,284 +36,137 @@ A React-based interactive narrative platform for creating node-based story exper
 
 ### Installation
 
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd Narramorph
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/zekusmaximus/Narramorph.git
+cd Narramorph
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+# Install dependencies
+npm install
 
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
+# Start development server
+npm run dev
+```
 
-4. Open your browser to `http://localhost:5173`
+Open your browser to `http://localhost:5173`
 
 ### Development Commands
 
 ```bash
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-
-# Run tests
-npm run test
-
-# Run tests with UI
-npm run test:ui
-
-# Run tests with coverage
-npm run test:coverage
-
-# Lint code
-npm run lint
-
-# Fix linting issues
-npm run lint:fix
-
-# Format code
-npm run format
-
-# Type check
-npm run type-check
-
-# Run all validation (type-check + lint + test)
-npm run validate
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run test         # Run tests
+npm run validate     # Run type-check + lint + test
 ```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed development guidelines.
+
+---
+
+## Tech Stack
+
+- **React 18** + TypeScript
+- **Zustand** with Immer for state management
+- **Tailwind CSS** for styling
+- **Framer Motion** for animations
+- **Vite** for build tooling
+- **Vitest** + React Testing Library for testing
+
+---
 
 ## Project Structure
 
 ```
 /Narramorph
-├── docs/                       # Project documentation
-├── public/                     # Static assets
+├── docs/                       # Comprehensive project documentation
+├── L1/                         # Layer 1 content (240 variations)
+├── L2/                         # Layer 2 content (720 variations)
+├── L3/                         # Layer 3 modular content (270 variations)
+├── L4/                         # Layer 4 terminal variations (3)
 ├── src/
+│   ├── algorithms/            # L3/L4 selection algorithms
 │   ├── components/            # React components
-│   │   ├── Layout/           # Application layout
-│   │   ├── NodeMap/          # Interactive node map
-│   │   ├── StoryView/        # Story reading interface
-│   │   └── UI/               # Reusable UI components
-│   ├── hooks/                # Custom React hooks
-│   ├── stores/               # Zustand state management
-│   ├── types/                # TypeScript type definitions
-│   ├── utils/                # Utility functions
-│   ├── data/                 # Story content (JSON)
-│   ├── pages/                # Top-level page components
-│   ├── main.tsx              # Application entry point
-│   ├── App.tsx               # Main app component
-│   └── index.css             # Global styles
-├── tests/                    # Test files and utilities
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-├── tailwind.config.js
-└── README.md
+│   ├── stores/                # Zustand state management
+│   ├── types/                 # TypeScript type definitions
+│   └── data/                  # Story content (JSON)
+├── scripts/                   # Validation and utility scripts
+└── tests/                     # Test files
 ```
-
-## Architecture
-
-### State Management
-
-The application uses Zustand with Immer middleware for state management. The main store (`storyStore`) handles:
-
-- Story content and node data
-- User progress and visit tracking
-- UI state (selected nodes, viewport)
-- User preferences and settings
-
-### Type System
-
-Comprehensive TypeScript types are defined in `src/types/`:
-
-- **Node.ts**: Story nodes, positions, visual states
-- **Store.ts**: State management and user progress
-- **Story.ts**: Story data structures and validation
-
-### Component Architecture
-
-- **Layout**: Provides consistent application shell
-- **NodeMap**: Interactive visualization of story structure
-- **StoryView**: Modal interface for reading node content
-- **Pages**: Top-level routing and page components
-
-## Story Data Format
-
-Stories are defined as JSON files in `src/data/stories/`. Each story includes:
-
-- **Metadata**: Title, author, description, estimated playtime
-- **Nodes**: Individual story fragments with multiple transformation states
-- **Connections**: Links between nodes with reveal conditions
-- **Configuration**: Start node, endings, critical path
-
-Example node structure:
-
-```json
-{
-  "id": "archaeologist-001",
-  "character": "archaeologist",
-  "title": "The First Fragment",
-  "position": { "x": 150, "y": 100 },
-  "content": {
-    "initial": "The fragment loads in sections...",
-    "firstRevisit": "I've reconstructed this memory...",
-    "metaAware": "You've been here before..."
-  },
-  "connections": [
-    {
-      "targetId": "archaeologist-002",
-      "type": "temporal",
-      "label": "Three weeks later"
-    }
-  ],
-  "visualState": {
-    "defaultColor": "#4A90E2",
-    "size": 30
-  },
-  "metadata": {
-    "estimatedReadTime": 3,
-    "thematicTags": ["memory", "loss"],
-    "narrativeAct": 1,
-    "criticalPath": true
-  }
-}
-```
-
-## Development Guidelines
-
-### Code Style
-
-- Use TypeScript strict mode
-- Follow ESLint configuration
-- Use Prettier for formatting
-- Prefer functional components with hooks
-- Use path aliases (@/components, @/types, etc.)
-
-### Component Patterns
-
-```typescript
-// Component structure
-function ComponentName({ prop1, prop2 }: ComponentProps) {
-  // 1. Hooks
-  const [state, setState] = useState();
-  const store = useStoryStore();
-
-  // 2. Derived state
-  const computedValue = useMemo(() => {}, [dependencies]);
-
-  // 3. Event handlers
-  const handleClick = useCallback(() => {}, [dependencies]);
-
-  // 4. Effects
-  useEffect(() => {}, [dependencies]);
-
-  // 5. Render
-  return <div>{/* JSX */}</div>;
-}
-```
-
-### State Management
-
-```typescript
-// Store actions
-visitNode: (nodeId: string) => {
-  set((state) => {
-    // Direct mutation works with immer
-    state.progress.visitedNodes[nodeId] = newRecord;
-  });
-
-  // Side effects after state update
-  get().saveProgress();
-}
-```
-
-## Testing
-
-The project uses Vitest with React Testing Library:
-
-```typescript
-// Component test
-import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect } from 'vitest';
-import Component from './Component';
-
-describe('Component', () => {
-  it('renders correctly', () => {
-    render(<Component />);
-    expect(screen.getByText('Expected Text')).toBeInTheDocument();
-  });
-});
-```
-
-Test utilities are available in `tests/utils.tsx` including mock data and helper functions.
-
-## Accessibility
-
-The application follows WCAG 2.1 guidelines:
-
-- Semantic HTML elements
-- ARIA labels and descriptions
-- Keyboard navigation support
-- Focus management
-- Screen reader compatibility
-- Color contrast compliance
-
-## Performance
-
-Optimization strategies implemented:
-
-- Code splitting with lazy loading
-- Memoization of expensive calculations
-- Efficient re-render prevention
-- Optimized bundle size with manual chunks
-- Image optimization and lazy loading
-
-## Browser Support
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/new-feature`
-3. Make changes following the coding guidelines
-4. Add tests for new functionality
-5. Run validation: `npm run validate`
-6. Commit changes: `git commit -m "Add new feature"`
-7. Push to branch: `git push origin feature/new-feature`
-8. Submit a pull request
-
-## License
-
-MIT License - see LICENSE file for details.
-
-## Acknowledgments
-
-- **Narrative Design**: Inspired by interactive fiction and digital storytelling
-- **Technical Architecture**: Built on modern React patterns and best practices
-- **Accessibility**: Guided by WCAG 2.1 standards and inclusive design principles
 
 ---
 
 ## Documentation
 
-Comprehensive documentation in `/docs`:
+Comprehensive documentation in [`/docs`](docs/):
 
-- **[PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md)** - Vision, goals, scope, and success criteria
-- **[NARRATIVE_STRUCTURE.md](docs/NARRATIVE_STRUCTURE.md)** - Story architecture and node transformation system
-- **[CHARACTER_PROFILES.md](docs/CHARACTER_PROFILES.md)** - Character development and voice guidelines
+### Overview & Architecture
+- **[PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md)** - Vision, scope, and current status (99.8% complete)
+- **[NARRATIVE_STRUCTURE.md](docs/NARRATIVE_STRUCTURE.md)** - 12-node architecture, transformation states, L3/L4 systems
+- **[DEVELOPMENT_STATE_TRACKER.md](docs/DEVELOPMENT_STATE_TRACKER.md)** - Phase tracking and completion status
+
+### Technical Documentation
+- **[DATA_SCHEMA.md](docs/DATA_SCHEMA.md)** - TypeScript types, JSON formats, selection algorithms
+- **[CODEBASE_CONVENTIONS.md](docs/CODEBASE_CONVENTIONS.md)** - Implementation patterns, helpful scripts, performance
 - **[TECHNICAL_REQUIREMENTS.md](docs/TECHNICAL_REQUIREMENTS.md)** - Functional and non-functional requirements
-- **[DATA_SCHEMA.md](docs/DATA_SCHEMA.md)** - TypeScript types and data structures
-- **[CODEBASE_CONVENTIONS.md](docs/CODEBASE_CONVENTIONS.md)** - Coding standards and patterns
+
+### Content Guidelines
+- **[CHARACTER_PROFILES.md](docs/CHARACTER_PROFILES.md)** - Voice consistency, substrate-specific language
+- **[L4/L4-data-requirements.md](L4/L4-data-requirements.md)** - Journey personalization data catalog (70 data points)
+
+---
+
+## Data Architecture
+
+### Variation System
+
+**1,233 total variations** across 4 layers:
+
+- **L1/L2 Nodes**: 80 variations each (1 initial + 46 FirstRevisit + 33 MetaAware)
+- **L3 Modular**: 270 variations (45 per character + 135 synthesis) selected by algorithm
+- **L4 Terminal**: 3 philosophical endpoints (preserve/release/transform)
+
+### Selection Algorithms
+
+**Layer 3 Assembly** (3×3×5 matrix):
+- Journey Pattern: Started-Stayed, Started-Bounced, Shifted-Dominant, Began-Lightly, Met-Later
+- Path Philosophy: accept/resist/invest (dominant from L2 choices)
+- Awareness Level: medium/high/maximum (0-100 scale)
+
+**Layer 4 Selection**:
+- Based on L2 path dominance, L3 assembly criteria, and temporal awareness
+- Selects one of three terminal variations
+
+See [DATA_SCHEMA.md](docs/DATA_SCHEMA.md) for complete type definitions and algorithms.
+
+---
+
+## Contributing
+
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for:
+
+- Development setup and workflow
+- Coding standards and patterns
+- Testing requirements
+- Pull request guidelines
+
+**Current Focus**: Layer 4 terminal variation completion (3 remaining)
+
+---
+
+## License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgments
+
+**Narrative Design**: Recursive consciousness, temporal awareness, and voice synthesis patterns inspired by interactive fiction and digital storytelling.
+
+**Technical Architecture**: Modern React patterns, algorithmic content selection, and performance optimization for 1,233-variation system.
+
+---
+
+**Project Status**: Production narrative phase 99.8% complete. Implementation phase for platform, UI, and selection algorithms in progress.
+
+*For questions or discussions, see issues or contact via GitHub.*
