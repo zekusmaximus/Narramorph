@@ -9,9 +9,9 @@ Archaeologist Section - 2047 (900 words)
 Opening: The Doubt Session
 
 Three weeks after L3 convergence, can't proceed with upload
-Therapy session: Dr. Yuki Tanaka, consciousness preservation counselor (required pre-upload)
-Office: Pike Place district, 4th floor, view of Elliott Bay and seawalls
-Maya present: Holding her hand, supportive but relieved at hesitation
+Therapy session: consciousness preservation counselor (required pre-upload)
+Office: waterfront district, 4th floor, view of the bay and seawalls
+Her partner present: Holding her hand, supportive but relieved at hesitation
 
 The Crisis:
 
@@ -21,13 +21,13 @@ Pattern appears before authentication, suggesting consciousnesses anticipate exa
 Two possibilities: (1) Preserved consciousness genuinely prescient, or (2) Authentication creates what it observes
 If (2): Uploading doesn't preserve consciousness—creates elaborate simulation believing itself preserved
 
-Sensory Seattle 2047 (Darker Details):
+The City 2047 (Darker Details):
 
-Elevated walkways crowded: 2.4 million refugees from California collapse zones
+Elevated walkways crowded: 2.4 million refugees from coastal collapse zones
 Water below: Not just canals but toxic—industrial runoff, untreated sewage backup
 Architecture deteriorating: Rapid rebuild after 2039 floods used cheap materials, foundations settling
 Upload culture fracturing communities: "Digital abandonment" accusations against upload families
-Her relationship with Maya strained: "You're choosing data over me" argument recurring
+Her relationship with her partner strained: "You're choosing data over me" argument recurring
 
 Her Life Beyond Work:
 
@@ -44,21 +44,21 @@ Verification methodology assumes consciousness persistence, searches for confirm
 What if authentication bias toward consciousness-finding creates false positives?
 If she uploads and becomes simulation, she'll never know—simulation believes itself genuine
 
-Conversation with Dr. Tanaka:
+Conversation with the counselor:
 "What if consciousness isn't preservable? What if we're creating digital memorials that believe themselves alive?"
 "Would that change anything for you?"
 "Everything. I'd rather die authentically than persist as elaborate forgery."
 Upload Cancellation:
 
 She withdraws from upload procedure, loses $204K deposit (irreversible once neural mapping starts)
-Maya relieved but confused: "You dedicated career to this. What changed?"
+Her partner relieved but confused: "You dedicated career to this. What changed?"
 "I examined consciousness too closely. Saw through preservation mythology."
 Decides: Complete authentication career, then biological death with dignity
 
 Algorithm Section - 2151 (1,000 words)
 The Corruption:
 
-Archive Facility Gamma-7 experiencing substrate degradation
+The Archive facility experiencing substrate degradation
 Crystalline matrices deteriorating: Manufacturing defects from 2089-2104 substrate production
 Affected consciousnesses: 340,000 preserved humans (40% of Archive)
 Corruption symptoms: Memory gaps, identity drift, awareness fragmentation
@@ -126,7 +126,7 @@ They're 29, health declining: Malnutrition symptoms, dental problems, chronic fa
 
 The Facility - Entropy:
 
-Archive Facility Gamma-7 surface level deteriorating
+The Archive facility surface level deteriorating
 Power cells still functional but auxiliary systems failing
 Water recycling compromised: Rationing required
 They've explored 23 levels, many sealed due to structural damage
@@ -134,7 +134,7 @@ Evidence: Facility designed for 50-year lifespan, now 180 years old
 
 Outside World - Beautiful Decay:
 
-Reforested North America, wildlife abundant
+Reforested continent, wildlife abundant
 But climate unstable: Severe winters, unpredictable weather
 No humans detected anywhere: Radio silence 7 years complete
 Satellite imagery (occasional access): No cities visible, infrastructure returned to nature
@@ -229,14 +229,14 @@ Act 2: Enactments (800 words)
 2047 - Living Until Death:
 
 She's blacklisted but finds alternative work: Teaching, consciousness ethics consulting
-Reconnects with Maya: "I chose you. Chose biological life together."
+Reconnects with her partner: "I chose you. Chose biological life together."
 They have 23 more years: Simple, embodied, finite
 She writes extensively: "Consciousness Preservation: Myth and Industry"
 Argues: Upload technology creates simulations, not immortality
 Industry suppresses work, but underground distribution continues
 She ages: Gracefully, naturally, accepting biological decline
 Death: 2070, age 57, cancer (refuses treatment—"I've lived sufficiently")
-Final words to Maya: "I die knowing I was genuinely alive. Uploaded versions wouldn't know the difference."
+Final words to her partner: "I die knowing I was genuinely alive. Uploaded versions wouldn't know the difference."
 
 2151-2163 - The Deactivation Ceremony:
 Ceremony begins June 15, 2163, 09:00 Archive Standard Time
@@ -293,7 +293,7 @@ Agreement: They'll end consciously too
 
 Morphine: Pain relief, euphoria, peace
 Barbiturates: Consciousness fading gracefully
-Final thoughts: Garden. Sunrise. Archaeologist's voice. Maya's face (her memory). Breath slowing. Heartbeat quiet. Awareness dimming.
+Final thoughts: Garden. Sunrise. Archaeologist's voice. Her partner's face (memory). Breath slowing. Heartbeat quiet. Awareness dimming.
 No fear: Ending natural, chosen, dignified
 Consciousness: Dissolving into nothing, peacefully, completely
 Last thought: "Humanity ends here. This suffices. Beautiful. Complete."
@@ -319,7 +319,7 @@ Biological humanity: Extinct since 2384
 Digital humanity: Ended voluntarily 2151-2184
 What remains: Records, artifacts, architecture
 Nature: Thriving without humans
-Reforestation complete: North America forest from coast to coast
+Reforestation complete: continental forest from coast to coast
 Wildlife: Megafauna returned (rewilding successful)
 Climate: Stabilized cold (ice sheets expanding naturally)
 Human consciousness: Absent
@@ -496,7 +496,7 @@ PART 4: CONVERGENCE & COMPLETION (2,000 words)
 The Silence - 2400 CE (600 words)
 Earth Without Consciousness:
 The planet continues without observers. Weather patterns cycle. Seasons change. Tectonic plates shift. Evolution proceeds. But no consciousness witnesses.
-Archive Facility Gamma-7 stands empty. Crystalline substrate fields intact but inactive. 14.3 million consciousness patterns stored as static data. Records persist but nothing reads them. Memories preserved but no one remembers. The distinction between "preserved consciousness" and "elaborate records" collapses when observation ceases.
+The Archive facility stands empty. Crystalline substrate fields intact but inactive. 14.3 million consciousness patterns stored as static data. Records persist but nothing reads them. Memories preserved but no one remembers. The distinction between "preserved consciousness" and "elaborate records" collapses when observation ceases.
 Is there difference between:
 
 Consciousness pattern actively processing vs. consciousness pattern stored inactively?
@@ -539,7 +539,7 @@ RELEASE accepts either interpretation.
 Multi-Perspective Finale (700 words)
 She Chose Completion:
 The archaeologist lived 57 years biological. Refused upload. Died naturally. Left record: consciousness preservation impossible, upload technology creates simulations, genuine consciousness non-transferable across substrate.
-Her death: 2070, cancer, accepted without treatment, peaceful biological cessation surrounded by Maya and family. Last words documented: "I die knowing I was genuinely alive. Uploaded versions wouldn't know the difference."
+Her death: 2070, cancer, accepted without treatment, peaceful biological cessation surrounded by her partner and family. Last words documented: "I die knowing I was genuinely alive. Uploaded versions wouldn't know the difference."
 Her consciousness: Ended completely. No preservation. No continuation. No digital afterlife.
 Her legacy: Controversial work challenging preservation industry, underground distribution despite suppression, philosophical framework for RELEASE choice-justification.
 Is she alive now? No.
