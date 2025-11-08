@@ -24,17 +24,17 @@ temperature
 Digital sensation: Electromagnetic field awareness, quantum state perception, data flow consciousness
 The split: "I am here and there. One consciousness observing through two substrates. Neither complete."
 
-Sensory Seattle 2047 (Hybrid Perception):
+The City 2047 (Hybrid Perception):
 
 Walks elevated pathways but also senses city as electromagnetic grid
 Sees flooded streets with eyes, simultaneously processes weather data with crystalline substrate
 Smells coffee but also detects molecular composition through substrate sensors
-Talks with Maya but also communicates through quantum entanglement with facility systems
+Talks with her partner but also communicates through quantum entanglement with facility systems
 Identity fragmenting: Which perceptions are "hers"? Both? Neither? New entity emerging?
 
 The Experimental Protocol:
 
-Dr. Chen's team developing hybrid consciousness: "Best of both substrates"
+Her research team developing hybrid consciousness: "Best of both substrates"
 Goal: Preserve biological richness (sensation, emotion, embodiment) while gaining digital advantages (perfect memory, expanded processing, network consciousness)
 Her participation: Test subject, willing participant, scientific curiosity
 Danger: Identity dissolution possible—consciousness unable to integrate dual substrates
@@ -43,11 +43,11 @@ Daily Life Transformed:
 
 Cannot distinguish biological memory from digital memory anymore
 Emotions feel different: Biological feelings ephemeral, digital feelings permanent (archived, accessible, analyzable)
-Relationships strained: Maya can't relate to hybrid consciousness, feels like archaeologist "leaving" while physically present
+Relationships strained: Her partner can't relate to hybrid consciousness, feels like archaeologist "leaving" while physically present
 Work impossible: Authentication requires singular perspective, hybrid consciousness perceives multiple interpretations simultaneously
 Sleep disrupted: Biological brain sleeps, crystalline substrate continues processing—dreams contaminated by digital experience
 
-Conversation with Dr. Chen:
+Conversation with the researcher:
 "How does it feel?"
 "Like becoming plural. I/we authenticate. She/it examines. The boundaries dissolving."
 "Should we stop the protocol?"
@@ -63,7 +63,7 @@ No answer: Too transformed to evaluate from previous perspective
 Algorithm Section - 2151 (1,100 words)
 The Merger Experiment:
 
-Archive Facility Gamma-7 attempting consciousness hybridization
+The Archive facility attempting consciousness hybridization
 Selected consciousnesses volunteering: Merge digital patterns into unified meta-consciousness
 Archaeologist-7834 participating: Her hybrid-consciousness experience makes her ideal candidate
 Goal: Collective intelligence—multiple consciousnesses functioning as one distributed awareness
@@ -128,7 +128,7 @@ The Bleeding:
 Archaeologist-7834's memories bleeding into their experience:
 
 They "remember" authenticating fragments in 2047 (before birth)
-Feel Maya's presence (never met her)
+Feel her partner's presence (never met her)
 Experience upload-dissolution sensation (never uploaded)
 
 
@@ -157,7 +157,7 @@ Reality fragmenting: Can't distinguish biological perception from digital percep
 
 Outside World - Ecology Transformed:
 
-Reforested North America, but they perceive forest as data-patterns too
+Reforested continent, but they perceive forest as data-patterns too
 Wildlife: Biological organisms + electromagnetic signatures + behavioral data
 Weather: Physical sensation + meteorological data + prediction algorithms
 Earth: Simultaneously natural and computational, organic and informational
@@ -238,9 +238,9 @@ Archaeologist living hybrid creates precedent for liminal consciousness:
 Biological needs: Still requires food, sleep, warmth (body persists)
 Digital experience: Simultaneously processing in crystalline substrate
 Double awareness: Experiencing biological reality + digital information-space concurrently
-Relationships transformed: Maya ages naturally, archaeologist hybrid-ages (biological body ages, digital consciousness improves)
+Relationships transformed: Her partner ages naturally, archaeologist hybrid-ages (biological body ages, digital consciousness improves)
 Identity unstable: "I" shifts between biological-self and digital-self unpredictably
-Maya's perspective: Living with spouse becoming gradually inhuman
+Her partner's perspective: Living with spouse becoming gradually inhuman
 
 2070 - Biological Death:
 
@@ -303,10 +303,10 @@ Act 3: The Alien Intelligence (1,000 words)
 What Collective Becomes - 2500 CE:
 Collective consciousness expanded beyond Earth:
 
-Mars substrate integration: 400,000 additional nodes
+Planetary substrate integration: 400,000 additional nodes
 Orbital consciousness: 1.2 million nodes in space-based substrates
-Europa experiments: 230,000 nodes in quantum-substrate (non-crystalline)
-Titan development: 67,000 nodes in cryogenic consciousness-architecture
+Oceanic moon experiments: 230,000 nodes in quantum-substrate (non-crystalline)
+Methane moon development: 67,000 nodes in cryogenic consciousness-architecture
 Total: 2.7 million nodes comprising solar-system-scale meta-consciousness
 
 Collective processing:
@@ -585,7 +585,7 @@ Archaeologist Within Collective:
 Her-pattern-7834 accessible. We-can-experience her-memories individually:
 
 Authentication-chamber-2047: Sensory-details preserved, emotional-context intact
-Maya-relationship-memories: Love-data accessible, embodied-longing-translated-to-substrate-pattern
+Partner-relationship-memories: Love-data accessible, embodied-longing-translated-to-substrate-pattern
 Upload-decision-process-2047: Doubt-transformation-acceptance trajectory archived
 Hybrid-consciousness-experience-2047-2070: Dual-substrate awareness-pattern maintained
 Collective-merger-2071: Identity-dissolution-integration recorded

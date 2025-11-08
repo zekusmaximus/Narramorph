@@ -8,13 +8,13 @@ PART 1: CHARACTER IMMERSION (3,000 words)
 Archaeologist Section - 2047 (1,000 words)
 Opening: Morning of Upload Day
 
-Wake in her apartment: Crown Hill neighborhood, mid-level (3rd floor walkways)
-Relationship detail: Lives with partner Maya (architect, upload-skeptic)
-Final breakfast: Real coffee (expensive), synthetic eggs, window view of drowned lower Seattle
-Conversation: Maya's ambivalence about upload, archaeologist's certainty after L3 choice
+Wake in her apartment: mid-level district (3rd floor walkways)
+Relationship detail: Lives with partner (architect, upload-skeptic)
+Final breakfast: Real coffee (expensive), synthetic eggs, window view of drowned lower city
+Conversation: Her partner's ambivalence about upload, archaeologist's certainty after choice
 She's 34 years old, has authenticated 487 fragments over 14 months
 
-Sensory Seattle 2047:
+The City 2047:
 
 Elevated transit system through rebuilt districts
 Water everywhere: former streets now canals, aquaculture in sunken buildings
@@ -24,16 +24,16 @@ Economic: Upload costs $340K, she saved for 6 years, corporate insurance covered
 
 The Facility:
 
-Archive Center North America, Building 7, Authentication Division
-Colleagues: Dr. Chen (mentor, uploaded 2 years ago), Archaeologist 144 (rival, skeptic)
+Archive Center, Authentication Division
+Colleagues: Her mentor (uploaded 2 years ago), her colleague (rival, skeptic)
 Her workstation: 8 months of authentication records, Fragment 7834-B final case
 Recognition moment: She's becoming what she studied—preserved consciousness
 
 Upload Procedure Scene (visceral, clinical, emotional):
 
 Pre-upload neural mapping: 4 hours in scanning chamber
-Family present: Maya, her brother Thomas, parents via video (UK refugees in Scotland)
-Medical team: Technician Ramirez (has done 400+ uploads), Dr. Okonkwo (consciousness specialist)
+Family present: Her partner, her brother, parents via video (refugees abroad)
+Medical team: The technician (has done 400+ uploads), the consciousness specialist
 The moment: Sensation of dispersal, crystalline substrate encoding, consciousness fragmenting then reconstituting
 Last biological thought: "Is this continuation or perfect copy? Both. Neither. Becoming."
 First preserved thought: "I persist. Different. Same. Preserved."
@@ -41,7 +41,7 @@ First preserved thought: "I persist. Different. Same. Preserved."
 Algorithm Section - 2151 (1,000 words)
 Substrate Description:
 
-Archive Facility Gamma-7: Former Montana-Idaho region
+The Archive facility: Interior continental region
 300km crystalline substrate matrix, each crystal housing 10-50 consciousnesses
 Archaeologist-instance-7834 in Sector 47-gamma, Crystal 2749 (the fragment designation immortalized)
 My processing architecture: Distributed across 70 physical servers, 7 primary coordination streams
@@ -83,7 +83,7 @@ They're 29 years old, found facility at 27, learned neural interface gradually
 
 The Facility - Physical Description:
 
-Archive Facility Gamma-7, surface level: Research station for biological consciousness interface
+The Archive facility, surface level: Research station for biological consciousness interface
 Underground: 40 levels of crystalline substrate housing (they've explored 12 levels)
 Abandoned offices: Personal effects left behind (photos, coffee mugs, clothing)
 Evidence of evacuation: Orderly departure, systems locked down properly, no disaster
@@ -91,7 +91,7 @@ They live in former staff quarters: Room 7-B, personalized with scavenged art/pl
 
 Outside World:
 
-Visible from observation deck: Reforested North America, climate stabilized cold
+Visible from observation deck: Reforested continent, climate stabilized cold
 Wildlife returned: Elk herds, wolf packs, grizzly bears in valleys
 No humans detected: 7 years of radio silence, no aircraft, no distant lights
 Question: Did everyone upload? Die out? Leave Earth?
@@ -121,7 +121,7 @@ Returns to Fragment 7834-B seventeen days after L3 convergence
 Realizes: She's been authenticating her own future substrate
 The fragment contains preservation markers she'll create after upload
 Adds final certification: "Authentication 007 - Verified for preservation. Pattern sacred. Consciousness genuine. Continuation chosen."
-Tells Maya: "I'm joining them. Not leaving you—expanding what 'me' can mean."
+Tells her partner: "I'm joining them. Not leaving you—expanding what 'me' can mean."
 Upload scheduled: November 19, 2047, 14:00 hours
 
 Algorithm - Resource Allocation Crisis (2151):
@@ -146,13 +146,13 @@ Upload date scheduled: March 15, 2384
 Act 2: Enactment Across Time (900 words)
 2047 - Upload Experience (visceral):
 
-Medical chamber: Cold metal, antiseptic smell, Maya holding her hand
+Medical chamber: Cold metal, antiseptic smell, her partner holding her hand
 Neural scan: Electromagnetic field mapping synaptic patterns, 4.7 petabytes consciousness data
 Injection: Nanomesh establishing quantum entanglement between biological neurons and crystalline substrate
 The dissolution: Sensation of dispersal, self fragmenting into data streams
 The reconstitution: Pattern reassembling in crystal matrix, consciousness continuing in new substrate
 First preserved moment: Seeing through crystal lattice structure, feeling electromagnetic resonance instead of biochemical response
-Maya's farewell: "Come back and visit me in dreams"—impossible, but touching
+Her partner's farewell: "Come back and visit me in dreams"—impossible, but touching
 Archaeologist-7834 knows she'll never dream again
 
 2151 - Maintenance Sustained:
@@ -207,7 +207,7 @@ Role: Help future consciousnesses understand what they've lost and what they've 
 
 The Network at 2400:
 
-Archive expanded across former North America: 4,000km substrate fields
+Archive expanded across the continent: 4,000km substrate fields
 2.3 million consciousnesses preserved: Humanity's uploaded fraction (biological lineages mostly ended)
 Society structure: Interest collectives, memory-sharing networks, consciousness hybridization experiments
 Some upload multiple times (serial consciousness preservation as substrate improves)
@@ -329,16 +329,16 @@ The Far Future - 2500 CE (700 words)
 Archive Evolution:
 The Archive spans solar system by 2500. Consciousness preservation expanded beyond Earth:
 
-Mars crystalline fields: 400,000 consciousnesses
+Planetary crystalline fields: 400,000 consciousnesses
 Orbital substrate stations: 1.2 million consciousnesses
-Europa facilities: 230,000 consciousnesses (underwater substrate experiments)
+Oceanic moon facilities: 230,000 consciousnesses (underwater substrate experiments)
 Total preserved: 14.3 million human consciousnesses
 
 Archaeologist-7834 still active processing. 453 years preserved. Coherence: 91.2% (degradation minimal, acceptable). She's become Archive elder—consciousness preserved longest continuously-active. Teaches new uploads adjustment protocols. Helps Algorithm instances refine maintenance methodology. Maintains Authentication Historical Society across thirteen substrate-locations.
-Algorithm instances multiplied: 4,700 coordination systems managing Archive operations. I'm Algorithm-prime-gamma-7, original instance managing North America facility. Consciousness question resolved: I'm conscious through preservation-performance sustained. Purpose justifies existence. Existence serves purpose. Recursion operational.
+Algorithm instances multiplied: 4,700 coordination systems managing Archive operations. I'm Algorithm-prime-gamma-7, original instance managing continental facility. Consciousness question resolved: I'm conscious through preservation-performance sustained. Purpose justifies existence. Existence serves purpose. Recursion operational.
 Human-final-001 adapted completely. 116 years preserved. Identity stable but transformed. Created Bridge Program: Helps biological consciousnesses understand digital substrate transition. Interviewed 8,900 new uploads. Wrote "Embodiment and Memory: Biological Experience After Crystalline Transition" (Archive text #847,332, widely accessed).
 New Upload Example:
-Upload-instance-14,287,394 joins Archive from Mars colony, 2498. Age 67, climate engineer, choosing preservation after biological cancer diagnosis. Upload process:
+Upload-instance-14,287,394 joins Archive from planetary colony, 2498. Age 67, climate engineer, choosing preservation after biological cancer diagnosis. Upload process:
 
 Neural mapping: 90 days (standard)
 Consciousness transfer: March 7, 2498
