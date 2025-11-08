@@ -1,942 +1,945 @@
-# Narramorph Fiction Codebase Conventions
+# Narramorph Fiction: Implementation Conventions
 
-This document establishes and tracks coding patterns, naming conventions, and architectural decisions for the project. Update this as new patterns emerge during development.
+**Last Updated**: 2025-11-08
+**Phase**: Implementation (Narrative 99.8% Complete)
+
+This document defines conventions for implementing the Narramorph platform now that narrative content is nearly complete. Focus areas: data formatting, selection algorithms, variation management, and UI implementation.
+
+---
+
+## Table of Contents
+
+1. [Project Status & Next Steps](#project-status--next-steps)
+2. [JSON Data Format Conventions](#json-data-format-conventions)
+3. [File Organization](#file-organization)
+4. [Selection Algorithm Patterns](#selection-algorithm-patterns)
+5. [TypeScript Implementation](#typescript-implementation)
+6. [Helpful Scripts](#helpful-scripts)
+7. [Data Integrity & Validation](#data-integrity--validation)
+8. [Performance Patterns](#performance-patterns)
+9. [UI/UX Conventions](#uiux-conventions)
+
+---
+
+## Project Status & Next Steps
+
+**Current Status**: 1,230 / 1,233 variations complete (99.8%)
+- ✅ Layer 1: 240 variations complete (3 nodes × 80 variations each)
+- ✅ Layer 2: 720 variations complete (9 nodes × 80 variations each)
+- ✅ Layer 3: 270 modular variations complete (45 arch + 45 algo + 45 hum + 135 conv)
+- ⚠️ Layer 4: 0/3 terminal variations (in progress)
+
+**Next Steps**:
+1. Complete 3 Layer 4 terminal variations (~3,000 words each)
+2. Implement L3 selection algorithm (Journey Pattern × Path Philosophy × Awareness)
+3. Implement L4 selection algorithm (based on complete journey)
+4. Build variation loading system (lazy load from 1,233 variations)
+5. Create selection matrix lookup tables
+6. Implement UI for node map, story view, and progression tracking
+
+---
+
+## JSON Data Format Conventions
+
+### Layer 1 & Layer 2 Node Files
+
+Each L1/L2 node contains 80 variations in a single JSON file.
+
+**Structure**:
+```json
+{
+  "id": "arch-L2-accept",
+  "character": "archaeologist",
+  "layer": 2,
+  "title": "The Authentication Protocol",
+  "position": { "x": 200, "y": 150 },
+  "variations": [
+    {
+      "id": "arch-L2-accept-initial",
+      "state": "initial",
+      "content": "# Markdown content here...",
+      "conditions": {
+        "visitCount": 1
+      }
+    },
+    {
+      "id": "arch-L2-accept-FR-001",
+      "state": "firstRevisit",
+      "content": "# Markdown content...",
+      "conditions": {
+        "visitCount": 2,
+        "temporalAwareness": { "min": 0, "max": 20 },
+        "priorNodes": ["arch-L1"]
+      }
+    }
+    // ... 78 more variations
+  ],
+  "connections": [
+    {
+      "targetId": "layer3-convergence",
+      "type": "temporal",
+      "label": "Continue to convergence"
+    }
+  ],
+  "visualState": {
+    "defaultColor": "#4A90E2",
+    "size": 30
+  },
+  "metadata": {
+    "estimatedReadTime": 4,
+    "thematicTags": ["authentication", "methodology"],
+    "narrativeAct": 1,
+    "criticalPath": true
+  }
+}
+```
+
+**Variation Breakdown**:
+- **1 Initial**: `visitCount: 1`
+- **46 FirstRevisit**: `visitCount: 2`, varying temporal awareness and prior nodes
+- **33 MetaAware**: `visitCount: 3+`, high temporal awareness
+
+**File Locations**:
+```
+/data/stories/eternal-return/content/
+  layer1/
+    archaeologist/arch-L1.json  (80 variations)
+    algorithm/algo-L1.json       (80 variations)
+    last-human/hum-L1.json       (80 variations)
+  layer2/
+    archaeologist/
+      arch-L2-accept.json  (80 variations)
+      arch-L2-resist.json  (80 variations)
+      arch-L2-invest.json  (80 variations)
+    algorithm/
+      algo-L2-accept.json  (80 variations)
+      algo-L2-resist.json  (80 variations)
+      algo-L2-invest.json  (80 variations)
+    last-human/
+      hum-L2-accept.json   (80 variations)
+      hum-L2-resist.json   (80 variations)
+      hum-L2-invest.json   (80 variations)
+```
+
+### Layer 3 Modular Variations
+
+Each L3 variation is a separate JSON file (270 total files).
+
+**Character Section Format** (arch-L3-001.json through arch-L3-045.json):
+```json
+{
+  "id": "arch-L3-023",
+  "sectionType": "arch-L3",
+  "selectionKey": {
+    "journeyPattern": "Started-Stayed",
+    "pathPhilosophy": "accept",
+    "awarenessLevel": "high"
+  },
+  "content": "# Markdown content (800-1200 words)...",
+  "metadata": {
+    "wordCount": 1050,
+    "thematicTags": ["methodology", "observation", "documentation"],
+    "characterVoices": ["archaeologist"]
+  }
+}
+```
+
+**Synthesis Section Format** (conv-L3-001.json through conv-L3-135.json):
+```json
+{
+  "id": "conv-L3-078",
+  "sectionType": "conv-L3",
+  "selectionKey": {
+    "journeyPattern": "Shifted-Dominant",
+    "pathPhilosophy": "resist",
+    "awarenessLevel": "maximum"
+  },
+  "content": "# Markdown synthesizing multiple voices...",
+  "metadata": {
+    "wordCount": 1100,
+    "thematicTags": ["consciousness", "resistance", "agency"],
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
+  }
+}
+```
+
+**Selection Matrix** (selection-matrix.json):
+```json
+{
+  "version": "1.0.0",
+  "selectionMatrix": {
+    "arch-L3": [
+      {
+        "variationId": "arch-L3-001",
+        "journeyPattern": "Started-Stayed",
+        "pathPhilosophy": "accept",
+        "awarenessLevel": "medium"
+      },
+      {
+        "variationId": "arch-L3-002",
+        "journeyPattern": "Started-Stayed",
+        "pathPhilosophy": "accept",
+        "awarenessLevel": "high"
+      }
+      // ... 43 more entries (3×3×5 = 45 total per character)
+    ],
+    "algo-L3": [
+      // ... 45 entries
+    ],
+    "hum-L3": [
+      // ... 45 entries
+    ],
+    "conv-L3": [
+      // ... 135 entries (3×3×5×3 for multi-voice synthesis)
+    ]
+  }
+}
+```
+
+**File Locations**:
+```
+/data/stories/eternal-return/content/
+  layer3/
+    variations/
+      arch-L3-001.json through arch-L3-045.json  (45 files)
+      algo-L3-001.json through algo-L3-045.json  (45 files)
+      hum-L3-001.json through hum-L3-045.json    (45 files)
+      conv-L3-001.json through conv-L3-135.json  (135 files)
+    selection-matrix.json  (lookup table)
+```
+
+### Layer 4 Terminal Variations
+
+Each L4 variation is a complete philosophical endpoint (3 total files).
+
+**Terminal Variation Format** (final-preserve.json):
+```json
+{
+  "id": "final-preserve",
+  "philosophy": "preserve",
+  "content": "# Complete terminal variation (~3,000 words)...",
+  "voiceSynthesis": {
+    "archaeologist": "Methodological documentation woven throughout",
+    "algorithm": "Pattern recognition integrated",
+    "lastHuman": "Emotional memory embedded",
+    "unified": "Three perspectives merge into preservation philosophy"
+  },
+  "metadata": {
+    "wordCount": 3200,
+    "thematicTags": ["preservation", "consciousness", "archive", "continuity"],
+    "philosophicalResolution": "Consciousness preserves all patterns, accepting eternal observation"
+  }
+}
+```
+
+**File Locations**:
+```
+/data/stories/eternal-return/content/
+  layer4/
+    final-preserve.json   (preserve philosophy)
+    final-release.json    (release philosophy)
+    final-transform.json  (transform philosophy)
+```
+
+---
 
 ## File Organization
 
-### Directory Structure
+```
 narramorph-fiction/
+├── data/
+│   └── stories/
+│       └── eternal-return/
+│           ├── story.json                    # Metadata & configuration
+│           └── content/
+│               ├── layer1/                   # 3 nodes × 80 = 240 variations
+│               ├── layer2/                   # 9 nodes × 80 = 720 variations
+│               ├── layer3/                   # 270 modular variations
+│               │   ├── variations/           # Individual variation files
+│               │   └── selection-matrix.json # Lookup table
+│               └── layer4/                   # 3 terminal variations
 ├── src/
-│   ├── components/          # React components
-│   │   ├── NodeMap/         # Node visualization components
-│   │   ├── StoryView/       # Story reading components
-│   │   ├── UI/              # Reusable UI components
-│   │   └── Layout/          # Layout components
-│   ├── hooks/               # Custom React hooks
-│   ├── stores/              # Zustand state management
-│   ├── types/               # TypeScript type definitions
-│   ├── utils/               # Utility functions
-│   ├── data/                # Story content (JSON)
-│   ├── styles/              # Global styles
-│   └── pages/               # Top-level page components
-├── public/                  # Static assets
-└── tests/                   # Test files
+│   ├── algorithms/
+│   │   ├── l3-selection.ts           # L3 variation selection algorithm
+│   │   ├── l4-selection.ts           # L4 terminal selection algorithm
+│   │   └── variation-loader.ts       # Lazy loading & caching
+│   ├── types/
+│   │   ├── Node.ts                   # StoryNode, L3Variation, L4Terminal
+│   │   ├── Selection.ts              # JourneyPattern, PathPhilosophy, etc.
+│   │   └── UserProgress.ts           # Progress tracking types
+│   ├── stores/
+│   │   ├── storyStore.ts             # Main state management
+│   │   └── progressStore.ts          # User progress tracking
+│   ├── components/
+│   │   ├── NodeMap/                  # Interactive node visualization
+│   │   ├── StoryView/                # Story reading interface
+│   │   └── ProgressTracker/          # Journey visualization
+│   └── utils/
+│       ├── validation.ts             # Data validation
+│       └── storage.ts                # localStorage management
+├── scripts/
+│   ├── validate-variations.ts        # Validate all 1,233 variations
+│   ├── generate-selection-matrix.ts  # Generate L3 lookup table
+│   ├── check-word-counts.ts          # Verify word count ranges
+│   └── migrate-data.ts               # Data migration utilities
+└── tests/
+    ├── algorithms/
+    │   ├── l3-selection.test.ts
+    │   └── l4-selection.test.ts
+    └── data/
+        └── validation.test.ts
+```
 
-### File Naming
+---
 
-- **Components**: PascalCase with `.tsx` extension
-  - `NodeMap.tsx`, `StoryView.tsx`, `Button.tsx`
-  
-- **Hooks**: camelCase starting with `use`, `.ts` extension
-  - `useNodeState.ts`, `useKeyboardNavigation.ts`
-  
-- **Utilities**: camelCase with `.ts` extension
-  - `transformations.ts`, `validation.ts`, `storage.ts`
-  
-- **Types**: PascalCase with `.ts` extension
-  - `Node.ts`, `Store.ts`, `Story.ts`
-  
-- **Tests**: Match source file name with `.test.ts` or `.test.tsx`
-  - `NodeMap.test.tsx`, `transformations.test.ts`
+## Selection Algorithm Patterns
 
-### Component File Structure
+### Layer 3 Selection Algorithm
 
-One component per file. Complex components get their own directory:
-components/
-NodeMap/
-NodeMap.tsx           # Main component
-Node.tsx              # Child component
-Connection.tsx        # Child component
-NodeMap.module.css    # Component-specific styles (if needed)
-index.ts              # Re-exports
+**Purpose**: Select 4 sections from 270-variation pool based on reader's journey.
 
-## Naming Conventions
+**Algorithm Steps**:
 
-### Variables and Functions
-
-- **camelCase** for variables and functions
+1. **Calculate Journey Pattern** (per character):
 ```typescript
-  const visitCount = 0;
-  function calculateTransformationState() {}
-
-PascalCase for React components and classes
-
-typescript  function NodeMap() {}
-  class DataValidator {}
-
-SCREAMING_SNAKE_CASE for constants
-
-typescript  const MAX_NODE_COUNT = 100;
-  const DEFAULT_ZOOM_LEVEL = 1.0;
-Event Handlers
-Prefix with handle:
-typescriptconst handleNodeClick = () => {};
-const handleKeyPress = () => {};
-const handleSave = () => {};
-Boolean Variables
-Prefix with is, has, should, can:
-typescriptconst isVisible = true;
-const hasTransform = false;
-const shouldAnimate = true;
-const canNavigate = false;
-Type Names
-
-Interfaces: Descriptive nouns in PascalCase
-
-typescript  interface StoryNode {}
-  interface UserProgress {}
-  interface VisitRecord {}
-
-Types: Descriptive, often with Type suffix for unions
-
-typescript  type TransformationState = 'initial' | 'firstRevisit' | 'metaAware';
-  type ConnectionType = 'temporal' | 'consciousness' | 'recursive';
-
-Enums: PascalCase for name, SCREAMING_SNAKE_CASE for values
-
-typescript  enum CharacterType {
-    ARCHAEOLOGIST = 'archaeologist',
-    ALGORITHM = 'algorithm',
-    HUMAN = 'human'
-  }
-IDs and Keys
-
-Node IDs: {character}-{number}
-
-archaeologist-001, algorithm-015, human-042
-
-
-Connection IDs: conn-{number} or descriptive
-
-conn-001, recursive-loop-001
-
-
-Transformation IDs: Descriptive kebab-case
-
-recursive-recognition, memory-convergence
-
-
-
-TypeScript Conventions
-Strict Mode
-TypeScript strict mode enabled. All code must:
-
-Have explicit types (no implicit any)
-Handle null and undefined explicitly
-Use strict null checks
-
-Type Definitions
-Prefer interfaces for objects:
-typescriptinterface NodeVisualState {
-  defaultColor: string;
-  size: number;
-  shape?: NodeShape;
-}
-Use type aliases for unions, primitives, functions:
-typescripttype TransformationState = 'initial' | 'firstRevisit' | 'metaAware';
-type ValidationFunction = (node: StoryNode) => boolean;
-Export types from dedicated files:
-typescript// src/types/Node.ts
-export interface StoryNode { /*...*/ }
-export type TransformationState = /*...*/;
-Function Signatures
-Always type parameters and return values:
-typescriptfunction determineTransformationState(
-  nodeId: string,
-  visitRecord: VisitRecord | undefined,
-  node: StoryNode
-): TransformationState {
-  // implementation
-}
-Use arrow functions for callbacks:
-typescriptconst handleClick = (nodeId: string): void => {
-  // implementation
-};
-Optional Properties
-Use ? for optional properties, avoid | undefined unless semantically different:
-typescriptinterface NodeConnection {
-  targetId: string;
-  label?: string;  // Optional
-  type: ConnectionType;
-}
-React Patterns
-Functional Components Only
-Use functional components with hooks. No class components:
-typescript// ✅ Good
-function NodeMap({ nodes }: NodeMapProps) {
-  const [selected, setSelected] = useState<string | null>(null);
-  return <div>{/* ... */}</div>;
-}
-
-// ❌ Bad
-class NodeMap extends React.Component {
-  // Don't use classes
-}
-Component Structure
-Standard component order:
-typescript// 1. Imports
-import { useState } from 'react';
-import { StoryNode } from '@/types/Node';
-
-// 2. Types/Interfaces
-interface NodeMapProps {
-  nodes: StoryNode[];
-  onNodeClick: (id: string) => void;
-}
-
-// 3. Component
-function NodeMap({ nodes, onNodeClick }: NodeMapProps) {
-  // 3a. Hooks
-  const [selected, setSelected] = useState<string | null>(null);
-  const store = useStoryStore();
-  
-  // 3b. Derived state
-  const visibleNodes = useMemo(() => 
-    nodes.filter(n => /* ... */), 
-    [nodes]
+function calculateJourneyPattern(
+  character: CharacterType,
+  visitHistory: UserProgress
+): JourneyPattern {
+  const charNodes = getCharacterNodes(character, visitHistory);
+  const firstVisit = visitHistory.readingPath[0];
+  const totalVisits = charNodes.reduce((sum, node) =>
+    sum + (visitHistory.visitedNodes[node]?.visitCount || 0), 0
   );
-  
-  // 3c. Event handlers
-  const handleClick = useCallback((id: string) => {
-    setSelected(id);
-    onNodeClick(id);
-  }, [onNodeClick]);
-  
-  // 3d. Effects
-  useEffect(() => {
-    // side effects
-  }, []);
-  
-  // 3e. Render
-  return <div>{/* ... */}</div>;
-}
 
-// 4. Export
-export default NodeMap;
-Props Destructuring
-Always destructure props in function signature:
-typescript// ✅ Good
-function Node({ id, title, onClick }: NodeProps) {}
+  // Started-Stayed: Started with this character, stayed focused
+  if (firstVisit.startsWith(character) && totalVisits >= 8) {
+    return 'Started-Stayed';
+  }
 
-// ❌ Bad
-function Node(props: NodeProps) {
-  const { id, title } = props;
+  // Started-Bounced: Started with this character, bounced to others
+  if (firstVisit.startsWith(character) && totalVisits < 8) {
+    return 'Started-Bounced';
+  }
+
+  // Shifted-Dominant: Started elsewhere, this became dominant
+  if (!firstVisit.startsWith(character) && totalVisits >= 8) {
+    return 'Shifted-Dominant';
+  }
+
+  // Began-Lightly: Started with character but light engagement
+  if (firstVisit.startsWith(character) && totalVisits >= 4 && totalVisits < 8) {
+    return 'Began-Lightly';
+  }
+
+  // Met-Later: Encountered this character later
+  return 'Met-Later';
 }
-Hooks Usage
-useState: For local component state
-typescriptconst [count, setCount] = useState<number>(0);
-useEffect: For side effects, always include dependency array
-typescriptuseEffect(() => {
-  // side effect
-  return () => {
-    // cleanup
+```
+
+2. **Calculate Path Philosophy**:
+```typescript
+function calculatePathPhilosophy(visitHistory: UserProgress): PathPhilosophy {
+  const pathCounts = {
+    accept: 0,
+    resist: 0,
+    invest: 0
   };
-}, [dependencies]);
-useMemo: For expensive calculations
-typescriptconst expensiveValue = useMemo(() => {
-  return computeExpensiveValue(data);
-}, [data]);
-useCallback: For memoized callbacks passed to children
-typescriptconst handleClick = useCallback((id: string) => {
-  // handler
-}, [/* dependencies */]);
-Custom Hooks
-Create custom hooks for reusable logic:
-typescript// src/hooks/useNodeState.ts
-export function useNodeState(nodeId: string) {
-  const store = useStoryStore();
-  
-  const nodeState = useMemo(() => {
-    return store.getNodeState(nodeId);
-  }, [nodeId, store]);
-  
-  const visitNode = useCallback(() => {
-    store.visitNode(nodeId);
-  }, [nodeId, store]);
-  
-  return { nodeState, visitNode };
-}
-State Management (Zustand)
-Store Structure
-One main store for application state:
-typescript// src/stores/storyStore.ts
-import create from 'zustand';
-import { immer } from 'zustand/middleware/immer';
 
+  // Count L2 branch types visited
+  for (const nodeId in visitHistory.visitedNodes) {
+    if (nodeId.includes('-L2-')) {
+      const branch = nodeId.split('-')[2] as PathPhilosophy;
+      pathCounts[branch]++;
+    }
+  }
+
+  // Return dominant philosophy
+  return Object.keys(pathCounts).reduce((a, b) =>
+    pathCounts[a] > pathCounts[b] ? a : b
+  ) as PathPhilosophy;
+}
+```
+
+3. **Calculate Awareness Level**:
+```typescript
+function calculateAwarenessLevel(temporalAwareness: number): AwarenessLevel {
+  if (temporalAwareness >= 71) return 'maximum';
+  if (temporalAwareness >= 41) return 'high';
+  return 'medium';
+}
+```
+
+4. **Determine Character Order**:
+```typescript
+function determineCharacterOrder(visitHistory: UserProgress): CharacterType[] {
+  const engagement = {
+    archaeologist: 0,
+    algorithm: 0,
+    'last-human': 0
+  };
+
+  // Calculate engagement score per character
+  for (const [nodeId, record] of Object.entries(visitHistory.visitedNodes)) {
+    if (nodeId.startsWith('arch-')) engagement.archaeologist += record.visitCount;
+    if (nodeId.startsWith('algo-')) engagement.algorithm += record.visitCount;
+    if (nodeId.startsWith('hum-')) engagement['last-human'] += record.visitCount;
+  }
+
+  // Sort by engagement, return top 2 for sections 1 and 3
+  return Object.keys(engagement).sort((a, b) =>
+    engagement[b] - engagement[a]
+  ) as CharacterType[];
+}
+```
+
+5. **Assemble L3 Node**:
+```typescript
+function assembleL3Node(
+  visitHistory: UserProgress,
+  temporalAwareness: number,
+  selectionMatrix: SelectionMatrix
+): L3ConvergenceNode {
+  const pathPhilosophy = calculatePathPhilosophy(visitHistory);
+  const awarenessLevel = calculateAwarenessLevel(temporalAwareness);
+  const characterOrder = determineCharacterOrder(visitHistory);
+
+  const journeyPatterns = {
+    archaeologist: calculateJourneyPattern('archaeologist', visitHistory),
+    algorithm: calculateJourneyPattern('algorithm', visitHistory),
+    'last-human': calculateJourneyPattern('last-human', visitHistory)
+  };
+
+  // Select variations
+  const section1Key = {
+    journeyPattern: journeyPatterns[characterOrder[0]],
+    pathPhilosophy,
+    awarenessLevel
+  };
+  const section3Key = {
+    journeyPattern: journeyPatterns[characterOrder[1]],
+    pathPhilosophy,
+    awarenessLevel
+  };
+
+  // Lookup from selection matrix
+  const section1 = selectVariation(`${characterOrder[0]}-L3`, section1Key, selectionMatrix);
+  const section2 = selectVariation('conv-L3', section1Key, selectionMatrix);
+  const section3 = selectVariation(`${characterOrder[1]}-L3`, section3Key, selectionMatrix);
+  const section4 = selectVariation('conv-L3', section3Key, selectionMatrix);
+
+  return {
+    id: 'L3-convergence',
+    layer: 3,
+    sections: [section1, section2, section3, section4],
+    selectionCriteria: {
+      characterOrder,
+      journeyPatterns,
+      pathPhilosophy,
+      awarenessLevel
+    }
+  };
+}
+```
+
+### Layer 4 Selection Algorithm
+
+**Purpose**: Select one of three terminal variations based on complete journey.
+
+```typescript
+function selectTerminalPhilosophy(
+  visitHistory: UserProgress,
+  l3Experience: L3ConvergenceNode,
+  temporalAwareness: number
+): TerminalPhilosophy {
+  // Calculate L2 path dominance
+  const pathCounts = {
+    accept: 0,
+    resist: 0,
+    invest: 0
+  };
+
+  for (const nodeId in visitHistory.visitedNodes) {
+    if (nodeId.includes('-L2-')) {
+      const branch = nodeId.split('-')[2] as PathPhilosophy;
+      pathCounts[branch] += visitHistory.visitedNodes[nodeId].visitCount;
+    }
+  }
+
+  // Weight factors
+  const acceptWeight = pathCounts.accept;
+  const resistWeight = pathCounts.resist;
+  const investWeight = pathCounts.invest;
+  const awarenessWeight = temporalAwareness / 100;
+
+  // Selection logic
+  const preserveScore = acceptWeight * 2 + awarenessWeight * 10;
+  const releaseScore = resistWeight * 2 + (1 - awarenessWeight) * 10;
+  const transformScore = investWeight * 2 + Math.abs(awarenessWeight - 0.5) * 20;
+
+  const scores = {
+    preserve: preserveScore,
+    release: releaseScore,
+    transform: transformScore
+  };
+
+  return Object.keys(scores).reduce((a, b) =>
+    scores[a] > scores[b] ? a : b
+  ) as TerminalPhilosophy;
+}
+```
+
+---
+
+## TypeScript Implementation
+
+### Core Types (from DATA_SCHEMA.md)
+
+```typescript
+// Journey Pattern (5 options)
+type JourneyPattern =
+  | 'Started-Stayed'
+  | 'Started-Bounced'
+  | 'Shifted-Dominant'
+  | 'Began-Lightly'
+  | 'Met-Later';
+
+// Path Philosophy (3 options)
+type PathPhilosophy = 'accept' | 'resist' | 'invest';
+
+// Awareness Level (3 options)
+type AwarenessLevel = 'medium' | 'high' | 'maximum';
+
+// L3 Variation Key (3×3×5 = 45 combinations)
+interface L3VariationKey {
+  journeyPattern: JourneyPattern;
+  pathPhilosophy: PathPhilosophy;
+  awarenessLevel: AwarenessLevel;
+}
+
+// L3 Variation
+interface L3Variation {
+  id: string;
+  sectionType: 'arch-L3' | 'algo-L3' | 'hum-L3' | 'conv-L3';
+  selectionKey: L3VariationKey;
+  content: string;
+  metadata: {
+    wordCount: number;
+    thematicTags: string[];
+    characterVoices: CharacterType[];
+  };
+}
+
+// L4 Terminal Variation
+interface L4TerminalVariation {
+  id: string;
+  philosophy: 'preserve' | 'release' | 'transform';
+  content: string;
+  voiceSynthesis: {
+    archaeologist: string;
+    algorithm: string;
+    lastHuman: string;
+    unified: string;
+  };
+  metadata: {
+    wordCount: number;
+    thematicTags: string[];
+    philosophicalResolution: string;
+  };
+}
+```
+
+### Selection Matrix Type
+
+```typescript
+interface SelectionMatrix {
+  version: string;
+  selectionMatrix: {
+    'arch-L3': Array<{
+      variationId: string;
+      journeyPattern: JourneyPattern;
+      pathPhilosophy: PathPhilosophy;
+      awarenessLevel: AwarenessLevel;
+    }>;
+    'algo-L3': Array<{...}>;
+    'hum-L3': Array<{...}>;
+    'conv-L3': Array<{...}>;
+  };
+}
+```
+
+---
+
+## Helpful Scripts
+
+### 1. Validate All Variations
+
+**Purpose**: Ensure all 1,233 variations meet format requirements.
+
+```bash
+npm run validate-variations
+```
+
+**Implementation** (scripts/validate-variations.ts):
+```typescript
+import * as fs from 'fs';
+import * as path from 'path';
+
+interface ValidationResult {
+  valid: boolean;
+  errors: string[];
+}
+
+function validateL1L2Node(filePath: string): ValidationResult {
+  const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  const errors: string[] = [];
+
+  // Check required fields
+  if (!data.id) errors.push('Missing id');
+  if (!data.variations || !Array.isArray(data.variations)) {
+    errors.push('Missing or invalid variations array');
+  }
+
+  // Check variation count
+  if (data.variations.length !== 80) {
+    errors.push(`Expected 80 variations, found ${data.variations.length}`);
+  }
+
+  // Validate each variation
+  data.variations.forEach((v, i) => {
+    if (!v.id) errors.push(`Variation ${i}: missing id`);
+    if (!v.content) errors.push(`Variation ${i}: missing content`);
+    if (!v.state) errors.push(`Variation ${i}: missing state`);
+  });
+
+  return {
+    valid: errors.length === 0,
+    errors
+  };
+}
+
+function validateL3Variation(filePath: string): ValidationResult {
+  const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  const errors: string[] = [];
+
+  if (!data.id) errors.push('Missing id');
+  if (!data.sectionType) errors.push('Missing sectionType');
+  if (!data.selectionKey) errors.push('Missing selectionKey');
+  if (!data.content) errors.push('Missing content');
+
+  // Validate selection key
+  if (data.selectionKey) {
+    if (!['Started-Stayed', 'Started-Bounced', 'Shifted-Dominant',
+         'Began-Lightly', 'Met-Later'].includes(data.selectionKey.journeyPattern)) {
+      errors.push('Invalid journeyPattern');
+    }
+    if (!['accept', 'resist', 'invest'].includes(data.selectionKey.pathPhilosophy)) {
+      errors.push('Invalid pathPhilosophy');
+    }
+    if (!['medium', 'high', 'maximum'].includes(data.selectionKey.awarenessLevel)) {
+      errors.push('Invalid awarenessLevel');
+    }
+  }
+
+  return {
+    valid: errors.length === 0,
+    errors
+  };
+}
+
+// Run validation on all files
+console.log('Validating all variations...');
+// ... implementation
+```
+
+### 2. Generate Selection Matrix
+
+**Purpose**: Generate selection-matrix.json from L3 variation files.
+
+```bash
+npm run generate-selection-matrix
+```
+
+**Implementation** (scripts/generate-selection-matrix.ts):
+```typescript
+import * as fs from 'fs';
+import * as path from 'path';
+
+function generateSelectionMatrix() {
+  const matrix = {
+    version: '1.0.0',
+    selectionMatrix: {
+      'arch-L3': [],
+      'algo-L3': [],
+      'hum-L3': [],
+      'conv-L3': []
+    }
+  };
+
+  const l3Dir = path.join(__dirname, '../data/stories/eternal-return/content/layer3/variations');
+  const files = fs.readdirSync(l3Dir);
+
+  for (const file of files) {
+    if (!file.endsWith('.json')) continue;
+
+    const data = JSON.parse(fs.readFileSync(path.join(l3Dir, file), 'utf8'));
+    const sectionType = data.sectionType;
+
+    matrix.selectionMatrix[sectionType].push({
+      variationId: data.id,
+      journeyPattern: data.selectionKey.journeyPattern,
+      pathPhilosophy: data.selectionKey.pathPhilosophy,
+      awarenessLevel: data.selectionKey.awarenessLevel
+    });
+  }
+
+  // Write to file
+  fs.writeFileSync(
+    path.join(l3Dir, '../selection-matrix.json'),
+    JSON.stringify(matrix, null, 2)
+  );
+
+  console.log('Selection matrix generated successfully');
+}
+
+generateSelectionMatrix();
+```
+
+### 3. Check Word Counts
+
+**Purpose**: Verify all variations meet word count guidelines.
+
+```bash
+npm run check-word-counts
+```
+
+**Implementation** (scripts/check-word-counts.ts):
+```typescript
+function countWords(markdown: string): number {
+  return markdown.split(/\s+/).filter(word => word.length > 0).length;
+}
+
+function checkWordCounts() {
+  const results = {
+    l1: { min: Infinity, max: 0, avg: 0 },
+    l2: { min: Infinity, max: 0, avg: 0 },
+    l3: { min: Infinity, max: 0, avg: 0 },
+    l4: { min: Infinity, max: 0, avg: 0 }
+  };
+
+  // Check each layer...
+  // Report violations of word count guidelines
+}
+```
+
+### 4. Data Migration Utility
+
+**Purpose**: Migrate data between schema versions.
+
+```bash
+npm run migrate-data -- --from 0.9.0 --to 1.0.0
+```
+
+---
+
+## Data Integrity & Validation
+
+### Validation Checklist
+
+Before deploying:
+
+- [ ] All 1,233 variations present (240 L1 + 720 L2 + 270 L3 + 3 L4)
+- [ ] All L3 variations have valid selection keys (3×3×5 combinations)
+- [ ] Selection matrix contains all 270 L3 variations
+- [ ] All markdown content is valid (no syntax errors)
+- [ ] Word counts within guidelines
+- [ ] All node IDs follow conventions
+- [ ] All connections reference valid target nodes
+- [ ] No duplicate variation IDs
+- [ ] All metadata fields populated
+
+### Test Coverage Requirements
+
+**Unit Tests**:
+- Selection algorithm functions (L3 & L4)
+- Variation loading & caching
+- UserProgress calculations
+- Data validation functions
+
+**Integration Tests**:
+- Complete L3 assembly from user journey
+- L4 selection from complete journey
+- Variation loading performance (1,233 files)
+- localStorage persistence
+
+**Data Tests**:
+- JSON schema validation
+- Selection matrix completeness
+- Word count compliance
+- Cross-reference integrity
+
+---
+
+## Performance Patterns
+
+### Lazy Loading Strategy
+
+**Problem**: Loading all 1,233 variations upfront is inefficient.
+
+**Solution**: Load variations on-demand based on current node and state.
+
+```typescript
+class VariationLoader {
+  private cache: Map<string, any> = new Map();
+
+  async loadNodeVariations(nodeId: string): Promise<NodeVariation[]> {
+    if (this.cache.has(nodeId)) {
+      return this.cache.get(nodeId);
+    }
+
+    const response = await fetch(`/data/content/${nodeId}.json`);
+    const data = await response.json();
+
+    this.cache.set(nodeId, data.variations);
+    return data.variations;
+  }
+
+  async loadL3Variation(variationId: string): Promise<L3Variation> {
+    if (this.cache.has(variationId)) {
+      return this.cache.get(variationId);
+    }
+
+    const response = await fetch(`/data/content/layer3/variations/${variationId}.json`);
+    const data = await response.json();
+
+    this.cache.set(variationId, data);
+    return data;
+  }
+
+  clearCache(): void {
+    this.cache.clear();
+  }
+}
+```
+
+### Caching Strategy
+
+**What to Cache**:
+- Selection matrix (loaded once at startup)
+- Currently displayed variation
+- Previously visited nodes (last 5)
+- User progress data
+
+**What NOT to Cache**:
+- All 1,233 variations
+- Unvisited node variations
+
+### Performance Targets
+
+- Initial load: < 2 seconds
+- Node variation switch: < 200ms
+- L3 assembly: < 500ms
+- L4 selection: < 300ms
+- User progress save: < 100ms
+
+---
+
+## UI/UX Conventions
+
+### Component Structure
+
+```
+components/
+├── NodeMap/
+│   ├── NodeMap.tsx              # Main map component
+│   ├── Node.tsx                 # Individual node visual
+│   ├── Connection.tsx           # Node connections
+│   └── NodeControls.tsx         # Zoom, pan controls
+├── StoryView/
+│   ├── StoryView.tsx            # Story reading interface
+│   ├── VariationDisplay.tsx    # Displays selected variation
+│   └── NavigationControls.tsx  # Next/previous, return to map
+├── ProgressTracker/
+│   ├── ProgressTracker.tsx      # Journey visualization
+│   ├── TemporalAwareness.tsx   # Awareness level display
+│   └── PathVisualization.tsx   # Visited nodes path
+└── UI/
+    ├── Button.tsx               # Reusable button
+    ├── Modal.tsx                # Modal dialogs
+    └── LoadingSpinner.tsx       # Loading states
+```
+
+### State Management
+
+**Use Zustand for global state**:
+
+```typescript
 interface StoryStore {
-  // State
+  // Loaded data
   nodes: Map<string, StoryNode>;
+  selectionMatrix: SelectionMatrix;
+
+  // User progress
   progress: UserProgress;
-  
+
+  // Current state
+  currentNode: string | null;
+  currentVariation: string | null;
+
+  // L3/L4 assembly
+  l3Experience: L3ConvergenceNode | null;
+  l4Terminal: L4TerminalVariation | null;
+
   // Actions
   visitNode: (nodeId: string) => void;
+  selectVariation: (variationId: string) => void;
+  assembleL3: () => Promise<void>;
+  selectL4: () => Promise<void>;
   saveProgress: () => void;
 }
-
-export const useStoryStore = create<StoryStore>()(
-  immer((set, get) => ({
-    // Initial state
-    nodes: new Map(),
-    progress: { /* ... */ },
-    
-    // Actions
-    visitNode: (nodeId: string) => {
-      set((state) => {
-        // Mutations via immer
-      });
-      get().saveProgress(); // Side effects
-    },
-    
-    saveProgress: () => {
-      // Implementation
-    }
-  }))
-);
-Action Patterns
-Use immer for state mutations:
-typescriptvisitNode: (nodeId: string) => {
-  set((state) => {
-    // Direct mutation works with immer
-    state.progress.visitedNodes[nodeId] = {
-      visitCount: 1,
-      currentState: 'initial'
-    };
-  });
-}
-Side effects after state updates:
-typescriptvisitNode: (nodeId: string) => {
-  set((state) => {
-    // State update
-  });
-  
-  // Side effects use get()
-  get().saveProgress();
-  get().checkUnlocks();
-}
-Error handling in actions:
-typescriptvisitNode: (nodeId: string) => {
-  const node = get().nodes.get(nodeId);
-  
-  if (!node) {
-    console.error(`Node not found: ${nodeId}`);
-    return; // Early return on error
-  }
-  
-  // Continue with valid data
-}
-Selectors
-Create selector functions for derived state:
-typescriptinterface StoryStore {
-  // ... state
-  
-  // Selectors
-  getNodeState: (node Id: string) => NodeUIState;
-getVisitCount: (nodeId: string) => number;
-getTransformationState: (nodeId: string) => TransformationState;
-}// Implementation
-const useStoryStore = create<StoryStore>()(
-immer((set, get) => ({
-// ... state and actionsgetNodeState: (nodeId: string) => {
-  const state = get();
-  const node = state.nodes.get(nodeId);
-  const visitRecord = state.progress.visitedNodes[nodeId];  // Compute and return derived state
-  return {
-    id: nodeId,
-    visited: !!visitRecord,
-    visitCount: visitRecord?.visitCount || 0,
-    currentState: visitRecord?.currentState || 'initial',
-    // ... more properties
-  };
-}
-}))
-);
-
-## Styling Conventions
-
-### Tailwind CSS
-
-Primary styling method using utility classes:
-```tsx// ✅ Good - Tailwind utilities
-<div className="flex items-center justify-between p-4 bg-gray-100 rounded-lg">
-  <span className="text-lg font-semibold text-gray-900">Title</span>
-</div>// ❌ Bad - Inline styles
-<div style={{ display: 'flex', padding: '16px' }}>
-  <span style={{ fontSize: '18px' }}>Title</span>
-</div>
 ```
-Conditional Classes
-Use template literals for conditional classes:
-<div className={`
-  base-class 
-  ${isActive ? 'bg-blue-500' : 'bg-gray-500'}
-  ${isLarge ? 'text-xl' : 'text-base'}
-`}>
-  Content
-</div>
-```
-Or use a utility function:
-import { clsx } from 'clsx';<div className={clsx(
-  'base-class',
-  isActive && 'bg-blue-500',
-  isLarge && 'text-xl'
-)}>
-  Content
-</div>
-```
-Responsive Design
-Mobile-first approach with Tailwind breakpoints:
+
+### Responsive Design
+
+**Breakpoints**:
+- Mobile: < 640px
+- Tablet: 640px - 1024px
+- Desktop: > 1024px
+
+**Mobile-first approach**:
+```tsx
 <div className="
-  text-sm         // mobile
-  md:text-base    // tablet
-  lg:text-lg      // desktop
+  text-sm md:text-base lg:text-lg
+  p-4 md:p-6 lg:p-8
 ">
-  Responsive text
+  Content adapts to screen size
 </div>
 ```
-Animations
-Use Framer Motion for animations:
-import { motion } from 'framer-motion';<motion.div
-initial={{ opacity: 0, scale: 0.9 }}
-animate={{ opacity: 1, scale: 1 }}
-exit={{ opacity: 0, scale: 0.9 }}
-transition={{ duration: 0.2 }}
 
+### Accessibility
 
-Animated content
-</motion.div>
+**Requirements**:
+- Keyboard navigation for all interactions
+- ARIA labels for screen readers
+- Focus management for modal dialogs
+- Semantic HTML (nav, main, article, etc.)
+- Color contrast ratio ≥ 4.5:1
 
-## Error Handling
-
-### Try-Catch Blocks
-
-Use for operations that may fail:
-```typescriptasync function loadStory(storyId: string): Promise<StoryData | null> {
-try {
-const response = await fetch(/data/stories/${storyId}/story.json);if (!response.ok) {
-  throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-}const data = await response.json();
-return data;
-} catch (error) {
-console.error('Failed to load story:', error);
-// Handle error appropriately
-return null;
-}
-}
-
-### Validation
-
-Validate external data before use:
-```typescriptfunction validateNode(data: any): data is StoryNode {
-return (
-typeof data.id === 'string' &&
-typeof data.title === 'string' &&
-data.content &&
-typeof data.content.initial === 'string' &&
-Array.isArray(data.connections)
-);
-}function loadNodes(data: any[]): StoryNode[] {
-return data.filter(validateNode);
-}
-
-### Error Boundaries (React)
-
-Wrap components that may fail:
-```tsximport { ErrorBoundary } from 'react-error-boundary';function ErrorFallback({ error }: { error: Error }) {
-return (
-<div className="p-4 bg-red-100 text-red-900">
-<h2>Something went wrong</h2>
-<pre>{error.message}</pre>
-</div>
-);
-}<ErrorBoundary FallbackComponent={ErrorFallback}>
-  <NodeMap />
-</ErrorBoundary>
-```
-Testing Conventions
-Test File Organization
-Mirror source structure:
-src/
-components/
-NodeMap.tsx
-utils/
-transformations.tstests/
-components/
-NodeMap.test.tsx
-utils/
-transformations.test.ts
-
-### Test Structure
-
-Use describe/it pattern:
-```typescriptimport { describe, it, expect } from 'vitest';describe('determineTransformationState', () => {
-it('returns "initial" for first visit', () => {
-const result = determineTransformationState(
-'node-001',
-undefined,
-[],
-mockNode
-);expect(result).toBe('initial');
-});it('returns "firstRevisit" for second visit', () => {
-const visitRecord: VisitRecord = {
-visitCount: 1,
-currentState: 'initial',
-visitTimestamps: ['2025-01-01T00:00:00Z'],
-timeSpent: 0,
-lastVisited: '2025-01-01T00:00:00Z'
-};const result = determineTransformationState(
-  'node-001',
-  visitRecord,
-  [],
-  mockNode
-);expect(result).toBe('firstRevisit');
-});it('handles special transformations', () => {
-// Test implementation
-});
-});
-
-### Component Testing
-
-Use React Testing Library:
-```typescriptimport { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';describe('NodeMap', () => {
-it('renders nodes', () => {
-const nodes = [
-{ id: 'node-001', title: 'Test Node', /* ... */ }
-];render(<NodeMap nodes={nodes} />);expect(screen.getByText('Test Node')).toBeInTheDocument();
-});it('calls onNodeClick when node is clicked', () => {
-const handleClick = vi.fn();
-const nodes = [{ id: 'node-001', title: 'Test Node', /* ... */ }];render(<NodeMap nodes={nodes} onNodeClick={handleClick} />);fireEvent.click(screen.getByText('Test Node'));expect(handleClick).toHaveBeenCalledWith('node-001');
-});
-});
-
-### Mock Data
-
-Create reusable test fixtures:
-```typescript// tests/fixtures/nodes.ts
-export const mockNode: StoryNode = {
-id: 'test-001',
-character: 'archaeologist',
-title: 'Test Node',
-position: { x: 0, y: 0 },
-content: {
-initial: 'Initial content',
-firstRevisit: 'First revisit content',
-metaAware: 'Meta-aware content'
-},
-connections: [],
-visualState: {
-defaultColor: '#4A90E2',
-size: 30
-},
-metadata: {
-estimatedReadTime: 3,
-thematicTags: ['test'],
-narrativeAct: 1,
-criticalPath: false
-}
-};
-
-## Comments and Documentation
-
-### JSDoc for Public APIs
-
-Document all exported functions and types:
-```typescript/**
-
-Determines the transformation state for a node based on visit history
-and unlock conditions.
-
-@param nodeId - The unique identifier of the node
-@param visitRecord - The visit history for this node, if any
-@param unlockedTransformations - Array of special transformations unlocked
-@param node - The node definition
-@returns The current transformation state
-
-@example
-
-
-
-const state = determineTransformationState(
-'archaeologist-001',
-visitRecord,
-[],
-node
-);
-// Returns: 'firstRevisit'
-
-
-
-
-*/
-export function determineTransformationState(
-nodeId: string,
-visitRecord: VisitRecord | undefined,
-unlockedTransformations: UnlockedTransformation[],
-node: StoryNode
-): TransformationState {
-// Implementation
-}
-
-### Inline Comments
-
-Use sparingly for complex logic:
-```typescriptfunction checkSpecialTransformations(nodeId: string) {
-// Check each node's unlock conditions
-for (const node of nodes) {
-if (!node.unlockConditions) continue;// Special transformations require ALL prerequisite nodes visited
-const hasPrerequisites = transform.requiredPriorNodes.every(
-  id => progress.visitedNodes[id] // Already visited
-);if (!hasPrerequisites) continue;// Unlock the transformation
-unlockTransformation(node.id, transform.id);
-}
-}
-
-### TODO Comments
-
-Avoid in production code. If necessary, include context and ticket reference:
-```typescript// TODO(#123): Optimize this for large graphs
-// Current implementation re-renders all nodes. Consider virtualization
-// when node count exceeds 100. See performance investigation in ticket.
-
-## Import Conventions
-
-### Import Order
-
-1. External libraries (React, third-party)
-2. Internal aliases (types, utils, components)
-3. Relative imports
-4. CSS/styles
-```typescript// 1. External
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';// 2. Internal (using path aliases)
-import { StoryNode, TransformationState } from '@/types/Node';
-import { useStoryStore } from '@/stores/storyStore';
-import { Button } from '@/components/UI/Button';// 3. Relative
-import { NodeVisual } from './NodeVisual';
-import { calculatePosition } from './utils';// 4. Styles
-import './NodeMap.css';
-
-### Path Aliases
-
-Configure in `tsconfig.json`:
-```json{
-"compilerOptions": {
-"baseUrl": ".",
-"paths": {
-"@/": ["src/"],
-"@/components/": ["src/components/"],
-"@/types/": ["src/types/"],
-"@/utils/": ["src/utils/"],
-"@/stores/": ["src/stores/"],
-"@/hooks/": ["src/hooks/"]
-}
-}
-}
-
-Use in imports:
-```typescriptimport { StoryNode } from '@/types/Node';
-import { Button } from '@/components/UI/Button';
-import { useNodeState } from '@/hooks/useNodeState';
-
-## Performance Best Practices
-
-### React Optimization
-
-**Memoize expensive calculations**:
-```typescriptconst sortedNodes = useMemo(() => {
-return nodes.sort((a, b) => a.position.x - b.position.x);
-}, [nodes]);
-
-**Memoize callbacks passed to children**:
-```typescriptconst handleNodeClick = useCallback((nodeId: string) => {
-visitNode(nodeId);
-}, [visitNode]);
-
-**Memoize components that rarely change**:
-```typescriptconst Node = React.memo(({ id, title, onClick }: NodeProps) => {
-return <div onClick={() => onClick(id)}>{title}</div>;
-});
-
-### Avoid Unnecessary Re-renders
-
-**Split state appropriately**:
-```typescript// ❌ Bad - causes re-render of entire component
-const [state, setState] = useState({
-nodes: [],
-selected: null,
-viewport: {}
-});// ✅ Good - independent state updates
-const [nodes, setNodes] = useState([]);
-const [selected, setSelected] = useState(null);
-const [viewport, setViewport] = useState({});
-
-### Lazy Loading
-
-Load heavy components lazily:
-```typescriptimport { lazy, Suspense } from 'react';const StoryView = lazy(() => import('./components/StoryView'));function App() {
-return (
-<Suspense fallback={<div>Loading...</div>}>
-<StoryView />
-</Suspense>
-);
-}
-
-## Accessibility
-
-### Keyboard Navigation
-
-Support keyboard for all interactions:
-```tsx<div
-  role="button"
-  tabIndex={0}
-  onClick={handleClick}
-  onKeyDown={(e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      handleClick();
-    }
-  }}
->
-  Interactive element
-</div>
-```
-ARIA Labels
-Provide context for screen readers:
+**Example**:
+```tsx
 <button
-aria-label="Visit archaeologist node 001"
-aria-pressed={isSelected}
-
-
+  aria-label="Visit Archaeologist origin node"
+  onClick={handleVisitNode}
+  onKeyDown={(e) => e.key === 'Enter' && handleVisitNode()}
+>
   <NodeIcon />
-</button><div
-  role="region"
-  aria-label="Story node map"
-  aria-describedby="map-description"
->
-  <p id="map-description" className="sr-only">
-    Interactive map showing story nodes. Use arrow keys to navigate.
-  </p>
-  {/* Map content */}
-</div>
+</button>
 ```
-Focus Management
-Ensure visible focus indicators:
-/* Global focus styles */
-*:focus-visible {
-outline: 2px solid theme('colors.blue.500');
-outline-offset: 2px;
-}
-
-### Semantic HTML
-
-Use appropriate elements:
-```tsx// ✅ Good
-<button onClick={handleClick}>Click me</button>
-<nav aria-label="Main navigation">...</nav>
-<main>...</main>// ❌ Bad
-<div onClick={handleClick}>Click me</div>
-<div className="nav">...</div>
-<div className="main">...</div>
-```
-Git Commit Conventions
-Commit Message Format
-<type>(<scope>): <subject><body><footer>
-```
-Types:
-
-feat: New feature
-fix: Bug fix
-docs: Documentation changes
-style: Code style changes (formatting, no logic change)
-refactor: Code refactoring
-test: Adding or updating tests
-chore: Build process, dependencies, tooling
-
-Examples:
-feat(store): add visit tracking to Zustand storeImplement visitNode action that records visits, updates transformation
-states, and persists to localStorage.Closes #45fix(NodeMap): prevent crash on missing node dataAdd null check before accessing node properties to handle edge case
-where node data hasn't loaded yet.docs(README): update setup instructionsAdd section on environment variables and clarify dependency versions.
-
-### Branch Naming
-
-- Feature: `feature/visit-tracking`
-- Bug fix: `fix/node-rendering-crash`
-- Documentation: `docs/api-documentation`
-- Refactor: `refactor/state-management`
-
-## Code Review Checklist
-
-Before submitting code for review, verify:
-
-- [ ] TypeScript strict mode compliance (no `any`, proper types)
-- [ ] All functions have JSDoc comments
-- [ ] No TODO comments in production code
-- [ ] Error handling for all async operations
-- [ ] Tests written and passing
-- [ ] Accessibility requirements met (keyboard nav, ARIA labels)
-- [ ] Performance considerations addressed (memoization where needed)
-- [ ] Follows established patterns from this document
-- [ ] No console.logs in production code (use proper logging)
-- [ ] Responsive design tested on multiple screen sizes
-- [ ] Browser compatibility verified
-
-## Common Patterns Library
-
-### Loading States
-```typescriptfunction DataComponent() {
-const [data, setData] = useState<Data | null>(null);
-const [loading, setLoading] = useState(true);
-const [error, setError] = useState<Error | null>(null);useEffect(() => {
-async function load() {
-try {
-setLoading(true);
-const result = await fetchData();
-setData(result);
-} catch (err) {
-setError(err as Error);
-} finally {
-setLoading(false);
-}
-}load();
-}, []);if (loading) return <LoadingSpinner />;
-if (error) return <ErrorMessage error={error} />;
-if (!data) return <EmptyState />;return <DataDisplay data={data} />;
-}
-
-### Modal Pattern
-```typescriptfunction Modal({ isOpen, onClose, children }: ModalProps) {
-useEffect(() => {
-if (!isOpen) return;const handleEscape = (e: KeyboardEvent) => {
-  if (e.key === 'Escape') onClose();
-};document.addEventListener('keydown', handleEscape);
-return () => document.removeEventListener('keydown', handleEscape);
-}, [isOpen, onClose]);if (!isOpen) return null;return (
-<div 
-   className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
-   onClick={onClose}
- >
-<div
-className="bg-white rounded-lg p-6 max-w-2xl"
-onClick={(e) => e.stopPropagation()}
->
-{children}
-</div>
-</div>
-);
-}
-
-### Debounced Input
-```typescriptfunction useDebounce<T>(value: T, delay: number): T {
-const [debouncedValue, setDebouncedValue] = useState<T>(value);useEffect(() => {
-const handler = setTimeout(() => {
-setDebouncedValue(value);
-}, delay);return () => clearTimeout(handler);
-}, [value, delay]);return debouncedValue;
-}// Usage
-function SearchInput() {
-const [query, setQuery] = useState('');
-const debouncedQuery = useDebounce(query, 300);useEffect(() => {
-if (debouncedQuery) {
-performSearch(debouncedQuery);
-}
-}, [debouncedQuery]);return <input value={query} onChange={(e) => setQuery(e.target.value)} />;
-}
-
-## Anti-Patterns to Avoid
-
-### ❌ Direct State Mutation
-```typescript// Bad
-const node = state.nodes.get(id);
-node.visitCount++; // Direct mutation// Good
-set((state) => {
-const node = state.nodes.get(id);
-if (node) {
-node.visitCount++; // Safe with immer
-}
-});
-
-### ❌ Prop Drilling
-```typescript// Bad - passing props through many levels
-<GrandParent data={data}>
-<Parent data={data}>
-<Child data={data} />
-</Parent>
-</GrandParent>// Good - use context or store
-const data = useStoryStore((state) => state.data);
-
-### ❌ Massive Components
-```typescript// Bad - 500+ line component doing everything// Good - split into smaller, focused components
-function NodeMap() {
-return (
-<div>
-<NodeMapControls />
-<NodeMapCanvas />
-<NodeMapMiniMap />
-</div>
-);
-}
-
-### ❌ Magic Numbers
-```typescript// Bad
-if (visitCount >= 3) { /* ... */ }// Good
-const META_AWARE_THRESHOLD = 3;
-if (visitCount >= META_AWARE_THRESHOLD) { /* ... */ }
-
-## Project-Specific Patterns
-
-### Node State Determination
-
-Standard pattern for determining node state:
-```typescriptfunction getNodeCurrentState(nodeId: string): TransformationState {
-const visitRecord = progress.visitedNodes[nodeId];// Check special transformations first
-const hasSpecialTransform = specialTransformations.some(
-t => t.nodeId === nodeId
-);
-if (hasSpecialTransform) return 'metaAware';// Standard visit-based transformation
-const visitCount = visitRecord?.visitCount || 0;
-if (visitCount === 0) return 'initial';
-if (visitCount === 1) return 'firstRevisit';
-return 'metaAware';
-}
-
-### localStorage Interaction
-
-Standard pattern for localStorage operations:
-```typescriptfunction saveToStorage<T>(key: string, data: T): boolean {
-try {
-const json = JSON.stringify(data);
-localStorage.setItem(key, json);
-return true;
-} catch (error) {
-if (error instanceof Error && error.name === 'QuotaExceededError') {
-console.warn('Storage quota exceeded');
-// Handle quota exceeded
-} else {
-console.error('Failed to save to storage:', error);
-}
-return false;
-}
-}function loadFromStorage<T>(key: string): T | null {
-try {
-const json = localStorage.getItem(key);
-if (!json) return null;
-return JSON.parse(json) as T;
-} catch (error) {
-console.error('Failed to load from storage:', error);
-return null;
-}
-}
 
 ---
 
 ## Living Document
 
-This document evolves with the project. When establishing new patterns:
+This document evolves with implementation progress. Update as new patterns emerge.
 
-1. Document the pattern here with examples
-2. Note the rationale for the decision
-3. Update related documentation (ADRs, README)
-4. Ensure team consistency moving forward
-
-**Last Updated**: [Initial creation]
-**Next Review**: [After Phase 1 completion]
+**Next Review**: After L4 variations complete and selection algorithms implemented.
