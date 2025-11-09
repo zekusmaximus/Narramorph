@@ -2,10 +2,15 @@
  * File system utilities with atomic writes, backups, and manifest generation
  */
 
-import { readFile, writeFile, mkdir, readdir, copyFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, readdir, copyFile, stat } from 'node:fs/promises';
+import { createReadStream } from 'node:fs';
 import { join, dirname, relative, resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { Logger } from './log.js';
+
+// Performance limits
+export const MAX_CONCURRENT_READS = 10;
+export const STREAM_THRESHOLD_KB = 100;
 
 export interface ManifestFile {
   sourceHash: string;
@@ -29,13 +34,23 @@ export interface Manifest {
 }
 
 /**
- * Read file with error handling
+ * Read file with error handling and streaming for large files
  */
 export async function readFileWithLogging(
   filePath: string,
-  logger?: Logger
+  logger?: Logger,
+  useStreaming?: boolean
 ): Promise<string | null> {
   try {
+    // Check file size
+    const stats = await stat(filePath);
+    const fileSizeKB = stats.size / 1024;
+
+    // Use streaming for large files if enabled
+    if (useStreaming && fileSizeKB > STREAM_THRESHOLD_KB) {
+      return await readFileStreaming(filePath, logger);
+    }
+
     return await readFile(filePath, 'utf-8');
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
@@ -44,6 +59,65 @@ export async function readFileWithLogging(
     });
     return null;
   }
+}
+
+/**
+ * Read large file using streams
+ */
+async function readFileStreaming(
+  filePath: string,
+  logger?: Logger
+): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const chunks: Buffer[] = [];
+    const stream = createReadStream(filePath, { encoding: 'utf-8' });
+
+    stream.on('data', (chunk) => {
+      chunks.push(Buffer.from(chunk));
+    });
+
+    stream.on('end', () => {
+      resolve(Buffer.concat(chunks).toString('utf-8'));
+    });
+
+    stream.on('error', (error) => {
+      logger?.blocker('FILE_STREAM_ERROR', `Failed to stream file: ${error.message}`, {
+        file: filePath,
+      });
+      reject(error);
+    });
+  });
+}
+
+/**
+ * Process files in batches with concurrency limit
+ */
+export async function processBatchConcurrent<T, R>(
+  items: T[],
+  processor: (item: T) => Promise<R>,
+  concurrency: number = MAX_CONCURRENT_READS
+): Promise<R[]> {
+  const results: R[] = [];
+  const executing: Promise<void>[] = [];
+
+  for (const item of items) {
+    const promise = processor(item).then((result) => {
+      results.push(result);
+    });
+
+    executing.push(promise);
+
+    if (executing.length >= concurrency) {
+      await Promise.race(executing);
+      executing.splice(
+        executing.findIndex((p) => p === promise),
+        1
+      );
+    }
+  }
+
+  await Promise.all(executing);
+  return results;
 }
 
 /**
