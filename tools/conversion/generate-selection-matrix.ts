@@ -75,18 +75,18 @@ async function main() {
   const logger = new Logger(values.verbose);
   const projectRoot = resolve(process.cwd(), '../..');
   const contentRoot = join(projectRoot, 'src/data/stories/eternal-return/content');
-  const layer3Dir = join(contentRoot, 'layer3');
+  const layer3VariationsDir = join(contentRoot, 'layer3', 'variations');
 
   logger.info('MATRIX_START', 'Generating selection matrix...');
 
-  // Read all L3 JSON files
+  // Read all L3 JSON files from variations directory
   const l3Files: L3File[] = [];
   try {
-    const files = await readdir(layer3Dir);
+    const files = await readdir(layer3VariationsDir);
     for (const file of files) {
       if (!file.endsWith('.json')) continue;
 
-      const filePath = join(layer3Dir, file);
+      const filePath = join(layer3VariationsDir, file);
       const content = await readFile(filePath, 'utf-8');
       const data = JSON.parse(content);
 
@@ -109,8 +109,8 @@ async function main() {
       });
     }
   } catch (error) {
-    logger.blocker('MATRIX_READ_ERROR', `Failed to read layer3 directory: ${error}`, {
-      value: layer3Dir,
+    logger.blocker('MATRIX_READ_ERROR', `Failed to read layer3/variations directory: ${error}`, {
+      value: layer3VariationsDir,
     });
     console.error('\n❌ Matrix generation failed');
     process.exit(1);
@@ -150,7 +150,11 @@ async function main() {
   const sortedKeys = Array.from(bySelectionKey.keys()).sort();
 
   for (const key of sortedKeys) {
-    const [journeyPattern, philosophyDominant, awarenessLevel] = key.split('|');
+    const parts = key.split('|');
+    if (parts.length !== 3) continue; // Skip invalid keys
+    const journeyPattern = parts[0];
+    const philosophyDominant = parts[1];
+    const awarenessLevel = parts[2];
     const bySection = bySelectionKey.get(key)!;
 
     // Select one file per section type (deterministic: first after numeric-lex sort)
@@ -265,7 +269,7 @@ function selectFirst(files: L3File[]): L3File | null {
     const aMatch = a.id.match(/-(\d+)$/);
     const bMatch = b.id.match(/-(\d+)$/);
 
-    if (aMatch && bMatch) {
+    if (aMatch && aMatch[1] && bMatch && bMatch[1]) {
       const aNum = parseInt(aMatch[1], 10);
       const bNum = parseInt(bMatch[1], 10);
       if (aNum !== bNum) return aNum - bNum;
@@ -275,7 +279,7 @@ function selectFirst(files: L3File[]): L3File | null {
     return a.id.localeCompare(b.id);
   });
 
-  return sorted[0];
+  return sorted[0] || null;
 }
 
 main().catch((error) => {

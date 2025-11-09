@@ -149,15 +149,14 @@ async function main() {
     warningsByType,
   };
 
-  // Write report if requested
-  if (values.report) {
-    const reportPath = values.report.endsWith('.json')
-      ? values.report
-      : join('reports', values.report || 'validation.json');
-    const json = JSON.stringify(report, null, 2);
-    await writeFileAtomic(reportPath, json, logger);
-    logger.info('REPORT_WRITTEN', `Validation report written to ${reportPath}`);
-  }
+  // Write report (default to reports/validation.json, override with --report)
+  const reportPath = values.report
+    ? (values.report.endsWith('.json') ? values.report : join('reports', values.report))
+    : join('reports', 'validation.json');
+
+  const json = JSON.stringify(report, null, 2);
+  await writeFileAtomic(reportPath, json, logger);
+  logger.info('REPORT_WRITTEN', `Validation report written to ${reportPath}`);
 
   // Print summary
   console.log('\n=== Validation Summary ===');
