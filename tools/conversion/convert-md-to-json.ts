@@ -303,17 +303,161 @@ async function convertL1(
 }
 
 /**
- * Convert L2 layer (placeholder for Week 2)
+ * Convert L2 layer (9 nodes × 80 variations = 720 total)
  */
 async function convertL2(
-  _docsRoot: string,
-  _outputRoot: string,
-  _manifest: Manifest,
+  docsRoot: string,
+  outputRoot: string,
+  manifest: Manifest,
   logger: Logger,
-  _options: ValidationOptions,
-  _dryRun?: boolean
+  options: ValidationOptions,
+  dryRun?: boolean
 ): Promise<void> {
-  logger.info('L2_TODO', 'L2 conversion not yet implemented (Week 2)');
+  logger.info('L2_START', 'Converting Layer 2...');
+
+  const characters = ['arch', 'algo', 'hum'];
+  const paths: Array<'accept' | 'resist' | 'invest'> = ['accept', 'resist', 'invest'];
+
+  for (const char of characters) {
+    for (const path of paths) {
+      const nodeId = `${char}-L2-${path}`;
+      const sourceDir = join(docsRoot, `${char}-L2-${path}-production`);
+
+      // Discover all markdown files
+      const files = await discoverMarkdownFiles(sourceDir, /\.md$/, logger);
+      logger.info('L2_DISCOVERED', `Found ${files.length} files for ${nodeId}`);
+
+      const variations: L1L2Variation[] = [];
+      const variationTexts: VariationText[] = [];
+      const ids: string[] = [];
+
+      // Process each file
+      for (const file of files) {
+        const content = await readFileWithLogging(file, logger);
+        if (!content) continue;
+
+        // Normalize
+        const { text: normalized } = normalizeText(content, logger, file);
+
+        // Parse frontmatter
+        const parsed = parseFrontmatter(normalized, logger, file);
+        if (!parsed) continue;
+
+        const { frontmatter, content: body } = parsed;
+
+        // Validate frontmatter
+        if (!validateL1L2Frontmatter(frontmatter, 2, logger, file)) continue;
+
+        // Extract fields
+        const variationId = frontmatter.variation_id as string;
+        const variationType = frontmatter.variation_type as string;
+        const wordCount = frontmatter.word_count as number;
+
+        // Map variation_type to transformationState
+        let transformationState: string;
+        if (variationType === 'initial') {
+          transformationState = 'initial';
+        } else if (variationType === 'firstRevisit') {
+          transformationState = 'firstRevisit';
+        } else if (variationType === 'metaAware') {
+          transformationState = 'metaAware';
+        } else {
+          transformationState = variationType;
+        }
+
+        // Parse awareness range from conditions if present
+        let awarenessRange: [number, number] | undefined;
+        if ('conditions' in frontmatter && frontmatter.conditions) {
+          const conditions = frontmatter.conditions as Record<string, unknown>;
+          if ('awareness' in conditions && typeof conditions.awareness === 'string') {
+            const match = conditions.awareness.match(/(\d+)-(\d+)%/);
+            if (match && match[1] && match[2]) {
+              awarenessRange = [parseInt(match[1], 10), parseInt(match[2], 10)];
+            }
+          }
+        }
+
+        // Validate word count
+        const actualWordCount = countWords(body);
+        validateWordCount(actualWordCount, wordCount, 10, 2, logger, file);
+
+        // Create variation object
+        const variation: L1L2Variation = {
+          id: variationId,
+          transformationState,
+          awarenessRange,
+          content: body,
+          metadata: {
+            wordCount: actualWordCount,
+            pathPhilosophy: path,
+            ...frontmatter,
+          },
+        };
+
+        variations.push(variation);
+        ids.push(variationId);
+
+        // For similarity detection
+        variationTexts.push({
+          id: variationId,
+          content: body,
+          groupKey: `${nodeId}-${transformationState}`,
+        });
+
+        // Track in manifest
+        const sourceHash = hashContent(parsed.raw, body);
+        manifest.files[file] = {
+          sourceHash,
+          outputPath: `layer2/${nodeId}-variations.json`,
+          convertedAt: new Date().toISOString(),
+        };
+      }
+
+      // Sort variations by ID for deterministic output
+      variations.sort((a, b) => a.id.localeCompare(b.id));
+
+      // Re-index with zero-padded IDs
+      const reindexedVariations = variations.map((v, index) => ({
+        ...v,
+        id: generateAggregatedId(char as any, 2, index + 1, path),
+      }));
+
+      // Check for duplicates
+      checkDuplicateIds(reindexedVariations.map(v => v.id), logger, nodeId);
+
+      // Validate count
+      validateVariationCount(reindexedVariations.length, 80, nodeId, logger, options);
+
+      // Detect similar variations
+      detectSimilarVariations(variationTexts, logger);
+
+      // Create output
+      const output: L1L2Output = {
+        schemaVersion: SCHEMA_VERSION,
+        nodeId,
+        totalVariations: reindexedVariations.length,
+        variations: reindexedVariations,
+      };
+
+      // Validate schema version
+      validateSchemaVersion(output as unknown as Record<string, unknown>, logger, nodeId);
+
+      // Write output
+      if (!dryRun) {
+        const outputDir = join(outputRoot, 'layer2');
+        await ensureDir(outputDir);
+        const outputPath = join(outputDir, `${nodeId}-variations.json`);
+        const json = JSON.stringify(output, null, 2);
+        await writeFileAtomic(outputPath, json, logger);
+        logger.info('L2_WRITTEN', `Wrote ${outputPath}`);
+      }
+
+      manifest.counts.l2Variations += reindexedVariations.length;
+    }
+  }
+
+  manifest.counts.totalVariations += manifest.counts.l2Variations;
+  logger.info('L2_COMPLETE', `Layer 2 conversion complete: ${manifest.counts.l2Variations} variations`);
 }
 
 /**
