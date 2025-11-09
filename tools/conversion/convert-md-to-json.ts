@@ -22,6 +22,7 @@ import {
 import {
   validateL1L2Frontmatter,
   validateL3Frontmatter,
+  validateL4Frontmatter,
   validateWordCount,
   validateVariationCount,
   checkDuplicateIds,
@@ -72,7 +73,13 @@ interface L3Output {
   metadata: Record<string, unknown>;
 }
 
-// L4 output defined for Week 4
+interface L4Output {
+  schemaVersion: string;
+  id: string;
+  philosophy: string;
+  content: string;
+  metadata: Record<string, unknown>;
+}
 
 async function main() {
   const { values } = parseArgs({
@@ -722,17 +729,105 @@ async function convertL3(
 }
 
 /**
- * Convert L4 layer (placeholder for Week 4)
+ * Convert L4 layer (3 terminal files)
  */
 async function convertL4(
-  _docsRoot: string,
-  _outputRoot: string,
-  _manifest: Manifest,
+  docsRoot: string,
+  outputRoot: string,
+  manifest: Manifest,
   logger: Logger,
-  _options: ValidationOptions,
-  _dryRun?: boolean
+  options: ValidationOptions,
+  dryRun?: boolean
 ): Promise<void> {
-  logger.info('L4_TODO', 'L4 conversion not yet implemented (Week 4)');
+  logger.info('L4_START', 'Converting Layer 4...');
+
+  const philosophies = ['preserve', 'release', 'transform'];
+  const l4Dir = join(docsRoot, 'L4');
+
+  for (const philosophy of philosophies) {
+    const fileName = `L4-${philosophy.toUpperCase()}.md`;
+    const filePath = join(l4Dir, fileName);
+
+    // Read file
+    const content = await readFileWithLogging(filePath, logger);
+    if (!content) {
+      logger.error('L4_FILE_NOT_FOUND', `L4 file not found: ${fileName}`, {
+        file: filePath,
+        exampleFix: `Create ${fileName} in docs/L4/`,
+      });
+      continue;
+    }
+
+    // Normalize
+    const { text: normalized } = normalizeText(content, logger, filePath);
+
+    // Parse frontmatter
+    const parsed = parseFrontmatter(normalized, logger, filePath);
+    if (!parsed) continue;
+
+    const { frontmatter, content: body } = parsed;
+
+    // Normalize field names: variationId -> id if needed
+    if ('variationId' in frontmatter && !('id' in frontmatter)) {
+      frontmatter.id = frontmatter.variationId;
+    }
+
+    // Ensure philosophy field exists
+    if (!('philosophy' in frontmatter)) {
+      frontmatter.philosophy = philosophy;
+    }
+
+    // Validate frontmatter
+    if (!validateL4Frontmatter(frontmatter, logger, filePath)) continue;
+
+    // Extract fields
+    const id = frontmatter.id as string;
+    const wordCount = frontmatter.wordCount as number | undefined;
+
+    // Validate word count if provided
+    if (wordCount) {
+      const actualWordCount = countWords(body);
+      validateWordCount(actualWordCount, wordCount, id, logger, options);
+    }
+
+    // Create output
+    const output: L4Output = {
+      schemaVersion: SCHEMA_VERSION,
+      id,
+      philosophy,
+      content: body,
+      metadata: {
+        wordCount: countWords(body),
+        ...frontmatter,
+      },
+    };
+
+    // Validate schema version
+    validateSchemaVersion(output as unknown as Record<string, unknown>, logger, id);
+
+    // Write output
+    if (!dryRun) {
+      const outputDir = join(outputRoot, 'layer4');
+      await ensureDir(outputDir);
+      const outputPath = join(outputDir, `${id}.json`);
+      const json = JSON.stringify(output, null, 2);
+      await writeFileAtomic(outputPath, json, logger);
+      logger.info('L4_WRITTEN', `Wrote ${outputPath}`);
+    }
+
+    // Track in manifest
+    const sourceHash = hashContent(parsed.raw, body);
+    manifest.files[filePath] = {
+      sourceHash,
+      outputPath: `layer4/${id}.json`,
+      convertedAt: new Date().toISOString(),
+    };
+
+    manifest.counts.l4Variations++;
+  }
+
+  manifest.counts.totalVariations += manifest.counts.l4Variations;
+  logger.info('L4_COMPLETE', `Layer 4 conversion complete: ${manifest.counts.l4Variations} variations`);
 }
 
 main().catch((error) => {
