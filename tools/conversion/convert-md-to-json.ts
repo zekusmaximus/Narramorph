@@ -4,8 +4,9 @@
  * Converts L1/L2/L3/L4 markdown files to JSON format
  */
 
-import { resolve, join } from 'node:path';
+import { resolve, join, relative } from 'node:path';
 import { parseArgs } from 'node:util';
+import { watch } from 'node:fs';
 import { Logger } from './lib/log.js';
 import { normalizeText } from './lib/normalize.js';
 import { parseFrontmatter, countWords } from './lib/frontmatter.js';
@@ -20,13 +21,14 @@ import {
 } from './lib/fs.js';
 import {
   validateL1L2Frontmatter,
+  validateL3Frontmatter,
   validateWordCount,
   validateVariationCount,
   checkDuplicateIds,
   validateSchemaVersion,
   type ValidationOptions
 } from './lib/validate.js';
-import { generateAggregatedId } from './lib/ids.js';
+import { generateAggregatedId, generateL3Id, parseVariationId } from './lib/ids.js';
 import { detectSimilarVariations, type VariationText } from './lib/similarity.js';
 
 const SCHEMA_VERSION = '1.0.0';
@@ -59,7 +61,18 @@ interface L1L2Output {
   variations: L1L2Variation[];
 }
 
-// L3 and L4 outputs defined for Week 3/4
+interface L3Output {
+  schemaVersion: string;
+  id: string;
+  sectionType: string;
+  journeyPattern: string;
+  philosophyDominant: string;
+  awarenessLevel: string;
+  content: string;
+  metadata: Record<string, unknown>;
+}
+
+// L4 output defined for Week 4
 
 async function main() {
   const { values } = parseArgs({
@@ -146,6 +159,113 @@ async function main() {
   } else {
     console.log('\n✅ Conversion completed successfully');
   }
+
+  // Start watch mode if requested
+  if (values.watch) {
+    const debounce = parseInt(values.debounce || '500', 10);
+    console.log(`\n👀 Watching ${docsRoot} for changes (debounce=${debounce}ms)...`);
+    console.log('Press Ctrl+C to stop\n');
+
+    await startWatchMode(docsRoot, outputRoot, layers, options, debounce);
+  }
+}
+
+/**
+ * Watch mode: Re-convert files on change
+ */
+async function startWatchMode(
+  docsRoot: string,
+  outputRoot: string,
+  layers: string[],
+  options: ValidationOptions,
+  debounceMs: number
+): Promise<void> {
+  const pendingChanges = new Set<string>();
+  let debounceTimer: NodeJS.Timeout | null = null;
+
+  const watcher = watch(docsRoot, { recursive: true }, (eventType, filename) => {
+    if (!filename || !filename.endsWith('.md')) return;
+
+    const fullPath = join(docsRoot, filename);
+    pendingChanges.add(fullPath);
+
+    // Debounce: reset timer on each change
+    if (debounceTimer) clearTimeout(debounceTimer);
+
+    debounceTimer = setTimeout(async () => {
+      const changedFiles = Array.from(pendingChanges);
+      pendingChanges.clear();
+
+      console.log(`\n🔄 Processing ${changedFiles.length} changed file(s)...`);
+
+      for (const file of changedFiles) {
+        const relativePath = relative(docsRoot, file);
+        console.log(`  ${relativePath}`);
+
+        // Determine which layer this file belongs to
+        const layer = detectLayer(relativePath);
+        if (!layer || !layers.includes(layer)) {
+          console.log(`    Skipped (layer ${layer} not in watch scope)`);
+          continue;
+        }
+
+        // Re-convert with WARNINGS only (no fail in watch mode)
+        const logger = new Logger(true);
+        const watchOptions: ValidationOptions = { strict: false };
+
+        const manifest: Manifest = {
+          schemaVersion: SCHEMA_VERSION,
+          generatorVersion: GENERATOR_VERSION,
+          convertedAt: new Date().toISOString(),
+          sourceRoot: docsRoot,
+          files: {},
+          counts: {
+            l1Variations: 0,
+            l2Variations: 0,
+            l3Variations: 0,
+            l4Variations: 0,
+            totalVariations: 0,
+          },
+        };
+
+        try {
+          if (layer === '1') {
+            await convertL1(docsRoot, outputRoot, manifest, logger, watchOptions);
+          } else if (layer === '2') {
+            await convertL2(docsRoot, outputRoot, manifest, logger, watchOptions);
+          } else if (layer === '3') {
+            await convertL3(docsRoot, outputRoot, manifest, logger, watchOptions);
+          } else if (layer === '4') {
+            await convertL4(docsRoot, outputRoot, manifest, logger, watchOptions);
+          }
+
+          if (logger.hasWarnings()) {
+            console.log(`    ⚠️  Converted with warnings`);
+          } else {
+            console.log(`    ✅ Converted successfully`);
+          }
+        } catch (error) {
+          console.error(`    ❌ Conversion failed: ${error}`);
+        }
+      }
+
+      console.log('\n👀 Watching for changes...');
+    }, debounceMs);
+  });
+
+  // Keep process alive
+  await new Promise(() => {});
+}
+
+/**
+ * Detect which layer a file belongs to based on its path
+ */
+function detectLayer(relativePath: string): string | null {
+  if (relativePath.includes('-L1-production')) return '1';
+  if (relativePath.includes('-L2-') && relativePath.includes('-production')) return '2';
+  if (relativePath.includes('/L3/')) return '3';
+  if (relativePath.includes('/L4/')) return '4';
+  return null;
 }
 
 /**
@@ -461,17 +581,144 @@ async function convertL2(
 }
 
 /**
- * Convert L3 layer (placeholder for Week 3)
+ * Convert L3 layer (per-file conversion)
+ * 270 total variations: arch-L3 (90), algo-L3 (90), hum-L3 (90), conv-L3 (45)
  */
 async function convertL3(
-  _docsRoot: string,
-  _outputRoot: string,
-  _manifest: Manifest,
+  docsRoot: string,
+  outputRoot: string,
+  manifest: Manifest,
   logger: Logger,
-  _options: ValidationOptions,
-  _dryRun?: boolean
+  options: ValidationOptions,
+  dryRun?: boolean
 ): Promise<void> {
-  logger.info('L3_TODO', 'L3 conversion not yet implemented (Week 3)');
+  logger.info('L3_START', 'Converting Layer 3...');
+
+  const sectionTypes = [
+    { dir: 'arch-L3-production', prefix: 'arch-L3', name: 'archaeologist' },
+    { dir: 'algo-L3-production', prefix: 'algo-L3', name: 'algorithm' },
+    { dir: 'hum-L3-production', prefix: 'hum-L3', name: 'last-human' },
+    { dir: 'conv-L3-production', prefix: 'conv-L3', name: 'convergent-synthesis' },
+  ];
+
+  const allIds: string[] = [];
+  const variationsBySelectionKey = new Map<string, VariationText[]>();
+
+  for (const section of sectionTypes) {
+    const sourceDir = join(docsRoot, 'L3', section.dir);
+
+    // Discover all markdown files
+    const files = await discoverMarkdownFiles(sourceDir, /\.md$/, logger);
+    logger.info('L3_DISCOVERED', `Found ${files.length} files for ${section.prefix}`);
+
+    for (const file of files) {
+      const content = await readFileWithLogging(file, logger);
+      if (!content) continue;
+
+      // Normalize
+      const { text: normalized } = normalizeText(content, logger, file);
+
+      // Parse frontmatter
+      const parsed = parseFrontmatter(normalized, logger, file);
+      if (!parsed) continue;
+
+      const { frontmatter, content: body } = parsed;
+
+      // Validate frontmatter
+      if (!validateL3Frontmatter(frontmatter, logger, file)) continue;
+
+      // Extract fields
+      const rawVariationId = frontmatter.variationId as string;
+      const journeyPattern = frontmatter.journeyPattern as string;
+      const philosophyDominant = frontmatter.philosophyDominant as string;
+      const awarenessLevel = frontmatter.awarenessLevel as string;
+      const wordCount = frontmatter.wordCount as number;
+
+      // Parse and normalize variationId (ensure zero-padding)
+      const parsed_id = parseVariationId(rawVariationId, 3);
+      if (!parsed_id) {
+        logger.error('INVALID_VARIATION_ID', `Cannot parse variationId: ${rawVariationId}`, {
+          file,
+          field: 'variationId',
+          value: rawVariationId,
+        });
+        continue;
+      }
+
+      // Generate properly zero-padded ID
+      const sectionType = parsed_id.sectionType;
+      const number = parsed_id.number;
+      const variationId = generateL3Id(sectionType, number);
+
+      // Track all IDs
+      allIds.push(variationId);
+
+      // Validate word count
+      const actualWordCount = countWords(body);
+      validateWordCount(actualWordCount, wordCount, variationId, logger, options);
+
+      // Group by selection key for similarity detection
+      const selectionKey = `${journeyPattern}-${philosophyDominant}-${awarenessLevel}`;
+      if (!variationsBySelectionKey.has(selectionKey)) {
+        variationsBySelectionKey.set(selectionKey, []);
+      }
+      variationsBySelectionKey.get(selectionKey)!.push({
+        id: variationId,
+        content: body,
+        groupKey: `${sectionType}-${selectionKey}`,
+      });
+
+      // Create output
+      const output: L3Output = {
+        schemaVersion: SCHEMA_VERSION,
+        id: variationId,
+        sectionType,
+        journeyPattern,
+        philosophyDominant,
+        awarenessLevel,
+        content: body,
+        metadata: {
+          wordCount: actualWordCount,
+          ...frontmatter,
+        },
+      };
+
+      // Validate schema version
+      validateSchemaVersion(output as unknown as Record<string, unknown>, logger, variationId);
+
+      // Write output
+      if (!dryRun) {
+        const outputDir = join(outputRoot, 'layer3');
+        await ensureDir(outputDir);
+        const outputPath = join(outputDir, `${variationId}.json`);
+        const json = JSON.stringify(output, null, 2);
+        await writeFileAtomic(outputPath, json, logger);
+      }
+
+      // Track in manifest
+      const sourceHash = hashContent(parsed.raw, body);
+      manifest.files[file] = {
+        sourceHash,
+        outputPath: `layer3/${variationId}.json`,
+        convertedAt: new Date().toISOString(),
+      };
+
+      manifest.counts.l3Variations++;
+    }
+  }
+
+  // Check for duplicate IDs
+  checkDuplicateIds(allIds, logger, 'L3');
+
+  // Detect similar variations within same selection key
+  for (const [key, variations] of variationsBySelectionKey.entries()) {
+    if (variations.length > 1) {
+      detectSimilarVariations(variations, logger);
+    }
+  }
+
+  manifest.counts.totalVariations += manifest.counts.l3Variations;
+  logger.info('L3_COMPLETE', `Layer 3 conversion complete: ${manifest.counts.l3Variations} variations`);
 }
 
 /**
