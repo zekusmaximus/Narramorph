@@ -105,7 +105,11 @@ async function main() {
   const docsRoot = join(projectRoot, 'docs');
   const outputRoot = join(projectRoot, 'src/data/stories/eternal-return/content');
 
-  logger.info('CONVERSION_START', `Starting conversion (strict=${options.strict})`);
+  // Parse parallelism (default to 4, max 10)
+  const parallelValue = values.parallel ? parseInt(values.parallel, 10) : 4;
+  const parallel = Math.min(parallelValue, 10);
+
+  logger.info('CONVERSION_START', `Starting conversion (strict=${options.strict}, parallel=${parallel})`);
 
   const layers = values.layer === 'all' ? ['1', '2', '3', '4'] : [values.layer || '1'];
 
@@ -126,13 +130,13 @@ async function main() {
 
   for (const layer of layers) {
     if (layer === '1') {
-      await convertL1(docsRoot, outputRoot, manifest, logger, options, values['dry-run']);
+      await convertL1(docsRoot, outputRoot, manifest, logger, options, values['dry-run'], parallel);
     } else if (layer === '2') {
-      await convertL2(docsRoot, outputRoot, manifest, logger, options, values['dry-run']);
+      await convertL2(docsRoot, outputRoot, manifest, logger, options, values['dry-run'], parallel);
     } else if (layer === '3') {
-      await convertL3(docsRoot, outputRoot, manifest, logger, options, values['dry-run']);
+      await convertL3(docsRoot, outputRoot, manifest, logger, options, values['dry-run'], parallel);
     } else if (layer === '4') {
-      await convertL4(docsRoot, outputRoot, manifest, logger, options, values['dry-run']);
+      await convertL4(docsRoot, outputRoot, manifest, logger, options, values['dry-run'], parallel);
     }
   }
 
@@ -169,11 +173,12 @@ async function main() {
 
   // Start watch mode if requested
   if (values.watch) {
-    const debounce = parseInt(values.debounce || '500', 10);
+    const debounceValue = values.debounce ? parseInt(values.debounce, 10) : 500;
+    const debounce = debounceValue;
     console.log(`\n👀 Watching ${docsRoot} for changes (debounce=${debounce}ms)...`);
     console.log('Press Ctrl+C to stop\n');
 
-    await startWatchMode(docsRoot, outputRoot, layers, options, debounce);
+    await startWatchMode(docsRoot, outputRoot, layers, options, debounce, parallel);
   }
 }
 
@@ -184,13 +189,14 @@ async function startWatchMode(
   docsRoot: string,
   outputRoot: string,
   layers: string[],
-  options: ValidationOptions,
-  debounceMs: number
+  _options: ValidationOptions,
+  debounceMs: number,
+  parallel: number
 ): Promise<void> {
   const pendingChanges = new Set<string>();
   let debounceTimer: NodeJS.Timeout | null = null;
 
-  const watcher = watch(docsRoot, { recursive: true }, (eventType, filename) => {
+  watch(docsRoot, { recursive: true }, (_eventType, filename) => {
     if (!filename || !filename.endsWith('.md')) return;
 
     const fullPath = join(docsRoot, filename);
@@ -237,13 +243,13 @@ async function startWatchMode(
 
         try {
           if (layer === '1') {
-            await convertL1(docsRoot, outputRoot, manifest, logger, watchOptions);
+            await convertL1(docsRoot, outputRoot, manifest, logger, watchOptions, false, parallel);
           } else if (layer === '2') {
-            await convertL2(docsRoot, outputRoot, manifest, logger, watchOptions);
+            await convertL2(docsRoot, outputRoot, manifest, logger, watchOptions, false, parallel);
           } else if (layer === '3') {
-            await convertL3(docsRoot, outputRoot, manifest, logger, watchOptions);
+            await convertL3(docsRoot, outputRoot, manifest, logger, watchOptions, false, parallel);
           } else if (layer === '4') {
-            await convertL4(docsRoot, outputRoot, manifest, logger, watchOptions);
+            await convertL4(docsRoot, outputRoot, manifest, logger, watchOptions, false, parallel);
           }
 
           if (logger.hasWarnings()) {
@@ -284,7 +290,8 @@ async function convertL1(
   manifest: Manifest,
   logger: Logger,
   options: ValidationOptions,
-  dryRun?: boolean
+  dryRun?: boolean,
+  _parallel?: number // Reserved for future concurrent file processing
 ): Promise<void> {
   logger.info('L1_START', 'Converting Layer 1...');
 
@@ -438,7 +445,8 @@ async function convertL2(
   manifest: Manifest,
   logger: Logger,
   options: ValidationOptions,
-  dryRun?: boolean
+  dryRun?: boolean,
+  _parallel?: number // Reserved for future concurrent file processing
 ): Promise<void> {
   logger.info('L2_START', 'Converting Layer 2...');
 
@@ -597,7 +605,8 @@ async function convertL3(
   manifest: Manifest,
   logger: Logger,
   options: ValidationOptions,
-  dryRun?: boolean
+  dryRun?: boolean,
+  _parallel?: number // Reserved for future concurrent file processing
 ): Promise<void> {
   logger.info('L3_START', 'Converting Layer 3...');
 
@@ -643,7 +652,7 @@ async function convertL3(
 
       // Parse and normalize variationId (ensure zero-padding)
       const parsed_id = parseVariationId(rawVariationId, 3);
-      if (!parsed_id) {
+      if (!parsed_id || !('sectionType' in parsed_id)) {
         logger.error('INVALID_VARIATION_ID', `Cannot parse variationId: ${rawVariationId}`, {
           file,
           field: 'variationId',
@@ -695,7 +704,7 @@ async function convertL3(
 
       // Write output
       if (!dryRun) {
-        const outputDir = join(outputRoot, 'layer3');
+        const outputDir = join(outputRoot, 'layer3', 'variations');
         await ensureDir(outputDir);
         const outputPath = join(outputDir, `${variationId}.json`);
         const json = JSON.stringify(output, null, 2);
@@ -706,7 +715,7 @@ async function convertL3(
       const sourceHash = hashContent(parsed.raw, body);
       manifest.files[file] = {
         sourceHash,
-        outputPath: `layer3/${variationId}.json`,
+        outputPath: `layer3/variations/${variationId}.json`,
         convertedAt: new Date().toISOString(),
       };
 
@@ -718,7 +727,7 @@ async function convertL3(
   checkDuplicateIds(allIds, logger, 'L3');
 
   // Detect similar variations within same selection key
-  for (const [key, variations] of variationsBySelectionKey.entries()) {
+  for (const [_key, variations] of variationsBySelectionKey.entries()) {
     if (variations.length > 1) {
       detectSimilarVariations(variations, logger);
     }
@@ -737,7 +746,8 @@ async function convertL4(
   manifest: Manifest,
   logger: Logger,
   options: ValidationOptions,
-  dryRun?: boolean
+  dryRun?: boolean,
+  _parallel?: number // Reserved for future use (L4 has only 3 files)
 ): Promise<void> {
   logger.info('L4_START', 'Converting Layer 4...');
 

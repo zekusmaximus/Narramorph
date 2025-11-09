@@ -30,7 +30,18 @@
     "metadata:autofill:dry": "node tools/fill-l2-defaults.js --root=docs --dry-run",
     "metadata:autofill:resist": "node tools/fill-l2-defaults.js --root=docs --path=resist",
     "metadata:autofill:accept": "node tools/fill-l2-defaults.js --root=docs --path=accept",
-    "metadata:autofill:invest": "node tools/fill-l2-defaults.js --root=docs --path=invest"
+    "metadata:autofill:invest": "node tools/fill-l2-defaults.js --root=docs --path=invest",
+    "content:convert": "cd tools/conversion && npm run convert",
+    "content:convert:l1": "cd tools/conversion && npm run convert:l1",
+    "content:convert:l2": "cd tools/conversion && npm run convert:l2",
+    "content:convert:l3": "cd tools/conversion && npm run convert:l3",
+    "content:convert:l4": "cd tools/conversion && npm run convert:l4",
+    "content:convert:all": "cd tools/conversion && npm run convert:all",
+    "content:convert:watch": "cd tools/conversion && npm run convert:watch",
+    "content:validate": "cd tools/conversion && npm run validate",
+    "content:matrix": "cd tools/conversion && npm run matrix",
+    "content:diff": "cd tools/conversion && npm run diff",
+    "content:rollback": "cd tools/conversion && npm run rollback"
   },
   "dependencies": {
     "@xyflow/react": "^12.0.0",
