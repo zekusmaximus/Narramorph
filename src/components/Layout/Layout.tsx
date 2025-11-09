@@ -36,7 +36,7 @@ export default function Layout({ children }: LayoutProps) {
                 transition={{ duration: 0.5 }}
                 className="text-xl font-bold text-cyan-400 tracking-wide font-mono"
               >
-                NARRAMORPH FICTION
+              <span className="text-cyan-400">© 2025 NARRAMORPH FICTION</span>
               </motion.h1>
               <span className="text-xs text-gray-500 font-mono uppercase tracking-wider">
                 Interactive Narrative Platform
@@ -294,7 +294,7 @@ export default function Layout({ children }: LayoutProps) {
           <div className="flex items-center justify-between text-xs text-gray-500 font-mono">
             <div className="flex items-center space-x-4">
               <span className="text-cyan-400">Â© 2025 NARRAMORPH FICTION</span>
-              <span className="text-gray-700">â€¢</span>
+              <span className="text-gray-700">•</span>
               <button
                 className="hover:text-cyan-400 transition-colors uppercase tracking-wider"
                 onClick={() =>
@@ -332,3 +332,4 @@ export default function Layout({ children }: LayoutProps) {
     </div>
   );
 }
+

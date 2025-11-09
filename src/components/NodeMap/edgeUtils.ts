@@ -74,25 +74,33 @@ export function getEdgeStyle(connectionType: ConnectionType): CSSProperties {
  */
 export function convertToReactFlowEdges(
   storyNodes: Map<string, StoryNode>,
-  _progress: UserProgress
+  progress: UserProgress
 ): Edge[] {
   const edges: Edge[] = [];
 
   for (const node of storyNodes.values()) {
     for (const connection of node.connections || []) {
       const edgeId = `${node.id}-${connection.targetId}`;
+      const isUnlocked = progress.unlockedConnections.includes(edgeId);
 
       edges.push({
         id: edgeId,
         source: node.id,
         target: connection.targetId,
         type: getEdgeType(connection.type),
-        animated: connection.type === 'recursive',
+        animated: isUnlocked && connection.type === 'recursive',
         label: connection.label,
-        style: getEdgeStyle(connection.type),
+        style: isUnlocked
+          ? getEdgeStyle(connection.type)
+          : ({
+              stroke: '#455a64',
+              strokeWidth: 1,
+              strokeDasharray: '5,5',
+              opacity: 0.35,
+            } as CSSProperties),
         markerEnd: {
           type: 'arrowclosed' as MarkerType,
-          color: getEdgeColor(connection.type),
+          color: isUnlocked ? getEdgeColor(connection.type) : '#455a64',
         },
         labelStyle: {
           fill: '#e0e0e0',
@@ -119,11 +127,18 @@ export function convertToReactFlowEdges(
           source: connection.targetId,
           target: node.id,
           type: getEdgeType(connection.type),
-          animated: connection.type === 'recursive',
-          style: getEdgeStyle(connection.type),
+          animated: isUnlocked && connection.type === 'recursive',
+          style: isUnlocked
+            ? getEdgeStyle(connection.type)
+            : ({
+                stroke: '#455a64',
+                strokeWidth: 1,
+                strokeDasharray: '5,5',
+                opacity: 0.35,
+              } as CSSProperties),
           markerEnd: {
             type: 'arrowclosed' as MarkerType,
-            color: getEdgeColor(connection.type),
+            color: isUnlocked ? getEdgeColor(connection.type) : '#455a64',
           },
         });
       }

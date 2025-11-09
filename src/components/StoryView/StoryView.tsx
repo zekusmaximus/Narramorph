@@ -427,7 +427,7 @@ export default function StoryView({ className = '' }: StoryViewProps) {
                   px-3 py-1.5 rounded-full text-sm font-medium flex items-center space-x-2
                   bg-white/10 backdrop-blur-sm text-white
                 `}>
-                  <span>{getStateIcon(nodeState.currentState)}</span>
+                  <span>{nodeState.currentState === 'initial' ? '●' : (nodeState.currentState === 'firstRevisit' ? '◑' : '◎')}</span>
                   <span>{getStateLabel(nodeState.currentState)}</span>
                 </div>
 
@@ -537,7 +537,7 @@ export default function StoryView({ className = '' }: StoryViewProps) {
                                   text-sm mt-1 flex items-center space-x-2
                                   ${preferences.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}
                                 `}>
-                                  <span>{getConnectionIcon(connection.type)}</span>
+                                  <span className="uppercase text-xs tracking-wider">{connection.type[0]}</span>
                                   <span>{connection.label}</span>
                                 </div>
                               )}
@@ -589,8 +589,7 @@ export default function StoryView({ className = '' }: StoryViewProps) {
                     text-xs mt-4 text-center
                     ${preferences.theme === 'dark' ? 'text-gray-500' : 'text-gray-500'}
                   `}>
-                    Press 1-{connections.length} to navigate • ← Back • ESC to close
-                  </div>
+                    Press 1-{connections.length} to navigate - Arrow Left to go back - ESC to close
                 </div>
               )}
             </div>

@@ -433,7 +433,7 @@ function CustomStoryNode({ data, selected }: NodeProps) {
               textShadow: `0 0 10px ${theme.primary}`,
             }}
           >
-            {getCharacterIcon(node.character)}
+            {node.character === 'archaeologist' ? 'A' : node.character === 'algorithm' ? 'Σ' : node.character === 'last-human' ? 'H' : '∴'}
           </div>
 
           {/* Visit counter badge - cyberpunk style */}
@@ -626,3 +626,5 @@ function CustomStoryNode({ data, selected }: NodeProps) {
 }
 
 export default memo(CustomStoryNode);
+
+

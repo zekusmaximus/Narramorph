@@ -419,7 +419,7 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
             repeat: Infinity,
           }}
         >
-          ┌─ STORY.EXE ─────────────┐
+          STORY.EXE
         </motion.div>
         <div className="text-xs text-gray-400 space-y-1.5">
           <div className="flex items-center justify-between">
@@ -531,3 +531,4 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
     </div>
   );
 }
+

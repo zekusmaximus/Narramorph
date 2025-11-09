@@ -1,0 +1,33 @@
+{
+  "layers": {
+    "layer1": {
+      "y": 150,
+      "spacing": 350,
+      "nodes": {
+        "arc-L1": { "x": 200, "y": 150 },
+        "algo-L1": { "x": 550, "y": 150 },
+        "hum-L1": { "x": 900, "y": 150 },
+        "archaeologist-001": { "x": 200, "y": 150 },
+        "algorithm-001": { "x": 550, "y": 400 },
+        "human-001": { "x": 900, "y": 900 }
+      }
+    },
+    "layer2": {
+      "y": 400,
+      "spacing": 100,
+      "nodes": {
+        "arc-L2-A": { "x": 150, "y": 350 },
+        "arc-L2-B": { "x": 250, "y": 350 },
+        "arch-L2-accept": { "x": 100, "y": 350 },
+        "arch-L2-resist": { "x": 200, "y": 350 },
+        "arch-L2-invest": { "x": 300, "y": 350 },
+        "algo-L2-accept": { "x": 450, "y": 350 },
+        "algo-L2-resist": { "x": 550, "y": 350 },
+        "algo-L2-invest": { "x": 650, "y": 350 },
+        "hum-L2-accept": { "x": 800, "y": 350 },
+        "hum-L2-resist": { "x": 900, "y": 350 },
+        "hum-L2-invest": { "x": 1000, "y": 350 }
+      }
+    }
+  }
+}
