@@ -287,10 +287,124 @@ describe('Selection Matrix Properties', () => {
       const prev = matrix.selections[i - 1];
       const curr = matrix.selections[i];
 
+      if (!prev || !curr) continue;
+
       const prevKey = `${prev.journeyPattern}|${prev.philosophyDominant}|${prev.awarenessLevel}`;
       const currKey = `${curr.journeyPattern}|${curr.philosophyDominant}|${curr.awarenessLevel}`;
 
       expect(prevKey.localeCompare(currKey)).toBeLessThan(0);
+    }
+  });
+
+  it('should have complete section coverage for each combination (property test)', async () => {
+    const projectRoot = resolve(process.cwd(), '../..');
+    const matrixPath = join(
+      projectRoot,
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+    );
+
+    let matrix: SelectionMatrix;
+    try {
+      const content = await readFile(matrixPath, 'utf-8');
+      matrix = JSON.parse(content);
+    } catch (error) {
+      // Matrix file doesn't exist yet - skip test
+      return;
+    }
+
+    // Property: Every combination must have either ALL 4 sections or be in missing list
+    for (const entry of matrix.selections) {
+      const comboKey = `${entry.journeyPattern}-${entry.philosophyDominant}-${entry.awarenessLevel}`;
+      const hasSections = [
+        entry.archaeologist !== null,
+        entry.algorithm !== null,
+        entry.lastHuman !== null,
+        entry.convergent !== null,
+      ];
+
+      const sectionCount = hasSections.filter(Boolean).length;
+
+      // Either all 4 sections present OR in missing list
+      if (sectionCount > 0 && sectionCount < 4) {
+        // Incomplete: should be in missing list
+        const inMissing = matrix.missing.some(m => m.combo === comboKey);
+        expect(inMissing).toBe(true);
+      }
+
+      // If all 4 sections present: should NOT be in missing list
+      if (sectionCount === 4) {
+        const inMissing = matrix.missing.some(m => m.combo === comboKey);
+        expect(inMissing).toBe(false);
+      }
+    }
+  });
+
+  it('should enforce exactly one section per type per combination', async () => {
+    const projectRoot = resolve(process.cwd(), '../..');
+    const matrixPath = join(
+      projectRoot,
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+    );
+
+    let matrix: SelectionMatrix;
+    try {
+      const content = await readFile(matrixPath, 'utf-8');
+      matrix = JSON.parse(content);
+    } catch (error) {
+      // Matrix file doesn't exist yet - skip test
+      return;
+    }
+
+    // Property: No duplicate combinations
+    const combosSeen = new Set<string>();
+
+    for (const entry of matrix.selections) {
+      const comboKey = `${entry.journeyPattern}|${entry.philosophyDominant}|${entry.awarenessLevel}`;
+
+      // Each combination should appear exactly once
+      expect(combosSeen.has(comboKey)).toBe(false);
+      combosSeen.add(comboKey);
+    }
+
+    // Total combinations should equal unique combinations
+    expect(matrix.selections.length).toBe(combosSeen.size);
+  });
+
+  it('should validate missing combinations report accuracy', async () => {
+    const projectRoot = resolve(process.cwd(), '../..');
+    const matrixPath = join(
+      projectRoot,
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+    );
+
+    let matrix: SelectionMatrix;
+    try {
+      const content = await readFile(matrixPath, 'utf-8');
+      matrix = JSON.parse(content);
+    } catch (error) {
+      // Matrix file doesn't exist yet - skip test
+      return;
+    }
+
+    // Verify missing array is accurate
+    for (const missing of matrix.missing) {
+      // Find the corresponding selection entry
+      const entry = matrix.selections.find(
+        s =>
+          `${s.journeyPattern}-${s.philosophyDominant}-${s.awarenessLevel}` === missing.combo
+      );
+
+      expect(entry).toBeDefined();
+
+      if (entry) {
+        // Verify reported missing sections are actually null
+        for (const section of missing.missingSections) {
+          if (section === 'archaeologist') expect(entry.archaeologist).toBeNull();
+          if (section === 'algorithm') expect(entry.algorithm).toBeNull();
+          if (section === 'lastHuman') expect(entry.lastHuman).toBeNull();
+          if (section === 'convergent') expect(entry.convergent).toBeNull();
+        }
+      }
     }
   });
 });
