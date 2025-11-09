@@ -1,0 +1,37 @@
+{
+  "name": "@narramorph/conversion-tools",
+  "version": "1.0.0",
+  "description": "Markdown to JSON conversion pipeline for Narramorph content",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "convert": "tsx convert-md-to-json.ts",
+    "convert:l1": "tsx convert-md-to-json.ts --layer=1",
+    "convert:l2": "tsx convert-md-to-json.ts --layer=2",
+    "convert:l3": "tsx convert-md-to-json.ts --layer=3",
+    "convert:l4": "tsx convert-md-to-json.ts --layer=4",
+    "convert:all": "tsx convert-md-to-json.ts --layer=all --strict",
+    "convert:watch": "tsx convert-md-to-json.ts --watch",
+    "matrix": "tsx generate-selection-matrix.ts --strict",
+    "validate": "tsx validate-content.ts --strict",
+    "diff": "tsx diff-content.ts",
+    "rollback": "tsx rollback.ts",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "yaml": "^2.3.4",
+    "glob": "^10.3.10",
+    "chalk": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.0"
+  }
+}
