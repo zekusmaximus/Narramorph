@@ -17,6 +17,7 @@ import {
   hashContent,
   writeManifest,
   ensureDir,
+  createBackup,
   type Manifest
 } from './lib/fs.js';
 import {
@@ -112,6 +113,18 @@ async function main() {
   logger.info('CONVERSION_START', `Starting conversion (strict=${options.strict}, parallel=${parallel})`);
 
   const layers = values.layer === 'all' ? ['1', '2', '3', '4'] : [values.layer || '1'];
+
+  // Create backup before conversion (unless dry-run)
+  if (!values['dry-run']) {
+    const backupRoot = join(projectRoot, '.backups');
+    logger.info('BACKUP_START', 'Creating backup before conversion...');
+    const backupDir = await createBackup(outputRoot, backupRoot, logger);
+    if (backupDir) {
+      logger.info('BACKUP_CREATED', `Backup created: ${backupDir}`);
+    } else {
+      logger.warning('BACKUP_FAILED', 'Failed to create backup, continuing anyway...');
+    }
+  }
 
   const manifest: Manifest = {
     schemaVersion: SCHEMA_VERSION,
