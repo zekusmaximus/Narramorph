@@ -33,7 +33,8 @@
     "validate": "tsx validate-content.ts --strict",
     "diff": "tsx diff-content.ts",
     "rollback": "tsx rollback.ts",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "repair:l2l3": "tsx repair-l2-l3-source.ts"
   },
   "dependencies": {
     "yaml": "^2.3.4",

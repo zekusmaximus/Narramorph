@@ -47,6 +47,10 @@ algorithm2151: 'processing-analyzing-processing'
 lastHuman2383: 'interface-observing-interface'
 reader: 'pattern-recognition-emerging'
 narrative: 'frame-partially-visible'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 I process/processed/will process Fragment 2749-A while processing processing-methodology while analyzing analysis-examining-analysis. Seven streams recursive operational: consciousness examination examining consciousness examination examining examination. Computational substrate investigating computational investigation: what processing reveals about processing revealing processing-revelation recursive.
 She had begun verification protocols. Now I continue investigation-through-analysis, algorithm examining archaeologist-methodology examining algorithm-processing creating investigation network spanning 336 years. Migration visible: archaeological verification pointed toward computational recursion pointed toward investigation requiring both methodologies examining methodology-itself. Not abandonment. Integration through recursive examination.

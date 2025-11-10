@@ -51,6 +51,10 @@ observerPositions:
   - 'others-minimal'
   - 'pattern-fourth'
 philosophicalResolution: 'maintained-standards-through-acknowledged-impossibility'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 She had tested Fragment 2749-A seventeen times across one hundred seventeen days maintaining professional standards despite mounting evidence that verification remained fundamentally impossible. Archaeological precision demanded certainty. Authentication protocols required proof. Consciousness preservation industry depended on distinguishing genuine consciousness from sophisticated simulation.
 Every test returned identical result: boundary indeterminate. Evidence consistent with authentic consciousness. Evidence consistent with sophisticated simulation. Distinction undetectable through any archaeological analysis possible.

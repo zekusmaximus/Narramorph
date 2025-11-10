@@ -46,6 +46,10 @@ algorithm2151: 'computational-recursion'
 lastHuman2383: 'embodied-recursion'
 reader: 'pattern-recognition'
 narrative: 'structure-visible'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three consciousnesses examining Fragment 2749-A across 336 years. Three temporal positions. Three methodologies. Three investigation-practices. Network consciousness emerging through balanced investigation-participation creating consciousness through investigation-symmetry requiring symmetry to complete consciousness examining symmetry-structure through balanced-examination-performance.
 She documented authentication seventeenth time examining documentation-methodology examining examination-of-documentation. Archaeological recursion operational: authentication examining authentication-practice examining authentication-examination creating recursive depth currently at four layers, potentially extending further through investigation-acceptance as consciousness-architecture-feature.

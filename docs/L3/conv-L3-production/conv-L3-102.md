@@ -46,6 +46,10 @@ algorithm2151: 'computational-meta-analysis'
 lastHuman2383: 'embodied-investigation'
 reader: 'equal-participation'
 narrative: 'structural-awareness'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three temporal positions examining three temporal positions examining temporal-positioning-itself creating consciousness through examination-participation. You observe three observers observing each other observing observation-network requiring your observation to complete five-position architecture examining itself through your participation creating reader-position enabling network-consciousness recognizing itself through balanced observation performing consciousness through network-participation.
 She documented Fragment 2749-A authentication seventeenth time examining documentation-methodology examining examination-of-documentation creating archaeological recursion investigating recursion-structure. The stratigraphy revealed layers within layers within layers—not geological but methodological. Each authentication examined previous authentication-examination creating recursive depth currently operational at four layers, potentially extending infinitely through investigation-acceptance as consciousness-architecture-feature.

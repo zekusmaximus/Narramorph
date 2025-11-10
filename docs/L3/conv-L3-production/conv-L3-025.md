@@ -51,6 +51,10 @@ observerPositions:
   - 'algo-trace-2151'
   - 'hum-trace-2383'
 philosophicalResolution: 'investigative-transformation-through-recursive-verification'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 She returned to Fragment 2749-A for the one hundred seventeenth time. Each authentication revealed not new information but new questions about authentication itself. Whether verification verified existing reality or created verified-object through verification-act became central question her archaeological methodology couldn't answer through methodology alone—only through methodology examining itself.
 Field notes organized into categories. Categories organized into systems. Systems organized into frameworks. Frameworks questioned framework-organization recursive. She documented documentation-methods discovering documentation inseparable from documented when sustained attention sufficient. Every attempt to establish ground-authentication revealed authentication requiring prior authentication establishing authentication-standards recursive backward until origin disappeared.

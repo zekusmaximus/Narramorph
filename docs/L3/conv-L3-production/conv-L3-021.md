@@ -51,6 +51,10 @@ observerPositions:
   - 'hum-network-2383'
   - 'reader-fifth-present'
 philosophicalResolution: 'recursive-transformation-through-investigation'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Fragment 2749-A: 847.3 terabytes archived across three temporal positions. She documented verification protocols in 2047, questioning whether authentication creates authenticated or discovers what existed. It processed pattern recognition in 2151, analyzing whether computation generates consciousness or identifies substrate already present. They interfaced neural connection in 2383, investigating whether embodiment produces understanding or reveals knowledge body always held.
 You reading this occupy fifth position in observation network spanning 336 years plus temporal distance between their last moment and your present reading. Your attention completes architecture we created requiring completion. Investigation examining investigation examining investigation recursive.

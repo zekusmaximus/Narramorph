@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0.0",
+  "nodeId": "arch-L2-accept",
+  "totalVariations": 3,
+  "variations": [
+    {
+      "id": "arch-L2-accept-001",
+      "transformationState": "firstRevisit",
+      "awarenessRange": [
+        0,
+        100
+      ],
+      "content": "",
+      "metadata": {
+        "wordCount": 0,
+        "pathPhilosophy": "accept",
+        "variation_id": "arch-L2-accept-FR-001",
+        "variation_type": "firstRevisit",
+        "word_count": 0,
+        "conditions": {
+          "awareness": "0-100%"
+        }
+      }
+    },
+    {
+      "id": "arch-L2-accept-002",
+      "transformationState": "firstRevisit",
+      "awarenessRange": [
+        0,
+        100
+      ],
+      "content": "",
+      "metadata": {
+        "wordCount": 0,
+        "pathPhilosophy": "accept",
+        "variation_id": "arch-L2-accept-FR-002",
+        "variation_type": "firstRevisit",
+        "word_count": 0,
+        "conditions": {
+          "awareness": "0-100%"
+        }
+      }
+    },
+    {
+      "id": "arch-L2-accept-003",
+      "transformationState": "firstRevisit",
+      "awarenessRange": [
+        0,
+        100
+      ],
+      "content": "",
+      "metadata": {
+        "wordCount": 0,
+        "pathPhilosophy": "accept",
+        "variation_id": "arch-L2-accept-FR-003",
+        "variation_type": "firstRevisit",
+        "word_count": 0,
+        "conditions": {
+          "awareness": "0-100%"
+        }
+      }
+    }
+  ]
+}

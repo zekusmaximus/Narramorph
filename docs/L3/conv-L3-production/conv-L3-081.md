@@ -47,6 +47,10 @@ algorithm2151: 'processing-equal-partner'
 lastHuman2383: 'embodiment-equal-partner'
 reader: 'network-immersion'
 narrative: 'frame-minimal'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Migration occurred across temporal architecture. Exploration began one substrate, shifted discovering: consciousness investigation requires three-position examination through equal-methodology partnership creating investigation through migration toward three-position network recognition.
 She had documented Fragment 2749-A (847.3TB, 94.7% coherence) through archaeological verification. Standards maintained. Authentication protocols applied systematically. Fragment by fragment consciousness preservation attempts recorded discovering: verification examining verification transforms verifier through sustained examination.

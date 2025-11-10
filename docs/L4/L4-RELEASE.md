@@ -1,4 +1,8 @@
 ---
+id: final-release
+philosophy: release
+terminalEndpoint: true
+---
 variationId: final-release
 nodeId: L4-release
 layer: 4

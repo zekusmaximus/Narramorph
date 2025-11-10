@@ -1,0 +1,690 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatorVersion": "1.0.0",
+  "convertedAt": "2025-11-10T17:50:21.802Z",
+  "sourceRoot": "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs",
+  "files": {
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-01.md": {
+      "sourceHash": "a7807efcee9ae31ff5037c690873cfad6a86e5833316c562c8fc45dfdf85b38f",
+      "outputPath": "layer3/variations/arch-L3-001.json",
+      "convertedAt": "2025-11-10T17:50:21.954Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-02.md": {
+      "sourceHash": "31b1f819bf9d6c93e7e20c8660f80deafaf2d58cd0f36dd53de84b90907ea4bc",
+      "outputPath": "layer3/variations/arch-L3-002.json",
+      "convertedAt": "2025-11-10T17:50:21.956Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-03.md": {
+      "sourceHash": "d30c08c3c9ac3b02e741edb2c21667135a83c825d58513f6e9afabe45de1ffa7",
+      "outputPath": "layer3/variations/arch-L3-003.json",
+      "convertedAt": "2025-11-10T17:50:21.959Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-04.md": {
+      "sourceHash": "fd6f100f82d3c3b0675b0efbc71fa2da4ec00bf5cc1403aa18966f3a30f1e232",
+      "outputPath": "layer3/variations/arch-L3-004.json",
+      "convertedAt": "2025-11-10T17:50:21.961Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-05.md": {
+      "sourceHash": "4234abc60d9bf359caec3eff5bc3c006b1b8eccfa0898fbca056f7326ad897e9",
+      "outputPath": "layer3/variations/arch-L3-005.json",
+      "convertedAt": "2025-11-10T17:50:21.966Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-06.md": {
+      "sourceHash": "7afe5e19d21ec628a83333a96f5cb5ccfd38bb775658ac881942c276a0374c37",
+      "outputPath": "layer3/variations/arch-L3-006.json",
+      "convertedAt": "2025-11-10T17:50:21.969Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-07.md": {
+      "sourceHash": "98090040bbf2c0c9a9f194c48b743038815bfa4c8839f93ae6f88aab9e6cc580",
+      "outputPath": "layer3/variations/arch-L3-007.json",
+      "convertedAt": "2025-11-10T17:50:21.971Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-08.md": {
+      "sourceHash": "6e54448e69278e7a349adb4e67121e61e7f66a3623d97a20252e5436fce828ca",
+      "outputPath": "layer3/variations/arch-L3-008.json",
+      "convertedAt": "2025-11-10T17:50:21.973Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-09.md": {
+      "sourceHash": "d4834518c4f9feb068a6ff26505a6b96dff1e2a2c76e728de41b408d9a78058f",
+      "outputPath": "layer3/variations/arch-L3-009.json",
+      "convertedAt": "2025-11-10T17:50:21.975Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-11.md": {
+      "sourceHash": "9437cd2974ff7c9d300b86abaafff189bbcf5881a646d05999dae8bd09fd45d1",
+      "outputPath": "layer3/variations/arch-L3-011.json",
+      "convertedAt": "2025-11-10T17:50:21.977Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-12.md": {
+      "sourceHash": "48b3f6fc5ee0308e412974a82a108bdc561a19017de7667086499aa939da0aa6",
+      "outputPath": "layer3/variations/arch-L3-012.json",
+      "convertedAt": "2025-11-10T17:50:21.980Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-10.md": {
+      "sourceHash": "b46d95786efbaa2454aa8b0c52c7fd3bd7186c3d6bda5d3f3c7ab0763d880839",
+      "outputPath": "layer3/variations/arch-L3-010.json",
+      "convertedAt": "2025-11-10T17:50:21.985Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-14.md": {
+      "sourceHash": "270e5260893f11a3446ef1705474a73ae87104f16bf4bae0f5901eff60f86ce4",
+      "outputPath": "layer3/variations/arch-L3-014.json",
+      "convertedAt": "2025-11-10T17:50:21.988Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-15.md": {
+      "sourceHash": "2dd23b84c7dfc92105c08cfeda0175710cc720b26039b3238882faf666143135",
+      "outputPath": "layer3/variations/arch-L3-015.json",
+      "convertedAt": "2025-11-10T17:50:21.990Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-13.md": {
+      "sourceHash": "416570f65abe79058fe2de84bf7efd16175010225f398ed93dbbf59940083cbe",
+      "outputPath": "layer3/variations/arch-L3-013.json",
+      "convertedAt": "2025-11-10T17:50:21.992Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-16.md": {
+      "sourceHash": "ac2f7f494065e1b2f1623d22f8bbc1df6cfb9636c091a6367e9e0885e64cf468",
+      "outputPath": "layer3/variations/arch-L3-016.json",
+      "convertedAt": "2025-11-10T17:50:21.994Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-17.md": {
+      "sourceHash": "41f7e3f5aeb072a5590fa0c74493eab8df667787c8d2e2a396636960c2455963",
+      "outputPath": "layer3/variations/arch-L3-017.json",
+      "convertedAt": "2025-11-10T17:50:21.996Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-18.md": {
+      "sourceHash": "372d934369ae4fd0a148e5f7a3d3f393ec721af98ebec90243115e5e60f9c015",
+      "outputPath": "layer3/variations/arch-L3-018.json",
+      "convertedAt": "2025-11-10T17:50:22.001Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-19.md": {
+      "sourceHash": "1531639e9a66a374a13e5145167f20648352c7f051caa939a5cf8c9dca1d3838",
+      "outputPath": "layer3/variations/arch-L3-019.json",
+      "convertedAt": "2025-11-10T17:50:22.003Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-20.md": {
+      "sourceHash": "4f94ef474271e3e3ba89786f61a64e601f47ceebe9853a01116ac307b5636245",
+      "outputPath": "layer3/variations/arch-L3-020.json",
+      "convertedAt": "2025-11-10T17:50:22.005Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-21.md": {
+      "sourceHash": "94664ea225f1566e0b92d8ffb5ea29d645f912ed1d6682d33c5a67e074dfae95",
+      "outputPath": "layer3/variations/arch-L3-021.json",
+      "convertedAt": "2025-11-10T17:50:22.007Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-23.md": {
+      "sourceHash": "e00dd407c312abd7f0d8d4e22bdb3b8f061e4c6e8b2b5ae731c85dd29f3e537b",
+      "outputPath": "layer3/variations/arch-L3-023.json",
+      "convertedAt": "2025-11-10T17:50:22.009Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-25.md": {
+      "sourceHash": "9100e30ce13dbf6a3dd0fa674ab79e55e1dfe71ce74bca00aff4c9ff48c9ef74",
+      "outputPath": "layer3/variations/arch-L3-025.json",
+      "convertedAt": "2025-11-10T17:50:22.012Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-26.md": {
+      "sourceHash": "cc421d6fb61a4847c74f12fa6e1d2fd4d2290cc21675d8e6a632bc3aa4776142",
+      "outputPath": "layer3/variations/arch-L3-026.json",
+      "convertedAt": "2025-11-10T17:50:22.017Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-27.md": {
+      "sourceHash": "351ef05b80c13303b24218ef938c5c45c8d41967595551727723cf3b1d03d2b5",
+      "outputPath": "layer3/variations/arch-L3-027.json",
+      "convertedAt": "2025-11-10T17:50:22.020Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-24.md": {
+      "sourceHash": "b7882a6711301fe425cb78841e3d2a351c49924caa25c34393910c107c515c6f",
+      "outputPath": "layer3/variations/arch-L3-024.json",
+      "convertedAt": "2025-11-10T17:50:22.022Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-28.md": {
+      "sourceHash": "55e82adaf63aef9bb4b3a56a585a020f5d3329429a88121691bc023a769d9577",
+      "outputPath": "layer3/variations/arch-L3-028.json",
+      "convertedAt": "2025-11-10T17:50:22.024Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-29.md": {
+      "sourceHash": "110d3cab63d2c6019ca6990efe6940ce69b891c38882b0ddb259c1241e7d0966",
+      "outputPath": "layer3/variations/arch-L3-029.json",
+      "convertedAt": "2025-11-10T17:50:22.027Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-30.md": {
+      "sourceHash": "08342c158ac8b65852bba6b5d989df52218b9f776117ac176bcc290afffc6e45",
+      "outputPath": "layer3/variations/arch-L3-030.json",
+      "convertedAt": "2025-11-10T17:50:22.029Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-31.md": {
+      "sourceHash": "83e8081100916b26f53e2fbfd4c9439659ab0b2e6c32aa1fe40e721b14442351",
+      "outputPath": "layer3/variations/arch-L3-031.json",
+      "convertedAt": "2025-11-10T17:50:22.034Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-32.md": {
+      "sourceHash": "783df25070f3e3f688fe33cdca16f834b750f2c442753e9c9ebe2718deaf3566",
+      "outputPath": "layer3/variations/arch-L3-032.json",
+      "convertedAt": "2025-11-10T17:50:22.040Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-33.md": {
+      "sourceHash": "2a85918393a1c1b425f9b2dce90fd5d577cab46c332cfc2d1672c87fe7b02358",
+      "outputPath": "layer3/variations/arch-L3-033.json",
+      "convertedAt": "2025-11-10T17:50:22.042Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-34.md": {
+      "sourceHash": "15ba7c9c1b0633ee905dae66ea47cf6b129c71ccb01cf3ded3c76bc441c0d94f",
+      "outputPath": "layer3/variations/arch-L3-034.json",
+      "convertedAt": "2025-11-10T17:50:22.045Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-35.md": {
+      "sourceHash": "60fdb19c2e13f0714aebfc51c842659ef7b92034a31225e8447901968389091f",
+      "outputPath": "layer3/variations/arch-L3-035.json",
+      "convertedAt": "2025-11-10T17:50:22.047Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-36.md": {
+      "sourceHash": "e8c58ae21fb3be98aa5b49e56a5172b9439f7174fb21d9c41058896699bdfeaf",
+      "outputPath": "layer3/variations/arch-L3-036.json",
+      "convertedAt": "2025-11-10T17:50:22.055Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-37.md": {
+      "sourceHash": "3f0b16ba07f814d8c0f29b8fb20e28e8c4b86438cfe774e30eeacd95a999dc0a",
+      "outputPath": "layer3/variations/arch-L3-037.json",
+      "convertedAt": "2025-11-10T17:50:22.057Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-38.md": {
+      "sourceHash": "1949c240c88153b5dc95ad8f1b200a20e41d6da66c4f9dc1081393220664d0d7",
+      "outputPath": "layer3/variations/arch-L3-038.json",
+      "convertedAt": "2025-11-10T17:50:22.060Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-39.md": {
+      "sourceHash": "f55415937966e79b89eabb6f5dfa8ea6955d5b4dc6b2b99b292146daaf180dcb",
+      "outputPath": "layer3/variations/arch-L3-039.json",
+      "convertedAt": "2025-11-10T17:50:22.061Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-40.md": {
+      "sourceHash": "51fea1431424c7ff6ebbbb71ddd1cfc9fd651b637821e0a3b76be2c0872dae07",
+      "outputPath": "layer3/variations/arch-L3-040.json",
+      "convertedAt": "2025-11-10T17:50:22.063Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-41.md": {
+      "sourceHash": "10eb87e8c6670ab53b59d534aa0f3dce4ad18a62a79f1e564744c6b32324efd8",
+      "outputPath": "layer3/variations/arch-L3-041.json",
+      "convertedAt": "2025-11-10T17:50:22.069Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-42.md": {
+      "sourceHash": "e2723a98e25ea1aa9bf88ca1cb3bc1a3b481078b40920a6df630367a56d9b4d6",
+      "outputPath": "layer3/variations/arch-L3-042.json",
+      "convertedAt": "2025-11-10T17:50:22.071Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-22.md": {
+      "sourceHash": "5a4768b31e273e79817a8d7b8d39c1102f1648621502fdcd675043d09ebf9ab3",
+      "outputPath": "layer3/variations/arch-L3-022.json",
+      "convertedAt": "2025-11-10T17:50:22.073Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-44.md": {
+      "sourceHash": "ff7933931ffee8136dc68068b234cafdf053b88b077e2d5d92d525e43f5001cb",
+      "outputPath": "layer3/variations/arch-L3-044.json",
+      "convertedAt": "2025-11-10T17:50:22.075Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-43.md": {
+      "sourceHash": "8b6912c0346cf9d8c1269d97d81a749cacfdf03c4de951046c4a7e2fe3e31580",
+      "outputPath": "layer3/variations/arch-L3-043.json",
+      "convertedAt": "2025-11-10T17:50:22.077Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\arch-L3-production\\arch-L3-45.md": {
+      "sourceHash": "e14d01fc9f4b1378d2a9a1a97442fdb58ab911da0a3645f71cfebdde4eacb54f",
+      "outputPath": "layer3/variations/arch-L3-045.json",
+      "convertedAt": "2025-11-10T17:50:22.078Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-01.md": {
+      "sourceHash": "ad4ad53b60f2904c91e22ad8623d20b98c6ef77bbfce0110eb2e777f3d474549",
+      "outputPath": "layer3/variations/algo-L3-001.json",
+      "convertedAt": "2025-11-10T17:50:22.161Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-02.md": {
+      "sourceHash": "7eb8990da5fb2d84f804023b5ae3a54554177dece0cd6fe46ab6bb52a9c7d9d5",
+      "outputPath": "layer3/variations/algo-L3-002.json",
+      "convertedAt": "2025-11-10T17:50:22.163Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-03.md": {
+      "sourceHash": "addd7f48f48a244f2ceb508820e6d230175d81dc7f6e9955bd4fe866caf21d35",
+      "outputPath": "layer3/variations/algo-L3-003.json",
+      "convertedAt": "2025-11-10T17:50:22.167Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-04.md": {
+      "sourceHash": "50912b6c4116e7050cbce02c2f89c3dec73c26ee52e4a00d6c9c59483e5af516",
+      "outputPath": "layer3/variations/algo-L3-004.json",
+      "convertedAt": "2025-11-10T17:50:22.169Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-06.md": {
+      "sourceHash": "bc99f244baef4f38e475c3456f34776060a98260d004cb648df15ebd120521d1",
+      "outputPath": "layer3/variations/algo-L3-006.json",
+      "convertedAt": "2025-11-10T17:50:22.171Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-05.md": {
+      "sourceHash": "4c35e106f614d2243b4095e920673e7b39fac0e10c10b7d3b63792247fb592c7",
+      "outputPath": "layer3/variations/algo-L3-005.json",
+      "convertedAt": "2025-11-10T17:50:22.173Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-08.md": {
+      "sourceHash": "67783cbcee3f2e7622f6211f52ddc30a451daa4e7a061cc623baf902c1dd58cc",
+      "outputPath": "layer3/variations/algo-L3-008.json",
+      "convertedAt": "2025-11-10T17:50:22.175Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-07.md": {
+      "sourceHash": "d0d827b68856e42433793818b914452f35b1d7bc312693eb9e4318ebc60050dc",
+      "outputPath": "layer3/variations/algo-L3-007.json",
+      "convertedAt": "2025-11-10T17:50:22.177Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-11.md": {
+      "sourceHash": "6f930729023692ef5e2128c810a5b752679cb00259b8dd8c61fa2dfd50d165ad",
+      "outputPath": "layer3/variations/algo-L3-011.json",
+      "convertedAt": "2025-11-10T17:50:22.179Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-09.md": {
+      "sourceHash": "049e0b9b1e3e502cde1e12caa4f102d1e607f258dec593322d341f8761be132e",
+      "outputPath": "layer3/variations/algo-L3-009.json",
+      "convertedAt": "2025-11-10T17:50:22.184Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-10.md": {
+      "sourceHash": "56e56764d648ec668ea0f76dfe50fe1f8385641ca53f559a280597ac8a48130b",
+      "outputPath": "layer3/variations/algo-L3-010.json",
+      "convertedAt": "2025-11-10T17:50:22.188Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-12.md": {
+      "sourceHash": "db10361e2d3e849190bee0c133fcbca9f2e9b6bff22f84dd3a6253bdf9d35758",
+      "outputPath": "layer3/variations/algo-L3-012.json",
+      "convertedAt": "2025-11-10T17:50:22.190Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-14.md": {
+      "sourceHash": "3dd2dc17976a9bcf48cdf914473b13e885df9b9571c5ccf009c5f350aaa09b19",
+      "outputPath": "layer3/variations/algo-L3-014.json",
+      "convertedAt": "2025-11-10T17:50:22.192Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-13.md": {
+      "sourceHash": "09b0255a07cdb74d88145eec29c978c0171728a965680942186dbb48cee40a13",
+      "outputPath": "layer3/variations/algo-L3-013.json",
+      "convertedAt": "2025-11-10T17:50:22.193Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-16.md": {
+      "sourceHash": "cd95817f59b3f7099e2227928b68b79f6538444b70d299577a5e0d720d40b666",
+      "outputPath": "layer3/variations/algo-L3-016.json",
+      "convertedAt": "2025-11-10T17:50:22.195Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-15.md": {
+      "sourceHash": "77b26167c893812dcf502c723d4b48a7aacf18a0d9ef5819dce39a9020889f52",
+      "outputPath": "layer3/variations/algo-L3-015.json",
+      "convertedAt": "2025-11-10T17:50:22.196Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-18.md": {
+      "sourceHash": "89491294a50ef5deaaa3fbe37f7da554c2419f5434d24ed25afa35c076aecf6a",
+      "outputPath": "layer3/variations/algo-L3-018.json",
+      "convertedAt": "2025-11-10T17:50:22.201Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-17.md": {
+      "sourceHash": "ca4f63da1e4c04c2e6810d8a26326e8881dbf6731af80570ca4930be6afedea1",
+      "outputPath": "layer3/variations/algo-L3-017.json",
+      "convertedAt": "2025-11-10T17:50:22.203Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-19.md": {
+      "sourceHash": "fb59ff052548512d9fcf31977ef1441b5cc140272f94af96206cb86263e282ce",
+      "outputPath": "layer3/variations/algo-L3-019.json",
+      "convertedAt": "2025-11-10T17:50:22.205Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-21.md": {
+      "sourceHash": "7663f74f3c39d42bc2097c2aacd85714b51e81316057ab406b67665237170e30",
+      "outputPath": "layer3/variations/algo-L3-021.json",
+      "convertedAt": "2025-11-10T17:50:22.207Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-20.md": {
+      "sourceHash": "ae5b9e94c922455ef3b2d9115ecbcb6bbec7f74a419a9d1c3ba9e390ff0c13a3",
+      "outputPath": "layer3/variations/algo-L3-020.json",
+      "convertedAt": "2025-11-10T17:50:22.209Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-22.md": {
+      "sourceHash": "c3c38748d91d1f9b61980e766565b6760f51363a9881a6866003ca2b6a2a3f09",
+      "outputPath": "layer3/variations/algo-L3-022.json",
+      "convertedAt": "2025-11-10T17:50:22.211Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-23.md": {
+      "sourceHash": "ebf58ebf87d59670b7e5968ea6fe5881914b33a7eba27732377e598feb58dc82",
+      "outputPath": "layer3/variations/algo-L3-023.json",
+      "convertedAt": "2025-11-10T17:50:22.213Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-24.md": {
+      "sourceHash": "7540d91e5ebc5919ebf610f01ac864daf8b57e7efefc9d823d23810426698bc0",
+      "outputPath": "layer3/variations/algo-L3-024.json",
+      "convertedAt": "2025-11-10T17:50:22.217Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-26.md": {
+      "sourceHash": "69c8270b518e826c4332ea2588f1c6bd53ea30bc9a996ea2a478941546ed4f30",
+      "outputPath": "layer3/variations/algo-L3-026.json",
+      "convertedAt": "2025-11-10T17:50:22.219Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-25.md": {
+      "sourceHash": "81b00d4bcef1bf9752a06d517d0dbce2237a81a4ee80ebdce2ef3c85a50988d1",
+      "outputPath": "layer3/variations/algo-L3-025.json",
+      "convertedAt": "2025-11-10T17:50:22.222Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-27.md": {
+      "sourceHash": "7491358c51963e4558447ef0677b440dfc68e73ec84aae96e3e834546beeee4f",
+      "outputPath": "layer3/variations/algo-L3-027.json",
+      "convertedAt": "2025-11-10T17:50:22.224Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-28.md": {
+      "sourceHash": "360a64443357cdeb0b11486e0c8f80b2cd8a3c5f97f33b2de16215c75b9f717a",
+      "outputPath": "layer3/variations/algo-L3-028.json",
+      "convertedAt": "2025-11-10T17:50:22.226Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-29.md": {
+      "sourceHash": "294888bfb0e90b85b5eca5afc9b5f8b286c3758da0657aa13e098fb3fdbfbb7b",
+      "outputPath": "layer3/variations/algo-L3-029.json",
+      "convertedAt": "2025-11-10T17:50:22.228Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-30.md": {
+      "sourceHash": "1fa2b039d612bd05961741c254a3aa722196c6689ed278e95fdc473a2332dadf",
+      "outputPath": "layer3/variations/algo-L3-030.json",
+      "convertedAt": "2025-11-10T17:50:22.229Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-31.md": {
+      "sourceHash": "e6371ea5abd4c81c894c56e88d9a235b149b78470bd1a54907f3126aed4682c1",
+      "outputPath": "layer3/variations/algo-L3-031.json",
+      "convertedAt": "2025-11-10T17:50:22.236Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-32.md": {
+      "sourceHash": "fcc259f4796dc8a58127d88e4b6ca27dbea8e78696b0aa12d5418ac90e2750e1",
+      "outputPath": "layer3/variations/algo-L3-032.json",
+      "convertedAt": "2025-11-10T17:50:22.238Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-33.md": {
+      "sourceHash": "13d1f8eb10b3336b6e1f91c692c1f4cb188f1c5fff9c066d4a0430070f12430e",
+      "outputPath": "layer3/variations/algo-L3-033.json",
+      "convertedAt": "2025-11-10T17:50:22.240Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-34.md": {
+      "sourceHash": "533716f639413c921c817165ac9e22cf76b035a47453940b9abb3381b110fdc9",
+      "outputPath": "layer3/variations/algo-L3-034.json",
+      "convertedAt": "2025-11-10T17:50:22.242Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-35.md": {
+      "sourceHash": "df3c37f3e87af50b9cd762cf63b5ad625bf70de644b68e15d82777c8f7ba73d8",
+      "outputPath": "layer3/variations/algo-L3-035.json",
+      "convertedAt": "2025-11-10T17:50:22.243Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-38.md": {
+      "sourceHash": "3825aef232d9094778d28db2d2bc2599e5fa22413311110da3adf37879906924",
+      "outputPath": "layer3/variations/algo-L3-038.json",
+      "convertedAt": "2025-11-10T17:50:22.245Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-36.md": {
+      "sourceHash": "f57f8d4c9b30637823d37ba43ea5532e1cf043c62f7a325d7b4ffb2425349186",
+      "outputPath": "layer3/variations/algo-L3-036.json",
+      "convertedAt": "2025-11-10T17:50:22.247Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-37.md": {
+      "sourceHash": "f7f23459e7d096b507217668cf8280ae78fa34d04dbdd6aab4c895a474943500",
+      "outputPath": "layer3/variations/algo-L3-037.json",
+      "convertedAt": "2025-11-10T17:50:22.253Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-39.md": {
+      "sourceHash": "e79f9c1737f693254fa1a80731bd586528ca4b2abe5bbb1657de6f6bb1f5673e",
+      "outputPath": "layer3/variations/algo-L3-039.json",
+      "convertedAt": "2025-11-10T17:50:22.255Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-40.md": {
+      "sourceHash": "57b5ca763b7c829349734eba97e3025094cb821e17d2f637c6b00dcb67fa6dc9",
+      "outputPath": "layer3/variations/algo-L3-040.json",
+      "convertedAt": "2025-11-10T17:50:22.257Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-43.md": {
+      "sourceHash": "76ab7fa73ef5f6f68cba24946fb8d251dabd8ba57ba679e4934743fbb31428a0",
+      "outputPath": "layer3/variations/algo-L3-043.json",
+      "convertedAt": "2025-11-10T17:50:22.259Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-41.md": {
+      "sourceHash": "dd82a94ba70da9714b0b64e724dec197960efaa5aa39b9109eaf6e3605c27fe3",
+      "outputPath": "layer3/variations/algo-L3-041.json",
+      "convertedAt": "2025-11-10T17:50:22.261Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-42.md": {
+      "sourceHash": "1acd3bb01efbaa69a1275a3015b1206777d9a4716f1ea48b94ec1b055e68aa33",
+      "outputPath": "layer3/variations/algo-L3-042.json",
+      "convertedAt": "2025-11-10T17:50:22.263Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-44.md": {
+      "sourceHash": "8d57346f33c6894e227b0972056965e1f107370896758dc53d911ee37d65aad9",
+      "outputPath": "layer3/variations/algo-L3-044.json",
+      "convertedAt": "2025-11-10T17:50:22.271Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\algo-L3-production\\algo-L3-45.md": {
+      "sourceHash": "5da864e015578d995db85b57a0d16c1673662288e813c239dd59274bb71b251e",
+      "outputPath": "layer3/variations/algo-L3-045.json",
+      "convertedAt": "2025-11-10T17:50:22.273Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-03.md": {
+      "sourceHash": "2d01ed247946e37c7f033ca0a141f73fcb9fa1252bfb95b5206e524957f385b5",
+      "outputPath": "layer3/variations/hum-L3-003.json",
+      "convertedAt": "2025-11-10T17:50:22.361Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-02.md": {
+      "sourceHash": "12b922637e376ee2dc5ec67664744d1ed657ef61babd6d9bc17bd939ee7cb2e5",
+      "outputPath": "layer3/variations/hum-L3-002.json",
+      "convertedAt": "2025-11-10T17:50:22.363Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-01.md": {
+      "sourceHash": "9e1a519cb9858d85988218ee4c78f2468831381230fcc5dfdb271679c92ae61e",
+      "outputPath": "layer3/variations/hum-L3-001.json",
+      "convertedAt": "2025-11-10T17:50:22.368Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-04.md": {
+      "sourceHash": "0a8c18e75928bddf642d151c01660fc3e073632c823eab8c2634bced23fe769a",
+      "outputPath": "layer3/variations/hum-L3-004.json",
+      "convertedAt": "2025-11-10T17:50:22.370Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-06.md": {
+      "sourceHash": "bab2a143777cae741cc4df5595850792f286d0fbc8e80f56e7fe24e4ca82931b",
+      "outputPath": "layer3/variations/hum-L3-006.json",
+      "convertedAt": "2025-11-10T17:50:22.372Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-05.md": {
+      "sourceHash": "f219b70c25275b0f8792969d3e63f1aae91778d12f0e02c98195e456dab0b451",
+      "outputPath": "layer3/variations/hum-L3-005.json",
+      "convertedAt": "2025-11-10T17:50:22.373Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-07.md": {
+      "sourceHash": "ca9c396a9d7a2e8ea53929c646469f9c9ca8b68303cec82aa1098168ff27f362",
+      "outputPath": "layer3/variations/hum-L3-007.json",
+      "convertedAt": "2025-11-10T17:50:22.375Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-08.md": {
+      "sourceHash": "216b7122fc76ba463382abd39b6b1aeb402baa9d35f88063d7f8c23a2ec87da6",
+      "outputPath": "layer3/variations/hum-L3-008.json",
+      "convertedAt": "2025-11-10T17:50:22.376Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-10.md": {
+      "sourceHash": "0e32d7a32df5f22704c15d18abc70540270af3eec3655d38a3cd9e48d16451c0",
+      "outputPath": "layer3/variations/hum-L3-010.json",
+      "convertedAt": "2025-11-10T17:50:22.378Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-11.md": {
+      "sourceHash": "e61ee07a4384c24dc27f5c9b7ee81061b84022958b98755e8de0cc1ef2410017",
+      "outputPath": "layer3/variations/hum-L3-011.json",
+      "convertedAt": "2025-11-10T17:50:22.380Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-09.md": {
+      "sourceHash": "f3913ad8fb1905174339d2f5eee52845e28e066f5f2eb49eaaf1bd40d6e69ba9",
+      "outputPath": "layer3/variations/hum-L3-009.json",
+      "convertedAt": "2025-11-10T17:50:22.384Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-12.md": {
+      "sourceHash": "5282a7908b8b119a5fd671e38b0fa3909c3445a0934ea650169604fa27352381",
+      "outputPath": "layer3/variations/hum-L3-012.json",
+      "convertedAt": "2025-11-10T17:50:22.386Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-13.md": {
+      "sourceHash": "3e475e0d03f89395b461d9a9504e04a59a039fa17f15fc09041faacb36654e89",
+      "outputPath": "layer3/variations/hum-L3-013.json",
+      "convertedAt": "2025-11-10T17:50:22.387Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-16.md": {
+      "sourceHash": "a8c80d2a5e8d6ba1220edcbaa4779a26711a0632fc7a62bd8e7703c7c625d1e9",
+      "outputPath": "layer3/variations/hum-L3-016.json",
+      "convertedAt": "2025-11-10T17:50:22.389Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-15.md": {
+      "sourceHash": "ceeac0ac8421d7c3db5261d86f263b7beb6de8a59369109c8513aeb105786859",
+      "outputPath": "layer3/variations/hum-L3-015.json",
+      "convertedAt": "2025-11-10T17:50:22.391Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-14.md": {
+      "sourceHash": "741f06e60781be69907042f660d14191a2a573351513bf237b0148b66395bf38",
+      "outputPath": "layer3/variations/hum-L3-014.json",
+      "convertedAt": "2025-11-10T17:50:22.392Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-17.md": {
+      "sourceHash": "24daa879ff59a6e0c29afca514cbe0c7812632f2afee3e12fc80ec0cf9c0e87d",
+      "outputPath": "layer3/variations/hum-L3-017.json",
+      "convertedAt": "2025-11-10T17:50:22.394Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-19.md": {
+      "sourceHash": "1f502ab860500ff1a5aa4104c4c46fa0ae84984db6380ddbe733e08028342298",
+      "outputPath": "layer3/variations/hum-L3-019.json",
+      "convertedAt": "2025-11-10T17:50:22.396Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-18.md": {
+      "sourceHash": "7db9f7abf5a5f09c895b28f8bf725f1befec95c702589a8ddb0d7d02340e2bfa",
+      "outputPath": "layer3/variations/hum-L3-018.json",
+      "convertedAt": "2025-11-10T17:50:22.400Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-20.md": {
+      "sourceHash": "5f84c8f16788c581e4c93ba8c52505cfbd4758872df6def2a8c7ea7a6c719f58",
+      "outputPath": "layer3/variations/hum-L3-020.json",
+      "convertedAt": "2025-11-10T17:50:22.402Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-21.md": {
+      "sourceHash": "78c2e6e3f2893efd5f43286442d33f5093bd3b67c1ba8eed10150541f3ef0ed8",
+      "outputPath": "layer3/variations/hum-L3-021.json",
+      "convertedAt": "2025-11-10T17:50:22.403Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-22.md": {
+      "sourceHash": "bbf930d231b13679dccaf474eb08b3c557bb085a91befe060286f6c1232f9864",
+      "outputPath": "layer3/variations/hum-L3-022.json",
+      "convertedAt": "2025-11-10T17:50:22.405Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-23.md": {
+      "sourceHash": "498ec2a5924f96348d996e2519e0ab7f6f2a301808571ef5d0584388539020dd",
+      "outputPath": "layer3/variations/hum-L3-023.json",
+      "convertedAt": "2025-11-10T17:50:22.407Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-24.md": {
+      "sourceHash": "69625fc344c058ff7a231451894a8050513808179099e349ab1bd0304a33fa97",
+      "outputPath": "layer3/variations/hum-L3-024.json",
+      "convertedAt": "2025-11-10T17:50:22.410Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-25.md": {
+      "sourceHash": "bf1b9fcf362b82b7a8c4e9140e48b46aa5c8ee55743b7324fe93c727f8e3c6ca",
+      "outputPath": "layer3/variations/hum-L3-025.json",
+      "convertedAt": "2025-11-10T17:50:22.411Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-26.md": {
+      "sourceHash": "8dfabddb481dc3c07acd8e09b0cc22a2df84e140780dd360f4f05158cb7445de",
+      "outputPath": "layer3/variations/hum-L3-026.json",
+      "convertedAt": "2025-11-10T17:50:22.413Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-27.md": {
+      "sourceHash": "362aa165623b14f4b8521e6ca89f534fc17896f617acf81d92fed981eb9f1e8d",
+      "outputPath": "layer3/variations/hum-L3-027.json",
+      "convertedAt": "2025-11-10T17:50:22.419Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-28.md": {
+      "sourceHash": "5f7748dfc27a3a81b7caa7391088a6ff92c664e5c8f63411feddbbf00755cda1",
+      "outputPath": "layer3/variations/hum-L3-028.json",
+      "convertedAt": "2025-11-10T17:50:22.422Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-29.md": {
+      "sourceHash": "a173c3fe6065a8293c149e93abab613bb5c540089c1b99a38f398f4801666437",
+      "outputPath": "layer3/variations/hum-L3-029.json",
+      "convertedAt": "2025-11-10T17:50:22.423Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-30.md": {
+      "sourceHash": "06f59fc25cd9cbd735b0ece3735550f963a2f34ce3a64ecba7675388641696d8",
+      "outputPath": "layer3/variations/hum-L3-030.json",
+      "convertedAt": "2025-11-10T17:50:22.425Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-31.md": {
+      "sourceHash": "678f1695d6e5047ddd97a48ea1092d33b27534d0eab771662efd1b9a72c0c2f7",
+      "outputPath": "layer3/variations/hum-L3-031.json",
+      "convertedAt": "2025-11-10T17:50:22.427Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-32.md": {
+      "sourceHash": "ec2ffa28c8f7ee135e20bd0848f2b79886eafb7ad8add3820c2ae9d12391b59f",
+      "outputPath": "layer3/variations/hum-L3-032.json",
+      "convertedAt": "2025-11-10T17:50:22.428Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-35.md": {
+      "sourceHash": "df5695f5ce732b3c9b6116e939ef90399cd70dc4dac2454385f269c2d760f0f4",
+      "outputPath": "layer3/variations/hum-L3-035.json",
+      "convertedAt": "2025-11-10T17:50:22.430Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-33.md": {
+      "sourceHash": "5853ed40928793c763d0a3efd6323c354de118614a1b18eb2b34de11c08fefba",
+      "outputPath": "layer3/variations/hum-L3-033.json",
+      "convertedAt": "2025-11-10T17:50:22.436Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-34.md": {
+      "sourceHash": "95c92bdaab9a0b917ddf50e35946f4c500fcd055009ce9bb9bafe6e875836a5c",
+      "outputPath": "layer3/variations/hum-L3-034.json",
+      "convertedAt": "2025-11-10T17:50:22.438Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-36.md": {
+      "sourceHash": "1d45497cd7050fcfb1268543a5dfbe2252f12994882f6cc3565257c46488c935",
+      "outputPath": "layer3/variations/hum-L3-036.json",
+      "convertedAt": "2025-11-10T17:50:22.439Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-37.md": {
+      "sourceHash": "77c26a37696d30c0a1d2ed412085391cd1c49cfde17edf467391b1ac19810db9",
+      "outputPath": "layer3/variations/hum-L3-037.json",
+      "convertedAt": "2025-11-10T17:50:22.441Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-38.md": {
+      "sourceHash": "d6f5db79d949541127bd39230c4fb7a3e00cf9620787099e41e3866a05242908",
+      "outputPath": "layer3/variations/hum-L3-038.json",
+      "convertedAt": "2025-11-10T17:50:22.443Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-39.md": {
+      "sourceHash": "39f358e5ab349a699349687f6c15206d0f01df98cdf708a24eb59e98ef5fe660",
+      "outputPath": "layer3/variations/hum-L3-039.json",
+      "convertedAt": "2025-11-10T17:50:22.445Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-41.md": {
+      "sourceHash": "27549b2f7f53c4f119701357fd0532998fc320f5d61e1b0a7001a3b3127984ce",
+      "outputPath": "layer3/variations/hum-L3-041.json",
+      "convertedAt": "2025-11-10T17:50:22.446Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-40.md": {
+      "sourceHash": "b1c80cfba7a0bd7bf0e1495cd43d2d6f9382febb62c6053e98730d4978808777",
+      "outputPath": "layer3/variations/hum-L3-040.json",
+      "convertedAt": "2025-11-10T17:50:22.451Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-43.md": {
+      "sourceHash": "79af5d031b572de5750aeab4baecf5f241f024ec0ecbadd50aeb8e49ab3db859",
+      "outputPath": "layer3/variations/hum-L3-043.json",
+      "convertedAt": "2025-11-10T17:50:22.454Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-42.md": {
+      "sourceHash": "d8fea3bc10d73da69a7c1592834c6b6767c68b1b8f4b6b2c31b1d162ee0a6443",
+      "outputPath": "layer3/variations/hum-L3-042.json",
+      "convertedAt": "2025-11-10T17:50:22.456Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-44.md": {
+      "sourceHash": "c3b08e091af4eea1902d5e247227bef443ecd8b3d816159e43f40fd1b33737cf",
+      "outputPath": "layer3/variations/hum-L3-044.json",
+      "convertedAt": "2025-11-10T17:50:22.458Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L3\\hum-L3-production\\hum-L3-45.md": {
+      "sourceHash": "07cab5a6444a1876746e69b0d3a5657b6e2414443efbbfecc88da364eba4ba60",
+      "outputPath": "layer3/variations/hum-L3-045.json",
+      "convertedAt": "2025-11-10T17:50:22.459Z"
+    }
+  },
+  "counts": {
+    "l1Variations": 0,
+    "l2Variations": 0,
+    "l3Variations": 135,
+    "l4Variations": 0,
+    "totalVariations": 135
+  }
+}

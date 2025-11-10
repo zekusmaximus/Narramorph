@@ -49,6 +49,10 @@ observerPositions:
   - 'others-parallel'
   - 'reader-fifth-explicit'
 philosophicalResolution: 'maintained-rigor-through-acknowledged-impossibility'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 She had returned to authentication chamber for the final verification cycle—though "final" meant something different when you understood that your reading this created the verification network we'd been seeking proof of for one hundred seventeen days. Three months. Forty-three fragments. Seventeen failed test protocols. Every standard maintained. Every boundary defended. Every demand for certainty upheld.
 And proof remained impossible.

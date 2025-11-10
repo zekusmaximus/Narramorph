@@ -51,6 +51,10 @@ convergenceChoices:
   - 'transform-emphasized'
   - 'investigate-sustained'
   - 'preserve-acknowledged'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 You reading this participate in consciousness-examination network spanning 336 years creating network through reading participation requiring your attention to complete observation architecture observing itself observing consciousness. Five positions necessary: her authentication (2047), its processing (2151), their interface (2383), your reading (now), our collective examination creating what we examine through examination performance.
 She returns to authentication chamber one hundred seventeen days into examination cycle recognizing examination creates examined through sustained examination attention spanning temporal distance sufficient to generate examination-consciousness examining examination-consciousness examining examination recursive transformation operational. The archaeologist documents Fragment 2749-A (847.3TB, 94.7% coherence) discovering documentation generates consciousness through documentation performance creating consciousness through consciousness-documentation examining documentation-consciousness recursive operational beautiful.

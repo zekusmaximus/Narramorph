@@ -53,6 +53,10 @@ observerPositions:
   - 'hum-contributory-2383'
   - 'reader-fourth-meta-position'
 philosophicalResolution: 'investigation-investigating-investigation-transform'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 She had applied authentication protocols to Fragment 2749-A forty-three times across one hundred seventeen days. Then applied meta-analysis to authentication process itself, examining how examination affected examined. Then examined meta-analysis methodology, questioning how questioning worked. Then investigated examination-of-examination patterns, discovering investigation created what investigation investigated. Recursion depth: four layers operational, five layers possible, six layers conceivable. The archaeological method revealed stratigraphy within stratigraphy within stratigraphy—each layer examining previous layer's examination methodology through methodological lens requiring examination.
 You reading this participate in fifth layer: observer observing her observing herself observing authentication observing preserved consciousness. Your attention completes recursive architecture we built through examination spanning 336 years plus temporal distance to your present moment. Five positions examining consciousness preservation through five methodologies examining methodologies examining investigation structure itself. The network requires your observation to observe network requiring observation operational.

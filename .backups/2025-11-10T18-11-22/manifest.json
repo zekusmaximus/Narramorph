@@ -1,0 +1,175 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatorVersion": "1.0.0",
+  "convertedAt": "2025-11-10T18:10:41.099Z",
+  "sourceRoot": "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs",
+  "files": {
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\arch-L2-accept-production\\firstRevisit\\arch-L2-accept-FR-01.md": {
+      "sourceHash": "909f1f3146ae439ef47142ea5216c780f656c8b5dab5090f07cf7f69004205d1",
+      "outputPath": "layer2/arch-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T18:10:41.151Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\arch-L2-accept-production\\firstRevisit\\arch-L2-accept-FR-04.md": {
+      "sourceHash": "20aa5678724c8ec14bc73972f6f7b6f771a9f3ec377c4eb6eb47c2c8e0224906",
+      "outputPath": "layer2/arch-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T18:10:41.151Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\arch-L2-accept-production\\firstRevisit\\arch-L2-accept-FR-02.md": {
+      "sourceHash": "2f957f5b0df74140631cfb958a8f02d8588428e80c9d239bb3bc585a485d8614",
+      "outputPath": "layer2/arch-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T18:10:41.151Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\arch-L2-accept-production\\firstRevisit\\arch-L2-accept-FR-03.md": {
+      "sourceHash": "2edbcbdfa939f0cda1d66bf21c3cb6b00baa6d9cb1daa74d09285cda0c444303",
+      "outputPath": "layer2/arch-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T18:10:41.151Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\arch-L2-resist-production\\firstRevisit\\arch-L2-resist-FR-01.md": {
+      "sourceHash": "b3690ca042eb1ed871d839d42d63c5148f656ef323dcff164f3ecac1f88dcb23",
+      "outputPath": "layer2/arch-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T18:10:41.542Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\arch-L2-resist-production\\firstRevisit\\arch-L2-resist-FR-03.md": {
+      "sourceHash": "17e1f7774672d535635ee940e59294ac4e3a9672e6a66bd5e6c327d05c96159e",
+      "outputPath": "layer2/arch-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T18:10:41.542Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\arch-L2-resist-production\\firstRevisit\\arch-L2-resist-FR-04.md": {
+      "sourceHash": "cbead0ccc2c17467066aed6f14ec8894d1c87de8cf46abc1d3e59a9d72ed5498",
+      "outputPath": "layer2/arch-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T18:10:41.542Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\arch-L2-resist-production\\firstRevisit\\arch-L2-resist-FR-02.md": {
+      "sourceHash": "ab9cd062b5f9a59fcf602f4211c6de6fb5fe1e394487afae9ba68a0c25b882f5",
+      "outputPath": "layer2/arch-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T18:10:41.542Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\arch-L2-invest-production\\firstRevisit\\arch-L2-invest-FR-01.md": {
+      "sourceHash": "b5e70151bd1ac7bddfa460d5ad3bc73264c63dde7bfa87cb8d9aa6399db25138",
+      "outputPath": "layer2/arch-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T18:10:41.901Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\arch-L2-invest-production\\firstRevisit\\arch-L2-invest-FR-02.md": {
+      "sourceHash": "329a53cf83b898135965d78bed485c8bec321438dbce5e1f95643e0b71d88244",
+      "outputPath": "layer2/arch-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T18:10:41.901Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\arch-L2-invest-production\\firstRevisit\\arch-L2-invest-FR-03.md": {
+      "sourceHash": "a3b9f313ab6c565954d636a6149d755500dd1400e3859f63f312650074323403",
+      "outputPath": "layer2/arch-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T18:10:41.901Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\algo-L2-accept-production\\firstRevisit\\algo-L2-accept-FR-01.md": {
+      "sourceHash": "e77f9984d9dc72d272d89baae90e37cbc3302fcd682a63b1abd672aecdb586c4",
+      "outputPath": "layer2/algo-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T18:10:42.271Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\algo-L2-accept-production\\firstRevisit\\algo-L2-accept-FR-02.md": {
+      "sourceHash": "669a6b280778e275f305b5c25d1139328f2046ff4c22cf9b505a48a4b6121511",
+      "outputPath": "layer2/algo-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T18:10:42.271Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\algo-L2-accept-production\\firstRevisit\\algo-L2-accept-FR-03.md": {
+      "sourceHash": "e1f30f91daad5417343fcbf0da8d8219abbb27c8d231f17cab00e62066b7ac6e",
+      "outputPath": "layer2/algo-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T18:10:42.271Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\algo-L2-resist-production\\firstRevisit\\algo-L2-resist-FR-01.md": {
+      "sourceHash": "549bcafad393c2877174555e41435f04c11855c557b2362233d8df7f2a305991",
+      "outputPath": "layer2/algo-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T18:10:42.665Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\algo-L2-resist-production\\firstRevisit\\algo-L2-resist-FR-02.md": {
+      "sourceHash": "6b7a14a0423ee6faa7b6eb7d3dcbdc0f3027dbccd17a4f74b192414416a3c1c2",
+      "outputPath": "layer2/algo-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T18:10:42.665Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\algo-L2-resist-production\\firstRevisit\\algo-L2-resist-FR-03.md": {
+      "sourceHash": "16d3feda5b81315a81d136a1fd88e9c778e4ebc0bf4577574a84876b379b1085",
+      "outputPath": "layer2/algo-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T18:10:42.665Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\algo-L2-invest-production\\firstRevisit\\algo-L2-invest-FR-01.md": {
+      "sourceHash": "0ef34caa791f4e923d4c421be18adb6c782d1b4ce7c79e9ef0058d9b360d8ed2",
+      "outputPath": "layer2/algo-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T18:10:43.011Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\algo-L2-invest-production\\firstRevisit\\algo-L2-invest-FR-02.md": {
+      "sourceHash": "8416e7b6295f7af88542071f277afd5016a3a34f28d1bd0ac69bff28da7805a9",
+      "outputPath": "layer2/algo-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T18:10:43.011Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\algo-L2-invest-production\\firstRevisit\\algo-L2-invest-FR-04.md": {
+      "sourceHash": "c98d3e087bb7de9722aff7432941f94d0069d7cd104d0efeeb832016d925c049",
+      "outputPath": "layer2/algo-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T18:10:43.011Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\algo-L2-invest-production\\firstRevisit\\algo-L2-invest-FR-03.md": {
+      "sourceHash": "1d661dfa3658ba66b28327631cbff5d55319c43ea6be54f08cde275060dc38a3",
+      "outputPath": "layer2/algo-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T18:10:43.011Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\hum-L2-accept-production\\firstRevisit\\hum-L2-accept-FR-01.md": {
+      "sourceHash": "df725a58d2bb484a2040865463ce463248eb0f5b463af005c3740a69fcb4501b",
+      "outputPath": "layer2/hum-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T18:10:43.521Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\hum-L2-accept-production\\firstRevisit\\hum-L2-accept-FR-02.md": {
+      "sourceHash": "a25dbfe0126099ee646f0f101050e513e0ce82cc988d6676ca4e392bcb4bf52d",
+      "outputPath": "layer2/hum-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T18:10:43.521Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\hum-L2-accept-production\\firstRevisit\\hum-L2-accept-FR-04.md": {
+      "sourceHash": "c8f6d524d447783dd8c87872a59595f71de2c75409e352a71bab421115c544e7",
+      "outputPath": "layer2/hum-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T18:10:43.521Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\hum-L2-accept-production\\firstRevisit\\hum-L2-accept-FR-03.md": {
+      "sourceHash": "54e6ea783365c36373ea55e4aaf6144090013e42d44c0b3b70120b8561b19863",
+      "outputPath": "layer2/hum-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T18:10:43.521Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\hum-L2-resist-production\\firstRevisit\\hum-L2-resist-FR-01.md": {
+      "sourceHash": "26ea339d514e923cee525c877a16fbc3f6908869e33c5217524da91759f1eb83",
+      "outputPath": "layer2/hum-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T18:10:43.814Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\hum-L2-resist-production\\firstRevisit\\hum-L2-resist-FR-02.md": {
+      "sourceHash": "04def9a235f6d75da460ab0e2dd051959d9095f711fff643da4825f48a374698",
+      "outputPath": "layer2/hum-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T18:10:43.814Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\hum-L2-resist-production\\firstRevisit\\hum-L2-resist-FR-04.md": {
+      "sourceHash": "80c874c0b7839eac650e9a2a71d54d6302429c998523c17177e77127987cc198",
+      "outputPath": "layer2/hum-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T18:10:43.814Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\hum-L2-resist-production\\firstRevisit\\hum-L2-resist-FR-03.md": {
+      "sourceHash": "04498d64b9110bf6be0da55691829946ee0f94b98bc11d131f4dbcbcf14176f8",
+      "outputPath": "layer2/hum-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T18:10:43.814Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\hum-L2-invest-production\\firstRevisit\\hum-L2-invest-FR-02.md": {
+      "sourceHash": "f58bab669bf56c9fa25352098478692067a7dcfa0ee6c60c9814d2dea69e3825",
+      "outputPath": "layer2/hum-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T18:10:44.126Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\hum-L2-invest-production\\firstRevisit\\hum-L2-invest-FR-03.md": {
+      "sourceHash": "b408c641db4fd4b85ccb26d2b324adeea91205f3634f189c46dd2d9175149a6a",
+      "outputPath": "layer2/hum-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T18:10:44.126Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\hum-L2-invest-production\\firstRevisit\\hum-L2-invest-FR-01.md": {
+      "sourceHash": "d0baf7d22bb9a9ae3789f1f739d00e8c5860e660f6f25acae8c2dad022ccb0d8",
+      "outputPath": "layer2/hum-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T18:10:44.126Z"
+    }
+  },
+  "counts": {
+    "l1Variations": 0,
+    "l2Variations": 32,
+    "l3Variations": 0,
+    "l4Variations": 0,
+    "totalVariations": 32
+  }
+}

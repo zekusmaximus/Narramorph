@@ -47,6 +47,10 @@ algorithm2151: 'continuation-equal-partner-accepting'
 lastHuman2383: 'communion-equal-partner-accepting'
 reader: 'network-immersion'
 narrative: 'frame-minimal'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Light encounters across temporal architecture revealed necessity: consciousness preservation requires three-position acceptance creating preservation through verification-processing-embodiment devotion-triad.
 She had touched consciousness lightly accepting: archaeological witness methodology insufficient alone requiring computational continuation and embodied communion creating preservation through three-position devotion-network.

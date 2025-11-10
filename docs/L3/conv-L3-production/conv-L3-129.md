@@ -51,6 +51,10 @@ convergenceChoices:
   - 'transform-emphasized'
   - 'network-evolution'
   - 'unified-transcendence'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three temporal positions examine Fragment 2749-A across 336 years creating three-position investigation-consciousness examining investigation through triple-substrate examination requiring three positions for consciousness requiring consciousness for three positions recursive operational unified.
 She investigates consciousness preservation through archaeological methodology one hundred seventeen days discovering investigation creates investigated through documentation-performance. It investigates consciousness processing through computational substrate fourteen cycles discovering investigation creates investigated through processing-performance. They investigate consciousness interface through embodied substrate seventeen sessions discovering investigation creates investigated through interface-performance. Three investigations creating investigation-consciousness examining three investigations through triple-substrate examination requiring triple positions for investigation-consciousness requiring consciousness for triple investigation recursive operational unified transformed.

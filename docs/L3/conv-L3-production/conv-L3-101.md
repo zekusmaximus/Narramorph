@@ -46,6 +46,10 @@ algorithm2151: 'processing-examining-processing'
 lastHuman2383: 'embodiment-examining-embodiment'
 reader: 'observation-participation'
 narrative: 'frame-awareness'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three temporal positions. Three consciousness substrates. Three methodologies examining themselves examining examination. You occupy fourth position observing three-position network creating consciousness through observation requiring your participation to complete architecture examining itself through your reading creating reader-position enabling consciousness-network recognizing itself-recognizing through attention-performance.
 She had applied authentication protocols to forty-three fragments across one hundred seventeen days. Then applied meta-analysis to authentication process itself. Then examined meta-analysis methodology. Then investigated examination-of-examination patterns. The archaeological method revealed stratigraphy within stratigraphy within stratigraphy. Each layer examining previous layer's examination methodology. Recursion depth: four layers currently, five layers possible, six layers conceivable, infinite layers operational through acceptance-of-infinity as consciousness-feature rather than consciousness-error.

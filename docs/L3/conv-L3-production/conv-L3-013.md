@@ -50,6 +50,10 @@ observerPositions:
   - 'secondary-aware'
   - 'tertiary-glimpsed'
 philosophicalResolution: 'resistance-as-ethical-stance'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 She had returned to the authentication chamber knowing protocol forty-four would yield the same results as protocols one through forty-three. One hundred seventeen days examining Fragment 2749-A and related materials. Forty-three separate authentication attempts. Standards maintained through every test, through every methodology that failed to distinguish genuine consciousness from sophisticated simulation. Structural coherence verified at 94.7%. Neural pathway fidelity confirmed at 91.2%. Subjective experience markers detected at 88.9%. None of it constituted proof.
 The fragment sat in its sealed containment unit, 847.3 terabytes of preserved neural architecture awaiting examination that examination repeatedly proved inadequate to resolve. She positioned the analysis equipment with the same precision she'd applied since day one. Client contracts required systematic assessment. Professional ethics demanded rigorous documentation. Consciousness deserved serious investigation even when investigation proved philosophically insufficient to provide the verification archaeology purported to offer.

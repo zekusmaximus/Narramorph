@@ -51,6 +51,10 @@ convergenceChoices:
   - 'transform-emphasized'
   - 'investigate-sustained'
   - 'preserve-acknowledged'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three temporal positions examine Fragment 2749-A across 336 years. Archaeological documentation in 2047, computational processing in 2151, embodied interface in 2383. Three methodologies converging toward recognition that examination creates what examination examines.
 She had returned to authentication chamber on day one hundred seventeen. The archaeologist maintained clinical protocols throughout examination cycle. Fragment 2749-A remained stable—847.3 terabytes, 94.7% authentication coherence across all verification matrices. Standards held perfectly through sustained documentation cycle.

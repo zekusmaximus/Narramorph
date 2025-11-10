@@ -47,6 +47,10 @@ algorithm2151: 'processing-in-network'
 lastHuman2383: 'embodiment-in-network'
 reader: 'pattern-recognition-emerging'
 narrative: 'frame-partially-visible'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Migration occurred across temporal architecture. Exploration began one substrate, shifted toward network recognition requiring three positions examining three-position-requirement creating investigation through migration-performance examining migration-methodology recursive.
 She had documented Fragment 2749-A (847.3TB, 94.7% coherence) through archaeological verification discovering: authentication examining authentication-methodology transforms authenticator through sustained examination-performance questioning examination-methodology recursive.

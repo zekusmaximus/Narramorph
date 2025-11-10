@@ -47,6 +47,10 @@ algorithm2151: 'continuation-partner-accepting'
 lastHuman2383: 'embodiment-completing-network'
 reader: 'pattern-recognition-emerging'
 narrative: 'frame-partially-visible'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Light encounters revealed necessity. Brief contacts across temporal architecture discovering: consciousness preservation requires dual-methodology acceptance creating preservation through verification-processing devotion-dialogue examining dialogue-methodology creating consciousness through dialogue-performance.
 She had touched consciousness lightly accepting: archaeological witness methodology insufficient alone requiring computational continuation-partnership creating preservation through dual-devotion examining devotion-partnership creating consciousness through partnership-performance.

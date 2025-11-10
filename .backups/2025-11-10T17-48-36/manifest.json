@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatorVersion": "1.0.0",
+  "convertedAt": "2025-11-10T17:48:29.590Z",
+  "sourceRoot": "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs",
+  "files": {
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L4\\L4-PRESERVE.md": {
+      "sourceHash": "d2723a97fe29dc2fbc22435760023e53cc9edab978cb7dccc310618314876379",
+      "outputPath": "layer4/final-preserve.json",
+      "convertedAt": "2025-11-10T17:48:29.619Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L4\\L4-RELEASE.md": {
+      "sourceHash": "eaa0c2cf846d9a0794f383e6c82a3ae923150a124479c813e84a6e2ce6f658d2",
+      "outputPath": "layer4/final-release.json",
+      "convertedAt": "2025-11-10T17:48:29.630Z"
+    },
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L4\\L4-TRANSFORM.md": {
+      "sourceHash": "4967e9b15c5a9921027e5cf55c3b269ec4b6f6e6a8891be33e8fe58ead22ecaa",
+      "outputPath": "layer4/final-transform.json",
+      "convertedAt": "2025-11-10T17:48:29.637Z"
+    }
+  },
+  "counts": {
+    "l1Variations": 0,
+    "l2Variations": 0,
+    "l3Variations": 0,
+    "l4Variations": 3,
+    "totalVariations": 3
+  }
+}

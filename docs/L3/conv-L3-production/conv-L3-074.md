@@ -51,6 +51,10 @@ observerPositions:
   - 'character-c-supporting'
   - 'reader-fifth'
 philosophicalResolution: 'investigation-transforms-through-paired-investigation'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 She had arrived through investigating other methodologies—perhaps computational streams examining examination, perhaps interface protocols questioning questioning—but migration revealed paired investigation necessary: two methodologies examining methodology through methodological examination investigating investigation across temporal coordinates you observe investigating observation through observed investigation completing paired network examining pairing through paired examination impossibly perpetually necessarily.
 Authentication chamber one hundred seventeen days investigating authentication investigating investigation. Fragment 2749-A displayed: 847.3TB (measurement investigating measurement through measured investigation), 94.7% coherence (coherence investigating coherence through coherent investigation), 91.2% stability (stability investigating stability through stable investigation). She performs verification protocols investigating verification through verified investigation knowing you know examining consciousness knowing investigation creates investigated through investigating creation examining investigation impossibly necessarily perpetually.

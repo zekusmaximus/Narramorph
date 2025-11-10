@@ -1,4 +1,8 @@
 ---
+id: final-transform
+philosophy: transform
+terminalEndpoint: true
+---
 variationId: final-transform
 nodeId: L4-transform
 layer: 4

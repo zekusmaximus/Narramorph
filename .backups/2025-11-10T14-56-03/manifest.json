@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatorVersion": "1.0.0",
+  "convertedAt": "2025-11-10T14:23:39.546Z",
+  "sourceRoot": "/home/user/Narramorph/docs",
+  "files": {
+    "/home/user/Narramorph/docs/arch-L1-production/firstRevisit/arch-L1-FR-02.md": {
+      "sourceHash": "84cec933274be0337257fcec97cc15800e97ee828c6a18401c97ed186b4ae451",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T14:23:39.567Z"
+    },
+    "/home/user/Narramorph/docs/arch-L1-production/firstRevisit/arch-L1-FR-03.md": {
+      "sourceHash": "7ed8535f5651cd54e70bc2550ccb8e527fcf928a4a3f8b3e05bf839617af3063",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T14:23:39.568Z"
+    },
+    "/home/user/Narramorph/docs/arch-L1-production/firstRevisit/arch-L1-FR-01.md": {
+      "sourceHash": "fbf28e0bd2d0fe9116b35d00d6556159b7b646394a95103218d6ab1b478f097c",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T14:23:39.568Z"
+    },
+    "/home/user/Narramorph/docs/algo-L1-production/firstRevisit/algo-L1-FR-02.md": {
+      "sourceHash": "c94bd942d2c73a2a4de18de39007c3bea05cdbd0bdb1ef4b7c9bfe012e6b040c",
+      "outputPath": "layer1/algo-L1-variations.json",
+      "convertedAt": "2025-11-10T14:23:39.669Z"
+    },
+    "/home/user/Narramorph/docs/algo-L1-production/firstRevisit/algo-L1-FR-03.md": {
+      "sourceHash": "126a7187b2b631bbba27ae96cea3c2074fb93719b99107b75a19f0c1b6dca3c9",
+      "outputPath": "layer1/algo-L1-variations.json",
+      "convertedAt": "2025-11-10T14:23:39.669Z"
+    },
+    "/home/user/Narramorph/docs/algo-L1-production/firstRevisit/algo-L1-FR-01.md": {
+      "sourceHash": "960d9f0f820ff9d548397e5668c95e244313e6de4ca83d36b089a6cf434ae34e",
+      "outputPath": "layer1/algo-L1-variations.json",
+      "convertedAt": "2025-11-10T14:23:39.669Z"
+    },
+    "/home/user/Narramorph/docs/hum-L1-production/firstRevisit/hum-L1-FR-01.md": {
+      "sourceHash": "f6de608fca2bc5dd44f038223f6d45149914ece4d59a2a7fd808b01c2d70e23f",
+      "outputPath": "layer1/hum-L1-variations.json",
+      "convertedAt": "2025-11-10T14:23:39.761Z"
+    },
+    "/home/user/Narramorph/docs/hum-L1-production/firstRevisit/hum-L1-FR-02.md": {
+      "sourceHash": "cec31652878623ae2627032b43c11aa3346da8011629e5252be6e74cc0675d93",
+      "outputPath": "layer1/hum-L1-variations.json",
+      "convertedAt": "2025-11-10T14:23:39.761Z"
+    },
+    "/home/user/Narramorph/docs/hum-L1-production/firstRevisit/hum-L1-FR-03.md": {
+      "sourceHash": "0f9ea071eefbbbc87741a642b4af22f4d0d5e1b1c9a9ceb6645e338bc78ae6f0",
+      "outputPath": "layer1/hum-L1-variations.json",
+      "convertedAt": "2025-11-10T14:23:39.761Z"
+    }
+  },
+  "counts": {
+    "l1Variations": 9,
+    "l2Variations": 0,
+    "l3Variations": 0,
+    "l4Variations": 0,
+    "totalVariations": 9
+  }
+}

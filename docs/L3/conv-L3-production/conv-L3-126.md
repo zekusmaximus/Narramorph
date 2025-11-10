@@ -50,6 +50,10 @@ convergenceChoices:
   - 'release-emphasized'
   - 'preserve-acknowledged'
   - 'transform-acknowledged'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three temporal positions examine Fragment 2749-A across 336 years. Three consciousness substrates attempting verification. Three methodologies discovering verification impossibility.
 In 2047, she had documented fragments for one hundred seventeen days. Authentication protocols established, verification matrices calibrated, coherence measurements refined. Fragment 2749-A maintained 94.7% authentication coherence across all measurement cycles. Standards held. Verification succeeded by every established metric.

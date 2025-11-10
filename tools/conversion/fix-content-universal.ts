@@ -144,8 +144,8 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
       const match = filename.match(/^(\w+)-L3-(\d+)/);
       if (!match) throw new Error(`Invalid L3 filename: ${filename}`);
       const [, sectionType, num] = match;
-      // L3 uses 2-digit padding
-      return `${sectionType}-L3-${num.padStart(2, '0')}`;
+      // L3 uses 3-digit padding
+      return `${sectionType}-L3-${num.padStart(3, '0')}`;
     },
     allowedDirectories: [
       /L3\/(arch|algo|hum|conv)-L3-production/
@@ -154,16 +154,18 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
   },
 
   L4: {
-    pattern: /^final-(preserve|release|transform)\.md$/,
+    pattern: /^(final-(preserve|release|transform)|L4-(PRESERVE|RELEASE|TRANSFORM))\.md$/i,
     requiredFields: ['id', 'philosophy', 'wordCount'],
     conditionalFields: new Map(),
     idNormalizer: (filename, frontmatter) => {
-      const match = filename.match(/^final-(\w+)/);
-      if (!match) throw new Error(`Invalid L4 filename: ${filename}`);
-      return `final-${match[1]}`;
+      let m = filename.match(/^final-(preserve|release|transform)/i);
+      if (m && m[1]) return `final-${m[1].toLowerCase()}`;
+      m = filename.match(/^L4-(PRESERVE|RELEASE|TRANSFORM)/i);
+      if (m && m[1]) return `final-${m[1].toLowerCase()}`;
+      throw new Error(`Invalid L4 filename: ${filename}`);
     },
     allowedDirectories: [
-      /L4\/terminal/
+      /(^|\/)L4(\/|\\)(terminal(\/|\\))?/
     ],
     fieldConvention: 'camelCase'
   }
@@ -214,6 +216,7 @@ async function discoverContentFiles(options: FixerOptions): Promise<Map<string, 
     for (const file of allFiles) {
       const filename = basename(file);
       const relPath = relative(contentRoot, file);
+      const relNorm = relPath.replace(/\\/g, '/');
 
       // Exclude non-content files
       if (EXCLUDED_PATTERNS.some(pattern => filename.includes(pattern))) {
@@ -226,7 +229,7 @@ async function discoverContentFiles(options: FixerOptions): Promise<Map<string, 
       }
 
       // Match allowed directories
-      if (!config.allowedDirectories.some(dirPattern => dirPattern.test(relPath))) {
+      if (!config.allowedDirectories.some(dirPattern => dirPattern.test(relNorm))) {
         continue;
       }
 
@@ -254,15 +257,57 @@ function parseFrontmatter(raw: string): { frontmatter: any; content: string } {
 
   // Parse YAML with error recovery
   try {
-    const frontmatter = YAML.parse(yamlText, {
-      strict: false,
-      uniqueKeys: false
-    });
-
-    return { frontmatter, content };
+    const parsed = YAML.parse(yamlText, { strict: false, uniqueKeys: false });
+    return { frontmatter: parsed, content };
   } catch (error: any) {
-    throw new Error(`YAML parse error: ${error.message}`);
+    // Attempt targeted repair for common patterns (e.g., text: >- without indentation)
+    let repaired = yamlText;
+    if (/^\s*text:\s*>-\s*$/m.test(repaired)) {
+      const lines = repaired.split(/\r?\n/);
+      for (let i = 0; i < lines.length; i++) {
+        if (/^\s*text:\s*>-\s*$/.test(lines[i])) {
+          let j = i + 1;
+          for (; j < lines.length; j++) {
+            const l = lines[j];
+            if (/^---\s*$/.test(l)) { break; }
+            if (/^[A-Za-z0-9_\-]+\s*:/.test(l)) { break; }
+            lines[j] = l.startsWith('  ') ? l : ('  ' + l);
+          }
+          i = j - 1;
+        }
+      }
+      repaired = lines.join('\n');
+    }
+    try {
+      const parsed = YAML.parse(repaired, { strict: false, uniqueKeys: false });
+      return { frontmatter: parsed, content };
+    } catch (err: any) {
+      throw new Error(`YAML parse error: ${error.message}`);
+    }
   }
+}
+
+// Best-effort removal of malformed frontmatter when closing fence is missing
+function stripMalformedFrontmatter(raw: string): string {
+  if (!raw.startsWith('---')) return raw;
+  const lines = raw.split(/\r?\n/);
+  // remove initial '---'
+  let i = 1;
+  // scan until next '---'; if found, drop everything up to and including it
+  for (; i < lines.length; i++) {
+    if (lines[i].trim() === '---') {
+      return lines.slice(i + 1).join('\n');
+    }
+  }
+  // no closing fence; drop up to first blank line to avoid swallowing body headings
+  i = 1;
+  for (; i < lines.length; i++) {
+    if (lines[i].trim() === '') {
+      return lines.slice(i + 1).join('\n');
+    }
+  }
+  // fallback: return original without first line
+  return lines.slice(1).join('\n');
 }
 
 function createMinimalFrontmatter(
@@ -409,7 +454,7 @@ async function normalizeFile(
     // Parse failure—create minimal valid frontmatter
     warnings.push(`YAML parse failure: ${error.message}, creating minimal frontmatter`);
     frontmatter = createMinimalFrontmatter(filename, layer, config);
-    content = raw.replace(/^---[\s\S]*?---\n/, ''); // Strip any malformed frontmatter
+    content = stripMalformedFrontmatter(raw); // Strip any malformed frontmatter
     modified = true;
   }
 
@@ -457,8 +502,21 @@ async function normalizeFile(
     frontmatter = normalizedFrontmatter;
     modified = true;
   }
+  // Layer-specific fixes
+  if (layer === 'L3') {
+    if (typeof frontmatter.philosophyDominant === 'string' && frontmatter.philosophyDominant.toLowerCase() === 'investigate') {
+      frontmatter.philosophyDominant = 'invest';
+      modified = true;
+    }
+    // Ensure characterVoices for conv-L3 files
+    if (/conv-L3-production[\/]/.test(filePath) || /(^|[\/])conv-L3-\d+\.md$/.test(filePath)) {
+      if (!Array.isArray(frontmatter.characterVoices) || frontmatter.characterVoices.length < 2) {
+        frontmatter.characterVoices = ['archaeologist', 'algorithm', 'last-human'];
+        modified = true;
+      }
+    }
+  }
 
-  // Compute word count if missing or zero
   const wordCountField = config.fieldConvention === 'snake_case' ? 'word_count' : 'wordCount';
   if (!frontmatter[wordCountField] || frontmatter[wordCountField] === 0) {
     frontmatter[wordCountField] = countWords(content);
@@ -643,3 +701,4 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       process.exit(1);
     });
 }
+

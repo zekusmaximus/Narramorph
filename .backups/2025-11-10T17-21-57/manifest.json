@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatorVersion": "1.0.0",
+  "convertedAt": "2025-11-10T17:16:16.321Z",
+  "sourceRoot": "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs",
+  "files": {
+    "C:\\Users\\zeke\\Desktop\\Projects\\Narramorph\\docs\\L4\\L4-PRESERVE.md": {
+      "sourceHash": "d2723a97fe29dc2fbc22435760023e53cc9edab978cb7dccc310618314876379",
+      "outputPath": "layer4/final-preserve.json",
+      "convertedAt": "2025-11-10T17:16:16.364Z"
+    }
+  },
+  "counts": {
+    "l1Variations": 0,
+    "l2Variations": 0,
+    "l3Variations": 0,
+    "l4Variations": 1,
+    "totalVariations": 1
+  }
+}

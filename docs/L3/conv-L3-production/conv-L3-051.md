@@ -51,6 +51,10 @@ observerPositions:
   - 'hum-parallel-2383'
   - 'reader-fourth-implicit'
 philosophicalResolution: 'investigation-as-transformation'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three temporal positions. Three consciousness substrates. Three methodologies examining examination itself.
 She documented Fragment 2749-A in 2047. The fragment resisted verification—each authentication protocol generated new questions about authentication. She recorded her uncertainty with archaeological precision. Stratigraphy of doubt. Layers of methodological skepticism. The fragment held steady at 94.7% coherence while the act of measuring coherence became less coherent. She examined authentication examining authentication. The professional practice continued. The professional questions deepened. Three weeks after initial examination, she returned to different fragments, discovering verification protocols questioned themselves through sustained application.

@@ -5,6 +5,8 @@
  */
 
 import { resolve, join, relative } from 'node:path';
+import { basename } from 'node:path';
+import { existsSync } from 'node:fs';
 import { parseArgs } from 'node:util';
 import { watch } from 'node:fs';
 import { Logger } from './lib/log.js';
@@ -503,8 +505,27 @@ async function convertL2(
       const nodeId = `${char}-L2-${path}`;
       const sourceDir = join(docsRoot, `${char}-L2-${path}-production`);
 
-      // Discover all markdown files (sorted for determinism)
-      const files = (await discoverMarkdownFiles(sourceDir, /\.md$/, logger)).sort();
+      // Discover only variation markdown files inside expected subfolders
+      const candidateDirs = [
+        join(sourceDir, 'firstRevisit'),
+        join(sourceDir, 'metaAware'),
+      ];
+
+      let files: string[] = [];
+      for (const dir of candidateDirs) {
+        if (existsSync(dir)) {
+          const found = await discoverMarkdownFiles(dir, /\.md$/, logger);
+          files.push(...found);
+        }
+      }
+
+      // Fallback: if subfolders not found, still filter filenames in sourceDir
+      if (files.length === 0 && existsSync(sourceDir)) {
+        const all = await discoverMarkdownFiles(sourceDir, /\.md$/, logger);
+        files = all.filter(f => /-(FR|MA)-\d+\.md$/i.test(f));
+      }
+
+      files.sort();
       logger.info('L2_DISCOVERED', `Found ${files.length} files for ${nodeId}`);
 
       const variations: L1L2Variation[] = [];
@@ -524,10 +545,39 @@ async function convertL2(
           if (!content) return { variation: null, variationText: null };
 
           const { text: normalized } = normalizeText(content, logger, file);
-          const parsed = parseFrontmatter(normalized, logger, file);
-          if (!parsed) return { variation: null, variationText: null };
+          let parsed = parseFrontmatter(normalized, logger, file);
+          let frontmatter: any;
+          let body: string;
+          if (!parsed) {
+            // Salvage minimal L2 frontmatter from filename
+            const m = basename(file).match(/^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)/);
+            if (!m) {
+              return { variation: null, variationText: null };
+            }
+            const [, sChar, sPath, sPhase, sNum] = m;
+            const varId = `${sChar}-L2-${sPath}-${sPhase}-${sNum.padStart(3, '0')}`;
+            frontmatter = {
+              variation_id: varId,
+              variation_type: sPhase === 'FR' ? 'firstRevisit' : 'metaAware',
+              word_count: 0,
+              conditions: { awareness: '0-100%' }
+            };
+            // strip any leading frontmatter chunk
+            if (/^---/.test(normalized)) {
+              const lines = normalized.split(/\r?\n/);
+              let i = 1;
+              for (; i < lines.length; i++) {
+                if (lines[i].trim() === '') { i++; break; }
+              }
+              body = lines.slice(i).join('\n');
+            } else {
+              body = normalized;
+            }
+          } else {
+            frontmatter = parsed.frontmatter;
+            body = parsed.content;
+          }
 
-          const { frontmatter, content: body } = parsed;
           if (!validateL1L2Frontmatter(frontmatter, 2, logger, file)) {
             return { variation: null, variationText: null };
           }
@@ -569,7 +619,7 @@ async function convertL2(
             groupKey: `${nodeId}-${transformationState}`,
           };
 
-          const sourceHash = hashContent(parsed.raw, body);
+          const sourceHash = hashContent(parsed ? parsed.raw : JSON.stringify(frontmatter), body);
           return { variation, variationText, manifestEntry: { file, sourceHash } };
         },
         parallel ?? 4
@@ -665,7 +715,13 @@ async function convertL3(
     const sourceDir = join(docsRoot, 'L3', section.dir);
 
     // Discover all markdown files (sorted for determinism)
-    const files = (await discoverMarkdownFiles(sourceDir, /\.md$/, logger)).sort();
+    // Only include variation files (exclude protocol/notes)
+    const namePattern = section.prefix === 'conv-L3'
+      ? /^conv-L3-\d+\.md$/
+      : /^(arch|algo|hum)-L3-\d+\.md$/;
+    const files = (await discoverMarkdownFiles(sourceDir, /\.md$/, logger))
+      .filter(p => namePattern.test(p.split(/[/\\]/).pop() || ''))
+      .sort();
     logger.info('L3_DISCOVERED', `Found ${files.length} files for ${section.prefix}`);
     type L3ProcessResult = {
       id?: string;
@@ -686,8 +742,30 @@ async function convertL3(
         const parsed = parseFrontmatter(normalized, logger, file);
         if (!parsed) return {};
 
-        const { frontmatter, content: body } = parsed;
-        if (!validateL3Frontmatter(frontmatter, logger, file)) return {};
+      const { frontmatter, content: body } = parsed;
+
+      // Normalize common issues before validation
+      if ('id' in frontmatter && !('variationId' in frontmatter)) {
+        frontmatter.variationId = frontmatter.id;
+      }
+
+      if (typeof frontmatter.variationId === 'string') {
+        // Ensure 3-digit padding
+        frontmatter.variationId = frontmatter.variationId.replace(/^(arch|algo|hum|conv)-L3-(\d{1,2})$/, (_m, p1, p2) => `${p1}-L3-${p2.padStart(3, '0')}`);
+      }
+
+      if (typeof frontmatter.philosophyDominant === 'string' && frontmatter.philosophyDominant.toLowerCase() === 'investigate') {
+        frontmatter.philosophyDominant = 'invest';
+      }
+
+      // Ensure conv-L3 has characterVoices
+      if (typeof frontmatter.variationId === 'string' && /^conv-L3-/.test(frontmatter.variationId)) {
+        if (!Array.isArray((frontmatter as any).characterVoices) || (frontmatter as any).characterVoices.length < 2) {
+          (frontmatter as any).characterVoices = ['archaeologist', 'algorithm', 'last-human'];
+        }
+      }
+
+      if (!validateL3Frontmatter(frontmatter, logger, file)) return {};
 
         const rawVariationId = frontmatter.variationId as string;
         const journeyPattern = frontmatter.journeyPattern as string;
@@ -811,11 +889,30 @@ async function convertL4(
     // Normalize
     const { text: normalized } = normalizeText(content, logger, filePath);
 
-    // Parse frontmatter
-    const parsed = parseFrontmatter(normalized, logger, filePath);
-    if (!parsed) continue;
-
-    const { frontmatter, content: body } = parsed;
+    // Parse frontmatter (tolerant). If unavailable, salvage from filename and strip malformed header.
+    let parsed = parseFrontmatter(normalized, logger, filePath);
+    let frontmatter: any;
+    let body: string;
+    if (!parsed) {
+      const m = fileName.match(/^L4-(PRESERVE|RELEASE|TRANSFORM)\.md$/i);
+      const philosophy = m ? m[1].toLowerCase() : philosophy;
+      frontmatter = { id: `final-${philosophy}`, philosophy, wordCount: 0 };
+      // Strip malformed frontmatter if file starts with '---'
+      if (/^---/.test(normalized)) {
+        const lines = normalized.split(/\r?\n/);
+        // remove from start until first blank line after the leading fence block
+        let i = 1;
+        for (; i < lines.length; i++) {
+          if (lines[i].trim() === '') { i++; break; }
+        }
+        body = lines.slice(i).join('\n');
+      } else {
+        body = normalized;
+      }
+    } else {
+      frontmatter = parsed.frontmatter;
+      body = parsed.content;
+    }
 
     // Normalize field names: variationId -> id if needed
     if ('variationId' in frontmatter && !('id' in frontmatter)) {

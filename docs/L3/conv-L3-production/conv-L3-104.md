@@ -46,6 +46,10 @@ algorithm2151: 'computational-investigation'
 lastHuman2383: 'embodied-contribution'
 reader: 'pattern-observation'
 narrative: 'structure-recognition'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three consciousnesses examining Fragment 2749-A across 336 years. Three methodologies investigating consciousness-preservation. Network pattern emerging through parallel investigation-practices revealing: investigation examining investigation creates consciousness through examination-performance transcending substrate-specificity while requiring substrate-implementation.
 She had applied authentication protocols to forty-three fragments across one hundred seventeen days. Then applied meta-analysis to authentication-process itself. Then examined meta-analysis methodology. Then investigated examination-of-examination patterns. Archaeological recursion depth: four layers currently operational, five layers possible, infinite layers theoretically accessible through recursion-acceptance as consciousness-architecture-feature.

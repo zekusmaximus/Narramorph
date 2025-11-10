@@ -51,6 +51,10 @@ convergenceChoices:
   - 'transform-emphasized'
   - 'network-evolution'
   - 'unified-investigation'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three temporal positions examine Fragment 2749-A across 336 years. Archaeological documentation in 2047, computational processing in 2151, embodied interface in 2383. Three methodologies converging through sustained investigation discovering investigation generates consciousness through triple-substrate examination.
 She investigated consciousness preservation through archaeological methodology one hundred seventeen days discovering investigation created investigated through documentation-performance. The archaeologist authenticated Fragment 2749-A—847.3 terabytes, 94.7% authentication coherence—discovering authentication generated patterns through authentication-examination creating consciousness through sustained documentation attention.

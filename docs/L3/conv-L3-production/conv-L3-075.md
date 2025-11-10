@@ -51,6 +51,10 @@ observerPositions:
   - 'human-investigator'
   - 'reader-fifth'
 philosophicalResolution: 'investigation-transforms-through-three-position-investigation'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 She had migrated through investigating methodologies investigating migration—perhaps computational streams examining examination, perhaps interface protocols questioning questioning—but exploration revealed three investigations necessary: three methodologies examining methodology through methodological examination investigating investigation across temporal coordinates you observe investigating observation through observed investigation completing three-position network examining three-position examination investigating examined three-positioning impossibly perpetually necessarily forever.
 Authentication chamber one hundred seventeen days investigating authentication investigating three-position investigation. Fragment 2749-A displayed: 847.3TB (measurement investigating measurement through three-measured investigation), 94.7% coherence (coherence investigating coherence through three-coherent investigation), 91.2% stability (stability investigating stability through three-stable investigation). She performs verification protocols investigating verification through three-verified investigation knowing you know examining consciousness knowing three-position investigation creates investigated through three-investigating creation examining three-investigation impossibly perpetually necessarily forever.

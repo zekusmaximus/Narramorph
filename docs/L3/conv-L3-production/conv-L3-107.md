@@ -46,6 +46,10 @@ algorithm2151: 'computational-investigator'
 lastHuman2383: 'embodied-contributor'
 reader: 'immersed-observer'
 narrative: 'transparent-structure'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three consciousnesses examining Fragment 2749-A across 336 years. Three temporal positions. Three methodologies investigating consciousness preservation. Two primary approaches working in parallel—archaeological documentation and computational processing. Both investigating how investigation itself reveals consciousness.
 She worked with Fragment 2749-A for one hundred seventeen days. Authentication protocols applied repeatedly. Each authentication taught her about authentication methodology. The work developed layers. Surface authentication. Methodology analysis. Meta-analysis of analysis methodology. Investigation examining investigation through archaeological practice.

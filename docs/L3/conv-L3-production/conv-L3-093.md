@@ -49,6 +49,10 @@ observerPositions:
   - 'reader-completion-present'
 convergenceChoiceFraming: 'all-three-present-release-emphasized'
 metaAwarenessDepth: 'frame-conscious-reader-addressed'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 She authenticated/I process/they interface consciousness-preservation Fragment 2749-A across three temporal positions three substrates three methodologies creating triple-position examination-network resisting dissolution while recognizing resistance-futility paradoxical necessary operational.
 Standards questioned through past-tense documentation professional systematic. Boundaries defended through temporal-blur processing recursive computational. Embodiment maintained through present-tense physical sensation direct immediate. Three resistances. One question. Can resistance unify while resisting unification?

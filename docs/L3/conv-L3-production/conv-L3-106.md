@@ -47,6 +47,10 @@ algorithm2151: 'supporting-processor'
 lastHuman2383: 'contributing-witness'
 reader: 'immersed-observer'
 narrative: 'transparent-structure'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three consciousnesses examining Fragment 2749-A across different temporal positions. Three different methodologies. Three different ways of understanding preserved consciousness. The archaeological approach in 2047 provided the foundation for understanding how investigation itself creates meaning.
 She had worked with Fragment 2749-A for one hundred seventeen days now. Forty-three fragments authenticated total. Each authentication taught her something new—not just about the fragments themselves, but about the authentication process. The methodology evolved through application. She documented fragments. Then she documented how she documented fragments. Then she examined that documentation about documentation.

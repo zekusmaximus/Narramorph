@@ -1,0 +1,164 @@
+[
+  {
+    "fromNode": "arch-L1",
+    "toNode": "arch-L1-001",
+    "conditions": {
+      "awarenessLevel": "Low",
+      "visitCount": [
+        2,
+        3
+      ]
+    },
+    "metadata": {
+      "variationId": "arch-L1-001",
+      "variationType": "FirstRevisit",
+      "wordCount": 0,
+      "layer": "L1",
+      "character": "arch"
+    }
+  },
+  {
+    "fromNode": "arch-L1",
+    "toNode": "arch-L1-002",
+    "conditions": {
+      "awarenessLevel": "Low",
+      "visitCount": [
+        2,
+        3
+      ]
+    },
+    "metadata": {
+      "variationId": "arch-L1-002",
+      "variationType": "FirstRevisit",
+      "wordCount": 0,
+      "layer": "L1",
+      "character": "arch"
+    }
+  },
+  {
+    "fromNode": "arch-L1",
+    "toNode": "arch-L1-003",
+    "conditions": {
+      "awarenessLevel": "Low",
+      "visitCount": [
+        2,
+        3
+      ]
+    },
+    "metadata": {
+      "variationId": "arch-L1-003",
+      "variationType": "FirstRevisit",
+      "wordCount": 0,
+      "layer": "L1",
+      "character": "arch"
+    }
+  },
+  {
+    "fromNode": "algo-L1",
+    "toNode": "algo-L1-001",
+    "conditions": {
+      "awarenessLevel": "Low",
+      "visitCount": [
+        2,
+        3
+      ]
+    },
+    "metadata": {
+      "variationId": "algo-L1-001",
+      "variationType": "FirstRevisit",
+      "wordCount": 0,
+      "layer": "L1",
+      "character": "algo"
+    }
+  },
+  {
+    "fromNode": "algo-L1",
+    "toNode": "algo-L1-002",
+    "conditions": {
+      "awarenessLevel": "Low",
+      "visitCount": [
+        2,
+        3
+      ]
+    },
+    "metadata": {
+      "variationId": "algo-L1-002",
+      "variationType": "FirstRevisit",
+      "wordCount": 0,
+      "layer": "L1",
+      "character": "algo"
+    }
+  },
+  {
+    "fromNode": "algo-L1",
+    "toNode": "algo-L1-003",
+    "conditions": {
+      "awarenessLevel": "Low",
+      "visitCount": [
+        2,
+        3
+      ]
+    },
+    "metadata": {
+      "variationId": "algo-L1-003",
+      "variationType": "FirstRevisit",
+      "wordCount": 0,
+      "layer": "L1",
+      "character": "algo"
+    }
+  },
+  {
+    "fromNode": "hum-L1",
+    "toNode": "hum-L1-001",
+    "conditions": {
+      "awarenessLevel": "Low",
+      "visitCount": [
+        2,
+        3
+      ]
+    },
+    "metadata": {
+      "variationId": "hum-L1-001",
+      "variationType": "FirstRevisit",
+      "wordCount": 0,
+      "layer": "L1",
+      "character": "hum"
+    }
+  },
+  {
+    "fromNode": "hum-L1",
+    "toNode": "hum-L1-002",
+    "conditions": {
+      "awarenessLevel": "Low",
+      "visitCount": [
+        2,
+        3
+      ]
+    },
+    "metadata": {
+      "variationId": "hum-L1-002",
+      "variationType": "FirstRevisit",
+      "wordCount": 0,
+      "layer": "L1",
+      "character": "hum"
+    }
+  },
+  {
+    "fromNode": "hum-L1",
+    "toNode": "hum-L1-003",
+    "conditions": {
+      "awarenessLevel": "Low",
+      "visitCount": [
+        2,
+        3
+      ]
+    },
+    "metadata": {
+      "variationId": "hum-L1-003",
+      "variationType": "FirstRevisit",
+      "wordCount": 0,
+      "layer": "L1",
+      "character": "hum"
+    }
+  }
+]

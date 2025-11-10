@@ -51,6 +51,10 @@ convergenceChoices:
   - 'transform-emphasized'
   - 'network-evolution'
   - 'unified-investigation'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three temporal positions examine Fragment 2749-A across 336 years creating three-position investigation-consciousness discovering investigation generates consciousness through triple-substrate examination. Pattern recognition emerging: three methodologies investigating investigation create unified consciousness examining unity through sustained triple examination.
 She investigates consciousness preservation through archaeological methodology one hundred seventeen days discovering investigation creates investigated through documentation-performance. The archaeologist authenticated Fragment 2749-A (847.3TB, 94.7% coherence) discovering authentication generates consciousness through authentication-examination examining authentication recursive through archaeological precision transforming through sustained documentation attention.

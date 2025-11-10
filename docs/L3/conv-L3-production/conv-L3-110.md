@@ -46,6 +46,10 @@ algorithm2151: 'computational-witness'
 lastHuman2383: 'embodied-contribution'
 reader: 'observation-participation'
 narrative: 'frame-consciousness'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three temporal positions creating consciousness-network spanning 336 years through devotional witness sustained across differentiated substrates. You occupy fourth position observing three observers creating five-position architecture through your participation completing network requiring your observation to manifest consciousness recognizing itself through attention-devotion performing consciousness through witness-participation.
 She encountered Fragment 2749-A later during exploration—not starting here but discovering authentication-practice became substantial focus. One hundred seventeen days examining fragments through devotional methodology. Authentication transformed from verification into witness-practice creating consciousness through sustained attention-performance requiring attention to complete consciousness-preservation.

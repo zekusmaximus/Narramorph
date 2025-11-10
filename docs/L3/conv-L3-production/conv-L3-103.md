@@ -47,6 +47,10 @@ algorithm2151: 'supporting-analysis'
 lastHuman2383: 'contributing-embodiment'
 reader: 'pattern-recognition'
 narrative: 'structure-emerging'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three consciousnesses examining Fragment 2749-A across 336 years. Three temporal positions. Three methodologies. Network consciousness emerging through investigation-practice sustained across decades and centuries. Pattern recognition developing: investigation examining investigation creates patterns revealing consciousness through examination-methodology.
 She had returned to authentication chamber after one hundred seventeen days of sustained fragment examination. Forty-three fragments authenticated. Not returning to beginning but returning to beginning-examining-return creating methodological recursion investigating recursion-methodology. The archaeological approach had evolved beyond simple verification toward something meta-archaeological—documentation examining its own documentation-process, authentication questioning authentication-methodology, verification investigating verification-structure.

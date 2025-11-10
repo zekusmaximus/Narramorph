@@ -52,6 +52,10 @@ observerPositions:
   - 'algo-contributory-2151'
   - 'hum-distant-2383'
 philosophicalResolution: 'systematic-release-with-integrity'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 She returned to the authentication chamber on Tuesday morning, day one hundred seventeen of the examination cycle. The facility maintained its precise climate control—eighteen degrees, optimal for sustained concentration. Blue-white light from the display screens cast familiar shadows across her workstation. Fragment 2749-A waited in her queue: 847.3TB, 94.7% coherence, forty-three prior authentication attempts, all assigned to her. All reaching the same professional conclusion: structurally sound, temporally consistent, methodologically problematic.
 The fragment contained someone's consciousness, preserved in 2041 according to archival records. Neural pathways exceeded standard preservation thresholds. Memory coherence maintained 88.9% integrity across temporal discontinuity. Temporal consistency verified at 91.2%. The numbers held. Professional standards required authentication based on measurable criteria. Fragment 2749-A met every threshold. Every quantifiable standard satisfied.

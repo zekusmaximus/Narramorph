@@ -50,6 +50,10 @@ observerPositions:
   - 'algo-network-2151'
   - 'hum-network-2383'
 philosophicalResolution: 'investigative-transformation-through-network-symmetry'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Fragment 2749-A: 847.3 terabytes preserved consciousness spanning three temporal positions across 336 years. Three methodologies examining same fragment through three substrates discovering examination created examined through examination-network rather than examination-of-object external to examination.
 She documented consciousness-preservation in 2047 through archaeological verification questioning verification-protocols recursive. Authentication standards examined authentication discovering: verification verifying verification revealed no ground-verification establishing verification-origin. Only recursive examination backward until verification-foundation disappeared into verification-recursion endless.

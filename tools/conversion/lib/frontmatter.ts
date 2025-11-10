@@ -41,30 +41,64 @@ export function parseFrontmatter<T = Record<string, unknown>>(
     return null;
   }
 
-  try {
-    const frontmatter = YAML.parse(rawFrontmatter) as T;
+  function tryParse(yamlText: string): T | null {
+    try {
+      return YAML.parse(yamlText) as T;
+    } catch {
+      return null;
+    }
+  }
 
-    if (!frontmatter || typeof frontmatter !== 'object') {
+  // First parse attempt
+  let frontmatter = tryParse(rawFrontmatter);
+
+  // If parse fails, attempt targeted repairs (common authoring mistakes)
+  if (!frontmatter) {
+    let repaired = rawFrontmatter;
+
+    // 1) Fix unindented block scalar under `text: >-` (indent following lines until next top-level key)
+    if (/^\s*text:\s*>-\s*$/m.test(repaired)) {
+      const lines = repaired.split(/\r?\n/);
+      for (let i = 0; i < lines.length; i++) {
+        if (/^\s*text:\s*>-\s*$/.test(lines[i])) {
+          let j = i + 1;
+          for (; j < lines.length; j++) {
+            const l = lines[j];
+            // next top-level key or closing fence
+            if (/^---\s*$/.test(l)) { break; }
+            if (/^[A-Za-z0-9_\-]+\s*:/.test(l)) { break; }
+            // indent if not already indented
+            lines[j] = l.startsWith('  ') ? l : ('  ' + l);
+          }
+          i = j - 1;
+        }
+      }
+      repaired = lines.join('\n');
+    }
+
+    frontmatter = tryParse(repaired);
+    if (!frontmatter) {
+      logger?.blocker('YAML_PARSE_ERROR', 'Failed to parse YAML frontmatter after repair attempts', {
+        file: filePath,
+        exampleFix: 'Ensure block scalars (e.g., text: >-) indent following lines and close frontmatter with ---',
+      });
+      return null;
+    }
+  }
+
+  if (!frontmatter || typeof frontmatter !== 'object') {
       logger?.blocker('INVALID_FRONTMATTER', 'Frontmatter must be a YAML object', {
         file: filePath,
         value: frontmatter,
       });
       return null;
-    }
-
-    return {
-      frontmatter,
-      content: content.trim(),
-      raw: rawFrontmatter,
-    };
-  } catch (error) {
-    const message = error instanceof Error ? error.message : 'Unknown YAML parse error';
-    logger?.blocker('YAML_PARSE_ERROR', `Failed to parse YAML frontmatter: ${message}`, {
-      file: filePath,
-      exampleFix: 'Check YAML syntax - ensure proper indentation and no tabs',
-    });
-    return null;
   }
+
+  return {
+    frontmatter,
+    content: content.trim(),
+    raw: rawFrontmatter,
+  };
 }
 
 /**

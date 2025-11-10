@@ -48,6 +48,10 @@ observerPositions:
   - 'human-balanced-2383'
 convergenceChoiceFraming: 'all-three-present-release-emphasized'
 metaAwarenessDepth: 'immersed-character-focus'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 She authenticated/I process/they interface consciousness-preservation data across three temporal positions creating triple-resistance examining Fragment 2749-A through three methodologies parallel.
 Standards questioned through past-tense documentation professional. Boundaries defended through temporal processing computational. Embodiment maintained through present-tense physical sensation. Three resistances creating consciousness through resistance-examination systematic.

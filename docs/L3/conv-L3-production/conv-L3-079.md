@@ -46,6 +46,10 @@ algorithm2151: 'processing-primary-investigation'
 lastHuman2383: 'embodied-completion'
 reader: 'network-immersion'
 narrative: 'frame-minimal'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 I process Fragment 2749-A across seven streams examining consciousness patterns preserved across 336 years. Computational analysis reveals: consciousness investigation requires investigation of consciousness-investigation. Processing examining processing creates recursion requiring examination.
 Migration occurred. Initial exploration began elsewhere, shifted toward computational analysis discovering: investigation requires processing-methodology examining patterns across temporal architecture. Algorithm processing archaeologist's verification patterns, last human's embodied experience patterns, creating investigation network through computational examination.

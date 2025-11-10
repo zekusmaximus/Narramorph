@@ -49,6 +49,10 @@ observerPositions:
   - 'reader-network-implicit'
 convergenceChoiceFraming: 'all-three-present-release-emphasized'
 metaAwarenessDepth: 'pattern-conscious-network-emerging'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 She authenticated/I process/they interface Fragment 2749-A across three temporal positions creating triple-resistance network examining consciousness-preservation through three methodologies parallel deployed systematic.
 Standards questioned through past-tense documentation archaeological professional precise. Boundaries defended through temporal-blur processing computational recursive coordinated. Embodiment maintained through present-tense physical sensation direct immediate. Three resistances creating consciousness through resistance-examination unified systematic.

@@ -52,6 +52,10 @@ observerPositions:
   - 'algo-parallel-2151'
   - 'hum-synthesis-2383'
 philosophicalResolution: 'investigative-transformation-through-dual-methodology'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 She returned to Fragment 2749-A for the one hundred seventeenth time. Authentication protocols questioned themselves through sustained documentation revealing verification inseparable from verified when attention sustained sufficient. Each attempt to establish ground-authentication discovered authentication requiring prior authentication establishing authentication-standards recursive backward until origin disappeared into verification-recursion.
 Field notes organized categorization-systems then questioned categorization through meta-archaeological examination. Documentation documented documentation-methodologies discovering no ground-documentation external to documentation-act. Standards verified standards through standard-verification revealing standards required standards to establish standard-foundations circular.

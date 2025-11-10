@@ -53,6 +53,10 @@ observerPositions:
   - 'hum-primary-2383'
   - 'reader-external'
 philosophicalResolution: 'resistance-maintains-integrity-through-practice'
+characterVoices:
+  - archaeologist
+  - algorithm
+  - last-human
 ---
 Three temporal positions examine preserved consciousness. Archaeological verification 2047. Computational processing 2151. Neural interface 2383. Each position maintaining standards while questioning standard adequacy. Fragment 2749-A contains 847.3 terabytes preserved consciousness claiming temporal origin contradicting preservation timeline. The examination reveals verification impossibility but examination continues across centuries.
 She established authentication chamber protocols meticulously. Fragment 2749-A displayed across laboratory screens showing neural pathway data, consciousness markers, temporal displacement indicators. Archaeological methodology demanded verification of preserved consciousness authenticity. Standards required evidence documentation, consistency measurement, substrate analysis completion.
