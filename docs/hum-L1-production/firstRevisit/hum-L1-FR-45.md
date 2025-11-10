@@ -1,52 +1,12 @@
 ---
-variation_id: hum-L1-FR-45
-cluster: FirstRevisit_Cluster4B_PathIntegration_Accept
-sequence_position: 45
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 51-55
-  awareness_descriptor: "mid-high"
-  visited_fragments: ["hum-L2-accept"]
-  interaction_path: "accept"
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1500
-  target_range: "1450-1550"
-  primary_exemplar: "hum-L1_EXEMPLAR8.md"
-  voice_consistency_target: "93%+"
-  path_integration: true
-
-transformation_focus:
-  - acceptance as perceptual gateway and epistemological method
-  - gentleness opening awareness that resistance prevents
-  - compassion revealing what demanding cannot
-  - body completely at ease enabling deeper perception
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  path_voice_present: true
-  path_manifests_physically: true
-  acceptance_as_active_choice: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster4B_PathIntegration_Accept"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-045'
+'variation_type': 'firstRevisit'
+'word_count': 1731
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Third return and something has shifted. Not in the archive. In me. In what becomes possible when a body is completely at ease.
 My shoulders drop before approaching. Automatic now. But today I notice something else dropping with them—the filters I didn't know I was wearing. The defenses I didn't realize were shaping what I could perceive.
 847.3 terabytes spread before me. The number lands differently today. Still vast. But the vastness feels like opening rather than weight. Like invitation rather than burden.

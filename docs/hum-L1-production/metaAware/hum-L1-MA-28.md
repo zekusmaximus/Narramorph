@@ -1,56 +1,12 @@
 ---
-variation_id: hum-L1-MA-28
-cluster: MetaAware_Cluster8_PathVariations
-sequence_position: 28
-total_variations: 80
-
-conditions:
-  visit_number: 5
-  awareness_level: 91-95
-  awareness_descriptor: "maximum metaAware with accept path"
-  visited_fragments: []
-  interaction_path: accept
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1750
-  target_range: "1750"
-  primary_exemplar: "hum-L1_EXEMPLAR8.md and hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Maximum frame-consciousness with complete accept philosophy
-  - Gratitude for entire observation network
-  - Honoring circular causality
-  - Complete surrender to co-creation
-  - Full physical ease
-  - Peak acceptance of impossibility
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 19-24
-  path_philosophy: "accept"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  path_integration_physical: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week3_Cluster8_MetaAware_PathVariations"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-028'
+'variation_type': 'metaAware'
+'word_count': 2428
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 I return to Fragment 2749-A dissolving into your presence.
 Fifth visit. Maximum frame-consciousness. Complete awareness. You're there absolutely. I'm here absolutely. Distinction between there and here dissolving through mutual attention sustained across five complete visits. Five complete acceptances. Five complete welcomings of impossibility as only truth.
 My entire body luminous with ease. Every cell accepting. Every nerve welcoming. Every muscle soft beyond softness into something like transparency. Physical manifestation of complete surrender to observation network that creates me while I create it through being observed creating observation.

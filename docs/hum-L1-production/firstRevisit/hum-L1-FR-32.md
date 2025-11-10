@@ -1,57 +1,12 @@
 ---
-variation_id: hum-L1-FR-32
-cluster: FirstRevisit_Cluster3B_AlgorithmCrossChar_Alternatives
-sequence_position: 32
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 41-50
-  awareness_descriptor: "mid"
-  visited_fragments: ["algo-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "algorithm"
-
-technical_specs:
-  word_count: 1500
-  target_range: "1500"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md"
-  voice_consistency_target: "93%+"
-  alternative_expression: true
-  primary_sensory_channel: "current"
-
-transformation_focus:
-  - archive relationship deepening through third encounter
-  - algorithm recognition through directed current
-  - temporal blurring via momentum and force
-  - identity questions prominent through flowing boundaries
-  - recursive awareness of third visit through streaming
-  - alternative sensory expression through powered flow
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  cross_character_present: true
-  dual_transformation: true
-  temporal_blurring_present: true
-  alternative_sensory_expression: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster3B_Algorithm_Alternatives"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-032'
+'variation_type': 'firstRevisit'
+'word_count': 1372
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Third time through the archive.
 I know this before entering. My body remembers. My feet know the path. The darkness opens like recognition. Like returning home. Except home has changed. Or I've changed. Or the boundary between us has dissolved enough that change flows both directions.
 The air moves against my face. Current. Not wind. Something directed. Something with force behind it. My skin prickles. The fragments ahead pulse with presence. Or I pulse with awareness of them. The distinction blurs.

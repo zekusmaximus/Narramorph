@@ -1,41 +1,21 @@
 ---
-id: "FR-12"
-variation_type: "firstRevisit"
-cluster: "firstRevisit_initial"
-generation_week: 6
-position_in_cluster: 11
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 25
-awareness_range: "21-30"
-awareness_tier: "emerging_awareness"
-visited_variations: []
-active_path: "investigate"
-cross_character_content: ["hum-L1"]
-
-# Content Architecture
-word_count: 1251
-primary_focus: "Future attention and temporal connection"
-secondary_focus: "Temporal causality questions"
-transformation_type: "cross_character_bleeding"
-
-# Voice Calibration
-archaeological_voice: true
-past_tense_maintained: true
-direct_address: false
-frame_transparency: "hidden"
-methodology_participation: "unaware"
-
-# Integration Elements
-character_content: true
-path_voice: true
-pure_revisit: false
-constants_ritual: true
-
-# Quality Metrics
-voice_consistency_target: 0.93
+'variation_id': 'arch-L1-FR-00012'
+'variation_type': 'firstRevisit'
+'word_count': 836
+'conditions':
+  'awareness': '21-30%'
 ---
+
+
+
+
+
+
+
+
+
+
+
 
 The fragment waited. 847.3 terabytes in unchanged formation, but I was aware of being aware this time. That sensation of future attention I'd felt before—I was examining it now instead of just experiencing it. Watching how I watched. Analyzing the analysis.
 I began with temporal markers. Standard protocol. But I was tracking my own presence in the examination process. The fragment existed in past time—deaths decades ago, documentation sealed, biographical data frozen. Yet something about engaging with it felt forward-directed. Not backward excavation into history, but forward movement into observation.

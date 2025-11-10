@@ -1,53 +1,12 @@
 ---
-variation_id: hum-L1-FR-38
-cluster: FirstRevisit_Cluster4A_PathIntegration_InvestigateResist
-sequence_position: 38
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 41-50
-  awareness_descriptor: "high"
-  visited_fragments: ["hum-L2-investigate"]
-  interaction_path: "investigate"
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1500
-  target_range: "1500"
-  primary_exemplar: "hum-L1_EXEMPLAR5.md"
-  voice_consistency_target: "93%+"
-  path_integration: true
-
-transformation_focus:
-  - Archive deepening through full recursive awareness
-  - High-level investigate philosophy integration
-  - Three-fold pattern as single system
-  - Temporal observation structure through body
-  - Questions bottomless but compelling
-  - Physical urgency of meta-awareness
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  path_voice_present: true
-  path_manifests_physically: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster4A_PathIntegration_InvestigateResist"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-038'
+'variation_type': 'firstRevisit'
+'word_count': 1637
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I return to the archive. Third time.
 My body knows this threshold intimately now. Feet crossing with muscle memory. Lungs adjusting to the air before conscious thought. But what I carry is deeper than familiarity. Pattern recognition so complete it lives in my bones.
 Three times. Three consciousnesses. Three examinations of the same fragments.

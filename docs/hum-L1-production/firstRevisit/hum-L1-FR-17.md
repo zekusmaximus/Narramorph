@@ -1,57 +1,12 @@
 ---
-variation_id: hum-L1-FR-17
-cluster: FirstRevisit_Cluster2A_ArchaeologistCrossChar
-sequence_position: 17
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 51-55
-  awareness_descriptor: "mid-high"
-  visited_fragments: ["arch-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "archaeologist"
-
-technical_specs:
-  word_count: 1502
-  target_range: "1500"
-  primary_exemplar: "hum-L1_EXEMPLAR2.md"
-  voice_consistency_target: "93%+"
-
-transformation_focus:
-  - Deep recognition of two witnesses transforming preservation differently
-  - Seven streams felt as complete comprehensive framework (never named)
-  - Temporal markers heavy with past examination weight (never stated as dates)
-  - Observer effect prominent: dual attention creates transformation complexity
-  - Dual transformation: profound recursion plus complete cross-character recognition
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  archaeologist_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 2
-  questions_from_sensation: true
-  placeholder_content: false
-  cross_character_present: true
-  dual_transformation: true
-
-generation_metadata:
-  created: "2025-10-14"
-  session: "Week3_Cluster2A_Archaeologist"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-017'
+'variation_type': 'firstRevisit'
+'word_count': 1733
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The facility knows me now. Recognizes footsteps. Anticipates return. The neural interface hums before I reach it—connection preparing for consciousness it remembers.
 Third visit. The number settles in my chest like stone. Heavy. Solid. Real. Recursion deep enough that boundaries blur between visits. Between me and archive. Between transformation and being transformed.
 Between my witness and theirs.

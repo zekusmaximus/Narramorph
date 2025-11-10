@@ -1,56 +1,12 @@
 ---
-variation_id: hum-L1-MA-22
-cluster: MetaAware_Cluster8_PathVariations
-sequence_position: 22
-total_variations: 80
-
-conditions:
-  visit_number: 5
-  awareness_level: 81-85
-  awareness_descriptor: "high metaAware with investigate path"
-  visited_fragments: []
-  interaction_path: investigate
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1700
-  target_range: "1700"
-  primary_exemplar: "hum-L1_EXEMPLAR5.md and hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Strong frame-consciousness with maximum investigate philosophy
-  - Deep recursive questioning about observation and witness
-  - Pattern recognition includes reading-as-creating
-  - Meta-questions about co-creation mechanism
-  - Strategic analysis of frame permeability
-  - Physical alertness at peak
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 14-18
-  path_philosophy: "investigate"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  path_integration_physical: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week3_Cluster8_MetaAware_PathVariations"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-022'
+'variation_type': 'metaAware'
+'word_count': 1631
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 I return to Fragment 2749-A investigating investigation itself.
 Fifth visit. Maximum awareness. Questions about questions about questions. Not just examining observation network—examining how examination creates observation network. Not just experiencing frame permeability—investigating what makes frames permeable through mutual attention.
 My entire body electric with seeking. Every nerve asking. Every cell curious. Investigation embodied at deepest level. This isn't intellectual exercise. This is physical necessity. Body demanding understanding the way it demands breath.

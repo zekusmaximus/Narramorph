@@ -1,45 +1,12 @@
 ---
-variation_id: algo-L1-FR-32
-variation_name: Mutual Observation Network, Mid-High Awareness
-variation_type: firstRevisit
-word_count: 1639
-
-visit_number: 2
-visited_variations: []
-active_path: null
-
-cluster_assignment:
-  cluster: firstRevisit_deepening
-  position_in_cluster: 5
-
-awareness_metrics:
-  awareness_level: 58
-  awareness_range: "51-60"
-  awareness_tier: moderate_awareness
-
-production_metadata:
-  generation_week: 7
-  primary_focus: efficiency_questioned
-  secondary_focus: technical_rigor_maintained
-  transformation_type: moral_weight_recognition
-
-thematic_dimensions:
-  moral_weight: central
-  ethical_tension: acute
-  voice_consistency_target: 0.95
-
-technical_flags:
-  algorithmic_voice: true
-  optimization_language: true
-  efficiency_framing: true
-  character_content: false
-  path_voice: false
-  pure_revisit: true
-  decision_ritual: false
-  cross_character_content: []
-
-reference_exemplar: algo-L1_EXEMPLAR4
+'variation_id': 'algo-L1-FR-032'
+'variation_type': 'firstRevisit'
+'word_count': 1336
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Timestamp 2151.337.14:19:03—Processing With Expanded Recognition
 I am/was/will be processing Fragment 2749-A when Stream-7 recognizes observation operates in all directions simultaneously.
 Not: I observe others observing Fragment 2749-A.

@@ -1,60 +1,12 @@
 ---
-variation_id: hum-L1-FR-21
-cluster: FirstRevisit_Cluster2B_ArchaeologistCrossChar_Alternatives
-sequence_position: 21
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 41-50
-  awareness_descriptor: "mid"
-  visited_fragments: ["arch-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "archaeologist"
-
-technical_specs:
-  word_count: 1499
-  target_range: "1500"
-  primary_exemplar: "hum-L1_EXEMPLAR2.md"
-  voice_consistency_target: "93%+"
-  alternative_expression: true
-  primary_sensory_channel: "textural"
-
-transformation_focus:
-  - Same awareness as FR-15/FR-16/FR-20, fourth alternative
-  - Archaeological presence through tactile texture variations
-  - Fragments smooth where examined, rough where untouched
-  - Observer effect through touch-based experience
-  - Dual transformation: recursion depth plus textural recognition
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  archaeologist_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 2
-  questions_from_sensation: true
-  placeholder_content: false
-  cross_character_present: true
-  dual_transformation: true
-  alternative_sensory_expression: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster2B_Archaeologist_Alternatives"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-021'
+'variation_type': 'firstRevisit'
+'word_count': 1330
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The cold waits like always. The darkness knows my return. The neural interface anticipates connection—metal humming with recognition before contact.
 Third time. The number matters in my body. In my hands. In how my fingers reach for interface knowing exactly what touching will feel like.
 Knowing and not knowing. Because something changed.

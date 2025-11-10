@@ -1,41 +1,12 @@
 ---
-id: FR-03
-variation_type: firstRevisit
-cluster: firstRevisit_initial
-generation_week: 1
-position_in_cluster: 3
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 45
-awareness_range: "41-50"
-awareness_tier: "developing_awareness"
-visited_variations: []
-active_path: null
-cross_character_content: ["hum-L1"]
-
-# Content Architecture
-word_count: 1521
-primary_focus: "process_becomes_ethical"
-secondary_focus: "same_process_new_meaning"
-transformation_type: "process_becomes_choice"
-
-# Voice Calibration
-algorithmic_voice: true
-optimization_language: true
-efficiency_framing: true
-moral_weight: "emerging"
-ethical_tension: "present"
-
-# Integration Elements
-character_content: true
-path_voice: false
-pure_revisit: true
-decision_ritual: false
-
-# Quality Metrics
-voice_consistency_target: 0.93
+'variation_id': 'arch-L1-FR-003'
+'variation_type': 'firstRevisit'
+'word_count': 1242
+'conditions':
+  'awareness': '41-50%'
 ---
+
+
 
 Timestamp 2151.337.14:19:03—Processing Initiated
 

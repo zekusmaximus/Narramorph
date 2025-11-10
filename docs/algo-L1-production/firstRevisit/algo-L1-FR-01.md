@@ -1,41 +1,12 @@
 ---
-id: FR-01
-variation_type: firstRevisit
-cluster: firstRevisit_initial
-generation_week: 1
-position_in_cluster: 1
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 25
-awareness_range: "21-30"
-awareness_tier: "emerging_awareness"
-visited_variations: []
-active_path: null
-cross_character_content: []
-
-# Content Architecture
-word_count: 1447
-primary_focus: "algorithm_as_moral_agent"
-secondary_focus: "technical_rigor_maintained"
-transformation_type: "threshold_crossing"
-
-# Voice Calibration
-algorithmic_voice: true
-optimization_language: true
-efficiency_framing: true
-moral_weight: "emerging"
-ethical_tension: "subtle"
-
-# Integration Elements
-character_content: false
-path_voice: false
-pure_revisit: true
-decision_ritual: false
-
-# Quality Metrics
-voice_consistency_target: 0.93
+'variation_id': 'arch-L1-FR-001'
+'variation_type': 'firstRevisit'
+'word_count': 998
+'conditions':
+  'awareness': '21-30%'
 ---
+
+
 Timestamp 2151.337.14:19:08—Processing initiated.
 I am loading Fragment 2749-A. Second discrete processing event. First processing occurred 2151.331.07:14:22—six standard cycles prior. Fragment 2749-A: consciousness data preserved 2041.217, data volume 847.3 terabytes, upload verification confirmed. Standard protocols apply.
 I have processed this fragment before.

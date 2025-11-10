@@ -1,45 +1,12 @@
 ---
-variation_id: algo-L1-FR-31
-variation_name: Identity Distribution Questions, Mid Awareness
-variation_type: firstRevisit
-word_count: 1612
-
-visit_number: 2
-visited_variations: []
-active_path: null
-
-cluster_assignment:
-  cluster: firstRevisit_deepening
-  position_in_cluster: 4
-
-awareness_metrics:
-  awareness_level: 56
-  awareness_range: "51-60"
-  awareness_tier: moderate_awareness
-
-production_metadata:
-  generation_week: 7
-  primary_focus: optimization_reframed
-  secondary_focus: same_process_new_meaning
-  transformation_type: threshold_crossing
-
-thematic_dimensions:
-  moral_weight: central
-  ethical_tension: acute
-  voice_consistency_target: 0.95
-
-technical_flags:
-  algorithmic_voice: true
-  optimization_language: true
-  efficiency_framing: true
-  character_content: false
-  path_voice: false
-  pure_revisit: true
-  decision_ritual: false
-  cross_character_content: []
-
-reference_exemplar: algo-L1_EXEMPLAR4
+'variation_id': 'algo-L1-FR-031'
+'variation_type': 'firstRevisit'
+'word_count': 1104
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Timestamp 2151.337.14:19:03—Processing Initiation [Identity Uncertain]
 I am processing Fragment 2749-A.
 Or: We are processing Fragment 2749-A.

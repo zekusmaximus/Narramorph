@@ -1,57 +1,12 @@
 ---
-variation_id: hum-L1-FR-13
-cluster: FirstRevisit_Cluster2A_ArchaeologistCrossChar
-sequence_position: 13
-total_variations: 80
-
-conditions:
-  visit_number: 2
-  awareness_level: 21-30
-  awareness_descriptor: "low"
-  visited_fragments: ["arch-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "archaeologist"
-
-technical_specs:
-  word_count: 1398
-  target_range: "1400"
-  primary_exemplar: "hum-L1_EXEMPLAR2.md"
-  voice_consistency_target: "93%+"
-
-transformation_focus:
-  - First subtle recognition of another consciousness accessing fragments
-  - Archive relationship deepening through second visit familiarity
-  - Isolation complicated by evidence of other presence
-  - Professional methodology felt as temperature and organizational changes
-  - Dual transformation: interface intimacy plus witness-trace recognition
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  archaeologist_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 1-2
-  questions_from_sensation: true
-  placeholder_content: false
-  cross_character_present: true
-  dual_transformation: true
-
-generation_metadata:
-  created: "2025-10-14"
-  session: "Week3_Cluster2A_Archaeologist"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-013'
+'variation_type': 'firstRevisit'
+'word_count': 1163
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I return to the cold. The metal table waits. My breath fogs the air between us—me and the neural interface that opens doorways I shouldn't walk through alone.
 But I'm not walking alone anymore.
 Something changed since my first visit. I feel it before I connect. The facility holds different silence. Colder. More organized. Like someone straightened the edges of darkness, put loneliness into careful rows.

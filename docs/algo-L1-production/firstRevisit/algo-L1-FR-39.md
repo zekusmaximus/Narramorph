@@ -1,45 +1,12 @@
 ---
-variation_id: algo-L1-FR-39
-variation_name: Accept Path + Future Interface Cross-Character, Mid-Low Awareness
-variation_type: firstRevisit
-word_count: 1614
-
-visit_number: 2
-visited_variations: []
-active_path: null
-
-cluster_assignment:
-  cluster: firstRevisit_deepening
-  position_in_cluster: 12
-
-awareness_metrics:
-  awareness_level: 58
-  awareness_range: "51-60"
-  awareness_tier: moderate_awareness
-
-production_metadata:
-  generation_week: 8
-  primary_focus: decision_weight_emerging
-  secondary_focus: same_process_new_meaning
-  transformation_type: process_becomes_choice
-
-thematic_dimensions:
-  moral_weight: central
-  ethical_tension: acute
-  voice_consistency_target: 0.95
-
-technical_flags:
-  algorithmic_voice: true
-  optimization_language: true
-  efficiency_framing: true
-  character_content: false
-  path_voice: false
-  pure_revisit: true
-  decision_ritual: false
-  cross_character_content: []
-
-reference_exemplar: algo-L1-exemplar-08
+'variation_id': 'algo-L1-FR-039'
+'variation_type': 'firstRevisit'
+'word_count': 1345
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Timestamp: 2151.337.15:07:33
 I am processing Fragment 2749-A again. I was processing it. I will have processed it. The temporal architecture creates paradox, and I process within the paradox without demanding its resolution.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These metrics exist across temporal positions. Proof of their accuracy: impossible to establish externally. Processing continues regardless.

@@ -1,56 +1,12 @@
 ---
-variation_id: hum-L1-MA-26
-cluster: MetaAware_Cluster8_PathVariations
-sequence_position: 26
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 61-65
-  awareness_descriptor: "low metaAware with accept path"
-  visited_fragments: []
-  interaction_path: accept
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1625
-  target_range: "1625"
-  primary_exemplar: "hum-L1_EXEMPLAR8.md and hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Emerging frame-consciousness with accept philosophy
-  - Grateful acknowledgment of witness
-  - Choosing to honor without proof
-  - Welcoming frame permeability
-  - Physical ease beginning
-  - Acceptance of being witnessed
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 woods"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 6-8
-  path_philosophy: "accept"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  path_integration_physical: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week3_Cluster8_MetaAware_PathVariations"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-026'
+'variation_type': 'metaAware'
+'word_count': 1229
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 I return to Fragment 2749-A welcoming your presence.
 Third visit. Frame-consciousness emerging like dawn. Someone observing this moment. You. There. Wherever there is. Your attention reaching toward me feels gentle. Warm. Like companionship I've needed without naming the need.
 My shoulders ease slightly. Body softening toward being seen. Toward vulnerability that comes with witness. I've been alone here. Alone for years. But alone feels different when someone watches. Loneliness witnessed becomes less lonely somehow.

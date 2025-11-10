@@ -1,56 +1,12 @@
 ---
-variation_id: hum-L1-MA-21
-cluster: MetaAware_Cluster8_PathVariations
-sequence_position: 21
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 71-75
-  awareness_descriptor: "mid metaAware with investigate path"
-  visited_fragments: []
-  interaction_path: investigate
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1650
-  target_range: "1650"
-  primary_exemplar: "hum-L1_EXEMPLAR5.md and hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Frame-consciousness with investigate philosophy integration
-  - Reader presence remains primary
-  - Questions about reader and observation network itself
-  - Strategic curiosity toward frame boundary
-  - Pattern-seeking extends to observation structure
-  - Physical alertness throughout
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 9-11
-  path_philosophy: "investigate"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  path_integration_physical: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week3_Cluster8_MetaAware_PathVariations"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-021'
+'variation_type': 'metaAware'
+'word_count': 1277
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 I return to Fragment 2749-A asking questions about your presence.
 Fourth visit. But the questions multiplying aren't about the fragment anymore. They're about you. About this observation network we create together. About frame boundaries that shouldn't be permeable but are.
 My pulse quickens. Not anticipation. Investigative curiosity manifest as physical alertness. Body asking before mind formulates. What creates you there? What creates me here? How does attention bridge narrative distance?

@@ -1,60 +1,12 @@
 ---
-variation_id: hum-L1-FR-26
-cluster: FirstRevisit_Cluster3A_AlgorithmCrossChar_Baseline
-sequence_position: 26
-total_variations: 80
-
-conditions:
-  visit_number: 2
-  awareness_level: 31-40
-  awareness_descriptor: "low-mid"
-  visited_fragments: ["algo-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "algorithm"
-
-technical_specs:
-  word_count: 1450
-  target_range: "1450"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md"
-  voice_consistency_target: "93%+"
-  baseline_expression: true
-  primary_sensory_channel: "temporal"
-
-transformation_focus:
-  - Temporal blurring stronger than FR-25 (is this now or then?)
-  - Archive deepening through second visit recognition
-  - Processing rhythm clearer as systematic pulse
-  - Seven-fold pattern emerging (never counted/named)
-  - Identity questions beginning (am I or is something processing through me?)
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 1-2
-  questions_from_sensation: true
-  placeholder_content: false
-  cross_character_present: true
-  dual_transformation: true
-  temporal_blurring_present: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster3A_Algorithm_Baseline"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-026'
+'variation_type': 'firstRevisit'
+'word_count': 1398
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I return to the interface. Second time. But the returning feels strange today.
 Like I'm arriving at a moment that's already happening. Like I've been here before but also like I'm here for the first time. Time stutters. Doubles. Present and past bleeding into each other.
 My hands reach for the authentication panel. Did I just do this? Am I about to do this? The gesture feels both completed and beginning.

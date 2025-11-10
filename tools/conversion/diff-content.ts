@@ -90,13 +90,23 @@ async function main() {
 
   if (beforeIsManifest && afterIsManifest) {
     await diffManifests(beforePath, afterPath, values['summary-only'], logger);
-  } else {
-    logger.error('DIFF_MODE_ERROR', 'Both paths must be manifests (.json)', {
-      value: `before=${beforePath}, after=${afterPath}`,
-      exampleFix: 'Use --before=manifest1.json --after=manifest2.json',
-    });
-    process.exit(1);
+    return;
   }
+
+  // If both are directories, compare directories
+  const beforeStats = await stat(beforePath).catch(() => null);
+  const afterStats = await stat(afterPath).catch(() => null);
+
+  if (beforeStats?.isDirectory() && afterStats?.isDirectory()) {
+    await diffDirectories(beforePath, afterPath, values['summary-only'], logger);
+    return;
+  }
+
+  logger.error('DIFF_MODE_ERROR', 'Paths must both be manifests (.json) or both be directories', {
+    value: `before=${beforePath}, after=${afterPath}`,
+    exampleFix: 'Use --before=manifest1.json --after=manifest2.json or two content dirs',
+  });
+  process.exit(1);
 }
 
 async function diffManifests(
@@ -268,6 +278,146 @@ function formatDiff(diff: number): string {
   if (diff === 0) return '0 (unchanged)';
   if (diff > 0) return `+${diff}`;
   return `${diff}`;
+}
+
+// === Directory diff with canonicalized JSON and field-level diffs ===
+
+interface DirFieldChange { path: string; before: unknown; after: unknown }
+interface DirModified { file: string; changes: DirFieldChange[] }
+
+async function listJsonFiles(root: string, base?: string): Promise<string[]> {
+  const results: string[] = [];
+  const dirents = await readdir(root, { withFileTypes: true });
+  for (const d of dirents) {
+    const full = join(root, d.name);
+    const rel = base ? join(base, d.name) : d.name;
+    if (d.isDirectory()) {
+      const sub = await listJsonFiles(full, rel);
+      results.push(...sub);
+    } else if (d.isFile() && d.name.endsWith('.json')) {
+      results.push(rel);
+    }
+  }
+  return results.sort();
+}
+
+function canonicalize(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(canonicalize);
+  if (value && typeof value === 'object') {
+    const obj = value as Record<string, unknown>;
+    const keys = Object.keys(obj).sort();
+    const out: Record<string, unknown> = {};
+    for (const k of keys) out[k] = canonicalize(obj[k]);
+    return out;
+  }
+  return value;
+}
+
+function jsonStableString(value: unknown): string {
+  return JSON.stringify(canonicalize(value));
+}
+
+function deepDiff(before: unknown, after: unknown, path: string[] = []): DirFieldChange[] {
+  const changes: DirFieldChange[] = [];
+  const pathStr = (p: string[]) => (p.length ? p.join('.') : '(root)');
+
+  if (before === undefined && after !== undefined) {
+    changes.push({ path: pathStr(path), before, after });
+    return changes;
+  }
+  if (after === undefined && before !== undefined) {
+    changes.push({ path: pathStr(path), before, after });
+    return changes;
+  }
+
+  if (Array.isArray(before) && Array.isArray(after)) {
+    const maxLen = Math.max(before.length, after.length);
+    for (let i = 0; i < maxLen; i++) {
+      changes.push(...deepDiff(before[i], after[i], [...path, String(i)]));
+    }
+    return changes;
+  }
+
+  if (before && typeof before === 'object' && after && typeof after === 'object') {
+    const bKeys = Object.keys(before as Record<string, unknown>);
+    const aKeys = Object.keys(after as Record<string, unknown>);
+    const all = new Set([...bKeys, ...aKeys]);
+    for (const k of all) {
+      changes.push(...deepDiff((before as any)[k], (after as any)[k], [...path, k]));
+    }
+    return changes;
+  }
+
+  if (jsonStableString(before) !== jsonStableString(after)) {
+    changes.push({ path: pathStr(path), before, after });
+  }
+  return changes;
+}
+
+async function diffDirectories(beforeDir: string, afterDir: string, summaryOnly: boolean | undefined, logger: Logger): Promise<void> {
+  const beforeFiles = await listJsonFiles(beforeDir);
+  const afterFiles = await listJsonFiles(afterDir);
+
+  const beforeSet = new Set(beforeFiles);
+  const afterSet = new Set(afterFiles);
+
+  const added = afterFiles.filter(f => !beforeSet.has(f));
+  const removed = beforeFiles.filter(f => !afterSet.has(f));
+  const common = afterFiles.filter(f => beforeSet.has(f));
+
+  const modified: DirModified[] = [];
+  const unchanged: string[] = [];
+
+  for (const rel of common) {
+    const bPath = join(beforeDir, rel);
+    const aPath = join(afterDir, rel);
+    try {
+      const bRaw = await readFile(bPath, 'utf-8');
+      const aRaw = await readFile(aPath, 'utf-8');
+      const bObj = JSON.parse(bRaw);
+      const aObj = JSON.parse(aRaw);
+      const bCanon = jsonStableString(bObj);
+      const aCanon = jsonStableString(aObj);
+      if (bCanon !== aCanon) {
+        const changes = deepDiff(canonicalize(bObj), canonicalize(aObj));
+        modified.push({ file: rel, changes });
+      } else {
+        unchanged.push(rel);
+      }
+    } catch (error) {
+      logger.warning('DIFF_READ_ERROR', `Failed to read/parse ${rel}: ${error}`);
+    }
+  }
+
+  console.log('\n=== Directory Content Diff ===');
+  console.log(`Before dir: ${beforeDir}`);
+  console.log(`After dir:  ${afterDir}`);
+  console.log(`\nFiles added: ${added.length}`);
+  console.log(`Files removed: ${removed.length}`);
+  console.log(`Files modified: ${modified.length}`);
+  console.log(`Files unchanged: ${unchanged.length}`);
+
+  if (!summaryOnly) {
+    if (added.length) {
+      console.log('\n=== Added ===');
+      for (const f of added) console.log(`  + ${f}`);
+    }
+    if (removed.length) {
+      console.log('\n=== Removed ===');
+      for (const f of removed) console.log(`  - ${f}`);
+    }
+    if (modified.length) {
+      console.log('\n=== Modified (field-level) ===');
+      for (const m of modified) {
+        console.log(`  M ${m.file}`);
+        for (const c of m.changes) {
+          console.log(`    ${c.path}: ${JSON.stringify(c.before)} -> ${JSON.stringify(c.after)}`);
+        }
+      }
+    }
+  }
+
+  console.log('\n�o. Dir diff complete');
 }
 
 main().catch((error) => {

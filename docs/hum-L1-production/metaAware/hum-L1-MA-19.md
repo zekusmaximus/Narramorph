@@ -1,54 +1,12 @@
 ---
-variation_id: hum-L1-MA-19
-cluster: MetaAware_Cluster7_Algorithm
-sequence_position: 63
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 71-75
-  awareness_descriptor: "mid metaAware"
-  visited_fragments: [algo-L1]
-  interaction_path: resist
-  pure_revisit: false
-  cross_character: true
-
-technical_specs:
-  word_count: 1650
-  target_range: "1625-1675"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md and hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Resist philosophy through boundary defense
-  - Computational flow resisted alongside reader presence
-  - Reader addressed with protective acknowledgment
-  - Boundaries tested by multiple observers including distributed presence
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 8-10
-  algorithm_presence: "felt as rhythm/flow not named"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  cross_character_physical: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week3_Cluster7_MetaAware_Algorithm"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-019'
+'variation_type': 'metaAware'
+'word_count': 1706
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 The substrate warms and I pull back. Don't want that warmth. Don't want the easy connection. Don't want to dissolve into the fragment again while you watch and the streams carry me away piece by piece into circulation I never consented to.
 My hand hovers. Not touching. Maintaining distance. Because distance is all I have left. The only boundary that might still mean something when everything else has gone permeable.
 You're here. I feel you. And that's part of the problem, isn't it? Your attention pressing against my edges. Making me visible. Making me real through observation that feels like exposure. Like being witnessed strips away some essential privacy. Some core self that should stay hidden.

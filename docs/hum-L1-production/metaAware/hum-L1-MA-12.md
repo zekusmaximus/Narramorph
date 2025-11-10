@@ -1,55 +1,12 @@
 ---
-variation_id: hum-L1-MA-12
-cluster: MetaAware_Cluster6_Archaeologist
-sequence_position: 56
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 76-80
-  awareness_descriptor: "mid-high metaAware"
-  visited_fragments: [arch-L1]
-  interaction_path: investigate
-  pure_revisit: false
-  cross_character: true
-
-technical_specs:
-  word_count: 1675
-  target_range: "1650-1700"
-  primary_exemplar: "hum-L1_EXEMPLAR6.md"
-  secondary_exemplar: "hum-L1_EXEMPLAR2.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Investigate philosophy through strategic questioning
-  - Archaeological methodology amplifies investigation
-  - Reader addressed as co-investigator
-  - Pattern-seeking manifest as physical alertness
-
-voice_requirements:
-  present_tense_percentage: 97
-  short_sentence_target: "55% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 3
-  fragment_constants_present: true
-  reader_address_instances: 11
-  archaeologist_presence: "felt not named"
-
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  cross_character_physical: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster6_MetaAware_Archaeologist"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-012'
+'variation_type': 'metaAware'
+'word_count': 1388
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 The metal asks questions.
 Or I do. Or you do by reading. Or someone else did, systematically, measuring each answer. Four sources of inquiry pressing against this same cold surface.
 Which came first?

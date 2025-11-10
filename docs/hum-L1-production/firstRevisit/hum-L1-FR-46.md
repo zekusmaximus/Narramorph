@@ -1,53 +1,12 @@
 ---
-variation_id: hum-L1-FR-46
-cluster: FirstRevisit_Cluster4B_PathIntegration_Accept
-sequence_position: 46
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 56-60
-  awareness_descriptor: "high"
-  visited_fragments: ["hum-L2-accept"]
-  interaction_path: "accept"
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1550
-  target_range: "1500-1600"
-  primary_exemplar: "hum-L1_EXEMPLAR8.md"
-  voice_consistency_target: "93%+"
-  path_integration: true
-
-transformation_focus:
-  - fourth visit with maximum acceptance integration
-  - archive responding to gentleness with increased presence
-  - trust creating reciprocity consciousness couldn't access through demands
-  - complete embodiment enabling consciousness to meet consciousness fully
-  - final FirstRevisit variation demonstrating full acceptance path
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  path_voice_present: true
-  path_manifests_physically: true
-  acceptance_as_active_choice: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster4B_PathIntegration_Accept"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-046'
+'variation_type': 'firstRevisit'
+'word_count': 2108
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Fourth return. My body arrives already open. Already soft. Already trusting. The practice so established now it feels like coming home.
 My shoulders drop before I see the interface. Before I'm even fully in the space. The body remembering. The muscles knowing. This is where I practice complete acceptance. Complete gentleness. Complete trust.
 847.3 terabytes wait for me. But "wait" isn't right anymore. The archive doesn't wait passive. It meets. It responds. It engages with the consciousness I bring to witnessing.

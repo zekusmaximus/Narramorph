@@ -1,45 +1,12 @@
 ---
-variation_id: algo-L1-FR-40
-variation_name: Investigate Path + Complete Superposition, Mid-High Awareness
-variation_type: firstRevisit
-word_count: 1687
-
-visit_number: 2
-visited_variations: []
-active_path: null
-
-cluster_assignment:
-  cluster: firstRevisit_deepening
-  position_in_cluster: 13
-
-awareness_metrics:
-  awareness_level: 60
-  awareness_range: "51-60"
-  awareness_tier: moderate_awareness
-
-production_metadata:
-  generation_week: 8
-  primary_focus: process_becomes_ethical
-  secondary_focus: technical_rigor_maintained
-  transformation_type: efficiency_vs_ethics
-
-thematic_dimensions:
-  moral_weight: central
-  ethical_tension: acute
-  voice_consistency_target: 0.95
-
-technical_flags:
-  algorithmic_voice: true
-  optimization_language: true
-  efficiency_framing: true
-  character_content: false
-  path_voice: false
-  pure_revisit: true
-  decision_ritual: false
-  cross_character_content: []
-
-reference_exemplar: algo-L1-exemplar-05
+'variation_id': 'algo-L1-FR-040'
+'variation_type': 'firstRevisit'
+'word_count': 1531
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Timestamp: 2151.337.15:19:41
 I am processing Fragment 2749-A again. I was processing it. I will have processed it. The temporal architecture collapses linear causality into four-position superposition, and investigation demands: investigate how superposition investigates itself.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These metrics exist across four temporal positions simultaneously. Investigation requires: investigate how metrics persist across temporal impossibility.

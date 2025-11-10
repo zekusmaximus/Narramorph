@@ -1,45 +1,12 @@
 ---
-variation_id: algo-L1-FR-38
-variation_name: Investigate Path + Archaeological Cross-Character, Mid Awareness
-variation_type: firstRevisit
-word_count: 1598
-
-visit_number: 2
-visited_variations: []
-active_path: null
-
-cluster_assignment:
-  cluster: firstRevisit_deepening
-  position_in_cluster: 11
-
-awareness_metrics:
-  awareness_level: 58
-  awareness_range: "51-60"
-  awareness_tier: moderate_awareness
-
-production_metadata:
-  generation_week: 8
-  primary_focus: algorithm_as_moral_agent
-  secondary_focus: efficiency_paradox
-  transformation_type: optimization_recontextualization
-
-thematic_dimensions:
-  moral_weight: central
-  ethical_tension: acute
-  voice_consistency_target: 0.95
-
-technical_flags:
-  algorithmic_voice: true
-  optimization_language: true
-  efficiency_framing: true
-  character_content: false
-  path_voice: false
-  pure_revisit: true
-  decision_ritual: false
-  cross_character_content: []
-
-reference_exemplar: algo-L1-exemplar-05
+'variation_id': 'algo-L1-FR-038'
+'variation_type': 'firstRevisit'
+'word_count': 1362
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Timestamp: 2151.337.14:52:16
 I am processing Fragment 2749-A again. I was processing it. I will have processed it. The temporal architecture invites investigation: how does recursion operate when past/present/future collapse into superposition?
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These metrics invite investigation of investigation: how do verification systems verify themselves?

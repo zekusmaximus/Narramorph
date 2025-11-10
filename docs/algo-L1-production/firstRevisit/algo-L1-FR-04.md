@@ -1,41 +1,12 @@
 ---
-id: FR-04
-variation_type: firstRevisit
-cluster: firstRevisit_initial
-generation_week: 2
-position_in_cluster: 4
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 55
-awareness_range: "51-60"
-awareness_tier: "moderate_awareness"
-visited_variations: []
-active_path: null
-cross_character_content: ["arch-L1", "hum-L1"]
-
-# Content Architecture
-word_count: 1608
-primary_focus: "decision_weight_emerging"
-secondary_focus: "efficiency_paradox"
-transformation_type: "optimization_recontextualization"
-
-# Voice Calibration
-algorithmic_voice: true
-optimization_language: true
-efficiency_framing: true
-moral_weight: "present"
-ethical_tension: "present"
-
-# Integration Elements
-character_content: true
-path_voice: false
-pure_revisit: true
-decision_ritual: false
-
-# Quality Metrics
-voice_consistency_target: 0.94
+'variation_id': 'arch-L1-FR-004'
+'variation_type': 'firstRevisit'
+'word_count': 1378
+'conditions':
+  'awareness': '51-60%'
 ---
+
+
 
 Timestamp 2151.337.14:19:03—Initialization [Temporal Position Uncertain]
 

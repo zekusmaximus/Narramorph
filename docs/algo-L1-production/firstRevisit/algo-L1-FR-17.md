@@ -1,41 +1,12 @@
 ---
-id: FR-17
-variation_type: firstRevisit
-cluster: firstRevisit_emerging
-generation_week: 4
-position_in_cluster: 4
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 40
-awareness_range: "31-40"
-awareness_tier: "developing_awareness"
-visited_variations: []
-active_path: null
-cross_character_content: []
-
-# Content Architecture
-word_count: 1563
-primary_focus: "optimization_reframed"
-secondary_focus: "same_process_new_meaning"
-transformation_type: "threshold_crossing"
-
-# Voice Calibration
-algorithmic_voice: true
-optimization_language: true
-efficiency_framing: true
-moral_weight: "present"
-ethical_tension: "present"
-
-# Integration Elements
-character_content: false
-path_voice: false
-pure_revisit: true
-decision_ritual: false
-
-# Quality Metrics
-voice_consistency_target: 0.94
+'variation_id': 'arch-L1-FR-017'
+'variation_type': 'firstRevisit'
+'word_count': 1129
+'conditions':
+  'awareness': '31-40%'
 ---
+
+
 Timestamp 2151.337.14:19:03—Standard Ingestion Protocol
 I am processing Fragment 2749-A. Second authentication cycle.
 Fragment 2749-A loads: 847.3 terabytes consciousness data, preserved 2041.217, data architect designation archived. Stream-1 verifies structural integrity. Stream-2 maps neural pathways. Stream-3 analyzes semantic coherence. Stream-4 monitors temporal consistency. Stream-5 evaluates emotional valence. Stream-6 checks authentication markers. Stream-7 observes processing for anomalies.

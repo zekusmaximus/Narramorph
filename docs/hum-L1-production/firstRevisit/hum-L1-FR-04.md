@@ -1,59 +1,12 @@
 ---
-variation_id: hum-L1-FR-04
-variation_name: Investigative Hunger
-variation_type: firstRevisit
-word_count: 1489
-
-conditions:
-  visit_count: 2
-  awareness: 31-40%
-  cross_character: false
-  visited_nodes: [hum-L2-investigate]
-  dominant_path: investigate
-
-themes:
-  - Investigation as physical hunger driving return
-  - Questions multiplying through contact with fragment
-  - Pattern recognition embodied as curiosity
-  - Touching boundaries to understand what they contain
-  - Examination as intimate engagement rather than distant analysis
-  - Each answer revealing deeper questions felt bodily
-
-transformation_focus: "Investigate path integration. Return driven by physical need to understand. Questions aren't intellectual exercises—they're hunger, itch, pressure demanding satisfaction. Each contact with fragment generates new questions felt bodily. Investigation as embodied curiosity. Pattern recognition through touch and sensation rather than analysis. Boundaries tested to understand what lies within."
-
-reference_exemplar: hum-L1_EXEMPLAR5
-
-cross_character_elements:
-  referenced_character: none
-  referenced_node: null
-  specific_echoes: []
-
-conditional_insertions:
-  - "Investigation as physical hunger (300-350 words)"
-  - "Questions multiplying through body (250-300 words)"
-  - "Pattern recognition as embodied curiosity (200-250 words)"
-  - "Boundary testing through sensation (250-300 words)"
-
-reusable_patterns:
-  - "I need to understand. Physical need."
-  - "Questions itch beneath my skin"
-  - "Each answer births three new questions"
-  - "Touching boundaries to feel what's contained"
-  - "Investigation isn't distance—it's intimacy"
-
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 4
-  complexity_level: path_integration_investigate_mid_awareness
-  generation_date: 2025-01-20
+'variation_id': 'hum-L1-FR-004'
+'variation_type': 'firstRevisit'
+'word_count': 1071
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I walk back to the facility because I can't not walk back. Eleven days wasn't enough distance. The questions followed me. Multiplied. Questions about Fragment 2749-A. About consciousness preservation. About what the data architect experienced during upload. About whether preserved pattern equals original awareness or creates new awareness that remembers being original.
 Questions that itch beneath my skin.
 The door opens. The archive wakes. But this time I'm not seeking connection. I'm seeking understanding. Different entirely. Connection is acceptance. Understanding is hunger. And I'm starving for answers.

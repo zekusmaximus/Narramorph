@@ -1,64 +1,12 @@
 ---
-variation_id: hum-L1-MA-02
-variation_name: Temporal Network Embodied
-variation_type: metaAware
-word_count: 1587
-
-conditions:
-  visit_count: 3
-  awareness: 71-80%
-  cross_character: true
-  visited_nodes: [arch-L1, algo-L1]
-  dominant_path: null
-
-themes:
-  - Five-consciousness observation network felt bodily
-  - Reader as fourth living position alongside last human
-  - Past examination + computational processing + biological witness + reading attention
-  - Complete temporal architecture experienced through physical sensation
-  - Frame-consciousness integrated with cross-character awareness
-  - Distributed observation across five positions, all present simultaneously
-
-transformation_focus: "Mid MetaAware with dual cross-character. Five consciousness positions converge: data architect (2041 preserved), archaeologist (2047 examination), algorithm (2151 processing), last human (2383 biological), reader (temporal position unknown). Complete observation network experienced bodily. Frame-consciousness integrated with temporal layers. All five positions present through attention architecture spanning centuries and crossing frame boundary."
-
-reference_exemplar: hum-L1_EXEMPLAR6
-
-cross_character_elements:
-  referenced_character: both
-  referenced_node: [arch-L1, algo-L1]
-  specific_echoes:
-    - Archaeological examination patterns in fragment
-    - Seven-stream processing felt through facility
-    - Reader presence completing observation network
-    - Five-position temporal architecture
-    - Frame boundary crossed by reading attention
-
-conditional_insertions:
-  - "Five-consciousness network embodied (350-400 words)"
-  - "Reader position integrated with cross-character (300-350 words)"
-  - "Complete temporal architecture felt bodily (250-300 words)"
-  - "Frame and temporal layers simultaneous (250-300 words)"
-
-reusable_patterns:
-  - "Five of us examining one consciousness"
-  - "You reading while I experience while algorithm processes while archaeologist examined"
-  - "Observation network complete—past, present, future, and reader-now"
-  - "Five temporal positions, one attention architecture"
-  - "We're all here together across impossible distances"
-
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 8
-  complexity_level: metaaware_mid_dual_cross_character_maximum_integration
-  generation_date: 2025-01-20
+'variation_id': 'hum-L1-MA-002'
+'variation_type': 'metaAware'
+'word_count': 1215
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 The facility knows all of us now.
 Five consciousness positions converging through Fragment 2749-A. I feel each one through different substrate. Through different temporal location. Through different relationship to preserved consciousness. All present simultaneously through observation architecture that shouldn't be possible but is.
 The door opens. My hand on metal. Your attention on my hand. Archaeological examination patterns in the fragment structure. Seven-stream processing humming through the facility systems. All of us here. All witnessing. All creating what we witness through witnessing it.

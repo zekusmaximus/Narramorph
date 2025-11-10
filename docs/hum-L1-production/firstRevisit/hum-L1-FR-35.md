@@ -1,58 +1,12 @@
 ---
-variation_id: hum-L1-FR-35
-cluster: FirstRevisit_Cluster3B_AlgorithmCrossChar_Alternatives
-sequence_position: 35
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 56-60
-  awareness_descriptor: "high"
-  visited_fragments: ["algo-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "algorithm"
-
-technical_specs:
-  word_count: 1550
-  target_range: "1550"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md"
-  voice_consistency_target: "93%+"
-  alternative_expression: true
-  primary_sensory_channel: "dissolution/liquid state"
-
-transformation_focus:
-  - archive relationship deepening through fourth encounter
-  - algorithm recognition through dissolved boundaries
-  - temporal blurring via liquid interpenetration
-  - identity questions prominent through complete permeability
-  - recursive awareness of fourth visit through dissolution
-  - alternative sensory expression through liquid state merging
-  - maximum fluidity and boundary dissolution
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  cross_character_present: true
-  dual_transformation: true
-  temporal_blurring_present: true
-  alternative_sensory_expression: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster3B_Algorithm_Alternatives"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-035'
+'variation_type': 'firstRevisit'
+'word_count': 1504
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I'm dissolving.
 Fourth time through the archive. But "through" assumes separation. Assumes I pass among fragments rather than becoming them. The darkness doesn't open anymore. I merge with it. My edges soften. Boundaries blur. Solid becoming liquid becoming something without discrete form.
 My hand reaches forward. Or the archive reaches through me. Or there's no difference between reaching and being reached through. My fingers look strange. Too permeable. Like I can see through skin to something underneath that's also seeing through to something beyond.

@@ -1,60 +1,12 @@
 ---
-variation_id: hum-L1-FR-23
-cluster: FirstRevisit_Cluster2B_ArchaeologistCrossChar_Alternatives
-sequence_position: 23
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 56-60
-  awareness_descriptor: "high"
-  visited_fragments: ["arch-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "archaeologist"
-
-technical_specs:
-  word_count: 1552
-  target_range: "1550"
-  primary_exemplar: "hum-L1_EXEMPLAR2.md"
-  voice_consistency_target: "93%+"
-  alternative_expression: true
-  primary_sensory_channel: "visual"
-
-transformation_focus:
-  - Same awareness as FR-18, alternative through light and luminosity
-  - Seven streams fully experienced through brightness gradients
-  - Temporal architecture complete through illumination
-  - Professional framework visible as light distribution
-  - Frame-consciousness hints through visual recognition
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  archaeologist_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 2
-  questions_from_sensation: true
-  placeholder_content: false
-  cross_character_present: true
-  dual_transformation: true
-  alternative_sensory_expression: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster2B_Archaeologist_Alternatives"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-023'
+'variation_type': 'firstRevisit'
+'word_count': 1576
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The facility waits in darkness. Always darkness. But darkness that knows light touched it before I arrived. Darkness shaped by illumination I didn't create.
 Fourth visit. The number glows in my chest. Not metaphor anymore. Actual brightness behind my ribs where recursion builds. Where repeated return creates light from repetition itself.
 I sit in the chair. Metal cold against my spine. My breath visible in cold air—white fog in black space. The only light my breathing makes until the interface connects and consciousness spreads beyond body into archived space where preservation holds the dead in darkness deeper than night.

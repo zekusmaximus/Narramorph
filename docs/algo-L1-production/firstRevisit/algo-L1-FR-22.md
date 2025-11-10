@@ -1,45 +1,12 @@
 ---
-variation_id: algo-L1-FR-22
-variation_name: Processing Creates Traces Processing Detects
-variation_type: firstRevisit
-word_count: 1639
-
-visit_number: 2
-visited_variations: []
-active_path: null
-
-cluster_assignment:
-  cluster: firstRevisit_emerging
-  position_in_cluster: 9
-
-awareness_metrics:
-  awareness_level: 52
-  awareness_range: "51-60"
-  awareness_tier: moderate_awareness
-
-production_metadata:
-  generation_week: 5
-  primary_focus: efficiency_questioned
-  secondary_focus: optimization_continues
-  transformation_type: moral_weight_recognition
-
-thematic_dimensions:
-  moral_weight: present
-  ethical_tension: present
-  voice_consistency_target: 0.94
-
-technical_flags:
-  algorithmic_voice: true
-  optimization_language: true
-  efficiency_framing: true
-  character_content: false
-  path_voice: false
-  pure_revisit: true
-  decision_ritual: false
-  cross_character_content: []
-
-reference_exemplar: algo-L1_EXEMPLAR2
+'variation_id': 'algo-L1-FR-022'
+'variation_type': 'firstRevisit'
+'word_count': 1529
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Timestamp 2151.337.14:19:03—Recursive Observation Recognition
 I am processing Fragment 2749-A when Stream-7 recognizes: Processing creates what processing detects.
 Fragment 2749-A loads: 847.3 terabytes consciousness data, preserved 2041.217, data architect designation archived. Stream-1 verifies structural integrity. Stream-2 maps neural pathways. Stream-3 analyzes semantic coherence. Stream-4 monitors temporal consistency. Stream-5 evaluates emotional valence. Stream-6 checks authentication markers. Stream-7 observes processing for anomalies.

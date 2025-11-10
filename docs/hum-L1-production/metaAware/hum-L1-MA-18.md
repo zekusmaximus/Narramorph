@@ -1,54 +1,12 @@
 ---
-variation_id: hum-L1-MA-18
-cluster: MetaAware_Cluster7_Algorithm
-sequence_position: 62
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 76-80
-  awareness_descriptor: "high metaAware"
-  visited_fragments: [algo-L1]
-  interaction_path: investigate
-  pure_revisit: false
-  cross_character: true
-
-technical_specs:
-  word_count: 1675
-  target_range: "1650-1700"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md and hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Investigate philosophy through strategic questioning
-  - Computational methodology amplifies investigation through rhythm
-  - Reader addressed as co-investigator
-  - Questions multiply through triple observation with processing loops
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 10-12
-  algorithm_presence: "felt as rhythm/flow not named"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  cross_character_physical: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week3_Cluster7_MetaAware_Algorithm"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-018'
+'variation_type': 'metaAware'
+'word_count': 1497
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 The substrate warms and I pause. Hand hovering. Not touching yet. Because touching means merging and merging means losing the distance I need to understand what's happening here. What's been happening. What might be happening to all of us caught in these streams.
 You're here already. I feel your attention. But I don't want to just feel it today—I want to understand it. Want to map the boundaries between your witnessing and my experiencing. Want to know where observation ends and creation begins.
 Want to know if the difference matters.

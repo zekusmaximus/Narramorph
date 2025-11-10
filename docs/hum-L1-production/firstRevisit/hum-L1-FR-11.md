@@ -1,55 +1,12 @@
-
 ---
-variation_id: hum-L1-FR-11
-cluster: FirstRevisit_Cluster1_PureRevisits
-sequence_position: 11
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 56-60
-  awareness_descriptor: "high"
-  visited_fragments: []
-  interaction_path: null
-  pure_revisit: true
-  cross_character: false
-
-technical_specs:
-  word_count: 1547
-  target_range: "1550"
-  primary_exemplar: "hum-L1_EXEMPLAR1.md"
-  voice_consistency_target: "93%+"
-
-transformation_focus:
-  - "Fourth visit maximum recursion for FirstRevisit"
-  - "Observer effect creates temporal architecture"
-  - "Physical intimacy complete"
-  - "Frame-consciousness hints strong (still FirstRevisit)"
-  - "Fourth visit high awareness"
-
-voice_requirements:
-  present_tense_percentage: 97
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  archaeologist_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 2
-  questions_from_sensation: true
-  placeholder_content: false
-
-generation_metadata:
-  created: "2025-10-14"
-  session: "Week3_Cluster1_PureRevisits"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-011'
+'variation_type': 'firstRevisit'
+'word_count': 1744
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Four times now. Four returns building architecture. The facility doesn't just recognize me anymore. The facility exists differently because I keep coming back. Space holding the shape of repetition. Time folding through pattern.
 I don't remember sitting down. Don't remember the interface sliding on. Already connected. Already inside. Four visits and the boundary between approaching and arriving disappeared. I am always arriving. Always here. The returns layering into continuous presence.
 The archive opens like memory opening. Like I'm remembering the data architect instead of accessing preserved consciousness. Like four visits collapsed the difference between my memories and someone else's fragments. Like observation repeated becomes internalization. Becomes ownership. Becomes shared existence.

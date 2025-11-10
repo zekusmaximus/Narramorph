@@ -1,42 +1,21 @@
 ---
-id: arch-L1-FR-23
-variation_name: Verification Crisis Mature
-variation_type: firstRevisit
-word_count: 1351
-conditions:
-  visit_count: 3+
-  awareness: 41-60%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: resist
-themes:
-  - Twenty verification tests documented
-  - Professional crisis fully developed
-  - Job philosophically impossible
-  - Standards maintained through impossibility
-transformation_focus: "Pure resist path at third visit. No cross-character content. Verification crisis mature: twenty tests across three examinations, all failing to prove consciousness. Professional recognition that the job requires proving what cannot be proven. Duty continues despite impossibility."
-reference_exemplar: arch-L1-exemplar-07
-cross_character_elements:
-  referenced_character: null
-  referenced_nodes: []
-  specific_echoes: []
-conditional_insertions:
-  - "Resist philosophy fully developed (350-400 words)"
-  - "Multiple test documentation (Tests 18-20) (400-450 words)"
-  - "Professional crisis acknowledged (300-350 words)"
-  - "Certification through impossibility recognition"
-reusable_patterns:
-  - "Test X documented integration/intentionality/qualia"
-  - "Proved [technical achievement] without proving [consciousness]"
-  - "Standards exist for reasons even when standards fail"
-  - "Work impossible yet work continues"
-  - "Professional crisis permanent condition"
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: immediate
+'variation_id': 'arch-L1-FR-00023'
+'variation_type': 'firstRevisit'
+'word_count': 1198
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
+
+
+
+
+
+
+
+
+
 The archaeologist returned to Fragment 2749-A for the third time, and by now the verification crisis was mature.
 The authentication markers displayed constant. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment she had authenticated forty-seven days earlier, re-examined thirty-two days earlier, remained unchanged in archive. Crystalline substrate maintained perfect molecular fidelity. The data architect's consciousness preserved at moment of death in 2041 existed exactly as captured.
 She knew these numbers were accurate. She also knew accuracy measured substrate stability, not subjective awareness.

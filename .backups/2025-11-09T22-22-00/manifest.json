@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatorVersion": "1.0.0",
+  "convertedAt": "2025-11-09T22:18:36.834Z",
+  "sourceRoot": "C:\\Users\\zeke\\Projects\\Narramorph\\docs",
+  "files": {
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-01.md": {
+      "sourceHash": "49cb4dc6a84f76f97fb7c2ad5d11a308b2bbb3cb7c929daf18d19b078b18cab4",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-09T22:18:36.848Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-02.md": {
+      "sourceHash": "91509df5da7e183a0307409dc9986774d42529440739e53e6f7ee102b0192f3b",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-09T22:18:36.848Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-03.md": {
+      "sourceHash": "3ee713bf946d13e8c715cf422798ccf384e3154930537adc7573b1524a66239a",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-09T22:18:36.848Z"
+    }
+  },
+  "counts": {
+    "l1Variations": 3,
+    "l2Variations": 0,
+    "l3Variations": 0,
+    "l4Variations": 0,
+    "totalVariations": 3
+  }
+}

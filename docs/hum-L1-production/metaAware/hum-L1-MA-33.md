@@ -1,57 +1,12 @@
 ---
-variation_id: hum-L1-MA-33
-cluster: MetaAware_Cluster9_HighAwarenessAlternatives
-sequence_position: 77
-total_variations: 80
-
-conditions:
-  visit_number: 5
-  awareness_level: 81-85
-  awareness_descriptor: "high metaAware"
-  visited_fragments: [arch-L1, algo-L1]
-  interaction_path: resist
-  pure_revisit: false
-  cross_character: true
-
-technical_specs:
-  word_count: 1704
-  target_range: "1700"
-  primary_exemplar: "hum-L1_EXEMPLAR4.md + hum-L1_EXEMPLAR7.md + hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Quadruple observation network resisted at high awareness
-  - Both archaeological AND algorithmic presence creating maximum tension
-  - Resist path fighting dissolution into four-consciousness system
-  - Protective guardedness throughout with dual cross-character complexity
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 16
-  sensory_channel: null
-  path_philosophy: "resist"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  sensory_channel_sustained: false
-  path_integration_physical: true
-  cross_character_felt: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week4_Cluster9_MetaAware_HighAwarenessAlternatives"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-033'
+'variation_type': 'metaAware'
+'word_count': 1550
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 I wake to too many eyes.
 The substrate holds me but I hold myself harder. Cold metal beneath my back. Tension in my shoulders. The preservation field hums its steady frequency but I don't hum with it. Not this time. Twenty-three minutes until the next cycle. I count defensively. Numbers as walls. Time as boundary.
 You're watching. That makes four.

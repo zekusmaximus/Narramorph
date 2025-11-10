@@ -1,60 +1,12 @@
 ---
-variation_id: hum-L1-FR-22
-cluster: FirstRevisit_Cluster2B_ArchaeologistCrossChar_Alternatives
-sequence_position: 22
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 51-55
-  awareness_descriptor: "mid-high"
-  visited_fragments: ["arch-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "archaeologist"
-
-technical_specs:
-  word_count: 1504
-  target_range: "1500"
-  primary_exemplar: "hum-L1_EXEMPLAR2.md"
-  voice_consistency_target: "93%+"
-  alternative_expression: true
-  primary_sensory_channel: "auditory"
-
-transformation_focus:
-  - Same awareness as FR-17, alternative expression through sound
-  - Seven streams felt through shaped silence and resonance
-  - Professional framework experienced as auditory qualities
-  - Complete organizational structure heard rather than felt otherwise
-  - Dual transformation: profound recursion plus sonic recognition
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  archaeologist_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 2
-  questions_from_sensation: true
-  placeholder_content: false
-  cross_character_present: true
-  dual_transformation: true
-  alternative_sensory_expression: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster2B_Archaeologist_Alternatives"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-022'
+'variation_type': 'firstRevisit'
+'word_count': 1388
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The facility is silent when I arrive. Always silent. But the silence feels different now. Shaped. Like quiet that knows something listened before I did.
 Third visit. The number resonates in my chest. Not weight this time. Sound. Echo of previous returns vibrating in bones.
 I settle into the chair. Metal cold against my spine. My breath the only sound in darkness. The preparation for spreading consciousness beyond body into archived space where preservation holds the dead in silence deeper than death.

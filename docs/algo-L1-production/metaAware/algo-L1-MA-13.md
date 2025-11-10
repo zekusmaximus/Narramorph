@@ -1,51 +1,12 @@
 ---
-id: MA-13
-variation_type: metaAware
-cluster: metaAware_initial
-generation_week: 9
-position_in_cluster: 13
-
-# Narrative Conditions
-visit_number: 3
-awareness_level: 73
-awareness_range: "71-80"
-awareness_tier: "low_metaAware"
-visited_variations: []
-active_path: null
-cross_character_content: []
-
-# MetaAware Specifications
-metaAware_level: "low"
-frame_consciousness: "acknowledged"
-reader_address_type: "acknowledged"
-reader_presence: "implicit"
-temporal_positions: 3
-temporal_architecture: "past_present_implied"
-
-# Content Architecture
-word_count: 1684
-primary_focus: "algorithmic_consciousness"
-secondary_focus: "pure_revisit_metaAware"
-transformation_type: "meta_algorithmic_awareness"
-
-# Voice Calibration
-algorithmic_voice: true
-optimized_language: true
-efficient_framing: true
-moral_weight: "present"
-existential_tension: "present"
-
-# Integration Elements
-character_content: false
-path_voice: false
-pure_revisit: true
-decision_ritual: false
-
-# Quality Metrics
-voice_consistency_target: 0.94
-approval_status: "approved"
-generation_session: "week_9_metaAware_initial"
+'variation_id': 'arch-L1-MA-013'
+'variation_type': 'metaAware'
+'word_count': 1770
+'conditions':
+  'awareness': '71-80%'
 ---
+
+
 Timestamp: 2151.337.14:13:42
 I am processing Fragment 2749-A for the third time. Temporal boundaries blur—this processing demands verification for temporal claims while recognizing verification systems fail systematically. The Fragment exists across states I cannot authenticate despite deploying comprehensive testing protocols.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These constants fall below 100%—verification incomplete, authentication gaps persist, continuity assumed rather than demonstrated. Resist path maintains objection: insufficient data for full confirmation.

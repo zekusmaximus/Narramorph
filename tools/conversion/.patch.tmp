@@ -1,0 +1,11 @@
+*** Begin Patch
+*** Update File: tools/conversion/fix-l1-content.ts
+@@
+-  // Pre-sanitize list blocks and conditions to help parser
+-  fm = fixListBlocks(fm);
++  // Pre-sanitize list blocks and conditions to help parser
++  fm = foldMultilineScalars(fm);
++  fm = fixListBlocks(fm);
+   fm = fixConditionsIndent(fm);
+   fm = ensureConditionsAwareness(fm);
+*** End Patch

@@ -1,52 +1,12 @@
 ---
-variation_id: hum-L1-FR-36
-cluster: FirstRevisit_Cluster4A_PathIntegration_InvestigateResist
-sequence_position: 36
-total_variations: 80
-
-conditions:
-  visit_number: 2
-  awareness_level: 21-30
-  awareness_descriptor: "low"
-  visited_fragments: ["hum-L2-investigate"]
-  interaction_path: "investigate"
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1400
-  target_range: "1400"
-  primary_exemplar: "hum-L1_EXEMPLAR5.md"
-  voice_consistency_target: "93%+"
-  path_integration: true
-
-transformation_focus:
-  - Archive deepening through pattern-seeking attention
-  - Beginning investigate philosophy integration
-  - Bodily curiosity about recursive structure
-  - Physical manifestation of questions multiplying
-  - Archive responsiveness to pattern recognition
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  path_voice_present: true
-  path_manifests_physically: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster4A_PathIntegration_InvestigateResist"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-036'
+'variation_type': 'firstRevisit'
+'word_count': 980
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I return to the archive. Second time.
 My body remembers this threshold. Feet know the weight of crossing. But something shifts inside me—a quickening. Not fear. Curiosity moving through muscle and nerve.
 The air tastes the same. Temperature constant. But I notice more. How light falls on dust. The way silence holds itself in corners. My pulse speeds slightly. Body asking questions before mind can form them.

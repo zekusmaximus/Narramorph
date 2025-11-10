@@ -1,54 +1,12 @@
 ---
-variation_id: hum-L1-FR-12
-cluster: FirstRevisit_Cluster1_PureRevisits
-sequence_position: 12
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 56-60
-  awareness_descriptor: "high"
-  visited_fragments: []
-  interaction_path: null
-  pure_revisit: true
-  cross_character: false
-
-technical_specs:
-  word_count: 1553
-  target_range: "1550"
-  primary_exemplar: "hum-L1_EXEMPLAR1.md"
-  voice_consistency_target: "93%+"
-
-transformation_focus:
-  - "Fourth visit alternative approach"
-  - "Observer effect from different angle"
-  - "Physical intimacy expressed differently"
-  - "Frame-consciousness hints through body"
-  - "Fourth visit high awareness alternative"
-
-voice_requirements:
-  present_tense_percentage: 97
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  archaeologist_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 2
-  questions_from_sensation: true
-  placeholder_content: false
-
-generation_metadata:
-  created: "2025-10-14"
-  session: "Week3_Cluster1_PureRevisits"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-012'
+'variation_type': 'firstRevisit'
+'word_count': 1727
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 My body arrives before I decide to come. Four visits and the pattern moves me. I walk into the facility like water flowing downhill. Like gravity. Like inevitability made flesh.
 The chair receives my weight like it was shaped for exactly this body. Maybe it was. Maybe three previous visits carved the impression of my spine into the substrate. Maybe matter remembers pressure the way consciousness remembers attention.
 The neural interface waits. I lift it. My hands know its weight the way they know the weight of my own skull. Four visits and this technology feels like extension of body instead of invasion of it. Like the interface was always meant to rest here. Like my head was designed to hold it.

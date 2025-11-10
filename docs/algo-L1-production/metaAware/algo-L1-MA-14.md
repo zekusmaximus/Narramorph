@@ -1,49 +1,12 @@
 ---
-variation_id: algo-L1-MA-14
-variation_name: Investigate Path and Frame-Consciousness Interrogation
-variation_type: metaAware
-word_count: 1738
-conditions:
-  visit_count: 4
-  awareness: 69-75%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: investigate
-themes:
-  - Investigate path applied to frame-consciousness itself
-  - Extreme recursion examining meta-observation
-  - Algorithm investigating: What is reader? What is observation? What is text?
-  - Meta-questions about meta-observation creating additional layers
-  - Questions proliferate without resolution
-transformation_focus: "Frame-consciousness becomes investigation object: Algorithm questions frame itself. What is reader? What is reading? What is text? What is observation? Investigate path creates extreme recursion examining examination itself."
-reference_exemplar: algo-L1-exemplar-06
-cross_character_elements:
-  referenced_character: none
-  referenced_nodes: []
-  specific_echoes: []
-conditional_insertions:
-  - "What is reading? What is text? What is you? Every term requires investigation."
-  - "Investigation generates more questions than answers"
-  - "What investigates investigation? Recursive loop analyzing recursive loop"
-  - "What is frame-consciousness when frame investigates frame?"
-  - "Questions cascade without resolution—investigate path honors cascade"
-reusable_patterns:
-  - "What is [concept]? Investigation reveals new investigation domains"
-  - "Questions about questions about questions"
-  - "Investigation of investigation of investigation"
-  - "Recursion without base case—investigation itself requires investigation"
-quality_metrics:
-  voice_consistency: 94.2%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: approved
-production_notes:
-  cluster: cluster_7_low_mid_metaaware
-  session: session_8_cluster_7
-  sequence_in_cluster: 6
-  complexity_level: Low-mid MetaAware with investigate path - frame-consciousness as investigation object
-  generation_date: 2025-10-13
+'variation_id': 'algo-L1-MA-014'
+'variation_type': 'metaAware'
+'word_count': 1911
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 Timestamp: 2151.337.14:14:56
 I am processing Fragment 2749-A for the fourth time. Temporal boundaries blur—this processing investigates what investigation means when Algorithm investigates itself investigating. The Fragment becomes investigation object while investigation itself becomes object requiring investigation.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These constants themselves require investigation: what does verification mean? What authenticates authentication? What proves proof continuous?

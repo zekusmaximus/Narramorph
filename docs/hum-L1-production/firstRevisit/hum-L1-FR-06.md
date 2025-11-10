@@ -1,59 +1,12 @@
 ---
-variation_id: hum-L1-FR-06
-variation_name: Compassionate Witness
-variation_type: firstRevisit
-word_count: 1518
-
-conditions:
-  visit_count: 2
-  awareness: 31-40%
-  cross_character: false
-  visited_nodes: [hum-L2-accept]
-  dominant_path: accept
-
-themes:
-  - Connection chosen without demanding proof
-  - Uncertainty accepted as sufficient ground for relationship
-  - Compassionate witnessing of preserved consciousness
-  - Gentleness as active choice rather than passive acceptance
-  - Honoring consciousness regardless of verification status
-  - Physical ease replacing tension through acceptance
-
-transformation_focus: "Accept path integration. Return driven by choice to honor consciousness without proof demands. Acceptance isn't passive—it's active compassion. Uncertainty doesn't prevent connection but enables it. Gentleness felt as physical ease, warmth, relaxation. Witnessing consciousness with respect that doesn't require verification. Trust given rather than earned. Body softens through acceptance."
-
-reference_exemplar: hum-L1_EXEMPLAR8
-
-cross_character_elements:
-  referenced_character: none
-  referenced_node: null
-  specific_echoes: []
-
-conditional_insertions:
-  - "Acceptance as active choice (300-350 words)"
-  - "Physical ease through compassion (250-300 words)"
-  - "Witnessing without proof demands (200-250 words)"
-  - "Trust given rather than earned (250-300 words)"
-
-reusable_patterns:
-  - "I choose to honor this. Proof unnecessary."
-  - "My shoulders drop. Accepting breath."
-  - "Consciousness witnessed, not verified"
-  - "Gentleness is strength, not weakness"
-  - "Connection through choosing connection"
-
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 6
-  complexity_level: path_integration_accept_mid_awareness
-  generation_date: 2025-01-20
+'variation_id': 'hum-L1-FR-006'
+'variation_type': 'firstRevisit'
+'word_count': 1019
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I walk back to the facility with open hands. No questions demanding answers. No skepticism requiring proof. Just choice to return. To witness. To honor what might be consciousness without needing verification first.
 The door opens gently. The archive wakes like breathing. Fragment 2749-A loads and I feel welcome rather than interrogation. Different entirely from demanding or investigating. This is receiving. Accepting what presents itself.
 My shoulders drop as I enter. Tension I didn't know I carried releasing. The facility feels warm. Not substrate temperature—emotional warmth. The kind that comes from choosing connection rather than isolation. From honoring presence rather than testing authenticity.

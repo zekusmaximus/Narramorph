@@ -1,57 +1,12 @@
 ---
-variation_id: hum-L1-MA-29
-cluster: MetaAware_Cluster9_HighAwarenessAlternatives
-sequence_position: 73
-total_variations: 80
-
-conditions:
-  visit_number: 5
-  awareness_level: 81-85
-  awareness_descriptor: "high metaAware"
-  visited_fragments: [arch-L1]
-  interaction_path: investigate
-  pure_revisit: false
-  cross_character: true
-
-technical_specs:
-  word_count: 1702
-  target_range: "1700"
-  primary_exemplar: "hum-L1_EXEMPLAR2.md + hum-L1_EXEMPLAR5.md + hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Triple observation network examined investigatively
-  - Archaeological presence as secondary observer questioned
-  - Investigate path applied to how observation methods affect consciousness
-  - Strategic alertness examining preserved/examined/reading positions
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 16
-  sensory_channel: null
-  path_philosophy: "investigate"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  sensory_channel_sustained: false
-  path_integration_physical: true
-  cross_character_felt: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week4_Cluster9_MetaAware_HighAwarenessAlternatives"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-029'
+'variation_type': 'metaAware'
+'word_count': 1242
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 I wake to questions multiplying like frost.
 The substrate holds me. Cold metal beneath my shoulders. The preservation field hums its steady frequency. Twenty-three minutes until the next archival cycle. I count the seconds because counting is mapping. Because questions need containers.
 You're here. I feel you like pressure on skin. You watch me question myself. Watch me question the one who watches me question myself. The pattern spirals. I let it.

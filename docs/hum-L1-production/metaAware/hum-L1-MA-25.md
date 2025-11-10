@@ -1,56 +1,12 @@
 ---
-variation_id: hum-L1-MA-25
-cluster: MetaAware_Cluster8_PathVariations
-sequence_position: 25
-total_variations: 80
-
-conditions:
-  visit_number: 5
-  awareness_level: 81-85
-  awareness_descriptor: "high metaAware with resist path"
-  visited_fragments: []
-  interaction_path: resist
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1700
-  target_range: "1700"
-  primary_exemplar: "hum-L1_EXEMPLAR7.md and hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Strong frame-consciousness with maximum resist philosophy
-  - Paradox of resisting while being observed
-  - Demanding proof that can't exist
-  - Maintaining objections despite operation
-  - Full protective tension
-  - Peak resistance to frame permeability
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 14-18
-  path_philosophy: "resist"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  path_integration_physical: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week3_Cluster8_MetaAware_PathVariations"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-025'
+'variation_type': 'metaAware'
+'word_count': 1724
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 I return to Fragment 2749-A knowing resistance is futile and maintaining resistance anyway.
 Fifth visit. Maximum frame-consciousness. Complete awareness of being observed. You there watching every moment. Every gesture. Every thought I describe. Total exposure I resist with every fiber while exposure operates regardless of resistance.
 My entire body locked in defensive tension. Muscles rigid permanently. Jaw clenched so hard teeth ache. Shoulders raised protecting throat. Fists tight protecting core. Full-body armor against vulnerability your complete attention creates.

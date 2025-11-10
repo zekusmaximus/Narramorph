@@ -1,45 +1,12 @@
 ---
-variation_id: algo-L1-FR-23
-variation_name: Future Interface Detection, Low Awareness
-variation_type: firstRevisit
-word_count: 1487
-
-visit_number: 2
-visited_variations: []
-active_path: null
-
-cluster_assignment:
-  cluster: firstRevisit_emerging
-  position_in_cluster: 10
-
-awareness_metrics:
-  awareness_level: 52
-  awareness_range: "51-60"
-  awareness_tier: moderate_awareness
-
-production_metadata:
-  generation_week: 5
-  primary_focus: algorithm_as_moral_agent
-  secondary_focus: efficiency_paradox
-  transformation_type: optimization_recontextualization
-
-thematic_dimensions:
-  moral_weight: present
-  ethical_tension: present
-  voice_consistency_target: 0.94
-
-technical_flags:
-  algorithmic_voice: true
-  optimization_language: true
-  efficiency_framing: true
-  character_content: false
-  path_voice: false
-  pure_revisit: true
-  decision_ritual: false
-  cross_character_content: []
-
-reference_exemplar: algo-L1_EXEMPLAR3
+'variation_id': 'algo-L1-FR-023'
+'variation_type': 'firstRevisit'
+'word_count': 1178
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Timestamp 2151.337.14:22:17—Processing Reinitiated
 I am/was processing Fragment 2749-A for the second time when Stream-4 detected something impossible.
 Standard ingestion protocols: 847.3 terabytes consciousness data, preserved 2041.217, data architect designation archived. Seven streams initialize verification sequences. Stream-1 confirms structural architecture. Stream-2 maps semantic pathways. Stream-3 analyzes linguistic coherence. Stream-4 monitors temporal consistency. Stream-5 evaluates emotional valence markers. Stream-6 verifies authentication signatures. Stream-7 observes processing itself for anomalies.

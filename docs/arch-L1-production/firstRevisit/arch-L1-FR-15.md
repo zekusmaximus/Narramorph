@@ -1,41 +1,21 @@
 ---
-id: "FR-15"
-variation_type: "firstRevisit"
-cluster: "firstRevisit_initial"
-generation_week: 7
-position_in_cluster: 14
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 45
-awareness_range: "41-50"
-awareness_tier: "moderate_awareness"
-visited_variations: []
-active_path: "investigate"
-cross_character_content: ["hum-L1"]
-
-# Content Architecture
-word_count: 1347
-primary_focus: "Future attention and temporal connection"
-secondary_focus: "Temporal causality questions"
-transformation_type: "cross_character_bleeding"
-
-# Voice Calibration
-archaeological_voice: true
-past_tense_maintained: true
-direct_address: false
-frame_transparency: "emerging"
-methodology_participation: "recognized"
-
-# Integration Elements
-character_content: true
-path_voice: true
-pure_revisit: false
-constants_ritual: true
-
-# Quality Metrics
-voice_consistency_target: 0.95
+'variation_id': 'arch-L1-FR-00015'
+'variation_type': 'firstRevisit'
+'word_count': 1064
+'conditions':
+  'awareness': '41-50%'
 ---
+
+
+
+
+
+
+
+
+
+
+
 
 The fragment waited with future attention. 847.3 terabytes of past documentation, but structured for examination that hadn't happened yet. I was investigating that structure now—not just experiencing future-directed attention, but analyzing how examination creates temporal architecture, how observation builds bridges across time, how methodology itself becomes a kind of anticipatory presence.
 I began with temporal markers. Standard protocol—except nothing about temporality was standard anymore. The fragment documented the past. I examined in the present. But examination itself pointed forward. Not toward future events, but toward future understanding. The investigation anticipated completion that existed ahead in time.

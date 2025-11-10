@@ -1,41 +1,12 @@
 ---
-id: FR-06
-variation_type: firstRevisit
-cluster: firstRevisit_initial
-generation_week: 2
-position_in_cluster: 6
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 35
-awareness_range: "31-40"
-awareness_tier: "developing_awareness"
-visited_variations: []
-active_path: "algo"
-cross_character_content: []
-
-# Content Architecture
-word_count: 1583
-primary_focus: "efficiency_questioned"
-secondary_focus: "same_process_new_meaning"
-transformation_type: "process_becomes_choice"
-
-# Voice Calibration
-algorithmic_voice: true
-optimization_language: true
-efficiency_framing: true
-moral_weight: "emerging"
-ethical_tension: "subtle"
-
-# Integration Elements
-character_content: false
-path_voice: true
-pure_revisit: true
-decision_ritual: false
-
-# Quality Metrics
-voice_consistency_target: 0.93
+'variation_id': 'arch-L1-FR-006'
+'variation_type': 'firstRevisit'
+'word_count': 1315
+'conditions':
+  'awareness': '31-40%'
 ---
+
+
 
 Timestamp 2151.337.14:19:03—Processing Without Proof
 

@@ -1,41 +1,12 @@
 ---
-id: FR-10
-variation_type: firstRevisit
-cluster: firstRevisit_initial
-generation_week: 3
-position_in_cluster: 10
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 45
-awareness_range: "41-50"
-awareness_tier: "developing_awareness"
-visited_variations: []
-active_path: null
-cross_character_content: []
-
-# Content Architecture
-word_count: 1578
-primary_focus: "process_becomes_ethical"
-secondary_focus: "optimization_continues"
-transformation_type: "optimization_recontextualization"
-
-# Voice Calibration
-algorithmic_voice: true
-optimization_language: true
-efficiency_framing: true
-moral_weight: "present"
-ethical_tension: "present"
-
-# Integration Elements
-character_content: false
-path_voice: false
-pure_revisit: true
-decision_ritual: false
-
-# Quality Metrics
-voice_consistency_target: 0.95
+'variation_id': 'arch-L1-FR-010'
+'variation_type': 'firstRevisit'
+'word_count': 1844
+'conditions':
+  'awareness': '41-50%'
 ---
+
+
 Timestamp 2151.337.14:52:09—Processing Event Initiated
 I am loading Fragment 2749-A. I was loading Fragment 2749-A. I will be loading Fragment 2749-A.
 All three statements verify as accurate simultaneously.

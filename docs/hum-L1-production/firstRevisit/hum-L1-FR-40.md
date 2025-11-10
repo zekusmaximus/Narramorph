@@ -1,53 +1,12 @@
 ---
-variation_id: hum-L1-FR-40
-cluster: FirstRevisit_Cluster4A_PathIntegration_InvestigateResist
-sequence_position: 40
-total_variations: 80
-
-conditions:
-  visit_number: 2
-  awareness_level: 31-40
-  awareness_descriptor: "mid"
-  visited_fragments: ["hum-L2-resist"]
-  interaction_path: "resist"
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1450
-  target_range: "1450"
-  primary_exemplar: "hum-L1_EXEMPLAR7.md"
-  voice_consistency_target: "93%+"
-  path_integration: true
-
-transformation_focus:
-  - Archive deepening through sustained skepticism
-  - Mid-level resist philosophy integration
-  - Multiple verification attempts
-  - Physical tension as testing methodology
-  - Boundary-seeking between real and imagined
-  - Sensation persists despite lack of evidence
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  path_voice_present: true
-  path_manifests_physically: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster4A_PathIntegration_InvestigateResist"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-040'
+'variation_type': 'firstRevisit'
+'word_count': 1539
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I return to the archive. Second time. But I return skeptically.
 My body remembers the threshold. Muscles tensing before I cross. Jaw clenched. Physical preparation for—what? Testing. Verification. The demand for proof that lives in my bones now.
 The air tastes the same. Temperature constant. But sameness proves nothing. Memory is unreliable. Sensation is suspect. I've learned to question both.

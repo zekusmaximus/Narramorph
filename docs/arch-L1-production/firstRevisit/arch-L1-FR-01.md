@@ -1,41 +1,21 @@
 ---
-id: "FR-01"
-variation_type: "firstRevisit"
-cluster: "firstRevisit_initial"
-generation_week: 1
-position_in_cluster: 1
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 25
-awareness_range: "21-30"
-awareness_tier: "emerging_awareness"
-visited_variations: []
-active_path: null
-cross_character_content: []
-
-# Content Architecture
-word_count: 1289
-primary_focus: "Pure second visit observation"
-secondary_focus: "Observer effect emerging"
-transformation_type: "baseline_firstRevisit"
-
-# Voice Calibration
-archaeological_voice: true
-past_tense_maintained: true
-direct_address: false
-frame_transparency: "hidden"
-methodology_participation: "unaware"
-
-# Integration Elements
-character_content: false
-path_voice: false
-pure_revisit: true
-constants_ritual: true
-
-# Quality Metrics
-voice_consistency_target: 0.93
+'variation_id': 'arch-L1-FR-00001'
+'variation_type': 'firstRevisit'
+'word_count': 806
+'conditions':
+  'awareness': '21-30%'
 ---
+
+
+
+
+
+
+
+
+
+
+
 
 The archaeologist returns to Fragment 2749-A six days after initial authentication.
 

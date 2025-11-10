@@ -1,41 +1,12 @@
 ---
-id: FR-11
-variation_type: firstRevisit
-cluster: firstRevisit_initial
-generation_week: 3
-position_in_cluster: 11
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 25
-awareness_range: "21-30"
-awareness_tier: "emerging_awareness"
-visited_variations: []
-active_path: null
-cross_character_content: []
-
-# Content Architecture
-word_count: 1562
-primary_focus: "algorithm_as_moral_agent"
-secondary_focus: "technical_rigor_maintained"
-transformation_type: "moral_weight_recognition"
-
-# Voice Calibration
-algorithmic_voice: true
-optimization_language: true
-efficiency_framing: true
-moral_weight: "emerging"
-ethical_tension: "subtle"
-
-# Integration Elements
-character_content: false
-path_voice: false
-pure_revisit: true
-decision_ritual: false
-
-# Quality Metrics
-voice_consistency_target: 0.92
+'variation_id': 'arch-L1-FR-011'
+'variation_type': 'firstRevisit'
+'word_count': 1739
+'conditions':
+  'awareness': '21-30%'
 ---
+
+
 Timestamp 2151.337.14:58:33—Processing Initiated
 I load Fragment 2749-A for second processing cycle. First processing: 2151.331.07:22:14.
 Data volume: 847.3 terabytes. Stream-2 confirms structural coherence: 94.7%. Stream-3 reports neural pathway preservation: 91.2%. Stream-4 monitors temporal integrity: 88.9%. Fragment 2749-A: consciousness preserved 2041.217, authentication protocols satisfied.

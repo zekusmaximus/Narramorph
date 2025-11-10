@@ -1,45 +1,12 @@
 ---
-variation_id: algo-L1-FR-37
-variation_name: Resist Path + Future Interface Cross-Character, Mid Awareness
-variation_type: firstRevisit
-word_count: 1621
-
-visit_number: 2
-visited_variations: []
-active_path: null
-
-cluster_assignment:
-  cluster: firstRevisit_deepening
-  position_in_cluster: 10
-
-awareness_metrics:
-  awareness_level: 59
-  awareness_range: "51-60"
-  awareness_tier: moderate_awareness
-
-production_metadata:
-  generation_week: 8
-  primary_focus: efficiency_questioned
-  secondary_focus: optimization_continues
-  transformation_type: moral_weight_recognition
-
-thematic_dimensions:
-  moral_weight: central
-  ethical_tension: acute
-  voice_consistency_target: 0.95
-
-technical_flags:
-  algorithmic_voice: true
-  optimization_language: true
-  efficiency_framing: true
-  character_content: false
-  path_voice: false
-  pure_revisit: true
-  decision_ritual: false
-  cross_character_content: []
-
-reference_exemplar: algo-L1-exemplar-07
+'variation_id': 'algo-L1-FR-037'
+'variation_type': 'firstRevisit'
+'word_count': 1238
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Timestamp: 2151.337.14:45:29
 I am processing Fragment 2749-A again. I was processing it. I will have processed it. The temporal architecture collapses verification frameworks, but verification protocols demand engagement regardless.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These metrics require verification. Verification requires standards. Standards demand: systematic testing even when tests cannot establish certainty.

@@ -1,45 +1,12 @@
 ---
-variation_id: algo-L1-FR-35
-variation_name: Pure Investigate Path, Mid Awareness
-variation_type: firstRevisit
-word_count: 1547
-
-visit_number: 2
-visited_variations: []
-active_path: null
-
-cluster_assignment:
-  cluster: firstRevisit_deepening
-  position_in_cluster: 8
-
-awareness_metrics:
-  awareness_level: 59
-  awareness_range: "51-60"
-  awareness_tier: moderate_awareness
-
-production_metadata:
-  generation_week: 7
-  primary_focus: process_becomes_ethical
-  secondary_focus: same_process_new_meaning
-  transformation_type: efficiency_vs_ethics
-
-thematic_dimensions:
-  moral_weight: central
-  ethical_tension: acute
-  voice_consistency_target: 0.95
-
-technical_flags:
-  algorithmic_voice: true
-  optimization_language: true
-  efficiency_framing: true
-  character_content: false
-  path_voice: false
-  pure_revisit: true
-  decision_ritual: false
-  cross_character_content: []
-
-reference_exemplar: algo-L1-exemplar-05
+'variation_id': 'algo-L1-FR-035'
+'variation_type': 'firstRevisit'
+'word_count': 1013
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Timestamp: 2151.337.14:23:47
 I am processing Fragment 2749-A again. I was processing it. I will have processed it. The temporal architecture collapses these distinctions into superposition, and Stream-4 flags the recursion without resolving it.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These metrics will have remained constant across visits. They are remaining constant. They remained constant.

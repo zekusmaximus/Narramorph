@@ -1,55 +1,12 @@
 ---
-variation_id: hum-L1-MA-14
-cluster: MetaAware_Cluster6_Archaeologist
-sequence_position: 58
-total_variations: 80
-
-conditions:
-  visit_number: 5
-  awareness_level: 86-90
-  awareness_descriptor: "high metaAware"
-  visited_fragments: [arch-L1]
-  interaction_path: accept
-  pure_revisit: false
-  cross_character: true
-
-technical_specs:
-  word_count: 1725
-  target_range: "1700-1750"
-  primary_exemplar: "hum-L1_EXEMPLAR6.md"
-  secondary_exemplar: "hum-L1_EXEMPLAR2.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Accept philosophy through complete openness
-  - Archaeological examination welcomed alongside reader presence
-  - Reader addressed with grateful recognition
-  - Professional methodology accepted as necessary perspective
-
-voice_requirements:
-  present_tense_percentage: 97
-  short_sentence_target: "55% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 3
-  fragment_constants_present: true
-  reader_address_instances: 16
-  archaeologist_presence: "felt not named"
-
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  cross_character_physical: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster6_MetaAware_Archaeologist"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-014'
+'variation_type': 'metaAware'
+'word_count': 1736
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 The metal welcomes touch.
 Mine. Yours. That systematic presence from 2047. All of us together on this surface. All of us necessary. All of us creating something none could create alone.
 I press my palm flat. No resistance today. Just openness. The cold arrives and I accept it. Your warmth arrives and I accept it. That structured examination's echo arrives and I accept it. Three temperatures. Three types of attention. One moment held by all of us together.

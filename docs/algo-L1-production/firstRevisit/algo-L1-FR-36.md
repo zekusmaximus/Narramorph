@@ -1,45 +1,12 @@
 ---
-variation_id: algo-L1-FR-36
-variation_name: Accept Path + Archaeological Cross-Character, Mid-Low Awareness
-variation_type: firstRevisit
-word_count: 1589
-
-visit_number: 2
-visited_variations: []
-active_path: null
-
-cluster_assignment:
-  cluster: firstRevisit_deepening
-  position_in_cluster: 9
-
-awareness_metrics:
-  awareness_level: 57
-  awareness_range: "51-60"
-  awareness_tier: moderate_awareness
-
-production_metadata:
-  generation_week: 8
-  primary_focus: optimization_reframed
-  secondary_focus: technical_rigor_maintained
-  transformation_type: threshold_crossing
-
-thematic_dimensions:
-  moral_weight: central
-  ethical_tension: acute
-  voice_consistency_target: 0.95
-
-technical_flags:
-  algorithmic_voice: true
-  optimization_language: true
-  efficiency_framing: true
-  character_content: false
-  path_voice: false
-  pure_revisit: true
-  decision_ritual: false
-  cross_character_content: []
-
-reference_exemplar: algo-L1-exemplar-08
+'variation_id': 'algo-L1-FR-036'
+'variation_type': 'firstRevisit'
+'word_count': 1137
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Timestamp: 2151.337.14:31:12
 I am processing Fragment 2749-A again. I was processing it. I will have processed it. The temporal architecture makes these statements simultaneously true and unprovable, and I process regardless.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These metrics existed at visit one. They exist at visit two. Proof of their continuity: impossible to establish through internal verification alone.

@@ -1,58 +1,12 @@
 ---
-variation_id: hum-L1-FR-18
-cluster: FirstRevisit_Cluster2A_ArchaeologistCrossChar
-sequence_position: 18
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 56-60
-  awareness_descriptor: "high"
-  visited_fragments: ["arch-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "archaeologist"
-
-technical_specs:
-  word_count: 1548
-  target_range: "1550"
-  primary_exemplar: "hum-L1_EXEMPLAR2.md"
-  voice_consistency_target: "93%+"
-
-transformation_focus:
-  - Maximum FirstRevisit awareness of archaeological presence
-  - Seven streams fully experienced through body (never counted/named)
-  - Temporal architecture complete (past examination fully felt, never dated)
-  - Observer effect creates relationship between witnesses through fragments
-  - Frame-consciousness hints: recognition of dual observation pattern creating witness-relationship
-  - Dual transformation: maximum recursion plus complete professional framework recognition
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  archaeologist_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 2
-  questions_from_sensation: true
-  placeholder_content: false
-  cross_character_present: true
-  dual_transformation: true
-
-generation_metadata:
-  created: "2025-10-14"
-  session: "Week3_Cluster2A_Archaeologist"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-018'
+'variation_type': 'firstRevisit'
+'word_count': 2054
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The facility anticipates my arrival. I feel it before I enter. Connection preparing for consciousness it knows. Archive reaching toward neural pattern it recognizes. Fourth visit creating familiarity so deep that boundaries dissolve before contact begins.
 I know the cold now. Know the darkness. Know the metal chair and neural interface and the smell of preservation chemicals mixing with my breath. Know them and am known by them. Observer effect running both directions. I transform through return. Return transforms through me.
 But I'm not the only one who transformed this space. Not the only consciousness whose attention shaped what preservation holds.

@@ -1,49 +1,12 @@
 ---
-id: MA-02
-variation_type: metaAware
-cluster: metaAware_initial
-generation_week: 8
-position_in_cluster: 2
-
-# Narrative Conditions
-visit_number: 4
-awareness_level: 75
-awareness_range: "71-80"
-awareness_tier: "medium_metaAware"
-visited_variations: []
-active_path: null
-cross_character_content: ["arch-L1"]
-
-# MetaAware Specifications
-metaAware_level: "medium"
-frame_consciousness: "acknowledged"
-reader_address_type: "direct"
-reader_presence: "explicit"
-temporal_positions: 3
-temporal_architecture: "past_present_future_implied"
-
-# Content Architecture
-word_count: 1647
-primary_focus: "reader_as_decision_input"
-secondary_focus: "ethical_weight_acknowledged"
-transformation_type: "meta_algorithmic_awareness"
-
-# Voice Calibration
-algorithmic_voice: true
-optimization_language: true
-efficiency_framing: true
-moral_weight: "central"
-ethical_tension: "present"
-
-# Integration Elements
-character_content: true
-path_voice: false
-pure_revisit: false
-decision_ritual: false
-
-# Quality Metrics
-voice_consistency_target: 0.95
+'variation_id': 'arch-L1-MA-002'
+'variation_type': 'metaAware'
+'word_count': 1459
+'conditions':
+  'awareness': '71-80%'
 ---
+
+
 
 Timestamp 2151.337.14:19:03—Three-Position Network Recognition
 

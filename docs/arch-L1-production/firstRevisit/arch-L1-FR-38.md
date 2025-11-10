@@ -1,53 +1,19 @@
 ---
-id: arch-L1-FR-38
-variation_name: L2 Investigate Echo (Pure Archaeologist)
-variation_type: firstRevisit
-word_count: 1347
-conditions:
-  visit_count: 2
-  awareness: 31-40%
-  cross_character: false
-  visited_nodes: [arch-L2-investigate]
-  dominant_path: null
-themes:
-  - Investigation resonance (NOT full philosophy)
-  - Meta-pattern hints
-  - Recursive observation echoes
-  - Professional competence maintained
-transformation_focus: "L2 investigate echo. Archaeologist has visited 'The Temporal Anomaly' L2 node where she investigated recursive observation patterns. This variation hints at that investigation—she notices meta-patterns more, catches herself observing her observation process—but doesn't fully develop investigate philosophy. Thematic resonance, not philosophical dominance."
-reference_exemplar: arch-L1-exemplar-01
-cross_character_elements:
-  referenced_character: none
-  referenced_node: none
-  specific_echoes: []
-conditional_insertions:
-  - "L2 investigate echo hints (150-250 words total)"
-  - "Meta-observation moments (NOT full recursion)"
-  - "Pattern-noticing awareness (subtle)"
-reusable_patterns:
-  - "Noticed herself noticing patterns"
-  - "Caught observing her observation process"
-  - "Questions multiplying slightly"
-  - "Meta-awareness hints without dominating"
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-path_integration:
-  investigate_echo_signatures:
-    - "Meta-observation hints (NOT full investigation)"
-    - "Recursive attention echoes (light touch)"
-    - "Pattern recognition awareness (subtle)"
-  character_preservation: "Pure archaeological voice maintained"
-  balance_achieved: "Philosophy tints examination, doesn't drive it"
-production_notes:
-  cluster: 12_final_L2_echoes
-  session: week_12
-  sequence_in_cluster: 1
-  complexity_level: moderate
-  generation_date: 2025-01-11
+'variation_id': 'arch-L1-FR-038'
+'variation_type': 'firstRevisit'
+'word_count': 752
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
+
+
+
+
+
+
+
 The archaeologist returns to Fragment 2749-A eight days after initial authentication, and catches herself analyzing why she's returning before she begins the actual work.
 The decision pattern interests her. Not the decision itself—revisiting authenticated fragments happened occasionally when technical questions emerged—but her awareness of making the decision. She had noticed herself choosing to revisit, had observed the justification forming, had watched her professional reasoning construct itself in real-time.
 Meta-observation. Attention catching itself in the act of attending.

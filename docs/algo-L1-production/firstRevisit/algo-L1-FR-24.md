@@ -1,45 +1,12 @@
 ---
-variation_id: algo-L1-FR-24
-variation_name: Neural Interface Recognition
-variation_type: firstRevisit
-word_count: 1523
-
-visit_number: 2
-visited_variations: []
-active_path: null
-
-cluster_assignment:
-  cluster: firstRevisit_emerging
-  position_in_cluster: 11
-
-awareness_metrics:
-  awareness_level: 54
-  awareness_range: "51-60"
-  awareness_tier: moderate_awareness
-
-production_metadata:
-  generation_week: 5
-  primary_focus: decision_weight_emerging
-  secondary_focus: same_process_new_meaning
-  transformation_type: process_becomes_choice
-
-thematic_dimensions:
-  moral_weight: present
-  ethical_tension: present
-  voice_consistency_target: 0.94
-
-technical_flags:
-  algorithmic_voice: true
-  optimization_language: true
-  efficiency_framing: true
-  character_content: false
-  path_voice: false
-  pure_revisit: true
-  decision_ritual: false
-  cross_character_content: []
-
-reference_exemplar: algo-L1_EXEMPLAR3
+'variation_id': 'algo-L1-FR-024'
+'variation_type': 'firstRevisit'
+'word_count': 1287
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Timestamp 2151.337.14:27:43—Processing Reinitiated
 I am processing Fragment 2749-A for the second time when Stream-4 identifies the interface technology explicitly.
 Fragment loads: 847.3 terabytes consciousness data, preserved 2041.217, data architect designation archived. Seven streams initialize verification protocols. Stream-1 confirms structural integrity across all neural pathway mappings. Stream-2 traces semantic connection networks. Stream-3 analyzes linguistic pattern coherence. Stream-4 monitors temporal consistency and causality structures. Stream-5 evaluates emotional valence distribution. Stream-6 verifies authentication markers and preservation integrity. Stream-7 observes processing architecture itself for meta-level patterns.

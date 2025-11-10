@@ -1,41 +1,21 @@
 ---
-id: "FR-11"
-variation_type: "firstRevisit"
-cluster: "firstRevisit_initial"
-generation_week: 5
-position_in_cluster: 10
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 25
-awareness_range: "21-30"
-awareness_tier: "emerging_awareness"
-visited_variations: []
-active_path: "investigate"
-cross_character_content: ["algo-L1"]
-
-# Content Architecture
-word_count: 1247
-primary_focus: "Seven-stream computational architecture"
-secondary_focus: "Path philosophy developing"
-transformation_type: "cross_character_bleeding"
-
-# Voice Calibration
-archaeological_voice: true
-past_tense_maintained: true
-direct_address: false
-frame_transparency: "hidden"
-methodology_participation: "unaware"
-
-# Integration Elements
-character_content: true
-path_voice: true
-pure_revisit: false
-constants_ritual: true
-
-# Quality Metrics
-voice_consistency_target: 0.93
+'variation_id': 'arch-L1-FR-00011'
+'variation_type': 'firstRevisit'
+'word_count': 844
+'conditions':
+  'awareness': '21-30%'
 ---
+
+
+
+
+
+
+
+
+
+
+
 
 The fragment waited in the same position. 847.3 terabytes, identical arrangement, but I approached the data differently this time. Not just cataloging—examining how I cataloged. The seven streams I'd noticed before seemed more organized now, though I couldn't articulate why. My classification process itself had started to feel structured.
 I pulled the temporal markers first. Standard protocol. But I caught myself arranging them in seven groups before I'd consciously decided to do so. The sorting happened automatically, as if my mind had already accepted an architecture I didn't remember establishing.

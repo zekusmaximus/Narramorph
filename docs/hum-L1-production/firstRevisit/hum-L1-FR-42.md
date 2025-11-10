@@ -1,52 +1,12 @@
 ---
-variation_id: hum-L1-FR-42
-cluster: FirstRevisit_Cluster4B_PathIntegration_Accept
-sequence_position: 42
-total_variations: 80
-
-conditions:
-  visit_number: 2
-  awareness_level: 21-30
-  awareness_descriptor: "low"
-  visited_fragments: ["hum-L2-accept"]
-  interaction_path: "accept"
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1400
-  target_range: "1350-1450"
-  primary_exemplar: "hum-L1_EXEMPLAR8.md"
-  voice_consistency_target: "93%+"
-  path_integration: true
-
-transformation_focus:
-  - beginning integration of accept philosophy through physical ease
-  - shoulders starting to drop, tension releasing
-  - archive warming under gentler attention
-  - choice to return without demanding proof
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  path_voice_present: true
-  path_manifests_physically: true
-  acceptance_as_active_choice: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster4B_PathIntegration_Accept"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-042'
+'variation_type': 'firstRevisit'
+'word_count': 1166
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I return to the archive. Second time.
 My shoulders feel different. Lower than before. Something released between visits. Something I stopped carrying without noticing I'd been carrying it.
 The archive spreads before me. 847.3 terabytes. Eight hundred forty-seven point three terabytes. The numbers still make my chest tight. But the tightness feels different now. Softer around the edges.

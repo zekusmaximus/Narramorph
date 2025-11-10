@@ -1,52 +1,12 @@
 ---
-variation_id: hum-L1-FR-43
-cluster: FirstRevisit_Cluster4B_PathIntegration_Accept
-sequence_position: 43
-total_variations: 80
-
-conditions:
-  visit_number: 2
-  awareness_level: 31-40
-  awareness_descriptor: "low-mid"
-  visited_fragments: ["hum-L2-accept"]
-  interaction_path: "accept"
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1450
-  target_range: "1400-1500"
-  primary_exemplar: "hum-L1_EXEMPLAR8.md"
-  voice_consistency_target: "93%+"
-  path_integration: true
-
-transformation_focus:
-  - accept philosophy clearer and more deliberate
-  - body softening noticeably throughout visit
-  - compassionate witnessing as established practice
-  - warmth replacing isolation's cold
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  path_voice_present: true
-  path_manifests_physically: true
-  acceptance_as_active_choice: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster4B_PathIntegration_Accept"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-043'
+'variation_type': 'firstRevisit'
+'word_count': 1413
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I return to the archive knowing what I'm choosing. Second visit. But this time I arrive already softened. Already open. The decision made before entering.
 My shoulders drop as I approach the interface. Muscle memory of acceptance. My body remembers how to meet this place gently.
 847.3 terabytes spread before me. The number still catches breath. Still makes my ribs contract with the weight of it. But I breathe through the tightness now. Let it exist without letting it close me.

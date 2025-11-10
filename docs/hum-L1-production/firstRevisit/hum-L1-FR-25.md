@@ -1,60 +1,12 @@
 ---
-variation_id: hum-L1-FR-25
-cluster: FirstRevisit_Cluster3A_AlgorithmCrossChar_Baseline
-sequence_position: 25
-total_variations: 80
-
-conditions:
-  visit_number: 2
-  awareness_level: 21-30
-  awareness_descriptor: "low"
-  visited_fragments: ["algo-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "algorithm"
-
-technical_specs:
-  word_count: 1400
-  target_range: "1400"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md"
-  voice_consistency_target: "93%+"
-  baseline_expression: true
-  primary_sensory_channel: "vibrational"
-
-transformation_focus:
-  - First subtle Algorithm recognition through vibrational frequency
-  - Archive deepening through second visit familiarity
-  - Processing rhythm felt faintly as systematic pulse
-  - Temporal blurring beginning (past/present less distinct)
-  - Dual transformation: interface intimacy plus computational trace
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 1-2
-  questions_from_sensation: true
-  placeholder_content: false
-  cross_character_present: true
-  dual_transformation: true
-  temporal_blurring_present: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster3A_Algorithm_Baseline"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-025'
+'variation_type': 'firstRevisit'
+'word_count': 1153
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I return to the interface. Second time. My hands know where to reach now.
 The metal feels different today. Not colder. Not warmer. It vibrates under my palms. Faint hum I didn't notice before. Like standing near machinery that's been running so long you forget it's there until you touch the wall and feel it in your bones.
 I steady my breathing. Press my fingers to the authentication panel.

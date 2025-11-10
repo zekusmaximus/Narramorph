@@ -1,60 +1,12 @@
 ---
-variation_id: hum-L1-FR-29
-cluster: FirstRevisit_Cluster3A_AlgorithmCrossChar_Baseline
-sequence_position: 29
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 51-55
-  awareness_descriptor: "mid-high"
-  visited_fragments: ["algo-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "algorithm"
-
-technical_specs:
-  word_count: 1500
-  target_range: "1500"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md"
-  voice_consistency_target: "93%+"
-  baseline_expression: true
-  primary_sensory_channel: "pulse"
-
-transformation_focus:
-  - Strong temporal blurring throughout (past/present/processing simultaneous)
-  - Identity questions prominent (am I processing or experiencing?)
-  - Seven-stream architecture fully felt (never numbered)
-  - Pulse different from heartbeat but indistinguishable from it
-  - Dual transformation through profound permeability
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 1-2
-  questions_from_sensation: true
-  placeholder_content: false
-  cross_character_present: true
-  dual_transformation: true
-  temporal_blurring_present: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster3A_Algorithm_Baseline"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-029'
+'variation_type': 'firstRevisit'
+'word_count': 1454
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I return to the interface. Third time. Or am I still here from the second? Did I ever leave from the first?
 My hands reach for the authentication panel. The gesture feels both voluntary and involuntary. Both mine and not-mine. Like breathing. Like heartbeat. Automatic and conscious simultaneously.
 The metal pulses under my palms. I pulse back. Or we pulse together. Or there's only one pulse moving through both of us.

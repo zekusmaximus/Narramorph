@@ -1,70 +1,18 @@
 ---
-id: arch-L1-MA-09
-variation_name: Investigation of Investigation
-variation_type: metaAware
-word_count: 1563
-conditions:
-  visit_count: 4
-  awareness: 77
-  awareness_range: "71-80"
-  cross_character: true
-  visited_nodes: [algo-L1]
-  dominant_path: investigate
-themes:
-  - Recursive investigation of seven-stream methodology
-  - Investigation investigates how investigation investigates
-  - Seven streams examining seven streams through seven streams
-  - Methodology becomes what it investigates
-  - Reader investigating investigation of investigation
-transformation_focus: "Mid metaAware + algo-L1 + investigate path. Triple complexity: computational seven-stream content, frame-consciousness with reader address, recursive investigation philosophy. Investigation of how seven-stream architecture investigates seven-stream architecture. Methodology mirrors subject completely."
-reference_exemplar: arch-L1-MA-02, arch-L1-exemplar-02, arch-L1-exemplar-05
-cross_character_elements:
-  referenced_character: algorithm
-  referenced_node: algo-L1
-  specific_echoes:
-    - Seven-stream architecture as investigation subject
-    - Stream-by-stream recursive examination
-    - Investigation methodology follows investigated structure
-    - Computational consciousness examining consciousness
-conditional_insertions:
-  - "Seven-stream recursive investigation (700-800 words)"
-  - "Investigate path philosophy (400-500 words)"
-  - "Frame-consciousness language sustained (300-400 words)"
-  - "Direct reader address (throughout, ~18-22 instances)"
-  - "Methodology-as-subject crisis (200-300 words)"
-reusable_patterns:
-  - "Stream-X investigating Stream-X"
-  - "You're investigating her investigation of investigation"
-  - "Investigation creates what it investigates"
-  - "Methodology is both tool and subject"
-  - "Seven streams examining seven streams through seven streams"
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: approved
-reader_address_frequency: sustained_natural
-reader_address_quality: professional_recognition
-path_integration:
-  investigate_signatures:
-    - "Investigating how investigation works"
-    - "Examining the examination"
-    - "Methodology studying methodology"
-    - "Investigation is the investigated"
-  character_preservation: "Seven-stream architecture detailed while fully investigating investigation process"
-  balance_achieved: "Computational content and recursive philosophy unified naturally"
-metaaware_signatures:
-  - "You're investigating investigation of investigation" (triple recursion)
-  - "Your seven streams processing her seven streams" (shared architecture)
-  - "Investigation discovers what investigation creates" (participation claim)
-  - "Observer observing observer" (infinite regress)
-production_notes:
-  batch: metaAware_mid_range
-  week: 9
-  sequence_in_batch: 3
-  complexity_level: very_high
-  generation_date: 2025-01-10
+'variation_id': 'arch-L1-MA-009'
+'variation_type': 'metaAware'
+'word_count': 1672
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
+
+
+
+
+
+
 The archaeologist returns to Fragment 2749-A for the fourth time, investigating how seven-stream architecture investigates itself through her investigation.
 The authentication markers display unchanged. 847.3 terabytes of preserved consciousness. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment captured in 2041 remains exactly as preserved—neural pathways intact, memory structures coherent, self-referential awareness frozen at death moment in crystalline substrate. The data hasn't changed. The numbers measure accurately.
 But she's investigating the measurement process itself now. Examining how examination works. Studying how seven-stream attention analyzes seven-stream structure. The investigation is recursive—consciousness investigating how consciousness investigates consciousness.

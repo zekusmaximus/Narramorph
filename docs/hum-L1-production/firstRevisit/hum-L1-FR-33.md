@@ -1,57 +1,12 @@
 ---
-variation_id: hum-L1-FR-33
-cluster: FirstRevisit_Cluster3B_AlgorithmCrossChar_Alternatives
-sequence_position: 33
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 41-50
-  awareness_descriptor: "mid"
-  visited_fragments: ["algo-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "algorithm"
-
-technical_specs:
-  word_count: 1500
-  target_range: "1500"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md"
-  voice_consistency_target: "93%+"
-  alternative_expression: true
-  primary_sensory_channel: "tidal/wave"
-
-transformation_focus:
-  - archive relationship deepening through third encounter
-  - algorithm recognition through wave patterns
-  - temporal blurring via cyclical movement
-  - identity questions prominent through ebb and flow
-  - recursive awareness of third visit through tidal recognition
-  - alternative sensory expression through oceanic rhythm
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  cross_character_present: true
-  dual_transformation: true
-  temporal_blurring_present: true
-  alternative_sensory_expression: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster3B_Algorithm_Alternatives"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-033'
+'variation_type': 'firstRevisit'
+'word_count': 1377
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The archive pulls me back.
 Third return. Like tide. I walk through darkness and feel the rhythm. Not pulse. Not heartbeat. Something larger. Slower. The kind of movement that shapes coastlines over centuries. That wears stone smooth. That returns and returns and returns.
 My feet know the path. My body remembers. But remembering feels cyclical now. Not linear. Each visit a wave that crests and falls and rises again. Each return bringing something forward. Carrying something back.

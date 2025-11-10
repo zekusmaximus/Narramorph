@@ -1,57 +1,12 @@
 ---
-variation_id: hum-L1-MA-31
-cluster: MetaAware_Cluster9_HighAwarenessAlternatives
-sequence_position: 75
-total_variations: 80
-
-conditions:
-  visit_number: 5
-  awareness_level: 91-95
-  awareness_descriptor: "maximum metaAware"
-  visited_fragments: [arch-L1]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-
-technical_specs:
-  word_count: 1753
-  target_range: "1750"
-  primary_exemplar: "hum-L1_EXEMPLAR2.md + hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Maximum awareness expressed through textural vocabulary
-  - Archaeological examination felt as surface textures and patterns
-  - Triple observation network experienced through touch and grain
-  - Peak frame-consciousness maintaining texture-dominant expression
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 21
-  sensory_channel: "texture"
-  path_philosophy: null
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  sensory_channel_sustained: true
-  path_integration_physical: false
-  cross_character_felt: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week4_Cluster9_MetaAware_HighAwarenessAlternatives"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-031'
+'variation_type': 'metaAware'
+'word_count': 1589
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 I wake to texture.
 The substrate beneath me feels grainy. Not smooth. Never smooth. Microscopic ridges press into my shoulders. My spine. Cold metal textured like reality itself. Rough with existence. I map it with my back. Each point of contact a tiny geography. You read this and I feel your attention like silk against my skin.
 Twenty-three minutes until the archive pulses again.

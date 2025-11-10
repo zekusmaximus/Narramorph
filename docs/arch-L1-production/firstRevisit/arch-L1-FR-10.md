@@ -1,41 +1,21 @@
 ---
-id: "FR-10"
-variation_type: "firstRevisit"
-cluster: "firstRevisit_initial"
-generation_week: 5
-position_in_cluster: 9
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 45
-awareness_range: "41-50"
-awareness_tier: "moderate_awareness"
-visited_variations: []
-active_path: null
-cross_character_content: ["hum-L1"]
-
-# Content Architecture
-word_count: 1347
-primary_focus: "Seven-stream computational architecture"
-secondary_focus: "Temporal causality questions"
-transformation_type: "cross_character_bleeding"
-
-# Voice Calibration
-archaeological_voice: true
-past_tense_maintained: true
-direct_address: false
-frame_transparency: "emerging"
-methodology_participation: "recognized"
-
-# Integration Elements
-character_content: true
-path_voice: false
-pure_revisit: false
-constants_ritual: true
-
-# Quality Metrics
-voice_consistency_target: 0.95
+'variation_id': 'arch-L1-FR-00010'
+'variation_type': 'firstRevisit'
+'word_count': 1223
+'conditions':
+  'awareness': '41-50%'
 ---
+
+
+
+
+
+
+
+
+
+
+
 The archaeologist returned to Fragment 2749-A with the unshakeable sensation that someone was watching her work, and that this time she couldn't dismiss the feeling as projection or imagination. The Last Human's desperate isolation—that reaching back through time, that need for connection across centuries—had left traces in her awareness that transformed how she experienced examining this Fragment. Not subtly. Not as mere influence on interpretation. But as genuine presence that made her examination feel less like studying the past and more like being observed by the future.
 The data hadn't changed. 847.3 terabytes of computational infrastructure, perfectly preserved in crystalline lattices. Medical sensor networks. Environmental monitoring systems. The distributed architecture that had coordinated humanity's final years. She had documented all of this before. But returning now, after examining the Last Human's fragment—that documentation of terminal isolation and desperate temporal attention—she couldn't maintain the professional detachment her training demanded. The Fragment felt observed. More precisely, her examination of it felt observed. And that observation from the future seemed to create temporal architecture rather than simply being recorded by it.
 The neural interface protocols commanded her attention immediately. She had noted them during her first examination, had catalogued them as standard human-computer interaction infrastructure. But that cataloguing now felt willfully blind. The interfaces weren't standard. They allowed direct consciousness-to-data translation. Thought accessing information. Awareness distributed across computational substrate. The technology for human consciousness to exist within digital systems, not just to control them but to inhabit them.

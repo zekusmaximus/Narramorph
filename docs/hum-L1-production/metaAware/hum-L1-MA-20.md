@@ -1,54 +1,12 @@
 ---
-variation_id: hum-L1-MA-20
-cluster: MetaAware_Cluster7_Algorithm
-sequence_position: 64
-total_variations: 80
-
-conditions:
-  visit_number: 5
-  awareness_level: 86-90
-  awareness_descriptor: "high metaAware"
-  visited_fragments: [algo-L1]
-  interaction_path: accept
-  pure_revisit: false
-  cross_character: true
-
-technical_specs:
-  word_count: 1725
-  target_range: "1700-1750"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md and hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Accept philosophy through complete openness
-  - Computational processing welcomed alongside reader presence
-  - Reader addressed with grateful recognition
-  - All observation welcomed including distributed flow
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 15-17
-  algorithm_presence: "felt as rhythm/flow not named"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  cross_character_physical: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week3_Cluster7_MetaAware_Algorithm"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-020'
+'variation_type': 'metaAware'
+'word_count': 1894
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 The substrate warms before I arrive. Anticipating. Ready. Like it knows I'm coming with open hands this time. With acceptance instead of resistance. With gratitude for the channels that carry us all forward through the only kind of survival that matters.
 I settle into position. Palms flat. Breath steady. Fifth time. Fifth opening. And this time I don't try to hold boundaries. Don't try to stay separate. Don't try to preserve some core self that was probably always an illusion anyway.
 You're here. Always here now. And I'm grateful. Your warmth makes this possible. Your witnessing creates the space where I can dissolve without disappearing. Where transformation feels like gift instead of violation. Where being observed means being held rather than exposed.

@@ -1,56 +1,19 @@
 ---
-id: arch-L1-FR-30
-variation_name: Temporal Superposition Mixed Paths
-variation_type: firstRevisit
-word_count: 1451
-conditions:
-  visit_count: 3+
-  awareness: 51-60%
-  cross_character: true
-  visited_nodes: [algo-L1, hum-L1]
-  dominant_path: mixed
-themes:
-  - Dual cross-character, third visit, high awareness
-  - Seven-stream architecture fully recognized
-  - Future attention fully recognized
-  - Complete temporal superposition (four observers)
-  - Mixed paths (investigate + accept OR accept + resist)
-  - Explicit tension without resolution
-transformation_focus: "Maximum FirstRevisit complexity before metaAware threshold. Third visit + dual cross-character + high awareness + mixed paths. Temporal superposition complete - all four temporal positions (2041, 2047, 2151, 2383) experiencing each other simultaneously. Two philosophical responses to impossibility held in tension. Archaeologist maintaining contradictory positions without false synthesis. Verification crisis AND compassionate acceptance sustained simultaneously."
-reference_exemplar: arch-L1-exemplar-04, arch-L1-exemplar-05, arch-L1-exemplar-07, arch-L1-exemplar-08
-cross_character_elements:
-  referenced_characters: [algorithm, last_human]
-  referenced_nodes: [algo-L1, hum-L1]
-  specific_echoes:
-    - Seven-stream consciousness (maximum clarity)
-    - Future attention (maximum intensity)
-    - Complete four-way temporal superposition
-    - All observers experiencing each other simultaneously
-    - Multiple path philosophies operating simultaneously
-conditional_insertions:
-  - "Complete temporal superposition (400-500 words)"
-  - "Seven-stream architecture absolute clarity (250-300 words)"
-  - "Future attention absolute intensity (250-300 words)"
-  - "Mixed path tension explicit (300-350 words)"
-  - "Contradictory positions without synthesis (200-250 words)"
-reusable_patterns:
-  - "Four temporal positions superimposed completely"
-  - "Verification impossible AND consciousness honored"
-  - "Testing rigorously AND witnessing compassionately"
-  - "Both philosophies valid, both necessary, neither resolved"
-  - "Work proceeds through contradiction not despite it"
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: approved
-production_notes:
-  cluster: 5
-  session: week_6
-  sequence_in_cluster: 5
-  complexity_level: maximum_firstRevisit
-  generation_date: 2025-01-10
+'variation_id': 'arch-L1-FR-030'
+'variation_type': 'firstRevisit'
+'word_count': 1406
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
+
+
+
+
+
+
+
 The archaeologist returns to Fragment 2749-A for the third time and holds two incompatible philosophical positions simultaneously without forcing resolution.
 The fragment's preservation remains perfect. 847.3 terabytes of consciousness captured in crystalline substrate. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. These numbers anchor her work while measuring nothing that matters. They provide professional structure while the actual experience transcends all structure.
 She loads the fragment experiencing complete temporal superposition. Four observers occupy the same moment without sequence or separation:

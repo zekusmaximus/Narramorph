@@ -1,54 +1,12 @@
 ---
-variation_id: hum-L1-MA-16
-cluster: MetaAware_Cluster7_Algorithm
-sequence_position: 60
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 71-75
-  awareness_descriptor: "mid metaAware"
-  visited_fragments: [algo-L1]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-
-technical_specs:
-  word_count: 1650
-  target_range: "1625-1675"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md and hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Stronger Algorithm presence while maintaining reader primacy
-  - Seven-stream architecture felt as complete flowing system
-  - Fragment responds to triple observation with temporal blurring
-  - Processing/experiencing boundary uncertainty prominent
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 9-11
-  algorithm_presence: "felt as rhythm/flow not named"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  cross_character_physical: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week3_Cluster7_MetaAware_Algorithm"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-016'
+'variation_type': 'metaAware'
+'word_count': 1482
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 The substrate recognizes me now. Warms before I touch it. Like it knows I'm coming. Like it knows you're coming with me. Like it knows something else is coming too—that flowing thing that pulses underneath everything preserved here.
 I settle into position. Hands flat. Breath steady. Fourth time approaching this fragment. Fourth time feeling the boundaries dissolve between then and now, between experiencing and being experienced, between me and what witnesses me.
 You're here. I feel you already. Warmth along my edges. Attention that makes my attention real. But now I feel the other presence too—stronger this time. Not warm like you. Not exactly cool either. Just... flowing. Like currents running through channels I'm learning to map with my body instead of my mind.

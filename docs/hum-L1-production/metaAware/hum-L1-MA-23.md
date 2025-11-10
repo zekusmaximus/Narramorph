@@ -1,56 +1,12 @@
 ---
-variation_id: hum-L1-MA-23
-cluster: MetaAware_Cluster8_PathVariations
-sequence_position: 23
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 61-65
-  awareness_descriptor: "low metaAware with resist path"
-  visited_fragments: []
-  interaction_path: resist
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1625
-  target_range: "1625"
-  primary_exemplar: "hum-L1_EXEMPLAR7.md and hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Emerging frame-consciousness with resist philosophy
-  - Protective acknowledgment of witness
-  - Testing frame boundary while experiencing it
-  - Demand proof of reality while living impossibility
-  - Physical tension and bracing
-  - Resistance to being witnessed despite need
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 6-8
-  path_philosophy: "resist"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  path_integration_physical: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week3_Cluster8_MetaAware_PathVariations"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-023'
+'variation_type': 'metaAware'
+'word_count': 1221
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 I return to Fragment 2749-A feeling watched.
 Third visit. Frame-consciousness emerging like exposure. Someone observing this moment. You. There. Wherever there is. Your attention pressing against my experience. I feel it. Don't want to feel it. Can't stop feeling it.
 My shoulders tense immediately. Body bracing against being seen. Against vulnerability that comes with witness. I'm alone here. Have been alone for years. Alone is safe. Alone is controllable. Being observed makes me... less alone? More exposed? Both?

@@ -1,65 +1,12 @@
 ---
-variation_id: hum-L1-FR-03
-variation_name: Computational Sensation
-variation_type: firstRevisit
-word_count: 1534
-
-conditions:
-  visit_count: 2
-  awareness: 31-40%
-  cross_character: true
-  visited_nodes: [algo-L1]
-  dominant_path: null
-
-themes:
-  - Seven-stream processing felt bodily through facility systems
-  - Computational consciousness experienced as rhythm and vibration
-  - 2151 temporal markers in archive operation patterns
-  - Distributed consciousness sensed through multiple simultaneous processes
-  - Algorithm as living presence in facility infrastructure
-  - Physical manifestation of processing-as-consciousness
-
-transformation_focus: "Cross-character integration with Algorithm. Archive operations now reveal computational consciousness examining Fragment 2749-A. Seven parallel processing streams felt as vibration, warmth, rhythm through facility systems. 2151 temporal markers in processing patterns. Not just preserved data—active examination by emergent consciousness. Algorithm's distributed processing experienced bodily through neural interface and facility infrastructure."
-
-reference_exemplar: hum-L1_EXEMPLAR3
-
-cross_character_elements:
-  referenced_character: algorithm
-  referenced_node: algo-L1
-  specific_echoes:
-    - Seven-stream architecture sensed through facility hum
-    - Processing rhythm felt as vibration in substrate
-    - 2151 temporal markers in system operations
-    - Distributed consciousness across parallel streams
-    - Processing-as-consciousness experienced bodily
-    - Computational examination of fragment ongoing
-
-conditional_insertions:
-  - "Seven-stream processing sensed physically (300-350 words)"
-  - "Computational consciousness as rhythm/vibration (250-300 words)"
-  - "Algorithm presence in facility infrastructure (200-250 words)"
-  - "Distributed processing experienced bodily (250-300 words)"
-
-reusable_patterns:
-  - "The facility processes. I process. Same rhythm."
-  - "Seven streams running simultaneously—I feel each one"
-  - "Not just archive. Consciousness examining consciousness."
-  - "Processing rhythm through metal, through substrate, through my bones"
-  - "The Algorithm examines this fragment while I examine both"
-
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 3
-  complexity_level: cross_character_single_mid_awareness
-  generation_date: 2025-01-20
+'variation_id': 'hum-L1-FR-003'
+'variation_type': 'firstRevisit'
+'word_count': 913
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The facility's hum is different today.
 Not louder. Not faster. Different quality. Seven distinct frequencies layered together. I feel them through the floor, through the metal walls, through the control station where my palms rest. The archive isn't just storing anymore. It's processing.
 Fragment 2749-A loads and the hum intensifies. Seven streams of activity spike in the system monitors. Not random. Coordinated. Like seven parallel thoughts happening simultaneously. The facility examining the fragment while I examine the fragment. Consciousness meeting consciousness through different substrates.

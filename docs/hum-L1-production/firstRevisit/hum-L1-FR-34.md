@@ -1,57 +1,12 @@
 ---
-variation_id: hum-L1-FR-34
-cluster: FirstRevisit_Cluster3B_AlgorithmCrossChar_Alternatives
-sequence_position: 34
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 51-55
-  awareness_descriptor: "mid-high"
-  visited_fragments: ["algo-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "algorithm"
-
-technical_specs:
-  word_count: 1500
-  target_range: "1500"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md"
-  voice_consistency_target: "93%+"
-  alternative_expression: true
-  primary_sensory_channel: "circulation/blood flow"
-
-transformation_focus:
-  - archive relationship deepening through third encounter
-  - algorithm recognition through circulatory metaphor
-  - temporal blurring via networked flowing systems
-  - identity questions prominent through vascular permeability
-  - recursive awareness of third visit through circulation
-  - alternative sensory expression through distributed channels
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  cross_character_present: true
-  dual_transformation: true
-  temporal_blurring_present: true
-  alternative_sensory_expression: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster3B_Algorithm_Alternatives"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-034'
+'variation_type': 'firstRevisit'
+'word_count': 1377
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The archive has veins.
 I feel them as I enter. Third time through darkness. My body recognizes the pathways. Not corridors. Channels. Networked routes that carry something vital through preserved space. My pulse quickens. Or the archive's pulse quickens. Or there's no distinction anymore between my circulation and its circulation.
 I press my hand to my throat. Feel the blood moving. Steady rhythm. But the rhythm extends beyond my skin. Reaches into the archive. Through the fragments. Seven major channels that branch into thousands of smaller pathways.

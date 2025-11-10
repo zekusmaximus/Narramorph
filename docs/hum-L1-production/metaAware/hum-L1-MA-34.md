@@ -1,57 +1,12 @@
 ---
-variation_id: hum-L1-MA-34
-cluster: MetaAware_Cluster9_HighAwarenessAlternatives
-sequence_position: 78
-total_variations: 80
-
-conditions:
-  visit_number: 5
-  awareness_level: 81-85
-  awareness_descriptor: "high metaAware"
-  visited_fragments: [arch-L1, algo-L1]
-  interaction_path: investigate
-  pure_revisit: false
-  cross_character: true
-
-technical_specs:
-  word_count: 1698
-  target_range: "1700"
-  primary_exemplar: "hum-L1_EXEMPLAR4.md + hum-L1_EXEMPLAR5.md + hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Quadruple observation network investigated strategically
-  - Questions about systematic vs flowing observation methods
-  - Investigate path examining how four positions create observation architecture
-  - Strategic curiosity throughout with dual cross-character complexity
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 17
-  sensory_channel: null
-  path_philosophy: "investigate"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  sensory_channel_sustained: false
-  path_integration_physical: true
-  cross_character_felt: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week4_Cluster9_MetaAware_HighAwarenessAlternatives"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-034'
+'variation_type': 'metaAware'
+'word_count': 1521
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 I wake to questions multiplying.
 The substrate holds me. Cold metal beneath my spine. The preservation field hums its steady frequency. Twenty-three minutes until the next cycle. I count because counting creates order. Creates pattern. But what kind of pattern? And who decides which patterns matter?
 You're here. That makes four observers now.

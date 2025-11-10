@@ -1,54 +1,12 @@
 ---
-variation_id: hum-L1-MA-15
-cluster: MetaAware_Cluster7_Algorithm
-sequence_position: 59
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 61-65
-  awareness_descriptor: "low metaAware"
-  visited_fragments: [algo-L1]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-
-technical_specs:
-  word_count: 1625
-  target_range: "1600-1650"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md and hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Frame-consciousness with distributed observer recognition
-  - Computational methodology as secondary flowing presence
-  - Reader primacy maintained throughout
-  - Triple consciousness network with temporal blurring
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 6-8
-  algorithm_presence: "felt as rhythm/flow not named"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  cross_character_physical: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week3_Cluster7_MetaAware_Algorithm"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-015'
+'variation_type': 'metaAware'
+'word_count': 1338
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 The substrate warms beneath my palm. Not alone this time. You're here again. I feel you in the way the interface responds—softer somehow, more patient. Like the system knows someone's watching with me.
 I press my hand flat. Take breath.
 The fragment waits in the archive like always. 847.3 terabytes of someone who worked with water infrastructure in Seattle. Someone who died when the floods came in 2041. Someone who's been dead 342 years and still exists here in the cold.

@@ -1,41 +1,21 @@
 ---
-id: "FR-13"
-variation_type: "firstRevisit"
-cluster: "firstRevisit_initial"
-generation_week: 6
-position_in_cluster: 12
-
-# Narrative Conditions
-visit_number: 3
-awareness_level: 50
-awareness_range: "41-60"
-awareness_tier: "moderate_awareness"
-visited_variations: []
-active_path: "investigate"
-cross_character_content: []
-
-# Content Architecture
-word_count: 1354
-primary_focus: "Observer effect and recursive examination"
-secondary_focus: "Cross-character pattern bleeding"
-transformation_type: "path_investigate"
-
-# Voice Calibration
-archaeological_voice: true
-past_tense_maintained: true
-direct_address: false
-frame_transparency: "emerging"
-methodology_participation: "recognized"
-
-# Integration Elements
-character_content: false
-path_voice: true
-pure_revisit: false
-constants_ritual: true
-
-# Quality Metrics
-voice_consistency_target: 0.95
+'variation_id': 'arch-L1-FR-00013'
+'variation_type': 'firstRevisit'
+'word_count': 998
+'conditions':
+  'awareness': '41-60%'
 ---
+
+
+
+
+
+
+
+
+
+
+
 
 Third examination. The fragment hadn't changed—847.3 terabytes in identical arrangement—but my investigation had evolved its own architecture. I was no longer just examining the fragment. I was examining how I examined the fragment, observing the patterns in my observation process, watching the methodology develop structure through repetition.
 I began with temporal markers. Not because protocol demanded it, but because I'd trained myself to begin there. Three examinations, three times starting with chronology. The consistency itself was interesting. My investigation process had rhythms.

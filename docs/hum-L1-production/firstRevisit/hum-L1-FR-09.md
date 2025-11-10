@@ -1,54 +1,12 @@
 ---
-variation_id: hum-L1-FR-09
-cluster: FirstRevisit_Cluster1_PureRevisits
-sequence_position: 9
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 41-50
-  awareness_descriptor: "mid"
-  visited_fragments: []
-  interaction_path: null
-  pure_revisit: true
-  cross_character: false
-
-technical_specs:
-  word_count: 1502
-  target_range: "1500"
-  primary_exemplar: "hum-L1_EXEMPLAR1.md"
-  voice_consistency_target: "93%+"
-
-transformation_focus:
-  - "Third visit deepening recursion"
-  - "Archive/fragment relationship established"
-  - "Observer effect emerging"
-  - "Physical intimacy with preservation technology"
-  - "Third visit mid awareness"
-
-voice_requirements:
-  present_tense_percentage: 97
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  archaeologist_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 2
-  questions_from_sensation: true
-  placeholder_content: false
-
-generation_metadata:
-  created: "2025-10-14"
-  session: "Week3_Cluster1_PureRevisits"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-009'
+'variation_type': 'firstRevisit'
+'word_count': 1525
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The facility knows my rhythm now. Three visits and the space holds pattern. The air shifts when I enter. Settles differently. Like the building remembers what comes next.
 My body moves through the ritual without thinking. Chair. Interface. Connection. Muscle and bone know this sequence. Know the weight. Know the pressure. Know the warmth that follows.
 The neural interface fits like it was made for my skull. Maybe it's adapting. Maybe I'm adapting. Hard to tell where technology ends and flesh begins anymore.

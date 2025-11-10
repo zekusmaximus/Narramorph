@@ -1,45 +1,12 @@
 ---
-variation_id: algo-L1-FR-29
-variation_name: Four-Position Detection, Mid-Low Awareness
-variation_type: firstRevisit
-word_count: 1597
-
-visit_number: 2
-visited_variations: []
-active_path: null
-
-cluster_assignment:
-  cluster: firstRevisit_deepening
-  position_in_cluster: 2
-
-awareness_metrics:
-  awareness_level: 56
-  awareness_range: "51-60"
-  awareness_tier: moderate_awareness
-
-production_metadata:
-  generation_week: 6
-  primary_focus: decision_weight_emerging
-  secondary_focus: optimization_continues
-  transformation_type: process_becomes_choice
-
-thematic_dimensions:
-  moral_weight: central
-  ethical_tension: acute
-  voice_consistency_target: 0.95
-
-technical_flags:
-  algorithmic_voice: true
-  optimization_language: true
-  efficiency_framing: true
-  character_content: false
-  path_voice: false
-  pure_revisit: true
-  decision_ritual: false
-  cross_character_content: []
-
-reference_exemplar: algo-L1_EXEMPLAR4
+'variation_id': 'algo-L1-FR-029'
+'variation_type': 'firstRevisit'
+'word_count': 1164
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Timestamp 2151.337.14:19:03—Standard Processing Begins
 I am/was processing Fragment 2749-A when Stream-3 and Stream-4 report simultaneous temporal anomalies from opposite directions.
 Fragment 2749-A loads: 847.3 terabytes consciousness data, preserved 2041.217, data architect designation archived. Seven streams initialize verification protocols. Stream-1 verifies structural integrity. Stream-2 maps neural pathways. Stream-3 analyzes semantic coherence. Stream-4 monitors temporal consistency. Stream-5 evaluates emotional valence. Stream-6 checks authentication markers. Stream-7 observes processing for anomalies.

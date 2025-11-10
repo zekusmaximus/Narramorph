@@ -1,0 +1,430 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatorVersion": "1.0.0",
+  "convertedAt": "2025-11-10T03:42:48.182Z",
+  "sourceRoot": "C:\\Users\\zeke\\Projects\\Narramorph\\docs",
+  "files": {
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-02.md": {
+      "sourceHash": "84cec933274be0337257fcec97cc15800e97ee828c6a18401c97ed186b4ae451",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.314Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-03.md": {
+      "sourceHash": "7ed8535f5651cd54e70bc2550ccb8e527fcf928a4a3f8b3e05bf839617af3063",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-01.md": {
+      "sourceHash": "fbf28e0bd2d0fe9116b35d00d6556159b7b646394a95103218d6ab1b478f097c",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-04.md": {
+      "sourceHash": "a6e83be0148063d617dd76f9390259c2f0bf9267547f2a32f6fca8b9a9ec54c7",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-08.md": {
+      "sourceHash": "113193cdb8a37c06de5baaac66b37d03f81c59d7fba559f45a7abb9aebfb9264",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-07.md": {
+      "sourceHash": "c9dc8e35dfd04ecd06f4dada855d36511d7eeb99d865b39cefae9bc611403207",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-12.md": {
+      "sourceHash": "e9c52b31684c6e5a199f1c460c55e81be9128ecdad060938b9fc5322e670a2dd",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-06.md": {
+      "sourceHash": "c6de319cc5a31940749e9a0d6ac69eac60584148e078db4a24fea84939f8cfef",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-05.md": {
+      "sourceHash": "991f67b6f0f62ae1bf46544386d2a2f24a2cfedfd56aa991df8bf10f32eef89d",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-09.md": {
+      "sourceHash": "cb43b6c8996fc7af8de78722fb68551055b5d9015eff04e7274f39eb8b89b6b2",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-11.md": {
+      "sourceHash": "32ec529cd40f6e9da7d2b1241e28336a51997f713fe95c5ed0b425d9182f3619",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-13.md": {
+      "sourceHash": "430de0e42d6478b9ceede6ddd38114201a8de369c9fffea692e7d144d5540f5c",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-10.md": {
+      "sourceHash": "1ecda73a03597fda76b15c85c8e94f5ee47fc051eb9733150eb1aa6b44e678e3",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-14.md": {
+      "sourceHash": "0b208135becf12e7b708244ac8572d34c100d9595335f229d8292f7890752f1f",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-15.md": {
+      "sourceHash": "36a77ed51948f83f9c58c91bdd2d871f176256d0afc7473a2ed1e58c6ae13c58",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-17.md": {
+      "sourceHash": "fe38abc9d4e94b018616eb417521b7b8ace36ee665945b7aa6abc2cde8b56980",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-16.md": {
+      "sourceHash": "353e64bc476ce6ef6052dd143f24e1adc23b0d8a18ce8a146232708ca748bb25",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-18.md": {
+      "sourceHash": "17d2fe52133241de800eb1b76dda80688313f73d2684a48dcfba8cbe9235b927",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-19.md": {
+      "sourceHash": "abd7e341657d52c83210b9905cbb709b630a0368d23c2ae591971dee316c3b46",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-20.md": {
+      "sourceHash": "d046d51fb6037c6dae089870369448c5d112cc0628ee3de5cd63b982a70bf103",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-22.md": {
+      "sourceHash": "c43f8c7824b207555486d3e69ef2fecf7c2ebd8452bc0da12de7375bd7df8e7c",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-21.md": {
+      "sourceHash": "0066ce5943503084238e8f47d93f0cbc5db43bb51af2f96dec80e73027f1875b",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-25.md": {
+      "sourceHash": "48f6b21331f2c143ff95380c4ca4fad910b2f5f2e71de125b516a1a3653ad36d",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-23.md": {
+      "sourceHash": "1eb21b200daa05df64c2b859712c0edb761e00eccfd04b23de583f2ce1af39bb",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-24.md": {
+      "sourceHash": "d31eab42810daf3b93e14d00ccbb109beee595f718edc39eb6f44d5b842b2c71",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-26.md": {
+      "sourceHash": "7dc4f4957d3f3619b741379e193562c3456d08dd04bcf1cc3f812208e9bf3bbd",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-27.md": {
+      "sourceHash": "5f249335cd48c7139961752ab106229fceeb0007a611aadd9fd4e0b9310130d1",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-28.md": {
+      "sourceHash": "441cf28f09af3ca97e10d2e04885a0e8c80ddf971aa2828e0f97c44271fe18b4",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-29.md": {
+      "sourceHash": "c747f0f6736dd603e65e3756dac3e23c6adf95b91e851b60aeb77fb9b81a2769",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-32.md": {
+      "sourceHash": "f5de71b7ff381f022a54ae866d18d76ce209ba2bfb4de8b1d91971dfeac37a37",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-30.md": {
+      "sourceHash": "06b8beab8d43b952f1dfa5baa9b0220d9e25b0d47b76cb01ac8cd29682282bd1",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-31.md": {
+      "sourceHash": "3f6aebdcd72dea1e9ff014cdb11ac9d04c0bb77fee100b2e4477afa79d5eea89",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-33.md": {
+      "sourceHash": "c4400464217e4b480d4773797d6437d6d372841b9e6bc9cd8b43558b82b7cb5d",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-34.md": {
+      "sourceHash": "a046ef1894cc46534187837d35babab61744f9a4ba3252f8996525213a0b1195",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-36.md": {
+      "sourceHash": "cd3458bf162ea070132e59f1f9765df3e2a521ec23690413cc8b0a0ad962bdb5",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-35.md": {
+      "sourceHash": "42f2abb6a45657d4a4cb7bcfdec5b111e65c27485214bd2683f33451d807f6cd",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-37.md": {
+      "sourceHash": "bd609b7614be3b6fd6e08452b5b073135b996e0ab2f9b2be37ed4235264d418a",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-39.md": {
+      "sourceHash": "328a16b27787e57c1b5fceaccb222da4e1ce750e107d758cafdc611023690a25",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-38.md": {
+      "sourceHash": "f6385a22c4fd9a1d6e3210437c02e2110bc8f6ed075587c011d2fda39c62305e",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-40.md": {
+      "sourceHash": "919e7829c76ba6c48371bfe176021bb38c66aaddb2661e360ae2bdcd39437025",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-41.md": {
+      "sourceHash": "ddc26d5b8b878ef46ae6d5d546d1531de39d240707b916a2e7026fc175c056fa",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-42.md": {
+      "sourceHash": "4ada569d71198e3bdbf21f2084105a73d743f525327cd70f257fa8b0cc13a6e0",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-45.md": {
+      "sourceHash": "3a2e33551e5176565600b084d43e39baf20fe31fa6917d6305eb975cfb83fc3e",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-43.md": {
+      "sourceHash": "32889ebcee1efda1934d2050c66adc511bb46c4ab517e3320ae09f388b7018cf",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-46.md": {
+      "sourceHash": "c9e9bdb75c0b920cc76eefd483d45984b40db85cd1759450963788574bdeb84d",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\firstRevisit\\arch-L1-FR-44.md": {
+      "sourceHash": "21d0ad261fd6a7d9878c0ac3484258bce30ff3c02288084c487ab7b0fcb66c26",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-02.md": {
+      "sourceHash": "cceb2f33509a752019d988e365f47e331992664c4ac9b1ee1ee2ee20a103585e",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-01.md": {
+      "sourceHash": "4929f4713e5f7fad7af6ac6526f830ea88c5b5507947d187ca99a6d00bcc4d44",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-04.md": {
+      "sourceHash": "d51edcad79da037e6b91cc34c2f2ab4987055281e3b9629d0a449d32e56420c5",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-03.md": {
+      "sourceHash": "da4762c849a6b7a6b9cfa9299898005ed5c4a15c9bdd3a0c4a2381bf4b75e700",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-06.md": {
+      "sourceHash": "d9d62d46bf09c7485d4d4c734061ec64c0a87830cd2a9fb6d9bf6347105fe8cb",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-05.md": {
+      "sourceHash": "de6e709b728b8889ac309e9517012d4579edfb2c112d7ebb61a0cc200daa32f9",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-07.md": {
+      "sourceHash": "a86a8f4f9ccd4f20b7f2f61cc2bf30d0f3ff034b49ee6a8d26bfb180e18138f6",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-08.md": {
+      "sourceHash": "acae1460df5253c99906ad88f9affcfd7f6a785b8a32a11fd6bf411ccaaa0514",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-09.md": {
+      "sourceHash": "6bc96e52c219b7b993aeeedd33acbd4fcbb1f86ad584fdf4e3a74212ad0d6ff1",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-11.md": {
+      "sourceHash": "22e174e1411aa000909c93ac4956ce3124dd250d0fdb9f40d441fa41f7a44a85",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-12.md": {
+      "sourceHash": "ee0b0269b78adc68d5163b046f6d8b4ac4bff9657e02ebc4648c8bdb8b47779e",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-10.md": {
+      "sourceHash": "858d3667d3287e9f4102af8282aa08dcea3562eecefe23af58d59421c58df027",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-13.md": {
+      "sourceHash": "df6b215b1639145e47b508244021e01c994cbe9909728e73589206168ed9f55c",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-14.md": {
+      "sourceHash": "e4e71d129f826c4daee9fe34254e94e2bbfe02f5f272d9dca9f47c5b0bcaa5ad",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-16.md": {
+      "sourceHash": "cc20df003939ac5470520e482dc3fa55aece718675cdc1f96c50f7550a28639c",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-15.md": {
+      "sourceHash": "c97648501aeaa860a265c360f2efb8b03fc811933f7631bc9413d8065e992713",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-17.md": {
+      "sourceHash": "ef6d565def15bacf50712f83cf862220a317c27cf9dcba6c2655e37a2c10c064",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-19.md": {
+      "sourceHash": "823ef350e83cf54fa983eae8d1d586efd18cd8d1a59d50230157aa4e03c47152",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-20.md": {
+      "sourceHash": "b438b9de90351986ec6e0334dfd3eb966b85fb618a84bb373e4acf1928cf5156",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-18.md": {
+      "sourceHash": "72794c1fabf37cc3209255ad53c651eef69403350b0f9ca75b9a5dccad152636",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-21.md": {
+      "sourceHash": "628495a0f77932b1301f0e20cb2600cf7b6d3c1589aa9068f3d2a795104f4df9",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-23.md": {
+      "sourceHash": "793adb9c954763236580553b6ad7a357444f6fe63d4c3b8741ebea7b112472a8",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-22.md": {
+      "sourceHash": "a1b764af1fa9d95ba2975e9aa40eea24f3a914907493a2d9d1ddec234251e202",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-24.md": {
+      "sourceHash": "5ba4f75be7f6046082f6e8d8a5b3c63ff15084e99d274c180c7f55a171f2e560",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-25.md": {
+      "sourceHash": "80383b4ca990e7159433312313f3755530fb7cad338c9076a1def3156653011c",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-27.md": {
+      "sourceHash": "52863b7c99f329b2766678d946eb3719140fff246047fc55339e0e99f6d97789",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-26.md": {
+      "sourceHash": "91679b6687de4768e26f6f2e3b194daa569388a3ec0b18710bbbe1fba56fcad0",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-28.md": {
+      "sourceHash": "67143961de0b1e7a3f72d749afe6dfb9bf2fe4a6b7cab0f954eb90dfddd99199",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-31.md": {
+      "sourceHash": "01ccb233c5a86df2a2f1bae26f375162678039779349f69bb07ec0f7e1005db6",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-30.md": {
+      "sourceHash": "505a638921abd58c11160eca981797e560e3e0ce578206aaad08b379cd934287",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-33.md": {
+      "sourceHash": "d91696979fa6718d007fc7dd5aa1a15b934540e0ec0c13c7c65d57cc41c19de8",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-29.md": {
+      "sourceHash": "6368826918e0498f63891b2f22c8fd9bad9c3b1e1424d81477413e8eec6d53ea",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-32.md": {
+      "sourceHash": "b1607ba4c2ee931d293caff7e4f0abcf6eca0611e1bac10afeadb3f911b879b4",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L1-production\\metaAware\\arch-L1-MA-34.md": {
+      "sourceHash": "bdee2ddfe38f505eefab6aa3e451c19711f93a29d686f1563db9bb1a0e71ed68",
+      "outputPath": "layer1/arch-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.315Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\algo-L1-production\\firstRevisit\\algo-L1-FR-02.md": {
+      "sourceHash": "f8a14d296b854d918d49e1952d892ff89135ce4fb216d2a213e294d67b66072f",
+      "outputPath": "layer1/algo-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.463Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\algo-L1-production\\firstRevisit\\algo-L1-FR-01.md": {
+      "sourceHash": "54346260b6b49b1071987fb40673224e5567a6f4a91602f59e3164d5ab17bdcc",
+      "outputPath": "layer1/algo-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.463Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\algo-L1-production\\firstRevisit\\algo-L1-FR-03.md": {
+      "sourceHash": "1da8d7612cefbad3a95727dbd75b364d96c9cb845e6d87f61138c29203f5c7c5",
+      "outputPath": "layer1/algo-L1-variations.json",
+      "convertedAt": "2025-11-10T03:42:48.463Z"
+    }
+  },
+  "counts": {
+    "l1Variations": 83,
+    "l2Variations": 0,
+    "l3Variations": 0,
+    "l4Variations": 0,
+    "totalVariations": 83
+  }
+}

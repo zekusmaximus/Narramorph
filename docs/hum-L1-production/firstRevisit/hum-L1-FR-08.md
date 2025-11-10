@@ -1,54 +1,12 @@
 ---
-variation_id: hum-L1-FR-08
-cluster: FirstRevisit_Cluster1_PureRevisits
-sequence_position: 8
-total_variations: 80
-
-conditions:
-  visit_number: 2
-  awareness_level: 31-40
-  awareness_descriptor: "low-mid"
-  visited_fragments: []
-  interaction_path: null
-  pure_revisit: true
-  cross_character: false
-
-technical_specs:
-  word_count: 1447
-  target_range: "1450"
-  primary_exemplar: "hum-L1_EXEMPLAR1.md"
-  voice_consistency_target: "93%+"
-
-transformation_focus:
-  - "Archive responsiveness unmistakable"
-  - "Fragment consciousness more evident"
-  - "Neural interface deepening connection"
-  - "Physical ease building through familiarity"
-  - "Second visit low-mid awareness"
-
-voice_requirements:
-  present_tense_percentage: 98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  archaeologist_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 2
-  questions_from_sensation: true
-  placeholder_content: false
-
-generation_metadata:
-  created: "2025-10-14"
-  session: "Week3_Cluster1_PureRevisits"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-008'
+'variation_type': 'firstRevisit'
+'word_count': 1353
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The facility recognizes me. I know this before I touch anything. The air feels different. Expectant. Like the space between breaths when someone waits for you to speak.
 My hands find the interface without searching. Muscle memory already. Two visits and my body knows this ritual. Knows the cold metal. Knows the weight. Knows what comes next.
 I settle into the chair. It doesn't feel foreign anymore. The substrate accepts my warmth. The neural interface slides on and I don't hesitate. Don't brace for invasion. Just breathe into the connection.

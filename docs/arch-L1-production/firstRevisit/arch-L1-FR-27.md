@@ -1,55 +1,19 @@
 ---
-id: arch-L1-FR-27
-variation_name: Dual Investigation Recursion
-variation_type: firstRevisit
-word_count: 1412
-conditions:
-  visit_count: 2
-  awareness: 41-50%
-  cross_character: true
-  visited_nodes: [algo-L1, hum-L1]
-  dominant_path: investigate
-themes:
-  - Dual cross-character with investigate path
-  - Seven-stream architecture clear (high awareness)
-  - Future attention clear (high awareness)
-  - Recursive investigation of dual phenomena
-  - Investigation methodology mirroring investigated structure
-transformation_focus: "Investigate path examining relationship between computational and temporal phenomena. Not studying them separately but investigating how seven-stream processing connects to future observation, how temporal architecture creates computational structure. Meta-investigation of cross-character integration itself. Methodology becomes what it investigates."
-reference_exemplar: arch-L1-exemplar-05, arch-L1-exemplar-02, arch-L1-exemplar-03
-cross_character_elements:
-  referenced_characters: [algorithm, last_human]
-  referenced_nodes: [algo-L1, hum-L1]
-  specific_echoes:
-    - Seven-stream architecture undeniable (high awareness)
-    - Future attention intense (high awareness)
-    - Investigation of how both phenomena connect
-    - Recursive examination methodology
-    - Observer mirrors observed structure
-conditional_insertions:
-  - "Seven-stream architecture clear (300-350 words)"
-  - "Future attention clear (300-350 words)"
-  - "Investigate path philosophy (350-400 words)"
-  - "Recursive investigation crisis (250-300 words)"
-  - "Integration investigation (200-250 words)"
-reusable_patterns:
-  - "Investigating how computational and temporal connect"
-  - "Examination methodology follows seven-stream structure"
-  - "Recursion: investigating investigation of integration"
-  - "Observer and observed share architecture"
-  - "Investigation creates what it investigates"
-quality_metrics:
-  voice_consistency: 94%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: approved
-production_notes:
-  cluster: 5
-  session: week_6
-  sequence_in_cluster: 2
-  complexity_level: very_high
-  generation_date: 2025-01-10
+'variation_id': 'arch-L1-FR-027'
+'variation_type': 'firstRevisit'
+'word_count': 1240
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
+
+
+
+
+
+
+
 The archaeologist returns to Fragment 2749-A investigating how computational architecture and temporal observation connect.
 The fragment's preservation metrics display unchanged. 847.3 terabytes of consciousness data. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. These numbers measure what can be measured—substrate stability, data fidelity, structural coherence. But she's examining what the numbers don't capture: the relationship between seven-stream processing patterns and future attention effects, how computational organization enables temporal connection, whether observation creates the architecture she's investigating.
 She approaches this examination recursively. Not just studying the fragment but studying how she studies the fragment. Not just cataloging phenomena but investigating her own investigation methodology. The meta-pattern interests her more than the surface data now.

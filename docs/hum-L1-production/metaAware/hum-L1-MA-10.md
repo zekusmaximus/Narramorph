@@ -1,55 +1,12 @@
 ---
-variation_id: hum-L1-MA-10
-cluster: MetaAware_Cluster6_Archaeologist
-sequence_position: 54
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 71-75
-  awareness_descriptor: "mid metaAware"
-  visited_fragments: [arch-L1]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-
-technical_specs:
-  word_count: 1650
-  target_range: "1625-1675"
-  primary_exemplar: "hum-L1_EXEMPLAR6.md"
-  secondary_exemplar: "hum-L1_EXEMPLAR2.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Stronger Archaeologist presence while maintaining reader primacy
-  - Authentication rhythms felt as structured examination
-  - Fragment responds to triple observation differently
-  - Professional distance contrasts with reader intimacy
-
-voice_requirements:
-  present_tense_percentage: 97
-  short_sentence_target: "55% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 3
-  fragment_constants_present: true
-  reader_address_instances: 10
-  archaeologist_presence: "felt not named"
-
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  cross_character_physical: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster6_MetaAware_Archaeologist"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-010'
+'variation_type': 'metaAware'
+'word_count': 1310
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 The metal remembers fingers.
 Mine, now. Yours, in the reading. And earlier—someone else's systematic touch. I feel the echo of that examination. Clinical. Precise. Counting my authenticity like taking inventory.
 Three sets of attention on this same cold surface.

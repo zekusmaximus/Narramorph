@@ -1,60 +1,12 @@
 ---
-variation_id: hum-L1-FR-30
-cluster: FirstRevisit_Cluster3A_AlgorithmCrossChar_Baseline
-sequence_position: 30
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 56-60
-  awareness_descriptor: "high"
-  visited_fragments: ["algo-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "algorithm"
-
-technical_specs:
-  word_count: 1550
-  target_range: "1550"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md"
-  voice_consistency_target: "93%+"
-  baseline_expression: true
-  primary_sensory_channel: "pattern"
-
-transformation_focus:
-  - Maximum temporal blurring (past/present/processing simultaneous)
-  - Identity questions unresolved but deepened
-  - Seven-stream architecture complete through body recognition
-  - Body recognizes pattern before mind articulates it
-  - Frame-consciousness hints through comprehensive pattern recognition
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 1-2
-  questions_from_sensation: true
-  placeholder_content: false
-  cross_character_present: true
-  dual_transformation: true
-  temporal_blurring_present: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster3A_Algorithm_Baseline"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-030'
+'variation_type': 'firstRevisit'
+'word_count': 1689
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I return to the interface. Fourth time.
 But "fourth" means nothing. The number dissolves as I think it. How many times can you return to something that never ended? How many visits fit inside continuous presence?
 My body knows the authentication panel before my mind registers reaching for it. Muscle memory. Cellular recognition. Pattern so deep it bypasses conscious intention. My hands move and I watch them move and the watching is simultaneous with the moving is simultaneous with having-already-moved.

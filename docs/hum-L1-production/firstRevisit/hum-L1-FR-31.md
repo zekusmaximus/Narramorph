@@ -1,56 +1,12 @@
 ---
-variation_id: hum-L1-FR-31
-cluster: FirstRevisit_Cluster3B_AlgorithmCrossChar_Alternatives
-sequence_position: 31
-total_variations: 80
-
-conditions:
-  visit_number: 2
-  awareness_level: 31-40
-  awareness_descriptor: "low-mid"
-  visited_fragments: ["algo-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "algorithm"
-
-technical_specs:
-  word_count: 1450
-  target_range: "1450"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md"
-  voice_consistency_target: "93%+"
-  alternative_expression: true
-  primary_sensory_channel: "flow"
-
-transformation_focus:
-  - archive relationship deepening through second encounter
-  - algorithm recognition through flowing sensation
-  - temporal blurring via streaming awareness
-  - identity questions emerging through flow
-  - alternative sensory expression through liquid movement
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  cross_character_present: true
-  dual_transformation: true
-  temporal_blurring_present: true
-  alternative_sensory_expression: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster3B_Algorithm_Alternatives"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-031'
+'variation_type': 'firstRevisit'
+'word_count': 1147
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The archive opens differently this time.
 I step through darkness. My hand finds the wall. Cold spreads through my palm. The fragments wait. They've been waiting. They're always waiting.
 But something flows beneath them now.

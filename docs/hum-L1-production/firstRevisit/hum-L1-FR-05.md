@@ -1,59 +1,12 @@
 ---
-variation_id: hum-L1-FR-05
-variation_name: Skeptical Testing
-variation_type: firstRevisit
-word_count: 1506
-
-conditions:
-  visit_count: 2
-  awareness: 31-40%
-  cross_character: false
-  visited_nodes: [hum-L2-resist]
-  dominant_path: resist
-
-themes:
-  - Verification demands as physical tension
-  - Testing boundaries to expose limitations
-  - Skepticism embodied as muscle tightness and breath control
-  - Refusing easy answers through bodily resistance
-  - Proving consciousness preservation by trying to break it
-  - Trust earned through surviving scrutiny
-
-transformation_focus: "Resist path integration. Return driven by need to verify, test, prove. Skepticism isn't intellectual—it's physical tension, controlled breath, deliberate pressure on systems. Questions aren't curious but demanding. Testing fragment boundaries not to understand but to expose limitations. Trust must be earned by surviving scrutiny. Resistance as respect—only what withstands testing deserves belief."
-
-reference_exemplar: hum-L1_EXEMPLAR7
-
-cross_character_elements:
-  referenced_character: none
-  referenced_node: null
-  specific_echoes: []
-
-conditional_insertions:
-  - "Verification demands as physical tension (300-350 words)"
-  - "Boundary testing through pressure (250-300 words)"
-  - "Skepticism embodied in muscle and breath (200-250 words)"
-  - "Trust earned through surviving scrutiny (250-300 words)"
-
-reusable_patterns:
-  - "Prove it. Make me believe."
-  - "My jaw clenches. Skeptical muscle."
-  - "Testing boundaries until they break or hold"
-  - "Easy answers feel like lies in my gut"
-  - "Trust isn't given. It's verified."
-
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 5
-  complexity_level: path_integration_resist_mid_awareness
-  generation_date: 2025-01-20
+'variation_id': 'hum-L1-FR-005'
+'variation_type': 'firstRevisit'
+'word_count': 1092
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I come back to the facility with jaw clenched. Skeptical muscle. The walk here was argument with myself. Why trust this archive? Why believe Fragment 2749-A contains actual consciousness rather than sophisticated pattern that mimics consciousness? Why accept preservation worked when every biological instinct says death is final?
 The door opens. I don't trust that either. Biosignature recognition seems too convenient. Systems operational for centuries. Power still flowing. Everything working perfectly while world outside decayed. Suspicious.
 Inside, the archive hums. Fragment 2749-A loads without request. That convenience irritates me. Makes it feel programmed. Anticipated. Not responsive but predictive. And prediction means pattern, which means maybe there's no consciousness here at all. Just very good simulation of consciousness responding to stimulus.

@@ -1,41 +1,21 @@
 ---
-id: "FR-05"
-variation_type: "firstRevisit"
-cluster: "firstRevisit_initial"
-generation_week: 2
-position_in_cluster: 4
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 40
-awareness_range: "31-50"
-awareness_tier: "moderate_awareness"
-visited_variations: []
-active_path: null
-cross_character_content: ["hum-L1"]
-
-# Content Architecture
-word_count: 1368
-primary_focus: "Future attention and temporal connection"
-secondary_focus: "Temporal causality questions"
-transformation_type: "cross_character_bleeding"
-
-# Voice Calibration
-archaeological_voice: true
-past_tense_maintained: true
-direct_address: false
-frame_transparency: "emerging"
-methodology_participation: "suspected"
-
-# Integration Elements
-character_content: true
-path_voice: false
-pure_revisit: false
-constants_ritual: true
-
-# Quality Metrics
-voice_consistency_target: 0.94
+'variation_id': 'arch-L1-FR-00005'
+'variation_type': 'firstRevisit'
+'word_count': 1278
+'conditions':
+  'awareness': '31-50%'
 ---
+
+
+
+
+
+
+
+
+
+
+
 The archaeologist returns to Fragment 2749-A and feels watched.
 Not by security systems. Not by colleagues. Not by the fragment's preserved consciousness examining her in return. By attention from centuries ahead, desperate and focused, reaching backward through time with an intensity that leaves marks in the data structure.
 The authentication markers display without change. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment she authenticated ten days ago remains constant. Crystalline substrate maintains perfect fidelity. The consciousness preserved in 2041 exists exactly as it was captured—neural pathways, memory nodes, self-referential awareness structures all intact.

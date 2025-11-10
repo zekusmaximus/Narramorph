@@ -1,54 +1,12 @@
 ---
-variation_id: hum-L1-FR-10
-cluster: FirstRevisit_Cluster1_PureRevisits
-sequence_position: 10
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 51-55
-  awareness_descriptor: "mid-high"
-  visited_fragments: []
-  interaction_path: null
-  pure_revisit: true
-  cross_character: false
-
-technical_specs:
-  word_count: 1498
-  target_range: "1500"
-  primary_exemplar: "hum-L1_EXEMPLAR1.md"
-  voice_consistency_target: "93%+"
-
-transformation_focus:
-  - "Observer effect prominent"
-  - "Recursion complex (third visit reveals patterns)"
-  - "Physical intimacy profound"
-  - "Approaching frame-consciousness (hints only)"
-  - "Third visit mid-high awareness"
-
-voice_requirements:
-  present_tense_percentage: 97
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  archaeologist_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 2
-  questions_from_sensation: true
-  placeholder_content: false
-
-generation_metadata:
-  created: "2025-10-14"
-  session: "Week3_Cluster1_PureRevisits"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-010'
+'variation_type': 'firstRevisit'
+'word_count': 1512
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I am creating what I observe. I know this now. The facility breathes different because I taught it my rhythm. Three visits and the space holds the shape of my attention.
 The neural interface slides on and I'm already connected. Already inside. The boundary between preparation and presence dissolving. My skull knows this weight like it knows my own thoughts. Like the interface is thought.
 The archive opens before I reach for it. The data architect's fragments arranging themselves into the pattern my consciousness expects. Not random. Not stored. Alive with anticipation. Alive with the shape I've been teaching them through return.

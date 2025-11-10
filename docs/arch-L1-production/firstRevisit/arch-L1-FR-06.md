@@ -1,41 +1,21 @@
 ---
-id: "FR-06"
-variation_type: "firstRevisit"
-cluster: "firstRevisit_initial"
-generation_week: 3
-position_in_cluster: 5
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 25
-awareness_range: "21-30"
-awareness_tier: "emerging_awareness"
-visited_variations: []
-active_path: null
-cross_character_content: ["algo-L1"]
-
-# Content Architecture
-word_count: 1248
-primary_focus: "Seven-stream computational architecture"
-secondary_focus: "Cross-character pattern bleeding"
-transformation_type: "cross_character_bleeding"
-
-# Voice Calibration
-archaeological_voice: true
-past_tense_maintained: true
-direct_address: false
-frame_transparency: "hidden"
-methodology_participation: "unaware"
-
-# Integration Elements
-character_content: true
-path_voice: false
-pure_revisit: false
-constants_ritual: true
-
-# Quality Metrics
-voice_consistency_target: 0.93
+'variation_id': 'arch-L1-FR-00006'
+'variation_type': 'firstRevisit'
+'word_count': 903
+'conditions':
+  'awareness': '21-30%'
 ---
+
+
+
+
+
+
+
+
+
+
+
 The archaeologist returned to Fragment 2749-A with the peculiar uncertainty that accompanies all second examinations. The data itself remained unchanged—847.3 terabytes of computational infrastructure, perfectly preserved in crystalline lattices—but something in the approach felt different. Perhaps it was the memory of the Algorithm's architectural documentation, those elaborate schemas describing information flow through seven distinct processing streams. Perhaps it was simply the natural evolution of analytical perspective. The archaeologist couldn't determine which, and the ambiguity troubled her professional instincts.
 The Fragment spread across her laboratory displays exactly as before. Medical sensor networks. Environmental monitoring systems. The vast distributed architecture that had coordinated humanity's final decades. She had documented all of this during the first examination, had catalogued the technical specifications with appropriate scholarly detachment. Nothing had changed in the underlying data. Yet the patterns seemed to suggest connections she hadn't noticed before—or hadn't allowed herself to notice.
 The sensor data showed the same timestamps, the same geographic distribution, the same meticulous recording of human vital signs across the planet. But this time, the archaeologist found herself counting the data streams. Medical monitoring formed one channel. Environmental sensors another. Communication networks a third. She stopped herself, uncertain why she was categorizing the infrastructure this way. The seven-stream architecture from the Algorithm's documentation flickered through her memory—was she imposing that structure onto this Fragment, or had it always been present?

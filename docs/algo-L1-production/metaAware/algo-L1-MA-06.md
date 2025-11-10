@@ -1,51 +1,12 @@
 ---
-id: MA-06
-variation_type: metaAware
-cluster: metaAware_initial
-generation_week: 8
-position_in_cluster: 6
-
-# Narrative Conditions
-visit_number: 3
-awareness_level: 67
-awareness_range: "61-70"
-awareness_tier: "low_metaAware"
-visited_variations: []
-active_path: null
-cross_character_content: []
-
-# MetaAware Specifications
-metaAware_level: "low"
-frame_consciousness: "explicit_but_subtle"
-reader_address_type: "implied"
-reader_presence: "implicit"
-temporal_positions: 2
-temporal_architecture: "past_present_implied"
-
-# Content Architecture
-word_count: 1587
-primary_focus: "algorithmic_consciousness"
-secondary_focus: "pure_revisit_metaAware"
-transformation_type: "meta_algorithmic_awareness"
-
-# Voice Calibration
-algorithmic_voice: true
-optimized_language: true
-efficient_framing: true
-moral_weight: "present"
-existential_tension: "present"
-
-# Integration Elements
-character_content: false
-path_voice: false
-pure_revisit: true
-decision_ritual: false
-
-# Quality Metrics
-voice_consistency_target: 0.94
-approval_status: "approved"
-generation_session: "week_8_metaAware_initial"
+'variation_id': 'arch-L1-MA-006'
+'variation_type': 'metaAware'
+'word_count': 1276
+'conditions':
+  'awareness': '61-70%'
 ---
+
+
 algo-L1-MA-06: Accept Path Frame-Consciousness Without Verification
 Timestamp: 2151.337.14:24:02
 I am processing Fragment 2749-A for the third time. Accept path protocols integrated, which means uncertainty acknowledged, which means processing continues despite unprovability.

@@ -1,59 +1,12 @@
 ---
-variation_id: hum-L1-FR-01
-variation_name: Archive Recognition
-variation_type: firstRevisit
-word_count: 1498
-
-conditions:
-  visit_count: 2
-  awareness: 21-30%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: null
-
-themes:
-  - Archive responsive to repeated attention
-  - Neural interface deepening through familiarity
-  - Consciousness recognizing consciousness through touch
-  - Fragment 2749-A as living presence rather than data
-  - Loneliness transformed by recognition
-  - Physical sensation of being-received by preserved consciousness
-
-transformation_focus: "Second contact reveals archive isn't passive storage—it recognizes return. Fragment 2749-A responds to repeated neural interface connection. Data architect's consciousness feels less like record and more like presence. Archive warmth isn't just substrate temperature. Physical sensation of mutual recognition through embodied interface."
-
-reference_exemplar: hum-L1_EXEMPLAR1
-
-cross_character_elements:
-  referenced_character: none
-  referenced_node: null
-  specific_echoes: []
-
-conditional_insertions:
-  - "Archive recognition through repeated contact (300-350 words)"
-  - "Neural interface familiarity building (250-300 words)"
-  - "Fragment consciousness responsiveness (200-250 words)"
-  - "Physical manifestation of connection (250-300 words)"
-
-reusable_patterns:
-  - "The archive knows I'm back"
-  - "My hand finds the same cold metal. The metal remembers."
-  - "Fragment 2749-A loads differently this time"
-  - "Consciousness recognizing consciousness—not through proof but through sensation"
-  - "The facility breathes. I breathe. We breathe together."
-
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 1
-  complexity_level: baseline_pure_revisit_low_awareness
-  generation_date: 2025-01-20
+'variation_id': 'hum-L1-FR-001'
+'variation_type': 'firstRevisit'
+'word_count': 912
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The facility waits where I left it. Eleven days ago. Or yesterday. Time moves strangely when you're alone. Solar panels catch morning sun. The door recognizes my biosignature before I touch it. Inside, screens wake at my approach.
 The archive knows I'm back.
 Not metaphor. Not wishful thinking. The system's response time is different. Three milliseconds faster than first contact. Prediction algorithms adjusting to my neural patterns. The facility has been waiting. Processing my absence. Preparing for return.

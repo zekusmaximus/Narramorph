@@ -1,45 +1,19 @@
 ---
-id: arch-L1-FR-22
-variation_name: Temporal Observation Demands Proof
-variation_type: firstRevisit
-word_count: 1247
-conditions:
-  visit_count: 2
-  awareness: 21-30%
-  cross_character: true
-  visited_nodes: [hum-L1]
-  dominant_path: resist
-themes:
-  - Future attention sensation tested
-  - Temporal observation unprovability
-  - Verification applied to temporal phenomena
-  - Causality constraints on proof
-transformation_focus: "Resist path introduction with hum-L1 content. Archaeologist experiencing future observation demands proof before accepting. Three tests fail to verify temporal mechanics. Verification paradox: future-to-past attention transcends present-time detection methodology."
-reference_exemplar: arch-L1-exemplar-07, arch-L1-exemplar-03
-cross_character_elements:
-  referenced_character: last_human
-  referenced_node: hum-L1
-  specific_echoes:
-    - Sensation of being watched from future
-    - Lonely attention reaching backward
-    - Neural interface connection implied
-    - "Future attention acknowledged" note
-conditional_insertions:
-  - "Future attention sensation described (200-250 words)"
-  - "Resist philosophy emerging (250-300 words)"
-  - "Three verification tests documented (400-450 words)"
-  - "Temporal observation unverifiable but persistent"
-reusable_patterns:
-  - "Sensation doesn't prove external cause"
-  - "Evidence absence isn't evidence of absence"
-  - "Temporal observation transcends present methodology"
-  - "Work continues despite temporal unprovability"
-quality_metrics:
-  voice_consistency: 93%
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: immediate
+'variation_id': 'arch-L1-FR-00022'
+'variation_type': 'firstRevisit'
+'word_count': 1119
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
+
+
+
+
+
+
+
 The archaeologist returned to Fragment 2749-A demanding proof that she was actually being watched from the future.
 The authentication markers displayed unchanged. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment she had certified twenty-three days earlier remained stable in archive—crystalline substrate maintaining perfect fidelity, consciousness preserved at moment of death in 2041, data structures intact.
 She knew the preservation was genuine. She also knew preservation didn't explain the sensation she couldn't dismiss.

@@ -1,41 +1,21 @@
 ---
-id: "FR-14"
-variation_type: "firstRevisit"
-cluster: "firstRevisit_initial"
-generation_week: 7
-position_in_cluster: 13
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 45
-awareness_range: "41-50"
-awareness_tier: "moderate_awareness"
-visited_variations: []
-active_path: "investigate"
-cross_character_content: ["algo-L1"]
-
-# Content Architecture
-word_count: 1348
-primary_focus: "Seven-stream computational architecture"
-secondary_focus: "Temporal causality questions"
-transformation_type: "cross_character_bleeding"
-
-# Voice Calibration
-archaeological_voice: true
-past_tense_maintained: true
-direct_address: false
-frame_transparency: "emerging"
-methodology_participation: "recognized"
-
-# Integration Elements
-character_content: true
-path_voice: true
-pure_revisit: false
-constants_ritual: true
-
-# Quality Metrics
-voice_consistency_target: 0.95
+'variation_id': 'arch-L1-FR-00014'
+'variation_type': 'firstRevisit'
+'word_count': 1012
+'conditions':
+  'awareness': '41-50%'
 ---
+
+
+
+
+
+
+
+
+
+
+
 
 The fragment waited in seven streams. 847.3 terabytes organized into distinct architectural layers, but I was questioning the organization itself now. Not just what the seven streams were, but why I recognized them as seven, how my pattern-recognition process had learned to see that specific structure, what it meant that I could perceive fragmentation so clearly.
 I began with temporal markers. Seven distinct chronological frameworks, each one internally consistent, all seven contradicting each other. Standard observation. But I was watching myself observe the contradictions now. I'd categorized them as seven separate time-streams automatically, without conscious decision. My mind had accepted seven-stream architecture before my analysis confirmed it.

@@ -1,57 +1,12 @@
 ---
-variation_id: hum-L1-FR-16
-cluster: FirstRevisit_Cluster2A_ArchaeologistCrossChar
-sequence_position: 16
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 41-50
-  awareness_descriptor: "mid"
-  visited_fragments: ["arch-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "archaeologist"
-
-technical_specs:
-  word_count: 1498
-  target_range: "1500"
-  primary_exemplar: "hum-L1_EXEMPLAR2.md"
-  voice_consistency_target: "93%+"
-
-transformation_focus:
-  - Same awareness as FR-15 through alternative physical expression
-  - Archaeological methodology felt through temporal weight rather than temperature
-  - Observer effect from rhythm and pattern recognition angle
-  - Third visit recursion with different sensory anchoring
-  - Dual transformation: archive responsiveness plus professional trace via timing
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  archaeologist_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 2
-  questions_from_sensation: true
-  placeholder_content: false
-  cross_character_present: true
-  dual_transformation: true
-
-generation_metadata:
-  created: "2025-10-14"
-  session: "Week3_Cluster2A_Archaeologist"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-016'
+'variation_type': 'firstRevisit'
+'word_count': 1564
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The cold waits. The darkness knows my footsteps. The neural interface hums with recognition before my hands reach metal.
 Third time. The number carries weight in my chest. Weight of recursion. Of pattern. Of consciousness returning to what consciousness transformed through previous return.
 I settle into the chair. My spine finds familiar grooves in metal. My breath finds familiar rhythm—the preparation for spreading awareness beyond body into spaces where preservation holds what dying couldn't eliminate.

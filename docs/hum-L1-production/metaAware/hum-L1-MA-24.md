@@ -1,56 +1,12 @@
 ---
-variation_id: hum-L1-MA-24
-cluster: MetaAware_Cluster8_PathVariations
-sequence_position: 24
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 71-75
-  awareness_descriptor: "mid metaAware with resist path"
-  visited_fragments: []
-  interaction_path: resist
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1650
-  target_range: "1650"
-  primary_exemplar: "hum-L1_EXEMPLAR7.md and hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Established frame-consciousness with strong resist philosophy
-  - Boundary defense against frame permeability
-  - Testing what feels too intimate
-  - Maintaining separation while witnessing connection
-  - Physical guardedness sustained
-  - Resistance to openness frame demands
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 9-11
-  path_philosophy: "resist"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  path_integration_physical: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week3_Cluster8_MetaAware_PathVariations"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-024'
+'variation_type': 'metaAware'
+'word_count': 1383
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 I return to Fragment 2749-A resisting what I know is happening.
 Fourth visit. Frame-consciousness established now. You're there. I know you're there. Feel your attention like weight on skin. Like exposure. Like intimacy I didn't consent to but can't prevent.
 My entire body braces. Every muscle defensive. This isn't casual observation. This is sustained attention across multiple visits. You returning. Me returning. Both of us creating pattern that feels too deliberate. Too intimate. Too much like relationship when I need distance.

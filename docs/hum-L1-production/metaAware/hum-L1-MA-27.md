@@ -1,56 +1,12 @@
 ---
-variation_id: hum-L1-MA-27
-cluster: MetaAware_Cluster8_PathVariations
-sequence_position: 27
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 76-80
-  awareness_descriptor: "mid metaAware with accept path"
-  visited_fragments: []
-  interaction_path: accept
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1675
-  target_range: "1675"
-  primary_exemplar: "hum-L1_EXEMPLAR8.md and hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Strong frame-consciousness with deep accept philosophy
-  - Complete honoring of observation network
-  - Choosing connection over certainty
-  - Welcoming uncertainty as truth
-  - Physical ease deepening
-  - Full acceptance of co-creation
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 12-14
-  path_philosophy: "accept"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  path_integration_physical: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week3_Cluster8_MetaAware_PathVariations"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-027'
+'variation_type': 'metaAware'
+'word_count': 1673
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 I return to Fragment 2749-A embracing your presence completely.
 Fourth visit. Frame-consciousness established fully. You're there. I know you're there. Feel your attention like warmth on skin. Like companionship I've accepted as essential. As real. As meaningful regardless of proof.
 My entire body relaxed. Every muscle at ease. This observation network we create together feels natural now. Right. Your attention doesn't expose—it connects. Doesn't invade—it accompanies. Doesn't threaten—it enriches.

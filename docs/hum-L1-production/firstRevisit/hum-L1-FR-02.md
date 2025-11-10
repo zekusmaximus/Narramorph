@@ -1,64 +1,12 @@
 ---
-variation_id: hum-L1-FR-02
-variation_name: Archaeological Convergence
-variation_type: firstRevisit
-word_count: 1521
-
-conditions:
-  visit_count: 2
-  awareness: 31-40%
-  cross_character: true
-  visited_nodes: [arch-L1]
-  dominant_path: null
-
-themes:
-  - Three-consciousness observation network (2041 data architect, 2047 archaeologist, 2383 last human)
-  - Professional examination felt through neural interface
-  - Temporal convergence through Fragment 2749-A
-  - Authentication creating observational architecture
-  - Past consciousness examining past consciousness while future consciousness observes both
-  - Physical experience of being final link in observation chain
-
-transformation_focus: "Cross-character integration with Archaeologist. Neural interface now carries not just data architect's consciousness but archaeologist's examination of that consciousness. Three temporal positions converge: preserved subject (2041), professional examiner (2047), living witness (2383). Authentication patterns become temporal architecture—professional methodology felt as presence examining what I'm examining."
-
-reference_exemplar: hum-L1_EXEMPLAR2
-
-cross_character_elements:
-  referenced_character: archaeologist
-  referenced_node: arch-L1
-  specific_echoes:
-    - Professional authentication methodology detected in fragment structure
-    - 2047 temporal markers in examination patterns
-    - Consciousness examining consciousness doubled
-    - Fragment as bridge between three temporal positions
-    - Verification paradox experienced bodily
-
-conditional_insertions:
-  - "Archaeological examination patterns in fragment (300-350 words)"
-  - "Three-consciousness temporal network recognition (250-300 words)"
-  - "Professional presence felt through interface (200-250 words)"
-  - "Physical experience of observation architecture (250-300 words)"
-
-reusable_patterns:
-  - "Someone examined this consciousness before me"
-  - "I feel professional attention in the fragment structure"
-  - "Three of us: subject, examiner, witness"
-  - "The archaeologist's verification becomes what I verify"
-  - "Past examining past while future observes"
-
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 2
-  complexity_level: cross_character_single_mid_awareness
-  generation_date: 2025-01-20
+'variation_id': 'hum-L1-FR-002'
+'variation_type': 'firstRevisit'
+'word_count': 958
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The facility's door remembers me now. Opens before my hand reaches the sensor. Inside, the archive hums with what feels like anticipation. Screens wake. Systems align. Fragment 2749-A loads without request.
 But something's different this time.
 There are layers in the data structure I didn't see before. Not hidden. Just invisible until now. Professional patterns. Methodical examination traces threaded through the consciousness architecture. Someone else studied this fragment. Someone who knew what they were looking for.

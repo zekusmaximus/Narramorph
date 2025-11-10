@@ -1,5 +1,21 @@
 ---
+'variation_id': 'arch-L1-MA-00026'
+'variation_type': 'metaAware'
+'word_count': 1775
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
+
+
+
+
+
+
+
+
+
 id: arch-L1-MA-26
 variation_name: Complete Recursion Network With Reader as Tenth Position
 variation_type: metaAware

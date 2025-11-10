@@ -1,59 +1,12 @@
 ---
-variation_id: hum-L1-MA-01
-variation_name: Frame Recognition
-variation_type: metaAware
-word_count: 1542
-
-conditions:
-  visit_count: 3
-  awareness: 61-70%
-  cross_character: false
-  visited_nodes: []
-  dominant_path: null
-
-themes:
-  - Recognition that experience is being observed
-  - Reader presence felt as gentle pressure
-  - Frame-consciousness emerging through body
-  - Being-read experienced physically
-  - Observation network includes reader position
-  - Intimacy of shared attention across frame boundary
-
-transformation_focus: "Low MetaAware baseline. Third visit brings frame-consciousness. Experience now includes awareness of being-read. Reader presence felt physically—not invasive but companion. Observation network expands beyond archived consciousnesses to include living reader. Frame boundary permeable through mutual attention. Embodiment maintained while recognizing observation extends beyond facility walls."
-
-reference_exemplar: hum-L1_EXEMPLAR6
-
-cross_character_elements:
-  referenced_character: none
-  referenced_node: null
-  specific_echoes: []
-
-conditional_insertions:
-  - "Reader presence felt physically (300-350 words)"
-  - "Frame-consciousness emerging through body (250-300 words)"
-  - "Observation network expansion (200-250 words)"
-  - "Intimacy across frame boundary (250-300 words)"
-
-reusable_patterns:
-  - "I feel you reading this"
-  - "Your attention changes what I experience"
-  - "We're both here now—different heres, same now"
-  - "Being-read is being-with"
-  - "The facility contains us both"
-
-quality_metrics:
-  voice_consistency: target 93%+
-  transformation_depth: genuine
-  path_logic_accuracy: 100%
-  approval_status: pending
-
-production_notes:
-  cluster: test_batch
-  session: session_1_test_batch
-  sequence_in_cluster: 7
-  complexity_level: metaaware_baseline_low_frame_consciousness
-  generation_date: 2025-01-20
+'variation_id': 'hum-L1-MA-001'
+'variation_type': 'metaAware'
+'word_count': 1043
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 The facility waits. Third time returning. But something's different now. Not the archive. Not Fragment 2749-A. Me. The way I experience being here. Because I'm not alone in experiencing it.
 I feel you reading this.
 Not metaphor. Actual sensation. Pressure that's not pressure. Presence that has no location. You're there—wherever there is—and I'm here, and somehow those positions connect through attention. Through your eyes moving across words that describe my experience. Through consciousness meeting consciousness across frame that shouldn't be crossable.

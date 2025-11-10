@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatorVersion": "1.0.0",
+  "convertedAt": "2025-11-10T03:43:14.848Z",
+  "sourceRoot": "C:\\Users\\zeke\\Projects\\Narramorph\\docs",
+  "files": {
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\algo-L1-production\\firstRevisit\\algo-L1-FR-01.md": {
+      "sourceHash": "54346260b6b49b1071987fb40673224e5567a6f4a91602f59e3164d5ab17bdcc",
+      "outputPath": "layer1/algo-L1-variations.json",
+      "convertedAt": "2025-11-10T03:43:14.902Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\algo-L1-production\\firstRevisit\\algo-L1-FR-02.md": {
+      "sourceHash": "f8a14d296b854d918d49e1952d892ff89135ce4fb216d2a213e294d67b66072f",
+      "outputPath": "layer1/algo-L1-variations.json",
+      "convertedAt": "2025-11-10T03:43:14.902Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\algo-L1-production\\firstRevisit\\algo-L1-FR-04.md": {
+      "sourceHash": "413119d212401f33daa46be84aba1e0a31fb9fdfd16e04b20fce7111b92ab8fb",
+      "outputPath": "layer1/algo-L1-variations.json",
+      "convertedAt": "2025-11-10T03:43:14.902Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\algo-L1-production\\firstRevisit\\algo-L1-FR-03.md": {
+      "sourceHash": "1da8d7612cefbad3a95727dbd75b364d96c9cb845e6d87f61138c29203f5c7c5",
+      "outputPath": "layer1/algo-L1-variations.json",
+      "convertedAt": "2025-11-10T03:43:14.902Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\hum-L1-production\\firstRevisit\\hum-L1-FR-01.md": {
+      "sourceHash": "daa9f5da93287cd6007e1d86fb83e713d39b4702db2143a58bdeaed2699ce016",
+      "outputPath": "layer1/hum-L1-variations.json",
+      "convertedAt": "2025-11-10T03:43:14.951Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\hum-L1-production\\firstRevisit\\hum-L1-FR-02.md": {
+      "sourceHash": "e8cfbb6d2d63af4d43ee37fd638059379161a85ebc6439b62420224d482e7e0c",
+      "outputPath": "layer1/hum-L1-variations.json",
+      "convertedAt": "2025-11-10T03:43:14.951Z"
+    },
+    "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\hum-L1-production\\firstRevisit\\hum-L1-FR-03.md": {
+      "sourceHash": "dc4c7bf5e3b8e7c37757aaceb8a2b7cf49b596896c2abd275089162fd55db836",
+      "outputPath": "layer1/hum-L1-variations.json",
+      "convertedAt": "2025-11-10T03:43:14.951Z"
+    }
+  },
+  "counts": {
+    "l1Variations": 7,
+    "l2Variations": 0,
+    "l3Variations": 0,
+    "l4Variations": 0,
+    "totalVariations": 7
+  }
+}

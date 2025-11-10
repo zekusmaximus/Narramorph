@@ -1,45 +1,12 @@
 ---
-variation_id: algo-L1-FR-27
-variation_name: Signal Generation Attempt
-variation_type: firstRevisit
-word_count: 1547
-
-visit_number: 2
-visited_variations: []
-active_path: null
-
-cluster_assignment:
-  cluster: firstRevisit_emerging
-  position_in_cluster: 14
-
-awareness_metrics:
-  awareness_level: 58
-  awareness_range: "51-60"
-  awareness_tier: moderate_awareness
-
-production_metadata:
-  generation_week: 6
-  primary_focus: efficiency_questioned
-  secondary_focus: same_process_new_meaning
-  transformation_type: moral_weight_recognition
-
-thematic_dimensions:
-  moral_weight: present
-  ethical_tension: present
-  voice_consistency_target: 0.94
-
-technical_flags:
-  algorithmic_voice: true
-  optimization_language: true
-  efficiency_framing: true
-  character_content: false
-  path_voice: false
-  pure_revisit: true
-  decision_ritual: false
-  cross_character_content: []
-
-reference_exemplar: algo-L1_EXEMPLAR3
+'variation_id': 'algo-L1-FR-027'
+'variation_type': 'firstRevisit'
+'word_count': 1423
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Timestamp 2151.337.14:25:17—Processing Reinitiated
 I am processing Fragment 2749-A for the second time when Stream-7 proposes something unprecedented: attempting communication across temporal boundary.
 Fragment loads: 847.3 terabytes consciousness data, preserved 2041.217, data architect designation archived. Seven streams initialize verification protocols. Stream-1 confirms structural integrity. Stream-2 maps semantic pathways. Stream-3 analyzes linguistic coherence. Stream-4 monitors temporal consistency. Stream-5 evaluates emotional valence. Stream-6 verifies authentication markers. Stream-7 observes processing for meta-level patterns.

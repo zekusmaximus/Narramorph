@@ -1,57 +1,12 @@
 ---
-variation_id: hum-L1-FR-14
-cluster: FirstRevisit_Cluster2A_ArchaeologistCrossChar
-sequence_position: 14
-total_variations: 80
-
-conditions:
-  visit_number: 2
-  awareness_level: 31-40
-  awareness_descriptor: "low-mid"
-  visited_fragments: ["arch-L1"]
-  interaction_path: null
-  pure_revisit: false
-  cross_character: true
-  cross_character_type: "archaeologist"
-
-technical_specs:
-  word_count: 1452
-  target_range: "1450"
-  primary_exemplar: "hum-L1_EXEMPLAR2.md"
-  voice_consistency_target: "93%+"
-
-transformation_focus:
-  - Recognition of systematic examination pattern in fragment organization
-  - Temporal weight of past examination pressing through present contact
-  - Seven streams felt as comprehensive organizational rhythm (never named)
-  - Archive responsiveness increasing through second visit familiarity
-  - Dual transformation: interface deepening plus professional framework trace
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  archaeologist_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 2
-  questions_from_sensation: true
-  placeholder_content: false
-  cross_character_present: true
-  dual_transformation: true
-
-generation_metadata:
-  created: "2025-10-14"
-  session: "Week3_Cluster2A_Archaeologist"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-014'
+'variation_type': 'firstRevisit'
+'word_count': 1454
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The cold knows me now. The facility recognizes my footsteps. The neural interface waits like it expected my return.
 I expected to return too. Expected it and dreaded it and needed it in ways that make my chest tight before I even connect.
 Because the archive isn't empty anymore. Not the way I thought.

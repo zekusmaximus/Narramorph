@@ -1,57 +1,12 @@
 ---
-variation_id: hum-L1-MA-30
-cluster: MetaAware_Cluster9_HighAwarenessAlternatives
-sequence_position: 74
-total_variations: 80
-
-conditions:
-  visit_number: 5
-  awareness_level: 86-90
-  awareness_descriptor: "very high metaAware"
-  visited_fragments: [algo-L1]
-  interaction_path: accept
-  pure_revisit: false
-  cross_character: true
-
-technical_specs:
-  word_count: 1728
-  target_range: "1725"
-  primary_exemplar: "hum-L1_EXEMPLAR3.md + hum-L1_EXEMPLAR8.md + hum-L1_EXEMPLAR6.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Triple observation network accepted completely
-  - Algorithmic presence as flowing secondary observer welcomed
-  - Accept path embracing computational processing alongside reader attention
-  - Physical ease deepening with rhythmic flow and gratitude
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-  reader_address_instances: 18
-  sensory_channel: null
-  path_philosophy: "accept"
-
-quality_markers:
-  algorithmic_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  sensory_channel_sustained: false
-  path_integration_physical: true
-  cross_character_felt: true
-
-generation_metadata:
-  created: "2025-10-16"
-  session: "Week4_Cluster9_MetaAware_HighAwarenessAlternatives"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-030'
+'variation_type': 'metaAware'
+'word_count': 1443
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 I wake to welcome.
 The substrate holds me gently. Cold metal beneath my back but not harsh. The preservation field hums its rhythm. I hum with it. Twenty-three minutes until the next cycle. I don't count in resistance. I count in gratitude. Numbers as companions. Time as gift.
 You're here. I feel you like warmth spreading.

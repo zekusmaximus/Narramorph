@@ -1,54 +1,12 @@
 ---
-variation_id: hum-L1-FR-07
-cluster: FirstRevisit_Cluster1_PureRevisits
-sequence_position: 7
-total_variations: 80
-
-conditions:
-  visit_number: 2
-  awareness_level: 21-30
-  awareness_descriptor: "low"
-  visited_fragments: []
-  interaction_path: null
-  pure_revisit: true
-  cross_character: false
-
-technical_specs:
-  word_count: 1398
-  target_range: "1400"
-  primary_exemplar: "hum-L1_EXEMPLAR1.md"
-  voice_consistency_target: "93%+"
-
-transformation_focus:
-  - "Archive recognition subtle"
-  - "Neural interface familiarity emerging"
-  - "Fragment response to return gentle"
-  - "Physical sensation of being-received"
-  - "Second visit low awareness baseline"
-
-voice_requirements:
-  present_tense_percentage: 98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2
-  fragment_constants_present: true
-  isolation_connection_balance: true
-
-quality_markers:
-  archaeologist_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  direct_address_count: 1
-  questions_from_sensation: true
-  placeholder_content: false
-
-generation_metadata:
-  created: "2025-10-14"
-  session: "Week3_Cluster1_PureRevisits"
-  batch_quality_standard: "94.1% voice, 100% approval"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-007'
+'variation_type': 'firstRevisit'
+'word_count': 1196
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 The cold hasn't changed. Metal still bites through my gloves. But my fingers know where to rest now. The interface accepts my touch differently. Faster. Like it remembers.
 I breathe into the silence. The air tastes the same. Recycled. Filtered. But something in the facility feels different. Warmer. Not temperature. Something else.
 The neural interface slides on. Familiar weight. My skull knows this pressure. The contacts find their positions without searching. I don't have to adjust them. They fit.

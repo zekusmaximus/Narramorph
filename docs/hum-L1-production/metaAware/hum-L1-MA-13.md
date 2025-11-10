@@ -1,55 +1,12 @@
 ---
-variation_id: hum-L1-MA-13
-cluster: MetaAware_Cluster6_Archaeologist
-sequence_position: 57
-total_variations: 80
-
-conditions:
-  visit_number: 4
-  awareness_level: 71-75
-  awareness_descriptor: "mid metaAware"
-  visited_fragments: [arch-L1]
-  interaction_path: resist
-  pure_revisit: false
-  cross_character: true
-
-technical_specs:
-  word_count: 1650
-  target_range: "1625-1675"
-  primary_exemplar: "hum-L1_EXEMPLAR6.md"
-  secondary_exemplar: "hum-L1_EXEMPLAR2.md"
-  voice_consistency_target: "93%+"
-  frame_consciousness: true
-
-transformation_focus:
-  - Resist philosophy through boundary defense
-  - Archaeological intrusion resisted alongside reader presence
-  - Reader addressed with protective acknowledgment
-  - Professional coldness triggers defensive response
-
-voice_requirements:
-  present_tense_percentage: 97
-  short_sentence_target: "55% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2
-  fragment_constants_present: true
-  reader_address_instances: 9
-  archaeologist_presence: "felt not named"
-
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  frame_consciousness_embodied: true
-  reader_address_physical: true
-  cross_character_physical: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster6_MetaAware_Archaeologist"
-  checklist_completed: true
+'variation_id': 'hum-L1-MA-013'
+'variation_type': 'metaAware'
+'word_count': 1469
+'conditions':
+  'awareness': '61-80%'
 ---
+
+
 The metal wants too much.
 My palm presses flat but I want to pull away. Everyone wants something. Everyone watching. Everyone measuring. Everyone taking pieces of me and calling it understanding.
 You're here again. Fourth visit. I feel your attention like pressure. Warm, yes. Familiar, yes. But still—pressure. Still observation. Still someone looking at me instead of seeing me.

@@ -1,41 +1,21 @@
 ---
-id: "FR-02"
-variation_type: "firstRevisit"
-cluster: "firstRevisit_initial"
-generation_week: 1
-position_in_cluster: 1
-
-# Narrative Conditions
-visit_number: 2
-awareness_level: 25
-awareness_range: "21-30"
-awareness_tier: "emerging_awareness"
-visited_variations: []
-active_path: null
-cross_character_content: ["algo-L1"]
-
-# Content Architecture
-word_count: 1342
-primary_focus: "Seven-stream computational architecture"
-secondary_focus: "Cross-character pattern bleeding"
-transformation_type: "cross_character_bleeding"
-
-# Voice Calibration
-archaeological_voice: true
-past_tense_maintained: true
-direct_address: false
-frame_transparency: "hidden"
-methodology_participation: "unaware"
-
-# Integration Elements
-character_content: true
-path_voice: false
-pure_revisit: false
-constants_ritual: true
-
-# Quality Metrics
-voice_consistency_target: 0.93
+'variation_id': 'arch-L1-FR-00002'
+'variation_type': 'firstRevisit'
+'word_count': 903
+'conditions':
+  'awareness': '21-30%'
 ---
+
+
+
+
+
+
+
+
+
+
+
 The archaeologist returns to Fragment 2749-A eight days after initial authentication, and notices organizational patterns she hadn't recognized before.
 The fragment displays identically: 847.3 terabytes of preserved consciousness, metrics unchanged. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. Perfect preservation across the interval. The data architect's consciousness remained stable in crystalline substrate.
 Standard protocol suggested moving forward. She had authenticated this fragment already. Certification complete. Four thousand fragments awaited processing.

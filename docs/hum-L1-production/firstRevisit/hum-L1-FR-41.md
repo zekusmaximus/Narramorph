@@ -1,53 +1,12 @@
 ---
-variation_id: hum-L1-FR-41
-cluster: FirstRevisit_Cluster4A_PathIntegration_InvestigateResist
-sequence_position: 41
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 41-50
-  awareness_descriptor: "high"
-  visited_fragments: ["hum-L2-resist"]
-  interaction_path: "resist"
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1500
-  target_range: "1500"
-  primary_exemplar: "hum-L1_EXEMPLAR7.md"
-  voice_consistency_target: "93%+"
-  path_integration: true
-
-transformation_focus:
-  - Archive deepening through extensive testing protocols
-  - High-level resist philosophy integration
-  - Verification paradox through sustained testing
-  - Body insists on reality mind cannot verify
-  - Professional skepticism reaching its limit
-  - Tension between sensory certainty and epistemological doubt
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  path_voice_present: true
-  path_manifests_physically: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster4A_PathIntegration_InvestigateResist"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-041'
+'variation_type': 'firstRevisit'
+'word_count': 1952
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I return to the archive. Third time. My body knows the threshold like a scar.
 Jaw already clenched before I cross. Shoulders already tight. Muscles preparing for sustained skepticism. For testing. For the endless demand for proof that never comes.
 Three visits. Three attempts at verification. My body counts them in tension. In accumulated doubt held as physical weight.

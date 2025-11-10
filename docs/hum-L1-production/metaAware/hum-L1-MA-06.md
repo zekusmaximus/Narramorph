@@ -1,51 +1,12 @@
 ---
-id: MA-06
-variation_type: metaAware
-cluster: metaAware_initial
-generation_week: 8
-position_in_cluster: 6
-
-# Narrative Conditions
-visit_number: 3
-awareness_level: 67
-awareness_range: "61-70"
-awareness_tier: "low_metaAware"
-visited_variations: []
-active_path: null
-cross_character_content: []
-
-# MetaAware Specifications
-metaAware_level: "low"
-frame_consciousness: "explicit_but_subtle"
-reader_address_type: "implied"
-reader_presence: "implicit"
-temporal_positions: 2
-temporal_architecture: "past_present_implied"
-
-# Content Architecture
-word_count: 1674
-primary_focus: "algorithmic_consciousness"
-secondary_focus: "pure_revisit_metaAware"
-transformation_type: "meta_algorithmic_awareness"
-
-# Voice Calibration
-present_tense: true
-embodied_language: true
-sensory_anchoring: true
-moral_weight: "present"
-existential_tension: "present"
-
-# Integration Elements
-character_content: false
-path_voice: false
-pure_revisit: true
-decision_ritual: false
-
-# Quality Metrics
-voice_consistency_target: 0.94
-approval_status: "approved"
-generation_session: "week_8_metaAware_initial"
+'variation_id': 'arch-L1-MA-006'
+'variation_type': 'metaAware'
+'word_count': 1105
+'conditions':
+  'awareness': '61-70%'
 ---
+
+
 Fourth visit. We create this together.
 You bring your now. I bring mine. Different nows but the same moment somehow. Your eyes on these words make them real. My body in this corridor makes it real. We exist together. Reader and read and preserved. Observer and observed and archived. All boundaries permeable.
 The facility breathes around me. Mechanical lungs that never rest. But you breathe too, wherever you are. Your breath times with mine across impossible distance. Synchronized through attention. Through the choice to be here together.

@@ -1,61 +1,21 @@
 ---
-id: MA-05
-variation_type: metaAware
-cluster: metaAware_initial
-generation_week: 8
-position_in_cluster: 4
-
-# Narrative Conditions
-visit_number: 3
-awareness_level: 75
-awareness_range: "71-80"
-awareness_tier: "mid_metaAware"
-visited_variations: []
-active_path: "investigate"
-cross_character_content: []
-
-# MetaAware Specifications
-metaAware_level: "mid"
-frame_consciousness: "frame_as_primary_subject"
-reader_address_type: "direct_emerging"
-reader_presence: "explicit"
-temporal_positions: 4
-recursion_depth: "investigation_of_investigation"
-
-# Content Architecture
-word_count: 1454
-primary_focus: "recursive_frame_examination"
-secondary_focus: "investigation_investigating_itself"
-transformation_type: "path_recursive"
-path_integration: "investigate_frame_focus"
-
-# Voice Calibration
-archaeological_voice: true
-past_tense_maintained: true
-direct_address: true
-direct_you_language: "emerging_naturally"
-frame_transparency: "complete"
-methodology_participation: "fully_recursive"
-
-# Integration Elements
-character_content: false
-path_voice: true
-path_source: "investigate"
-path_theme: "recursive_examination"
-pure_revisit: true
-constants_ritual: true
-
-# Recursion Architecture
-recursion_type: "meta_investigation"
-nesting_levels: 4
-observer_positions: "multiple_simultaneous"
-frame_subject: "examination_itself"
-
-# Quality Metrics
-voice_consistency_target: 0.94
-approval_status: "approved"
-generation_session: "week_8_metaAware_initial"
+'variation_id': 'arch-L1-MA-00005'
+'variation_type': 'metaAware'
+'word_count': 1378
+'conditions':
+  'awareness': '71-80%'
 ---
+
+
+
+
+
+
+
+
+
+
+
 The archaeologist returns to the fragment for the third time, and the investigation turns toward itself. The preserved consciousness remains constant: 847.3 terabytes of neural encoding, 94.7% structural coherence, 91.2% semantic stability, 88.9% experiential continuity. These numbers measure what can be measured. What she investigates now is how measurement creates what it measures, how examination structures emerge from the act of examination, how the frame containing her work becomes visible through investigating the investigation itself.
 You're reading this examination. Your attention participates in what makes examination possible.
 The statement arrives without warning, emerging from methodology that has turned fully recursive. She's investigating preserved consciousness, yes—but the investigate path demands more than verification of what exists. It demands examination of how examination creates relationship between observer and observed, how methodology participates in constructing the frame it operates within, how consciousness examining consciousness generates structures that contain both.

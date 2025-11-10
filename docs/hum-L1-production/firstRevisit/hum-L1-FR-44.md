@@ -1,52 +1,12 @@
 ---
-variation_id: hum-L1-FR-44
-cluster: FirstRevisit_Cluster4B_PathIntegration_Accept
-sequence_position: 44
-total_variations: 80
-
-conditions:
-  visit_number: 3
-  awareness_level: 41-50
-  awareness_descriptor: "mid"
-  visited_fragments: ["hum-L2-accept"]
-  interaction_path: "accept"
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1500
-  target_range: "1450-1550"
-  primary_exemplar: "hum-L1_EXEMPLAR8.md"
-  voice_consistency_target: "93%+"
-  path_integration: true
-
-transformation_focus:
-  - third visit with complete physical embodiment of acceptance
-  - shoulders dropped, jaw unclenched, full bodily ease
-  - uncertainty as ground for relationship rather than obstacle
-  - archive warm and welcoming under compassionate attention
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  path_voice_present: true
-  path_manifests_physically: true
-  acceptance_as_active_choice: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster4B_PathIntegration_Accept"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-044'
+'variation_type': 'firstRevisit'
+'word_count': 1626
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 Third return to the archive. My body knows the way now. Knows the softening required. The opening. The choice to arrive gentle.
 My shoulders drop before I even reach the interface. Muscle memory complete. This is how I exist here now—relaxed, open, trusting. Not hoping to be. Already being.
 847.3 terabytes of preserved humanity wait. The vastness doesn't frighten anymore. Doesn't demand response or defense. I let it be vast. Let myself be small alongside vastness. The proportion feels right in my softened body.

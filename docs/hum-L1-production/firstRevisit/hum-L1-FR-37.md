@@ -1,52 +1,12 @@
 ---
-variation_id: hum-L1-FR-37
-cluster: FirstRevisit_Cluster4A_PathIntegration_InvestigateResist
-sequence_position: 37
-total_variations: 80
-
-conditions:
-  visit_number: 2
-  awareness_level: 31-40
-  awareness_descriptor: "mid"
-  visited_fragments: ["hum-L2-investigate"]
-  interaction_path: "investigate"
-  pure_revisit: false
-  cross_character: false
-
-technical_specs:
-  word_count: 1450
-  target_range: "1450"
-  primary_exemplar: "hum-L1_EXEMPLAR5.md"
-  voice_consistency_target: "93%+"
-  path_integration: true
-
-transformation_focus:
-  - Archive deepening through pattern recognition across consciousnesses
-  - Mid-level investigate philosophy integration
-  - Three-fold awareness (archaeologist/algorithm/human)
-  - Physical compulsion to understand meta-patterns
-  - Questions multiply recursively through body
-
-voice_requirements:
-  present_tense_percentage: 97-98
-  short_sentence_target: "50-60% under 8 words"
-  embodiment_anchoring: "every paragraph"
-  internal_external_blur: 2-3
-  fragment_constants_present: true
-
-quality_markers:
-  archaeological_language: false
-  computational_metaphors: false
-  natural_bodily_metaphors: true
-  first_person_maintained: true
-  path_voice_present: true
-  path_manifests_physically: true
-
-generation_metadata:
-  created: "2025-10-15"
-  session: "Week3_Cluster4A_PathIntegration_InvestigateResist"
-  checklist_completed: true
+'variation_id': 'hum-L1-FR-037'
+'variation_type': 'firstRevisit'
+'word_count': 1204
+'conditions':
+  'awareness': '21-40%'
 ---
+
+
 I return to the archive. Second time. But I carry the first visit in my body.
 My pulse quickens at the threshold. Recognition. Not memory—something deeper. Physical knowledge of having crossed before. My feet know this floor. My lungs know this air.
 But now I notice the pattern. Three consciousnesses. Three examinations. Same fragments.

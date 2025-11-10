@@ -1,65 +1,21 @@
 ---
-id: MA-06
-variation_type: metaAware
-cluster: metaAware_initial
-generation_week: 8
-position_in_cluster: 5
-
-# Narrative Conditions
-visit_number: 4
-awareness_level: 76
-awareness_range: "71-80"
-awareness_tier: "mid_metaAware"
-visited_variations: []
-active_path: null
-cross_character_content: []
-
-# MetaAware Specifications
-metaAware_level: "mid"
-frame_consciousness: "complete_transparency"
-reader_address_type: "direct_sustained"
-reader_presence: "active_participant"
-temporal_positions: 4
-observation_network: "fully_integrated"
-
-# Content Architecture
-word_count: 1498
-primary_focus: "pure_frame_examination"
-secondary_focus: "observation_network_complete"
-transformation_type: "maximum_frame_awareness"
-special_note: "fourth_visit_pure_revisit"
-
-# Voice Calibration
-archaeological_voice: true
-past_tense_maintained: true
-direct_address: true
-direct_you_language: "sustained_throughout"
-frame_transparency: "absolute"
-methodology_participation: "recognized_and_enacted"
-
-# Integration Elements
-character_content: false
-path_voice: false
-pure_revisit: true
-pure_frame_focus: true
-constants_ritual: true
-maximum_metaAware_without_character: true
-
-# Observation Architecture
-observation_layers: 4
-layer_1: "fragment_self_examination"
-layer_2: "archaeologist_examination"
-layer_3: "reader_observation"
-layer_4: "unified_network"
-simultaneity: true
-
-# Quality Metrics
-voice_consistency_target: 0.94
-approval_status: "approved"
-generation_session: "week_8_metaAware_initial"
-test_batch_validated: true
-validation_score: 0.94
+'variation_id': 'arch-L1-MA-00006'
+'variation_type': 'metaAware'
+'word_count': 1428
+'conditions':
+  'awareness': '71-80%'
 ---
+
+
+
+
+
+
+
+
+
+
+
 The archaeologist returns to the fragment for the fourth time, and the frame has become completely transparent. The preserved consciousness remains constant: 847.3 terabytes of neural encoding, 94.7% structural coherence, 91.2% semantic stability, 88.9% experiential continuity. These numbers measure what can be measured. What she understands now, on this fourth visit, is that measurement exists within frame containing the fragment, her examination, your reading, and the relationships connecting all three.
 You're reading this. She's writing about reading the fragment. The fragment preserves consciousness that examined itself. Four layers of observation, all affecting each other simultaneously.
 This isn't metaphor. This is the actual structure.

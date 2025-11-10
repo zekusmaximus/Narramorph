@@ -17,6 +17,7 @@ import {
   hashContent,
   writeManifest,
   ensureDir,
+  processBatchConcurrent,
   createBackup,
   type Manifest
 } from './lib/fs.js';
@@ -304,7 +305,7 @@ async function convertL1(
   logger: Logger,
   options: ValidationOptions,
   dryRun?: boolean,
-  _parallel?: number // Reserved for future concurrent file processing
+  parallel?: number
 ): Promise<void> {
   logger.info('L1_START', 'Converting Layer 1...');
 
@@ -314,93 +315,124 @@ async function convertL1(
     const nodeId = `${char}-L1`;
     const sourceDir = join(docsRoot, `${char}-L1-production`);
 
-    // Discover all markdown files
-    const files = await discoverMarkdownFiles(sourceDir, /\.md$/, logger);
+    // Discover all markdown files (sorted for determinism)
+    let files = (await discoverMarkdownFiles(sourceDir, /\.md$/, logger)).sort();
+    // Only process canonical variation files from firstRevisit/metaAware directories to avoid docs/templates
+    const prefix = `${char}-L1`;
+    const frPattern = new RegExp(`${prefix}-FR-\\d{2,3}\\.md$`);
+    const maPattern = new RegExp(`${prefix}-MA-\\d{2,3}\\.md$`);
+    files = files.filter((f) => (frPattern.test(f) && /[\\\/]firstRevisit[\\\/]/.test(f)) || (maPattern.test(f) && /[\\\/]metaAware[\\\/]/.test(f)));
     logger.info('L1_DISCOVERED', `Found ${files.length} files for ${nodeId}`);
 
     const variations: L1L2Variation[] = [];
     const variationTexts: VariationText[] = [];
     const ids: string[] = [];
 
-    // Process each file
-    for (const file of files) {
-      const content = await readFileWithLogging(file, logger);
-      if (!content) continue;
+    type L1ProcessResult = {
+      variation: L1L2Variation | null;
+      variationText: VariationText | null;
+      manifestEntry?: { file: string; sourceHash: string };
+    };
 
-      // Normalize
-      const { text: normalized } = normalizeText(content, logger, file);
+    const results = await processBatchConcurrent<string, L1ProcessResult>(
+      files,
+      async (file) => {
+        const content = await readFileWithLogging(file, logger);
+        if (!content) return { variation: null, variationText: null };
 
-      // Parse frontmatter
-      const parsed = parseFrontmatter(normalized, logger, file);
-      if (!parsed) continue;
+        const { text: normalized } = normalizeText(content, logger, file);
+        const parsed = parseFrontmatter(normalized, logger, file);
+        if (!parsed) return { variation: null, variationText: null };
 
-      const { frontmatter, content: body } = parsed;
+        const { frontmatter, content: body } = parsed;
 
-      // Validate frontmatter
-      if (!validateL1L2Frontmatter(frontmatter, 1, logger, file)) continue;
-
-      // Extract fields
-      const variationId = frontmatter.variation_id as string;
-      const variationType = frontmatter.variation_type as string;
-      const wordCount = frontmatter.word_count as number;
-
-      // Map variation_type to transformationState
-      let transformationState: string;
-      if (variationType === 'initial') {
-        transformationState = 'initial';
-      } else if (variationType === 'firstRevisit') {
-        transformationState = 'firstRevisit';
-      } else if (variationType === 'metaAware') {
-        transformationState = 'metaAware';
-      } else {
-        transformationState = variationType;
-      }
-
-      // Parse awareness range from conditions if present
-      let awarenessRange: [number, number] | undefined;
-      if ('conditions' in frontmatter && frontmatter.conditions) {
-        const conditions = frontmatter.conditions as Record<string, unknown>;
-        if ('awareness' in conditions && typeof conditions.awareness === 'string') {
-          const match = conditions.awareness.match(/(\d+)-(\d+)%/);
-          if (match && match[1] && match[2]) {
-            awarenessRange = [parseInt(match[1], 10), parseInt(match[2], 10)];
+        // Normalize missing variation_id from legacy 'id' and filename context
+        if (!('variation_id' in frontmatter)) {
+          const base = frontmatter.id as string | undefined;
+          let num: string | undefined;
+          if (base) {
+            const m = base.match(/^(FR|MA)[-_]?(\d{1,3})$/i);
+            if (m && m[2]) num = m[2];
+          }
+          // Fallback to filename extraction
+          if (!num) {
+            const fname = file.split(/[/\\]/).pop() || '';
+            const m2 = fname.match(/-(FR|MA)-(\d{1,3})\.md$/i);
+            if (m2 && m2[2]) num = m2[2];
+          }
+          const dirIsFR = /firstRevisit/.test(file);
+          const phase = dirIsFR ? 'FR' : 'MA';
+          if (num) {
+            const padded = num.padStart(3, '0');
+            (frontmatter as any).variation_id = `arch-L1-${phase}-${padded}`;
           }
         }
+
+        // Normalize awareness into conditions.awareness if present as awareness_range
+        if (!('conditions' in frontmatter) && 'awareness_range' in frontmatter) {
+          const ar = (frontmatter as any).awareness_range as string;
+          (frontmatter as any).conditions = { awareness: ar.endsWith('%') ? ar : `${ar}%` };
+        }
+
+        if (!validateL1L2Frontmatter(frontmatter, 1, logger, file)) {
+          return { variation: null, variationText: null };
+        }
+
+        const variationId = frontmatter.variation_id as string;
+        const variationType = frontmatter.variation_type as string;
+        const wordCount = frontmatter.word_count as number;
+
+        let transformationState: string = variationType;
+        if (variationType === 'initial') transformationState = 'initial';
+        else if (variationType === 'firstRevisit') transformationState = 'firstRevisit';
+        else if (variationType === 'metaAware') transformationState = 'metaAware';
+
+        let awarenessRange: [number, number] | undefined;
+        if ('conditions' in frontmatter && frontmatter.conditions) {
+          const conditions = frontmatter.conditions as Record<string, unknown>;
+          if ('awareness' in conditions && typeof conditions.awareness === 'string') {
+            const match = conditions.awareness.match(/(\d+)-(\d+)%/);
+            if (match && match[1] && match[2]) {
+              awarenessRange = [parseInt(match[1], 10), parseInt(match[2], 10)];
+            }
+          }
+        }
+
+        const actualWordCount = countWords(body);
+        validateWordCount(actualWordCount, wordCount, 10, 1, logger, file);
+
+        const variation: L1L2Variation = {
+          id: variationId,
+          transformationState,
+          awarenessRange,
+          content: body,
+          metadata: { wordCount: actualWordCount, ...frontmatter },
+        };
+
+        const variationText: VariationText = {
+          id: variationId,
+          content: body,
+          groupKey: `${nodeId}-${transformationState}`,
+        };
+
+        const sourceHash = hashContent(parsed.raw, body);
+        return { variation, variationText, manifestEntry: { file, sourceHash } };
+      },
+      parallel ?? 4
+    );
+
+    for (const r of results) {
+      if (!r.variation || !r.variationText) continue;
+      variations.push(r.variation);
+      ids.push(r.variation.id);
+      variationTexts.push(r.variationText);
+      if (r.manifestEntry) {
+        manifest.files[r.manifestEntry.file] = {
+          sourceHash: r.manifestEntry.sourceHash,
+          outputPath: `layer1/${nodeId}-variations.json`,
+          convertedAt: new Date().toISOString(),
+        };
       }
-
-      // Validate word count
-      const actualWordCount = countWords(body);
-      validateWordCount(actualWordCount, wordCount, 10, 1, logger, file);
-
-      // Create variation object
-      const variation: L1L2Variation = {
-        id: variationId,
-        transformationState,
-        awarenessRange,
-        content: body,
-        metadata: {
-          wordCount: actualWordCount,
-          ...frontmatter,
-        },
-      };
-
-      variations.push(variation);
-      ids.push(variationId);
-
-      // For similarity detection
-      variationTexts.push({
-        id: variationId,
-        content: body,
-        groupKey: `${nodeId}-${transformationState}`,
-      });
-
-      // Track in manifest
-      const sourceHash = hashContent(parsed.raw, body);
-      manifest.files[file] = {
-        sourceHash,
-        outputPath: `layer1/${nodeId}-variations.json`,
-        convertedAt: new Date().toISOString(),
-      };
     }
 
     // Sort variations by ID for deterministic output
@@ -459,7 +491,7 @@ async function convertL2(
   logger: Logger,
   options: ValidationOptions,
   dryRun?: boolean,
-  _parallel?: number // Reserved for future concurrent file processing
+  parallel?: number
 ): Promise<void> {
   logger.info('L2_START', 'Converting Layer 2...');
 
@@ -471,94 +503,90 @@ async function convertL2(
       const nodeId = `${char}-L2-${path}`;
       const sourceDir = join(docsRoot, `${char}-L2-${path}-production`);
 
-      // Discover all markdown files
-      const files = await discoverMarkdownFiles(sourceDir, /\.md$/, logger);
+      // Discover all markdown files (sorted for determinism)
+      const files = (await discoverMarkdownFiles(sourceDir, /\.md$/, logger)).sort();
       logger.info('L2_DISCOVERED', `Found ${files.length} files for ${nodeId}`);
 
       const variations: L1L2Variation[] = [];
       const variationTexts: VariationText[] = [];
       const ids: string[] = [];
 
-      // Process each file
-      for (const file of files) {
-        const content = await readFileWithLogging(file, logger);
-        if (!content) continue;
+      type L2ProcessResult = {
+        variation: L1L2Variation | null;
+        variationText: VariationText | null;
+        manifestEntry?: { file: string; sourceHash: string };
+      };
 
-        // Normalize
-        const { text: normalized } = normalizeText(content, logger, file);
+      const results = await processBatchConcurrent<string, L2ProcessResult>(
+        files,
+        async (file) => {
+          const content = await readFileWithLogging(file, logger);
+          if (!content) return { variation: null, variationText: null };
 
-        // Parse frontmatter
-        const parsed = parseFrontmatter(normalized, logger, file);
-        if (!parsed) continue;
+          const { text: normalized } = normalizeText(content, logger, file);
+          const parsed = parseFrontmatter(normalized, logger, file);
+          if (!parsed) return { variation: null, variationText: null };
 
-        const { frontmatter, content: body } = parsed;
+          const { frontmatter, content: body } = parsed;
+          if (!validateL1L2Frontmatter(frontmatter, 2, logger, file)) {
+            return { variation: null, variationText: null };
+          }
 
-        // Validate frontmatter
-        if (!validateL1L2Frontmatter(frontmatter, 2, logger, file)) continue;
+          const variationId = frontmatter.variation_id as string;
+          const variationType = frontmatter.variation_type as string;
+          const wordCount = frontmatter.word_count as number;
 
-        // Extract fields
-        const variationId = frontmatter.variation_id as string;
-        const variationType = frontmatter.variation_type as string;
-        const wordCount = frontmatter.word_count as number;
+          let transformationState: string = variationType;
+          if (variationType === 'initial') transformationState = 'initial';
+          else if (variationType === 'firstRevisit') transformationState = 'firstRevisit';
+          else if (variationType === 'metaAware') transformationState = 'metaAware';
 
-        // Map variation_type to transformationState
-        let transformationState: string;
-        if (variationType === 'initial') {
-          transformationState = 'initial';
-        } else if (variationType === 'firstRevisit') {
-          transformationState = 'firstRevisit';
-        } else if (variationType === 'metaAware') {
-          transformationState = 'metaAware';
-        } else {
-          transformationState = variationType;
-        }
-
-        // Parse awareness range from conditions if present
-        let awarenessRange: [number, number] | undefined;
-        if ('conditions' in frontmatter && frontmatter.conditions) {
-          const conditions = frontmatter.conditions as Record<string, unknown>;
-          if ('awareness' in conditions && typeof conditions.awareness === 'string') {
-            const match = conditions.awareness.match(/(\d+)-(\d+)%/);
-            if (match && match[1] && match[2]) {
-              awarenessRange = [parseInt(match[1], 10), parseInt(match[2], 10)];
+          let awarenessRange: [number, number] | undefined;
+          if ('conditions' in frontmatter && frontmatter.conditions) {
+            const conditions = frontmatter.conditions as Record<string, unknown>;
+            if ('awareness' in conditions && typeof conditions.awareness === 'string') {
+              const match = conditions.awareness.match(/(\d+)-(\d+)%/);
+              if (match && match[1] && match[2]) {
+                awarenessRange = [parseInt(match[1], 10), parseInt(match[2], 10)];
+              }
             }
           }
+
+          const actualWordCount = countWords(body);
+          validateWordCount(actualWordCount, wordCount, 10, 2, logger, file);
+
+          const variation: L1L2Variation = {
+            id: variationId,
+            transformationState,
+            awarenessRange,
+            content: body,
+            metadata: { wordCount: actualWordCount, pathPhilosophy: path, ...frontmatter },
+          };
+
+          const variationText: VariationText = {
+            id: variationId,
+            content: body,
+            groupKey: `${nodeId}-${transformationState}`,
+          };
+
+          const sourceHash = hashContent(parsed.raw, body);
+          return { variation, variationText, manifestEntry: { file, sourceHash } };
+        },
+        parallel ?? 4
+      );
+
+      for (const r of results) {
+        if (!r.variation || !r.variationText) continue;
+        variations.push(r.variation);
+        ids.push(r.variation.id);
+        variationTexts.push(r.variationText);
+        if (r.manifestEntry) {
+          manifest.files[r.manifestEntry.file] = {
+            sourceHash: r.manifestEntry.sourceHash,
+            outputPath: `layer2/${nodeId}-variations.json`,
+            convertedAt: new Date().toISOString(),
+          };
         }
-
-        // Validate word count
-        const actualWordCount = countWords(body);
-        validateWordCount(actualWordCount, wordCount, 10, 2, logger, file);
-
-        // Create variation object
-        const variation: L1L2Variation = {
-          id: variationId,
-          transformationState,
-          awarenessRange,
-          content: body,
-          metadata: {
-            wordCount: actualWordCount,
-            pathPhilosophy: path,
-            ...frontmatter,
-          },
-        };
-
-        variations.push(variation);
-        ids.push(variationId);
-
-        // For similarity detection
-        variationTexts.push({
-          id: variationId,
-          content: body,
-          groupKey: `${nodeId}-${transformationState}`,
-        });
-
-        // Track in manifest
-        const sourceHash = hashContent(parsed.raw, body);
-        manifest.files[file] = {
-          sourceHash,
-          outputPath: `layer2/${nodeId}-variations.json`,
-          convertedAt: new Date().toISOString(),
-        };
       }
 
       // Sort variations by ID for deterministic output
@@ -619,7 +647,7 @@ async function convertL3(
   logger: Logger,
   options: ValidationOptions,
   dryRun?: boolean,
-  _parallel?: number // Reserved for future concurrent file processing
+  parallel?: number
 ): Promise<void> {
   logger.info('L3_START', 'Converting Layer 3...');
 
@@ -636,102 +664,101 @@ async function convertL3(
   for (const section of sectionTypes) {
     const sourceDir = join(docsRoot, 'L3', section.dir);
 
-    // Discover all markdown files
-    const files = await discoverMarkdownFiles(sourceDir, /\.md$/, logger);
+    // Discover all markdown files (sorted for determinism)
+    const files = (await discoverMarkdownFiles(sourceDir, /\.md$/, logger)).sort();
     logger.info('L3_DISCOVERED', `Found ${files.length} files for ${section.prefix}`);
+    type L3ProcessResult = {
+      id?: string;
+      selectionKey?: string;
+      outputJson?: string;
+      body?: string;
+      file?: string;
+      sourceHash?: string;
+      sectionType?: string;
+    };
 
-    for (const file of files) {
-      const content = await readFileWithLogging(file, logger);
-      if (!content) continue;
+    const results = await processBatchConcurrent<string, L3ProcessResult>(
+      files,
+      async (file) => {
+        const content = await readFileWithLogging(file, logger);
+        if (!content) return {};
+        const { text: normalized } = normalizeText(content, logger, file);
+        const parsed = parseFrontmatter(normalized, logger, file);
+        if (!parsed) return {};
 
-      // Normalize
-      const { text: normalized } = normalizeText(content, logger, file);
+        const { frontmatter, content: body } = parsed;
+        if (!validateL3Frontmatter(frontmatter, logger, file)) return {};
 
-      // Parse frontmatter
-      const parsed = parseFrontmatter(normalized, logger, file);
-      if (!parsed) continue;
+        const rawVariationId = frontmatter.variationId as string;
+        const journeyPattern = frontmatter.journeyPattern as string;
+        const philosophyDominant = frontmatter.philosophyDominant as string;
+        const awarenessLevel = frontmatter.awarenessLevel as string;
+        const wordCount = frontmatter.wordCount as number;
 
-      const { frontmatter, content: body } = parsed;
+        const parsed_id = parseVariationId(rawVariationId, 3);
+        if (!parsed_id || !('sectionType' in parsed_id)) {
+          logger.error('INVALID_VARIATION_ID', `Cannot parse variationId: ${rawVariationId}`, {
+            file,
+            field: 'variationId',
+            value: rawVariationId,
+          });
+          return {};
+        }
 
-      // Validate frontmatter
-      if (!validateL3Frontmatter(frontmatter, logger, file)) continue;
+        const sectionType = parsed_id.sectionType;
+        const number = parsed_id.number;
+        const variationId = generateL3Id(sectionType, number);
 
-      // Extract fields
-      const rawVariationId = frontmatter.variationId as string;
-      const journeyPattern = frontmatter.journeyPattern as string;
-      const philosophyDominant = frontmatter.philosophyDominant as string;
-      const awarenessLevel = frontmatter.awarenessLevel as string;
-      const wordCount = frontmatter.wordCount as number;
+        const actualWordCount = countWords(body);
+        validateWordCount(actualWordCount, wordCount, variationId, logger, options);
 
-      // Parse and normalize variationId (ensure zero-padding)
-      const parsed_id = parseVariationId(rawVariationId, 3);
-      if (!parsed_id || !('sectionType' in parsed_id)) {
-        logger.error('INVALID_VARIATION_ID', `Cannot parse variationId: ${rawVariationId}`, {
-          file,
-          field: 'variationId',
-          value: rawVariationId,
-        });
-        continue;
-      }
+        const selectionKey = `${journeyPattern}-${philosophyDominant}-${awarenessLevel}`;
+        const output: L3Output = {
+          schemaVersion: SCHEMA_VERSION,
+          id: variationId,
+          sectionType,
+          journeyPattern,
+          philosophyDominant,
+          awarenessLevel,
+          content: body,
+          metadata: { wordCount: actualWordCount, ...frontmatter },
+        };
 
-      // Generate properly zero-padded ID
-      const sectionType = parsed_id.sectionType;
-      const number = parsed_id.number;
-      const variationId = generateL3Id(sectionType, number);
+        validateSchemaVersion(output as unknown as Record<string, unknown>, logger, variationId);
 
-      // Track all IDs
+        const json = JSON.stringify(output, null, 2);
+        const sourceHash = hashContent(parsed.raw, body);
+        return { id: variationId, selectionKey, outputJson: json, body, file, sourceHash, sectionType };
+      },
+      parallel ?? 4
+    );
+
+    for (const r of results) {
+      if (!r.id || !r.outputJson || !r.file || !r.selectionKey || !r.sectionType || !r.sourceHash) continue;
+      const variationId = r.id;
+      const selectionKey = r.selectionKey;
       allIds.push(variationId);
-
-      // Validate word count
-      const actualWordCount = countWords(body);
-      validateWordCount(actualWordCount, wordCount, variationId, logger, options);
-
-      // Group by selection key for similarity detection
-      const selectionKey = `${journeyPattern}-${philosophyDominant}-${awarenessLevel}`;
       if (!variationsBySelectionKey.has(selectionKey)) {
         variationsBySelectionKey.set(selectionKey, []);
       }
       variationsBySelectionKey.get(selectionKey)!.push({
         id: variationId,
-        content: body,
-        groupKey: `${sectionType}-${selectionKey}`,
+        content: r.body ?? r.outputJson,
+        groupKey: `${r.sectionType}-${selectionKey}`,
       });
 
-      // Create output
-      const output: L3Output = {
-        schemaVersion: SCHEMA_VERSION,
-        id: variationId,
-        sectionType,
-        journeyPattern,
-        philosophyDominant,
-        awarenessLevel,
-        content: body,
-        metadata: {
-          wordCount: actualWordCount,
-          ...frontmatter,
-        },
-      };
-
-      // Validate schema version
-      validateSchemaVersion(output as unknown as Record<string, unknown>, logger, variationId);
-
-      // Write output
       if (!dryRun) {
         const outputDir = join(outputRoot, 'layer3', 'variations');
         await ensureDir(outputDir);
         const outputPath = join(outputDir, `${variationId}.json`);
-        const json = JSON.stringify(output, null, 2);
-        await writeFileAtomic(outputPath, json, logger);
+        await writeFileAtomic(outputPath, r.outputJson, logger);
       }
 
-      // Track in manifest
-      const sourceHash = hashContent(parsed.raw, body);
-      manifest.files[file] = {
-        sourceHash,
+      manifest.files[r.file] = {
+        sourceHash: r.sourceHash,
         outputPath: `layer3/variations/${variationId}.json`,
         convertedAt: new Date().toISOString(),
       };
-
       manifest.counts.l3Variations++;
     }
   }
