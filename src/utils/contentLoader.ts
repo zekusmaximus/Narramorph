@@ -91,11 +91,24 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
       .filter(([p]) => p.includes(`/stories/${storyId}/`) && !p.endsWith('/story.json') && !p.includes('/content/'))
       .map(([, data]) => data);
 
+    console.log('Loaded character files:', Object.keys(charMap).filter(p => p.includes(`/stories/${storyId}/`) && !p.endsWith('/story.json') && !p.includes('/content/')));
+
     const allNodes: StoryNode[] = [];
     const allConnections: Connection[] = [];
 
     for (const charData of charFiles) {
       const isDef = (d: any): d is CharacterNodeDefinitionFile => Array.isArray((d as any).nodes) && (d as any).nodes.length > 0 && 'contentFile' in (d as any).nodes[0];
+
+      // Debug logging
+      console.log('Processing character file:', {
+        hasNodes: !!(charData as any).nodes,
+        nodesIsArray: Array.isArray((charData as any).nodes),
+        nodesLength: Array.isArray((charData as any).nodes) ? (charData as any).nodes.length : 0,
+        hasContentFile: Array.isArray((charData as any).nodes) && (charData as any).nodes.length > 0 ? 'contentFile' in (charData as any).nodes[0] : false,
+        character: (charData as any).character,
+        isDef: isDef(charData)
+      });
+
       if (isDef(charData)) {
         const characterRaw = charData.character as string;
         for (const def of charData.nodes) {
@@ -152,6 +165,13 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
       } else {
         // Inline format — normalize and accept as-is
         const cf = charData as CharacterNodeFile;
+
+        // Safety check: ensure nodes is actually an array
+        if (!cf.nodes || !Array.isArray(cf.nodes)) {
+          console.warn('Skipping character file with invalid nodes array:', cf);
+          continue;
+        }
+
         for (const n of cf.nodes) {
           const node: StoryNode = {
             ...n,
