@@ -4,9 +4,58 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import ReactMarkdown from 'react-markdown';
 import type { L3Assembly } from '@/types';
 import { getL3AssemblySections } from '@/utils/l3Assembly';
+
+/**
+ * Simple markdown parser for story content
+ * Supports bold, italic, and paragraph formatting
+ */
+function parseMarkdown(content: string): React.ReactNode {
+  // Split into paragraphs
+  const paragraphs = content.split('\n\n').filter(p => p.trim());
+
+  return paragraphs.map((paragraph, pIndex) => {
+    const currentText = paragraph;
+    let key = 0;
+
+    // Process text with bold and italic formatting
+    const processedParts: React.ReactNode[] = [];
+
+    // Regex patterns for markdown formatting
+    const boldPattern = /(\*\*|__)(.*?)\1/g;
+    const italicPattern = /(\*|_)(.*?)\1/g;
+
+    // First pass: handle bold text
+    let match;
+    let lastIndex = 0;
+
+    while ((match = boldPattern.exec(currentText)) !== null) {
+      // Add text before the match
+      if (match.index && match.index > lastIndex) {
+        processedParts.push(currentText.slice(lastIndex, match.index));
+      }
+
+      // Add bold text
+      processedParts.push(
+        <strong key={`bold-${key++}`}>{match[2]}</strong>
+      );
+
+      lastIndex = (match.index || 0) + match[0].length;
+    }
+
+    // Add remaining text
+    if (lastIndex < currentText.length) {
+      processedParts.push(currentText.slice(lastIndex));
+    }
+
+    return (
+      <p key={`p-${pIndex}`} className="mb-4 leading-relaxed">
+        {processedParts.length > 0 ? processedParts : currentText}
+      </p>
+    );
+  });
+}
 
 interface L3AssemblyViewProps {
   assembly: L3Assembly;
@@ -137,8 +186,8 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
               <div className="text-xs text-gray-400 font-mono mb-6">
                 {currentSection.wordCount} words
               </div>
-              <div className="prose prose-invert prose-cyan max-w-none">
-                <ReactMarkdown>{currentSection.content}</ReactMarkdown>
+              <div className="prose prose-invert prose-cyan max-w-none text-gray-200">
+                {parseMarkdown(currentSection.content)}
               </div>
             </motion.div>
           </AnimatePresence>
