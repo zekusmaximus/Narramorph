@@ -846,17 +846,6 @@ export async function generateMatrix(options: MatrixGeneratorOptions): Promise<v
 
   // Print report
   printCoverageReport(coverage);
-  // Emit coverage report early
-  {
-    const reportPath = options.reportPath || resolve(process.cwd(), 'reports/matrix-coverage-report.json');
-    try {
-      await fs.mkdir(dirname(reportPath), { recursive: true });
-      await fs.writeFile(reportPath, JSON.stringify(coverage, null, 2), 'utf-8');
-      console.log(`Coverage report written to: ${reportPath}`);
-    } catch (err) {
-      console.error(`Failed to write coverage report: ${err instanceof Error ? err.message : String(err)}`);
-    }
-  }
 
   // Check for errors in strict mode
   if (options.strictMode && coverage.errors.length > 0) {
