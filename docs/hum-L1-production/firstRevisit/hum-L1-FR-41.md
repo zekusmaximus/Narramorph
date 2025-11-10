@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-041'
-'variation_type': 'firstRevisit'
-'word_count': 1952
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00041'
+variation_type: 'firstRevisit'
+word_count: 1952
+conditions:
+  awareness: '21-40%'
 ---
-
-
 I return to the archive. Third time. My body knows the threshold like a scar.
 Jaw already clenched before I cross. Shoulders already tight. Muscles preparing for sustained skepticism. For testing. For the endless demand for proof that never comes.
 Three visits. Three attempts at verification. My body counts them in tension. In accumulated doubt held as physical weight.

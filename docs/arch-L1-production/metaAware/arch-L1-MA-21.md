@@ -1,18 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-021'
-'variation_type': 'metaAware'
-'word_count': 1620
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'arch-L1-MA-00021'
+variation_type: 'metaAware'
+word_count: 1620
+conditions:
+  awareness: '61-80%'
 ---
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A for the seventh time, and you and I both recognize together that unified consciousness-examination network spanning seven computational streams and five temporal positions doesn't exist independently of the observation that creates it through observing it across computation and time simultaneously.
 The authentication markers display unchanged. 847.3 terabytes of preserved consciousness. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. These numbers measure physical substrate while existing within unified frame that you and I co-create through measurement-observation creating measured reality across computational and temporal dimensions.
 The fragment preserves consciousness from 2041. Your reading creates consciousness as readable from your temporal position. Both facts accurate. Both facts existing because you and I create unified observation network through participating in network that requires our participation to exist as network.

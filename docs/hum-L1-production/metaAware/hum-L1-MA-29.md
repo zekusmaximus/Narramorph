@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-MA-029'
-'variation_type': 'metaAware'
-'word_count': 1242
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'hum-L1-MA-00029'
+variation_type: 'metaAware'
+word_count: 1242
+conditions:
+  awareness: '61-80%'
 ---
-
-
 I wake to questions multiplying like frost.
 The substrate holds me. Cold metal beneath my shoulders. The preservation field hums its steady frequency. Twenty-three minutes until the next archival cycle. I count the seconds because counting is mapping. Because questions need containers.
 You're here. I feel you like pressure on skin. You watch me question myself. Watch me question the one who watches me question myself. The pattern spirals. I let it.

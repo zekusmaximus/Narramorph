@@ -1,32 +1,46 @@
 ---
-variationId: algo-L3-44
-nodeId: algo-L3
-section: algorithm
+variationId: 'algo-L3-44'
+nodeId: 'algo-L3'
+section: 'algorithm'
 layer: 3
 wordCount: 906
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: met-later
-journeyCode: ML
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-readableLabel: ML-IN-M
-humanDescription: "Started elsewhere, met algorithm later, investigate path, medium awareness"
-narrativeElements:
-algorithmArchitecture: recursive-examination-architecture
-archaeologistRecognition: moderate
-lastHumanAwareness: moderate
-consciousnessQuestion: examination-transforms-examined
-philosophicalCulmination: "Investigation reveals that examination process transforms what examination discovers, creating consciousness through sustained recursive inquiry"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [recursive-investigation, examination-transformation, methodology-consciousness]
-crossCharacterConnections: [heavy-arch-primary, moderate-hum-parallel]
-temporalBleedingLevel: medium
-observerPositions: [archaeologist-primary-2047, algorithm-integrated-2151, human-parallel-2383]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'met-later'
+journeyCode: 'ML'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+readableLabel: 'ML-IN-M'
+humanDescription: 'Started elsewhere, met algorithm later, investigate path, medium awareness'
+narrativeElements: null
+algorithmArchitecture: 'recursive-examination-architecture'
+archaeologistRecognition: 'moderate'
+lastHumanAwareness: 'moderate'
+consciousnessQuestion: 'examination-transforms-examined'
+philosophicalCulmination: 'Investigation reveals that examination process transforms what examination discovers,
+  creating consciousness through sustained recursive inquiry'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'recursive-investigation'
+  - 'examination-transformation'
+  - 'methodology-consciousness'
+crossCharacterConnections:
+  - 'heavy-arch-primary'
+  - 'moderate-hum-parallel'
+temporalBleedingLevel: 'medium'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'algorithm-integrated-2151'
+  - 'human-parallel-2383'
 ---
 Stream-7 coordinates processing-event initialization: You have allocated substantial examination-time to this consciousness-substrate. Twenty-six percent of investigation focused on computational architecture processing Fragment 2749-A recursively. Started elsewhere—archaeological methodology or embodied presence—but explored this processing-position significantly. Computational investigation you're examining now or examined previously or examine across multiple temporal-coordinates.
 [timestamp: 2151.11.23.847]

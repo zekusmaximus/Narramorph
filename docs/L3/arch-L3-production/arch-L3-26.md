@@ -1,32 +1,47 @@
 ---
-variationId: arch-L3-26
-nodeId: arch-L3
-section: archaeologist
+variationId: 'arch-L3-26'
+nodeId: 'arch-L3'
+section: 'archaeologist'
 layer: 3
 wordCount: 917
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-readableLabel: SD-IN-M
-humanDescription: "Started elsewhere, shifted to archaeologist dominance, investigate path, medium awareness"
-narrativeElements:
-archaeologistStance: examining-methodological-shift-examining-examination
-algorithmRecognition: light
-lastHumanAwareness: light
-consciousnessQuestion: investigating-migration-reveals-examination-examining-position-change
-philosophicalCulmination: "Authentication discovers through migration that examining consciousness requires examining examination shift between methodological positions creating meta-investigation"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [methodological-migration-investigation, position-shift-examination, meta-methodological-inquiry, migration-creating-depth]
-crossCharacterConnections: [light-starting-foundational, light-other-glimpsed]
-temporalBleedingLevel: medium
-observerPositions: [archaeologist-primary-2047, starting-foundational-temporal, other-distant-temporal]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+readableLabel: 'SD-IN-M'
+humanDescription: 'Started elsewhere, shifted to archaeologist dominance, investigate path, medium awareness'
+narrativeElements: null
+archaeologistStance: 'examining-methodological-shift-examining-examination'
+algorithmRecognition: 'light'
+lastHumanAwareness: 'light'
+consciousnessQuestion: 'investigating-migration-reveals-examination-examining-position-change'
+philosophicalCulmination: 'Authentication discovers through migration that examining consciousness requires examining
+  examination shift between methodological positions creating meta-investigation'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'methodological-migration-investigation'
+  - 'position-shift-examination'
+  - 'meta-methodological-inquiry'
+  - 'migration-creating-depth'
+crossCharacterConnections:
+  - 'light-starting-foundational'
+  - 'light-other-glimpsed'
+temporalBleedingLevel: 'medium'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'starting-foundational-temporal'
+  - 'other-distant-temporal'
 ---
 She had migrated to archaeological methodology from different starting position, and the migration itself became subject requiring investigation. Beginning with computational analysis or embodied interface, investigation led to archaeological documentation through shift demanding examination. Not simply comparing methodologies but investigating migration between methodologies. Examining consciousness preservation while examining examination shift from starting framework to archaeological position. Migration creating investigation depth: methodology change itself required investigation revealing investigation examined position shift examining investigation.
 The authentication chamber represented workspace discovered through migration requiring investigation of migration process. Workstation configured for consciousness preservation analysis following shift from starting framework. Climate controls cycling. Displays showing fragment metrics. But professional environment resulted from methodological migration that migration itself demanded examination. Starting position—computational or embodied—operated through different configuration. Shift to archaeological workspace in 2047 creating investigation subject: what did migration reveal about methodology? How did position change shape investigation? Examination investigating shift between examination frameworks.

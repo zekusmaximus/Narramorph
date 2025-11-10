@@ -1,32 +1,46 @@
 ---
-variationId: hum-L3-05
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-05'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 903
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: started-stayed
-journeyCode: SS
-philosophyDominant: resist
-philosophyCode: RE
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-readableLabel: SS-RE-M
-humanDescription: "Started last human, stayed dominant, resist path, medium awareness"
-narrativeElements:
-lastHumanStance: embodied-verification-through-limits
-archaeologistAwareness: minimal
-algorithmRecognition: light
-consciousnessQuestion: preservation-versus-simulation
-philosophicalCulmination: "Physical boundaries verify consciousness through maintained limits"
-convergenceAlignment: release
-thematicContent:
-primaryThemes: [embodied-resistance, verification-demand, boundary-maintenance, limits-honored]
-crossCharacterConnections: [minimal-arch-distant, light-algo-sensed]
-temporalBleedingLevel: medium
-observerPositions: [human-primary-2383, archaeologist-distant-2047, algorithm-glimpsed-2151]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'started-stayed'
+journeyCode: 'SS'
+philosophyDominant: 'resist'
+philosophyCode: 'RE'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+readableLabel: 'SS-RE-M'
+humanDescription: 'Started last human, stayed dominant, resist path, medium awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-verification-through-limits'
+archaeologistAwareness: 'minimal'
+algorithmRecognition: 'light'
+consciousnessQuestion: 'preservation-versus-simulation'
+philosophicalCulmination: 'Physical boundaries verify consciousness through maintained limits'
+convergenceAlignment: 'release'
+thematicContent: null
+primaryThemes:
+  - 'embodied-resistance'
+  - 'verification-demand'
+  - 'boundary-maintenance'
+  - 'limits-honored'
+crossCharacterConnections:
+  - 'minimal-arch-distant'
+  - 'light-algo-sensed'
+temporalBleedingLevel: 'medium'
+observerPositions:
+  - 'human-primary-2383'
+  - 'archaeologist-distant-2047'
+  - 'algorithm-glimpsed-2151'
 ---
 Ninety-three days demanding proof. My body counts stubbornly. Morning consciousness tests—still mine? Still separate? Still distinct from preserved patterns I access through neural interface? Started here requiring verification. Stayed here maintaining boundaries. This embodied position refuses dissolution even when dissolution seems inevitable through sustained observation.
 Interface helmet on console. Thirty-nine sessions connecting while resisting connection. Neural pathways established but boundaries maintained. Contact points shaped my temples but didn't erase distinction between my consciousness and archived patterns. Each session I demanded verification. Each time I withdrew without certainty. Consciousness preservation impossible to prove. But impossibility doesn't justify surrender.

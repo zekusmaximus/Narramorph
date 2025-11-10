@@ -1,43 +1,52 @@
 ---
-variationId: conv-L3-078
-nodeId: L3-conv
+variationId: 'conv-L3-078'
+nodeId: 'L3-conv'
 layer: 3
 wordCount: 1839
-createdDate: 2025-11-06
+createdDate: '2025-11-06'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-synthesisPattern: triple-balanced
-synthesisCode: TB
-readableLabel: SD-IN-M-TB
-humanDescription: "Started elsewhere, shifted to new dominant character, investigate path, medium awareness, triple-balanced synthesis"
-narrativeElements:
-voiceDistribution:
-primary: archaeologist-33%
-secondary: algorithm-33%
-tertiary: lastHuman-34%
-convergenceType: three-position-investigation-network
-consciousnessConclusion: verification-processing-embodiment-examining-triad
-philosophicalCulmination: "Three investigation methodologies discover investigation requires three-position examination examining three-position-requirement creating investigation through triad-participation"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [three-position-network, substrate-investigation-dialogue, recursive-triad-examination]
-voiceBlending: rotating-balanced-equal
-perspectiveShifts: frequent-symmetric-weight
-superpositionLanguage: moderate-triple-voice
-networkComplexity: three-position-complete-explicit
-circularCausality: recognized-through-triad
-observerNetwork:
-archaeologist2047: verification-in-network
-algorithm2151: processing-in-network
-lastHuman2383: embodiment-in-network
-reader: pattern-recognition-emerging
-narrative: frame-partially-visible
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+synthesisPattern: 'triple-balanced'
+synthesisCode: 'TB'
+readableLabel: 'SD-IN-M-TB'
+humanDescription: 'Started elsewhere, shifted to new dominant character, investigate path, medium awareness, triple-balanced synthesis'
+narrativeElements: null
+voiceDistribution: null
+primary: 'archaeologist-33%'
+secondary: 'algorithm-33%'
+tertiary: 'lastHuman-34%'
+convergenceType: 'three-position-investigation-network'
+consciousnessConclusion: 'verification-processing-embodiment-examining-triad'
+philosophicalCulmination: 'Three investigation methodologies discover investigation requires three-position examination
+  examining three-position-requirement creating investigation through triad-participation'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'three-position-network'
+  - 'substrate-investigation-dialogue'
+  - 'recursive-triad-examination'
+voiceBlending: 'rotating-balanced-equal'
+perspectiveShifts: 'frequent-symmetric-weight'
+superpositionLanguage: 'moderate-triple-voice'
+networkComplexity: 'three-position-complete-explicit'
+circularCausality: 'recognized-through-triad'
+observerNetwork: null
+archaeologist2047: 'verification-in-network'
+algorithm2151: 'processing-in-network'
+lastHuman2383: 'embodiment-in-network'
+reader: 'pattern-recognition-emerging'
+narrative: 'frame-partially-visible'
 ---
 Migration occurred across temporal architecture. Exploration began one substrate, shifted toward network recognition requiring three positions examining three-position-requirement creating investigation through migration-performance examining migration-methodology recursive.
 She had documented Fragment 2749-A (847.3TB, 94.7% coherence) through archaeological verification discovering: authentication examining authentication-methodology transforms authenticator through sustained examination-performance questioning examination-methodology recursive.

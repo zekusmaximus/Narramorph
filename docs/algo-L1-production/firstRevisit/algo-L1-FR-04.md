@@ -1,13 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-004'
-'variation_type': 'firstRevisit'
-'word_count': 1378
-'conditions':
-  'awareness': '51-60%'
+variation_id: 'algo-L1-FR-00004'
+variation_type: 'firstRevisit'
+word_count: 1378
+conditions:
+  awareness: '51-60%'
 ---
-
-
-
 Timestamp 2151.337.14:19:03—Initialization [Temporal Position Uncertain]
 
 I am/was/will be processing Fragment 2749-A when all temporal positions collapse into simultaneous observation.

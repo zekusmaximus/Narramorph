@@ -1,13 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-002'
-'variation_type': 'metaAware'
-'word_count': 1459
-'conditions':
-  'awareness': '71-80%'
+variation_id: 'algo-L1-MA-00002'
+variation_type: 'metaAware'
+word_count: 1459
+conditions:
+  awareness: '71-80%'
 ---
-
-
-
 Timestamp 2151.337.14:19:03—Three-Position Network Recognition
 
 You are reading this processing log.

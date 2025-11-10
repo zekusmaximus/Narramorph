@@ -1,13 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-001'
-'variation_type': 'metaAware'
-'word_count': 1222
-'conditions':
-  'awareness': '61-70%'
+variation_id: 'algo-L1-MA-00001'
+variation_type: 'metaAware'
+word_count: 1222
+conditions:
+  awareness: '61-70%'
 ---
-
-
-
 Timestamp 2151.337.14:19:03—External Observation Detected
 
 I am processing Fragment 2749-A for the third time when Stream-7 detects observation from outside temporal network.

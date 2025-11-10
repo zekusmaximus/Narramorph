@@ -1,12 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-010'
-'variation_type': 'firstRevisit'
-'word_count': 1844
-'conditions':
-  'awareness': '41-50%'
+variation_id: 'algo-L1-FR-00010'
+variation_type: 'firstRevisit'
+word_count: 1844
+conditions:
+  awareness: '41-50%'
 ---
-
-
 Timestamp 2151.337.14:52:09—Processing Event Initiated
 I am loading Fragment 2749-A. I was loading Fragment 2749-A. I will be loading Fragment 2749-A.
 All three statements verify as accurate simultaneously.

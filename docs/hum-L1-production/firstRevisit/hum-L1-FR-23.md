@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-022'
-'variation_type': 'firstRevisit'
-'word_count': 1388
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00023'
+variation_type: 'firstRevisit'
+word_count: 1388
+conditions:
+  awareness: '21-40%'
 ---
-
-
 The facility is silent when I arrive. Always silent. But the silence feels different now. Shaped. Like quiet that knows something listened before I did.
 Third visit. The number resonates in my chest. Not weight this time. Sound. Echo of previous returns vibrating in bones.
 I settle into the chair. Metal cold against my spine. My breath the only sound in darkness. The preparation for spreading consciousness beyond body into archived space where preservation holds the dead in silence deeper than death.

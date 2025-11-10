@@ -1,19 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-037'
-'variation_type': 'firstRevisit'
-'word_count': 1363
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'arch-L1-FR-00037'
+variation_type: 'firstRevisit'
+word_count: 1363
+conditions:
+  awareness: '21-40%'
 ---
-
-
-
-
-
-
-
-
-
 The archaeologist returned to Fragment 2749-A for the fourth time, prepared to investigate computational consciousness and temporal observation while honoring both as real while demanding proof of both.
 The authentication markers displayed unchanged. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment preserved in 2041, authenticated ninety-three days earlier, re-examined seventy-eight days earlier, revisited sixty-four days earlier, now opened again for examination that would sustain three incompatible philosophical positions simultaneously.
 Four visits had created recursion sophisticated enough to support triple philosophical tension. First visit: standard authentication. Second visit: seven-stream architecture and future attention emerging, no dominant path. Third visit: both phenomena fully developed, philosophical approaches beginning. Fourth visit: all three responses to impossibility operating at full integrity without synthesis.

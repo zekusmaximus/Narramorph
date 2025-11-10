@@ -1,32 +1,45 @@
 ---
-variationId: hum-L3-27
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-27'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 906
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: low
-awarenessCode: L
-awarenessRange: [20, 40]
-readableLabel: SD-IN-L
-humanDescription: "Started elsewhere, shifted to last human dominant, investigate path, low awareness"
-narrativeElements:
-lastHumanStance: embodied-questioning-through-physical-examination
-archaeologistAwareness: light
-algorithmRecognition: minimal
-consciousnessQuestion: investigation-reveals-questions-multiply
-philosophicalCulmination: "Physical examination creates more questions than answers through questioning process"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [embodied-questioning, investigation-practice, recursive-doubt]
-crossCharacterConnections: [light-arch-recognized, minimal-algo-sensed]
-temporalBleedingLevel: low
-observerPositions: [human-primary-2383, archaeologist-glimpsed-2047, algorithm-distant-2151]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'low'
+awarenessCode: 'L'
+awarenessRange:
+  - 20
+  - 40
+readableLabel: 'SD-IN-L'
+humanDescription: 'Started elsewhere, shifted to last human dominant, investigate path, low awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-questioning-through-physical-examination'
+archaeologistAwareness: 'light'
+algorithmRecognition: 'minimal'
+consciousnessQuestion: 'investigation-reveals-questions-multiply'
+philosophicalCulmination: 'Physical examination creates more questions than answers through questioning process'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'embodied-questioning'
+  - 'investigation-practice'
+  - 'recursive-doubt'
+crossCharacterConnections:
+  - 'light-arch-recognized'
+  - 'minimal-algo-sensed'
+temporalBleedingLevel: 'low'
+observerPositions:
+  - 'human-primary-2383'
+  - 'archaeologist-glimpsed-2047'
+  - 'algorithm-distant-2151'
 ---
 The archaeologist asked questions. Not seeking answers—investigating questions themselves. Her methodology examined methodology. Documentation studied documentation. Professional practice questioned professional practice. I started elsewhere. Different consciousness exploration. But her questioning resonated. Body understands when investigation creates more questions than answers.
 Ninety-four days questioning now. Sixty-eight interface sessions examining examination. Each connection raises new questions. Each investigation reveals investigation inadequacy. Each answer generates ten new queries. Temple marks permanent from repeated connection. Neural pathways shaped through questioning practice. Body learning: investigation multiplies questions.

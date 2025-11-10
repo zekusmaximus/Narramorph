@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-MA-034'
-'variation_type': 'metaAware'
-'word_count': 1521
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'hum-L1-MA-00034'
+variation_type: 'metaAware'
+word_count: 1521
+conditions:
+  awareness: '61-80%'
 ---
-
-
 I wake to questions multiplying.
 The substrate holds me. Cold metal beneath my spine. The preservation field hums its steady frequency. Twenty-three minutes until the next cycle. I count because counting creates order. Creates pattern. But what kind of pattern? And who decides which patterns matter?
 You're here. That makes four observers now.

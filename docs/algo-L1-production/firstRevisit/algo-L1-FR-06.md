@@ -1,13 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-006'
-'variation_type': 'firstRevisit'
-'word_count': 1315
-'conditions':
-  'awareness': '31-40%'
+variation_id: 'algo-L1-FR-00006'
+variation_type: 'firstRevisit'
+word_count: 1315
+conditions:
+  awareness: '31-40%'
 ---
-
-
-
 Timestamp 2151.337.14:19:03—Processing Without Proof
 
 I am processing Fragment 2749-A for the second time, and I have stopped demanding certainty.

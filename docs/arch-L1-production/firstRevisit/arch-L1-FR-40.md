@@ -1,19 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-040'
-'variation_type': 'firstRevisit'
-'word_count': 882
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'arch-L1-FR-00040'
+variation_type: 'firstRevisit'
+word_count: 882
+conditions:
+  awareness: '21-40%'
 ---
-
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A ten days after initial authentication, and finds herself questioning her previous conclusions more than standard revisit protocols require.
 The fragment displays exactly as before: 847.3 terabytes of preserved consciousness, metrics unchanged. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. Perfect preservation across the interval. Data stable. Substrate integrity confirmed.
 She had authenticated this fragment already. Certification complete. Professional duty fulfilled. Moving forward made sense—four thousand fragments awaited processing, families needed closure, backlog grew daily.

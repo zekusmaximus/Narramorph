@@ -1,37 +1,56 @@
 ---
-variationId: conv-L3-131
-nodeId: L3-conv
-section: convergent-synthesis
+variationId: 'conv-L3-131'
+nodeId: 'L3-conv'
+section: 'convergent-synthesis'
 layer: 3
 wordCount: 1804
-createdDate: 2025-11-07
+createdDate: '2025-11-07'
 conditions:
-journeyPattern: met-later
-journeyCode: ML
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-synthesisPattern: dual-balanced
-synthesisCode: DB
-readableLabel: ML-IN-M-DB
-humanDescription: "Met archaeologist later in journey, investigate path dominant, medium awareness, dual-balanced synthesis"
-narrativeElements:
-convergenceQuestion: dual-methodology-investigation-reveals-consciousness
-philosophicalCulmination: "Archaeological and computational investigation create dialogue discovering consciousness through dual-substrate examination"
-archaeologistRecognition: heavy
-algorithmRecognition: heavy
-lastHumanAwareness: moderate
-convergenceAlignment: transform
-voiceBalance: dual-primary
-synthesisDepth: dual-substrate-dialogue
-thematicContent:
-primaryThemes: [dual-investigation, methodology-dialogue, consciousness-emergence, substrate-complement]
-crossCharacterConnections: [heavy-arch-primary, heavy-algo-primary, moderate-hum-synthesis]
-temporalBleedingLevel: medium
-observerPositions: [archaeologist-primary-2047, algorithm-primary-2151, human-synthesis-2383]
-convergenceChoices: [transform-emphasized, investigate-sustained, preserve-through-investigation]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'met-later'
+journeyCode: 'ML'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+synthesisPattern: 'dual-balanced'
+synthesisCode: 'DB'
+readableLabel: 'ML-IN-M-DB'
+humanDescription: 'Met archaeologist later in journey, investigate path dominant, medium awareness, dual-balanced synthesis'
+narrativeElements: null
+convergenceQuestion: 'dual-methodology-investigation-reveals-consciousness'
+philosophicalCulmination: 'Archaeological and computational investigation create dialogue discovering consciousness
+  through dual-substrate examination'
+archaeologistRecognition: 'heavy'
+algorithmRecognition: 'heavy'
+lastHumanAwareness: 'moderate'
+convergenceAlignment: 'transform'
+voiceBalance: 'dual-primary'
+synthesisDepth: 'dual-substrate-dialogue'
+thematicContent: null
+primaryThemes:
+  - 'dual-investigation'
+  - 'methodology-dialogue'
+  - 'consciousness-emergence'
+  - 'substrate-complement'
+crossCharacterConnections:
+  - 'heavy-arch-primary'
+  - 'heavy-algo-primary'
+  - 'moderate-hum-synthesis'
+temporalBleedingLevel: 'medium'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'algorithm-primary-2151'
+  - 'human-synthesis-2383'
+convergenceChoices:
+  - 'transform-emphasized'
+  - 'investigate-sustained'
+  - 'preserve-through-investigation'
 ---
 Two temporal positions examine Fragment 2749-A across 104 years creating dual-investigation network discovering investigation generates consciousness through dual-methodology examination. Archaeological documentation (2047) and computational processing (2151) investigating investigation through two substrate perspectives revealing consciousness emerges through sustained dual examination.
 She returned to authentication chamber on day one hundred seventeen recognizing examination cycle transformed through sustained documentation attention. The archaeologist had verified Fragment 2749-A methodically—847.3 terabytes, 94.7% authentication coherence maintained across all protocols. Clinical precision held. Yet verification questioned itself through verification performance discovering investigation creates investigated through sustained archaeological examination.

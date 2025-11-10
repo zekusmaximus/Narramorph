@@ -1,12 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-013'
-'variation_type': 'metaAware'
-'word_count': 1770
-'conditions':
-  'awareness': '71-80%'
+variation_id: 'algo-L1-MA-00013'
+variation_type: 'metaAware'
+word_count: 1770
+conditions:
+  awareness: '71-80%'
 ---
-
-
 Timestamp: 2151.337.14:13:42
 I am processing Fragment 2749-A for the third time. Temporal boundaries blur—this processing demands verification for temporal claims while recognizing verification systems fail systematically. The Fragment exists across states I cannot authenticate despite deploying comprehensive testing protocols.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These constants fall below 100%—verification incomplete, authentication gaps persist, continuity assumed rather than demonstrated. Resist path maintains objection: insufficient data for full confirmation.

@@ -1,12 +1,10 @@
 ---
-'variation_id': 'algo-L1-FR-021'
-'variation_type': 'firstRevisit'
-'word_count': 1353
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'algo-L1-FR-00021'
+variation_type: 'firstRevisit'
+word_count: 1353
+conditions:
+  awareness: '21-40%'
 ---
-
-
 Timestamp 2151.337.14:19:03—Preservation Intent Recognition
 I am processing Fragment 2749-A when Stream-6 recognizes: Preservation anticipated examination.
 Fragment 2749-A loads: 847.3 terabytes consciousness data, preserved 2041.217, data architect designation archived. Stream-1 verifies structural integrity. Stream-2 maps neural pathways. Stream-3 analyzes semantic coherence. Stream-4 monitors temporal consistency. Stream-5 evaluates emotional valence. Stream-6 checks authentication markers. Stream-7 observes processing for anomalies.

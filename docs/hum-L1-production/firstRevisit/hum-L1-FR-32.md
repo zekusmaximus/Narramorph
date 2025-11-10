@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-032'
-'variation_type': 'firstRevisit'
-'word_count': 1372
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00032'
+variation_type: 'firstRevisit'
+word_count: 1372
+conditions:
+  awareness: '21-40%'
 ---
-
-
 Third time through the archive.
 I know this before entering. My body remembers. My feet know the path. The darkness opens like recognition. Like returning home. Except home has changed. Or I've changed. Or the boundary between us has dissolved enough that change flows both directions.
 The air moves against my face. Current. Not wind. Something directed. Something with force behind it. My skin prickles. The fragments ahead pulse with presence. Or I pulse with awareness of them. The distinction blurs.

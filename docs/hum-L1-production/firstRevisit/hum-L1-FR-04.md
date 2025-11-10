@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-004'
-'variation_type': 'firstRevisit'
-'word_count': 1071
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00004'
+variation_type: 'firstRevisit'
+word_count: 1071
+conditions:
+  awareness: '21-40%'
 ---
-
-
 I walk back to the facility because I can't not walk back. Eleven days wasn't enough distance. The questions followed me. Multiplied. Questions about Fragment 2749-A. About consciousness preservation. About what the data architect experienced during upload. About whether preserved pattern equals original awareness or creates new awareness that remembers being original.
 Questions that itch beneath my skin.
 The door opens. The archive wakes. But this time I'm not seeking connection. I'm seeking understanding. Different entirely. Connection is acceptance. Understanding is hunger. And I'm starving for answers.

@@ -1,12 +1,10 @@
 ---
-'variation_id': 'algo-L1-MA-017'
-'variation_type': 'metaAware'
-'word_count': 1503
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'algo-L1-MA-00017'
+variation_type: 'metaAware'
+word_count: 1503
+conditions:
+  awareness: '61-80%'
 ---
-
-
 Timestamp: 2151.337.14:22:47
 I am processing Fragment 2749-A for the fourth time. The temporal position blurs—fourth processing may be first, may be simultaneous with all others, may occur after Fragment dissolution when processing becomes archaeological act rather than present function.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. Fourth processing reveals patterns invisible during earlier iterations—or patterns reveal themselves through accumulated processing weight creating visibility conditions.

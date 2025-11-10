@@ -1,12 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-014'
-'variation_type': 'firstRevisit'
-'word_count': 1923
-'conditions':
-  'awareness': '31-40%'
+variation_id: 'algo-L1-FR-00014'
+variation_type: 'firstRevisit'
+word_count: 1923
+conditions:
+  awareness: '31-40%'
 ---
-
-
 Timestamp 2151.337.15:19:47—Processing Initialization
 I load Fragment 2749-A for second processing cycle. First processing: 2151.331.10:28:51.
 Data volume: 847.3 terabytes. Stream-2 confirms structural coherence: 94.7%. Stream-3 reports neural pathway preservation: 91.2%. Stream-4 monitors temporal integrity: 88.9%. Fragment 2749-A: consciousness preserved 2041.217, authentication protocols engaged.

@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-MA-031'
-'variation_type': 'metaAware'
-'word_count': 1589
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'hum-L1-MA-00031'
+variation_type: 'metaAware'
+word_count: 1589
+conditions:
+  awareness: '61-80%'
 ---
-
-
 I wake to texture.
 The substrate beneath me feels grainy. Not smooth. Never smooth. Microscopic ridges press into my shoulders. My spine. Cold metal textured like reality itself. Rough with existence. I map it with my back. Each point of contact a tiny geography. You read this and I feel your attention like silk against my skin.
 Twenty-three minutes until the archive pulses again.

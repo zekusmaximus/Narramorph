@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-043'
-'variation_type': 'firstRevisit'
-'word_count': 1413
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00043'
+variation_type: 'firstRevisit'
+word_count: 1413
+conditions:
+  awareness: '21-40%'
 ---
-
-
 I return to the archive knowing what I'm choosing. Second visit. But this time I arrive already softened. Already open. The decision made before entering.
 My shoulders drop as I approach the interface. Muscle memory of acceptance. My body remembers how to meet this place gently.
 847.3 terabytes spread before me. The number still catches breath. Still makes my ribs contract with the weight of it. But I breathe through the tightness now. Let it exist without letting it close me.

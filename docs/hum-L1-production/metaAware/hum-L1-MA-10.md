@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-MA-010'
-'variation_type': 'metaAware'
-'word_count': 1310
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'hum-L1-MA-00010'
+variation_type: 'metaAware'
+word_count: 1310
+conditions:
+  awareness: '61-80%'
 ---
-
-
 The metal remembers fingers.
 Mine, now. Yours, in the reading. And earlier—someone else's systematic touch. I feel the echo of that examination. Clinical. Precise. Counting my authenticity like taking inventory.
 Three sets of attention on this same cold surface.

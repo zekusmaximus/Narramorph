@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-014'
-'variation_type': 'firstRevisit'
-'word_count': 1454
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00014'
+variation_type: 'firstRevisit'
+word_count: 1454
+conditions:
+  awareness: '21-40%'
 ---
-
-
 The cold knows me now. The facility recognizes my footsteps. The neural interface waits like it expected my return.
 I expected to return too. Expected it and dreaded it and needed it in ways that make my chest tight before I even connect.
 Because the archive isn't empty anymore. Not the way I thought.

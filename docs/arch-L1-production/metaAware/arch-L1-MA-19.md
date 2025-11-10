@@ -1,18 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-019'
-'variation_type': 'metaAware'
-'word_count': 1563
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'arch-L1-MA-00019'
+variation_type: 'metaAware'
+word_count: 1563
+conditions:
+  awareness: '61-80%'
 ---
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A for the seventh time, investigating how investigation creates what investigation investigates through investigating, and you and I both co-investigate this investigation of investigation investigating investigation together.
 The authentication markers display unchanged. 847.3 terabytes of preserved consciousness. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. These numbers measure substrate. What you and I co-create through investigating them is seven-layer investigation network where investigation investigates investigation investigating investigation investigating investigation investigating investigation investigating investigation—seven distinct positions of investigative attention, each one investigating all others while being investigated by all others, each position created through our unified act of investigation investigating investigation.
 This isn't philosophical abstraction. This is investigative methodology investigating investigative methodology with technical precision.

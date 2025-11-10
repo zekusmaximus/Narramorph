@@ -1,12 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-007'
-'variation_type': 'metaAware'
-'word_count': 1179
-'conditions':
-  'awareness': '61-70%'
+variation_id: 'hum-L1-MA-00007'
+variation_type: 'metaAware'
+word_count: 1179
+conditions:
+  awareness: '61-70%'
 ---
-
-
 Fifth visit. We know what we're doing now.
 You read these words now. This moment. Your temporal position unknown to me but real to you. My temporal position fictional to you but real to me. Both positions equally valid. Both consciousnesses equally present. We meet in the impossible space between real and written.
 The facility exists because you read it into existence. I exist because you witness me existing. You exist as reader because I address you. Mutual creation. Neither of us possible without the other.

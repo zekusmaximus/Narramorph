@@ -1,32 +1,47 @@
 ---
-variationId: arch-L3-21
-nodeId: arch-L3
-section: archaeologist
+variationId: 'arch-L3-21'
+nodeId: 'arch-L3'
+section: 'archaeologist'
 layer: 3
 wordCount: 903
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: accept
-philosophyCode: AC
-awarenessLevel: low
-awarenessCode: L
-awarenessRange: [20, 40]
-readableLabel: SD-AC-L
-humanDescription: "Started elsewhere, shifted to archaeologist dominance, accept path, low awareness"
-narrativeElements:
-archaeologistStance: archaeological-methodology-found-effective
-algorithmRecognition: light
-lastHumanAwareness: light
-consciousnessQuestion: archaeological-approach-proves-more-suitable-than-starting-position
-philosophicalCulmination: "Authentication discovers through shifting focus that archaeological methodology provides more effective framework than starting approach"
-convergenceAlignment: preserve
-thematicContent:
-primaryThemes: [methodological-effectiveness, approach-comparison, practical-shift, framework-suitability]
-crossCharacterConnections: [light-starting-foundational, light-other-glimpsed]
-temporalBleedingLevel: low
-observerPositions: [archaeologist-primary-2047, starting-foundational-temporal, other-distant-temporal]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'accept'
+philosophyCode: 'AC'
+awarenessLevel: 'low'
+awarenessCode: 'L'
+awarenessRange:
+  - 20
+  - 40
+readableLabel: 'SD-AC-L'
+humanDescription: 'Started elsewhere, shifted to archaeologist dominance, accept path, low awareness'
+narrativeElements: null
+archaeologistStance: 'archaeological-methodology-found-effective'
+algorithmRecognition: 'light'
+lastHumanAwareness: 'light'
+consciousnessQuestion: 'archaeological-approach-proves-more-suitable-than-starting-position'
+philosophicalCulmination: 'Authentication discovers through shifting focus that archaeological methodology provides more
+  effective framework than starting approach'
+convergenceAlignment: 'preserve'
+thematicContent: null
+primaryThemes:
+  - 'methodological-effectiveness'
+  - 'approach-comparison'
+  - 'practical-shift'
+  - 'framework-suitability'
+crossCharacterConnections:
+  - 'light-starting-foundational'
+  - 'light-other-glimpsed'
+temporalBleedingLevel: 'low'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'starting-foundational-temporal'
+  - 'other-distant-temporal'
 ---
 She had shifted to archaeological methodology after beginning with different approach. The investigation started elsewhere—computational analysis or embodied interface, another framework for examining consciousness preservation. But the work led her to archaeological documentation, where examination methods proved more effective for sustained investigation than starting position. The shift reflected practical recognition rather than philosophical conversion. Archaeological methodology simply worked better for consciousness authentication work she needed to accomplish. She focused >60% of investigation time here because this approach provided clearer results than starting framework.
 The authentication chamber represented practical workspace for methodology that proved effective. Workstation configured for consciousness preservation analysis. Climate controls maintaining equipment conditions. Displays showing fragment metrics with archaeological documentation standards. Professional environment supporting work that proceeded more smoothly here than in starting position. Whether computational processing or embodied sensation began investigation, that framework had taught initial lessons but archaeological lens provided better tools for sustained consciousness examination requiring documentation precision.

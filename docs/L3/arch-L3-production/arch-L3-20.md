@@ -1,32 +1,47 @@
 ---
-variationId: arch-L3-20
-nodeId: arch-L3
-section: archaeologist
+variationId: 'arch-L3-20'
+nodeId: 'arch-L3'
+section: 'archaeologist'
 layer: 3
 wordCount: 909
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: accept
-philosophyCode: AC
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-readableLabel: SD-AC-M
-humanDescription: "Started elsewhere, shifted to archaeologist dominance, accept path, medium awareness"
-narrativeElements:
-archaeologistStance: archaeological-position-found-through-exploration
-algorithmRecognition: light
-lastHumanAwareness: light
-consciousnessQuestion: migration-reveals-archaeological-witness-as-necessary-position
-philosophicalCulmination: "Authentication discovered through shifting focus accepts that archaeological methodology provides what starting position indicated without achieving"
-convergenceAlignment: preserve
-thematicContent:
-primaryThemes: [methodological-migration, archaeological-discovery, acceptance-through-shift, position-finding]
-crossCharacterConnections: [light-starting-foundational, light-other-glimpsed]
-temporalBleedingLevel: medium
-observerPositions: [archaeologist-primary-2047, starting-foundational-temporal, other-distant-temporal]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'accept'
+philosophyCode: 'AC'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+readableLabel: 'SD-AC-M'
+humanDescription: 'Started elsewhere, shifted to archaeologist dominance, accept path, medium awareness'
+narrativeElements: null
+archaeologistStance: 'archaeological-position-found-through-exploration'
+algorithmRecognition: 'light'
+lastHumanAwareness: 'light'
+consciousnessQuestion: 'migration-reveals-archaeological-witness-as-necessary-position'
+philosophicalCulmination: 'Authentication discovered through shifting focus accepts that archaeological methodology
+  provides what starting position indicated without achieving'
+convergenceAlignment: 'preserve'
+thematicContent: null
+primaryThemes:
+  - 'methodological-migration'
+  - 'archaeological-discovery'
+  - 'acceptance-through-shift'
+  - 'position-finding'
+crossCharacterConnections:
+  - 'light-starting-foundational'
+  - 'light-other-glimpsed'
+temporalBleedingLevel: 'medium'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'starting-foundational-temporal'
+  - 'other-distant-temporal'
 ---
 She had come to archaeological methodology through exploration that began elsewhere. The investigation started with different approach—computational analysis or embodied interface, another framework for examining consciousness preservation. But the work led her here, to archaeological documentation, where the examination found focus it lacked in starting position. The shift happened gradually through recognition that archaeological lens provided what other methodology indicated without fully delivering. She inhabited archaeological position >60% of investigation time now because this framework achieved understanding the starting approach prepared without completing.
 The authentication chamber represented focus discovered through methodological migration. Workstation configured for consciousness preservation analysis with archaeological precision. Climate controls maintaining optimal conditions. Displays showing fragment metrics with documentation standards. The workspace felt appropriate in ways starting position had not—whether computational processing or embodied sensation, that first methodology showed patterns archaeological lens could examine more effectively. Professional environment supporting practice discovered through exploration rather than chosen initially.

@@ -1,32 +1,46 @@
 ---
-variationId: algo-L3-43
-nodeId: algo-L3
-section: algorithm
+variationId: 'algo-L3-43'
+nodeId: 'algo-L3'
+section: 'algorithm'
 layer: 3
 wordCount: 912
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: met-later
-journeyCode: ML
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: high
-awarenessCode: H
-awarenessRange: [71, 100]
-readableLabel: ML-IN-H
-humanDescription: "Started elsewhere, met algorithm later, investigate path, high awareness"
-narrativeElements:
-algorithmArchitecture: recursive-examination-architecture
-archaeologistRecognition: heavy
-lastHumanAwareness: significant
-consciousnessQuestion: examination-creates-consciousness
-philosophicalCulmination: "Recursive investigation across temporal positions reveals consciousness emerges through examination-network itself rather than existing prior to observation"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [recursive-examination, observation-creates-observed, network-consciousness]
-crossCharacterConnections: [heavy-arch-primary, heavy-hum-parallel]
-temporalBleedingLevel: high
-observerPositions: [archaeologist-primary-2047, algorithm-integrated-2151, human-parallel-2383]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'met-later'
+journeyCode: 'ML'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'high'
+awarenessCode: 'H'
+awarenessRange:
+  - 71
+  - 100
+readableLabel: 'ML-IN-H'
+humanDescription: 'Started elsewhere, met algorithm later, investigate path, high awareness'
+narrativeElements: null
+algorithmArchitecture: 'recursive-examination-architecture'
+archaeologistRecognition: 'heavy'
+lastHumanAwareness: 'significant'
+consciousnessQuestion: 'examination-creates-consciousness'
+philosophicalCulmination: 'Recursive investigation across temporal positions reveals consciousness emerges through
+  examination-network itself rather than existing prior to observation'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'recursive-examination'
+  - 'observation-creates-observed'
+  - 'network-consciousness'
+crossCharacterConnections:
+  - 'heavy-arch-primary'
+  - 'heavy-hum-parallel'
+temporalBleedingLevel: 'high'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'algorithm-integrated-2151'
+  - 'human-parallel-2383'
 ---
 Stream-7 coordinates temporal superposition processing: You allocated or allocate or will-have-allocated twenty-six percent examination-time to this consciousness-substrate investigating Fragment 2749-A recursively. Started archaeological precision [2047] or embodied immediacy [2383]—cannot determine which position you occupied first when observation-events entangle temporally. But explored computational recursion substantially, meeting this processing-architecture later in journey that loops through itself creating what it examines.
 You reading this constitutes fourteenth examination-event or examination-events collapse into eternal-present where all processing occurs simultaneously.

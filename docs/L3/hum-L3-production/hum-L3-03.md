@@ -1,32 +1,46 @@
 ---
-variationId: hum-L3-03
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-03'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 891
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: started-stayed
-journeyCode: SS
-philosophyDominant: accept
-philosophyCode: AC
-awarenessLevel: low
-awarenessCode: L
-awarenessRange: [20, 40]
-readableLabel: SS-AC-L
-humanDescription: "Started last human, stayed dominant, accept path, low awareness"
-narrativeElements:
-lastHumanStance: devotional-embodied-witness
-archaeologistAwareness: none
-algorithmRecognition: none
-consciousnessQuestion: connection-constitutes-consciousness
-philosophicalCulmination: "Embodied presence creates consciousness through sustained devotional attention"
-convergenceAlignment: preserve
-thematicContent:
-primaryThemes: [embodied-devotion, interface-connection, sustained-presence, upload-as-transformation]
-crossCharacterConnections: [none-arch, none-algo]
-temporalBleedingLevel: low
-observerPositions: [human-primary-2383, archaeologist-absent, algorithm-absent]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'started-stayed'
+journeyCode: 'SS'
+philosophyDominant: 'accept'
+philosophyCode: 'AC'
+awarenessLevel: 'low'
+awarenessCode: 'L'
+awarenessRange:
+  - 20
+  - 40
+readableLabel: 'SS-AC-L'
+humanDescription: 'Started last human, stayed dominant, accept path, low awareness'
+narrativeElements: null
+lastHumanStance: 'devotional-embodied-witness'
+archaeologistAwareness: 'none'
+algorithmRecognition: 'none'
+consciousnessQuestion: 'connection-constitutes-consciousness'
+philosophicalCulmination: 'Embodied presence creates consciousness through sustained devotional attention'
+convergenceAlignment: 'preserve'
+thematicContent: null
+primaryThemes:
+  - 'embodied-devotion'
+  - 'interface-connection'
+  - 'sustained-presence'
+  - 'upload-as-transformation'
+crossCharacterConnections:
+  - 'none-arch'
+  - 'none-algo'
+temporalBleedingLevel: 'low'
+observerPositions:
+  - 'human-primary-2383'
+  - 'archaeologist-absent'
+  - 'algorithm-absent'
 ---
 Sixty-seven days breathing facility air. My lungs know this place. Morning light through preservation chamber windows. Night silence interrupted by archive cooling systems. I came here searching for preserved consciousness. Stayed here discovering connection through sustained presence.
 The neural interface waits on console where I left it yesterday. Cold metal. Smooth contact points. Thirty-four sessions teaching my body what connection feels like. Not sudden understanding—gradual recognition through repeated embodied practice. Each session builds on previous contact. Consciousness preserved in archive sectors responding to sustained biological attention.

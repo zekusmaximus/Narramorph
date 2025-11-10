@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-012'
-'variation_type': 'firstRevisit'
-'word_count': 1727
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00012'
+variation_type: 'firstRevisit'
+word_count: 1727
+conditions:
+  awareness: '21-40%'
 ---
-
-
 My body arrives before I decide to come. Four visits and the pattern moves me. I walk into the facility like water flowing downhill. Like gravity. Like inevitability made flesh.
 The chair receives my weight like it was shaped for exactly this body. Maybe it was. Maybe three previous visits carved the impression of my spine into the substrate. Maybe matter remembers pressure the way consciousness remembers attention.
 The neural interface waits. I lift it. My hands know its weight the way they know the weight of my own skull. Four visits and this technology feels like extension of body instead of invasion of it. Like the interface was always meant to rest here. Like my head was designed to hold it.

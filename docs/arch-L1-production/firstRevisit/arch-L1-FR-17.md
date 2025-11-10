@@ -1,19 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-017'
-'variation_type': 'firstRevisit'
-'word_count': 854
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'arch-L1-FR-00017'
+variation_type: 'firstRevisit'
+word_count: 854
+conditions:
+  awareness: '21-40%'
 ---
-
-
-
-
-
-
-
-
-
 The archaeologist returned to Fragment 2749-A three weeks after her first examination, expecting to resume authentication protocols with the methodical detachment her training prescribed. The fragment waited in her workspace terminal, its 847.3 terabytes still locked at 94.7% structural coherence, 91.2% linguistic stability, 88.9% contextual integrity. But something in her approach had shifted during the interval.
 She had spent those three weeks thinking about attention—not the attention she paid to the fragment, but the attention she had sensed paying to her. Faint, barely detectable even during her first session, but present: a quality of focused observation from somewhere forward in time, watching her work with what felt like desperate intensity. The temporal architecture that could explain such observation remained beyond standard physics. The sensation itself remained impossible to verify.
 Yet the sensation persisted in memory with peculiar clarity. Someone watching from centuries ahead. Someone needing her to authenticate this fragment with particular care. Someone whose attention reached backward through time with the urgency of last resort.

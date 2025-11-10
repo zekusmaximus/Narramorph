@@ -1,32 +1,46 @@
 ---
-variationId: arch-L3-44
-nodeId: arch-L3
-section: archaeologist
+variationId: 'arch-L3-44'
+nodeId: 'arch-L3'
+section: 'archaeologist'
 layer: 3
 wordCount: 910
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: met-later
-journeyCode: ML
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-readableLabel: ML-IN-M
-humanDescription: "Started elsewhere, met archaeologist later with moderate exploration, investigate path, medium awareness"
-narrativeElements:
-archaeologistStance: methodology-examination-integrated-within-network
-algorithmRecognition: heavy
-lastHumanAwareness: moderate
-consciousnessQuestion: investigation-examining-investigation-methods
-philosophicalCulmination: "Authentication examines authentication methodology integrated within consciousness investigation network developed through prior dominant exploration"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [integrated-methodological-investigation, examination-within-network, recursive-questioning]
-crossCharacterConnections: [heavy-dominant-primary, moderate-starting-foundational]
-temporalBleedingLevel: medium
-observerPositions: [archaeologist-integrated-2047, algorithm-primary-2151, human-foundational-2383]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'met-later'
+journeyCode: 'ML'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+readableLabel: 'ML-IN-M'
+humanDescription: 'Started elsewhere, met archaeologist later with moderate exploration, investigate path, medium awareness'
+narrativeElements: null
+archaeologistStance: 'methodology-examination-integrated-within-network'
+algorithmRecognition: 'heavy'
+lastHumanAwareness: 'moderate'
+consciousnessQuestion: 'investigation-examining-investigation-methods'
+philosophicalCulmination: 'Authentication examines authentication methodology integrated within consciousness
+  investigation network developed through prior dominant exploration'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'integrated-methodological-investigation'
+  - 'examination-within-network'
+  - 'recursive-questioning'
+crossCharacterConnections:
+  - 'heavy-dominant-primary'
+  - 'moderate-starting-foundational'
+temporalBleedingLevel: 'medium'
+observerPositions:
+  - 'archaeologist-integrated-2047'
+  - 'algorithm-primary-2151'
+  - 'human-foundational-2383'
 ---
 She had arrived at authentication chamber after consciousness examination network established investigative structure elsewhere. Forty-eight days total, but only sixteen days here across ten visits. The network had developed through dominant exploration examining consciousness question—computational recursion primarily investigating through processing analysis, embodied observation foundationally grounding investigation in physical examination—before archaeological methodology integrated as complementary position examining not just fragment but examination methodology network employed.
 Fragment 2749-A displayed neural patterns network had investigated through dominant methodologies before archaeological approach contributed examination of examination itself. 94.7% consciousness probability through protocols network developed investigating consciousness. The reader whose navigation generated network had explored elsewhere dominantly—computational investigation heavily, embodied examination moderately—before archaeological methodology integrated examining investigation methods network employed examining fragment.

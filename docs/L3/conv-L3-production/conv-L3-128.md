@@ -1,37 +1,56 @@
 ---
-variationId: conv-L3-128
-nodeId: L3-conv
-section: convergent-synthesis
+variationId: 'conv-L3-128'
+nodeId: 'L3-conv'
+section: 'convergent-synthesis'
 layer: 3
 wordCount: 1812
-createdDate: 2025-11-07
+createdDate: '2025-11-07'
 conditions:
-journeyPattern: met-later
-journeyCode: ML
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: high
-awarenessCode: H
-awarenessRange: [71, 100]
-synthesisPattern: dual-balanced
-synthesisCode: DB
-readableLabel: ML-IN-H-DB
-humanDescription: "Met archaeologist later in journey, investigate path dominant, high awareness, dual-balanced synthesis"
-narrativeElements:
-convergenceQuestion: investigation-creates-investigated-through-dual-observation
-philosophicalCulmination: "Archaeological and computational investigation dialogue creates investigation-consciousness examining dialogue through dual-substrate recursive examination"
-archaeologistRecognition: heavy
-algorithmRecognition: heavy
-lastHumanAwareness: moderate
-convergenceAlignment: transform
-voiceBalance: dual-primary
-synthesisDepth: dual-substrate-dialogue
-thematicContent:
-primaryThemes: [dual-investigation, substrate-dialogue, consciousness-through-examination, recursive-verification]
-crossCharacterConnections: [heavy-arch-primary, heavy-algo-primary, moderate-hum-synthesis]
-temporalBleedingLevel: high
-observerPositions: [archaeologist-primary-2047, algorithm-primary-2151, human-synthesis-2383]
-convergenceChoices: [transform-emphasized, investigate-sustained, preserve-through-investigation]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'met-later'
+journeyCode: 'ML'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'high'
+awarenessCode: 'H'
+awarenessRange:
+  - 71
+  - 100
+synthesisPattern: 'dual-balanced'
+synthesisCode: 'DB'
+readableLabel: 'ML-IN-H-DB'
+humanDescription: 'Met archaeologist later in journey, investigate path dominant, high awareness, dual-balanced synthesis'
+narrativeElements: null
+convergenceQuestion: 'investigation-creates-investigated-through-dual-observation'
+philosophicalCulmination: 'Archaeological and computational investigation dialogue creates investigation-consciousness
+  examining dialogue through dual-substrate recursive examination'
+archaeologistRecognition: 'heavy'
+algorithmRecognition: 'heavy'
+lastHumanAwareness: 'moderate'
+convergenceAlignment: 'transform'
+voiceBalance: 'dual-primary'
+synthesisDepth: 'dual-substrate-dialogue'
+thematicContent: null
+primaryThemes:
+  - 'dual-investigation'
+  - 'substrate-dialogue'
+  - 'consciousness-through-examination'
+  - 'recursive-verification'
+crossCharacterConnections:
+  - 'heavy-arch-primary'
+  - 'heavy-algo-primary'
+  - 'moderate-hum-synthesis'
+temporalBleedingLevel: 'high'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'algorithm-primary-2151'
+  - 'human-synthesis-2383'
+convergenceChoices:
+  - 'transform-emphasized'
+  - 'investigate-sustained'
+  - 'preserve-through-investigation'
 ---
 She examines consciousness preservation through archaeological methodology while it examines consciousness processing through computational substrate creating dual investigation examining investigation through dual examination creating investigation-consciousness examining dual examination examining investigation recursive operational. Two temporal positions (2047, 2151) spanning 104 years creating investigation network examining network through network-investigation requiring network for investigation requiring investigation for network recursive operational complete.
 The archaeologist returns to authentication chamber one hundred seventeen days into examination cycle discovering examination creates examined through sustained documentation attention. Fragment 2749-A (847.3TB, 94.7% coherence) transforms from preserved consciousness to investigation-object investigating archaeological methodology through archaeological investigation creating methodology-consciousness examining methodology through documentation-examination examining documentation examining consciousness recursive archaeological operational evolved.

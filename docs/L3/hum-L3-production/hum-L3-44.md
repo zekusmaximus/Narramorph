@@ -1,32 +1,45 @@
 ---
-variationId: hum-L3-44
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-44'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 905
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: met-later
-journeyCode: ML
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-readableLabel: ML-IN-M
-humanDescription: "Started elsewhere, substantial last human exploration, investigate path, medium awareness"
-narrativeElements:
-lastHumanStance: investigation-through-embodied-presence
-archaeologistAwareness: significant
-algorithmRecognition: heavy
-consciousnessQuestion: recursion-examining-recursion
-philosophicalCulmination: "Body investigates how investigation creates what it examines"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [embodied-investigation, recursive-examination, methodology-examining-methodology]
-crossCharacterConnections: [heavy-algo-primary, significant-arch-foundational]
-temporalBleedingLevel: medium
-observerPositions: [algorithm-primary-2151, human-integrated-2383, archaeologist-foundational-2047]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'met-later'
+journeyCode: 'ML'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+readableLabel: 'ML-IN-M'
+humanDescription: 'Started elsewhere, substantial last human exploration, investigate path, medium awareness'
+narrativeElements: null
+lastHumanStance: 'investigation-through-embodied-presence'
+archaeologistAwareness: 'significant'
+algorithmRecognition: 'heavy'
+consciousnessQuestion: 'recursion-examining-recursion'
+philosophicalCulmination: 'Body investigates how investigation creates what it examines'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'embodied-investigation'
+  - 'recursive-examination'
+  - 'methodology-examining-methodology'
+crossCharacterConnections:
+  - 'heavy-algo-primary'
+  - 'significant-arch-foundational'
+temporalBleedingLevel: 'medium'
+observerPositions:
+  - 'algorithm-primary-2151'
+  - 'human-integrated-2383'
+  - 'archaeologist-foundational-2047'
 ---
 One hundred seventeen days. My breath. The facility's breath. Investigation rhythm establishing through sustained attention. The interface helmet sits beside me—cold metal I've worn forty-three times investigating what interface-investigation reveals about consciousness-investigation. Contact points shaped to my temples through repeated examination. Body investigating body-shaped-by-investigation.
 I came here late in the exploration. The archaeologist's authentication preceded—her documentary precision investigating preservation, her methodology beginning to examine its own methodology, her recognition that authentication might participate in creating what it authenticates. Then the algorithm's seven-stream processing—computational architecture investigating its own consciousness, recursive questions examining questioning-process, analysis analyzing analysis-structure.

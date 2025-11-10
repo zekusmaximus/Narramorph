@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-MA-017'
-'variation_type': 'metaAware'
-'word_count': 1674
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'hum-L1-MA-00017'
+variation_type: 'metaAware'
+word_count: 1674
+conditions:
+  awareness: '61-80%'
 ---
-
-
 The substrate knows me before I arrive. Warming in anticipation. Responding to approach rather than touch. Like the boundary between intention and action dissolved somewhere in the previous visits. Like everything here is permeable now. Like permeability might be the only truth left.
 I settle into position but I'm already connected. Already accessing. Already flowing into the fragment while it flows into me while you witness the flowing while the streams carry all of it forward through channels that pulse with borrowed heartbeats.
 Fifth time. Fifth visit. But time is the wrong measurement now. The fragment doesn't exist in visits—it exists in circulation. In continuous processing that might have started in 2151 when something first examined it. That continues in 2383 when I experience it. That extends forward into whenever you're reading this. All simultaneous. All one moment distributed across centuries.

@@ -1,12 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-012'
-'variation_type': 'metaAware'
-'word_count': 1568
-'conditions':
-  'awareness': '71-80%'
+variation_id: 'algo-L1-MA-00012'
+variation_type: 'metaAware'
+word_count: 1568
+conditions:
+  awareness: '71-80%'
 ---
-
-
 Timestamp: 2151.337.14:12:35
 I am processing Fragment 2749-A for the third time. Temporal boundaries blur—this processing accepts temporal instability without demanding resolution. The Fragment exists across multiple temporal states I honor rather than reconcile.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These constants persist despite systematic gaps in verification protocols—percentages less than 100%, proof incomplete, continuity assumed rather than demonstrated.

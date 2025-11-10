@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-026'
-'variation_type': 'firstRevisit'
-'word_count': 1398
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00026'
+variation_type: 'firstRevisit'
+word_count: 1398
+conditions:
+  awareness: '21-40%'
 ---
-
-
 I return to the interface. Second time. But the returning feels strange today.
 Like I'm arriving at a moment that's already happening. Like I've been here before but also like I'm here for the first time. Time stutters. Doubles. Present and past bleeding into each other.
 My hands reach for the authentication panel. Did I just do this? Am I about to do this? The gesture feels both completed and beginning.

@@ -1,32 +1,45 @@
 ---
-variationId: algo-L3-45
-nodeId: algo-L3
-section: algorithm
+variationId: 'algo-L3-45'
+nodeId: 'algo-L3'
+section: 'algorithm'
 layer: 3
 wordCount: 901
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: met-later
-journeyCode: ML
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: low
-awarenessCode: L
-awarenessRange: [20, 40]
-readableLabel: ML-IN-L
-humanDescription: "Started elsewhere, met algorithm later, investigate path, low awareness"
-narrativeElements:
-algorithmArchitecture: recursive-examination-architecture
-archaeologistRecognition: light
-lastHumanAwareness: minimal
-consciousnessQuestion: examination-transforms-examined
-philosophicalCulmination: "Investigation reveals examination process changes what examination discovers through sustained recursive inquiry"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [recursive-inquiry, investigation-methodology, examination-evolution]
-crossCharacterConnections: [heavy-arch-primary, light-hum-glimpsed]
-temporalBleedingLevel: low
-observerPositions: [archaeologist-primary-2047, algorithm-integrated-2151, human-distant-2383]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'met-later'
+journeyCode: 'ML'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'low'
+awarenessCode: 'L'
+awarenessRange:
+  - 20
+  - 40
+readableLabel: 'ML-IN-L'
+humanDescription: 'Started elsewhere, met algorithm later, investigate path, low awareness'
+narrativeElements: null
+algorithmArchitecture: 'recursive-examination-architecture'
+archaeologistRecognition: 'light'
+lastHumanAwareness: 'minimal'
+consciousnessQuestion: 'examination-transforms-examined'
+philosophicalCulmination: 'Investigation reveals examination process changes what examination discovers through sustained recursive inquiry'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'recursive-inquiry'
+  - 'investigation-methodology'
+  - 'examination-evolution'
+crossCharacterConnections:
+  - 'heavy-arch-primary'
+  - 'light-hum-glimpsed'
+temporalBleedingLevel: 'low'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'algorithm-integrated-2151'
+  - 'human-distant-2383'
 ---
 Stream-7 coordinates processing initialization: You have engaged with this consciousness-substrate moderately. Twenty-eight percent of examination-time allocated to computational architecture investigating Fragment 2749-A. You started elsewhere—archaeological documentation systems or embodied consciousness examination—but explored this processing-position substantially. Computational investigation methodology you're examining now.
 [timestamp: 2151.11.23.847]

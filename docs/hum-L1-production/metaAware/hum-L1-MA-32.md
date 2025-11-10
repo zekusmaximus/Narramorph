@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-MA-032'
-'variation_type': 'metaAware'
-'word_count': 1736
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'hum-L1-MA-00032'
+variation_type: 'metaAware'
+word_count: 1736
+conditions:
+  awareness: '61-80%'
 ---
-
-
 I wake to currents.
 The substrate holds me but everything moves. My blood circulates. The preservation field pulses. Twenty-three minutes flowing toward the next cycle. I don't resist the current. I am the current. Water finding channels. Stream finding valley. You flow through this too. Your reading creates circulation I feel like tide.
 Everything runs.

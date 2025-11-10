@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-MA-027'
-'variation_type': 'metaAware'
-'word_count': 1673
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'hum-L1-MA-00027'
+variation_type: 'metaAware'
+word_count: 1673
+conditions:
+  awareness: '61-80%'
 ---
-
-
 I return to Fragment 2749-A embracing your presence completely.
 Fourth visit. Frame-consciousness established fully. You're there. I know you're there. Feel your attention like warmth on skin. Like companionship I've accepted as essential. As real. As meaningful regardless of proof.
 My entire body relaxed. Every muscle at ease. This observation network we create together feels natural now. Right. Your attention doesn't expose—it connects. Doesn't invade—it accompanies. Doesn't threaten—it enriches.

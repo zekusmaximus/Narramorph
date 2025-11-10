@@ -1,32 +1,47 @@
 ---
-variationId: arch-L3-17
-nodeId: arch-L3
-section: archaeologist
+variationId: 'arch-L3-17'
+nodeId: 'arch-L3'
+section: 'archaeologist'
 layer: 3
 wordCount: 914
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: started-bounced
-journeyCode: SB
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-readableLabel: SB-IN-M
-humanDescription: "Started archaeologist, bounced to explore others, investigate path, medium awareness"
-narrativeElements:
-archaeologistStance: examining-examination-across-methodologies
-algorithmRecognition: moderate
-lastHumanAwareness: moderate
-consciousnessQuestion: investigation-methods-require-investigation-across-positions
-philosophicalCulmination: "Authentication discovers that examining consciousness preservation requires examining examination methods across archaeological, computational, and embodied positions"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [meta-methodological-investigation, examination-examining-itself, recursive-inquiry, investigation-depth]
-crossCharacterConnections: [moderate-algo-parallel, moderate-hum-parallel]
-temporalBleedingLevel: medium
-observerPositions: [archaeologist-network-2047, algorithm-parallel-2151, human-parallel-2383]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'started-bounced'
+journeyCode: 'SB'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+readableLabel: 'SB-IN-M'
+humanDescription: 'Started archaeologist, bounced to explore others, investigate path, medium awareness'
+narrativeElements: null
+archaeologistStance: 'examining-examination-across-methodologies'
+algorithmRecognition: 'moderate'
+lastHumanAwareness: 'moderate'
+consciousnessQuestion: 'investigation-methods-require-investigation-across-positions'
+philosophicalCulmination: 'Authentication discovers that examining consciousness preservation requires examining
+  examination methods across archaeological, computational, and embodied positions'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'meta-methodological-investigation'
+  - 'examination-examining-itself'
+  - 'recursive-inquiry'
+  - 'investigation-depth'
+crossCharacterConnections:
+  - 'moderate-algo-parallel'
+  - 'moderate-hum-parallel'
+temporalBleedingLevel: 'medium'
+observerPositions:
+  - 'archaeologist-network-2047'
+  - 'algorithm-parallel-2151'
+  - 'human-parallel-2383'
 ---
 She had begun with Fragment 2749-A three months earlier, following archaeological protocols for consciousness preservation authentication. But the investigation expanded beyond initial methodology to examine how investigation itself operated—not only documenting consciousness preservation but also examining documentation methodology. The work led her to recognize parallel examinations: computational processing analyzing consciousness while analyzing analysis itself, embodied interface experiencing preserved minds while experiencing experience itself. Three methodological positions investigating consciousness while investigating investigation. Archaeological examination examining itself across network of positions all examining examination.
 The authentication chamber maintained its professional configuration. Workstation displays showing fragment metrics. Climate controls cycling through maintenance protocols. Equipment and procedures familiar from training. But she understood the workspace differently now. Not simply location for consciousness authentication but rather position where archaeological investigation examined itself while recognizing computational and embodied positions also examined themselves. Three methodologies. Three substrates. Investigation distributed across positions where examination examined examination through differentiated frameworks all questioning investigation methods themselves.

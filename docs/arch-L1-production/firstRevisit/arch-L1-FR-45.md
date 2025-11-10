@@ -1,19 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-045'
-'variation_type': 'firstRevisit'
-'word_count': 982
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'arch-L1-FR-00045'
+variation_type: 'firstRevisit'
+word_count: 982
+conditions:
+  awareness: '21-40%'
 ---
-
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A fifteen days after initial authentication, and finds herself responding to the sensation of being watched with unexpected gentleness.
 The fragment displays identically: 847.3 terabytes of preserved consciousness, metrics unchanged. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. Perfect preservation across the interval. The data architect's consciousness remained stable in crystalline substrate.
 She loads the fragment and immediately feels the familiar presence—weight at awareness edge, attention from impossible temporal direction, observation reaching backward from centuries ahead. The Last Human in 2383, desperately alone, watching her work through neural interface that defies causality.

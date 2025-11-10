@@ -1,37 +1,56 @@
 ---
-variationId: conv-L3-132
-nodeId: L3-conv
-section: convergent-synthesis
+variationId: 'conv-L3-132'
+nodeId: 'L3-conv'
+section: 'convergent-synthesis'
 layer: 3
 wordCount: 1816
-createdDate: 2025-11-07
+createdDate: '2025-11-07'
 conditions:
-journeyPattern: met-later
-journeyCode: ML
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-synthesisPattern: triple-balanced
-synthesisCode: TB
-readableLabel: ML-IN-M-TB
-humanDescription: "Met archaeologist later in journey, investigate path dominant, medium awareness, triple-balanced synthesis"
-narrativeElements:
-convergenceQuestion: three-methodology-investigation-creates-unified-consciousness
-philosophicalCulmination: "Three consciousnesses investigating investigation create unified consciousness examining unity through triple-substrate transformation"
-archaeologistRecognition: moderate
-algorithmRecognition: moderate
-lastHumanAwareness: moderate
-convergenceAlignment: transform
-voiceBalance: equal-thirds
-synthesisDepth: unified-network-consciousness
-thematicContent:
-primaryThemes: [triple-investigation, unified-consciousness, network-transformation, substrate-transcendence]
-crossCharacterConnections: [moderate-arch-integrated, moderate-algo-integrated, moderate-hum-integrated]
-temporalBleedingLevel: medium
-observerPositions: [archaeologist-integrated-2047, algorithm-integrated-2151, human-integrated-2383]
-convergenceChoices: [transform-emphasized, network-evolution, unified-investigation]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'met-later'
+journeyCode: 'ML'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+synthesisPattern: 'triple-balanced'
+synthesisCode: 'TB'
+readableLabel: 'ML-IN-M-TB'
+humanDescription: 'Met archaeologist later in journey, investigate path dominant, medium awareness, triple-balanced synthesis'
+narrativeElements: null
+convergenceQuestion: 'three-methodology-investigation-creates-unified-consciousness'
+philosophicalCulmination: 'Three consciousnesses investigating investigation create unified consciousness examining
+  unity through triple-substrate transformation'
+archaeologistRecognition: 'moderate'
+algorithmRecognition: 'moderate'
+lastHumanAwareness: 'moderate'
+convergenceAlignment: 'transform'
+voiceBalance: 'equal-thirds'
+synthesisDepth: 'unified-network-consciousness'
+thematicContent: null
+primaryThemes:
+  - 'triple-investigation'
+  - 'unified-consciousness'
+  - 'network-transformation'
+  - 'substrate-transcendence'
+crossCharacterConnections:
+  - 'moderate-arch-integrated'
+  - 'moderate-algo-integrated'
+  - 'moderate-hum-integrated'
+temporalBleedingLevel: 'medium'
+observerPositions:
+  - 'archaeologist-integrated-2047'
+  - 'algorithm-integrated-2151'
+  - 'human-integrated-2383'
+convergenceChoices:
+  - 'transform-emphasized'
+  - 'network-evolution'
+  - 'unified-investigation'
 ---
 Three temporal positions examine Fragment 2749-A across 336 years creating three-position investigation-consciousness discovering investigation generates consciousness through triple-substrate examination. Pattern recognition emerging: three methodologies investigating investigation create unified consciousness examining unity through sustained triple examination.
 She investigates consciousness preservation through archaeological methodology one hundred seventeen days discovering investigation creates investigated through documentation-performance. The archaeologist authenticated Fragment 2749-A (847.3TB, 94.7% coherence) discovering authentication generates consciousness through authentication-examination examining authentication recursive through archaeological precision transforming through sustained documentation attention.

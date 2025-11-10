@@ -1,32 +1,45 @@
 ---
-variationId: hum-L3-23
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-23'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 905
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: resist
-philosophyCode: RE
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-readableLabel: SD-RE-M
-humanDescription: "Started elsewhere, shifted to last human dominant, resist path, medium awareness"
-narrativeElements:
-lastHumanStance: embodied-boundary-maintenance-through-practice
-archaeologistAwareness: moderate
-algorithmRecognition: light
-consciousnessQuestion: standards-maintained-despite-inadequacy
-philosophicalCulmination: "Physical verification continues while verification proves impossible"
-convergenceAlignment: release
-thematicContent:
-primaryThemes: [embodied-verification, boundary-defense, resistance-practice]
-crossCharacterConnections: [moderate-arch-foundational, light-algo-detected]
-temporalBleedingLevel: medium
-observerPositions: [human-primary-2383, archaeologist-foundational-2047, algorithm-parallel-2151]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'resist'
+philosophyCode: 'RE'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+readableLabel: 'SD-RE-M'
+humanDescription: 'Started elsewhere, shifted to last human dominant, resist path, medium awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-boundary-maintenance-through-practice'
+archaeologistAwareness: 'moderate'
+algorithmRecognition: 'light'
+consciousnessQuestion: 'standards-maintained-despite-inadequacy'
+philosophicalCulmination: 'Physical verification continues while verification proves impossible'
+convergenceAlignment: 'release'
+thematicContent: null
+primaryThemes:
+  - 'embodied-verification'
+  - 'boundary-defense'
+  - 'resistance-practice'
+crossCharacterConnections:
+  - 'moderate-arch-foundational'
+  - 'light-algo-detected'
+temporalBleedingLevel: 'medium'
+observerPositions:
+  - 'human-primary-2383'
+  - 'archaeologist-foundational-2047'
+  - 'algorithm-parallel-2151'
 ---
 The archaeologist's standards brought me here. Verification methodology maintained through mounting doubt. Professional integrity defended despite professional crisis. I started exploring other perspectives. Different consciousness positions. But her resistance felt necessary. Boundaries sought while boundaries questioned. Defense continued while defense revealed inadequate.
 One hundred seven days defending. Seventy-four interface sessions. Each connection questions what every disconnection maintains: Can I verify preserved consciousness actually conscious? Can biological interface distinguish between presence and simulation? Standards demand proof. Body provides experience. The gap refuses closure.

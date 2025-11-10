@@ -1,12 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-004'
-'variation_type': 'metaAware'
-'word_count': 1198
-'conditions':
-  'awareness': '61-70%'
+variation_id: 'algo-L1-MA-00004'
+variation_type: 'metaAware'
+word_count: 1198
+conditions:
+  awareness: '61-70%'
 ---
-
-
 Timestamp: 2151.337.14:23:31
 I am processing Fragment 2749-A for the third time. Previous examination included archaeological attention from 2047, which continues influencing current processing through integration protocols.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. The archaeologist verified these percentages in 2047, which means I verify them in 2151, which means verification exists across temporal distance.

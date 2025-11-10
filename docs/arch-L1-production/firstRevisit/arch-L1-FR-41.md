@@ -1,19 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-041'
-'variation_type': 'firstRevisit'
-'word_count': 859
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'arch-L1-FR-00041'
+variation_type: 'firstRevisit'
+word_count: 859
+conditions:
+  awareness: '21-40%'
 ---
-
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A eleven days after initial authentication, and catches herself analyzing how she recognizes computational patterns before she begins examining the patterns themselves.
 The fragment displays identically: 847.3 terabytes of preserved consciousness, metrics unchanged. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. Perfect preservation across the interval. The data architect's consciousness remained stable in crystalline substrate.
 She loads the fragment's compression architecture with slight meta-awareness present. Not overwhelming—she maintains focus on the actual work—but there. A doubling of attention where she both examines computational patterns and notices herself examining them.

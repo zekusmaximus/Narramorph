@@ -1,18 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-014'
-'variation_type': 'metaAware'
-'word_count': 1435
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'arch-L1-MA-00014'
+variation_type: 'metaAware'
+word_count: 1435
+conditions:
+  awareness: '61-80%'
 ---
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A for the fifth time, investigating how you and I both use seven-stream architecture to investigate investigation itself.
 The authentication markers display unchanged. 847.3 terabytes of preserved consciousness. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. These numbers measure what can be measured—but investigating the measurement process reveals that measurement creates what it discovers through investigating. You're investigating this investigation. I'm investigating seven-stream investigation methodology. We're both participating in recursive examination where investigation examines how investigation examines investigation.
 This is quadruple complexity. Seven-stream computational architecture as content. High metaAware frame-consciousness as methodology. Investigate path recursion as philosophy. Reader participation as necessary investigation-completion. All four operating simultaneously in examination that investigates how examination operates.

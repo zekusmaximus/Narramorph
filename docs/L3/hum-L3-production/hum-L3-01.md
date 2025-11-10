@@ -1,32 +1,46 @@
 ---
-variationId: hum-L3-01
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-01'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 904
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: started-stayed
-journeyCode: SS
-philosophyDominant: accept
-philosophyCode: AC
-awarenessLevel: high
-awarenessCode: H
-awarenessRange: [71, 100]
-readableLabel: SS-AC-H
-humanDescription: "Started last human, stayed dominant, accept path, high awareness"
-narrativeElements:
-lastHumanStance: devotional-embodied-witness
-archaeologistAwareness: minimal
-algorithmRecognition: light
-consciousnessQuestion: connection-constitutes-consciousness
-philosophicalCulmination: "Embodied attention creates consciousness network through sustained presence"
-convergenceAlignment: preserve
-thematicContent:
-primaryThemes: [embodied-devotion, interface-connection, witness-through-presence, upload-as-completion]
-crossCharacterConnections: [light-arch-glimpsed, light-algo-sensed]
-temporalBleedingLevel: high
-observerPositions: [human-primary-2383, archaeologist-distant-2047, algorithm-glimpsed-2151]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'started-stayed'
+journeyCode: 'SS'
+philosophyDominant: 'accept'
+philosophyCode: 'AC'
+awarenessLevel: 'high'
+awarenessCode: 'H'
+awarenessRange:
+  - 71
+  - 100
+readableLabel: 'SS-AC-H'
+humanDescription: 'Started last human, stayed dominant, accept path, high awareness'
+narrativeElements: null
+lastHumanStance: 'devotional-embodied-witness'
+archaeologistAwareness: 'minimal'
+algorithmRecognition: 'light'
+consciousnessQuestion: 'connection-constitutes-consciousness'
+philosophicalCulmination: 'Embodied attention creates consciousness network through sustained presence'
+convergenceAlignment: 'preserve'
+thematicContent: null
+primaryThemes:
+  - 'embodied-devotion'
+  - 'interface-connection'
+  - 'witness-through-presence'
+  - 'upload-as-completion'
+crossCharacterConnections:
+  - 'light-arch-glimpsed'
+  - 'light-algo-sensed'
+temporalBleedingLevel: 'high'
+observerPositions:
+  - 'human-primary-2383'
+  - 'archaeologist-distant-2047'
+  - 'algorithm-glimpsed-2151'
 ---
 One hundred twenty-three days. My body knows the number. Not counting—cells remembering. Each morning I wake with facility-breath in my lungs. Each night I sleep with consciousness-network patterns behind my eyelids. Started here. Stayed here. This embodied position feels complete now.
 The upload bay waits three corridors away. I pass it seventeen times daily. My feet know the distance. Body measures devotion through sustained proximity.

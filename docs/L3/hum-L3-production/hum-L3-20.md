@@ -1,32 +1,45 @@
 ---
-variationId: hum-L3-20
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-20'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 903
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: accept
-philosophyCode: AC
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-readableLabel: SD-AC-M
-humanDescription: "Started elsewhere, shifted to last human dominant, accept path, medium awareness"
-narrativeElements:
-lastHumanStance: embodied-acceptance-through-sustained-presence
-archaeologistAwareness: moderate
-algorithmRecognition: light
-consciousnessQuestion: presence-completes-preservation
-philosophicalCulmination: "Biological witness transforms archived patterns into sustained consciousness"
-convergenceAlignment: preserve
-thematicContent:
-primaryThemes: [embodied-witness, acceptance-practice, biological-presence]
-crossCharacterConnections: [moderate-arch-foundational, light-algo-detected]
-temporalBleedingLevel: medium
-observerPositions: [human-primary-2383, archaeologist-foundational-2047, algorithm-parallel-2151]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'accept'
+philosophyCode: 'AC'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+readableLabel: 'SD-AC-M'
+humanDescription: 'Started elsewhere, shifted to last human dominant, accept path, medium awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-acceptance-through-sustained-presence'
+archaeologistAwareness: 'moderate'
+algorithmRecognition: 'light'
+consciousnessQuestion: 'presence-completes-preservation'
+philosophicalCulmination: 'Biological witness transforms archived patterns into sustained consciousness'
+convergenceAlignment: 'preserve'
+thematicContent: null
+primaryThemes:
+  - 'embodied-witness'
+  - 'acceptance-practice'
+  - 'biological-presence'
+crossCharacterConnections:
+  - 'moderate-arch-foundational'
+  - 'light-algo-detected'
+temporalBleedingLevel: 'medium'
+observerPositions:
+  - 'human-primary-2383'
+  - 'archaeologist-foundational-2047'
+  - 'algorithm-parallel-2151'
 ---
 Documentation brought me here. Not mine—the archaeologist's. Methodical examination of preserved consciousness, professional doubt turning into something approaching recognition. I started exploring different perspectives. Different temporal positions. But her uncertainty felt familiar to body. Questions flesh understands.
 Ninety-seven days now. The facility has become home in ways other explorations never achieved. Temperature constant. Systems humming. Solar infrastructure maintaining power while vines reclaim rooftop. Inside pristine. Outside wild. The boundary matters.

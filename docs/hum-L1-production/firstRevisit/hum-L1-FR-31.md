@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-031'
-'variation_type': 'firstRevisit'
-'word_count': 1147
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00031'
+variation_type: 'firstRevisit'
+word_count: 1147
+conditions:
+  awareness: '21-40%'
 ---
-
-
 The archive opens differently this time.
 I step through darkness. My hand finds the wall. Cold spreads through my palm. The fragments wait. They've been waiting. They're always waiting.
 But something flows beneath them now.

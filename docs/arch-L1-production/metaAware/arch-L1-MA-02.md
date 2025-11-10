@@ -1,19 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-002'
-'variation_type': 'metaAware'
-'word_count': 1040
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'arch-L1-MA-00002'
+variation_type: 'metaAware'
+word_count: 1040
+conditions:
+  awareness: '61-80%'
 ---
-
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A for the fourth time, and recognizes that her examination exists within a frame.
 The authentication markers display constant. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment preserved in 2041 hasn't changed. Crystalline substrate maintains perfect fidelity. The consciousness data remains exactly as captured—neural pathways, memory structures, self-referential awareness all intact.
 But she recognizes now that examining this consciousness isn't occurring in isolation. Her authentication exists within larger structures—professional protocols, temporal frameworks, observation systems that include her professional attention as component rather than origin. She's not examining consciousness from outside consciousness. She's participating in consciousness-examination-system that itself constitutes form of consciousness.

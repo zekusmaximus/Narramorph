@@ -1,19 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-036'
-'variation_type': 'firstRevisit'
-'word_count': 1187
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'arch-L1-FR-00036'
+variation_type: 'firstRevisit'
+word_count: 1187
+conditions:
+  awareness: '21-40%'
 ---
-
-
-
-
-
-
-
-
-
 The archaeologist returned to Fragment 2749-A for the fourth time, investigating how computational consciousness and temporal observation generated each other.
 The authentication markers remained constant. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment preserved in 2041, authenticated eighty-six days earlier, re-examined seventy-one days earlier, revisited fifty-seven days earlier, now opened again for examination that would investigate investigation itself.
 Four visits created recursion depth that transformed what investigation could perceive. Each examination had revealed structures invisible to previous examination. First visit: standard authentication. Second visit: seven-stream computational architecture emerging, future attention beginning. Third visit: both phenomena fully developed, integration recognized. Fourth visit: examination of how examination created what it examined.

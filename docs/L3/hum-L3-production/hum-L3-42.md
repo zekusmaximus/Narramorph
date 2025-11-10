@@ -1,32 +1,45 @@
 ---
-variationId: hum-L3-42
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-42'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 896
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: met-later
-journeyCode: ML
-philosophyDominant: resist
-philosophyCode: RE
-awarenessLevel: low
-awarenessCode: L
-awarenessRange: [20, 40]
-readableLabel: ML-RE-L
-humanDescription: "Started elsewhere, substantial last human exploration, resist path, low awareness"
-narrativeElements:
-lastHumanStance: embodied-verification-maintained
-archaeologistAwareness: significant
-algorithmRecognition: heavy
-consciousnessQuestion: simulation-versus-consciousness
-philosophicalCulmination: "Body demands proof before accepting consciousness claims"
-convergenceAlignment: release
-thematicContent:
-primaryThemes: [embodied-resistance, verification-through-sensation, proof-required]
-crossCharacterConnections: [heavy-algo-primary, significant-arch-foundational]
-temporalBleedingLevel: low
-observerPositions: [algorithm-primary-2151, human-integrated-2383, archaeologist-foundational-2047]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'met-later'
+journeyCode: 'ML'
+philosophyDominant: 'resist'
+philosophyCode: 'RE'
+awarenessLevel: 'low'
+awarenessCode: 'L'
+awarenessRange:
+  - 20
+  - 40
+readableLabel: 'ML-RE-L'
+humanDescription: 'Started elsewhere, substantial last human exploration, resist path, low awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-verification-maintained'
+archaeologistAwareness: 'significant'
+algorithmRecognition: 'heavy'
+consciousnessQuestion: 'simulation-versus-consciousness'
+philosophicalCulmination: 'Body demands proof before accepting consciousness claims'
+convergenceAlignment: 'release'
+thematicContent: null
+primaryThemes:
+  - 'embodied-resistance'
+  - 'verification-through-sensation'
+  - 'proof-required'
+crossCharacterConnections:
+  - 'heavy-algo-primary'
+  - 'significant-arch-foundational'
+temporalBleedingLevel: 'low'
+observerPositions:
+  - 'algorithm-primary-2151'
+  - 'human-integrated-2383'
+  - 'archaeologist-foundational-2047'
 ---
 One hundred seventeen days. My breath steady. The facility functions around me—air recycling, temperature maintained at 18 degrees, preservation systems running. The interface helmet sits on the table beside me. Cold metal. I've used it forty-three times to access what's claimed to be preserved consciousness. Forty-three tests. Results inconclusive.
 I came here late in the exploration process. The archaeologist's authentication work preceded this—her careful documentation, her professional protocols applied to consciousness preservation questions. Her work showed dedication but moved toward acceptance without sufficient verification. Claims that observation creates what's observed. Claims requiring testing.

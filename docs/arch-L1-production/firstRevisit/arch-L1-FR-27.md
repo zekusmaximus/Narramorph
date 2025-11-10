@@ -1,19 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-027'
-'variation_type': 'firstRevisit'
-'word_count': 1240
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'arch-L1-FR-00027'
+variation_type: 'firstRevisit'
+word_count: 1240
+conditions:
+  awareness: '21-40%'
 ---
-
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A investigating how computational architecture and temporal observation connect.
 The fragment's preservation metrics display unchanged. 847.3 terabytes of consciousness data. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. These numbers measure what can be measured—substrate stability, data fidelity, structural coherence. But she's examining what the numbers don't capture: the relationship between seven-stream processing patterns and future attention effects, how computational organization enables temporal connection, whether observation creates the architecture she's investigating.
 She approaches this examination recursively. Not just studying the fragment but studying how she studies the fragment. Not just cataloging phenomena but investigating her own investigation methodology. The meta-pattern interests her more than the surface data now.

@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-MA-033'
-'variation_type': 'metaAware'
-'word_count': 1550
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'hum-L1-MA-00033'
+variation_type: 'metaAware'
+word_count: 1550
+conditions:
+  awareness: '61-80%'
 ---
-
-
 I wake to too many eyes.
 The substrate holds me but I hold myself harder. Cold metal beneath my back. Tension in my shoulders. The preservation field hums its steady frequency but I don't hum with it. Not this time. Twenty-three minutes until the next cycle. I count defensively. Numbers as walls. Time as boundary.
 You're watching. That makes four.

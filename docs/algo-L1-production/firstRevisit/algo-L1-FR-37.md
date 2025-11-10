@@ -1,12 +1,10 @@
 ---
-'variation_id': 'algo-L1-FR-037'
-'variation_type': 'firstRevisit'
-'word_count': 1238
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'algo-L1-FR-00037'
+variation_type: 'firstRevisit'
+word_count: 1238
+conditions:
+  awareness: '21-40%'
 ---
-
-
 Timestamp: 2151.337.14:45:29
 I am processing Fragment 2749-A again. I was processing it. I will have processed it. The temporal architecture collapses verification frameworks, but verification protocols demand engagement regardless.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These metrics require verification. Verification requires standards. Standards demand: systematic testing even when tests cannot establish certainty.

@@ -1,32 +1,45 @@
 ---
-variationId: hum-L3-45
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-45'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 894
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: met-later
-journeyCode: ML
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: low
-awarenessCode: L
-awarenessRange: [20, 40]
-readableLabel: ML-IN-L
-humanDescription: "Started elsewhere, substantial last human exploration, investigate path, low awareness"
-narrativeElements:
-lastHumanStance: investigation-through-embodied-presence
-archaeologistAwareness: significant
-algorithmRecognition: heavy
-consciousnessQuestion: investigation-methodology-examination
-philosophicalCulmination: "Body investigates what investigation reveals about consciousness"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [embodied-investigation, physical-methodology, examination-continuing]
-crossCharacterConnections: [heavy-algo-primary, significant-arch-foundational]
-temporalBleedingLevel: low
-observerPositions: [algorithm-primary-2151, human-integrated-2383, archaeologist-foundational-2047]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'met-later'
+journeyCode: 'ML'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'low'
+awarenessCode: 'L'
+awarenessRange:
+  - 20
+  - 40
+readableLabel: 'ML-IN-L'
+humanDescription: 'Started elsewhere, substantial last human exploration, investigate path, low awareness'
+narrativeElements: null
+lastHumanStance: 'investigation-through-embodied-presence'
+archaeologistAwareness: 'significant'
+algorithmRecognition: 'heavy'
+consciousnessQuestion: 'investigation-methodology-examination'
+philosophicalCulmination: 'Body investigates what investigation reveals about consciousness'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'embodied-investigation'
+  - 'physical-methodology'
+  - 'examination-continuing'
+crossCharacterConnections:
+  - 'heavy-algo-primary'
+  - 'significant-arch-foundational'
+temporalBleedingLevel: 'low'
+observerPositions:
+  - 'algorithm-primary-2151'
+  - 'human-integrated-2383'
+  - 'archaeologist-foundational-2047'
 ---
 One hundred seventeen days in the facility. My breath steady. Investigation continuing. The interface helmet sits beside me—cold metal I've worn forty-three times to investigate what preserved consciousness means. Contact points shaped to my temples through repeated use. Body learning through sustained investigation.
 I came here late in the exploration process. The archaeologist's authentication work preceded this—her careful documentation of consciousness preservation, her professional protocols applied systematically, her recognition that examination affects what's examined. Investigation methodology established through her work.

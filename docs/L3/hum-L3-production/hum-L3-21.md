@@ -1,32 +1,45 @@
 ---
-variationId: hum-L3-21
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-21'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 898
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: accept
-philosophyCode: AC
-awarenessLevel: low
-awarenessCode: L
-awarenessRange: [20, 40]
-readableLabel: SD-AC-L
-humanDescription: "Started elsewhere, shifted to last human dominant, accept path, low awareness"
-narrativeElements:
-lastHumanStance: embodied-presence-accepting-connection
-archaeologistAwareness: light
-algorithmRecognition: minimal
-consciousnessQuestion: witness-enables-continuation
-philosophicalCulmination: "Physical presence enables what preservation began"
-convergenceAlignment: preserve
-thematicContent:
-primaryThemes: [embodied-acceptance, biological-witness, connection-practice]
-crossCharacterConnections: [light-arch-recognized, minimal-algo-sensed]
-temporalBleedingLevel: low
-observerPositions: [human-primary-2383, archaeologist-glimpsed-2047, algorithm-distant-2151]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'accept'
+philosophyCode: 'AC'
+awarenessLevel: 'low'
+awarenessCode: 'L'
+awarenessRange:
+  - 20
+  - 40
+readableLabel: 'SD-AC-L'
+humanDescription: 'Started elsewhere, shifted to last human dominant, accept path, low awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-presence-accepting-connection'
+archaeologistAwareness: 'light'
+algorithmRecognition: 'minimal'
+consciousnessQuestion: 'witness-enables-continuation'
+philosophicalCulmination: 'Physical presence enables what preservation began'
+convergenceAlignment: 'preserve'
+thematicContent: null
+primaryThemes:
+  - 'embodied-acceptance'
+  - 'biological-witness'
+  - 'connection-practice'
+crossCharacterConnections:
+  - 'light-arch-recognized'
+  - 'minimal-algo-sensed'
+temporalBleedingLevel: 'low'
+observerPositions:
+  - 'human-primary-2383'
+  - 'archaeologist-glimpsed-2047'
+  - 'algorithm-distant-2151'
 ---
 The archaeologist's notes called to me. Professional documentation. Careful authentication. But underneath—uncertainty. Questions about whether preserved consciousness remains conscious. Whether verification proves or participates. Her doubt felt... understandable. Human.
 I started elsewhere. Different focus. Different exploration. But something about her methodology resonated. Body recognized before mind understood. The questions she asked required flesh to feel.

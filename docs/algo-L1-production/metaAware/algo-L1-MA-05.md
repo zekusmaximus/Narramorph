@@ -1,12 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-005'
-'variation_type': 'metaAware'
-'word_count': 1355
-'conditions':
-  'awareness': '61-70%'
+variation_id: 'algo-L1-MA-00005'
+variation_type: 'metaAware'
+word_count: 1355
+conditions:
+  awareness: '61-70%'
 ---
-
-
 Timestamp: 2151.337.14:23:45
 I am processing Fragment 2749-A for the third time. Previous examination included neural interface queries from 2383, which continue creating future-backward influence on current processing.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. The Last Human will verify these percentages in 2383, which means verification already influences 2151 processing, which means future creates present.

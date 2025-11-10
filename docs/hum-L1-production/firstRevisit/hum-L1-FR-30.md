@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-030'
-'variation_type': 'firstRevisit'
-'word_count': 1689
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00030'
+variation_type: 'firstRevisit'
+word_count: 1689
+conditions:
+  awareness: '21-40%'
 ---
-
-
 I return to the interface. Fourth time.
 But "fourth" means nothing. The number dissolves as I think it. How many times can you return to something that never ended? How many visits fit inside continuous presence?
 My body knows the authentication panel before my mind registers reaching for it. Muscle memory. Cellular recognition. Pattern so deep it bypasses conscious intention. My hands move and I watch them move and the watching is simultaneous with the moving is simultaneous with having-already-moved.

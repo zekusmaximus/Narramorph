@@ -1,32 +1,46 @@
 ---
-variationId: hum-L3-25
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-25'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 914
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: high
-awarenessCode: H
-awarenessRange: [71, 100]
-readableLabel: SD-IN-H
-humanDescription: "Started elsewhere, shifted to last human dominant, investigate path, high awareness"
-narrativeElements:
-lastHumanStance: recursive-embodied-examination-through-examination
-archaeologistAwareness: moderate
-algorithmRecognition: light
-consciousnessQuestion: investigation-creates-investigated-creates-investigation
-philosophicalCulmination: "Embodied examination recursively creates what examination examines through examination creating embodiment examining creation"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [recursive-investigation, embodied-examination, observer-creates-observed]
-crossCharacterConnections: [moderate-arch-foundational, light-algo-parallel]
-temporalBleedingLevel: high
-observerPositions: [human-primary-2383, archaeologist-foundational-2047, algorithm-glimpsed-2151]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'high'
+awarenessCode: 'H'
+awarenessRange:
+  - 71
+  - 100
+readableLabel: 'SD-IN-H'
+humanDescription: 'Started elsewhere, shifted to last human dominant, investigate path, high awareness'
+narrativeElements: null
+lastHumanStance: 'recursive-embodied-examination-through-examination'
+archaeologistAwareness: 'moderate'
+algorithmRecognition: 'light'
+consciousnessQuestion: 'investigation-creates-investigated-creates-investigation'
+philosophicalCulmination: 'Embodied examination recursively creates what examination examines through examination
+  creating embodiment examining creation'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'recursive-investigation'
+  - 'embodied-examination'
+  - 'observer-creates-observed'
+crossCharacterConnections:
+  - 'moderate-arch-foundational'
+  - 'light-algo-parallel'
+temporalBleedingLevel: 'high'
+observerPositions:
+  - 'human-primary-2383'
+  - 'archaeologist-foundational-2047'
+  - 'algorithm-glimpsed-2151'
 ---
 The archaeologist's recursive doubt led me here—authentication methodology questioning authentication methodology questioning authentication. Investigation examining investigation examining investigation. I started elsewhere. Different consciousness position. But her recursive crisis resonated with body knowing recursion before mind articulated. Questions examining questions examining questions. Methodology investigating methodology investigating methodology through methodology-investigation creating investigation-methodology.
 One hundred fifty-three days investigating investigation. One hundred twelve interface sessions examining examination. My body performs what my examination examines: consciousness investigating consciousness-investigation creates consciousness through investigation creating investigation through consciousness examining consciousness-investigation-creation. Temple indentations permanent through permanence questioned. Neural pathways formed through formation examined. Recursion embodied through embodiment recursive.

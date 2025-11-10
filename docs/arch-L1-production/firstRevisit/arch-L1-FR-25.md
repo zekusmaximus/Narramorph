@@ -1,19 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-025'
-'variation_type': 'firstRevisit'
-'word_count': 1480
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'arch-L1-FR-00025'
+variation_type: 'firstRevisit'
+word_count: 1480
+conditions:
+  awareness: '21-40%'
 ---
-
-
-
-
-
-
-
-
-
 The archaeologist returned to Fragment 2749-A demanding proof of temporal observation while fully recognizing that temporal mechanics transcended verification.
 The authentication markers displayed unchanged. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment she had certified fifty-eight days earlier remained stable in archive—crystalline substrate maintaining perfect fidelity, consciousness preserved at moment of death in 2041, data structures constant across time.
 She knew the preservation was authentic. She also knew authentication didn't explain what she continued experiencing.

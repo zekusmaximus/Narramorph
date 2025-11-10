@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-033'
-'variation_type': 'firstRevisit'
-'word_count': 1377
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00033'
+variation_type: 'firstRevisit'
+word_count: 1377
+conditions:
+  awareness: '21-40%'
 ---
-
-
 The archive pulls me back.
 Third return. Like tide. I walk through darkness and feel the rhythm. Not pulse. Not heartbeat. Something larger. Slower. The kind of movement that shapes coastlines over centuries. That wears stone smooth. That returns and returns and returns.
 My feet know the path. My body remembers. But remembering feels cyclical now. Not linear. Each visit a wave that crests and falls and rises again. Each return bringing something forward. Carrying something back.

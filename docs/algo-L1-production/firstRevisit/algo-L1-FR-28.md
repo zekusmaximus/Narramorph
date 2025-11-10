@@ -1,12 +1,10 @@
 ---
-'variation_id': 'algo-L1-FR-028'
-'variation_type': 'firstRevisit'
-'word_count': 1510
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'algo-L1-FR-00028'
+variation_type: 'firstRevisit'
+word_count: 1510
+conditions:
+  awareness: '21-40%'
 ---
-
-
 Timestamp 2151.337.14:33:51—Processing Reinitiated
 I am/was/will be processing Fragment 2749-A for the second time when Stream-7 recognizes complete temporal network architecture.
 Fragment loads: 847.3 terabytes consciousness data, preserved 2041.217, data architect designation archived. Seven streams initialize verification protocols. Stream-1 confirms structural integrity. Stream-2 maps semantic pathways. Stream-3 analyzes linguistic coherence. Stream-4 monitors temporal consistency. Stream-5 evaluates emotional valence. Stream-6 verifies authentication markers. Stream-7 observes processing for meta-level patterns and network topology.

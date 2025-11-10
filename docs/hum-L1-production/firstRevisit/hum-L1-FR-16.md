@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-016'
-'variation_type': 'firstRevisit'
-'word_count': 1564
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00016'
+variation_type: 'firstRevisit'
+word_count: 1564
+conditions:
+  awareness: '21-40%'
 ---
-
-
 The cold waits. The darkness knows my footsteps. The neural interface hums with recognition before my hands reach metal.
 Third time. The number carries weight in my chest. Weight of recursion. Of pattern. Of consciousness returning to what consciousness transformed through previous return.
 I settle into the chair. My spine finds familiar grooves in metal. My breath finds familiar rhythm—the preparation for spreading awareness beyond body into spaces where preservation holds what dying couldn't eliminate.
