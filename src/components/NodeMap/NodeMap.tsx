@@ -44,30 +44,33 @@ const CHARACTER_THEMES = {
 } as const;
 
 /**
- * Convert StoryNode to React Flow node format
+ * Convert StoryNode to React Flow node format, filtering out locked nodes
  */
 function convertToReactFlowNodes(
   storyNodes: Map<string, StoryNode>,
   getNodeState: (id: string) => NodeUIState,
-  selectedNode: string | null
+  selectedNode: string | null,
+  canVisitNode: (id: string) => boolean
 ): Node[] {
-  return Array.from(storyNodes.values()).map((node) => {
-    const nodeState = getNodeState(node.id);
+  return Array.from(storyNodes.values())
+    .filter((node) => canVisitNode(node.id)) // Filter out locked nodes
+    .map((node) => {
+      const nodeState = getNodeState(node.id);
 
-    return {
-      id: node.id,
-      type: 'storyNode',
-      position: node.position,
-      data: {
-        node,
-        nodeState,
-        isSelected: selectedNode === node.id,
-      } as Record<string, unknown>,
-      draggable: false,
-      selectable: true,
-      focusable: true,
-    };
-  });
+      return {
+        id: node.id,
+        type: 'storyNode',
+        position: node.position,
+        data: {
+          node,
+          nodeState,
+          isSelected: selectedNode === node.id,
+        } as Record<string, unknown>,
+        draggable: false,
+        selectable: true,
+        focusable: true,
+      };
+    });
 }
 
 /**
@@ -117,6 +120,7 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
     openStoryView,
     getNodeState,
     progress,
+    canVisitNode,
   } = useStoryStore();
 
   // State for atmospheric effects
@@ -135,8 +139,8 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
 
   // Convert to React Flow format
   const initialNodes = useMemo(
-    () => convertToReactFlowNodes(storyNodes, getNodeState, selectedNode),
-    [storyNodes, getNodeState, selectedNode]
+    () => convertToReactFlowNodes(storyNodes, getNodeState, selectedNode, canVisitNode),
+    [storyNodes, getNodeState, selectedNode, canVisitNode]
   );
 
   const initialEdges = useMemo(
@@ -158,10 +162,10 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Update nodes when selection or state changes
+  // Update nodes when selection, state, or progress changes (for L2 unlocking)
   useEffect(() => {
-    setNodes(convertToReactFlowNodes(storyNodes, getNodeState, selectedNode));
-  }, [storyNodes, selectedNode, getNodeState, setNodes]);
+    setNodes(convertToReactFlowNodes(storyNodes, getNodeState, selectedNode, canVisitNode));
+  }, [storyNodes, selectedNode, getNodeState, canVisitNode, progress, setNodes]);
 
   // Update edges when story nodes or progress changes
   useEffect(() => {
