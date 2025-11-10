@@ -45,3 +45,19 @@ export type {
   StoryManifest,
   StoryDefinition,
 } from './Story';
+
+// Variation system types
+export type {
+  JourneyPattern,
+  PathPhilosophy,
+  AwarenessLevel,
+  SynthesisPattern,
+  VariationMetadata,
+  Variation,
+  VariationFile,
+  SelectionMatrixEntry,
+  L3AssemblySection,
+  L3Assembly,
+  JourneyTracking,
+  ConditionContext,
+} from './Variation';

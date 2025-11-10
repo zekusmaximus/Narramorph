@@ -8,6 +8,7 @@ import type {
   ConnectionUIState,
 } from './Node';
 import type { Connection, StoryData } from './Story';
+import type { JourneyTracking, ConditionContext, L3Assembly } from './Variation';
 
 /**
  * Record of a single visit to a node
@@ -48,6 +49,9 @@ export interface UserProgress {
     algorithm: number;
     lastHuman: number;
   };
+
+  // Journey and philosophy tracking for variation selection
+  journeyTracking?: JourneyTracking;
 }
 
 /**
@@ -137,6 +141,10 @@ export interface StoryStore {
   loadStory: (storyId: string) => Promise<void>;
   visitNode: (nodeId: string) => void;
   updateTemporalAwareness: () => void;
+  updateJourneyTracking: () => void;
+  recordL2Choice: (choice: 'accept' | 'resist' | 'invest') => void;
+  getConditionContext: () => ConditionContext;
+  buildL3Assembly: () => L3Assembly | null;
   updateViewport: (viewport: Partial<MapViewport>) => void;
   selectNode: (nodeId: string | null) => void;
   setHoveredNode: (nodeId: string | null) => void;
