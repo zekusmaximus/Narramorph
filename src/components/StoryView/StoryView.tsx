@@ -351,6 +351,7 @@ export default function StoryView({ className = '' }: StoryViewProps) {
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
           className={`
             relative max-w-4xl w-full max-h-[90vh] overflow-hidden
+            flex flex-col
             ${preferences.theme === 'dark' ? 'bg-gray-900' : ''}
             ${preferences.theme === 'light' ? 'bg-white' : ''}
             ${preferences.theme === 'sepia' ? 'bg-amber-50' : ''}

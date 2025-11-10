@@ -65,6 +65,7 @@ function createInitialProgress(): UserProgress {
       lastHuman: 0,
     },
     journeyTracking: createInitialJourneyTracking(),
+    unlockedL2Characters: [],
   };
 }
 
@@ -511,6 +512,15 @@ export const useStoryStore = create<StoryStore>()(
         }
         // multi-perspective nodes don't increment character counters
 
+        // Unlock L2 nodes when visiting L1 nodes
+        const layerMatch = nodeId.match(/^(arch|arc|algo|hum|algorithm|human)-L?(\d).*$/);
+        if (layerMatch) {
+          const layer = parseInt(layerMatch[2] || '1', 10);
+          if (layer === 1 && !draftState.progress.unlockedL2Characters.includes(node.character)) {
+            draftState.progress.unlockedL2Characters.push(node.character);
+          }
+        }
+
         draftState.progress.readingPath.push(nodeId);
         draftState.progress.lastActiveTimestamp = now;
       });
@@ -671,6 +681,31 @@ export const useStoryStore = create<StoryStore>()(
         }
 
         console.log(`Migration complete. Temporal awareness: ${saved.progress.temporalAwarenessLevel}%`);
+      }
+
+      // Migration for old saves without L2 unlocking system
+      if (!saved.progress.unlockedL2Characters) {
+        console.log('Migrating old save to L2 unlocking system...');
+
+        // Initialize the field
+        saved.progress.unlockedL2Characters = [];
+
+        // Unlock L2 characters based on visited L1 nodes
+        const state = get();
+        for (const nodeId of Object.keys(saved.progress.visitedNodes)) {
+          const node = state.nodes.get(nodeId);
+          if (!node) continue;
+
+          const layerMatch = nodeId.match(/^(arch|arc|algo|hum|algorithm|human)-L?(\d).*$/);
+          if (layerMatch) {
+            const layer = parseInt(layerMatch[2] || '1', 10);
+            if (layer === 1 && !saved.progress.unlockedL2Characters.includes(node.character)) {
+              saved.progress.unlockedL2Characters.push(node.character);
+            }
+          }
+        }
+
+        console.log(`Migration complete. Unlocked L2 characters: ${saved.progress.unlockedL2Characters.join(', ')}`);
       }
 
       set((state) => {
@@ -925,11 +960,17 @@ export const useStoryStore = create<StoryStore>()(
 
       if (!node) return false;
 
-      // For now, all existing nodes are visitable
-      // In the future, implement logic based on:
-      // - Connection accessibility
-      // - Unlock conditions
-      // - Story progression requirements
+      // Check if L2 node is unlocked
+      const layerMatch = nodeId.match(/^(arch|arc|algo|hum|algorithm|human)-L?(\d).*$/);
+      if (layerMatch) {
+        const layer = parseInt(layerMatch[2] || '1', 10);
+        if (layer === 2) {
+          // L2 nodes require their parent L1 character to be unlocked
+          return state.progress.unlockedL2Characters.includes(node.character);
+        }
+      }
+
+      // L1 and L3 nodes are always visitable
       return true;
     },
   }))

@@ -2,6 +2,7 @@
  * Journey Tracker Component - displays current journey pattern and path philosophy
  */
 
+import { useState } from 'react';
 import { useStoryStore } from '@/stores/storyStore';
 import type { JourneyPattern, PathPhilosophy } from '@/types';
 
@@ -25,6 +26,7 @@ const philosophyLabels: Record<PathPhilosophy, string> = {
 export function JourneyTracker() {
   const progress = useStoryStore((state) => state.progress);
   const tracking = progress.journeyTracking;
+  const [isExpanded, setIsExpanded] = useState(false);
 
   if (!tracking) {
     return null;
@@ -33,8 +35,24 @@ export function JourneyTracker() {
   const { characterVisitPercentages, currentJourneyPattern, dominantPhilosophy, l2Choices } = tracking;
 
   return (
-    <div className="journey-tracker bg-black/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-4 space-y-4">
-      <h3 className="text-cyan-400 font-mono text-sm uppercase tracking-wider">Journey Tracking</h3>
+    <div className="journey-tracker bg-black/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg overflow-hidden">
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="w-full p-4 text-left hover:bg-cyan-500/10 transition-colors flex items-center justify-between"
+      >
+        <h3 className="text-cyan-400 font-mono text-sm uppercase tracking-wider">Journey Tracking</h3>
+        <svg
+          className={`w-5 h-5 text-cyan-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {isExpanded && (
+        <div className="p-4 pt-0 space-y-4">
 
       {/* Journey Pattern */}
       <div className="space-y-2">
@@ -117,6 +135,8 @@ export function JourneyTracker() {
           </div>
         </div>
       </div>
+        </div>
+      )}
     </div>
   );
 }
