@@ -2,22 +2,11 @@
   "character": "human",
   "nodes": [
     {
-      "id": "human-001",
-      "character": "human",
-      "title": "The Weight of Integration",
-      "position": { "x": 500, "y": 900 },
-      "connections": [],
-      "visualState": {
-        "defaultColor": "#E74C3C",
-        "size": 32,
-        "shape": "circle"
-      },
-      "metadata": {
-        "estimatedReadTime": 5,
-        "thematicTags": ["integration anxiety", "embodied consciousness", "identity synthesis"],
-        "narrativeAct": 2,
-        "criticalPath": true
-      }
+      "id": "hum-L1",
+      "layer": 1,
+      "chapterTitle": "First Experience",
+      "connections": ["hum-L2-A", "hum-L2-B"],
+      "contentFile": "content/layer1/hum-L1-variations.json"
     }
   ]
 }

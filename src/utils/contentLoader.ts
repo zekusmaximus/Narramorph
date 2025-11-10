@@ -112,19 +112,57 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
       if (isDef(charData)) {
         const characterRaw = charData.character as string;
         for (const def of charData.nodes) {
-          // Try external content file (Pattern B): variations or transformationStates
-          const contentPath = `/src/data/stories/${storyId}/${def.contentFile}`.replace(/\\/g, '/');
-          const varData = (l1VarMap[contentPath] || l2VarMap[contentPath]) as VariationFile | undefined;
+          // Map old content file paths to actual variation file locations
+          // Old: content/archaeologist/arc-L1.json -> New: content/layer1/arch-L1-variations.json
+          let actualContentPath: string | null = null;
+
+          if (def.layer === 1) {
+            // L1: content/archaeologist/arc-L1.json -> content/layer1/arch-L1-variations.json
+            const charPrefix = characterRaw === 'archaeologist' || characterRaw === 'arc' ? 'arch' :
+                              characterRaw === 'algorithm' || characterRaw === 'algo' ? 'algo' : 'hum';
+            actualContentPath = `/src/data/stories/${storyId}/content/layer1/${charPrefix}-L1-variations.json`;
+          } else if (def.layer === 2) {
+            // L2: Need to determine path philosophy from node ID (accept/resist/invest)
+            const charPrefix = characterRaw === 'archaeologist' || characterRaw === 'arc' ? 'arch' :
+                              characterRaw === 'algorithm' || characterRaw === 'algo' ? 'algo' : 'hum';
+            // For now, try to find any L2 file for this character
+            const paths = [
+              `/src/data/stories/${storyId}/content/layer2/${charPrefix}-L2-accept-variations.json`,
+              `/src/data/stories/${storyId}/content/layer2/${charPrefix}-L2-resist-variations.json`,
+              `/src/data/stories/${storyId}/content/layer2/${charPrefix}-L2-invest-variations.json`
+            ];
+            actualContentPath = paths.find(p => l2VarMap[p]) || null;
+          }
+
+          const varData = actualContentPath ? (l1VarMap[actualContentPath] || l2VarMap[actualContentPath]) as VariationFile | undefined : undefined;
+
+          console.log('Content loading for node:', {
+            nodeId: def.id,
+            layer: def.layer,
+            character: characterRaw,
+            actualContentPath,
+            foundData: !!varData,
+            variationCount: varData?.variations?.length || 0
+          });
+
           let content: StoryNode['content'] | undefined;
 
           if (varData && varData.variations?.length) {
             // Materialize one representative per state for now (selector will refine later)
             const pick = (state: 'initial' | 'firstRevisit' | 'metaAware') =>
               varData.variations.find(v => v.transformationState === state)?.content || '';
-            content = { initial: pick('initial'), firstRevisit: pick('firstRevisit'), metaAware: pick('metaAware') };
+
+            // Fallback: if no 'initial' state exists, use 'firstRevisit' as initial
+            const initialContent = pick('initial') || pick('firstRevisit');
+            content = {
+              initial: initialContent,
+              firstRevisit: pick('firstRevisit'),
+              metaAware: pick('metaAware')
+            };
           } else {
             // Attempt legacy content file with transformationStates via glob (not mapped here); leave empty if missing
-            content = { initial: '', firstRevisit: '', metaAware: '' };
+            console.warn(`No content found for node ${def.id} at path ${actualContentPath}`);
+            content = { initial: 'Content not found. This node is under development.', firstRevisit: '', metaAware: '' };
           }
 
           // Build node
