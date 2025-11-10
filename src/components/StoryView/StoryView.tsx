@@ -590,6 +590,7 @@ export default function StoryView({ className = '' }: StoryViewProps) {
                     ${preferences.theme === 'dark' ? 'text-gray-500' : 'text-gray-500'}
                   `}>
                     Press 1-{connections.length} to navigate - Arrow Left to go back - ESC to close
+                  </div>
                 </div>
               )}
             </div>

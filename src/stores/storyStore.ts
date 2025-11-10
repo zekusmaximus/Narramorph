@@ -23,6 +23,29 @@ import type {
 import { saveToStorage, loadFromStorage, STORAGE_KEYS } from '@/utils/storage';
 import { validateSavedState } from '@/utils/validation';
 import { loadStoryContent, ContentLoadError } from '@/utils/contentLoader';
+import { calculateJourneyPattern, calculatePathPhilosophy } from '@/utils/conditionEvaluator';
+import type { JourneyTracking, ConditionContext, L3Assembly } from '@/types';
+import { buildL3Assembly } from '@/utils/l3Assembly';
+
+/**
+ * Creates initial journey tracking
+ */
+function createInitialJourneyTracking(): JourneyTracking {
+  return {
+    characterVisitPercentages: {
+      archaeologist: 0,
+      algorithm: 0,
+      lastHuman: 0,
+    },
+    currentJourneyPattern: 'unknown',
+    l2Choices: {
+      accept: 0,
+      resist: 0,
+      invest: 0,
+    },
+    dominantPhilosophy: 'unknown',
+  };
+}
 
 /**
  * Creates initial empty user progress
@@ -41,6 +64,7 @@ function createInitialProgress(): UserProgress {
       algorithm: 0,
       lastHuman: 0,
     },
+    journeyTracking: createInitialJourneyTracking(),
   };
 }
 
@@ -341,6 +365,114 @@ export const useStoryStore = create<StoryStore>()(
       });
     },
 
+    /**
+     * Updates journey tracking based on current visit patterns
+     */
+    updateJourneyTracking: () => {
+      set((draftState) => {
+        const { archaeologist, algorithm, lastHuman } =
+          draftState.progress.characterNodesVisited;
+
+        const total = archaeologist + algorithm + lastHuman;
+
+        if (total === 0) {
+          return; // No visits yet
+        }
+
+        // Calculate percentages
+        const percentages = {
+          archaeologist: (archaeologist / total) * 100,
+          algorithm: (algorithm / total) * 100,
+          lastHuman: (lastHuman / total) * 100,
+        };
+
+        // Determine starting character if not set
+        if (!draftState.progress.journeyTracking) {
+          draftState.progress.journeyTracking = createInitialJourneyTracking();
+        }
+
+        const tracking = draftState.progress.journeyTracking;
+        tracking.characterVisitPercentages = percentages;
+
+        // Set starting character based on first visit in reading path
+        if (!tracking.startingCharacter && draftState.progress.readingPath.length > 0) {
+          const firstNodeId = draftState.progress.readingPath[0];
+          const firstNode = draftState.nodes.get(firstNodeId);
+          if (firstNode) {
+            if (firstNode.character === 'archaeologist') {
+              tracking.startingCharacter = 'archaeologist';
+            } else if (firstNode.character === 'algorithm') {
+              tracking.startingCharacter = 'algorithm';
+            } else if (firstNode.character === 'last-human') {
+              tracking.startingCharacter = 'lastHuman';
+            }
+          }
+        }
+
+        // Determine dominant character
+        const maxPercentage = Math.max(percentages.archaeologist, percentages.algorithm, percentages.lastHuman);
+        if (percentages.archaeologist === maxPercentage) {
+          tracking.dominantCharacter = 'archaeologist';
+        } else if (percentages.algorithm === maxPercentage) {
+          tracking.dominantCharacter = 'algorithm';
+        } else {
+          tracking.dominantCharacter = 'lastHuman';
+        }
+
+        // Calculate journey pattern
+        tracking.currentJourneyPattern = calculateJourneyPattern(
+          tracking.startingCharacter,
+          percentages
+        );
+
+        // Calculate dominant philosophy
+        tracking.dominantPhilosophy = calculatePathPhilosophy(tracking.l2Choices);
+      });
+    },
+
+    /**
+     * Records an L2 philosophy choice (accept/resist/invest)
+     */
+    recordL2Choice: (choice: 'accept' | 'resist' | 'invest') => {
+      set((draftState) => {
+        if (!draftState.progress.journeyTracking) {
+          draftState.progress.journeyTracking = createInitialJourneyTracking();
+        }
+        draftState.progress.journeyTracking.l2Choices[choice]++;
+      });
+      get().updateJourneyTracking();
+    },
+
+    /**
+     * Gets the current condition context for variation selection
+     */
+    getConditionContext: (): ConditionContext => {
+      const state = get();
+      const tracking = state.progress.journeyTracking || createInitialJourneyTracking();
+
+      return {
+        awareness: state.progress.temporalAwarenessLevel,
+        journeyPattern: tracking.currentJourneyPattern,
+        pathPhilosophy: tracking.dominantPhilosophy,
+        visitCount: 0, // Will be overridden for specific nodes
+        characterVisitPercentages: tracking.characterVisitPercentages,
+      };
+    },
+
+    /**
+     * Builds an L3 assembly for the current user state
+     */
+    buildL3Assembly: (): L3Assembly | null => {
+      const state = get();
+      if (!state.storyData) {
+        console.error('Story not loaded');
+        return null;
+      }
+
+      const context = state.getConditionContext();
+      return buildL3Assembly(state.storyData.metadata.id, context);
+    },
+
     visitNode: (nodeId: string) => {
       // Validate node exists first
       const state = get();
@@ -383,8 +515,9 @@ export const useStoryStore = create<StoryStore>()(
         draftState.progress.lastActiveTimestamp = now;
       });
 
-      // Update temporal awareness after visit
+      // Update temporal awareness and journey tracking after visit
       get().updateTemporalAwareness();
+      get().updateJourneyTracking();
 
       // Re-determine transformation states for ALL visited nodes with new awareness
       const freshState = get();
