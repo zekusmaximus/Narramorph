@@ -4,10 +4,10 @@ layer: 3
 wordCount: 1134
 nodeId: ''
 conditions:
-  journeyPattern: 'unknown'
+  journeyPattern: 'started-stayed'
   philosophyDominant: 'accept'
   awarenessLevel: 'low'
-journeyPattern: 'unknown'
+journeyPattern: 'started-stayed'
 philosophyDominant: 'accept'
 awarenessLevel: 'low'
 characterVoices:
