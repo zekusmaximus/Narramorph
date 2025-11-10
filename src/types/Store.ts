@@ -52,6 +52,9 @@ export interface UserProgress {
 
   // Journey and philosophy tracking for variation selection
   journeyTracking?: JourneyTracking;
+
+  // L2 node unlocking - tracks which characters have had their L1 initial_state read
+  unlockedL2Characters: string[]; // character IDs like 'archaeologist', 'algorithm', 'last-human'
 }
 
 /**

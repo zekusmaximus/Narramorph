@@ -164,6 +164,7 @@ function CustomStoryNode({ data, selected }: NodeProps) {
   // Store access for connection detection
   const selectedNode = useStoryStore(state => state.selectedNode);
   const nodes = useStoryStore(state => state.nodes);
+  const canVisitNode = useStoryStore(state => state.canVisitNode);
 
   // Check if this node is connected to selected node
   const isConnectionTarget = useMemo(() => {
@@ -173,12 +174,20 @@ function CustomStoryNode({ data, selected }: NodeProps) {
     return selected.connections.some(conn => conn.targetId === node.id);
   }, [selectedNode, nodes, node.id]);
 
+  // Check if node is locked (for L2 nodes)
+  const isLocked = !canVisitNode(node.id);
+
   // Calculate size based on importance (critical path nodes are larger)
-  const size = node.metadata.criticalPath ? 120 : 80;
+  const size = node.metadata.criticalPath ? 80 : 60;
 
   // Determine visual intensity based on transformation state
   const isMetaAware = nodeState.currentState === 'metaAware';
   const isVisited = nodeState.visited;
+
+  // Hide locked L2 nodes completely
+  if (isLocked) {
+    return null;
+  }
 
   return (
     <>
