@@ -151,7 +151,14 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
             // Materialize one representative per state for now (selector will refine later)
             const pick = (state: 'initial' | 'firstRevisit' | 'metaAware') =>
               varData.variations.find(v => v.transformationState === state)?.content || '';
-            content = { initial: pick('initial'), firstRevisit: pick('firstRevisit'), metaAware: pick('metaAware') };
+
+            // Fallback: if no 'initial' state exists, use 'firstRevisit' as initial
+            const initialContent = pick('initial') || pick('firstRevisit');
+            content = {
+              initial: initialContent,
+              firstRevisit: pick('firstRevisit'),
+              metaAware: pick('metaAware')
+            };
           } else {
             // Attempt legacy content file with transformationStates via glob (not mapped here); leave empty if missing
             console.warn(`No content found for node ${def.id} at path ${actualContentPath}`);
