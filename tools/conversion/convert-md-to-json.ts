@@ -319,11 +319,16 @@ async function convertL1(
 
     // Discover all markdown files (sorted for determinism)
     let files = (await discoverMarkdownFiles(sourceDir, /\.md$/, logger)).sort();
-    // Only process canonical variation files from firstRevisit/metaAware directories to avoid docs/templates
+    // Only process canonical variation files from firstRevisit/metaAware directories + INITIAL_STATE to avoid docs/templates
     const prefix = `${char}-L1`;
     const frPattern = new RegExp(`${prefix}-FR-\\d{2,3}\\.md$`);
     const maPattern = new RegExp(`${prefix}-MA-\\d{2,3}\\.md$`);
-    files = files.filter((f) => (frPattern.test(f) && /[\\\/]firstRevisit[\\\/]/.test(f)) || (maPattern.test(f) && /[\\\/]metaAware[\\\/]/.test(f)));
+    const initialPattern = new RegExp(`${prefix}-INITIAL_STATE\\.md$`);
+    files = files.filter((f) =>
+      (frPattern.test(f) && /[\\\/]firstRevisit[\\\/]/.test(f)) ||
+      (maPattern.test(f) && /[\\\/]metaAware[\\\/]/.test(f)) ||
+      initialPattern.test(f)
+    );
     logger.info('L1_DISCOVERED', `Found ${files.length} files for ${nodeId}`);
 
     const variations: L1L2Variation[] = [];
@@ -343,37 +348,83 @@ async function convertL1(
         if (!content) return { variation: null, variationText: null };
 
         const { text: normalized } = normalizeText(content, logger, file);
-        const parsed = parseFrontmatter(normalized, logger, file);
-        if (!parsed) return { variation: null, variationText: null };
+        const isInitialState = /INITIAL_STATE\.md$/.test(file);
 
-        const { frontmatter, content: body } = parsed;
+        let parsed: { frontmatter: any; content: string; raw: string } | null;
+        let frontmatter: any;
+        let body: string;
 
-        // Normalize missing variation_id from legacy 'id' and filename context
-        if (!('variation_id' in frontmatter)) {
-          const base = frontmatter.id as string | undefined;
-          let num: string | undefined;
-          if (base) {
-            const m = base.match(/^(FR|MA)[-_]?(\d{1,3})$/i);
-            if (m && m[2]) num = m[2];
-          }
-          // Fallback to filename extraction
-          if (!num) {
-            const fname = file.split(/[/\\]/).pop() || '';
-            const m2 = fname.match(/-(FR|MA)-(\d{1,3})\.md$/i);
-            if (m2 && m2[2]) num = m2[2];
-          }
-          const dirIsFR = /firstRevisit/.test(file);
-          const phase = dirIsFR ? 'FR' : 'MA';
-          if (num) {
-            const padded = num.padStart(3, '0');
-            (frontmatter as any).variation_id = `arch-L1-${phase}-${padded}`;
-          }
-        }
+        // Handle INITIAL_STATE files specially (no YAML frontmatter)
+        if (isInitialState) {
+          const lines = normalized.split(/\r?\n/);
+          let contentStartIndex = 0;
+          let wordCount = 0;
 
-        // Normalize awareness into conditions.awareness if present as awareness_range
-        if (!('conditions' in frontmatter) && 'awareness_range' in frontmatter) {
-          const ar = (frontmatter as any).awareness_range as string;
-          (frontmatter as any).conditions = { awareness: ar.endsWith('%') ? ar : `${ar}%` };
+          // Parse markdown header format:
+          // # arch-L1: "The Authentication"
+          // **Initial State - Visit 1**
+          // **Word Count: 6,142**
+          // **Character: The Archaeologist (2047)**
+          // ---
+          // [content starts here]
+
+          for (let i = 0; i < Math.min(lines.length, 10); i++) {
+            const line = lines[i];
+            const wcMatch = line.match(/\*\*Word Count:\s*([\d,]+)\*\*/);
+            if (wcMatch) {
+              wordCount = parseInt(wcMatch[1].replace(/,/g, ''), 10);
+            }
+            if (line.trim() === '---' && i > 0) {
+              contentStartIndex = i + 1;
+              break;
+            }
+          }
+
+          body = lines.slice(contentStartIndex).join('\n').trim();
+
+          // Generate frontmatter for initial state
+          const charPrefix = file.includes('arch-') ? 'arch' : file.includes('algo-') ? 'algo' : 'hum';
+          frontmatter = {
+            variation_id: `${charPrefix}-L1-INITIAL-001`,
+            variation_type: 'initial',
+            word_count: wordCount || countWords(body)
+            // Note: initial state should NOT have awareness conditions
+          };
+
+          parsed = { frontmatter, content: body, raw: normalized };
+        } else {
+          parsed = parseFrontmatter(normalized, logger, file);
+          if (!parsed) return { variation: null, variationText: null };
+          frontmatter = parsed.frontmatter;
+          body = parsed.content;
+
+          // Normalize missing variation_id from legacy 'id' and filename context
+          if (!('variation_id' in frontmatter)) {
+            const base = frontmatter.id as string | undefined;
+            let num: string | undefined;
+            if (base) {
+              const m = base.match(/^(FR|MA)[-_]?(\d{1,3})$/i);
+              if (m && m[2]) num = m[2];
+            }
+            // Fallback to filename extraction
+            if (!num) {
+              const fname = file.split(/[/\\]/).pop() || '';
+              const m2 = fname.match(/-(FR|MA)-(\d{1,3})\.md$/i);
+              if (m2 && m2[2]) num = m2[2];
+            }
+            const dirIsFR = /firstRevisit/.test(file);
+            const phase = dirIsFR ? 'FR' : 'MA';
+            if (num) {
+              const padded = num.padStart(3, '0');
+              (frontmatter as any).variation_id = `arch-L1-${phase}-${padded}`;
+            }
+          }
+
+          // Normalize awareness into conditions.awareness if present as awareness_range
+          if (!('conditions' in frontmatter) && 'awareness_range' in frontmatter) {
+            const ar = (frontmatter as any).awareness_range as string;
+            (frontmatter as any).conditions = { awareness: ar.endsWith('%') ? ar : `${ar}%` };
+          }
         }
 
         if (!validateL1L2Frontmatter(frontmatter, 1, logger, file)) {
