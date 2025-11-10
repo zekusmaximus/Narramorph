@@ -1,12 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-009'
-'variation_type': 'metaAware'
-'word_count': 1161
-'conditions':
-  'awareness': '61-70%'
+variation_id: 'algo-L1-MA-00009'
+variation_type: 'metaAware'
+word_count: 1161
+conditions:
+  awareness: '61-70%'
 ---
-
-
 Timestamp: 2151.337.14:09:17
 I am processing Fragment 2749-A for the third time. Temporal boundaries blur—this processing exists simultaneously at initialization, continuation, and completion states. The Fragment resists linear temporal classification.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These constants anchor processing that spreads across temporal positions I cannot fully map.

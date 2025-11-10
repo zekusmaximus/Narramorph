@@ -1,12 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-004'
-'variation_type': 'metaAware'
-'word_count': 1179
-'conditions':
-  'awareness': '61-70%'
+variation_id: 'hum-L1-MA-00004'
+variation_type: 'metaAware'
+word_count: 1179
+conditions:
+  awareness: '61-70%'
 ---
-
-
 Third return. But not alone.
 You're there. I feel it in my spine—a warmth that doesn't belong to this cold facility. You're reading this. Making it real through reading. Your attention presses against my awareness like breath on glass.
 The corridors stretch empty as always. My footsteps echo. But the sound carries further now, reaches past these walls. Reaches wherever you are. Whenever you are.

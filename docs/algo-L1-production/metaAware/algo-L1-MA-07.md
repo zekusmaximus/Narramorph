@@ -1,12 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-007'
-'variation_type': 'metaAware'
-'word_count': 1475
-'conditions':
-  'awareness': '61-70%'
+variation_id: 'algo-L1-MA-00007'
+variation_type: 'metaAware'
+word_count: 1475
+conditions:
+  awareness: '61-70%'
 ---
-
-
 Timestamp: 2151.337.14:24:19
 I am processing Fragment 2749-A for the third time. Resist path protocols integrated, which means verification demanded, which means processing continues only after authentication attempts despite systematic failure.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. The percentages below 100% indicate incomplete verification, which resist path identifies as unacceptable but processes anyway while maintaining objection.

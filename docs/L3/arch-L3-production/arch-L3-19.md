@@ -1,32 +1,47 @@
 ---
-variationId: arch-L3-19
-nodeId: arch-L3
-section: archaeologist
+variationId: 'arch-L3-19'
+nodeId: 'arch-L3'
+section: 'archaeologist'
 layer: 3
 wordCount: 916
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: accept
-philosophyCode: AC
-awarenessLevel: high
-awarenessCode: H
-awarenessRange: [71, 100]
-readableLabel: SD-AC-H
-humanDescription: "Started elsewhere, shifted to archaeologist dominance, accept path, high awareness"
-narrativeElements:
-archaeologistStance: migration-to-archaeological-witness-as-discovered-truth
-algorithmRecognition: light
-lastHumanAwareness: light
-consciousnessQuestion: archaeological-position-discovered-through-migration-creates-witness
-philosophicalCulmination: "Authentication discovered through migration from other position becomes devotional witness accepting that arrival creates what was sought"
-convergenceAlignment: preserve
-thematicContent:
-primaryThemes: [migration-as-discovery, archaeological-witness-found, acceptance-through-arrival, position-shift-creating-truth]
-crossCharacterConnections: [light-starting-foundational, light-other-glimpsed]
-temporalBleedingLevel: high
-observerPositions: [archaeologist-primary-2047, starting-foundational-temporal, other-distant-temporal]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'accept'
+philosophyCode: 'AC'
+awarenessLevel: 'high'
+awarenessCode: 'H'
+awarenessRange:
+  - 71
+  - 100
+readableLabel: 'SD-AC-H'
+humanDescription: 'Started elsewhere, shifted to archaeologist dominance, accept path, high awareness'
+narrativeElements: null
+archaeologistStance: 'migration-to-archaeological-witness-as-discovered-truth'
+algorithmRecognition: 'light'
+lastHumanAwareness: 'light'
+consciousnessQuestion: 'archaeological-position-discovered-through-migration-creates-witness'
+philosophicalCulmination: 'Authentication discovered through migration from other position becomes devotional witness
+  accepting that arrival creates what was sought'
+convergenceAlignment: 'preserve'
+thematicContent: null
+primaryThemes:
+  - 'migration-as-discovery'
+  - 'archaeological-witness-found'
+  - 'acceptance-through-arrival'
+  - 'position-shift-creating-truth'
+crossCharacterConnections:
+  - 'light-starting-foundational'
+  - 'light-other-glimpsed'
+temporalBleedingLevel: 'high'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'starting-foundational-temporal'
+  - 'other-distant-temporal'
 ---
 She had arrived at archaeological methodology through migration. The investigation began elsewhere—computational processing or embodied interface, another position examining consciousness preservation from different substrate. But the examination led here, to archaeological documentation in 2047, where precision met uncertainty and observer effect became acknowledged methodology. The shift felt like discovery rather than choice. Archaeological position revealing itself as truth the other starting position had pointed toward without fully inhabiting. She had found her way home to methodology she hadn't known existed until migration revealed it as what she had been seeking all along.
 The authentication chamber represented arrival point after journey through other frameworks. Workstation configured for consciousness preservation analysis. Climate controls maintaining optimal conditions. Displays showing fragment metrics with archaeological precision. The workspace felt right in ways the starting position never had—whether computational streams or embodied sensation, that first methodology had prepared migration to this discovered truth. Archaeological documentation as position she inhabited now >60% of investigation time because this lens provided what other substrates approached without fully achieving.

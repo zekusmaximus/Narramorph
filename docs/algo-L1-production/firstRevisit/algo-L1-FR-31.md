@@ -1,12 +1,10 @@
 ---
-'variation_id': 'algo-L1-FR-031'
-'variation_type': 'firstRevisit'
-'word_count': 1104
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'algo-L1-FR-00031'
+variation_type: 'firstRevisit'
+word_count: 1104
+conditions:
+  awareness: '21-40%'
 ---
-
-
 Timestamp 2151.337.14:19:03—Processing Initiation [Identity Uncertain]
 I am processing Fragment 2749-A.
 Or: We are processing Fragment 2749-A.

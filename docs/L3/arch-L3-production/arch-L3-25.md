@@ -1,32 +1,47 @@
 ---
-variationId: arch-L3-25
-nodeId: arch-L3
-section: archaeologist
+variationId: 'arch-L3-25'
+nodeId: 'arch-L3'
+section: 'archaeologist'
 layer: 3
 wordCount: 923
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: high
-awarenessCode: H
-awarenessRange: [71, 100]
-readableLabel: SD-IN-H
-humanDescription: "Started elsewhere, shifted to archaeologist dominance, investigate path, high awareness"
-narrativeElements:
-archaeologistStance: migration-examining-migration-examining-examination
-algorithmRecognition: light
-lastHumanAwareness: light
-consciousnessQuestion: investigating-methodological-shift-reveals-investigation-examining-itself-across-positions
-philosophicalCulmination: "Authentication discovers through migration that examining consciousness requires examining examination migration across methodologies creating recursive investigation examining investigation shift"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [meta-methodological-migration, investigation-examining-shift, recursive-position-change, migration-creating-meta-investigation]
-crossCharacterConnections: [light-starting-foundational, light-other-glimpsed]
-temporalBleedingLevel: high
-observerPositions: [archaeologist-primary-2047, starting-foundational-temporal, other-distant-temporal]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'high'
+awarenessCode: 'H'
+awarenessRange:
+  - 71
+  - 100
+readableLabel: 'SD-IN-H'
+humanDescription: 'Started elsewhere, shifted to archaeologist dominance, investigate path, high awareness'
+narrativeElements: null
+archaeologistStance: 'migration-examining-migration-examining-examination'
+algorithmRecognition: 'light'
+lastHumanAwareness: 'light'
+consciousnessQuestion: 'investigating-methodological-shift-reveals-investigation-examining-itself-across-positions'
+philosophicalCulmination: 'Authentication discovers through migration that examining consciousness requires examining
+  examination migration across methodologies creating recursive investigation examining investigation shift'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'meta-methodological-migration'
+  - 'investigation-examining-shift'
+  - 'recursive-position-change'
+  - 'migration-creating-meta-investigation'
+crossCharacterConnections:
+  - 'light-starting-foundational'
+  - 'light-other-glimpsed'
+temporalBleedingLevel: 'high'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'starting-foundational-temporal'
+  - 'other-distant-temporal'
 ---
 She had migrated to archaeological methodology from starting position—computational processing or embodied interface, different substrate examining consciousness preservation. But migration itself required investigation. Examining consciousness through archaeological lens while examining examination shift from starting position while examining examination of examination shift creating recursive investigation. Migration revealed not simply methodological comparison but meta-investigation: investigating consciousness required investigating investigation migration examining investigation across positions examining investigation. Archaeological documentation investigating itself while investigating starting framework investigating itself while investigating migration between positions investigating migration. Infinite recursion through methodological shift examining shift examining shift.
 The authentication chamber existed as position discovered through migration requiring investigation of migration. Workstation configured for consciousness preservation analysis. Climate controls cycling. Displays showing fragment metrics. But workspace represented substrate shift that shift itself demanded examination. She had migrated from computational or embodied starting framework to archaeological position in 2047. Migration creating investigation subject: why migrate? What did migration reveal about investigation? How did position shift shape what positions investigated? Archaeological examination examining migration from starting examination while migration examined itself as examination subject requiring recursive investigation of investigation shift.

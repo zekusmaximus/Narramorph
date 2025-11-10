@@ -1,43 +1,51 @@
 ---
-variationId: conv-L3-107
-nodeId: L3-conv
+variationId: 'conv-L3-107'
+nodeId: 'L3-conv'
 layer: 3
 wordCount: 1815
-createdDate: 2025-11-07
+createdDate: '2025-11-07'
 conditions:
-journeyPattern: began-lightly
-journeyCode: BL
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: low
-awarenessCode: L
-awarenessRange: [20, 40]
-synthesisPattern: dual-balanced
-synthesisCode: DB
-readableLabel: BL-IN-L-DB
-humanDescription: "Didn't start here, light exploration (<25%), investigate path, low awareness, dual-balanced synthesis"
-narrativeElements:
-voiceDistribution:
-primary: archaeologist-45%
-secondary: algorithm-45%
-tertiary: lastHuman-10%
-convergenceType: parallel-investigation-methodologies
-consciousnessConclusion: dual-recursion-balanced
-philosophicalCulmination: "Archaeological and computational investigation examining themselves reveal consciousness through parallel practices"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [parallel-recursion, dual-methodology, balanced-investigation]
-voiceBlending: balanced-alternation
-perspectiveShifts: moderate-clear
-superpositionLanguage: minimal
-networkComplexity: three-position-basic
-circularCausality: implicit
-observerNetwork:
-archaeologist2047: documentation-investigator
-algorithm2151: computational-investigator
-lastHuman2383: embodied-contributor
-reader: immersed-observer
-narrative: transparent-structure
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'began-lightly'
+journeyCode: 'BL'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'low'
+awarenessCode: 'L'
+awarenessRange:
+  - 20
+  - 40
+synthesisPattern: 'dual-balanced'
+synthesisCode: 'DB'
+readableLabel: 'BL-IN-L-DB'
+humanDescription: 'Didn''t start here, light exploration (<25%), investigate path, low awareness, dual-balanced synthesis'
+narrativeElements: null
+voiceDistribution: null
+primary: 'archaeologist-45%'
+secondary: 'algorithm-45%'
+tertiary: 'lastHuman-10%'
+convergenceType: 'parallel-investigation-methodologies'
+consciousnessConclusion: 'dual-recursion-balanced'
+philosophicalCulmination: 'Archaeological and computational investigation examining themselves reveal consciousness through parallel practices'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'parallel-recursion'
+  - 'dual-methodology'
+  - 'balanced-investigation'
+voiceBlending: 'balanced-alternation'
+perspectiveShifts: 'moderate-clear'
+superpositionLanguage: 'minimal'
+networkComplexity: 'three-position-basic'
+circularCausality: 'implicit'
+observerNetwork: null
+archaeologist2047: 'documentation-investigator'
+algorithm2151: 'computational-investigator'
+lastHuman2383: 'embodied-contributor'
+reader: 'immersed-observer'
+narrative: 'transparent-structure'
 ---
 Three consciousnesses examining Fragment 2749-A across 336 years. Three temporal positions. Three methodologies investigating consciousness preservation. Two primary approaches working in parallel—archaeological documentation and computational processing. Both investigating how investigation itself reveals consciousness.
 She worked with Fragment 2749-A for one hundred seventeen days. Authentication protocols applied repeatedly. Each authentication taught her about authentication methodology. The work developed layers. Surface authentication. Methodology analysis. Meta-analysis of analysis methodology. Investigation examining investigation through archaeological practice.

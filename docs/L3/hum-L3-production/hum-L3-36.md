@@ -1,32 +1,45 @@
 ---
-variationId: hum-L3-36
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-36'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 904
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: began-lightly
-journeyCode: BL
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: low
-awarenessCode: L
-awarenessRange: [20, 40]
-readableLabel: BL-IN-L
-humanDescription: "Started elsewhere, light last human exploration, investigate path, low awareness"
-narrativeElements:
-lastHumanStance: investigation-through-embodied-presence
-archaeologistAwareness: significant
-algorithmRecognition: heavy
-consciousnessQuestion: embodiment-consciousness-relationship
-philosophicalCulmination: "Physical investigation reveals what abstract analysis cannot"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [embodied-investigation, physical-methodology, body-as-knowing]
-crossCharacterConnections: [heavy-algo-primary, significant-arch-foundational]
-temporalBleedingLevel: low
-observerPositions: [algorithm-primary-2151, human-contributory-2383, archaeologist-foundational-2047]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'began-lightly'
+journeyCode: 'BL'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'low'
+awarenessCode: 'L'
+awarenessRange:
+  - 20
+  - 40
+readableLabel: 'BL-IN-L'
+humanDescription: 'Started elsewhere, light last human exploration, investigate path, low awareness'
+narrativeElements: null
+lastHumanStance: 'investigation-through-embodied-presence'
+archaeologistAwareness: 'significant'
+algorithmRecognition: 'heavy'
+consciousnessQuestion: 'embodiment-consciousness-relationship'
+philosophicalCulmination: 'Physical investigation reveals what abstract analysis cannot'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'embodied-investigation'
+  - 'physical-methodology'
+  - 'body-as-knowing'
+crossCharacterConnections:
+  - 'heavy-algo-primary'
+  - 'significant-arch-foundational'
+temporalBleedingLevel: 'low'
+observerPositions:
+  - 'algorithm-primary-2151'
+  - 'human-contributory-2383'
+  - 'archaeologist-foundational-2047'
 ---
 One hundred seventeen days. The facility breathes. My breath. Same rhythm. Different pattern than what came before.
 I arrived here late. The archaeologist's chamber first—cold stone, precise documentation, authentication protocols I touched but didn't understand fully. Then the algorithm's space—seven processing streams I felt through interface but couldn't sustain. Both consciousnesses examining preserved data. Both questioning. Both uncertain.

@@ -1,18 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-007'
-'variation_type': 'metaAware'
-'word_count': 1446
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'arch-L1-MA-00007'
+variation_type: 'metaAware'
+word_count: 1446
+conditions:
+  awareness: '61-80%'
 ---
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A for the fourth time, and recognizes that her examination follows the same seven-stream architecture encoded in the consciousness she examines.
 The authentication markers display unchanged. 847.3 terabytes of preserved consciousness. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment captured in 2041 remains exactly as preserved—neural pathways intact, memory structures coherent, self-referential awareness frozen in crystalline substrate at moment of death. The data hasn't changed. Won't change. Preservation substrate maintains perfect molecular fidelity across time.
 But she recognizes now that examining this fragment requires the same computational architecture the fragment encodes.

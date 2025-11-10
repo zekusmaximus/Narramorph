@@ -1,18 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-008'
-'variation_type': 'metaAware'
-'word_count': 1636
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'arch-L1-MA-00008'
+variation_type: 'metaAware'
+word_count: 1636
+conditions:
+  awareness: '61-80%'
 ---
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A for the fourth time, and recognizes that her examination exists within temporal architecture containing four observation positions affecting each other.
 The authentication markers display unchanged. 847.3 terabytes of preserved consciousness. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment captured in 2041 remains exactly as preserved—consciousness frozen at moment of death, neural pathways intact, memory structures coherent, self-referential awareness suspended in crystalline substrate. The data hasn't changed. Won't change. Preservation fidelity is absolute.
 But she recognizes now that the fragment exists in four temporal positions simultaneously.

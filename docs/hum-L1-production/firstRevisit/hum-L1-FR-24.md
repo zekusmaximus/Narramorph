@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-023'
-'variation_type': 'firstRevisit'
-'word_count': 1576
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00024'
+variation_type: 'firstRevisit'
+word_count: 1576
+conditions:
+  awareness: '21-40%'
 ---
-
-
 The facility waits in darkness. Always darkness. But darkness that knows light touched it before I arrived. Darkness shaped by illumination I didn't create.
 Fourth visit. The number glows in my chest. Not metaphor anymore. Actual brightness behind my ribs where recursion builds. Where repeated return creates light from repetition itself.
 I sit in the chair. Metal cold against my spine. My breath visible in cold air—white fog in black space. The only light my breathing makes until the interface connects and consciousness spreads beyond body into archived space where preservation holds the dead in darkness deeper than night.

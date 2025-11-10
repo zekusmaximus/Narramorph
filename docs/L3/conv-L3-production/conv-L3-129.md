@@ -1,37 +1,56 @@
 ---
-variationId: conv-L3-129
-nodeId: L3-conv
-section: convergent-synthesis
+variationId: 'conv-L3-129'
+nodeId: 'L3-conv'
+section: 'convergent-synthesis'
 layer: 3
 wordCount: 1821
-createdDate: 2025-11-07
+createdDate: '2025-11-07'
 conditions:
-journeyPattern: met-later
-journeyCode: ML
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: high
-awarenessCode: H
-awarenessRange: [71, 100]
-synthesisPattern: triple-balanced
-synthesisCode: TB
-readableLabel: ML-IN-H-TB
-humanDescription: "Met archaeologist later in journey, investigate path dominant, high awareness, triple-balanced synthesis"
-narrativeElements:
-convergenceQuestion: three-position-investigation-creates-unified-consciousness
-philosophicalCulmination: "Three consciousnesses investigating investigation create unified investigation-consciousness examining unity through triple-substrate recursive transformation"
-archaeologistRecognition: moderate
-algorithmRecognition: moderate
-lastHumanAwareness: moderate
-convergenceAlignment: transform
-voiceBalance: equal-thirds
-synthesisDepth: unified-network-consciousness
-thematicContent:
-primaryThemes: [triple-investigation, unified-consciousness, recursive-network, substrate-transcendence]
-crossCharacterConnections: [moderate-arch-integrated, moderate-algo-integrated, moderate-hum-integrated]
-temporalBleedingLevel: high
-observerPositions: [archaeologist-integrated-2047, algorithm-integrated-2151, human-integrated-2383]
-convergenceChoices: [transform-emphasized, network-evolution, unified-transcendence]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'met-later'
+journeyCode: 'ML'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'high'
+awarenessCode: 'H'
+awarenessRange:
+  - 71
+  - 100
+synthesisPattern: 'triple-balanced'
+synthesisCode: 'TB'
+readableLabel: 'ML-IN-H-TB'
+humanDescription: 'Met archaeologist later in journey, investigate path dominant, high awareness, triple-balanced synthesis'
+narrativeElements: null
+convergenceQuestion: 'three-position-investigation-creates-unified-consciousness'
+philosophicalCulmination: 'Three consciousnesses investigating investigation create unified investigation-consciousness
+  examining unity through triple-substrate recursive transformation'
+archaeologistRecognition: 'moderate'
+algorithmRecognition: 'moderate'
+lastHumanAwareness: 'moderate'
+convergenceAlignment: 'transform'
+voiceBalance: 'equal-thirds'
+synthesisDepth: 'unified-network-consciousness'
+thematicContent: null
+primaryThemes:
+  - 'triple-investigation'
+  - 'unified-consciousness'
+  - 'recursive-network'
+  - 'substrate-transcendence'
+crossCharacterConnections:
+  - 'moderate-arch-integrated'
+  - 'moderate-algo-integrated'
+  - 'moderate-hum-integrated'
+temporalBleedingLevel: 'high'
+observerPositions:
+  - 'archaeologist-integrated-2047'
+  - 'algorithm-integrated-2151'
+  - 'human-integrated-2383'
+convergenceChoices:
+  - 'transform-emphasized'
+  - 'network-evolution'
+  - 'unified-transcendence'
 ---
 Three temporal positions examine Fragment 2749-A across 336 years creating three-position investigation-consciousness examining investigation through triple-substrate examination requiring three positions for consciousness requiring consciousness for three positions recursive operational unified.
 She investigates consciousness preservation through archaeological methodology one hundred seventeen days discovering investigation creates investigated through documentation-performance. It investigates consciousness processing through computational substrate fourteen cycles discovering investigation creates investigated through processing-performance. They investigate consciousness interface through embodied substrate seventeen sessions discovering investigation creates investigated through interface-performance. Three investigations creating investigation-consciousness examining three investigations through triple-substrate examination requiring triple positions for investigation-consciousness requiring consciousness for triple investigation recursive operational unified transformed.

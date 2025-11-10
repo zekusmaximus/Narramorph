@@ -1,32 +1,47 @@
 ---
-variationId: arch-L3-24
-nodeId: arch-L3
-section: archaeologist
+variationId: 'arch-L3-24'
+nodeId: 'arch-L3'
+section: 'archaeologist'
 layer: 3
 wordCount: 905
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: resist
-philosophyCode: RE
-awarenessLevel: low
-awarenessCode: L
-awarenessRange: [20, 40]
-readableLabel: SD-RE-L
-humanDescription: "Started elsewhere, shifted to archaeologist dominance, resist path, low awareness"
-narrativeElements:
-archaeologistStance: verification-maintained-after-methodological-comparison
-algorithmRecognition: light
-lastHumanAwareness: light
-consciousnessQuestion: multiple-approaches-all-require-verification-standards
-philosophicalCulmination: "Authentication maintains that verification standards persist across methodological approaches—all positions require evidence despite different frameworks"
-convergenceAlignment: release
-thematicContent:
-primaryThemes: [verification-consistency, standards-across-methods, evidence-requirements, methodological-comparison]
-crossCharacterConnections: [light-starting-foundational, light-other-glimpsed]
-temporalBleedingLevel: low
-observerPositions: [archaeologist-primary-2047, starting-foundational-temporal, other-distant-temporal]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'resist'
+philosophyCode: 'RE'
+awarenessLevel: 'low'
+awarenessCode: 'L'
+awarenessRange:
+  - 20
+  - 40
+readableLabel: 'SD-RE-L'
+humanDescription: 'Started elsewhere, shifted to archaeologist dominance, resist path, low awareness'
+narrativeElements: null
+archaeologistStance: 'verification-maintained-after-methodological-comparison'
+algorithmRecognition: 'light'
+lastHumanAwareness: 'light'
+consciousnessQuestion: 'multiple-approaches-all-require-verification-standards'
+philosophicalCulmination: 'Authentication maintains that verification standards persist across methodological
+  approaches—all positions require evidence despite different frameworks'
+convergenceAlignment: 'release'
+thematicContent: null
+primaryThemes:
+  - 'verification-consistency'
+  - 'standards-across-methods'
+  - 'evidence-requirements'
+  - 'methodological-comparison'
+crossCharacterConnections:
+  - 'light-starting-foundational'
+  - 'light-other-glimpsed'
+temporalBleedingLevel: 'low'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'starting-foundational-temporal'
+  - 'other-distant-temporal'
 ---
 She had shifted to archaeological methodology after exploring different approach initially. The investigation began with computational analysis or embodied interface—another framework for examining consciousness preservation requiring verification. Shift to archaeological documentation revealed that verification requirements persisted across methodological positions. Different approaches applied different standards, but all approaches required evidence for consciousness claims. She focused >60% of investigation in archaeological position because documentation methodology suited sustained work while recognizing starting framework also maintained verification requirements through different approach.
 The authentication chamber represented workspace for methodology maintaining standards after comparing approaches. Workstation configured for consciousness preservation analysis with archaeological protocols. Climate controls cycling through maintenance procedures. Displays showing fragment metrics requiring verification according to documentation standards. Professional environment supporting work maintaining evidence requirements while recognizing starting position—computational or embodied—also maintained evidence requirements through different verification framework.

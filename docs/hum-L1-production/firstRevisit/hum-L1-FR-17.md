@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-017'
-'variation_type': 'firstRevisit'
-'word_count': 1733
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00017'
+variation_type: 'firstRevisit'
+word_count: 1733
+conditions:
+  awareness: '21-40%'
 ---
-
-
 The facility knows me now. Recognizes footsteps. Anticipates return. The neural interface hums before I reach it—connection preparing for consciousness it remembers.
 Third visit. The number settles in my chest like stone. Heavy. Solid. Real. Recursion deep enough that boundaries blur between visits. Between me and archive. Between transformation and being transformed.
 Between my witness and theirs.

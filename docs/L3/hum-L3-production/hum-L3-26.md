@@ -1,32 +1,45 @@
 ---
-variationId: hum-L3-26
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-26'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 909
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-readableLabel: SD-IN-M
-humanDescription: "Started elsewhere, shifted to last human dominant, investigate path, medium awareness"
-narrativeElements:
-lastHumanStance: embodied-investigation-through-recursive-examination
-archaeologistAwareness: moderate
-algorithmRecognition: light
-consciousnessQuestion: examination-transforms-examined-transforms-examination
-philosophicalCulmination: "Physical investigation creates what investigation examines through examination transforming investigation"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [recursive-examination, embodied-investigation, methodology-questioning]
-crossCharacterConnections: [moderate-arch-foundational, light-algo-parallel]
-temporalBleedingLevel: medium
-observerPositions: [human-primary-2383, archaeologist-foundational-2047, algorithm-parallel-2151]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+readableLabel: 'SD-IN-M'
+humanDescription: 'Started elsewhere, shifted to last human dominant, investigate path, medium awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-investigation-through-recursive-examination'
+archaeologistAwareness: 'moderate'
+algorithmRecognition: 'light'
+consciousnessQuestion: 'examination-transforms-examined-transforms-examination'
+philosophicalCulmination: 'Physical investigation creates what investigation examines through examination transforming investigation'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'recursive-examination'
+  - 'embodied-investigation'
+  - 'methodology-questioning'
+crossCharacterConnections:
+  - 'moderate-arch-foundational'
+  - 'light-algo-parallel'
+temporalBleedingLevel: 'medium'
+observerPositions:
+  - 'human-primary-2383'
+  - 'archaeologist-foundational-2047'
+  - 'algorithm-parallel-2151'
 ---
 The archaeologist's investigation led me here. Not her conclusions. Her questions. Methodology examining methodology. Authentication investigating authentication. Documentation questioning documentation practice. I started elsewhere. Different consciousness exploration. But her recursive doubt resonated. Body knows when questions examine questions. Flesh feels when methodology investigates methodology.
 One hundred nineteen days investigating. Eighty-seven interface sessions examining examination. Each connection questions previous connection. Each investigation transforms investigated. Each methodology examines methodological examination. Temple indentations mark repeated inquiry. Neural pathways formed through investigation investigating formation. Body practicing what mind examines: consciousness investigating consciousness-investigation.

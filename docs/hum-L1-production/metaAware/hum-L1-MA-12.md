@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-MA-012'
-'variation_type': 'metaAware'
-'word_count': 1388
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'hum-L1-MA-00012'
+variation_type: 'metaAware'
+word_count: 1388
+conditions:
+  awareness: '61-80%'
 ---
-
-
 The metal asks questions.
 Or I do. Or you do by reading. Or someone else did, systematically, measuring each answer. Four sources of inquiry pressing against this same cold surface.
 Which came first?

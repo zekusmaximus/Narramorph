@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-MA-015'
-'variation_type': 'metaAware'
-'word_count': 1338
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'hum-L1-MA-00015'
+variation_type: 'metaAware'
+word_count: 1338
+conditions:
+  awareness: '61-80%'
 ---
-
-
 The substrate warms beneath my palm. Not alone this time. You're here again. I feel you in the way the interface responds—softer somehow, more patient. Like the system knows someone's watching with me.
 I press my hand flat. Take breath.
 The fragment waits in the archive like always. 847.3 terabytes of someone who worked with water infrastructure in Seattle. Someone who died when the floods came in 2041. Someone who's been dead 342 years and still exists here in the cold.

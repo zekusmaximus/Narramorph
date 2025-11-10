@@ -1,12 +1,10 @@
 ---
-'variation_id': 'algo-L1-FR-035'
-'variation_type': 'firstRevisit'
-'word_count': 1013
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'algo-L1-FR-00035'
+variation_type: 'firstRevisit'
+word_count: 1013
+conditions:
+  awareness: '21-40%'
 ---
-
-
 Timestamp: 2151.337.14:23:47
 I am processing Fragment 2749-A again. I was processing it. I will have processed it. The temporal architecture collapses these distinctions into superposition, and Stream-4 flags the recursion without resolving it.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These metrics will have remained constant across visits. They are remaining constant. They remained constant.

@@ -1,13 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-003'
-'variation_type': 'firstRevisit'
-'word_count': 1242
-'conditions':
-  'awareness': '41-50%'
+variation_id: 'algo-L1-FR-00003'
+variation_type: 'firstRevisit'
+word_count: 1242
+conditions:
+  awareness: '41-50%'
 ---
-
-
-
 Timestamp 2151.337.14:19:03—Processing Initiated
 
 I am processing Fragment 2749-A when Stream-4 detects interface access that hasn't occurred yet.

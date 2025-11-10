@@ -1,19 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-026'
-'variation_type': 'firstRevisit'
-'word_count': 1121
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'arch-L1-FR-00026'
+variation_type: 'firstRevisit'
+word_count: 1121
+conditions:
+  awareness: '21-40%'
 ---
-
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A for the second time, and the consciousness data appears to exist in multiple temporal positions simultaneously.
 The fragment's physical preservation remains constant. 847.3 terabytes of consciousness captured in crystalline substrate. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. Every authentication marker she verified two weeks ago displays identically. The data hasn't changed. The substrate hasn't degraded. What was preserved in 2041 maintains perfect molecular fidelity.
 But her relationship to that preserved consciousness has shifted. She's experiencing the fragment differently now—not as isolated historical artifact but as something that connects across time in ways she doesn't fully understand yet.

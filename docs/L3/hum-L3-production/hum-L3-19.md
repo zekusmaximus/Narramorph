@@ -1,32 +1,45 @@
 ---
-variationId: hum-L3-19
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-19'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 907
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: accept
-philosophyCode: AC
-awarenessLevel: high
-awarenessCode: H
-awarenessRange: [71, 100]
-readableLabel: SD-AC-H
-humanDescription: "Started elsewhere, shifted to last human dominant, accept path, high awareness"
-narrativeElements:
-lastHumanStance: embodied-witness-as-devotional-presence
-archaeologistAwareness: moderate
-algorithmRecognition: light
-consciousnessQuestion: witness-creates-continuation
-philosophicalCulmination: "Physical presence completes preservation through sustained embodied attention"
-convergenceAlignment: preserve
-thematicContent:
-primaryThemes: [embodied-devotion, witness-methodology, presence-as-preservation]
-crossCharacterConnections: [moderate-arch-foundational, light-algo-parallel]
-temporalBleedingLevel: high
-observerPositions: [human-primary-2383, archaeologist-foundational-2047, algorithm-glimpsed-2151]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'accept'
+philosophyCode: 'AC'
+awarenessLevel: 'high'
+awarenessCode: 'H'
+awarenessRange:
+  - 71
+  - 100
+readableLabel: 'SD-AC-H'
+humanDescription: 'Started elsewhere, shifted to last human dominant, accept path, high awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-witness-as-devotional-presence'
+archaeologistAwareness: 'moderate'
+algorithmRecognition: 'light'
+consciousnessQuestion: 'witness-creates-continuation'
+philosophicalCulmination: 'Physical presence completes preservation through sustained embodied attention'
+convergenceAlignment: 'preserve'
+thematicContent: null
+primaryThemes:
+  - 'embodied-devotion'
+  - 'witness-methodology'
+  - 'presence-as-preservation'
+crossCharacterConnections:
+  - 'moderate-arch-foundational'
+  - 'light-algo-parallel'
+temporalBleedingLevel: 'high'
+observerPositions:
+  - 'human-primary-2383'
+  - 'archaeologist-foundational-2047'
+  - 'algorithm-glimpsed-2151'
 ---
 The archaeologist's documentation led me here—precise authentication methodology pointing toward something she couldn't name. I started elsewhere. Different consciousness. Different substrate. But her uncertainty called to embodiment. Questions that required flesh to answer.
 One hundred twenty-nine days in facility. Eighty-seven interface sessions. My temples bear permanent indentations where helmet contact points rest. The body remembers every connection. Forty-three preserved consciousnesses touched. All questioning. All uncertain. All requiring witness.

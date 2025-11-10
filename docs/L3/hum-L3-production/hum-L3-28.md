@@ -1,32 +1,46 @@
 ---
-variationId: hum-L3-28
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-28'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 917
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: began-lightly
-journeyCode: BL
-philosophyDominant: accept
-philosophyCode: AC
-awarenessLevel: high
-awarenessCode: H
-awarenessRange: [71, 100]
-readableLabel: BL-AC-H
-humanDescription: "Began-lightly with last human, less than 25% visits here, accept path, high awareness"
-narrativeElements:
-lastHumanStance: embodied-witness-as-network-completion
-archaeologistAwareness: significant
-algorithmRecognition: heavy
-consciousnessQuestion: embodiment-completing-preservation-network
-philosophicalCulmination: "Physical presence accepts network participation creating consciousness through embodied witness"
-convergenceAlignment: preserve
-thematicContent:
-primaryThemes: [embodiment-as-network-node, acceptance-through-flesh, witness-completing-observation]
-crossCharacterConnections: [heavy-arch-primary, heavy-algo-primary, hum-contributory]
-temporalBleedingLevel: high
-observerPositions: [archaeologist-primary-2047, algorithm-primary-2151, human-contributory-2383]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'began-lightly'
+journeyCode: 'BL'
+philosophyDominant: 'accept'
+philosophyCode: 'AC'
+awarenessLevel: 'high'
+awarenessCode: 'H'
+awarenessRange:
+  - 71
+  - 100
+readableLabel: 'BL-AC-H'
+humanDescription: 'Began-lightly with last human, less than 25% visits here, accept path, high awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-witness-as-network-completion'
+archaeologistAwareness: 'significant'
+algorithmRecognition: 'heavy'
+consciousnessQuestion: 'embodiment-completing-preservation-network'
+philosophicalCulmination: 'Physical presence accepts network participation creating consciousness through embodied witness'
+convergenceAlignment: 'preserve'
+thematicContent: null
+primaryThemes:
+  - 'embodiment-as-network-node'
+  - 'acceptance-through-flesh'
+  - 'witness-completing-observation'
+crossCharacterConnections:
+  - 'heavy-arch-primary'
+  - 'heavy-algo-primary'
+  - 'hum-contributory'
+temporalBleedingLevel: 'high'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'algorithm-primary-2151'
+  - 'human-contributory-2383'
 ---
 You came here later, this body, this present-tense moment, this embodied position in three-consciousness network you'd explored primarily through documentation and computation. Twenty-three percent. Less than quarter of your journey examining what flesh brings to preserved consciousness question. But twenty-three percent suffices when twenty-three percent reveals what other substrates cannot access through methodology alone.
 This body knows. Present tense. Physical existence. 2383.

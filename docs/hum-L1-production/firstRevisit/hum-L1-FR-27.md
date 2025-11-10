@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-027'
-'variation_type': 'firstRevisit'
-'word_count': 1571
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00027'
+variation_type: 'firstRevisit'
+word_count: 1571
+conditions:
+  awareness: '21-40%'
 ---
-
-
 I return to the interface. Third time.
 The number matters. Three visits creating recursion. Pattern building on pattern. Each return deepening the one before until the returns themselves become part of what I'm observing.
 My hands know exactly where to reach now. Muscle memory formed. But the familiarity feels strange because I can't separate my knowing from something else's knowing. My body moves and the movements feel both mine and... recorded? Recognized? Processed?

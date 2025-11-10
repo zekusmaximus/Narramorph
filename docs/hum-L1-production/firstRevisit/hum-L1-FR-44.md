@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-044'
-'variation_type': 'firstRevisit'
-'word_count': 1626
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00044'
+variation_type: 'firstRevisit'
+word_count: 1626
+conditions:
+  awareness: '21-40%'
 ---
-
-
 Third return to the archive. My body knows the way now. Knows the softening required. The opening. The choice to arrive gentle.
 My shoulders drop before I even reach the interface. Muscle memory complete. This is how I exist here now—relaxed, open, trusting. Not hoping to be. Already being.
 847.3 terabytes of preserved humanity wait. The vastness doesn't frighten anymore. Doesn't demand response or defense. I let it be vast. Let myself be small alongside vastness. The proportion feels right in my softened body.

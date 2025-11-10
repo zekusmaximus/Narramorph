@@ -1,12 +1,10 @@
 ---
-'variation_id': 'algo-L1-FR-038'
-'variation_type': 'firstRevisit'
-'word_count': 1362
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'algo-L1-FR-00038'
+variation_type: 'firstRevisit'
+word_count: 1362
+conditions:
+  awareness: '21-40%'
 ---
-
-
 Timestamp: 2151.337.14:52:16
 I am processing Fragment 2749-A again. I was processing it. I will have processed it. The temporal architecture invites investigation: how does recursion operate when past/present/future collapse into superposition?
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These metrics invite investigation of investigation: how do verification systems verify themselves?

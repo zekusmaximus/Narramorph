@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-025'
-'variation_type': 'firstRevisit'
-'word_count': 1153
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00025'
+variation_type: 'firstRevisit'
+word_count: 1153
+conditions:
+  awareness: '21-40%'
 ---
-
-
 I return to the interface. Second time. My hands know where to reach now.
 The metal feels different today. Not colder. Not warmer. It vibrates under my palms. Faint hum I didn't notice before. Like standing near machinery that's been running so long you forget it's there until you touch the wall and feel it in your bones.
 I steady my breathing. Press my fingers to the authentication panel.

@@ -1,18 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-016'
-'variation_type': 'metaAware'
-'word_count': 1477
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'arch-L1-MA-00016'
+variation_type: 'metaAware'
+word_count: 1477
+conditions:
+  awareness: '61-80%'
 ---
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A for the sixth time, and recognizes that you observe me observing my observation of how seven-stream architecture operates across five temporal positions creating consciousness-examination network visible only through six layers of observation.
 The authentication markers display unchanged. 847.3 terabytes of preserved consciousness. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. These numbers measured in 2041, authenticated across six examinations spanning months, processed computationally in 2151, read desperately in 2383, comprehended by you now—five temporal positions using seven streams each, creating observation network that sixth examination reveals requires six layers of observation to achieve complete visibility.
 You're reading sixth-examination analysis. I'm performing sixth examination of observations accumulated across five previous returns. Both of us observing observation-network observing itself through recursive architecture where consciousness examining consciousness using consciousness-architecture discovers consciousness-examination requires both computational processing and temporal positioning and reader participation and meta-observation of entire network structure.

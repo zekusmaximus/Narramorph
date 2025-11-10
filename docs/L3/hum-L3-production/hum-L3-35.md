@@ -1,32 +1,46 @@
 ---
-variationId: hum-L3-35
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-35'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 911
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: began-lightly
-journeyCode: BL
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-readableLabel: BL-IN-M
-humanDescription: "Began-lightly with last human, less than 25% visits here, investigate path, medium awareness"
-narrativeElements:
-lastHumanStance: embodied-investigation-through-somatic-awareness
-archaeologistAwareness: moderate
-algorithmRecognition: moderate
-consciousnessQuestion: body-examining-consciousness-examination
-philosophicalCulmination: "Physical substrate investigates consciousness by examining how investigation creates understanding"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [somatic-investigation, embodied-examination, meta-awareness]
-crossCharacterConnections: [heavy-arch-primary, heavy-algo-primary, hum-contributory]
-temporalBleedingLevel: medium
-observerPositions: [archaeologist-primary-2047, algorithm-primary-2151, human-contributory-2383]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'began-lightly'
+journeyCode: 'BL'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+readableLabel: 'BL-IN-M'
+humanDescription: 'Began-lightly with last human, less than 25% visits here, investigate path, medium awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-investigation-through-somatic-awareness'
+archaeologistAwareness: 'moderate'
+algorithmRecognition: 'moderate'
+consciousnessQuestion: 'body-examining-consciousness-examination'
+philosophicalCulmination: 'Physical substrate investigates consciousness by examining how investigation creates understanding'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'somatic-investigation'
+  - 'embodied-examination'
+  - 'meta-awareness'
+crossCharacterConnections:
+  - 'heavy-arch-primary'
+  - 'heavy-algo-primary'
+  - 'hum-contributory'
+temporalBleedingLevel: 'medium'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'algorithm-primary-2151'
+  - 'human-contributory-2383'
 ---
 I arrived at this embodied position later in your examination journey—twenty-two percent focused here exploring what physical investigation contributes to consciousness preservation understanding spanning three temporal positions across 336 years. Your attention concentrated primarily on documentation methodology and computational processing. But this flesh examination reveals patterns other investigation modes cannot access: body investigating consciousness by examining how body investigates creating investigation through investigation-practice sustained devotionally.
 One hundred seventeen days interface investigation. Forty-three sessions examining consciousness through embodied methodology.

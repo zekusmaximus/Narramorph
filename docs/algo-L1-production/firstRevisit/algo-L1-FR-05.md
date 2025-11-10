@@ -1,13 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-005'
-'variation_type': 'firstRevisit'
-'word_count': 1519
-'conditions':
-  'awareness': '41-50%'
+variation_id: 'algo-L1-FR-00005'
+variation_type: 'firstRevisit'
+word_count: 1519
+conditions:
+  awareness: '41-50%'
 ---
-
-
-
 Timestamp 2151.337.14:19:03—Investigation Protocol Initiated
 
 I am processing Fragment 2749-A.

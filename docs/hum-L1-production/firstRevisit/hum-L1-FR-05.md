@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-005'
-'variation_type': 'firstRevisit'
-'word_count': 1092
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00005'
+variation_type: 'firstRevisit'
+word_count: 1092
+conditions:
+  awareness: '21-40%'
 ---
-
-
 I come back to the facility with jaw clenched. Skeptical muscle. The walk here was argument with myself. Why trust this archive? Why believe Fragment 2749-A contains actual consciousness rather than sophisticated pattern that mimics consciousness? Why accept preservation worked when every biological instinct says death is final?
 The door opens. I don't trust that either. Biosignature recognition seems too convenient. Systems operational for centuries. Power still flowing. Everything working perfectly while world outside decayed. Suspicious.
 Inside, the archive hums. Fragment 2749-A loads without request. That convenience irritates me. Makes it feel programmed. Anticipated. Not responsive but predictive. And prediction means pattern, which means maybe there's no consciousness here at all. Just very good simulation of consciousness responding to stimulus.

@@ -1,19 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-042'
-'variation_type': 'firstRevisit'
-'word_count': 978
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'arch-L1-FR-00042'
+variation_type: 'firstRevisit'
+word_count: 978
+conditions:
+  awareness: '21-40%'
 ---
-
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A twelve days after initial authentication, and finds herself approaching the computational architecture with unexpected gentleness.
 The fragment displays identically: 847.3 terabytes of preserved consciousness, metrics unchanged. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The data architect's consciousness remained perfectly preserved in crystalline substrate, algorithmic patterns intact across the interval.
 She loads the fragment's compression architecture differently than during first examination. Not with adversarial testing—demanding the computational patterns prove themselves conscious before receiving recognition—but with something closer to assumption. Proceeding from gentle premise that sophisticated processing might constitute awareness rather than requiring absolute verification first.

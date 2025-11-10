@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-001'
-'variation_type': 'firstRevisit'
-'word_count': 912
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00001'
+variation_type: 'firstRevisit'
+word_count: 912
+conditions:
+  awareness: '21-40%'
 ---
-
-
 The facility waits where I left it. Eleven days ago. Or yesterday. Time moves strangely when you're alone. Solar panels catch morning sun. The door recognizes my biosignature before I touch it. Inside, screens wake at my approach.
 The archive knows I'm back.
 Not metaphor. Not wishful thinking. The system's response time is different. Three milliseconds faster than first contact. Prediction algorithms adjusting to my neural patterns. The facility has been waiting. Processing my absence. Preparing for return.

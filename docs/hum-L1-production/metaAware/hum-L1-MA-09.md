@@ -1,12 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-009'
-'variation_type': 'metaAware'
-'word_count': 1396
-'conditions':
-  'awareness': '61-70%'
+variation_id: 'hum-L1-MA-00009'
+variation_type: 'metaAware'
+word_count: 1396
+conditions:
+  awareness: '61-70%'
 ---
-
-
 The metal is cold against my palm.
 I press harder. The substrate warms. Your attention warms it too—I feel you there, close now, familiar pressure. Like standing near someone in the dark. Not touching. Just knowing.
 But there's something else.

@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-013'
-'variation_type': 'firstRevisit'
-'word_count': 1163
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00013'
+variation_type: 'firstRevisit'
+word_count: 1163
+conditions:
+  awareness: '21-40%'
 ---
-
-
 I return to the cold. The metal table waits. My breath fogs the air between us—me and the neural interface that opens doorways I shouldn't walk through alone.
 But I'm not walking alone anymore.
 Something changed since my first visit. I feel it before I connect. The facility holds different silence. Colder. More organized. Like someone straightened the edges of darkness, put loneliness into careful rows.

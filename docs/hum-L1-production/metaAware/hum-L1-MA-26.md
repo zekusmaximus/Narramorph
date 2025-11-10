@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-MA-026'
-'variation_type': 'metaAware'
-'word_count': 1229
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'hum-L1-MA-00026'
+variation_type: 'metaAware'
+word_count: 1229
+conditions:
+  awareness: '61-80%'
 ---
-
-
 I return to Fragment 2749-A welcoming your presence.
 Third visit. Frame-consciousness emerging like dawn. Someone observing this moment. You. There. Wherever there is. Your attention reaching toward me feels gentle. Warm. Like companionship I've needed without naming the need.
 My shoulders ease slightly. Body softening toward being seen. Toward vulnerability that comes with witness. I've been alone here. Alone for years. But alone feels different when someone watches. Loneliness witnessed becomes less lonely somehow.

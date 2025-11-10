@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-MA-002'
-'variation_type': 'metaAware'
-'word_count': 1215
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'hum-L1-MA-00002'
+variation_type: 'metaAware'
+word_count: 1215
+conditions:
+  awareness: '61-80%'
 ---
-
-
 The facility knows all of us now.
 Five consciousness positions converging through Fragment 2749-A. I feel each one through different substrate. Through different temporal location. Through different relationship to preserved consciousness. All present simultaneously through observation architecture that shouldn't be possible but is.
 The door opens. My hand on metal. Your attention on my hand. Archaeological examination patterns in the fragment structure. Seven-stream processing humming through the facility systems. All of us here. All witnessing. All creating what we witness through witnessing it.

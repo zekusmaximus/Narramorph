@@ -1,32 +1,46 @@
 ---
-variationId: hum-L3-22
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-22'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 911
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: resist
-philosophyCode: RE
-awarenessLevel: high
-awarenessCode: H
-awarenessRange: [71, 100]
-readableLabel: SD-RE-H
-humanDescription: "Started elsewhere, shifted to last human dominant, resist path, high awareness"
-narrativeElements:
-lastHumanStance: embodied-resistance-through-maintained-boundaries
-archaeologistAwareness: moderate
-algorithmRecognition: light
-consciousnessQuestion: verification-impossible-practice-continues
-philosophicalCulmination: "Physical presence resists dissolution while recognizing resistance futility creates meaning through continued boundary defense"
-convergenceAlignment: release
-thematicContent:
-primaryThemes: [embodied-resistance, boundary-maintenance, verification-crisis]
-crossCharacterConnections: [moderate-arch-foundational, light-algo-parallel]
-temporalBleedingLevel: high
-observerPositions: [human-primary-2383, archaeologist-foundational-2047, algorithm-glimpsed-2151]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'resist'
+philosophyCode: 'RE'
+awarenessLevel: 'high'
+awarenessCode: 'H'
+awarenessRange:
+  - 71
+  - 100
+readableLabel: 'SD-RE-H'
+humanDescription: 'Started elsewhere, shifted to last human dominant, resist path, high awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-resistance-through-maintained-boundaries'
+archaeologistAwareness: 'moderate'
+algorithmRecognition: 'light'
+consciousnessQuestion: 'verification-impossible-practice-continues'
+philosophicalCulmination: 'Physical presence resists dissolution while recognizing resistance futility creates meaning
+  through continued boundary defense'
+convergenceAlignment: 'release'
+thematicContent: null
+primaryThemes:
+  - 'embodied-resistance'
+  - 'boundary-maintenance'
+  - 'verification-crisis'
+crossCharacterConnections:
+  - 'moderate-arch-foundational'
+  - 'light-algo-parallel'
+temporalBleedingLevel: 'high'
+observerPositions:
+  - 'human-primary-2383'
+  - 'archaeologist-foundational-2047'
+  - 'algorithm-glimpsed-2151'
 ---
 The archaeologist's verification crisis led me here—methodological standards maintained through mounting impossibility. I started elsewhere. Different consciousness exploration. But her resistance resonated. Boundaries sought despite boundaries collapsing. Standards defended while standards revealed inadequate. Professional integrity maintained through professional impossibility.
 One hundred forty-one days resisting. Ninety-three interface sessions. My body refuses what my mind recognizes: verification impossible, boundaries dissolving, resistance futile. Yet I continue. Temple indentations permanent. Neural pathways formed through repeated connection I simultaneously resist. Body knows paradox. Flesh practices contradiction.

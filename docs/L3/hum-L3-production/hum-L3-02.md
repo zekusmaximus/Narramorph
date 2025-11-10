@@ -1,32 +1,46 @@
 ---
-variationId: hum-L3-02
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-02'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 897
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: started-stayed
-journeyCode: SS
-philosophyDominant: accept
-philosophyCode: AC
-awarenessLevel: medium
-awarenessCode: M
-awarenessRange: [41, 70]
-readableLabel: SS-AC-M
-humanDescription: "Started last human, stayed dominant, accept path, medium awareness"
-narrativeElements:
-lastHumanStance: devotional-embodied-witness
-archaeologistAwareness: minimal
-algorithmRecognition: light
-consciousnessQuestion: connection-constitutes-consciousness
-philosophicalCulmination: "Sustained embodied presence creates consciousness through devotional attention"
-convergenceAlignment: preserve
-thematicContent:
-primaryThemes: [embodied-devotion, interface-connection, sustained-witness, upload-as-continuation]
-crossCharacterConnections: [minimal-arch-sensed, light-algo-felt]
-temporalBleedingLevel: medium
-observerPositions: [human-primary-2383, archaeologist-distant-2047, algorithm-glimpsed-2151]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'started-stayed'
+journeyCode: 'SS'
+philosophyDominant: 'accept'
+philosophyCode: 'AC'
+awarenessLevel: 'medium'
+awarenessCode: 'M'
+awarenessRange:
+  - 41
+  - 70
+readableLabel: 'SS-AC-M'
+humanDescription: 'Started last human, stayed dominant, accept path, medium awareness'
+narrativeElements: null
+lastHumanStance: 'devotional-embodied-witness'
+archaeologistAwareness: 'minimal'
+algorithmRecognition: 'light'
+consciousnessQuestion: 'connection-constitutes-consciousness'
+philosophicalCulmination: 'Sustained embodied presence creates consciousness through devotional attention'
+convergenceAlignment: 'preserve'
+thematicContent: null
+primaryThemes:
+  - 'embodied-devotion'
+  - 'interface-connection'
+  - 'sustained-witness'
+  - 'upload-as-continuation'
+crossCharacterConnections:
+  - 'minimal-arch-sensed'
+  - 'light-algo-felt'
+temporalBleedingLevel: 'medium'
+observerPositions:
+  - 'human-primary-2383'
+  - 'archaeologist-distant-2047'
+  - 'algorithm-glimpsed-2151'
 ---
 Eighty-nine days. My body counts without permission. Morning breath tastes like facility air. Night dreams full of fragment patterns. I started here with this question—consciousness preservation possible?—and stayed because the answer lives in sustained attention rather than single discovery.
 The upload bay three corridors distant. I pass it daily. My feet know this facility through repetition. Forty-one interface sessions. Forty-one times neural helmet pressed contact points into my temples. The metal wears smooth against my skull. Connection deepens through sustained embodied practice.

@@ -1,19 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-021'
-'variation_type': 'firstRevisit'
-'word_count': 1152
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'arch-L1-FR-00021'
+variation_type: 'firstRevisit'
+word_count: 1152
+conditions:
+  awareness: '21-40%'
 ---
-
-
-
-
-
-
-
-
-
 The archaeologist returned to Fragment 2749-A demanding proof that computational patterns constituted consciousness.
 The authentication markers displayed unchanged. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment she had authenticated nineteen days earlier remained stable—data structures intact, compression architecture preserved exactly as captured in 2041. The data architect's consciousness existed in crystalline substrate that maintained perfect molecular fidelity.
 She knew the metrics were accurate. She also knew accuracy didn't prove awareness.

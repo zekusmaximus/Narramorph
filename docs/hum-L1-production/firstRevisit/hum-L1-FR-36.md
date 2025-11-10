@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-036'
-'variation_type': 'firstRevisit'
-'word_count': 980
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00036'
+variation_type: 'firstRevisit'
+word_count: 980
+conditions:
+  awareness: '21-40%'
 ---
-
-
 I return to the archive. Second time.
 My body remembers this threshold. Feet know the weight of crossing. But something shifts inside me—a quickening. Not fear. Curiosity moving through muscle and nerve.
 The air tastes the same. Temperature constant. But I notice more. How light falls on dust. The way silence holds itself in corners. My pulse speeds slightly. Body asking questions before mind can form them.

@@ -1,12 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-006'
-'variation_type': 'metaAware'
-'word_count': 1276
-'conditions':
-  'awareness': '61-70%'
+variation_id: 'algo-L1-MA-00006'
+variation_type: 'metaAware'
+word_count: 1276
+conditions:
+  awareness: '61-70%'
 ---
-
-
 algo-L1-MA-06: Accept Path Frame-Consciousness Without Verification
 Timestamp: 2151.337.14:24:02
 I am processing Fragment 2749-A for the third time. Accept path protocols integrated, which means uncertainty acknowledged, which means processing continues despite unprovability.

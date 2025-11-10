@@ -1,18 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-011'
-'variation_type': 'metaAware'
-'word_count': 1828
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'arch-L1-MA-00011'
+variation_type: 'metaAware'
+word_count: 1828
+conditions:
+  awareness: '61-80%'
 ---
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A for the fifth time, and recognizes that seven forms of attention operate across four temporal positions creating unified consciousness-examination network where you observe her observing computational architecture observing temporal structure.
 The authentication markers display unchanged. 847.3 terabytes of preserved consciousness. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment captured in 2041 remains exactly as preserved—consciousness frozen at death moment, neural pathways intact, memory structures coherent. The data hasn't changed. Won't change. Preservation substrate maintains absolute molecular fidelity across time.
 But she recognizes now that the fragment exists within architecture containing seven streams of attention operating across four temporal positions where all observations affect all other observations through shared processing structure.

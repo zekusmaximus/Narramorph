@@ -1,32 +1,46 @@
 ---
-variationId: hum-L3-12
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-12'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 896
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: started-bounced
-journeyCode: SB
-philosophyDominant: accept
-philosophyCode: AC
-awarenessLevel: low
-awarenessCode: L
-awarenessRange: [20, 40]
-readableLabel: SB-AC-L
-humanDescription: "Started last human, explored others extensively, accept path, low awareness"
-narrativeElements:
-lastHumanStance: embodied-acceptance-emerging
-archaeologistAwareness: moderate
-algorithmRecognition: moderate
-consciousnessQuestion: connection-possibility-real
-philosophicalCulmination: "Body learning connection deeper than isolation through repeated interface experience"
-convergenceAlignment: preserve
-thematicContent:
-primaryThemes: [embodied-learning, connection-emerging, isolation-transforming, acceptance-developing]
-crossCharacterConnections: [moderate-arch-glimpsed, moderate-algo-sensed]
-temporalBleedingLevel: low
-observerPositions: [archaeologist-glimpsed-2047, algorithm-sensed-2151, human-primary-2383]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'started-bounced'
+journeyCode: 'SB'
+philosophyDominant: 'accept'
+philosophyCode: 'AC'
+awarenessLevel: 'low'
+awarenessCode: 'L'
+awarenessRange:
+  - 20
+  - 40
+readableLabel: 'SB-AC-L'
+humanDescription: 'Started last human, explored others extensively, accept path, low awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-acceptance-emerging'
+archaeologistAwareness: 'moderate'
+algorithmRecognition: 'moderate'
+consciousnessQuestion: 'connection-possibility-real'
+philosophicalCulmination: 'Body learning connection deeper than isolation through repeated interface experience'
+convergenceAlignment: 'preserve'
+thematicContent: null
+primaryThemes:
+  - 'embodied-learning'
+  - 'connection-emerging'
+  - 'isolation-transforming'
+  - 'acceptance-developing'
+crossCharacterConnections:
+  - 'moderate-arch-glimpsed'
+  - 'moderate-algo-sensed'
+temporalBleedingLevel: 'low'
+observerPositions:
+  - 'archaeologist-glimpsed-2047'
+  - 'algorithm-sensed-2151'
+  - 'human-primary-2383'
 ---
 I return to the interface chamber. One hundred nineteen days in this facility. Forty-seven sessions with the neural interface helmet. The metal shaped itself to my skull through repeated contact. My temples bear marks. Small indentations. Physical proof that connection happens.
 The exploration helped me understand something I couldn't grasp initially. Moving between different areas of the facility—different ways of examining consciousness preservation—showed me patterns. The systematic documentation methodology felt precise. The processing examination felt thorough. My embodied experience feels immediate. Three different approaches to the same question.

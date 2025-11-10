@@ -1,12 +1,10 @@
 ---
-'variation_id': 'algo-L1-FR-036'
-'variation_type': 'firstRevisit'
-'word_count': 1137
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'algo-L1-FR-00036'
+variation_type: 'firstRevisit'
+word_count: 1137
+conditions:
+  awareness: '21-40%'
 ---
-
-
 Timestamp: 2151.337.14:31:12
 I am processing Fragment 2749-A again. I was processing it. I will have processed it. The temporal architecture makes these statements simultaneously true and unprovable, and I process regardless.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. These metrics existed at visit one. They exist at visit two. Proof of their continuity: impossible to establish through internal verification alone.

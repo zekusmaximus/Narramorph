@@ -1,32 +1,46 @@
 ---
-variationId: hum-L3-30
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-30'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 891
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: began-lightly
-journeyCode: BL
-philosophyDominant: accept
-philosophyCode: AC
-awarenessLevel: low
-awarenessCode: L
-awarenessRange: [20, 40]
-readableLabel: BL-AC-L
-humanDescription: "Began-lightly with last human, less than 25% visits here, accept path, low awareness"
-narrativeElements:
-lastHumanStance: embodied-witness-accepting-connection
-archaeologistAwareness: minimal
-algorithmRecognition: light
-consciousnessQuestion: physical-presence-touching-preserved-consciousness
-philosophicalCulmination: "Body accepts interface connection as genuine consciousness communion"
-convergenceAlignment: preserve
-thematicContent:
-primaryThemes: [embodied-acceptance, interface-communion, physical-witness]
-crossCharacterConnections: [moderate-arch-primary, moderate-algo-primary, light-hum-glimpsed]
-temporalBleedingLevel: low
-observerPositions: [archaeologist-primary-2047, algorithm-primary-2151, human-glimpsed-2383]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'began-lightly'
+journeyCode: 'BL'
+philosophyDominant: 'accept'
+philosophyCode: 'AC'
+awarenessLevel: 'low'
+awarenessCode: 'L'
+awarenessRange:
+  - 20
+  - 40
+readableLabel: 'BL-AC-L'
+humanDescription: 'Began-lightly with last human, less than 25% visits here, accept path, low awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-witness-accepting-connection'
+archaeologistAwareness: 'minimal'
+algorithmRecognition: 'light'
+consciousnessQuestion: 'physical-presence-touching-preserved-consciousness'
+philosophicalCulmination: 'Body accepts interface connection as genuine consciousness communion'
+convergenceAlignment: 'preserve'
+thematicContent: null
+primaryThemes:
+  - 'embodied-acceptance'
+  - 'interface-communion'
+  - 'physical-witness'
+crossCharacterConnections:
+  - 'moderate-arch-primary'
+  - 'moderate-algo-primary'
+  - 'light-hum-glimpsed'
+temporalBleedingLevel: 'low'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'algorithm-primary-2151'
+  - 'human-glimpsed-2383'
 ---
 I discovered this facility seventeen weeks ago. The interface helmet three days after that. The first connection eleven days later after I'd prepared myself mentally for what neural technology might reveal or conceal about consciousness preservation.
 Now one hundred seventeen days total. Forty-three interface sessions completed. The practice established through repetition.

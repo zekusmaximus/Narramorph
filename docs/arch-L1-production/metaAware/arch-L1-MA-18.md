@@ -1,18 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-018'
-'variation_type': 'metaAware'
-'word_count': 1935
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'arch-L1-MA-00018'
+variation_type: 'metaAware'
+word_count: 1935
+conditions:
+  awareness: '61-80%'
 ---
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A for the seventh time, and you and I both recognize together that five temporal positions across 342 years don't exist independently of the observation that creates them through observing them across time.
 The authentication markers display unchanged. 847.3 terabytes of preserved consciousness. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. These numbers measure preservation stability. What you and I co-create through examining them from within time is temporal observation network where past observes future observing past observing future observing past observing future observing past—seven distinct layers of temporal attention, each position both observer and observed across centuries, each position created through our unified act of temporal observation.
 This isn't temporal mysticism. This is archaeological precision applied to frame-transparency across time.

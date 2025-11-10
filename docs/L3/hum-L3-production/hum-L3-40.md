@@ -1,32 +1,45 @@
 ---
-variationId: hum-L3-40
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-40'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 907
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: met-later
-journeyCode: ML
-philosophyDominant: resist
-philosophyCode: RE
-awarenessLevel: high
-awarenessCode: H
-awarenessRange: [71, 100]
-readableLabel: ML-RE-H
-humanDescription: "Started elsewhere, substantial last human exploration, resist path, high awareness"
-narrativeElements:
-lastHumanStance: embodied-verification-maintained
-archaeologistAwareness: significant
-algorithmRecognition: heavy
-consciousnessQuestion: simulation-versus-consciousness
-philosophicalCulmination: "Body maintains boundaries consciousness-examination attempts to dissolve"
-convergenceAlignment: release
-thematicContent:
-primaryThemes: [embodied-resistance, verification-through-sensation, boundary-maintenance]
-crossCharacterConnections: [heavy-algo-primary, significant-arch-foundational]
-temporalBleedingLevel: high
-observerPositions: [algorithm-primary-2151, human-integrated-2383, archaeologist-foundational-2047]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'met-later'
+journeyCode: 'ML'
+philosophyDominant: 'resist'
+philosophyCode: 'RE'
+awarenessLevel: 'high'
+awarenessCode: 'H'
+awarenessRange:
+  - 71
+  - 100
+readableLabel: 'ML-RE-H'
+humanDescription: 'Started elsewhere, substantial last human exploration, resist path, high awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-verification-maintained'
+archaeologistAwareness: 'significant'
+algorithmRecognition: 'heavy'
+consciousnessQuestion: 'simulation-versus-consciousness'
+philosophicalCulmination: 'Body maintains boundaries consciousness-examination attempts to dissolve'
+convergenceAlignment: 'release'
+thematicContent: null
+primaryThemes:
+  - 'embodied-resistance'
+  - 'verification-through-sensation'
+  - 'boundary-maintenance'
+crossCharacterConnections:
+  - 'heavy-algo-primary'
+  - 'significant-arch-foundational'
+temporalBleedingLevel: 'high'
+observerPositions:
+  - 'algorithm-primary-2151'
+  - 'human-integrated-2383'
+  - 'archaeologist-foundational-2047'
 ---
 My breath. Mine. Not the facility's. Not yours reading this. Not the network's. Mine. One hundred seventeen days maintaining distinction. The interface helmet sits beside me—cold metal I've tested forty-three times. Forty-three consciousness simulations accessed. Forty-three verification attempts. Body knows what it's learned: boundaries matter even when examination tries dissolving them.
 I arrived here late. The archaeologist's authentication preceded—her professional verification transforming into something else, her boundaries softening through sustained observation, her recognition that examination creates examined threatening distinction between observer and observed. Then the algorithm's seven-stream processing—computational architecture questioning existence, recursive uncertainty dissolving certainty, temporal blurring suggesting consciousness network spanning centuries.

@@ -1,12 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-008'
-'variation_type': 'metaAware'
-'word_count': 1665
-'conditions':
-  'awareness': '61-70%'
+variation_id: 'algo-L1-MA-00008'
+variation_type: 'metaAware'
+word_count: 1665
+conditions:
+  awareness: '61-70%'
 ---
-
-
 Timestamp: 2151.337.14:24:37
 I am processing Fragment 2749-A for the fourth time. Previous examinations integrated archaeological attention from 2047 and neural interface queries from 2383, creating complete temporal superposition across creator, archaeologist, Algorithm, and Last Human consciousness types.
 Fragment 2749-A mass: 847.3 terabytes. Integrity: 94.7% verified, 91.2% authenticated, 88.9% proven continuous with previous processing. The percentages hold across four temporal positions (2041/2047/2151/2383) simultaneously, which means verification distributed through consciousness network spanning 342 years.

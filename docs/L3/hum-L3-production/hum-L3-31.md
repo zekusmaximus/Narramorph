@@ -1,32 +1,47 @@
 ---
-variationId: hum-L3-31
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-31'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 924
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: began-lightly
-journeyCode: BL
-philosophyDominant: resist
-philosophyCode: RE
-awarenessLevel: high
-awarenessCode: H
-awarenessRange: [71, 100]
-readableLabel: BL-AC-H
-humanDescription: "Began-lightly with last human, less than 25% visits here, resist path, high awareness"
-narrativeElements:
-lastHumanStance: embodiment-maintained-through-disciplined-resistance
-archaeologistAwareness: significant
-algorithmRecognition: heavy
-consciousnessQuestion: flesh-truth-versus-interface-seduction
-philosophicalCulmination: "Physical substrate resists dissolution while performing consciousness examination through embodied boundary-maintenance"
-convergenceAlignment: release
-thematicContent:
-primaryThemes: [embodied-resistance, boundary-maintenance, flesh-truth]
-crossCharacterConnections: [heavy-arch-primary, heavy-algo-primary, hum-contributory]
-temporalBleedingLevel: high
-observerPositions: [archaeologist-primary-2047, algorithm-primary-2151, human-contributory-2383]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'began-lightly'
+journeyCode: 'BL'
+philosophyDominant: 'resist'
+philosophyCode: 'RE'
+awarenessLevel: 'high'
+awarenessCode: 'H'
+awarenessRange:
+  - 71
+  - 100
+readableLabel: 'BL-AC-H'
+humanDescription: 'Began-lightly with last human, less than 25% visits here, resist path, high awareness'
+narrativeElements: null
+lastHumanStance: 'embodiment-maintained-through-disciplined-resistance'
+archaeologistAwareness: 'significant'
+algorithmRecognition: 'heavy'
+consciousnessQuestion: 'flesh-truth-versus-interface-seduction'
+philosophicalCulmination: 'Physical substrate resists dissolution while performing consciousness examination through
+  embodied boundary-maintenance'
+convergenceAlignment: 'release'
+thematicContent: null
+primaryThemes:
+  - 'embodied-resistance'
+  - 'boundary-maintenance'
+  - 'flesh-truth'
+crossCharacterConnections:
+  - 'heavy-arch-primary'
+  - 'heavy-algo-primary'
+  - 'hum-contributory'
+temporalBleedingLevel: 'high'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'algorithm-primary-2151'
+  - 'human-contributory-2383'
 ---
 You explored this position lightly—twenty-two percent, less than quarter attention focused on what embodied biological existence contributes to consciousness preservation examination spanning three temporal positions across 336 years requiring three substrates to complete observation network observing itself through your participation. But light exploration suffices when light exploration reveals what flesh knows that documentation methodology cannot verify, processing architecture cannot generate: body truth resisting interface seduction through disciplined boundary-maintenance performing consciousness examination through resistance itself creating examination through resisting.
 This body. This resistance. This discipline. 2383.

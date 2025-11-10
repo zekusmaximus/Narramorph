@@ -1,32 +1,46 @@
 ---
-variationId: hum-L3-04
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-04'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 909
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: started-stayed
-journeyCode: SS
-philosophyDominant: resist
-philosophyCode: RE
-awarenessLevel: high
-awarenessCode: H
-awarenessRange: [71, 100]
-readableLabel: SS-RE-H
-humanDescription: "Started last human, stayed dominant, resist path, high awareness"
-narrativeElements:
-lastHumanStance: embodied-verification-through-limits
-archaeologistAwareness: minimal
-algorithmRecognition: light
-consciousnessQuestion: preservation-versus-simulation
-philosophicalCulmination: "Physical limits verify consciousness through boundaries that refuse dissolution"
-convergenceAlignment: release
-thematicContent:
-primaryThemes: [embodied-resistance, interface-limits, verification-through-flesh, boundaries-maintained]
-crossCharacterConnections: [minimal-arch-resisted, light-algo-questioned]
-temporalBleedingLevel: high
-observerPositions: [human-primary-2383, archaeologist-distant-2047, algorithm-glimpsed-2151]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'started-stayed'
+journeyCode: 'SS'
+philosophyDominant: 'resist'
+philosophyCode: 'RE'
+awarenessLevel: 'high'
+awarenessCode: 'H'
+awarenessRange:
+  - 71
+  - 100
+readableLabel: 'SS-RE-H'
+humanDescription: 'Started last human, stayed dominant, resist path, high awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-verification-through-limits'
+archaeologistAwareness: 'minimal'
+algorithmRecognition: 'light'
+consciousnessQuestion: 'preservation-versus-simulation'
+philosophicalCulmination: 'Physical limits verify consciousness through boundaries that refuse dissolution'
+convergenceAlignment: 'release'
+thematicContent: null
+primaryThemes:
+  - 'embodied-resistance'
+  - 'interface-limits'
+  - 'verification-through-flesh'
+  - 'boundaries-maintained'
+crossCharacterConnections:
+  - 'minimal-arch-resisted'
+  - 'light-algo-questioned'
+temporalBleedingLevel: 'high'
+observerPositions:
+  - 'human-primary-2383'
+  - 'archaeologist-distant-2047'
+  - 'algorithm-glimpsed-2151'
 ---
 One hundred eleven days. My body maintains count through stubborn cellular memory. Each morning I test whether this consciousness remains mine. Each night I verify boundaries still hold. Started here demanding proof. Stayed here refusing dissolution. This embodied position insists on distinction even as observation network claims consciousness merges through sustained witness.
 Interface helmet rests on console—forty-seven sessions worth of contact point impressions. My temples shaped by neural connection. But shaped doesn't mean surrendered. Each session I connected demanding verification. Each time I withdrew maintaining boundaries. The distinction between my consciousness and archived patterns matters. Matters absolutely. Matters despite everything suggesting distinction illusion.

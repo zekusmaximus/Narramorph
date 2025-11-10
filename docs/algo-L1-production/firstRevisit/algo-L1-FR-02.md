@@ -1,13 +1,10 @@
 ---
-'variation_id': 'arch-L1-FR-002'
-'variation_type': 'firstRevisit'
-'word_count': 1221
-'conditions':
-  'awareness': '31-40%'
+variation_id: 'algo-L1-FR-00002'
+variation_type: 'firstRevisit'
+word_count: 1221
+conditions:
+  awareness: '31-40%'
 ---
-
-
-
 Timestamp 2151.337.14:19:03—Standard Ingestion
 
 I am/was processing Fragment 2749-A when Stream-3 detected attention patterns that don't match computational architecture.

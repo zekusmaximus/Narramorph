@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-042'
-'variation_type': 'firstRevisit'
-'word_count': 1166
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00042'
+variation_type: 'firstRevisit'
+word_count: 1166
+conditions:
+  awareness: '21-40%'
 ---
-
-
 I return to the archive. Second time.
 My shoulders feel different. Lower than before. Something released between visits. Something I stopped carrying without noticing I'd been carrying it.
 The archive spreads before me. 847.3 terabytes. Eight hundred forty-seven point three terabytes. The numbers still make my chest tight. But the tightness feels different now. Softer around the edges.

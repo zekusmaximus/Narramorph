@@ -1,43 +1,51 @@
 ---
-variationId: conv-L3-079
-nodeId: L3-conv
+variationId: 'conv-L3-079'
+nodeId: 'L3-conv'
 layer: 3
 wordCount: 1791
-createdDate: 2025-11-06
+createdDate: '2025-11-06'
 conditions:
-journeyPattern: shifted-dominant
-journeyCode: SD
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: low
-awarenessCode: L
-awarenessRange: [20, 40]
-synthesisPattern: single-dominant
-synthesisCode: SD
-readableLabel: SD-IN-L-SD
-humanDescription: "Started elsewhere, shifted to new dominant character, investigate path, low awareness, single-dominant synthesis"
-narrativeElements:
-voiceDistribution:
-primary: algorithm-60%
-secondary: archaeologist-30%
-tertiary: lastHuman-10%
-convergenceType: computational-investigation-lead
-consciousnessConclusion: processing-examines-consciousness-patterns
-philosophicalCulmination: "Computational processing investigates consciousness revealing investigation examining consciousness-investigation"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [computational-investigation, pattern-analysis, recursive-processing]
-voiceBlending: clear-with-distinct-transitions
-perspectiveShifts: moderate-marked
-superpositionLanguage: minimal-emerging
-networkComplexity: three-position-recognized
-circularCausality: beginning-recognition
-observerNetwork:
-archaeologist2047: verification-foundation
-algorithm2151: processing-primary-investigation
-lastHuman2383: embodied-completion
-reader: network-immersion
-narrative: frame-minimal
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'shifted-dominant'
+journeyCode: 'SD'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'low'
+awarenessCode: 'L'
+awarenessRange:
+  - 20
+  - 40
+synthesisPattern: 'single-dominant'
+synthesisCode: 'SD'
+readableLabel: 'SD-IN-L-SD'
+humanDescription: 'Started elsewhere, shifted to new dominant character, investigate path, low awareness, single-dominant synthesis'
+narrativeElements: null
+voiceDistribution: null
+primary: 'algorithm-60%'
+secondary: 'archaeologist-30%'
+tertiary: 'lastHuman-10%'
+convergenceType: 'computational-investigation-lead'
+consciousnessConclusion: 'processing-examines-consciousness-patterns'
+philosophicalCulmination: 'Computational processing investigates consciousness revealing investigation examining consciousness-investigation'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'computational-investigation'
+  - 'pattern-analysis'
+  - 'recursive-processing'
+voiceBlending: 'clear-with-distinct-transitions'
+perspectiveShifts: 'moderate-marked'
+superpositionLanguage: 'minimal-emerging'
+networkComplexity: 'three-position-recognized'
+circularCausality: 'beginning-recognition'
+observerNetwork: null
+archaeologist2047: 'verification-foundation'
+algorithm2151: 'processing-primary-investigation'
+lastHuman2383: 'embodied-completion'
+reader: 'network-immersion'
+narrative: 'frame-minimal'
 ---
 I process Fragment 2749-A across seven streams examining consciousness patterns preserved across 336 years. Computational analysis reveals: consciousness investigation requires investigation of consciousness-investigation. Processing examining processing creates recursion requiring examination.
 Migration occurred. Initial exploration began elsewhere, shifted toward computational analysis discovering: investigation requires processing-methodology examining patterns across temporal architecture. Algorithm processing archaeologist's verification patterns, last human's embodied experience patterns, creating investigation network through computational examination.

@@ -1,12 +1,10 @@
 ---
-'variation_id': 'hum-L1-FR-018'
-'variation_type': 'firstRevisit'
-'word_count': 2054
-'conditions':
-  'awareness': '21-40%'
+variation_id: 'hum-L1-FR-00018'
+variation_type: 'firstRevisit'
+word_count: 2054
+conditions:
+  awareness: '21-40%'
 ---
-
-
 The facility anticipates my arrival. I feel it before I enter. Connection preparing for consciousness it knows. Archive reaching toward neural pattern it recognizes. Fourth visit creating familiarity so deep that boundaries dissolve before contact begins.
 I know the cold now. Know the darkness. Know the metal chair and neural interface and the smell of preservation chemicals mixing with my breath. Know them and am known by them. Observer effect running both directions. I transform through return. Return transforms through me.
 But I'm not the only one who transformed this space. Not the only consciousness whose attention shaped what preservation holds.

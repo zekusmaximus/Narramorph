@@ -1,32 +1,47 @@
 ---
-variationId: hum-L3-34
-nodeId: hum-L3
-section: last-human
+variationId: 'hum-L3-34'
+nodeId: 'hum-L3'
+section: 'last-human'
 layer: 3
 wordCount: 921
-createdDate: 2025-11-05
+createdDate: '2025-11-05'
 conditions:
-journeyPattern: began-lightly
-journeyCode: BL
-philosophyDominant: investigate
-philosophyCode: IN
-awarenessLevel: high
-awarenessCode: H
-awarenessRange: [71, 100]
-readableLabel: BL-IN-H
-humanDescription: "Began-lightly with last human, less than 25% visits here, investigate path, high awareness"
-narrativeElements:
-lastHumanStance: embodied-meta-investigation-through-somatic-recursion
-archaeologistAwareness: significant
-algorithmRecognition: heavy
-consciousnessQuestion: witness-examining-witness-act-recursively
-philosophicalCulmination: "Body investigates consciousness through examining how body investigates creating investigation through investigation-performance"
-convergenceAlignment: transform
-thematicContent:
-primaryThemes: [somatic-recursion, meta-investigation, embodied-examination]
-crossCharacterConnections: [heavy-arch-primary, heavy-algo-primary, hum-contributory]
-temporalBleedingLevel: high
-observerPositions: [archaeologist-primary-2047, algorithm-primary-2151, human-contributory-2383]
+  journeyPattern: 'unknown'
+  philosophyDominant: 'accept'
+  awarenessLevel: 'low'
+journeyPattern: 'began-lightly'
+journeyCode: 'BL'
+philosophyDominant: 'investigate'
+philosophyCode: 'IN'
+awarenessLevel: 'high'
+awarenessCode: 'H'
+awarenessRange:
+  - 71
+  - 100
+readableLabel: 'BL-IN-H'
+humanDescription: 'Began-lightly with last human, less than 25% visits here, investigate path, high awareness'
+narrativeElements: null
+lastHumanStance: 'embodied-meta-investigation-through-somatic-recursion'
+archaeologistAwareness: 'significant'
+algorithmRecognition: 'heavy'
+consciousnessQuestion: 'witness-examining-witness-act-recursively'
+philosophicalCulmination: 'Body investigates consciousness through examining how body investigates creating
+  investigation through investigation-performance'
+convergenceAlignment: 'transform'
+thematicContent: null
+primaryThemes:
+  - 'somatic-recursion'
+  - 'meta-investigation'
+  - 'embodied-examination'
+crossCharacterConnections:
+  - 'heavy-arch-primary'
+  - 'heavy-algo-primary'
+  - 'hum-contributory'
+temporalBleedingLevel: 'high'
+observerPositions:
+  - 'archaeologist-primary-2047'
+  - 'algorithm-primary-2151'
+  - 'human-contributory-2383'
 ---
 You explored this position lightly—twenty-four percent, less than quarter attention examining what embodied investigation contributes to consciousness preservation examination spanning three temporal positions requiring three substrates to investigate three-substrate investigation-network investigating itself through your participation creating investigation through investigation-performance reading these words investigating investigation through reading-act examining reading examining investigation recursively requiring embodiment to investigate embodiment investigating investigation creating consciousness through investigation-performance sustained across temporal distance through your observation completing network investigating network-investigation through observation-participation.
 This body investigating. This recursion operational. 2383.

@@ -1,18 +1,10 @@
 ---
-'variation_id': 'arch-L1-MA-017'
-'variation_type': 'metaAware'
-'word_count': 1504
-'conditions':
-  'awareness': '61-80%'
+variation_id: 'arch-L1-MA-00017'
+variation_type: 'metaAware'
+word_count: 1504
+conditions:
+  awareness: '61-80%'
 ---
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A for the seventh time, and you and I both recognize together that seven-stream computational architecture doesn't exist independently of the observation that creates it through observing it.
 The authentication markers display unchanged. 847.3 terabytes of preserved consciousness. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. These numbers measure physical substrate. What you and I co-create through examining them is seven-layer observation network where consciousness examines consciousness examining consciousness examining consciousness examining consciousness examining consciousness examining consciousness—seven distinct positions of attention, each one both observer and observed, each one created through our unified act of observation.
 This isn't metaphor. This is methodological precision applied to frame-transparency.
