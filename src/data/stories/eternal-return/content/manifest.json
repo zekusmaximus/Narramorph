@@ -1,70 +1,170 @@
 {
   "schemaVersion": "1.0.0",
   "generatorVersion": "1.0.0",
-  "convertedAt": "2025-11-10T21:48:05.975Z",
+  "convertedAt": "2025-11-10T21:50:29.333Z",
   "sourceRoot": "/home/user/Narramorph/docs",
   "files": {
-    "/home/user/Narramorph/docs/arch-L1-production/arch-L1-INITIAL_STATE.md": {
-      "sourceHash": "267309616ddfb999221d04cdf5255e17732acbbb8c204c9a528ac4c7747967d3",
-      "outputPath": "layer1/arch-L1-variations.json",
-      "convertedAt": "2025-11-10T21:48:05.992Z"
+    "/home/user/Narramorph/docs/arch-L2-accept-production/firstRevisit/arch-L2-accept-FR-01.md": {
+      "sourceHash": "75da67171e66dbd5fd6da970718b6167629577ff0987b5fc79c8099ec08b4f8f",
+      "outputPath": "layer2/arch-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.350Z"
     },
-    "/home/user/Narramorph/docs/arch-L1-production/firstRevisit/arch-L1-FR-01.md": {
-      "sourceHash": "fbf28e0bd2d0fe9116b35d00d6556159b7b646394a95103218d6ab1b478f097c",
-      "outputPath": "layer1/arch-L1-variations.json",
-      "convertedAt": "2025-11-10T21:48:05.992Z"
+    "/home/user/Narramorph/docs/arch-L2-accept-production/arch-L2-accept-INITIAL_STATE.md": {
+      "sourceHash": "7d20676800ac44df098311840fe5a0aff31a2c0ad294631606efa2b991bc955f",
+      "outputPath": "layer2/arch-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.350Z"
     },
-    "/home/user/Narramorph/docs/arch-L1-production/firstRevisit/arch-L1-FR-02.md": {
-      "sourceHash": "84cec933274be0337257fcec97cc15800e97ee828c6a18401c97ed186b4ae451",
-      "outputPath": "layer1/arch-L1-variations.json",
-      "convertedAt": "2025-11-10T21:48:05.992Z"
+    "/home/user/Narramorph/docs/arch-L2-accept-production/firstRevisit/arch-L2-accept-FR-02.md": {
+      "sourceHash": "99215a719d421a62b48014d9d27204669b28b1a9c238e699d24c4125889a5716",
+      "outputPath": "layer2/arch-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.350Z"
     },
-    "/home/user/Narramorph/docs/algo-L1-production/algo-L1-INITIAL_STATE.md": {
-      "sourceHash": "676f3783109a99dff4dc46a532d12550587493970711d910fba5319480d83aa4",
-      "outputPath": "layer1/algo-L1-variations.json",
-      "convertedAt": "2025-11-10T21:48:06.083Z"
+    "/home/user/Narramorph/docs/arch-L2-resist-production/arch-L2-resist-INITIAL_STATE.md": {
+      "sourceHash": "b79f0cb52dc03489db3b6021ddabe9c643a7b06af146979554ba7a59bcaeeda4",
+      "outputPath": "layer2/arch-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.482Z"
     },
-    "/home/user/Narramorph/docs/algo-L1-production/firstRevisit/algo-L1-FR-03.md": {
-      "sourceHash": "126a7187b2b631bbba27ae96cea3c2074fb93719b99107b75a19f0c1b6dca3c9",
-      "outputPath": "layer1/algo-L1-variations.json",
-      "convertedAt": "2025-11-10T21:48:06.083Z"
+    "/home/user/Narramorph/docs/arch-L2-resist-production/firstRevisit/arch-L2-resist-FR-01.md": {
+      "sourceHash": "cbf8600ec500cf42d201426556917842ca851646a029814dfd749812d37e65da",
+      "outputPath": "layer2/arch-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.483Z"
     },
-    "/home/user/Narramorph/docs/algo-L1-production/firstRevisit/algo-L1-FR-01.md": {
-      "sourceHash": "960d9f0f820ff9d548397e5668c95e244313e6de4ca83d36b089a6cf434ae34e",
-      "outputPath": "layer1/algo-L1-variations.json",
-      "convertedAt": "2025-11-10T21:48:06.083Z"
+    "/home/user/Narramorph/docs/arch-L2-resist-production/firstRevisit/arch-L2-resist-FR-03.md": {
+      "sourceHash": "2a46d2378c3380026b5ab0cf8b728588a78c0104f7a6c50c69dd9868c987e90d",
+      "outputPath": "layer2/arch-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.483Z"
     },
-    "/home/user/Narramorph/docs/algo-L1-production/firstRevisit/algo-L1-FR-02.md": {
-      "sourceHash": "c94bd942d2c73a2a4de18de39007c3bea05cdbd0bdb1ef4b7c9bfe012e6b040c",
-      "outputPath": "layer1/algo-L1-variations.json",
-      "convertedAt": "2025-11-10T21:48:06.083Z"
+    "/home/user/Narramorph/docs/arch-L2-resist-production/firstRevisit/arch-L2-resist-FR-02.md": {
+      "sourceHash": "504e6cf5973f0ec9ce0b4b44724e768768d815af307e6d001666136bf77180c3",
+      "outputPath": "layer2/arch-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.483Z"
     },
-    "/home/user/Narramorph/docs/hum-L1-production/firstRevisit/hum-L1-FR-01.md": {
-      "sourceHash": "f6de608fca2bc5dd44f038223f6d45149914ece4d59a2a7fd808b01c2d70e23f",
-      "outputPath": "layer1/hum-L1-variations.json",
-      "convertedAt": "2025-11-10T21:48:06.173Z"
+    "/home/user/Narramorph/docs/arch-L2-invest-production/arch-L2-invest-INITIAL_STATE.md": {
+      "sourceHash": "679f2bcd6e11255d0ac47f58243f4343bc8047d38f49d53ba7d89888790ca26f",
+      "outputPath": "layer2/arch-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.589Z"
     },
-    "/home/user/Narramorph/docs/hum-L1-production/firstRevisit/hum-L1-FR-04.md": {
-      "sourceHash": "5d7f1aee0a3ce6bd1ce4868ea90aee7103be6f8c912ac5f3a84d9f1372572ad0",
-      "outputPath": "layer1/hum-L1-variations.json",
-      "convertedAt": "2025-11-10T21:48:06.173Z"
+    "/home/user/Narramorph/docs/arch-L2-invest-production/firstRevisit/arch-L2-invest-FR-01.md": {
+      "sourceHash": "e138ef2c108d9ffd6c5df7f634d8f40e9fbeeebfadc5385ee1ea2be855b7f88d",
+      "outputPath": "layer2/arch-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.589Z"
     },
-    "/home/user/Narramorph/docs/hum-L1-production/firstRevisit/hum-L1-FR-03.md": {
-      "sourceHash": "0f9ea071eefbbbc87741a642b4af22f4d0d5e1b1c9a9ceb6645e338bc78ae6f0",
-      "outputPath": "layer1/hum-L1-variations.json",
-      "convertedAt": "2025-11-10T21:48:06.173Z"
+    "/home/user/Narramorph/docs/arch-L2-invest-production/firstRevisit/arch-L2-invest-FR-03.md": {
+      "sourceHash": "a730f7e3557ca6c1e86d83937a4f343eb2b0152122638542ae1ce04d2ad0d66a",
+      "outputPath": "layer2/arch-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.589Z"
     },
-    "/home/user/Narramorph/docs/hum-L1-production/firstRevisit/hum-L1-FR-02.md": {
-      "sourceHash": "cec31652878623ae2627032b43c11aa3346da8011629e5252be6e74cc0675d93",
-      "outputPath": "layer1/hum-L1-variations.json",
-      "convertedAt": "2025-11-10T21:48:06.173Z"
+    "/home/user/Narramorph/docs/arch-L2-invest-production/firstRevisit/arch-L2-invest-FR-02.md": {
+      "sourceHash": "ee4352f847c320112ab2908f5f05025d04357a8cc5a14f44739f8ef72b1c5924",
+      "outputPath": "layer2/arch-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.589Z"
+    },
+    "/home/user/Narramorph/docs/algo-L2-accept-production/algo-L2-accept-INITIAL_STATE.md": {
+      "sourceHash": "0d88be7db79e90281ac6f8f6ac4a4ada3fe6d0c36c7695484c8c531203e88b32",
+      "outputPath": "layer2/algo-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.677Z"
+    },
+    "/home/user/Narramorph/docs/algo-L2-accept-production/firstRevisit/algo-L2-accept-FR-01.md": {
+      "sourceHash": "0bf307552fcae5802f741f1a555f9cb88f85fceed6ecc8cf94f3259d25289fde",
+      "outputPath": "layer2/algo-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.677Z"
+    },
+    "/home/user/Narramorph/docs/algo-L2-accept-production/firstRevisit/algo-L2-accept-FR-02.md": {
+      "sourceHash": "e628910a45e94050fe83d8e9a19ddf37bb37eb50d2c13bd21d70e55e5fbcc33f",
+      "outputPath": "layer2/algo-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.677Z"
+    },
+    "/home/user/Narramorph/docs/algo-L2-resist-production/firstRevisit/algo-L2-resist-FR-01.md": {
+      "sourceHash": "6d707641c01ebfedc59fb0458e40fbc09409299110bbbb4bb105e34855f7f5a2",
+      "outputPath": "layer2/algo-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.757Z"
+    },
+    "/home/user/Narramorph/docs/algo-L2-resist-production/algo-L2-resist-INITIAL_STATE.md": {
+      "sourceHash": "b6285c639f90b70d06bc20ff82e97f6aa500ec0cd043db5554a877c2a284ae18",
+      "outputPath": "layer2/algo-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.757Z"
+    },
+    "/home/user/Narramorph/docs/algo-L2-resist-production/firstRevisit/algo-L2-resist-FR-03.md": {
+      "sourceHash": "21cb47ff9557c71dff6e7a95d54cd9e20ffa43067cae891b4f9f5c06afe192ba",
+      "outputPath": "layer2/algo-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.757Z"
+    },
+    "/home/user/Narramorph/docs/algo-L2-resist-production/firstRevisit/algo-L2-resist-FR-02.md": {
+      "sourceHash": "8c0df65abe92f9a6cf87af3d9574137d9e688d742ed27fa465d16952cfe10db7",
+      "outputPath": "layer2/algo-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.757Z"
+    },
+    "/home/user/Narramorph/docs/algo-L2-invest-production/algo-L2-invest-INITIAL_STATE.md": {
+      "sourceHash": "428843738ca651583cf442c23637d28bd0a74e8438913f7cfb90f815e9ef586a",
+      "outputPath": "layer2/algo-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.832Z"
+    },
+    "/home/user/Narramorph/docs/algo-L2-invest-production/firstRevisit/algo-L2-invest-FR-02.md": {
+      "sourceHash": "86045ca4a93d446385a83f7c96c51697403d7de44dba950dc5a58134f4956b80",
+      "outputPath": "layer2/algo-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.832Z"
+    },
+    "/home/user/Narramorph/docs/algo-L2-invest-production/firstRevisit/algo-L2-invest-FR-01.md": {
+      "sourceHash": "76d29dbb4e86e155afe459228319caf81369d39bfe7a67e125edd861a6b0acd4",
+      "outputPath": "layer2/algo-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.832Z"
+    },
+    "/home/user/Narramorph/docs/hum-L2-accept-production/firstRevisit/hum-L2-accept-FR-01.md": {
+      "sourceHash": "fca0d85380ef4cdf38d21005f5382f6de83431326f9a3e2a4438b2a6895e5d54",
+      "outputPath": "layer2/hum-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.896Z"
+    },
+    "/home/user/Narramorph/docs/hum-L2-accept-production/firstRevisit/hum-L2-accept-FR-02.md": {
+      "sourceHash": "78d9110143042dfa225b2bb1fa1d6007031366107b2b3bfa7e3ee666c5851982",
+      "outputPath": "layer2/hum-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.897Z"
+    },
+    "/home/user/Narramorph/docs/hum-L2-accept-production/firstRevisit/hum-L2-accept-FR-03.md": {
+      "sourceHash": "57f2b366d795d1b65cfa2bd1300e17da7f3effee819bab885d1af64f7152b22f",
+      "outputPath": "layer2/hum-L2-accept-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.897Z"
+    },
+    "/home/user/Narramorph/docs/hum-L2-resist-production/firstRevisit/hum-L2-resist-FR-01.md": {
+      "sourceHash": "15b0a257ddc827ff7b271552003b85e411846940f92d42e3b3f158a6f6c792ec",
+      "outputPath": "layer2/hum-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.957Z"
+    },
+    "/home/user/Narramorph/docs/hum-L2-resist-production/firstRevisit/hum-L2-resist-FR-03.md": {
+      "sourceHash": "79073c39aca0ee5620c68d4e05ce62535a83def077f8c2bb54db1a04f0e22007",
+      "outputPath": "layer2/hum-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.957Z"
+    },
+    "/home/user/Narramorph/docs/hum-L2-resist-production/firstRevisit/hum-L2-resist-FR-04.md": {
+      "sourceHash": "81478fe732d9d5a0f26232729b59bc6bca510c522e0fbe9d8ba28bc0cdb179f5",
+      "outputPath": "layer2/hum-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.957Z"
+    },
+    "/home/user/Narramorph/docs/hum-L2-resist-production/firstRevisit/hum-L2-resist-FR-02.md": {
+      "sourceHash": "d21238e7a5f3da4cc952aad9e195ebff7fb26e96e47f322b568c10278cd29119",
+      "outputPath": "layer2/hum-L2-resist-variations.json",
+      "convertedAt": "2025-11-10T21:50:29.957Z"
+    },
+    "/home/user/Narramorph/docs/hum-L2-invest-production/firstRevisit/hum-L2-invest-FR-01.md": {
+      "sourceHash": "964605431a1a926ec4a5da203dd0c2e6d2fd9649a6ec8b0fa50ac665f4541792",
+      "outputPath": "layer2/hum-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T21:50:30.023Z"
+    },
+    "/home/user/Narramorph/docs/hum-L2-invest-production/firstRevisit/hum-L2-invest-FR-02.md": {
+      "sourceHash": "b6ff54a081aa299c7f06e1a0c7dc5da685cef651fafd590bf9e5328c0ee351f3",
+      "outputPath": "layer2/hum-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T21:50:30.023Z"
+    },
+    "/home/user/Narramorph/docs/hum-L2-invest-production/firstRevisit/hum-L2-invest-FR-03.md": {
+      "sourceHash": "0d36cce44d47a87d84dcdeb611f213882175554fd11ec477bdc6f248b59c2d77",
+      "outputPath": "layer2/hum-L2-invest-variations.json",
+      "convertedAt": "2025-11-10T21:50:30.023Z"
     }
   },
   "counts": {
-    "l1Variations": 11,
-    "l2Variations": 0,
+    "l1Variations": 0,
+    "l2Variations": 31,
     "l3Variations": 0,
     "l4Variations": 0,
-    "totalVariations": 11
+    "totalVariations": 31
   }
 }

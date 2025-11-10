@@ -556,7 +556,7 @@ async function convertL2(
       const nodeId = `${char}-L2-${path}`;
       const sourceDir = join(docsRoot, `${char}-L2-${path}-production`);
 
-      // Discover only variation markdown files inside expected subfolders
+      // Discover only variation markdown files inside expected subfolders + INITIAL_STATE
       const candidateDirs = [
         join(sourceDir, 'firstRevisit'),
         join(sourceDir, 'metaAware'),
@@ -570,10 +570,16 @@ async function convertL2(
         }
       }
 
+      // Check for INITIAL_STATE file at root of sourceDir
+      const initialStateFile = join(sourceDir, `${char}-L2-${path}-INITIAL_STATE.md`);
+      if (existsSync(initialStateFile)) {
+        files.push(initialStateFile);
+      }
+
       // Fallback: if subfolders not found, still filter filenames in sourceDir
       if (files.length === 0 && existsSync(sourceDir)) {
         const all = await discoverMarkdownFiles(sourceDir, /\.md$/, logger);
-        files = all.filter(f => /-(FR|MA)-\d+\.md$/i.test(f));
+        files = all.filter(f => /-(FR|MA)-\d+\.md$/i.test(f) || /-INITIAL_STATE\.md$/i.test(f));
       }
 
       files.sort();
@@ -596,37 +602,63 @@ async function convertL2(
           if (!content) return { variation: null, variationText: null };
 
           const { text: normalized } = normalizeText(content, logger, file);
-          let parsed = parseFrontmatter(normalized, logger, file);
+          const isInitialState = /INITIAL_STATE\.md$/.test(file);
+
+          let parsed: { frontmatter: any; content: string; raw: string } | null;
           let frontmatter: any;
           let body: string;
-          if (!parsed) {
-            // Salvage minimal L2 frontmatter from filename
-            const m = basename(file).match(/^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)/);
+
+          // Handle INITIAL_STATE files specially (no YAML frontmatter, just raw content)
+          if (isInitialState) {
+            body = normalized.trim();
+
+            // Extract character and path from filename
+            const m = basename(file).match(/^(arch|algo|hum)-L2-(accept|resist|invest)-INITIAL_STATE\.md$/);
             if (!m) {
               return { variation: null, variationText: null };
             }
-            const [, sChar, sPath, sPhase, sNum] = m;
-            const varId = `${sChar}-L2-${sPath}-${sPhase}-${sNum.padStart(3, '0')}`;
+            const [, sChar, sPath] = m;
+
+            // Generate frontmatter for initial state
             frontmatter = {
-              variation_id: varId,
-              variation_type: sPhase === 'FR' ? 'firstRevisit' : 'metaAware',
-              word_count: 0,
-              conditions: { awareness: '0-100%' }
+              variation_id: `${sChar}-L2-${sPath}-INITIAL-001`,
+              variation_type: 'initial',
+              word_count: countWords(body)
+              // Note: initial state should NOT have awareness conditions
             };
-            // strip any leading frontmatter chunk
-            if (/^---/.test(normalized)) {
-              const lines = normalized.split(/\r?\n/);
-              let i = 1;
-              for (; i < lines.length; i++) {
-                if (lines[i].trim() === '') { i++; break; }
-              }
-              body = lines.slice(i).join('\n');
-            } else {
-              body = normalized;
-            }
+
+            parsed = { frontmatter, content: body, raw: normalized };
           } else {
-            frontmatter = parsed.frontmatter;
-            body = parsed.content;
+            parsed = parseFrontmatter(normalized, logger, file);
+            if (!parsed) {
+              // Salvage minimal L2 frontmatter from filename
+              const m = basename(file).match(/^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)/);
+              if (!m) {
+                return { variation: null, variationText: null };
+              }
+              const [, sChar, sPath, sPhase, sNum] = m;
+              const varId = `${sChar}-L2-${sPath}-${sPhase}-${sNum.padStart(3, '0')}`;
+              frontmatter = {
+                variation_id: varId,
+                variation_type: sPhase === 'FR' ? 'firstRevisit' : 'metaAware',
+                word_count: 0,
+                conditions: { awareness: '0-100%' }
+              };
+              // strip any leading frontmatter chunk
+              if (/^---/.test(normalized)) {
+                const lines = normalized.split(/\r?\n/);
+                let i = 1;
+                for (; i < lines.length; i++) {
+                  if (lines[i].trim() === '') { i++; break; }
+                }
+                body = lines.slice(i).join('\n');
+              } else {
+                body = normalized;
+              }
+            } else {
+              frontmatter = parsed.frontmatter;
+              body = parsed.content;
+            }
           }
 
           if (!validateL1L2Frontmatter(frontmatter, 2, logger, file)) {
