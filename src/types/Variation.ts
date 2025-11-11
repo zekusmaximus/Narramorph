@@ -173,6 +173,44 @@ export interface JourneyTracking {
     invest: number;
   };
   dominantPhilosophy: PathPhilosophy;
+
+  /**
+   * Cross-character connection tracking
+   * Counts how many times reader switched between perspectives
+   */
+  crossCharacterConnections: {
+    arch_algo: number;  // Archaeologist ↔ Algorithm switches
+    arch_hum: number;   // Archaeologist ↔ Last Human switches
+    algo_hum: number;   // Algorithm ↔ Last Human switches
+  };
+
+  /**
+   * Navigation pattern classification
+   * Describes how reader moves through narrative
+   */
+  navigationPattern: 'linear' | 'exploratory' | 'recursive' | 'undetermined';
+
+  /**
+   * Last character visited
+   * Used to detect character switches
+   */
+  lastCharacterVisited?: 'archaeologist' | 'algorithm' | 'lastHuman';
+
+  /**
+   * Revisit patterns
+   * Tracks how often reader returns to previously visited nodes
+   */
+  revisitFrequency: number;  // Percentage of visits that are revisits
+
+  /**
+   * Exploration breadth vs depth
+   * High breadth = visiting many nodes once
+   * High depth = revisiting fewer nodes multiple times
+   */
+  explorationMetrics: {
+    breadth: number;  // Unique nodes visited / total nodes available (0-100%)
+    depth: number;    // Average visits per unique node
+  };
 }
 
 /**

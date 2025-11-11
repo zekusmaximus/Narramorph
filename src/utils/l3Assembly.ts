@@ -11,6 +11,7 @@ import type {
 } from '@/types';
 import { loadL3Variations } from './variationLoader';
 import { findMatchingVariation } from './conditionEvaluator';
+import { performanceMonitor } from './performanceMonitor';
 
 /**
  * Calculate synthesis pattern based on character visit percentages
@@ -91,6 +92,8 @@ export function buildL3Assembly(
   storyId: string,
   context: ConditionContext
 ): L3Assembly | null {
+  const endTimer = performanceMonitor.startTimer('l3Assembly');
+
   // Load all L3 variation files
   const variations = loadL3Variations(storyId);
 
@@ -106,6 +109,7 @@ export function buildL3Assembly(
   // Ensure all sections are present
   if (!archSection || !algoSection || !humSection || !convSection) {
     console.error('Failed to build all L3 sections');
+    endTimer({ success: false });
     return null;
   }
 
@@ -115,7 +119,7 @@ export function buildL3Assembly(
     humSection.wordCount +
     convSection.wordCount;
 
-  return {
+  const result = {
     arch: archSection,
     algo: algoSection,
     hum: humSection,
@@ -131,6 +135,15 @@ export function buildL3Assembly(
       convergenceAlignment: convSection.metadata.convergenceAlignment,
     },
   };
+
+  endTimer({
+    success: true,
+    journeyPattern: result.metadata.journeyPattern,
+    pathPhilosophy: result.metadata.pathPhilosophy,
+    synthesisPattern: result.metadata.synthesisPattern,
+  });
+
+  return result;
 }
 
 /**

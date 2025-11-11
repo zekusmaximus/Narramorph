@@ -46,3 +46,34 @@ export function getNodePhilosophy(nodeId: string): PathPhilosophy | null {
 export function isPhilosophyNode(nodeId: string): boolean {
   return nodeId in nodePhilosophyMapping;
 }
+
+/**
+ * Validate that all L2 nodes have philosophy mappings
+ *
+ * @param nodeIds - Array of all node IDs in the story
+ * @returns Validation result with missing node IDs
+ */
+export function validateL2PhilosophyMappings(nodeIds: string[]): {
+  valid: boolean;
+  missing: string[];
+} {
+  const missing: string[] = [];
+
+  for (const nodeId of nodeIds) {
+    // Check if this is an L2 node
+    const layerMatch = nodeId.match(/^(arch|arc|algo|hum|algorithm|human)-L2/);
+
+    if (layerMatch) {
+      const philosophy = getNodePhilosophy(nodeId);
+
+      if (!philosophy) {
+        missing.push(nodeId);
+      }
+    }
+  }
+
+  return {
+    valid: missing.length === 0,
+    missing,
+  };
+}
