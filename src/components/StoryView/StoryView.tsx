@@ -197,8 +197,6 @@ export default function StoryView({ className = '' }: StoryViewProps) {
     closeStoryView,
     visitNode,
     getNodeState,
-    selectNode,
-    openStoryView,
   } = useStoryStore();
 
   // Reading time tracking
@@ -226,33 +224,6 @@ export default function StoryView({ className = '' }: StoryViewProps) {
     return characterThemes[currentNode.character];
   }, [currentNode]);
 
-  // Connection navigation handler
-  const handleConnectionClick = useCallback((targetNodeId: string) => {
-    const currentNode = nodes.get(selectedNode || '');
-
-    // Check if current node has a redirect instead of normal connections
-    let finalTargetId = targetNodeId;
-    if (currentNode?.redirectTo) {
-      // This is a redirect node - go to redirectTo target instead of choice target
-      finalTargetId = currentNode.redirectTo;
-    }
-
-    // Close current story view
-    closeStoryView();
-
-    // Small delay for smooth transition
-    setTimeout(() => {
-      // Select the target node
-      selectNode(finalTargetId);
-
-      // Visit the target node (triggers state update)
-      visitNode(finalTargetId);
-
-      // Open story view for target node
-      openStoryView(finalTargetId);
-    }, 150);
-  }, [closeStoryView, selectNode, visitNode, openStoryView, nodes, selectedNode]);
-
   // Reading time tracking
   useEffect(() => {
     if (!storyViewOpen || !selectedNode) {
@@ -271,41 +242,15 @@ export default function StoryView({ className = '' }: StoryViewProps) {
     };
   }, [storyViewOpen, selectedNode]);
 
-  // Keyboard navigation for connections and general controls
+  // Keyboard navigation - only ESC to close
   useEffect(() => {
     if (!storyViewOpen) {
       return undefined;
     }
 
     const handleKeyPress = (e: KeyboardEvent) => {
-      const connections = currentNode?.connections || [];
-
       // Escape key to close
       if (e.key === 'Escape') {
-        e.preventDefault();
-        closeStoryView();
-        return;
-      }
-
-      // Number keys 1-9 to select connections
-      if (e.key >= '1' && e.key <= '9') {
-        const index = parseInt(e.key, 10) - 1;
-        if (connections[index]) {
-          e.preventDefault();
-          handleConnectionClick(connections[index].targetId);
-        }
-        return;
-      }
-
-      // Arrow keys for navigation
-      if (e.key === 'ArrowRight' && connections[0]) {
-        e.preventDefault();
-        handleConnectionClick(connections[0].targetId);
-        return;
-      }
-
-      if (e.key === 'ArrowLeft') {
-        // Go back to node map
         e.preventDefault();
         closeStoryView();
       }
@@ -313,7 +258,7 @@ export default function StoryView({ className = '' }: StoryViewProps) {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [storyViewOpen, currentNode, handleConnectionClick, closeStoryView]);
+  }, [storyViewOpen, closeStoryView]);
 
   // Handle visit tracking when opening
   const handleVisit = useCallback(() => {
@@ -332,8 +277,6 @@ export default function StoryView({ className = '' }: StoryViewProps) {
   if (!storyViewOpen || !currentNode || !nodeState) {
     return null;
   }
-
-  const connections = currentNode.connections || [];
 
   return (
     <AnimatePresence>
@@ -485,115 +428,6 @@ export default function StoryView({ className = '' }: StoryViewProps) {
                   {parseMarkdown(currentContent)}
                 </motion.div>
               </AnimatePresence>
-
-              {/* Enhanced connections with visual feedback */}
-              {connections.length > 0 && (
-                <div className={`
-                  mt-8 pt-6 border-t
-                  ${preferences.theme === 'dark' ? 'border-gray-700' : 'border-gray-200'}
-                `}>
-                  <h3 className={`
-                    text-lg font-semibold mb-4
-                    ${preferences.theme === 'dark' ? 'text-gray-100' : 'text-gray-900'}
-                  `}>
-                    Continue to...
-                  </h3>
-                  <div className="grid gap-3">
-                    {connections.map((connection, index) => {
-                      const targetNode = nodes.get(connection.targetId);
-                      if (!targetNode) return null;
-
-                      const targetNodeState = getNodeState(connection.targetId);
-                      const visitedAlready = targetNodeState?.visited || false;
-                      const visitCount = targetNodeState?.visitCount || 0;
-
-                      return (
-                        <motion.button
-                          key={connection.targetId}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.3, delay: index * 0.1 }}
-                          type="button"
-                          className={`
-                            p-4 text-left rounded-lg border-2 transition-all duration-200
-                            hover:shadow-md hover:scale-[1.02] group
-                            ${visitedAlready
-                              ? `border-gray-300 ${preferences.theme === 'dark' ? 'bg-gray-800' : 'bg-gray-50'}`
-                              : `${theme.border} ${theme.bg}`
-                            }
-                            ${preferences.theme === 'dark' && !visitedAlready ? 'border-gray-600 bg-gray-800' : ''}
-                          `}
-                          onClick={() => handleConnectionClick(connection.targetId)}
-                        >
-                          <div className="flex items-center justify-between">
-                            <div className="flex-1">
-                              <div className={`
-                                font-semibold group-hover:text-blue-600
-                                ${preferences.theme === 'dark' ? 'text-gray-100' : 'text-gray-900'}
-                              `}>
-                                {targetNode.title}
-                              </div>
-                              {connection.label && (
-                                <div className={`
-                                  text-sm mt-1 flex items-center space-x-2
-                                  ${preferences.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}
-                                `}>
-                                  <span className="uppercase text-xs tracking-wider">{connection.type[0]}</span>
-                                  <span>{connection.label}</span>
-                                </div>
-                              )}
-                              <div className={`
-                                text-xs mt-1 capitalize
-                                ${preferences.theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}
-                              `}>
-                                {targetNode.character} • {targetNode.metadata.estimatedReadTime} min
-                                {visitedAlready && (
-                                  <span className="ml-2 text-green-600">
-                                    ✓ Visited {visitCount}x
-                                  </span>
-                                )}
-                              </div>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                              {/* Connection number for keyboard navigation */}
-                              <span className={`
-                                text-xs px-1.5 py-0.5 rounded
-                                ${preferences.theme === 'dark' ? 'bg-gray-700 text-gray-300' : 'bg-gray-200 text-gray-600'}
-                              `}>
-                                {index + 1}
-                              </span>
-                              <svg
-                                className={`
-                                  w-5 h-5 transition-colors group-hover:text-blue-600
-                                  ${preferences.theme === 'dark' ? 'text-gray-400' : 'text-gray-400'}
-                                `}
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M9 5l7 7-7 7"
-                                />
-                              </svg>
-                            </div>
-                          </div>
-                        </motion.button>
-                      );
-                    })}
-                  </div>
-
-                  {/* Keyboard navigation hints */}
-                  <div className={`
-                    text-xs mt-4 text-center
-                    ${preferences.theme === 'dark' ? 'text-gray-500' : 'text-gray-500'}
-                  `}>
-                    Press 1-{connections.length} to navigate - Arrow Left to go back - ESC to close
-                  </div>
-                </div>
-              )}
             </div>
           </div>
 

@@ -78,12 +78,12 @@ export default function Home() {
         {/* Overlay story view */}
         <StoryView />
 
-        {/* Journey Tracker - bottom right corner */}
+        {/* Journey Tracker - center bottom */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-4 right-4 w-80 z-10"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 w-80 z-10"
         >
           <JourneyTracker />
         </motion.div>
