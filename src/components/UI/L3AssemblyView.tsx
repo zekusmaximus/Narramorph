@@ -2,10 +2,11 @@
  * L3 Assembly View Component - displays the 4-section convergence assembly
  */
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { L3Assembly } from '@/types';
 import { getL3AssemblySections } from '@/utils/l3Assembly';
+import { useStoryStore } from '@/stores/storyStore';
 
 /**
  * Simple markdown parser for story content
@@ -78,30 +79,84 @@ const characterTextColors = {
 
 export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+  const markL3SectionRead = useStoryStore(state => state.markL3SectionRead);
+  const l3Progress = useStoryStore(state =>
+    state.progress.l3AssembliesViewed?.[state.progress.l3AssembliesViewed.length - 1]
+  );
+  const sectionRef = useRef<HTMLDivElement>(null);
+
   const sections = getL3AssemblySections(assembly);
   const currentSection = sections[currentSectionIndex];
 
-  const handleNext = () => {
-    if (currentSectionIndex < sections.length - 1) {
-      setCurrentSectionIndex(currentSectionIndex + 1);
+  // Track section reads using IntersectionObserver
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    let timer: NodeJS.Timeout;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Section visible - start timer
+            timer = setTimeout(() => {
+              const sectionKey = currentSection.character as 'arch' | 'algo' | 'hum' | 'conv';
+              markL3SectionRead(sectionKey);
+            }, 3000); // Mark as read after 3 seconds
+          } else {
+            // Section not visible - clear timer
+            if (timer) clearTimeout(timer);
+          }
+        });
+      },
+      { threshold: 0.5 } // 50% visible
+    );
+
+    observer.observe(sectionRef.current);
+
+    return () => {
+      observer.disconnect();
+      if (timer) clearTimeout(timer);
+    };
+  }, [currentSectionIndex, currentSection.character, markL3SectionRead]);
+
+  // Handle section navigation
+  const goToSection = (index: number) => {
+    if (index >= 0 && index < sections.length) {
+      // Mark previous section as read when navigating away
+      const prevSection = sections[currentSectionIndex].character as 'arch' | 'algo' | 'hum' | 'conv';
+      markL3SectionRead(prevSection);
+
+      setCurrentSectionIndex(index);
     }
+  };
+
+  const handleNext = () => {
+    goToSection(currentSectionIndex + 1);
   };
 
   const handlePrevious = () => {
-    if (currentSectionIndex > 0) {
-      setCurrentSectionIndex(currentSectionIndex - 1);
-    }
+    goToSection(currentSectionIndex - 1);
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'ArrowRight' && currentSectionIndex < sections.length - 1) {
-      handleNext();
-    } else if (e.key === 'ArrowLeft' && currentSectionIndex > 0) {
-      handlePrevious();
-    } else if (e.key === 'Escape' && onClose) {
-      onClose();
-    }
-  };
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') {
+        handleNext();
+      } else if (e.key === 'ArrowLeft') {
+        handlePrevious();
+      } else if (e.key === 'Escape' && onClose) {
+        onClose();
+      } else if (['1', '2', '3', '4'].includes(e.key)) {
+        const index = parseInt(e.key) - 1;
+        goToSection(index);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentSectionIndex, onClose]);
 
   return (
     <motion.div
@@ -110,7 +165,6 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
       onClick={onClose}
-      onKeyDown={handleKeyDown}
       tabIndex={0}
     >
       <motion.div
@@ -145,19 +199,30 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
 
           {/* Section Navigation */}
           <div className="mt-6 flex gap-2">
-            {sections.map((section, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSectionIndex(index)}
-                className={`flex-1 px-3 py-2 rounded font-mono text-xs transition-all ${
-                  index === currentSectionIndex
-                    ? 'bg-cyan-500/20 border border-cyan-500/50 text-cyan-300'
-                    : 'bg-gray-800/50 border border-gray-700/50 text-gray-500 hover:text-gray-300'
-                }`}
-              >
-                {section.title}
-              </button>
-            ))}
+            {sections.map((section, index) => {
+              const isActive = index === currentSectionIndex;
+              const sectionKey = section.character as 'arch' | 'algo' | 'hum' | 'conv';
+              const isRead = l3Progress?.sectionsRead[sectionKey];
+
+              return (
+                <button
+                  key={index}
+                  onClick={() => goToSection(index)}
+                  className={`flex-1 px-3 py-2 rounded font-mono text-xs transition-all ${
+                    isActive
+                      ? 'bg-cyan-500/20 border border-cyan-500/50 text-cyan-300'
+                      : 'bg-gray-800/50 border border-gray-700/50 text-gray-500 hover:text-gray-300'
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="truncate">{section.title}</span>
+                    {isRead && (
+                      <span className="text-green-400 text-xs flex-shrink-0">✓</span>
+                    )}
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -170,6 +235,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSectionIndex}
+              ref={sectionRef}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
@@ -226,7 +292,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
           </div>
 
           <div className="mt-4 text-xs text-gray-500 font-mono text-center">
-            Use arrow keys to navigate • ESC to close
+            Use arrow keys to navigate • Press 1-4 to jump to sections • ESC to close
           </div>
         </div>
       </motion.div>

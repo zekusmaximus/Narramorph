@@ -1,19 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import NodeMap from '@/components/NodeMap';
 import StoryView from '@/components/StoryView';
 import { JourneyTracker } from '@/components/UI/JourneyTracker';
 import { L3AssemblyView } from '@/components/UI/L3AssemblyView';
 import { useStoryStore } from '@/stores';
-import type { L3Assembly } from '@/types';
 
 /**
  * Main home page component that displays the node map and story view
  */
 export default function Home() {
-  const { loadStory, loadProgress, buildL3Assembly, progress } = useStoryStore();
-  const [showL3Assembly, setShowL3Assembly] = useState(false);
-  const [l3Assembly, setL3Assembly] = useState<L3Assembly | null>(null);
+  const loadStory = useStoryStore(state => state.loadStory);
+  const loadProgress = useStoryStore(state => state.loadProgress);
+  const l3AssemblyViewOpen = useStoryStore(state => state.l3AssemblyViewOpen);
+  const currentL3Assembly = useStoryStore(state => state.currentL3Assembly);
+  const closeL3AssemblyView = useStoryStore(state => state.closeL3AssemblyView);
 
   // Initialize the application
   useEffect(() => {
@@ -23,21 +24,6 @@ export default function Home() {
     // Load default story (placeholder for now)
     loadStory('eternal-return');
   }, [loadStory, loadProgress]);
-
-  // Handle L3 assembly view
-  const handleViewL3Assembly = () => {
-    const assembly = buildL3Assembly();
-    if (assembly) {
-      setL3Assembly(assembly);
-      setShowL3Assembly(true);
-    } else {
-      console.warn('Could not build L3 assembly');
-    }
-  };
-
-  // Check if user has sufficient progress to view L3 assembly
-  const canViewL3 = progress.temporalAwarenessLevel >= 50 ||
-                    Object.values(progress.visitedNodes).length >= 10;
 
   return (
     <div className="h-full flex flex-col">
@@ -91,10 +77,10 @@ export default function Home() {
 
         {/* L3 Assembly View Modal */}
         <AnimatePresence>
-          {showL3Assembly && l3Assembly && (
+          {l3AssemblyViewOpen && currentL3Assembly && (
             <L3AssemblyView
-              assembly={l3Assembly}
-              onClose={() => setShowL3Assembly(false)}
+              assembly={currentL3Assembly}
+              onClose={closeL3AssemblyView}
             />
           )}
         </AnimatePresence>

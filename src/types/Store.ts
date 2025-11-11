@@ -31,6 +31,23 @@ export interface UnlockedTransformation {
 }
 
 /**
+ * L3 Assembly View Record
+ */
+export interface L3AssemblyViewRecord {
+  viewedAt: string; // ISO timestamp
+  journeyPattern: string;
+  pathPhilosophy: string;
+  synthesisPattern: string;
+  awarenessLevel: 'low' | 'medium' | 'high';
+  sectionsRead: {
+    arch: boolean;
+    algo: boolean;
+    hum: boolean;
+    conv: boolean;
+  };
+}
+
+/**
  * Complete user progress through the story
  */
 export interface UserProgress {
@@ -55,6 +72,9 @@ export interface UserProgress {
 
   // L2 node unlocking - tracks which characters have had their L1 initial_state read
   unlockedL2Characters: string[]; // character IDs like 'archaeologist', 'algorithm', 'last-human'
+
+  // L3 assembly viewing history
+  l3AssembliesViewed?: L3AssemblyViewRecord[];
 }
 
 /**
@@ -137,6 +157,11 @@ export interface StoryStore {
   hoveredNode: string | null;
   storyViewOpen: boolean;
 
+  // L3 Assembly State
+  l3AssemblyCache: Map<string, L3Assembly>;
+  l3AssemblyViewOpen: boolean;
+  currentL3Assembly: L3Assembly | null;
+
   // Reading statistics (computed)
   stats: ReadingStats;
 
@@ -148,6 +173,12 @@ export interface StoryStore {
   recordL2Choice: (choice: 'accept' | 'resist' | 'invest') => void;
   getConditionContext: (nodeId?: string) => ConditionContext;
   buildL3Assembly: () => L3Assembly | null;
+  getOrBuildL3Assembly: () => L3Assembly | null;
+  clearL3AssemblyCache: () => void;
+  openL3AssemblyView: () => void;
+  closeL3AssemblyView: () => void;
+  trackL3AssemblyView: (assembly: L3Assembly) => void;
+  markL3SectionRead: (section: 'arch' | 'algo' | 'hum' | 'conv') => void;
   updateViewport: (viewport: Partial<MapViewport>) => void;
   selectNode: (nodeId: string | null) => void;
   setHoveredNode: (nodeId: string | null) => void;

@@ -135,6 +135,43 @@ export function JourneyTracker() {
           </div>
         </div>
       </div>
+
+      {/* L3 Assembly Views */}
+      {progress.l3AssembliesViewed && progress.l3AssembliesViewed.length > 0 && (
+        <div className="space-y-2 mt-4 pt-4 border-t border-purple-500/30">
+          <div className="text-xs text-purple-400 font-mono">
+            L3 ASSEMBLIES VIEWED: {progress.l3AssembliesViewed.length}
+          </div>
+          <div className="space-y-2">
+            {progress.l3AssembliesViewed.map((view, index) => {
+              const sectionsReadCount = Object.values(view.sectionsRead).filter(Boolean).length;
+              return (
+                <div key={index} className="text-xs text-gray-400 bg-purple-900/20 p-2 rounded">
+                  <div className="font-mono mb-1">
+                    {view.journeyPattern} • {view.pathPhilosophy} • {view.synthesisPattern}
+                  </div>
+                  <div className="flex gap-1">
+                    {(['arch', 'algo', 'hum', 'conv'] as const).map(section => (
+                      <span
+                        key={section}
+                        className={`w-4 h-4 rounded text-center leading-4 ${
+                          view.sectionsRead[section] ? 'bg-green-500 text-white' : 'bg-gray-600 text-gray-400'
+                        }`}
+                        title={`${section} ${view.sectionsRead[section] ? '✓' : '○'}`}
+                      >
+                        {view.sectionsRead[section] ? '✓' : '○'}
+                      </span>
+                    ))}
+                    <span className="ml-2 text-gray-500">
+                      {sectionsReadCount}/4 sections read
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
         </div>
       )}
     </div>

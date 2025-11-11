@@ -15,7 +15,7 @@ import { findMatchingVariation } from './conditionEvaluator';
 /**
  * Calculate synthesis pattern based on character visit percentages
  */
-function calculateSynthesisPattern(percentages: {
+export function calculateSynthesisPattern(percentages: {
   archaeologist: number;
   algorithm: number;
   lastHuman: number;

@@ -24,9 +24,10 @@ import { saveToStorage, loadFromStorage, STORAGE_KEYS } from '@/utils/storage';
 import { validateSavedState } from '@/utils/validation';
 import { loadStoryContent, ContentLoadError } from '@/utils/contentLoader';
 import { calculateJourneyPattern, calculatePathPhilosophy } from '@/utils/conditionEvaluator';
-import type { JourneyTracking, ConditionContext, L3Assembly } from '@/types';
-import { buildL3Assembly } from '@/utils/l3Assembly';
+import type { JourneyTracking, ConditionContext, L3Assembly, JourneyPattern, PathPhilosophy, SynthesisPattern } from '@/types';
+import { buildL3Assembly, calculateSynthesisPattern } from '@/utils/l3Assembly';
 import { getNodePhilosophy } from '@/data/stories/eternal-return/nodePhilosophyMapping';
+import { isL3Node, isL4Node } from '@/utils/nodeUtils';
 
 /**
  * Creates initial journey tracking
@@ -102,6 +103,18 @@ function createInitialStats(): ReadingStats {
       lastHuman: { visited: 0, total: 0 },
     },
   };
+}
+
+/**
+ * Generate cache key for L3 assembly
+ */
+function generateL3CacheKey(
+  journeyPattern: JourneyPattern,
+  pathPhilosophy: PathPhilosophy,
+  awarenessLevel: 'low' | 'medium' | 'high',
+  synthesisPattern: SynthesisPattern
+): string {
+  return `${journeyPattern}_${pathPhilosophy}_${awarenessLevel}_${synthesisPattern}`;
 }
 
 /**
@@ -263,6 +276,11 @@ export const useStoryStore = create<StoryStore>()(
     storyViewOpen: false,
     stats: createInitialStats(),
     preferences: createInitialPreferences(),
+
+    // L3 Assembly State
+    l3AssemblyCache: new Map(),
+    l3AssemblyViewOpen: false,
+    currentL3Assembly: null,
 
     // Actions
     loadStory: async (storyId: string) => {
@@ -480,6 +498,181 @@ export const useStoryStore = create<StoryStore>()(
       return buildL3Assembly(state.storyData.metadata.id, context);
     },
 
+    /**
+     * Get or build L3 assembly with caching
+     */
+    getOrBuildL3Assembly: (): L3Assembly | null => {
+      const state = get();
+      if (!state.storyData) {
+        console.error('[L3Assembly] Story not loaded');
+        return null;
+      }
+
+      const tracking = state.progress.journeyTracking;
+      if (!tracking) {
+        console.error('[L3Assembly] Journey tracking not initialized');
+        return null;
+      }
+
+      const context = state.getConditionContext();
+
+      // Calculate synthesis pattern
+      const synthesisPattern = calculateSynthesisPattern(
+        tracking.characterVisitPercentages
+      );
+
+      // Determine awareness level
+      const awarenessLevel =
+        context.awareness < 35 ? 'low' :
+        context.awareness < 70 ? 'medium' : 'high';
+
+      // Generate cache key
+      const cacheKey = generateL3CacheKey(
+        context.journeyPattern,
+        context.pathPhilosophy,
+        awarenessLevel,
+        synthesisPattern
+      );
+
+      // Check cache first
+      const cached = state.l3AssemblyCache.get(cacheKey);
+      if (cached) {
+        console.log('[L3Assembly] Using cached assembly:', cacheKey);
+        return cached;
+      }
+
+      // Build new assembly
+      console.log('[L3Assembly] Building new assembly:', cacheKey);
+      const assembly = buildL3Assembly(state.storyData.metadata.id, context);
+
+      if (!assembly) {
+        console.error('[L3Assembly] Failed to build assembly');
+        return null;
+      }
+
+      // Cache the assembly
+      set((state) => {
+        state.l3AssemblyCache.set(cacheKey, assembly);
+      });
+
+      return assembly;
+    },
+
+    /**
+     * Clear L3 assembly cache
+     */
+    clearL3AssemblyCache: () => {
+      set((state) => {
+        console.log('[L3Assembly] Clearing assembly cache');
+        state.l3AssemblyCache.clear();
+      });
+    },
+
+    /**
+     * Open L3 assembly view
+     */
+    openL3AssemblyView: () => {
+      const state = get();
+
+      // Build or get cached assembly
+      const assembly = state.getOrBuildL3Assembly();
+
+      if (!assembly) {
+        console.error('[L3Assembly] Cannot open view - no assembly available');
+        return;
+      }
+
+      set((state) => {
+        state.currentL3Assembly = assembly;
+        state.l3AssemblyViewOpen = true;
+      });
+
+      // Track L3 assembly view in progress
+      state.trackL3AssemblyView(assembly);
+
+      console.log('[L3Assembly] Opened assembly view:', {
+        journeyPattern: assembly.metadata.journeyPattern,
+        philosophy: assembly.metadata.pathPhilosophy,
+        synthesis: assembly.metadata.synthesisPattern,
+      });
+    },
+
+    /**
+     * Close L3 assembly view
+     */
+    closeL3AssemblyView: () => {
+      set((state) => {
+        state.l3AssemblyViewOpen = false;
+        // Keep currentL3Assembly for reference, don't clear
+      });
+
+      console.log('[L3Assembly] Closed assembly view');
+    },
+
+    /**
+     * Track when reader views an L3 assembly
+     */
+    trackL3AssemblyView: (assembly: L3Assembly) => {
+      set((state) => {
+        if (!state.progress.l3AssembliesViewed) {
+          state.progress.l3AssembliesViewed = [];
+        }
+
+        // Check if this exact assembly was already viewed
+        const existing = state.progress.l3AssembliesViewed.find(
+          view =>
+            view.journeyPattern === assembly.metadata.journeyPattern &&
+            view.pathPhilosophy === assembly.metadata.pathPhilosophy &&
+            view.synthesisPattern === assembly.metadata.synthesisPattern
+        );
+
+        if (existing) {
+          // Update timestamp
+          existing.viewedAt = new Date().toISOString();
+          console.log('[L3Assembly] Updated existing view timestamp');
+        } else {
+          // Add new view record
+          state.progress.l3AssembliesViewed.push({
+            viewedAt: new Date().toISOString(),
+            journeyPattern: assembly.metadata.journeyPattern,
+            pathPhilosophy: assembly.metadata.pathPhilosophy,
+            synthesisPattern: assembly.metadata.synthesisPattern,
+            awarenessLevel: assembly.metadata.awarenessLevel,
+            sectionsRead: {
+              arch: false,
+              algo: false,
+              hum: false,
+              conv: false,
+            },
+          });
+          console.log('[L3Assembly] Added new view record');
+        }
+      });
+
+      get().saveProgress();
+    },
+
+    /**
+     * Mark a section as read when user views it
+     */
+    markL3SectionRead: (section: 'arch' | 'algo' | 'hum' | 'conv') => {
+      set((state) => {
+        if (!state.progress.l3AssembliesViewed?.length) return;
+
+        // Mark in most recent view
+        const latest = state.progress.l3AssembliesViewed[
+          state.progress.l3AssembliesViewed.length - 1
+        ];
+
+        if (latest.sectionsRead[section] === false) {
+          latest.sectionsRead[section] = true;
+          console.log(`[L3Assembly] Marked section ${section} as read`);
+        }
+      });
+
+      get().saveProgress();
+    },
+
     visitNode: (nodeId: string) => {
       // Validate node exists first
       const state = get();
@@ -524,6 +717,11 @@ export const useStoryStore = create<StoryStore>()(
           const layer = parseInt(layerMatch[2] || '1', 10);
           if (layer === 1 && !draftState.progress.unlockedL2Characters.includes(node.character)) {
             draftState.progress.unlockedL2Characters.push(node.character);
+          }
+          // Clear L3 cache if visiting L2 node (philosophy changes)
+          if (layer === 2) {
+            draftState.l3AssemblyCache.clear();
+            console.log('[L3Assembly] Cache cleared due to L2 visit');
           }
         }
 
@@ -612,10 +810,29 @@ export const useStoryStore = create<StoryStore>()(
     },
 
     openStoryView: (nodeId: string) => {
+      const state = get();
+
+      // Check if this is an L3 node
+      if (isL3Node(nodeId)) {
+        console.log('[Navigation] L3 node detected, opening assembly view');
+        state.openL3AssemblyView();
+        return;
+      }
+
+      // Check if this is an L4 node (future: special handling)
+      if (isL4Node(nodeId)) {
+        console.log('[Navigation] L4 node detected');
+        // Future: Route to terminal view
+        // For now, proceed with normal StoryView
+      }
+
+      // Normal node: open StoryView
       set((state) => {
         state.selectedNode = nodeId;
         state.storyViewOpen = true;
       });
+
+      console.log('[Navigation] Opened story view:', nodeId);
     },
 
     closeStoryView: () => {
