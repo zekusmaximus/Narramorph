@@ -75,29 +75,54 @@ export function findMatchingVariation(
   variations: Variation[],
   context: ConditionContext
 ): Variation | null {
+  console.log('[VariationSelection] Finding match for:', {
+    nodeId: context.nodeId,
+    awareness: context.awareness,
+    awarenessLevel: getAwarenessLevel(context.awareness),
+    journeyPattern: context.journeyPattern,
+    pathPhilosophy: context.pathPhilosophy,
+    visitCount: context.visitCount,
+  });
+
+  console.log(`[VariationSelection] Evaluating ${variations.length} variations`);
+
   // Filter variations that match the context
   const matches = variations.filter(variation => {
     const meta = variation.metadata;
 
+    console.log('[VariationSelection] Checking variation:', {
+      variationId: variation.variationId,
+      awarenessRange: meta.awarenessRange,
+      requiredJourney: meta.journeyPattern,
+      requiredPhilosophy: meta.philosophyDominant,
+    });
+
     // Check awareness range
     if (!isInRange(context.awareness, meta.awarenessRange)) {
+      console.log('[VariationSelection] ✗ Awareness mismatch');
       return false;
     }
 
     // Check journey pattern
     if (meta.journeyPattern !== 'unknown' && meta.journeyPattern !== context.journeyPattern) {
+      console.log('[VariationSelection] ✗ Journey pattern mismatch');
       return false;
     }
 
     // Check philosophy
     if (meta.philosophyDominant !== 'unknown' && meta.philosophyDominant !== context.pathPhilosophy) {
+      console.log('[VariationSelection] ✗ Philosophy mismatch');
       return false;
     }
 
+    console.log('[VariationSelection] ✓ Match found');
     return true;
   });
 
+  console.log(`[VariationSelection] Found ${matches.length} matching variations`);
+
   if (matches.length === 0) {
+    console.warn('[VariationSelection] No matches found, returning null');
     return null;
   }
 
@@ -109,7 +134,9 @@ export function findMatchingVariation(
   );
 
   if (exactMatches.length > 0) {
-    return exactMatches[0];
+    const selected = exactMatches[0];
+    console.log(`[VariationSelection] Selected exact match: ${selected.variationId}`);
+    return selected;
   }
 
   const journeyMatches = matches.filter(v =>
@@ -117,7 +144,9 @@ export function findMatchingVariation(
   );
 
   if (journeyMatches.length > 0) {
-    return journeyMatches[0];
+    const selected = journeyMatches[0];
+    console.log(`[VariationSelection] Selected journey match: ${selected.variationId}`);
+    return selected;
   }
 
   const philosophyMatches = matches.filter(v =>
@@ -125,10 +154,14 @@ export function findMatchingVariation(
   );
 
   if (philosophyMatches.length > 0) {
-    return philosophyMatches[0];
+    const selected = philosophyMatches[0];
+    console.log(`[VariationSelection] Selected philosophy match: ${selected.variationId}`);
+    return selected;
   }
 
-  return matches[0];
+  const selected = matches[0];
+  console.log(`[VariationSelection] Selected first match: ${selected.variationId}`);
+  return selected;
 }
 
 /**

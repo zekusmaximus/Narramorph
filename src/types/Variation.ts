@@ -179,6 +179,7 @@ export interface JourneyTracking {
  * Condition evaluation context
  */
 export interface ConditionContext {
+  nodeId: string;
   awareness: number;
   journeyPattern: JourneyPattern;
   pathPhilosophy: PathPhilosophy;
