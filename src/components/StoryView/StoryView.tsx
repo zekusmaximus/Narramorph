@@ -266,10 +266,10 @@ export default function StoryView({ className = '' }: StoryViewProps) {
 
   // Handle visit tracking when opening
   const handleVisit = useCallback(() => {
-    if (selectedNode && !nodeState?.visited) {
+    if (selectedNode) {
       visitNode(selectedNode);
     }
-  }, [selectedNode, nodeState?.visited, visitNode]);
+  }, [selectedNode, visitNode]);
 
   // Auto-visit when story view opens
   useEffect(() => {
