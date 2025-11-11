@@ -26,6 +26,7 @@ import { loadStoryContent, ContentLoadError } from '@/utils/contentLoader';
 import { calculateJourneyPattern, calculatePathPhilosophy } from '@/utils/conditionEvaluator';
 import type { JourneyTracking, ConditionContext, L3Assembly } from '@/types';
 import { buildL3Assembly } from '@/utils/l3Assembly';
+import { getNodePhilosophy } from '@/data/stories/eternal-return/nodePhilosophyMapping';
 
 /**
  * Creates initial journey tracking
@@ -446,16 +447,21 @@ export const useStoryStore = create<StoryStore>()(
 
     /**
      * Gets the current condition context for variation selection
+     *
+     * @param nodeId - Optional node ID to get condition context for. If provided, includes node-specific visit count.
+     * @returns Condition context including node-specific visit count (if nodeId provided)
      */
-    getConditionContext: (): ConditionContext => {
+    getConditionContext: (nodeId?: string): ConditionContext => {
       const state = get();
       const tracking = state.progress.journeyTracking || createInitialJourneyTracking();
+      const visitRecord = nodeId ? state.progress.visitedNodes[nodeId] : undefined;
 
       return {
+        nodeId: nodeId || '',
         awareness: state.progress.temporalAwarenessLevel,
         journeyPattern: tracking.currentJourneyPattern,
         pathPhilosophy: tracking.dominantPhilosophy,
-        visitCount: 0, // Will be overridden for specific nodes
+        visitCount: visitRecord?.visitCount || 0,
         characterVisitPercentages: tracking.characterVisitPercentages,
       };
     },
@@ -518,6 +524,15 @@ export const useStoryStore = create<StoryStore>()(
           const layer = parseInt(layerMatch[2] || '1', 10);
           if (layer === 1 && !draftState.progress.unlockedL2Characters.includes(node.character)) {
             draftState.progress.unlockedL2Characters.push(node.character);
+          }
+        }
+
+        // Track L2 philosophy choice
+        const nodePhilosophy = getNodePhilosophy(nodeId);
+        if (nodePhilosophy && draftState.progress.journeyTracking) {
+          // Only track if it's one of the three core philosophies
+          if (nodePhilosophy === 'accept' || nodePhilosophy === 'resist' || nodePhilosophy === 'invest') {
+            draftState.progress.journeyTracking.l2Choices[nodePhilosophy]++;
           }
         }
 

@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStoryStore } from '@/stores';
+import { useVariationSelection } from '@/hooks/useVariationSelection';
+import { VariationDebugPanel } from './VariationDebugPanel';
 import type { StoryNode, TransformationState, ConnectionType, CharacterType } from '@/types';
 
 interface StoryViewProps {
@@ -216,11 +218,23 @@ export default function StoryView({ className = '' }: StoryViewProps) {
     return getNodeState(selectedNode);
   }, [selectedNode, getNodeState]);
 
-  // Get current content based on transformation state
-  const currentContent = useMemo(() => {
+  // Get static fallback content based on transformation state
+  const fallbackContent = useMemo(() => {
     if (!currentNode || !nodeState) return '';
     return currentNode.content[nodeState.currentState];
   }, [currentNode, nodeState]);
+
+  // Use variation selection hook to get dynamic content
+  const {
+    content: currentContent,
+    variationId,
+    metadata: variationMetadata,
+    usedFallback,
+    error: variationError,
+  } = useVariationSelection(
+    currentNode?.id || null,
+    fallbackContent
+  );
 
   // Get character theme
   const theme = useMemo(() => {
@@ -406,6 +420,31 @@ export default function StoryView({ className = '' }: StoryViewProps) {
                 Reading: {formatTime(timeSpentOnNode)} / ~{currentNode.metadata.estimatedReadTime} min
               </div>
             </div>
+
+            {/* Variation metadata display (development mode) */}
+            {process.env.NODE_ENV === 'development' && variationId && (
+              <div className="mt-3 text-xs text-white/60 font-mono">
+                Variation: {variationId}
+                {variationMetadata?.awarenessLevel && ` • ${variationMetadata.awarenessLevel}`}
+                {variationMetadata?.journeyPattern && variationMetadata.journeyPattern !== 'unknown' && ` • ${variationMetadata.journeyPattern}`}
+              </div>
+            )}
+
+            {/* Fallback warning */}
+            {usedFallback && !variationError && (
+              <div className="mt-3 text-xs text-yellow-300 flex items-center space-x-1">
+                <span>⚠</span>
+                <span>Using fallback content (variation system unavailable)</span>
+              </div>
+            )}
+
+            {/* Error display */}
+            {variationError && (
+              <div className="mt-3 text-xs text-red-300 flex items-center space-x-1">
+                <span>⚠</span>
+                <span>Variation selection error: {variationError.message}</span>
+              </div>
+            )}
           </div>
 
           {/* Content area with improved typography */}
@@ -478,6 +517,16 @@ export default function StoryView({ className = '' }: StoryViewProps) {
           </div>
         </motion.div>
       </motion.div>
+
+      {/* Debug panel - only in development */}
+      {process.env.NODE_ENV === 'development' && (
+        <VariationDebugPanel
+          nodeId={currentNode?.id || null}
+          variationId={variationId}
+          variationMetadata={variationMetadata}
+          usedFallback={usedFallback}
+        />
+      )}
     </AnimatePresence>
   );
 }

@@ -146,7 +146,7 @@ export interface StoryStore {
   updateTemporalAwareness: () => void;
   updateJourneyTracking: () => void;
   recordL2Choice: (choice: 'accept' | 'resist' | 'invest') => void;
-  getConditionContext: () => ConditionContext;
+  getConditionContext: (nodeId?: string) => ConditionContext;
   buildL3Assembly: () => L3Assembly | null;
   updateViewport: (viewport: Partial<MapViewport>) => void;
   selectNode: (nodeId: string | null) => void;
