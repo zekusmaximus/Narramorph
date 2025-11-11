@@ -10,6 +10,7 @@ import type {
   JourneyPattern,
   PathPhilosophy,
 } from '@/types';
+import { performanceMonitor } from './performanceMonitor';
 
 /**
  * Convert numeric awareness to level category
@@ -75,6 +76,8 @@ export function findMatchingVariation(
   variations: Variation[],
   context: ConditionContext
 ): Variation | null {
+  const endTimer = performanceMonitor.startTimer('variationSelection');
+
   console.log('[VariationSelection] Finding match for:', {
     nodeId: context.nodeId,
     awareness: context.awareness,
@@ -123,6 +126,11 @@ export function findMatchingVariation(
 
   if (matches.length === 0) {
     console.warn('[VariationSelection] No matches found, returning null');
+    endTimer({
+      nodeId: context.nodeId,
+      variationCount: variations.length,
+      matchFound: false,
+    });
     return null;
   }
 
@@ -136,6 +144,12 @@ export function findMatchingVariation(
   if (exactMatches.length > 0) {
     const selected = exactMatches[0];
     console.log(`[VariationSelection] Selected exact match: ${selected.variationId}`);
+    endTimer({
+      nodeId: context.nodeId,
+      variationCount: variations.length,
+      matchFound: true,
+      variationId: selected.variationId,
+    });
     return selected;
   }
 
@@ -146,6 +160,12 @@ export function findMatchingVariation(
   if (journeyMatches.length > 0) {
     const selected = journeyMatches[0];
     console.log(`[VariationSelection] Selected journey match: ${selected.variationId}`);
+    endTimer({
+      nodeId: context.nodeId,
+      variationCount: variations.length,
+      matchFound: true,
+      variationId: selected.variationId,
+    });
     return selected;
   }
 
@@ -156,11 +176,23 @@ export function findMatchingVariation(
   if (philosophyMatches.length > 0) {
     const selected = philosophyMatches[0];
     console.log(`[VariationSelection] Selected philosophy match: ${selected.variationId}`);
+    endTimer({
+      nodeId: context.nodeId,
+      variationCount: variations.length,
+      matchFound: true,
+      variationId: selected.variationId,
+    });
     return selected;
   }
 
   const selected = matches[0];
   console.log(`[VariationSelection] Selected first match: ${selected.variationId}`);
+  endTimer({
+    nodeId: context.nodeId,
+    variationCount: variations.length,
+    matchFound: true,
+    variationId: selected.variationId,
+  });
   return selected;
 }
 
