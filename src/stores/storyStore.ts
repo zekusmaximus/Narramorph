@@ -28,6 +28,12 @@ import type { JourneyTracking, ConditionContext, L3Assembly, JourneyPattern, Pat
 import { buildL3Assembly, calculateSynthesisPattern } from '@/utils/l3Assembly';
 import { getNodePhilosophy } from '@/data/stories/eternal-return/nodePhilosophyMapping';
 import { isL3Node, isL4Node } from '@/utils/nodeUtils';
+import { loadUnlockConfig } from '@/utils/unlockLoader';
+import {
+  evaluateNodeUnlock,
+  getUnlockProgress as getUnlockProgressUtil,
+} from '@/utils/unlockEvaluator';
+import type { NodeUnlockConfig, UnlockProgress } from '@/types/Unlock';
 
 /**
  * Creates initial journey tracking
@@ -282,6 +288,10 @@ export const useStoryStore = create<StoryStore>()(
     l3AssemblyViewOpen: false,
     currentL3Assembly: null,
 
+    // Unlock System State
+    unlockConfigs: new Map(),
+    recentlyUnlockedNodes: [],
+
     // Actions
     loadStory: async (storyId: string) => {
       try {
@@ -326,6 +336,12 @@ export const useStoryStore = create<StoryStore>()(
               y: (minY + maxY) / 2,
             };
           }
+        });
+
+        // Load unlock configurations
+        const unlockConfigs = loadUnlockConfig(storyId);
+        set((state) => {
+          state.unlockConfigs = unlockConfigs;
         });
 
         // Update reading statistics
@@ -673,6 +689,61 @@ export const useStoryStore = create<StoryStore>()(
       get().saveProgress();
     },
 
+    /**
+     * Evaluate all unlock conditions
+     * Called after each node visit to check for newly unlocked nodes
+     */
+    evaluateUnlocks: () => {
+      const state = get();
+      const newlyUnlocked: string[] = [];
+
+      // Check each configured node
+      for (const [nodeId, config] of state.unlockConfigs) {
+        // Skip if already in recently unlocked list
+        if (state.recentlyUnlockedNodes.includes(nodeId)) continue;
+
+        // Check if node is now unlocked
+        const wasLocked = config.defaultLocked;
+        const isUnlocked = evaluateNodeUnlock(config, state.progress);
+
+        if (wasLocked && isUnlocked) {
+          newlyUnlocked.push(nodeId);
+          console.log(`[Unlock] Node unlocked: ${nodeId}`);
+        }
+      }
+
+      if (newlyUnlocked.length > 0) {
+        set((state) => {
+          state.recentlyUnlockedNodes = [
+            ...state.recentlyUnlockedNodes,
+            ...newlyUnlocked,
+          ];
+        });
+      }
+    },
+
+    /**
+     * Get unlock progress for a specific node
+     */
+    getUnlockProgress: (nodeId: string): UnlockProgress | null => {
+      const state = get();
+      const config = state.unlockConfigs.get(nodeId);
+
+      if (!config) return null;
+
+      return getUnlockProgressUtil(config, state.progress);
+    },
+
+    /**
+     * Clear unlock notification queue
+     * Called after showing notifications to user
+     */
+    clearUnlockNotifications: () => {
+      set((state) => {
+        state.recentlyUnlockedNodes = [];
+      });
+    },
+
     visitNode: (nodeId: string) => {
       // Validate node exists first
       const state = get();
@@ -787,6 +858,9 @@ export const useStoryStore = create<StoryStore>()(
           draftState.progress.unlockedConnections.push(...connectionsToAdd);
         });
       }
+
+      // Evaluate unlock conditions after visit
+      get().evaluateUnlocks();
 
       get().saveProgress();
     },
@@ -1192,7 +1266,15 @@ export const useStoryStore = create<StoryStore>()(
 
       if (!node) return false;
 
-      // Check if L2 node is unlocked
+      // Check if node has unlock configuration
+      const config = state.unlockConfigs.get(nodeId);
+
+      if (config) {
+        // Use unlock evaluator
+        return evaluateNodeUnlock(config, state.progress);
+      }
+
+      // Legacy L2 unlocking logic for nodes without configs
       const layerMatch = nodeId.match(/^(arch|arc|algo|hum|algorithm|human)-L?(\d).*$/);
       if (layerMatch) {
         const layer = parseInt(layerMatch[2] || '1', 10);
@@ -1202,8 +1284,7 @@ export const useStoryStore = create<StoryStore>()(
         }
       }
 
-      // L1 and L3 nodes are always visitable
-      return true;
+      return true; // Default: unlocked
     },
   }))
 );

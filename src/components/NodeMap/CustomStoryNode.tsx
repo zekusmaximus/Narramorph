@@ -1,6 +1,7 @@
 import { memo, useState, useMemo } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
 import { motion } from 'framer-motion';
+import { Lock } from 'lucide-react';
 import type { StoryNode, NodeUIState, CharacterType, TransformationState } from '@/types';
 import { useStoryStore } from '@/stores/storyStore';
 
@@ -165,6 +166,19 @@ function CustomStoryNode({ data, selected }: NodeProps) {
   const selectedNode = useStoryStore(state => state.selectedNode);
   const nodes = useStoryStore(state => state.nodes);
 
+  // Unlock system access
+  const canVisit = useStoryStore(state => state.canVisitNode(node.id));
+  const getUnlockProgress = useStoryStore(state => state.getUnlockProgress);
+  const unlockConfigs = useStoryStore(state => state.unlockConfigs);
+
+  // Get unlock progress if node has config
+  const unlockProgress = useMemo(() => {
+    if (unlockConfigs.has(node.id)) {
+      return getUnlockProgress(node.id);
+    }
+    return null;
+  }, [node.id, unlockConfigs, getUnlockProgress]);
+
   // Check if this node is connected to selected node
   const isConnectionTarget = useMemo(() => {
     if (!selectedNode) return false;
@@ -195,10 +209,10 @@ function CustomStoryNode({ data, selected }: NodeProps) {
         className="relative"
         initial={{ scale: 0, opacity: 0, rotateZ: -180 }}
         animate={{ scale: 1, opacity: 1, rotateZ: 0 }}
-        whileHover={{
+        whileHover={canVisit ? {
           scale: 1.08,
           transition: { type: 'spring', stiffness: 400, damping: 10 }
-        }}
+        } : {}}
         transition={{
           type: 'spring',
           stiffness: 200,
@@ -208,8 +222,10 @@ function CustomStoryNode({ data, selected }: NodeProps) {
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
         onClick={() => {
-          setRipple(true);
-          setTimeout(() => setRipple(false), 1000);
+          if (canVisit) {
+            setRipple(true);
+            setTimeout(() => setRipple(false), 1000);
+          }
         }}
       >
         {/* Outer glow ring (only for meta-aware or selected) */}
@@ -343,14 +359,14 @@ function CustomStoryNode({ data, selected }: NodeProps) {
             bg-gradient-to-br ${theme.gradient}
             border-2
             transition-all duration-300
-            cursor-pointer
-            ${!isVisited ? 'opacity-40' : 'opacity-100'}
+            ${canVisit ? 'cursor-pointer' : 'cursor-not-allowed'}
+            ${!isVisited ? 'opacity-40' : !canVisit ? 'opacity-40' : 'opacity-100'}
           `}
           style={{
             width: size,
             height: size,
             borderColor: isVisited ? theme.primary : theme.accent,
-            boxShadow: isSelected || isMetaAware ? theme.pulseGlow : theme.glow,
+            boxShadow: (isSelected || isMetaAware) && canVisit ? theme.pulseGlow : canVisit ? theme.glow : 'none',
           }}
         >
           {/* Inner radial gradient for depth */}
@@ -493,7 +509,7 @@ function CustomStoryNode({ data, selected }: NodeProps) {
           )}
 
           {/* Pulse animation for selected node */}
-          {(isSelected || selected) && (
+          {(isSelected || selected) && canVisit && (
             <motion.div
               className="absolute inset-0 rounded-full border-4"
               style={{ borderColor: theme.primary }}
@@ -507,6 +523,36 @@ function CustomStoryNode({ data, selected }: NodeProps) {
                 ease: 'easeInOut',
               }}
             />
+          )}
+
+          {/* Lock icon overlay for locked nodes */}
+          {!canVisit && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="absolute inset-0 flex items-center justify-center bg-black/60 rounded-full backdrop-blur-sm"
+            >
+              <Lock className="w-8 h-8 text-white" />
+            </motion.div>
+          )}
+
+          {/* Progress ring for partially unlocked nodes */}
+          {!canVisit && unlockProgress && unlockProgress.progress > 0 && (
+            <svg
+              className="absolute inset-0 w-full h-full -rotate-90"
+              viewBox="0 0 100 100"
+            >
+              <circle
+                cx="50"
+                cy="50"
+                r="48"
+                fill="none"
+                stroke={theme.primary}
+                strokeWidth="4"
+                strokeDasharray={`${unlockProgress.progress * 3.01} 301`}
+                opacity="0.6"
+              />
+            </svg>
           )}
         </div>
 
@@ -620,6 +666,82 @@ function CustomStoryNode({ data, selected }: NodeProps) {
             </div>
           </div>
         </div>
+
+        {/* Unlock requirements tooltip - only visible on hover for locked nodes */}
+        {!canVisit && isHovering && unlockProgress && unlockConfigs.has(node.id) && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="absolute top-full left-1/2 transform -translate-x-1/2 mt-28 w-64 pointer-events-none z-50"
+          >
+            <div
+              className="bg-black/95 backdrop-blur-sm p-3 rounded border font-mono text-xs shadow-2xl"
+              style={{
+                borderColor: `${theme.primary}40`,
+                boxShadow: `0 0 20px ${theme.primary}20`,
+              }}
+            >
+              {/* Header */}
+              <div className="mb-2">
+                <div className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">
+                  Locked
+                </div>
+                <div className="text-white font-semibold text-sm">
+                  {unlockConfigs.get(node.id)?.lockedMessage}
+                </div>
+              </div>
+
+              {/* Progress */}
+              <div className="mb-2">
+                <div className="flex justify-between text-gray-400 text-[10px] mb-1">
+                  <span>Progress</span>
+                  <span>{Math.round(unlockProgress.progress)}%</span>
+                </div>
+                <div className="w-full bg-gray-700 rounded-full h-1">
+                  <div
+                    className="h-1 rounded-full transition-all"
+                    style={{
+                      width: `${unlockProgress.progress}%`,
+                      backgroundColor: theme.primary,
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Conditions */}
+              <div className="space-y-1">
+                {unlockConfigs.get(node.id)?.unlockConditions.map((condition) => {
+                  const met = unlockProgress.conditionsMet.includes(condition.id);
+                  return (
+                    <div
+                      key={condition.id}
+                      className="flex items-start space-x-2"
+                    >
+                      <span className={met ? 'text-green-400' : 'text-gray-500'}>
+                        {met ? '✓' : '○'}
+                      </span>
+                      <span className={met ? 'text-gray-400 line-through' : 'text-gray-300'}>
+                        {condition.description}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Next action hint */}
+              {unlockProgress.nextConditionHint && (
+                <div className="mt-2 pt-2 border-t border-gray-700">
+                  <div className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">
+                    Next Action
+                  </div>
+                  <div className="text-yellow-400">
+                    {unlockProgress.nextConditionHint}
+                  </div>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
       </motion.div>
     </>
   );

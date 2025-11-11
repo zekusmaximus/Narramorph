@@ -1,0 +1,226 @@
+{
+  "version": "1.0.0",
+  "nodes": [
+    {
+      "nodeId": "arch-L3",
+      "layer": 3,
+      "defaultLocked": true,
+      "unlockConditions": [
+        {
+          "id": "l2-exploration",
+          "type": "visitCount",
+          "params": {
+            "layerVisits": { "2": 2 }
+          },
+          "description": "Visit at least 2 Layer 2 nodes",
+          "hint": "Explore more Layer 2 philosophical divergences"
+        },
+        {
+          "id": "cross-character-exploration",
+          "type": "character",
+          "params": {
+            "minCharacterCount": 2
+          },
+          "description": "Explore at least 2 different character perspectives",
+          "hint": "Experience multiple consciousness streams"
+        },
+        {
+          "id": "medium-awareness",
+          "type": "awareness",
+          "params": {
+            "minAwareness": 35
+          },
+          "description": "Reach Medium temporal awareness (35%)",
+          "hint": "Cross-character exploration increases awareness"
+        }
+      ],
+      "lockedMessage": "Layer 3 convergence requires deeper exploration across multiple perspectives.",
+      "unlockMessage": "Layer 3 convergence unlocked! Your journey has achieved cross-temporal synthesis.",
+      "priority": 1
+    },
+    {
+      "nodeId": "algo-L3",
+      "layer": 3,
+      "defaultLocked": true,
+      "unlockConditions": [
+        {
+          "id": "l2-exploration",
+          "type": "visitCount",
+          "params": {
+            "layerVisits": { "2": 2 }
+          },
+          "description": "Visit at least 2 Layer 2 nodes",
+          "hint": "Explore more Layer 2 philosophical divergences"
+        },
+        {
+          "id": "cross-character-exploration",
+          "type": "character",
+          "params": {
+            "minCharacterCount": 2
+          },
+          "description": "Explore at least 2 different character perspectives",
+          "hint": "Experience multiple consciousness streams"
+        },
+        {
+          "id": "medium-awareness",
+          "type": "awareness",
+          "params": {
+            "minAwareness": 35
+          },
+          "description": "Reach Medium temporal awareness (35%)",
+          "hint": "Cross-character exploration increases awareness"
+        }
+      ],
+      "lockedMessage": "Layer 3 convergence requires deeper exploration across multiple perspectives.",
+      "unlockMessage": "Layer 3 convergence unlocked! Your journey has achieved cross-temporal synthesis."
+    },
+    {
+      "nodeId": "hum-L3",
+      "layer": 3,
+      "defaultLocked": true,
+      "unlockConditions": [
+        {
+          "id": "l2-exploration",
+          "type": "visitCount",
+          "params": {
+            "layerVisits": { "2": 2 }
+          },
+          "description": "Visit at least 2 Layer 2 nodes",
+          "hint": "Explore more Layer 2 philosophical divergences"
+        },
+        {
+          "id": "cross-character-exploration",
+          "type": "character",
+          "params": {
+            "minCharacterCount": 2
+          },
+          "description": "Explore at least 2 different character perspectives",
+          "hint": "Experience multiple consciousness streams"
+        },
+        {
+          "id": "medium-awareness",
+          "type": "awareness",
+          "params": {
+            "minAwareness": 35
+          },
+          "description": "Reach Medium temporal awareness (35%)",
+          "hint": "Cross-character exploration increases awareness"
+        }
+      ],
+      "lockedMessage": "Layer 3 convergence requires deeper exploration across multiple perspectives.",
+      "unlockMessage": "Layer 3 convergence unlocked! Your journey has achieved cross-temporal synthesis."
+    },
+    {
+      "nodeId": "final-preserve",
+      "layer": 4,
+      "defaultLocked": true,
+      "unlockConditions": [
+        {
+          "id": "l3-completion",
+          "type": "l3Assembly",
+          "params": {
+            "minL3Assemblies": 1,
+            "requiredL3Completion": true
+          },
+          "description": "Complete a Layer 3 convergence assembly (all 4 sections)",
+          "hint": "Read all sections of your personalized L3 assembly"
+        },
+        {
+          "id": "high-awareness",
+          "type": "awareness",
+          "params": {
+            "minAwareness": 70
+          },
+          "description": "Reach High temporal awareness (70%)",
+          "hint": "Deep cross-character exploration required"
+        },
+        {
+          "id": "all-characters",
+          "type": "character",
+          "params": {
+            "requiredCharacters": ["archaeologist", "algorithm", "lastHuman"]
+          },
+          "description": "Experience all three character perspectives",
+          "hint": "Visit nodes from Archaeologist, Algorithm, and Last Human"
+        }
+      ],
+      "lockedMessage": "Terminal convergence requires complete journey through all perspectives and high temporal awareness.",
+      "unlockMessage": "Terminal convergence unlocked! Your consciousness synthesis is complete.",
+      "priority": 2
+    },
+    {
+      "nodeId": "final-transform",
+      "layer": 4,
+      "defaultLocked": true,
+      "unlockConditions": [
+        {
+          "id": "l3-completion",
+          "type": "l3Assembly",
+          "params": {
+            "minL3Assemblies": 1,
+            "requiredL3Completion": true
+          },
+          "description": "Complete a Layer 3 convergence assembly (all 4 sections)",
+          "hint": "Read all sections of your personalized L3 assembly"
+        },
+        {
+          "id": "high-awareness",
+          "type": "awareness",
+          "params": {
+            "minAwareness": 70
+          },
+          "description": "Reach High temporal awareness (70%)",
+          "hint": "Deep cross-character exploration required"
+        },
+        {
+          "id": "all-characters",
+          "type": "character",
+          "params": {
+            "requiredCharacters": ["archaeologist", "algorithm", "lastHuman"]
+          },
+          "description": "Experience all three character perspectives",
+          "hint": "Visit nodes from Archaeologist, Algorithm, and Last Human"
+        }
+      ],
+      "lockedMessage": "Terminal convergence requires complete journey through all perspectives and high temporal awareness.",
+      "unlockMessage": "Terminal convergence unlocked! Your consciousness synthesis is complete."
+    },
+    {
+      "nodeId": "final-release",
+      "layer": 4,
+      "defaultLocked": true,
+      "unlockConditions": [
+        {
+          "id": "l3-completion",
+          "type": "l3Assembly",
+          "params": {
+            "minL3Assemblies": 1,
+            "requiredL3Completion": true
+          },
+          "description": "Complete a Layer 3 convergence assembly (all 4 sections)",
+          "hint": "Read all sections of your personalized L3 assembly"
+        },
+        {
+          "id": "high-awareness",
+          "type": "awareness",
+          "params": {
+            "minAwareness": 70
+          },
+          "description": "Reach High temporal awareness (70%)",
+          "hint": "Deep cross-character exploration required"
+        },
+        {
+          "id": "all-characters",
+          "type": "character",
+          "params": {
+            "requiredCharacters": ["archaeologist", "algorithm", "lastHuman"]
+          },
+          "description": "Experience all three character perspectives",
+          "hint": "Visit nodes from Archaeologist, Algorithm, and Last Human"
+        }
+      ],
+      "lockedMessage": "Terminal convergence requires complete journey through all perspectives and high temporal awareness.",
+      "unlockMessage": "Terminal convergence unlocked! Your consciousness synthesis is complete."
+    }
+  ]
+}

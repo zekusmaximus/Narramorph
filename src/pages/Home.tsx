@@ -4,6 +4,7 @@ import NodeMap from '@/components/NodeMap';
 import StoryView from '@/components/StoryView';
 import { JourneyTracker } from '@/components/UI/JourneyTracker';
 import { L3AssemblyView } from '@/components/UI/L3AssemblyView';
+import { UnlockNotificationSystem } from '@/components/UI/UnlockNotification';
 import { useStoryStore } from '@/stores';
 
 /**
@@ -84,6 +85,9 @@ export default function Home() {
             />
           )}
         </AnimatePresence>
+
+        {/* Unlock Notification System */}
+        <UnlockNotificationSystem />
       </div>
     </div>
   );
