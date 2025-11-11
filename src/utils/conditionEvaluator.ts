@@ -24,7 +24,11 @@ export function getAwarenessLevel(awareness: number): AwarenessLevel {
 /**
  * Check if a number is within a range (inclusive)
  */
-function isInRange(value: number, range: [number, number]): boolean {
+function isInRange(value: number, range: [number, number] | undefined): boolean {
+  if (!range || !Array.isArray(range) || range.length !== 2) {
+    console.warn('[ConditionEvaluator] Invalid range provided:', range);
+    return false;
+  }
   return value >= range[0] && value <= range[1];
 }
 
@@ -93,8 +97,14 @@ export function findMatchingVariation(
   const matches = variations.filter(variation => {
     const meta = variation.metadata;
 
+    // Skip variations with invalid metadata
+    if (!meta) {
+      console.warn('[VariationSelection] Variation missing metadata:', variation.variationId || variation.id);
+      return false;
+    }
+
     console.log('[VariationSelection] Checking variation:', {
-      variationId: variation.variationId,
+      variationId: variation.variationId || meta.variationId,
       awarenessRange: meta.awarenessRange,
       requiredJourney: meta.journeyPattern,
       requiredPhilosophy: meta.philosophyDominant,

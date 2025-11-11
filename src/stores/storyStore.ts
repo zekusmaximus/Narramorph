@@ -159,20 +159,25 @@ function determineTransformationState(
 
   // First visit: always initial state
   if (visitCount === 0 || visitCount === 1) {
+    console.log(`[TransformState] ${nodeId}: visitCount=${visitCount} → initial`);
     return 'initial';
   }
 
   // Second visit: temporal bleeding if awareness threshold met
   if (visitCount === 2) {
-    return temporalAwarenessLevel > 20 ? 'firstRevisit' : 'initial';
+    const state = temporalAwarenessLevel > 20 ? 'firstRevisit' : 'initial';
+    console.log(`[TransformState] ${nodeId}: visitCount=2, awareness=${temporalAwarenessLevel} → ${state}`);
+    return state;
   }
 
   // Third+ visit OR high awareness: full meta-aware
   if (visitCount >= 3 || temporalAwarenessLevel > 50) {
+    console.log(`[TransformState] ${nodeId}: visitCount=${visitCount}, awareness=${temporalAwarenessLevel} → metaAware`);
     return 'metaAware';
   }
 
   // Fallback (shouldn't normally reach here)
+  console.log(`[TransformState] ${nodeId}: fallback → firstRevisit`);
   return 'firstRevisit';
 }
 
@@ -771,9 +776,11 @@ export const useStoryStore = create<StoryStore>()(
         const existingRecord = draftState.progress.visitedNodes[nodeId];
 
         if (existingRecord) {
+          const previousCount = existingRecord.visitCount;
           existingRecord.visitCount++;
           existingRecord.visitTimestamps.push(now);
           existingRecord.lastVisited = now;
+          console.log(`[Visit] ${nodeId}: visit #${existingRecord.visitCount} (was ${previousCount})`);
         } else {
           draftState.progress.visitedNodes[nodeId] = {
             visitCount: 1,
@@ -782,6 +789,7 @@ export const useStoryStore = create<StoryStore>()(
             timeSpent: 0,
             lastVisited: now,
           };
+          console.log(`[Visit] ${nodeId}: first visit recorded`);
         }
 
         // Track character-specific visits
