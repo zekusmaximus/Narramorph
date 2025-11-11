@@ -5,8 +5,29 @@
       "id": "hum-L1",
       "layer": 1,
       "chapterTitle": "First Experience",
-      "connections": ["hum-L2-A", "hum-L2-B"],
+      "connections": ["hum-L2-accept", "hum-L2-resist", "hum-L2-invest"],
       "contentFile": "content/layer1/hum-L1-variations.json"
+    },
+    {
+      "id": "hum-L2-accept",
+      "layer": 2,
+      "chapterTitle": "Acceptance Path",
+      "connections": [],
+      "contentFile": "content/layer2/hum-L2-accept-variations.json"
+    },
+    {
+      "id": "hum-L2-resist",
+      "layer": 2,
+      "chapterTitle": "Resistance Path",
+      "connections": [],
+      "contentFile": "content/layer2/hum-L2-resist-variations.json"
+    },
+    {
+      "id": "hum-L2-invest",
+      "layer": 2,
+      "chapterTitle": "Investment Path",
+      "connections": [],
+      "contentFile": "content/layer2/hum-L2-invest-variations.json"
     }
   ]
 }

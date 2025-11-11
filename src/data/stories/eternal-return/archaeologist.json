@@ -5,8 +5,29 @@
       "id": "arc-L1",
       "layer": 1,
       "chapterTitle": "First Documentation",
-      "connections": ["arc-L2-A", "arc-L2-B"],
+      "connections": ["arch-L2-accept", "arch-L2-resist", "arch-L2-invest"],
       "contentFile": "content/layer1/arch-L1-variations.json"
+    },
+    {
+      "id": "arch-L2-accept",
+      "layer": 2,
+      "chapterTitle": "Acceptance Path",
+      "connections": [],
+      "contentFile": "content/layer2/arch-L2-accept-variations.json"
+    },
+    {
+      "id": "arch-L2-resist",
+      "layer": 2,
+      "chapterTitle": "Resistance Path",
+      "connections": [],
+      "contentFile": "content/layer2/arch-L2-resist-variations.json"
+    },
+    {
+      "id": "arch-L2-invest",
+      "layer": 2,
+      "chapterTitle": "Investment Path",
+      "connections": [],
+      "contentFile": "content/layer2/arch-L2-invest-variations.json"
     }
   ]
 }

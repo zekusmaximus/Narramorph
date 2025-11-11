@@ -5,8 +5,29 @@
       "id": "algo-L1",
       "layer": 1,
       "chapterTitle": "First Processing",
-      "connections": ["algo-L2-A", "algo-L2-B"],
+      "connections": ["algo-L2-accept", "algo-L2-resist", "algo-L2-invest"],
       "contentFile": "content/layer1/algo-L1-variations.json"
+    },
+    {
+      "id": "algo-L2-accept",
+      "layer": 2,
+      "chapterTitle": "Acceptance Path",
+      "connections": [],
+      "contentFile": "content/layer2/algo-L2-accept-variations.json"
+    },
+    {
+      "id": "algo-L2-resist",
+      "layer": 2,
+      "chapterTitle": "Resistance Path",
+      "connections": [],
+      "contentFile": "content/layer2/algo-L2-resist-variations.json"
+    },
+    {
+      "id": "algo-L2-invest",
+      "layer": 2,
+      "chapterTitle": "Investment Path",
+      "connections": [],
+      "contentFile": "content/layer2/algo-L2-invest-variations.json"
     }
   ]
 }
