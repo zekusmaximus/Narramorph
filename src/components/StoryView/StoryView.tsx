@@ -185,7 +185,14 @@ function parseMarkdown(content: string): React.ReactNode {
 
     return (
       <p key={pIndex} className="mb-4 leading-relaxed">
-        {finalParts.filter(part => part !== '')}
+        {finalParts.filter(part => part !== '').map((part, index) => {
+          // If part is already a React element with a key, return it as-is
+          if (typeof part === 'object' && part !== null && 'key' in part && part.key) {
+            return part;
+          }
+          // Otherwise, wrap it with a unique key
+          return <span key={`part-${pIndex}-${index}`}>{part}</span>;
+        })}
       </p>
     );
   });

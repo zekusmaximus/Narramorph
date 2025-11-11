@@ -78,10 +78,14 @@ export function NeuralNetwork() {
           key={node.id}
           cx={node.position.x}
           cy={node.position.y}
-          r="4"
+          r={4}
           fill="#39ff14"
-          opacity="0.4"
+          opacity={0.4}
           filter="url(#glow)"
+          initial={{
+            r: 4,
+            opacity: 0.4,
+          }}
           animate={{
             r: [4, 6, 4],
             opacity: [0.4, 0.7, 0.4],
