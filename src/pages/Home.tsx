@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ErrorBoundary } from 'react-error-boundary';
 import NodeMap from '@/components/NodeMap';
 import StoryView from '@/components/StoryView';
 import { JourneyTracker } from '@/components/UI/JourneyTracker';
