@@ -309,6 +309,7 @@ export default function StoryView({ className = '' }: StoryViewProps) {
   return (
     <AnimatePresence>
       <motion.div
+        key={`story-modal-${selectedNode}`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -531,6 +532,7 @@ export default function StoryView({ className = '' }: StoryViewProps) {
       {/* Debug panel - only in development */}
       {process.env.NODE_ENV === 'development' && (
         <VariationDebugPanel
+          key="variation-debug-panel"
           nodeId={currentNode?.id || null}
           variationId={variationId}
           variationMetadata={variationMetadata}
