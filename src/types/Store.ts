@@ -162,6 +162,10 @@ export interface StoryStore {
   l3AssemblyViewOpen: boolean;
   currentL3Assembly: L3Assembly | null;
 
+  // Unlock System State
+  unlockConfigs: Map<string, import('./Unlock').NodeUnlockConfig>;
+  recentlyUnlockedNodes: string[];
+
   // Reading statistics (computed)
   stats: ReadingStats;
 
@@ -179,6 +183,9 @@ export interface StoryStore {
   closeL3AssemblyView: () => void;
   trackL3AssemblyView: (assembly: L3Assembly) => void;
   markL3SectionRead: (section: 'arch' | 'algo' | 'hum' | 'conv') => void;
+  evaluateUnlocks: () => void;
+  getUnlockProgress: (nodeId: string) => import('./Unlock').UnlockProgress | null;
+  clearUnlockNotifications: () => void;
   updateViewport: (viewport: Partial<MapViewport>) => void;
   selectNode: (nodeId: string | null) => void;
   setHoveredNode: (nodeId: string | null) => void;

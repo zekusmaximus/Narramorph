@@ -4,8 +4,7 @@ import NodeMap from '@/components/NodeMap';
 import StoryView from '@/components/StoryView';
 import { JourneyTracker } from '@/components/UI/JourneyTracker';
 import { L3AssemblyView } from '@/components/UI/L3AssemblyView';
-import { ErrorBoundary } from '@/components/ErrorBoundary';
-import { PerformanceDashboard } from '@/components/Debug/PerformanceDashboard';
+import { UnlockNotificationSystem } from '@/components/UI/UnlockNotification';
 import { useStoryStore } from '@/stores';
 
 /**
@@ -95,8 +94,8 @@ export default function Home() {
           )}
         </AnimatePresence>
 
-        {/* Performance Dashboard (Development Only) */}
-        {process.env.NODE_ENV === 'development' && <PerformanceDashboard />}
+        {/* Unlock Notification System */}
+        <UnlockNotificationSystem />
       </div>
     </div>
   );
