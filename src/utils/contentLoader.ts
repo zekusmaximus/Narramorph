@@ -53,7 +53,13 @@ function normalizeCharacter(char: string): 'archaeologist' | 'algorithm' | 'last
   return 'archaeologist';
 }
 
-function getNodePosition(nodeId: string, layout?: LayoutFile): { x: number; y: number } {
+function getNodePosition(nodeId: string | undefined, layout?: LayoutFile): { x: number; y: number } {
+  // Default position if nodeId is invalid
+  if (!nodeId) {
+    console.warn('getNodePosition called with undefined nodeId, using default position');
+    return { x: 150, y: 150 };
+  }
+
   if (layout) {
     for (const layer of Object.values(layout.layers)) {
       if (layer.nodes[nodeId]) return layer.nodes[nodeId];
