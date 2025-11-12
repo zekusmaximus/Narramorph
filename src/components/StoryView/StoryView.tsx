@@ -183,12 +183,15 @@ function parseMarkdown(content: string): React.ReactNode {
       }
     });
 
+    // Filter out empty parts first, then map with index
+    const nonEmptyParts = finalParts.filter(part => part !== '');
+
     return (
-      <p key={pIndex} className="mb-4 leading-relaxed">
-        {finalParts.filter(part => part !== '').map((part, index) => {
-          // If part is already a React element with a key, return it as-is
-          if (typeof part === 'object' && part !== null && 'key' in part && part.key) {
-            return part;
+      <p key={`paragraph-${pIndex}`} className="mb-4 leading-relaxed">
+        {nonEmptyParts.map((part, index) => {
+          // If part is already a React element with a key, return it with a new wrapper to ensure uniqueness
+          if (typeof part === 'object' && part !== null && 'key' in part) {
+            return <span key={`wrapper-${pIndex}-${index}`}>{part}</span>;
           }
           // Otherwise, wrap it with a unique key
           return <span key={`part-${pIndex}-${index}`}>{part}</span>;
