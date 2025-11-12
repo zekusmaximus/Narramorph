@@ -53,7 +53,13 @@ function normalizeCharacter(char: string): 'archaeologist' | 'algorithm' | 'last
   return 'archaeologist';
 }
 
-function getNodePosition(nodeId: string, layout?: LayoutFile): { x: number; y: number } {
+function getNodePosition(nodeId: string | undefined, layout?: LayoutFile): { x: number; y: number } {
+  // Default position if nodeId is invalid
+  if (!nodeId) {
+    console.warn('getNodePosition called with undefined nodeId, using default position');
+    return { x: 150, y: 150 };
+  }
+
   if (layout) {
     for (const layer of Object.values(layout.layers)) {
       if (layer.nodes[nodeId]) return layer.nodes[nodeId];
@@ -86,12 +92,12 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
     const layoutEntry = Object.entries(layoutMap).find(([p]) => p.includes(`/${storyId}/`));
     const layout = layoutEntry ? layoutEntry[1] : undefined;
 
-    // Gather character node files for this story (exclude story.json, layout.json, and content subpaths)
+    // Gather character node files for this story (exclude story.json, layout.json, unlock-config.json, and content subpaths)
     const charFiles = Object.entries(charMap)
-      .filter(([p]) => p.includes(`/stories/${storyId}/`) && !p.endsWith('/story.json') && !p.endsWith('/layout.json') && !p.includes('/content/'))
+      .filter(([p]) => p.includes(`/stories/${storyId}/`) && !p.endsWith('/story.json') && !p.endsWith('/layout.json') && !p.endsWith('/unlock-config.json') && !p.includes('/content/'))
       .map(([, data]) => data);
 
-    console.log('Loaded character files:', Object.keys(charMap).filter(p => p.includes(`/stories/${storyId}/`) && !p.endsWith('/story.json') && !p.includes('/content/')));
+    console.log('Loaded character files:', Object.keys(charMap).filter(p => p.includes(`/stories/${storyId}/`) && !p.endsWith('/story.json') && !p.endsWith('/layout.json') && !p.endsWith('/unlock-config.json') && !p.includes('/content/')));
 
     const allNodes: StoryNode[] = [];
     const allConnections: Connection[] = [];
