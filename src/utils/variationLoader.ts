@@ -75,17 +75,9 @@ function normalizeVariation(variation: any, fileNodeId?: string): Variation {
   if (!meta.awarenessRange && variation.awarenessRange) {
     meta.awarenessRange = variation.awarenessRange;
   } else if (!meta.awarenessRange) {
-    // Set default awarenessRange based on transformation state
-    if (variation.transformationState === 'initial') {
-      meta.awarenessRange = [0, 20];
-    } else if (variation.transformationState === 'firstRevisit') {
-      meta.awarenessRange = [21, 100];
-    } else if (variation.transformationState === 'metaAware') {
-      meta.awarenessRange = [71, 100];
-    } else {
-      // Default fallback for unknown states
-      meta.awarenessRange = [0, 100];
-    }
+    // Set default awarenessRange to match all awareness levels
+    // Transformation state is the primary filter, not awareness
+    meta.awarenessRange = [0, 100];
   }
 
   if (!meta.journeyPattern && variation.journeyPattern) {

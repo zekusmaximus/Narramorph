@@ -584,6 +584,7 @@ export const useStoryStore = create<StoryStore>()(
         journeyPattern: tracking.currentJourneyPattern,
         pathPhilosophy: tracking.dominantPhilosophy,
         visitCount: visitRecord?.visitCount || 0,
+        transformationState: visitRecord?.currentState || 'initial',
         characterVisitPercentages: tracking.characterVisitPercentages,
       };
     },
