@@ -89,6 +89,7 @@ export function findMatchingVariation(
     journeyPattern: context.journeyPattern,
     pathPhilosophy: context.pathPhilosophy,
     visitCount: context.visitCount,
+    transformationState: context.transformationState,
   });
 
   console.log(`[VariationSelection] Evaluating ${variations.length} variations`);
@@ -105,10 +106,17 @@ export function findMatchingVariation(
 
     console.log('[VariationSelection] Checking variation:', {
       variationId: variation.variationId || meta.variationId,
+      transformationState: variation.transformationState,
       awarenessRange: meta.awarenessRange,
       requiredJourney: meta.journeyPattern,
       requiredPhilosophy: meta.philosophyDominant,
     });
+
+    // CRITICAL: Check transformation state FIRST
+    if (variation.transformationState !== context.transformationState) {
+      console.log('[VariationSelection] ✗ Transformation state mismatch');
+      return false;
+    }
 
     // Check awareness range
     if (!isInRange(context.awareness, meta.awarenessRange)) {

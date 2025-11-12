@@ -222,6 +222,7 @@ export interface ConditionContext {
   journeyPattern: JourneyPattern;
   pathPhilosophy: PathPhilosophy;
   visitCount: number;
+  transformationState: 'initial' | 'firstRevisit' | 'metaAware';
   characterVisitPercentages: {
     archaeologist: number;
     algorithm: number;

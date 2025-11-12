@@ -21,8 +21,8 @@
     "totalNodes": 12,
     "totalConnections": 18,
     "narrativeActs": 3,
-    "criticalPathNodes": ["arc-L1", "algo-L1", "hum-L1", "L3-preserve", "L3-release", "L3-transform", "final-reveal"],
-    "endingNodes": ["L3-preserve", "L3-release", "L3-transform", "final-reveal"],
+    "criticalPathNodes": ["arc-L1", "algo-L1", "hum-L1"],
+    "endingNodes": [],
     "characterDistribution": {
       "archaeologist": 4,
       "algorithm": 4,
