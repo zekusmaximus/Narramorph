@@ -60,10 +60,14 @@ export default function Home() {
 
       {/* Main content area with node map */}
       <div className="flex-1 relative">
-        <NodeMap className="w-full h-full" />
+        <ErrorBoundary>
+          <NodeMap className="w-full h-full" />
+        </ErrorBoundary>
 
         {/* Overlay story view */}
-        <StoryView />
+        <ErrorBoundary>
+          <StoryView />
+        </ErrorBoundary>
 
         {/* Journey Tracker - center bottom */}
         <motion.div
@@ -72,17 +76,21 @@ export default function Home() {
           transition={{ delay: 1, duration: 0.5 }}
           className="absolute bottom-4 left-1/2 -translate-x-1/2 w-80 z-10"
         >
-          <JourneyTracker />
+          <ErrorBoundary>
+            <JourneyTracker />
+          </ErrorBoundary>
         </motion.div>
 
 
         {/* L3 Assembly View Modal */}
         <AnimatePresence>
           {l3AssemblyViewOpen && currentL3Assembly && (
-            <L3AssemblyView
-              assembly={currentL3Assembly}
-              onClose={closeL3AssemblyView}
-            />
+            <ErrorBoundary>
+              <L3AssemblyView
+                assembly={currentL3Assembly}
+                onClose={closeL3AssemblyView}
+              />
+            </ErrorBoundary>
           )}
         </AnimatePresence>
 

@@ -10,6 +10,7 @@ import type {
   JourneyPattern,
   PathPhilosophy,
 } from '@/types';
+import { performanceMonitor } from './performanceMonitor';
 
 /**
  * Convert numeric awareness to level category
@@ -23,7 +24,11 @@ export function getAwarenessLevel(awareness: number): AwarenessLevel {
 /**
  * Check if a number is within a range (inclusive)
  */
-function isInRange(value: number, range: [number, number]): boolean {
+function isInRange(value: number, range: [number, number] | undefined): boolean {
+  if (!range || !Array.isArray(range) || range.length !== 2) {
+    console.warn('[ConditionEvaluator] Invalid range provided:', range);
+    return false;
+  }
   return value >= range[0] && value <= range[1];
 }
 
@@ -75,6 +80,8 @@ export function findMatchingVariation(
   variations: Variation[],
   context: ConditionContext
 ): Variation | null {
+  const endTimer = performanceMonitor.startTimer('variationSelection');
+
   console.log('[VariationSelection] Finding match for:', {
     nodeId: context.nodeId,
     awareness: context.awareness,
@@ -90,8 +97,14 @@ export function findMatchingVariation(
   const matches = variations.filter(variation => {
     const meta = variation.metadata;
 
+    // Skip variations with invalid metadata
+    if (!meta) {
+      console.warn('[VariationSelection] Variation missing metadata:', variation.variationId || variation.id);
+      return false;
+    }
+
     console.log('[VariationSelection] Checking variation:', {
-      variationId: variation.variationId,
+      variationId: variation.variationId || meta.variationId,
       awarenessRange: meta.awarenessRange,
       requiredJourney: meta.journeyPattern,
       requiredPhilosophy: meta.philosophyDominant,
@@ -123,6 +136,11 @@ export function findMatchingVariation(
 
   if (matches.length === 0) {
     console.warn('[VariationSelection] No matches found, returning null');
+    endTimer({
+      nodeId: context.nodeId,
+      variationCount: variations.length,
+      matchFound: false,
+    });
     return null;
   }
 
@@ -136,6 +154,12 @@ export function findMatchingVariation(
   if (exactMatches.length > 0) {
     const selected = exactMatches[0];
     console.log(`[VariationSelection] Selected exact match: ${selected.variationId}`);
+    endTimer({
+      nodeId: context.nodeId,
+      variationCount: variations.length,
+      matchFound: true,
+      variationId: selected.variationId,
+    });
     return selected;
   }
 
@@ -146,6 +170,12 @@ export function findMatchingVariation(
   if (journeyMatches.length > 0) {
     const selected = journeyMatches[0];
     console.log(`[VariationSelection] Selected journey match: ${selected.variationId}`);
+    endTimer({
+      nodeId: context.nodeId,
+      variationCount: variations.length,
+      matchFound: true,
+      variationId: selected.variationId,
+    });
     return selected;
   }
 
@@ -156,11 +186,23 @@ export function findMatchingVariation(
   if (philosophyMatches.length > 0) {
     const selected = philosophyMatches[0];
     console.log(`[VariationSelection] Selected philosophy match: ${selected.variationId}`);
+    endTimer({
+      nodeId: context.nodeId,
+      variationCount: variations.length,
+      matchFound: true,
+      variationId: selected.variationId,
+    });
     return selected;
   }
 
   const selected = matches[0];
   console.log(`[VariationSelection] Selected first match: ${selected.variationId}`);
+  endTimer({
+    nodeId: context.nodeId,
+    variationCount: variations.length,
+    matchFound: true,
+    variationId: selected.variationId,
+  });
   return selected;
 }
 

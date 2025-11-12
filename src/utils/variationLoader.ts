@@ -53,6 +53,100 @@ const allVariationFiles = {
 };
 
 /**
+ * Normalize variation data to ensure all required fields are in metadata
+ */
+function normalizeVariation(variation: any, fileNodeId?: string): Variation {
+  // Ensure metadata exists
+  if (!variation.metadata) {
+    variation.metadata = {};
+  }
+
+  // Map root-level properties into metadata if they're missing
+  const meta = variation.metadata;
+
+  if (!meta.variationId && variation.id) {
+    meta.variationId = variation.id;
+  }
+
+  if (!meta.nodeId && (fileNodeId || variation.nodeId)) {
+    meta.nodeId = fileNodeId || variation.nodeId;
+  }
+
+  if (!meta.awarenessRange && variation.awarenessRange) {
+    meta.awarenessRange = variation.awarenessRange;
+  } else if (!meta.awarenessRange) {
+    // Set default awarenessRange based on transformation state
+    if (variation.transformationState === 'initial') {
+      meta.awarenessRange = [0, 20];
+    } else if (variation.transformationState === 'firstRevisit') {
+      meta.awarenessRange = [21, 100];
+    } else if (variation.transformationState === 'metaAware') {
+      meta.awarenessRange = [71, 100];
+    } else {
+      // Default fallback for unknown states
+      meta.awarenessRange = [0, 100];
+    }
+  }
+
+  if (!meta.journeyPattern && variation.journeyPattern) {
+    meta.journeyPattern = variation.journeyPattern;
+  } else if (!meta.journeyPattern) {
+    meta.journeyPattern = 'unknown';
+  }
+
+  if (!meta.philosophyDominant && variation.philosophyDominant) {
+    meta.philosophyDominant = variation.philosophyDominant;
+  } else if (!meta.philosophyDominant) {
+    meta.philosophyDominant = 'unknown';
+  }
+
+  if (!meta.awarenessLevel && variation.awarenessLevel) {
+    meta.awarenessLevel = variation.awarenessLevel;
+  } else if (!meta.awarenessLevel && meta.awarenessRange) {
+    // Derive awarenessLevel from awarenessRange if missing
+    const midpoint = (meta.awarenessRange[0] + meta.awarenessRange[1]) / 2;
+    meta.awarenessLevel = midpoint < 35 ? 'low' : midpoint < 70 ? 'medium' : 'high';
+  } else if (!meta.awarenessLevel) {
+    meta.awarenessLevel = 'low';
+  }
+
+  // Ensure other required fields have defaults
+  if (!meta.layer && typeof meta.layer !== 'number') {
+    meta.layer = 1;
+  }
+
+  if (!meta.section) {
+    meta.section = 'unknown';
+  }
+
+  if (!meta.createdDate) {
+    meta.createdDate = new Date().toISOString();
+  }
+
+  if (!meta.journeyCode) {
+    meta.journeyCode = 'UK';
+  }
+
+  if (!meta.philosophyCode) {
+    meta.philosophyCode = 'UK';
+  }
+
+  if (!meta.awarenessCode) {
+    meta.awarenessCode = 'L';
+  }
+
+  if (!meta.readableLabel) {
+    meta.readableLabel = meta.variationId || 'Unknown';
+  }
+
+  if (!meta.humanDescription) {
+    meta.humanDescription = '';
+  }
+
+  return variation as Variation;
+}
+
+/**
  * Load a specific variation file by node ID
  */
 export function loadVariationFile(storyId: string, nodeId: string): VariationFile | null {
@@ -69,9 +163,16 @@ export function loadVariationFile(storyId: string, nodeId: string): VariationFil
 
       // Check if this file contains the node we're looking for
       if (fileData.nodeId === nodeId ||
-          (fileData.variations && fileData.variations.some(v => v.metadata.nodeId === nodeId))) {
-        variationCache.set(cacheKey, fileData);
-        return fileData;
+          (fileData.variations && fileData.variations.some(v => v.metadata?.nodeId === nodeId || v.nodeId === nodeId))) {
+
+        // Normalize all variations before caching
+        const normalizedFile = {
+          ...fileData,
+          variations: fileData.variations.map((v: any) => normalizeVariation(v, fileData.nodeId))
+        };
+
+        variationCache.set(cacheKey, normalizedFile);
+        return normalizedFile;
       }
     }
   }
@@ -99,14 +200,20 @@ export function loadL3Variations(storyId: string): {
     if (path.includes(storyId)) {
       const fileData = 'default' in content ? content.default : content;
 
+      // Normalize variations before storing
+      const normalizedFile = {
+        ...fileData,
+        variations: fileData.variations?.map((v: any) => normalizeVariation(v, fileData.nodeId)) || []
+      };
+
       if (path.includes('arch-L3')) {
-        result.arch = fileData;
+        result.arch = normalizedFile;
       } else if (path.includes('algo-L3')) {
-        result.algo = fileData;
+        result.algo = normalizedFile;
       } else if (path.includes('hum-L3')) {
-        result.hum = fileData;
+        result.hum = normalizedFile;
       } else if (path.includes('conv-L3')) {
-        result.conv = fileData;
+        result.conv = normalizedFile;
       }
     }
   }

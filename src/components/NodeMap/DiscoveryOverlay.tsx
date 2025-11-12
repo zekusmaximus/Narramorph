@@ -45,7 +45,7 @@ export function DiscoveryOverlay() {
                   key={i}
                   cx={area.x}
                   cy={area.y}
-                  r="0"
+                  r={0}
                   fill="black"
                   initial={{ r: 0 }}
                   animate={{ r: 200 }}

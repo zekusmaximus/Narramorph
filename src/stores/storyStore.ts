@@ -26,7 +26,7 @@ import { loadStoryContent, ContentLoadError } from '@/utils/contentLoader';
 import { calculateJourneyPattern, calculatePathPhilosophy } from '@/utils/conditionEvaluator';
 import type { JourneyTracking, ConditionContext, L3Assembly, JourneyPattern, PathPhilosophy, SynthesisPattern } from '@/types';
 import { buildL3Assembly, calculateSynthesisPattern } from '@/utils/l3Assembly';
-import { getNodePhilosophy } from '@/data/stories/eternal-return/nodePhilosophyMapping';
+import { getNodePhilosophy, validateL2PhilosophyMappings } from '@/data/stories/eternal-return/nodePhilosophyMapping';
 import { isL3Node, isL4Node } from '@/utils/nodeUtils';
 import { loadUnlockConfig } from '@/utils/unlockLoader';
 import {
@@ -52,6 +52,18 @@ function createInitialJourneyTracking(): JourneyTracking {
       invest: 0,
     },
     dominantPhilosophy: 'unknown',
+    crossCharacterConnections: {
+      arch_algo: 0,
+      arch_hum: 0,
+      algo_hum: 0,
+    },
+    navigationPattern: 'undetermined',
+    lastCharacterVisited: undefined,
+    revisitFrequency: 0,
+    explorationMetrics: {
+      breadth: 0,
+      depth: 0,
+    },
   };
 }
 
@@ -153,20 +165,25 @@ function determineTransformationState(
 
   // First visit: always initial state
   if (visitCount === 0 || visitCount === 1) {
+    console.log(`[TransformState] ${nodeId}: visitCount=${visitCount} → initial`);
     return 'initial';
   }
 
   // Second visit: temporal bleeding if awareness threshold met
   if (visitCount === 2) {
-    return temporalAwarenessLevel > 20 ? 'firstRevisit' : 'initial';
+    const state = temporalAwarenessLevel > 20 ? 'firstRevisit' : 'initial';
+    console.log(`[TransformState] ${nodeId}: visitCount=2, awareness=${temporalAwarenessLevel} → ${state}`);
+    return state;
   }
 
   // Third+ visit OR high awareness: full meta-aware
   if (visitCount >= 3 || temporalAwarenessLevel > 50) {
+    console.log(`[TransformState] ${nodeId}: visitCount=${visitCount}, awareness=${temporalAwarenessLevel} → metaAware`);
     return 'metaAware';
   }
 
   // Fallback (shouldn't normally reach here)
+  console.log(`[TransformState] ${nodeId}: fallback → firstRevisit`);
   return 'firstRevisit';
 }
 
@@ -263,6 +280,67 @@ function shouldRevealConnection(
 }
 
 /**
+ * Normalize character name to standard format
+ */
+function normalizeCharacter(character: string): 'archaeologist' | 'algorithm' | 'lastHuman' {
+  const charLower = character.toLowerCase();
+  if (charLower.includes('arch')) return 'archaeologist';
+  if (charLower.includes('algo')) return 'algorithm';
+  if (charLower.includes('hum') || charLower.includes('last')) return 'lastHuman';
+  return 'archaeologist'; // fallback
+}
+
+/**
+ * Get connection key for cross-character tracking
+ */
+function getConnectionKey(
+  from: 'archaeologist' | 'algorithm' | 'lastHuman',
+  to: 'archaeologist' | 'algorithm' | 'lastHuman'
+): keyof JourneyTracking['crossCharacterConnections'] | null {
+  if (from === to) return null;
+
+  // Sort to ensure bidirectional tracking (arch→algo same as algo→arch)
+  const [first, second] = [from, to].sort();
+
+  if (first === 'algorithm' && second === 'archaeologist') return 'arch_algo';
+  if (first === 'archaeologist' && second === 'lastHuman') return 'arch_hum';
+  if (first === 'algorithm' && second === 'lastHuman') return 'algo_hum';
+
+  return null;
+}
+
+/**
+ * Classify navigation pattern based on journey tracking metrics
+ */
+function classifyNavigationPattern(tracking: JourneyTracking): 'linear' | 'exploratory' | 'recursive' | 'undetermined' {
+  const { revisitFrequency, explorationMetrics } = tracking;
+  const { breadth, depth } = explorationMetrics;
+
+  // Not enough data yet
+  if (breadth < 10) return 'undetermined';
+
+  // Recursive: High revisit rate + high depth
+  if (revisitFrequency > 40 && depth > 2) {
+    return 'recursive';
+  }
+
+  // Exploratory: High breadth + low depth + many cross-character connections
+  const totalConnections = Object.values(tracking.crossCharacterConnections)
+    .reduce((sum, count) => sum + count, 0);
+
+  if (breadth > 50 && depth < 2 && totalConnections > 5) {
+    return 'exploratory';
+  }
+
+  // Linear: Low revisit rate + sequential pattern
+  if (revisitFrequency < 20 && depth < 1.5) {
+    return 'linear';
+  }
+
+  return 'undetermined';
+}
+
+/**
  * Creates the main Zustand store for the application
  */
 export const useStoryStore = create<StoryStore>()(
@@ -346,6 +424,16 @@ export const useStoryStore = create<StoryStore>()(
 
         // Update reading statistics
         get().updateStats();
+
+        // Validate L2 philosophy mappings
+        const nodeIds = Array.from(get().nodes.keys());
+        const validation = validateL2PhilosophyMappings(nodeIds);
+
+        if (!validation.valid) {
+          console.warn('[Journey] L2 nodes missing philosophy mappings:', validation.missing);
+        } else {
+          console.log('[Journey] All L2 nodes have valid philosophy mappings');
+        }
 
         // TODO: Add success notification
         // console.log(`Successfully loaded story: ${storyData.metadata.title}`);
@@ -759,9 +847,11 @@ export const useStoryStore = create<StoryStore>()(
         const existingRecord = draftState.progress.visitedNodes[nodeId];
 
         if (existingRecord) {
+          const previousCount = existingRecord.visitCount;
           existingRecord.visitCount++;
           existingRecord.visitTimestamps.push(now);
           existingRecord.lastVisited = now;
+          console.log(`[Visit] ${nodeId}: visit #${existingRecord.visitCount} (was ${previousCount})`);
         } else {
           draftState.progress.visitedNodes[nodeId] = {
             visitCount: 1,
@@ -770,6 +860,7 @@ export const useStoryStore = create<StoryStore>()(
             timeSpent: 0,
             lastVisited: now,
           };
+          console.log(`[Visit] ${nodeId}: first visit recorded`);
         }
 
         // Track character-specific visits
@@ -781,6 +872,52 @@ export const useStoryStore = create<StoryStore>()(
           draftState.progress.characterNodesVisited.lastHuman++;
         }
         // multi-perspective nodes don't increment character counters
+
+        // === Cross-Character Connection Tracking ===
+        if (!draftState.progress.journeyTracking) {
+          draftState.progress.journeyTracking = createInitialJourneyTracking();
+        }
+
+        const tracking = draftState.progress.journeyTracking;
+        const currentChar = normalizeCharacter(node.character);
+        const lastChar = tracking.lastCharacterVisited;
+
+        // Detect character switch
+        if (lastChar && lastChar !== currentChar) {
+          const connectionKey = getConnectionKey(lastChar, currentChar);
+
+          if (connectionKey) {
+            tracking.crossCharacterConnections[connectionKey]++;
+            console.log(`[Journey] Character switch detected: ${lastChar} → ${currentChar}`);
+          }
+        }
+
+        // Update last character
+        tracking.lastCharacterVisited = currentChar;
+
+        // === Revisit Tracking ===
+        const isRevisit = existingRecord && existingRecord.visitCount > 0;
+        const totalVisits = Object.keys(draftState.progress.visitedNodes).length;
+        const revisits = Object.values(draftState.progress.visitedNodes)
+          .filter(record => record.visitCount > 1).length;
+
+        if (totalVisits > 0) {
+          tracking.revisitFrequency = (revisits / totalVisits) * 100;
+        }
+
+        // === Exploration Metrics ===
+        const totalNodes = get().nodes.size;
+        const uniqueVisited = Object.keys(draftState.progress.visitedNodes).length;
+        const totalVisitCount = Object.values(draftState.progress.visitedNodes)
+          .reduce((sum, record) => sum + record.visitCount, 0);
+
+        tracking.explorationMetrics = {
+          breadth: totalNodes > 0 ? (uniqueVisited / totalNodes) * 100 : 0,
+          depth: uniqueVisited > 0 ? totalVisitCount / uniqueVisited : 0,
+        };
+
+        // === Navigation Pattern Classification ===
+        tracking.navigationPattern = classifyNavigationPattern(tracking);
 
         // Unlock L2 nodes when visiting L1 nodes
         const layerMatch = nodeId.match(/^(arch|arc|algo|hum|algorithm|human)-L?(\d).*$/);
