@@ -47,6 +47,11 @@ export function useVariationSelection(
   const storyData = useStoryStore(state => state.storyData);
   const getConditionContext = useStoryStore(state => state.getConditionContext);
 
+  // Extract reactive values that affect variation selection
+  const temporalAwareness = useStoryStore(state => state.progress.temporalAwarenessLevel);
+  const visitRecord = useStoryStore(state => nodeId ? state.progress.visitedNodes[nodeId] : undefined);
+  const journeyTracking = useStoryStore(state => state.progress.journeyTracking);
+
   return useMemo(() => {
     // Early return if no node
     if (!nodeId) {
@@ -126,5 +131,5 @@ export function useVariationSelection(
         usedFallback: true,
       };
     }
-  }, [nodeId, storyData?.metadata?.id, getConditionContext, fallbackContent]);
+  }, [nodeId, storyData?.metadata?.id, getConditionContext, fallbackContent, temporalAwareness, visitRecord?.visitCount, visitRecord?.currentState, journeyTracking?.currentJourneyPattern, journeyTracking?.dominantPhilosophy]);
 }
