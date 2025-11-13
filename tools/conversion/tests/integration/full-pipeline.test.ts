@@ -202,7 +202,7 @@ describe('Full Pipeline Integration', () => {
       maxConcurrent = Math.max(maxConcurrent, activeCount);
 
       // Simulate async work
-      await new Promise(resolve => setTimeout(resolve, 10));
+      await new Promise((resolve) => setTimeout(resolve, 10));
 
       activeCount--;
       return item * 2;

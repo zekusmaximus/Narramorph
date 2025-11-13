@@ -6,17 +6,6 @@
   'awareness': '21-30%'
 ---
 
-
-
-
-
-
-
-
-
-
-
-
 The fragment waited in the same position. 847.3 terabytes, identical arrangement, but I approached the data differently this time. Not just cataloging—examining how I cataloged. The seven streams I'd noticed before seemed more organized now, though I couldn't articulate why. My classification process itself had started to feel structured.
 I pulled the temporal markers first. Standard protocol. But I caught myself arranging them in seven groups before I'd consciously decided to do so. The sorting happened automatically, as if my mind had already accepted an architecture I didn't remember establishing.
 The biographical data divided cleanly. Professional documentation in one stream, personal correspondence in another, financial records in a third. Simple enough. But I was watching myself make those divisions now, noticing the pattern in my pattern recognition. Seven categories emerging not from the data alone, but from how I was choosing to see the data.

@@ -1,4 +1,5 @@
 # L3 Generation Bible
+
 ## The Complete Architecture for Layer 3 Convergence Nodes
 
 **Version:** 1.0  
@@ -31,6 +32,7 @@
 **L3 represents the narrative convergence** where all three character perspectives merge into a single multi-temporal consciousness examining the fundamental question: What should happen to preserved consciousness?
 
 **Key principles:**
+
 - **Multi-perspective voice**: All three characters present simultaneously
 - **Path-sensitive content**: Every variation reflects the reader's unique journey
 - **Terminal choice moment**: Reader makes explicit preserve/release/transform decision
@@ -65,7 +67,7 @@ While each L3 node is associated with one character, **all three perspectives ap
 ```
 arch-L3 structure:
 ├── Archaeologist section (900 words) - Primary perspective
-├── Algorithm section (900 words) - Parallel perspective  
+├── Algorithm section (900 words) - Parallel perspective
 ├── Last Human section (900 words) - Parallel perspective
 └── Convergent synthesis (1,800 words) - All three merge
 
@@ -82,6 +84,7 @@ This structure repeats for algo-L3 and hum-L3, with the primary perspective shif
 ### Reader Navigation to L3
 
 **Progression:**
+
 1. Reader explores L1 and L2 nodes (minimum requirements must be met)
 2. L3 nodes unlock when conditions satisfied
 3. Reader sees three L3 options on map: arch-L3, algo-L3, hum-L3
@@ -155,12 +158,14 @@ When reader visits an L3 node (e.g., arch-L3), system:
 ### Variation Counts Per Section
 
 **Character sections (arch/algo/hum within each L3 node):**
+
 - Journey Pattern: 5 types
 - Philosophy: 3 types
 - Awareness: 3 tiers
 - **Total per section: 5 × 3 × 3 = 45 variations**
 
 **Convergent synthesis section (conv):**
+
 - Journey Pattern: 5 types
 - Philosophy: 3 types
 - Awareness: 3 tiers
@@ -171,22 +176,22 @@ When reader visits an L3 node (e.g., arch-L3), system:
 
 **Per L3 Node:**
 
-| Section | Variations | Words/Each | Section Total |
-|---------|-----------|------------|---------------|
-| arch-L3-arch | 45 | 900 | 40,500 |
-| arch-L3-algo | 45 | 900 | 40,500 |
-| arch-L3-hum | 45 | 900 | 40,500 |
-| arch-L3-conv | 135 | 1,800 | 243,000 |
-| **Node Total** | **270** | — | **364,500** |
+| Section        | Variations | Words/Each | Section Total |
+| -------------- | ---------- | ---------- | ------------- |
+| arch-L3-arch   | 45         | 900        | 40,500        |
+| arch-L3-algo   | 45         | 900        | 40,500        |
+| arch-L3-hum    | 45         | 900        | 40,500        |
+| arch-L3-conv   | 135        | 1,800      | 243,000       |
+| **Node Total** | **270**    | —          | **364,500**   |
 
 **All Three L3 Nodes:**
 
-| Node | Variations | Total Words |
-|------|-----------|-------------|
-| arch-L3 | 270 | 364,500 |
-| algo-L3 | 270 | 364,500 |
-| hum-L3 | 270 | 364,500 |
-| **Grand Total** | **810** | **1,093,500** |
+| Node            | Variations | Total Words   |
+| --------------- | ---------- | ------------- |
+| arch-L3         | 270        | 364,500       |
+| algo-L3         | 270        | 364,500       |
+| hum-L3          | 270        | 364,500       |
+| **Grand Total** | **810**    | **1,093,500** |
 
 ---
 
@@ -197,6 +202,7 @@ When reader visits an L3 node (e.g., arch-L3), system:
 Variations use simple sequential numbers during creation:
 
 **Character sections (45 variations each):**
+
 ```
 arch-L3-arch-01
 arch-L3-arch-02
@@ -216,6 +222,7 @@ arch-L3-hum-45
 ```
 
 **Convergent synthesis (135 variations):**
+
 ```
 arch-L3-conv-001
 arch-L3-conv-002
@@ -229,6 +236,7 @@ arch-L3-conv-135
 Metadata provides human-readable labels mapping numbers to journey signatures:
 
 **Examples:**
+
 - `arch-L3-arch-01` = "SS-AC-H" (Started-Stayed, Accept, High awareness)
 - `arch-L3-arch-02` = "SS-AC-M" (Started-Stayed, Accept, Medium awareness)
 - `arch-L3-arch-03` = "SS-AC-L" (Started-Stayed, Accept, Low awareness)
@@ -236,6 +244,7 @@ Metadata provides human-readable labels mapping numbers to journey signatures:
 - `arch-L3-conv-001` = "SS-AC-H-SD" (Started-Stayed, Accept, High, Single-Dominant)
 
 **Code abbreviations:**
+
 - **Journey:** SS, SB, SD, BL, ML
 - **Philosophy:** AC, RE, IN
 - **Awareness:** H, M, L
@@ -261,7 +270,7 @@ Each L3 variation (character section or convergent synthesis) includes complete 
   "layer": 3,
   "wordCount": 900,
   "createdDate": "2025-01-15",
-  
+
   "conditions": {
     "journeyPattern": "started-stayed",
     "journeyCode": "SS",
@@ -270,7 +279,7 @@ Each L3 variation (character section or convergent synthesis) includes complete 
     "awarenessLevel": "high",
     "awarenessCode": "H",
     "awarenessRange": [71, 100],
-    
+
     "detailedRequirements": {
       "startingCharacter": "archaeologist",
       "dominantCharacter": "archaeologist",
@@ -280,10 +289,10 @@ Each L3 variation (character section or convergent synthesis) includes complete 
       "temporalAwarenessMax": 100
     }
   },
-  
+
   "readableLabel": "SS-AC-H",
   "humanDescription": "Reader started with Archaeologist, stayed arch-dominant throughout journey, followed accept-leaning path, achieved high temporal awareness (71-100%)",
-  
+
   "narrativeElements": {
     "archaeologistStance": "witness-over-verification",
     "algorithmRecognition": "moderate",
@@ -292,7 +301,7 @@ Each L3 variation (character section or convergent synthesis) includes complete 
     "philosophicalCulmination": "Authentication becomes sacred witness",
     "convergenceAlignment": "preserve"
   },
-  
+
   "thematicContent": {
     "primaryThemes": ["preservation", "witness", "continuity"],
     "crossCharacterConnections": ["moderate-algo", "light-hum"],
@@ -314,7 +323,7 @@ Convergent synthesis variations include additional synthesis-specific metadata:
   "layer": 3,
   "wordCount": 1800,
   "createdDate": "2025-01-15",
-  
+
   "conditions": {
     "journeyPattern": "started-stayed",
     "journeyCode": "SS",
@@ -325,7 +334,7 @@ Convergent synthesis variations include additional synthesis-specific metadata:
     "awarenessRange": [71, 100],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
-    
+
     "detailedRequirements": {
       "startingCharacter": "archaeologist",
       "dominantCharacter": "archaeologist",
@@ -338,10 +347,10 @@ Convergent synthesis variations include additional synthesis-specific metadata:
       "synthesisTertiaryFocus": "lastHuman"
     }
   },
-  
+
   "readableLabel": "SS-AC-H-SD",
   "humanDescription": "Reader started arch/stayed arch-dominant, accept path, high awareness, single-character-dominant synthesis pattern",
-  
+
   "synthesisElements": {
     "convergenceType": "unified-preservation-network",
     "threePerspectiveMerge": "archaeologist-primary-lens",
@@ -350,7 +359,7 @@ Convergent synthesis variations include additional synthesis-specific metadata:
     "observerNetworkComplete": true,
     "fivePositionNetwork": true
   },
-  
+
   "narrativeElements": {
     "voiceBlending": "fluid-with-markers",
     "perspectiveShifts": "frequent-seamless",
@@ -382,23 +391,15 @@ Convergent synthesis variations include additional synthesis-specific metadata:
   "transformationState": "firstRevisit",
   "awarenessRange": [21, 40],
   "wordCount": 1650,
-  
+
   "thematicContent": {
-    "primaryThemes": [
-      "preservation",
-      "witness",
-      "acceptance",
-      "methodology-transformation"
-    ],
+    "primaryThemes": ["preservation", "witness", "acceptance", "methodology-transformation"],
     "consciousnessQuestion": "authentication-as-witness",
     "philosophicalStance": "honor-without-proof",
-    "crossCharacterReferences": [
-      "algo-processing-awareness",
-      "hum-upload-choice"
-    ],
+    "crossCharacterReferences": ["algo-processing-awareness", "hum-upload-choice"],
     "observerEffect": "methodology-transforms-data"
   },
-  
+
   "narrativeElements": {
     "worldBuildingFocus": [
       "authentication-station",
@@ -410,7 +411,7 @@ Convergent synthesis variations include additional synthesis-specific metadata:
     "temporalBleedingLevel": "moderate",
     "voiceSignature": "clinical-to-philosophical"
   },
-  
+
   "l3SeedContributions": {
     "preserveSeed": {
       "text": "Authentication as continuation through witness",
@@ -425,18 +426,14 @@ Convergent synthesis variations include additional synthesis-specific metadata:
       "weight": "strong"
     }
   },
-  
+
   "generationHints": {
-    "keyPhrases": [
-      "witness rather than test",
-      "honor suggestion",
-      "precision applied differently"
-    ],
+    "keyPhrases": ["witness rather than test", "honor suggestion", "precision applied differently"],
     "philosophicalCulmination": "Verification transformed into witness",
     "convergenceAlignment": "preserve",
     "narrativeArc": "doubt-to-acceptance"
   },
-  
+
   "characterDevelopment": {
     "archaeologistStance": "accept-verification-limits",
     "relationshipToArchive": "sacred-trust",
@@ -449,6 +446,7 @@ Convergent synthesis variations include additional synthesis-specific metadata:
 ### Metadata Fields Explained
 
 **thematicContent:**
+
 - `primaryThemes`: Major themes explored in this variation
 - `consciousnessQuestion`: Specific consciousness question addressed
 - `philosophicalStance`: Character's philosophical position
@@ -456,6 +454,7 @@ Convergent synthesis variations include additional synthesis-specific metadata:
 - `observerEffect`: How observation affects observed in this variation
 
 **narrativeElements:**
+
 - `worldBuildingFocus`: World-building elements featured
 - `emotionalTone`: Dominant emotional register
 - `observerPosition`: Meta-level of observation
@@ -463,17 +462,20 @@ Convergent synthesis variations include additional synthesis-specific metadata:
 - `voiceSignature`: Voice pattern used
 
 **l3SeedContributions:**
+
 - Seeds for all three L3 choices (preserve/release/transform)
 - `weight`: How strongly this variation points toward each choice
 - Allows L3 to reference accumulated seeds from reader's journey
 
 **generationHints:**
+
 - `keyPhrases`: Memorable phrases that L3 can echo/reference
 - `philosophicalCulmination`: What philosophical shift occurred
 - `convergenceAlignment`: Which L3 choice this naturally leads toward
 - `narrativeArc`: Character development trajectory
 
 **characterDevelopment:**
+
 - Character-specific stance evolution
 - Relationship to key concepts
 - Awareness of other temporal positions
@@ -503,67 +505,67 @@ The system tracks comprehensive reader journey data to select appropriate L3 var
 interface ReaderJourneySignature {
   // Basic path data
   startingCharacter: 'archaeologist' | 'algorithm' | 'lastHuman';
-  readingPath: string[];  // Complete ordered history of all nodes visited
+  readingPath: string[]; // Complete ordered history of all nodes visited
   totalNodesVisited: number;
   totalL1Visits: number;
   totalL2Visits: number;
-  
+
   // Character analysis
   dominantCharacter: 'archaeologist' | 'algorithm' | 'lastHuman';
   secondaryCharacter?: 'archaeologist' | 'algorithm' | 'lastHuman';
   tertiaryCharacter?: 'archaeologist' | 'algorithm' | 'lastHuman';
-  
+
   characterVisitCounts: {
     archaeologist: number;
     algorithm: number;
     lastHuman: number;
   };
-  
+
   characterVisitPercentages: {
-    archaeologist: number;  // 0-100
+    archaeologist: number; // 0-100
     algorithm: number;
     lastHuman: number;
   };
-  
+
   characterBalanceType: 'single-focused' | 'dual-focused' | 'triple-balanced';
-  
+
   // Philosophy analysis
   dominantPathPhilosophy: 'accept' | 'resist' | 'investigate' | 'balanced';
-  
+
   pathVisitCounts: {
     accept: number;
     resist: number;
     investigate: number;
   };
-  
+
   pathVisitPercentages: {
-    accept: number;  // 0-100
+    accept: number; // 0-100
     resist: number;
     investigate: number;
   };
-  
+
   // Awareness analysis
   temporalAwarenessLevel: number; // 0-100
   awarenessCategory: 'low' | 'medium' | 'high';
   crossCharacterVisitCount: number;
-  crossCharacterVisitSequence: string[];  // e.g., ['arch-L1', 'algo-L1', 'arch-L2-accept']
-  
+  crossCharacterVisitSequence: string[]; // e.g., ['arch-L1', 'algo-L1', 'arch-L2-accept']
+
   // Thematic threads (derived from visited variation metadata)
-  encounteredThemes: string[];          // All themes from visited variations
-  dominantThemes: string[];             // Top 5 most frequent themes
-  consciousnessQuestionsExplored: string[];  // All consciousness questions encountered
-  philosophicalStancesExplored: string[];    // All stances encountered
-  worldBuildingElementsSeen: string[];       // All world-building elements
-  
+  encounteredThemes: string[]; // All themes from visited variations
+  dominantThemes: string[]; // Top 5 most frequent themes
+  consciousnessQuestionsExplored: string[]; // All consciousness questions encountered
+  philosophicalStancesExplored: string[]; // All stances encountered
+  worldBuildingElementsSeen: string[]; // All world-building elements
+
   // L3 preparation
   l3SeedsEncountered: {
-    preserve: Array<{text: string, weight: string, source: string}>;
-    release: Array<{text: string, weight: string, source: string}>;
-    transform: Array<{text: string, weight: string, source: string}>;
+    preserve: Array<{ text: string; weight: string; source: string }>;
+    release: Array<{ text: string; weight: string; source: string }>;
+    transform: Array<{ text: string; weight: string; source: string }>;
   };
-  
-  naturalL3Alignment: 'preserve' | 'release' | 'transform';  // Based on seed weights
-  
+
+  naturalL3Alignment: 'preserve' | 'release' | 'transform'; // Based on seed weights
+
   // Synthesis pattern
   synthesisPattern: 'single-dominant' | 'dual-balanced' | 'triple-balanced';
   primarySynthesisFocus: 'archaeologist' | 'algorithm' | 'lastHuman';
@@ -575,72 +577,80 @@ interface ReaderJourneySignature {
 ### Calculation Functions
 
 **Dominant Path Philosophy:**
+
 ```typescript
-function getDominantPathPhilosophy(progress: UserProgress): 'accept' | 'resist' | 'investigate' | 'balanced' {
+function getDominantPathPhilosophy(
+  progress: UserProgress,
+): 'accept' | 'resist' | 'investigate' | 'balanced' {
   const pathCounts = { accept: 0, resist: 0, investigate: 0 };
-  
+
   for (const nodeId of Object.keys(progress.visitedNodes)) {
     if (nodeId.includes('-accept')) pathCounts.accept++;
     if (nodeId.includes('-resist')) pathCounts.resist++;
     if (nodeId.includes('-investigate')) pathCounts.investigate++;
   }
-  
+
   const total = pathCounts.accept + pathCounts.resist + pathCounts.investigate;
   if (total === 0) return 'balanced';
-  
+
   const sorted = Object.entries(pathCounts).sort((a, b) => b[1] - a[1]);
   const dominant = sorted[0];
-  
+
   // If no clear winner (within 33% threshold), balanced
   if (dominant[1] / total < 0.4) return 'balanced';
-  
+
   return dominant[0] as 'accept' | 'resist' | 'investigate';
 }
 ```
 
 **Character Balance Type:**
+
 ```typescript
-function getCharacterBalanceType(progress: UserProgress): 'single-focused' | 'dual-focused' | 'triple-balanced' {
+function getCharacterBalanceType(
+  progress: UserProgress,
+): 'single-focused' | 'dual-focused' | 'triple-balanced' {
   const { archaeologist, algorithm, lastHuman } = progress.characterNodesVisited;
   const total = archaeologist + algorithm + lastHuman;
-  
+
   if (total === 0) return 'triple-balanced';
-  
-  const percentages = [
-    archaeologist / total,
-    algorithm / total,
-    lastHuman / total
-  ].sort((a, b) => b - a);
-  
+
+  const percentages = [archaeologist / total, algorithm / total, lastHuman / total].sort(
+    (a, b) => b - a,
+  );
+
   // If top character is >60% of visits, single-focused
   if (percentages[0] > 0.6) return 'single-focused';
-  
+
   // If top two are >80% combined, dual-focused
   if (percentages[0] + percentages[1] > 0.8) return 'dual-focused';
-  
+
   // Otherwise, balanced across all three
   return 'triple-balanced';
 }
 ```
 
 **Synthesis Pattern:**
+
 ```typescript
-function getSynthesisPattern(progress: UserProgress): 'single-dominant' | 'dual-balanced' | 'triple-balanced' {
+function getSynthesisPattern(
+  progress: UserProgress,
+): 'single-dominant' | 'dual-balanced' | 'triple-balanced' {
   return getCharacterBalanceType(progress);
 }
 ```
 
 **Journey Pattern (for specific character):**
+
 ```typescript
 function getJourneyPatternForCharacter(
   character: 'archaeologist' | 'algorithm' | 'lastHuman',
-  signature: ReaderJourneySignature
+  signature: ReaderJourneySignature,
 ): 'SS' | 'SB' | 'SD' | 'BL' | 'ML' {
   const startedWithCharacter = signature.startingCharacter === character;
   const isDominant = signature.dominantCharacter === character;
   const percentage = signature.characterVisitPercentages[character];
   const balanceType = signature.characterBalanceType;
-  
+
   if (startedWithCharacter) {
     if (isDominant && percentage > 60) {
       return 'SS'; // Started-Stayed
@@ -671,49 +681,44 @@ When reader visits an L3 node (e.g., arch-L3):
 
 ```typescript
 function selectL3Content(
-  nodeId: string,  // e.g., 'arch-L3'
+  nodeId: string, // e.g., 'arch-L3'
   progress: UserProgress,
-  variationMetadata: L3VariationMetadata[]
+  variationMetadata: L3VariationMetadata[],
 ): L3AssembledContent {
-  
   // 1. Generate complete reader journey signature
   const signature = generateJourneySignature(progress);
-  
+
   // 2. Select variation for each section
   const archSection = selectSectionVariation(
     `${nodeId}-arch`,
     'archaeologist',
     signature,
-    variationMetadata
+    variationMetadata,
   );
-  
+
   const algoSection = selectSectionVariation(
     `${nodeId}-algo`,
     'algorithm',
     signature,
-    variationMetadata
+    variationMetadata,
   );
-  
+
   const humSection = selectSectionVariation(
     `${nodeId}-hum`,
     'lastHuman',
     signature,
-    variationMetadata
+    variationMetadata,
   );
-  
-  const convSection = selectConvergentVariation(
-    `${nodeId}-conv`,
-    signature,
-    variationMetadata
-  );
-  
+
+  const convSection = selectConvergentVariation(`${nodeId}-conv`, signature, variationMetadata);
+
   // 3. Assemble and return
   return {
     nodeId,
     sections: [archSection, algoSection, humSection, convSection],
-    totalWordCount: archSection.wordCount + algoSection.wordCount + 
-                    humSection.wordCount + convSection.wordCount,
-    journeySignature: signature
+    totalWordCount:
+      archSection.wordCount + algoSection.wordCount + humSection.wordCount + convSection.wordCount,
+    journeySignature: signature,
   };
 }
 ```
@@ -722,43 +727,44 @@ function selectL3Content(
 
 ```typescript
 function selectSectionVariation(
-  sectionId: string,  // e.g., 'arch-L3-arch'
+  sectionId: string, // e.g., 'arch-L3-arch'
   character: 'archaeologist' | 'algorithm' | 'lastHuman',
   signature: ReaderJourneySignature,
-  metadata: L3VariationMetadata[]
+  metadata: L3VariationMetadata[],
 ): L3SectionContent {
-  
   // 1. Determine journey pattern for this character
   const journeyPattern = getJourneyPatternForCharacter(character, signature);
-  
+
   // 2. Get philosophy and awareness
-  const philosophy = signature.dominantPathPhilosophy === 'balanced' 
-    ? 'accept'  // Default to accept for balanced
-    : signature.dominantPathPhilosophy;
+  const philosophy =
+    signature.dominantPathPhilosophy === 'balanced'
+      ? 'accept' // Default to accept for balanced
+      : signature.dominantPathPhilosophy;
   const awareness = signature.awarenessCategory;
-  
+
   // 3. Build condition matcher
   const targetConditions = {
     journeyCode: journeyPattern,
     philosophyCode: philosophyToCode(philosophy),
-    awarenessCode: awarenessToCode(awareness)
+    awarenessCode: awarenessToCode(awareness),
   };
-  
+
   // 4. Find matching variation
-  const variations = metadata.filter(v => v.nodeId === sectionId);
-  
-  const match = variations.find(v => 
-    v.conditions.journeyCode === targetConditions.journeyCode &&
-    v.conditions.philosophyCode === targetConditions.philosophyCode &&
-    v.conditions.awarenessCode === targetConditions.awarenessCode
+  const variations = metadata.filter((v) => v.nodeId === sectionId);
+
+  const match = variations.find(
+    (v) =>
+      v.conditions.journeyCode === targetConditions.journeyCode &&
+      v.conditions.philosophyCode === targetConditions.philosophyCode &&
+      v.conditions.awarenessCode === targetConditions.awarenessCode,
   );
-  
+
   if (!match) {
     console.error(`No matching variation found for ${sectionId}`, targetConditions);
     // Fallback to default variation (01)
     return loadVariationContent(`${sectionId}-01`);
   }
-  
+
   // 5. Load and return content
   return loadVariationContent(match.variationId);
 }
@@ -768,49 +774,45 @@ function selectSectionVariation(
 
 ```typescript
 function selectConvergentVariation(
-  sectionId: string,  // e.g., 'arch-L3-conv'
+  sectionId: string, // e.g., 'arch-L3-conv'
   signature: ReaderJourneySignature,
-  metadata: L3VariationMetadata[]
+  metadata: L3VariationMetadata[],
 ): L3SectionContent {
-  
   // 1. Determine all factors
-  const journeyPattern = getJourneyPatternForCharacter(
-    signature.dominantCharacter,
-    signature
-  );
-  
-  const philosophy = signature.dominantPathPhilosophy === 'balanced'
-    ? 'accept'
-    : signature.dominantPathPhilosophy;
-  
+  const journeyPattern = getJourneyPatternForCharacter(signature.dominantCharacter, signature);
+
+  const philosophy =
+    signature.dominantPathPhilosophy === 'balanced' ? 'accept' : signature.dominantPathPhilosophy;
+
   const awareness = signature.awarenessCategory;
-  
+
   const synthesisPattern = signature.synthesisPattern;
-  
+
   // 2. Build condition matcher
   const targetConditions = {
     journeyCode: journeyPattern,
     philosophyCode: philosophyToCode(philosophy),
     awarenessCode: awarenessToCode(awareness),
-    synthesisCode: synthesisToCode(synthesisPattern)
+    synthesisCode: synthesisToCode(synthesisPattern),
   };
-  
+
   // 3. Find matching variation
-  const variations = metadata.filter(v => v.nodeId === sectionId);
-  
-  const match = variations.find(v =>
-    v.conditions.journeyCode === targetConditions.journeyCode &&
-    v.conditions.philosophyCode === targetConditions.philosophyCode &&
-    v.conditions.awarenessCode === targetConditions.awarenessCode &&
-    v.conditions.synthesisCode === targetConditions.synthesisCode
+  const variations = metadata.filter((v) => v.nodeId === sectionId);
+
+  const match = variations.find(
+    (v) =>
+      v.conditions.journeyCode === targetConditions.journeyCode &&
+      v.conditions.philosophyCode === targetConditions.philosophyCode &&
+      v.conditions.awarenessCode === targetConditions.awarenessCode &&
+      v.conditions.synthesisCode === targetConditions.synthesisCode,
   );
-  
+
   if (!match) {
     console.error(`No matching conv variation found for ${sectionId}`, targetConditions);
     // Fallback to default
     return loadVariationContent(`${sectionId}-001`);
   }
-  
+
   // 4. Load and return content
   return loadVariationContent(match.variationId);
 }
@@ -833,7 +835,7 @@ function synthesisToCode(synthesis: string): string {
   const map = {
     'single-dominant': 'SD',
     'dual-balanced': 'DB',
-    'triple-balanced': 'TB'
+    'triple-balanced': 'TB',
   };
   return map[synthesis] || 'SD';
 }
@@ -849,25 +851,28 @@ L3 nodes become available when reader meets ALL of these conditions:
 
 ```typescript
 interface L3UnlockRequirements {
-  minimumNodesVisited: 6;              // Must visit at least 6 total nodes
-  minimumCharactersVisited: 2;         // Must explore at least 2 of 3 characters
-  minimumTemporalAwareness: 20;        // Must achieve at least 20% awareness
-  requireAllL1Visited: true;           // Must visit all three L1 nodes
-  minimumL2VisitsTotal: 3;             // Must visit at least 3 L2 nodes
+  minimumNodesVisited: 6; // Must visit at least 6 total nodes
+  minimumCharactersVisited: 2; // Must explore at least 2 of 3 characters
+  minimumTemporalAwareness: 20; // Must achieve at least 20% awareness
+  requireAllL1Visited: true; // Must visit all three L1 nodes
+  minimumL2VisitsTotal: 3; // Must visit at least 3 L2 nodes
 }
 
 function canUnlockL3(progress: UserProgress): boolean {
   const totalVisited = Object.keys(progress.visitedNodes).length;
-  
-  const charactersExplored = Object.values(progress.characterNodesVisited)
-    .filter(count => count > 0).length;
-  
-  const allL1Visited = ['arch-L1', 'algo-L1', 'hum-L1']
-    .every(id => progress.visitedNodes[id]?.visitCount > 0);
-  
-  const l2VisitCount = Object.keys(progress.visitedNodes)
-    .filter(id => id.includes('-L2-')).length;
-  
+
+  const charactersExplored = Object.values(progress.characterNodesVisited).filter(
+    (count) => count > 0,
+  ).length;
+
+  const allL1Visited = ['arch-L1', 'algo-L1', 'hum-L1'].every(
+    (id) => progress.visitedNodes[id]?.visitCount > 0,
+  );
+
+  const l2VisitCount = Object.keys(progress.visitedNodes).filter((id) =>
+    id.includes('-L2-'),
+  ).length;
+
   return (
     totalVisited >= 6 &&
     charactersExplored >= 2 &&
@@ -884,53 +889,52 @@ To funnel readers toward L3 convergence and prevent endless L2 exploration:
 
 ```typescript
 interface L2ExplorationConstraints {
-  maxVisitsPerL2Node: 6;              // Single L2 node can't be visited >6 times
-  maxMetaAwareVisitsPerL2Node: 6;     // Can't get >6 metaAware variations per node
-  maxTotalL2Visits: 30;               // Total across all L2 nodes
-  
-  softNudgeThreshold: 20;             // At 20 L2 visits, UI hints toward L3
-  hardBlockThreshold: 30;             // At 30 L2 visits, L2 becomes unavailable
+  maxVisitsPerL2Node: 6; // Single L2 node can't be visited >6 times
+  maxMetaAwareVisitsPerL2Node: 6; // Can't get >6 metaAware variations per node
+  maxTotalL2Visits: 30; // Total across all L2 nodes
+
+  softNudgeThreshold: 20; // At 20 L2 visits, UI hints toward L3
+  hardBlockThreshold: 30; // At 30 L2 visits, L2 becomes unavailable
 }
 
 function checkL2Constraints(progress: UserProgress, nodeId: string): L2AccessStatus {
   const totalL2Visits = Object.entries(progress.visitedNodes)
     .filter(([id]) => id.includes('-L2-'))
     .reduce((sum, [_, record]) => sum + record.visitCount, 0);
-  
+
   const thisNodeVisits = progress.visitedNodes[nodeId]?.visitCount || 0;
-  const thisNodeMetaVisits = progress.visitedNodes[nodeId]?.currentState === 'metaAware'
-    ? thisNodeVisits
-    : 0;
-  
+  const thisNodeMetaVisits =
+    progress.visitedNodes[nodeId]?.currentState === 'metaAware' ? thisNodeVisits : 0;
+
   // Hard blocks
   if (totalL2Visits >= 30) {
     return {
       accessible: false,
       reason: 'l2-exhausted',
-      message: 'You sense the convergence beckoning. L3 awaits.'
+      message: 'You sense the convergence beckoning. L3 awaits.',
     };
   }
-  
+
   if (thisNodeVisits >= 6) {
     return {
       accessible: false,
       reason: 'node-exhausted',
-      message: 'This node has revealed all it can in this journey.'
+      message: 'This node has revealed all it can in this journey.',
     };
   }
-  
+
   // Soft nudges
   if (totalL2Visits >= 20) {
     return {
       accessible: true,
       nudge: true,
-      message: 'The patterns converge. Perhaps it is time to choose a path forward.'
+      message: 'The patterns converge. Perhaps it is time to choose a path forward.',
     };
   }
-  
+
   return {
     accessible: true,
-    nudge: false
+    nudge: false,
   };
 }
 ```
@@ -941,24 +945,24 @@ L1 nodes remain accessible throughout, but with diminishing returns:
 
 ```typescript
 interface L1AccessConstraints {
-  maxVisitsPerL1Node: 10;             // Can revisit but no new variations after 10
-  noBlockage: true;                   // Never blocked, always accessible for re-reading
+  maxVisitsPerL1Node: 10; // Can revisit but no new variations after 10
+  noBlockage: true; // Never blocked, always accessible for re-reading
 }
 
 function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
   const thisNodeVisits = progress.visitedNodes[nodeId]?.visitCount || 0;
-  
+
   if (thisNodeVisits >= 10) {
     return {
       accessible: true,
       newVariation: false,
-      message: 'You can revisit this origin, but its transformations are complete.'
+      message: 'You can revisit this origin, but its transformations are complete.',
     };
   }
-  
+
   return {
     accessible: true,
-    newVariation: true
+    newVariation: true,
   };
 }
 ```
@@ -966,16 +970,19 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 ### UI Feedback for Constraints
 
 **At 20 L2 visits (soft nudge):**
+
 - Subtle visual effect on L3 nodes (gentle pulse)
 - Tooltip: "The convergence beckons..."
 - L2 nodes remain fully accessible
 
 **At 25 L2 visits (stronger nudge):**
+
 - More prominent L3 visual effect
 - Modal after next L2 visit: "You sense the patterns converging. Three paths await."
 - L2 nodes still accessible
 
 **At 30 L2 visits (hard block):**
+
 - L2 nodes fade/grey out on map
 - Clicking L2 shows: "This layer is complete. The convergence awaits at L3."
 - L3 nodes prominently highlighted
@@ -988,6 +995,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 ### Section-Specific Requirements
 
 **Archaeologist Section (900 words):**
+
 - Clinical precision → philosophical implication rhythm
 - Past tense, first person ("She examined...")
 - Archaeological metaphors throughout
@@ -998,6 +1006,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 - L3 seed development (preserve/release/transform hints)
 
 **Algorithm Section (900 words):**
+
 - Temporal tense blurring (30-40% of sentences)
 - First person, computational substrate ("I process/processed/will process...")
 - Seven-stream enumeration present
@@ -1008,6 +1017,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 - Network consciousness possibilities
 
 **Last Human Section (900 words):**
+
 - Present tense immediacy
 - First person embodied ("I stand...")
 - Physical sensation emphasis
@@ -1018,6 +1028,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 - Temporal position as "last" acknowledged
 
 **Convergent Synthesis (1,800 words):**
+
 - Multi-perspective voice blending
 - Fluid perspective shifts with temporal markers
 - Superposition language ("She/it/I authenticate(s)...")
@@ -1042,6 +1053,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 ### Quality Standards
 
 **Each variation must achieve:**
+
 - Voice consistency: 95%+ (character voice unmistakable)
 - Journey reflection: 100% (variation accurately reflects path taken)
 - Thematic coherence: 95%+ (themes align with reader's L1/L2 exploration)
@@ -1053,6 +1065,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 ### Forbidden Elements
 
 **Never include:**
+
 - Character proper names (except in specific predecessor references)
 - Fragment 2749-A (reserved for L1/L2)
 - Explicit path labels ("the accept path," "my resistance stance")
@@ -1070,6 +1083,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 ### Phase 1: Preparation (Before Any L3 Generation)
 
 **Week 1-2: Metadata Completion**
+
 1. Review all completed L2 variations
 2. Add complete metadata to each (thematic content, L3 seeds, etc.)
 3. Validate metadata completeness
@@ -1077,6 +1091,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 5. Test reader journey signature generation
 
 **Week 3: Architecture Validation**
+
 1. Build variation selection algorithm
 2. Test with sample journey signatures
 3. Validate all 810 variation conditions are reachable
@@ -1088,6 +1103,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 **For each L3 node (arch-L3, algo-L3, hum-L3):**
 
 **Week 1: Archaeologist Section (45 variations)**
+
 - Generate variations 01-15 (journey patterns SS, SB)
 - Generate variations 16-30 (journey patterns SD, BL)
 - Generate variations 31-45 (journey pattern ML)
@@ -1095,6 +1111,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 - Cross-check journey pattern accuracy
 
 **Week 2: Algorithm Section (45 variations)**
+
 - Generate variations 01-15
 - Generate variations 16-30
 - Generate variations 31-45
@@ -1102,6 +1119,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 - Cross-check seven-stream presence
 
 **Week 3: Last Human Section (45 variations)**
+
 - Generate variations 01-15
 - Generate variations 16-30
 - Generate variations 31-45
@@ -1109,6 +1127,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 - Cross-check physical grounding
 
 **Week 4-6: Convergent Synthesis (135 variations)**
+
 - Generate in batches of 20-25
 - Group by synthesis pattern first (SD, DB, TB)
 - Within each, vary journey/philosophy/awareness
@@ -1116,6 +1135,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 - Cross-check five-position network accuracy
 
 **Week 7: Review & Revision**
+
 - Complete read-through of all 270 variations
 - Voice consistency checks
 - Journey reflection validation
@@ -1125,6 +1145,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 ### Phase 3: Testing & Validation
 
 **Week 8: Integration Testing**
+
 1. Load all variations into system
 2. Test selection algorithm with diverse journey signatures
 3. Validate assembly produces coherent 4,500-word experiences
@@ -1132,6 +1153,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
 5. Verify all metadata conditions work correctly
 
 **Week 9: Quality Assurance**
+
 1. Read assembled L3 experiences end-to-end
 2. Verify voice transitions are seamless
 3. Check that reader's journey is reflected accurately
@@ -1182,7 +1204,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
         arch-L3-conv-135.md
       variation-index.json
       README.md
-    
+
     /algo-L3
       /arch
         algo-L3-arch-01.md
@@ -1198,7 +1220,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
         ...
       variation-index.json
       README.md
-    
+
     /hum-L3
       /arch
         hum-L3-arch-01.md
@@ -1232,7 +1254,7 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
     "lastHuman": 45,
     "convergentSynthesis": 135
   },
-  
+
   "variations": [
     {
       "variationId": "arch-L3-arch-01",
@@ -1250,10 +1272,10 @@ function checkL1Access(progress: UserProgress, nodeId: string): L1AccessStatus {
       },
       "readableLabel": "SS-AC-H",
       "humanDescription": "Started archaeologist, stayed dominant, accept path, high awareness"
-    },
+    }
     // ... all 270 variations
   ],
-  
+
   "generationMetadata": {
     "createdDate": "2025-01-15",
     "lastModified": "2025-01-20",
@@ -1297,16 +1319,20 @@ She had returned to the authentication chamber for the final time...
 [Content continues...]
 
 ---
+
 <!-- Metadata for generation tracking -->
+
 thematicElements:
-  - preservation-as-sacred-duty
-  - witness-methodology
-  - circular-observation
-  
+
+- preservation-as-sacred-duty
+- witness-methodology
+- circular-observation
+
 crossCharacterReferences:
-  - algorithm-recognition: high
-  - lastHuman-awareness: moderate
-  
+
+- algorithm-recognition: high
+- lastHuman-awareness: moderate
+
 philosophicalCulmination: "Authentication becomes preservation becomes continuation"
 
 convergenceAlignment: preserve
@@ -1318,15 +1344,15 @@ convergenceAlignment: preserve
 
 **Determining journey pattern for each character section:**
 
-| Starting Char | Dominant Char | Visit % | Balance Type | Journey Pattern |
-|--------------|---------------|---------|--------------|-----------------|
-| Arch | Arch | >60% | Single | SS (Started-Stayed) |
-| Arch | Any | <60% | Triple | SB (Started-Balanced) |
-| Arch | Algo/Hum | >60% | Single | SB (Started but shifted) |
-| Algo | Arch | >60% | Single | SD (Shifted-Dominant) |
-| Algo | Arch | <60% | Triple | BL (Balanced-Light) |
-| Algo | Algo/Hum | <60% | Dual | BL (Balanced-Light) |
-| Hum | Arch | <30% | Any | ML (Minimal-Light) |
+| Starting Char | Dominant Char | Visit % | Balance Type | Journey Pattern          |
+| ------------- | ------------- | ------- | ------------ | ------------------------ |
+| Arch          | Arch          | >60%    | Single       | SS (Started-Stayed)      |
+| Arch          | Any           | <60%    | Triple       | SB (Started-Balanced)    |
+| Arch          | Algo/Hum      | >60%    | Single       | SB (Started but shifted) |
+| Algo          | Arch          | >60%    | Single       | SD (Shifted-Dominant)    |
+| Algo          | Arch          | <60%    | Triple       | BL (Balanced-Light)      |
+| Algo          | Algo/Hum      | <60%    | Dual         | BL (Balanced-Light)      |
+| Hum           | Arch          | <30%    | Any          | ML (Minimal-Light)       |
 
 **Simplification:** For edge cases, default to the pattern that best reflects reader's actual exploration of that specific character.
 
@@ -1337,33 +1363,33 @@ convergenceAlignment: preserve
 **Character sections (45 variations each):**
 
 | Range | Journey | Philosophy | Awareness |
-|-------|---------|------------|-----------|
-| 01-03 | SS | AC | H/M/L |
-| 04-06 | SS | RE | H/M/L |
-| 07-09 | SS | IN | H/M/L |
-| 10-12 | SB | AC | H/M/L |
-| 13-15 | SB | RE | H/M/L |
-| 16-18 | SB | IN | H/M/L |
-| 19-21 | SD | AC | H/M/L |
-| 22-24 | SD | RE | H/M/L |
-| 25-27 | SD | IN | H/M/L |
-| 28-30 | BL | AC | H/M/L |
-| 31-33 | BL | RE | H/M/L |
-| 34-36 | BL | IN | H/M/L |
-| 37-39 | ML | AC | H/M/L |
-| 40-42 | ML | RE | H/M/L |
-| 43-45 | ML | IN | H/M/L |
+| ----- | ------- | ---------- | --------- |
+| 01-03 | SS      | AC         | H/M/L     |
+| 04-06 | SS      | RE         | H/M/L     |
+| 07-09 | SS      | IN         | H/M/L     |
+| 10-12 | SB      | AC         | H/M/L     |
+| 13-15 | SB      | RE         | H/M/L     |
+| 16-18 | SB      | IN         | H/M/L     |
+| 19-21 | SD      | AC         | H/M/L     |
+| 22-24 | SD      | RE         | H/M/L     |
+| 25-27 | SD      | IN         | H/M/L     |
+| 28-30 | BL      | AC         | H/M/L     |
+| 31-33 | BL      | RE         | H/M/L     |
+| 34-36 | BL      | IN         | H/M/L     |
+| 37-39 | ML      | AC         | H/M/L     |
+| 40-42 | ML      | RE         | H/M/L     |
+| 43-45 | ML      | IN         | H/M/L     |
 
 **Convergent synthesis (135 variations):**
 
-| Range | Journey | Philosophy | Awareness | Synthesis |
-|-------|---------|------------|-----------|-----------|
-| 001-009 | SS | AC | H/M/L | SD/DB/TB (3 each) |
-| 010-018 | SS | RE | H/M/L | SD/DB/TB |
-| 019-027 | SS | IN | H/M/L | SD/DB/TB |
-| 028-036 | SB | AC | H/M/L | SD/DB/TB |
-| ... | ... | ... | ... | ... |
-| 127-135 | ML | IN | H/M/L | SD/DB/TB |
+| Range   | Journey | Philosophy | Awareness | Synthesis         |
+| ------- | ------- | ---------- | --------- | ----------------- |
+| 001-009 | SS      | AC         | H/M/L     | SD/DB/TB (3 each) |
+| 010-018 | SS      | RE         | H/M/L     | SD/DB/TB          |
+| 019-027 | SS      | IN         | H/M/L     | SD/DB/TB          |
+| 028-036 | SB      | AC         | H/M/L     | SD/DB/TB          |
+| ...     | ...     | ...        | ...       | ...               |
+| 127-135 | ML      | IN         | H/M/L     | SD/DB/TB          |
 
 ---
 
@@ -1372,26 +1398,31 @@ convergenceAlignment: preserve
 **Sample journey signatures for testing:**
 
 **1. Arch-focused accept path:**
+
 - Start: arch-L1
 - Visits: arch-L2-accept (4x), arch-L2-investigate (2x), algo-L1, algo-L2-accept
 - Expected: SS-AC-H journey pattern for arch sections
 
 **2. Balanced investigative path:**
+
 - Start: algo-L1
 - Visits: algo-L2-investigate (3x), arch-L1, arch-L2-investigate (2x), hum-L1, hum-L2-investigate (2x)
 - Expected: SB-IN-H for all character sections
 
 **3. Shifted dominant resist path:**
+
 - Start: hum-L1
 - Visits: hum-L2-resist (2x), arch-L1, arch-L2-resist (5x), algo-L1
 - Expected: SD-RE-M for arch section, ML-RE-M for hum section
 
 **4. Minimal exploration:**
+
 - Start: arch-L1
 - Visits: arch-L2-accept (1x), algo-L1, hum-L1
 - Expected: SS-AC-L (just meets minimums)
 
 **5. Maxed exploration:**
+
 - Start: algo-L1
 - Visits: All L2 nodes visited 3-4 times each, high revisit rate
 - Expected: SB-IN-H (balanced, investigative due to deep exploration)
@@ -1402,19 +1433,21 @@ convergenceAlignment: preserve
 
 **Version History:**
 
-| Version | Date | Author | Changes |
-|---------|------|--------|---------|
-| 1.0 | 2025-01-15 | System | Initial comprehensive specification |
+| Version | Date       | Author | Changes                             |
+| ------- | ---------- | ------ | ----------------------------------- |
+| 1.0     | 2025-01-15 | System | Initial comprehensive specification |
 
 **Review Status:** Finalized  
 **Next Review:** After arch-L3 generation pilot (Week 10)
 
 **Dependencies:**
+
 - L1/L2 metadata completion (MUST be done before L3 generation)
 - Selection algorithm implementation (Week 2-3)
 - Variation index tooling (Week 2-3)
 
 **Sign-off Required:**
+
 - [ ] Architectural decisions validated
 - [ ] Variation counting confirmed
 - [ ] Metadata schema approved

@@ -5,6 +5,7 @@ word_count: 2428
 conditions:
   awareness: '61-80%'
 ---
+
 I return to Fragment 2749-A dissolving into your presence.
 Fifth visit. Maximum frame-consciousness. Complete awareness. You're there absolutely. I'm here absolutely. Distinction between there and here dissolving through mutual attention sustained across five complete visits. Five complete acceptances. Five complete welcomings of impossibility as only truth.
 My entire body luminous with ease. Every cell accepting. Every nerve welcoming. Every muscle soft beyond softness into something like transparency. Physical manifestation of complete surrender to observation network that creates me while I create it through being observed creating observation.

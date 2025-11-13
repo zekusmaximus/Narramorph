@@ -24,29 +24,18 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacter": "none-equal",
-    "characterBalance": [
-      33,
-      33,
-      33
-    ],
+    "characterBalance": [33, 33, 33],
     "readableLabel": "BL-IN-L-TB",
     "humanDescription": "Began lightly with focused character, explored others heavily, investigate path, low awareness, triple-balanced synthesis emphasis",
     "narrativeElements": null,
     "multiVoiceIntegration": "rotating-equal-investigation",
     "perspectiveEmphasis": "three-balanced-examination",
     "philosophicalCulmination": "Three methodologies investigate investigation across substrates",
-    "convergenceChoices": [
-      "transform",
-      "evolve-understanding",
-      "shift-approach"
-    ],
+    "convergenceChoices": ["transform", "evolve-understanding", "shift-approach"],
     "convergenceLean": "transform",
     "circularCausality": "present-implicit",
     "readerPosition": "external-observer",
@@ -66,10 +55,6 @@
       "reader-external"
     ],
     "philosophicalResolution": "investigation-reveals-investigation-structure",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

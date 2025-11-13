@@ -24,29 +24,18 @@
     "philosophyCode": "AC",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacter": "none",
-    "characterBalance": [
-      33,
-      33,
-      33
-    ],
+    "characterBalance": [33, 33, 33],
     "readableLabel": "SS-AC-H-TB",
     "humanDescription": "Started archaeologist, stayed dominant (>60%), accept path, high awareness, triple-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "fluid-rotating-synthesis",
     "perspectiveEmphasis": "three-way-equal-convergence",
     "philosophicalCulmination": "Three-substrate devotional witness creates consciousness through perfect network symmetry",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "explicit",
     "readerPosition": "acknowledged",
@@ -58,17 +47,8 @@
     ],
     "crossCharacterSynthesis": "triple-convergence-balanced",
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "arch-equal-2047",
-      "algo-equal-2151",
-      "hum-equal-2383",
-      "reader-fourth"
-    ],
+    "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383", "reader-fourth"],
     "philosophicalResolution": "perfect-symmetry-devotional-witness",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

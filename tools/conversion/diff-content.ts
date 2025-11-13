@@ -21,11 +21,14 @@ interface Manifest {
   generatorVersion: string;
   convertedAt: string;
   sourceRoot: string;
-  files: Record<string, {
-    sourceHash: string;
-    outputPath: string;
-    convertedAt: string;
-  }>;
+  files: Record<
+    string,
+    {
+      sourceHash: string;
+      outputPath: string;
+      convertedAt: string;
+    }
+  >;
   counts: {
     l1Variations: number;
     l2Variations: number;
@@ -76,7 +79,7 @@ async function main() {
   const projectRoot = resolve(process.cwd(), '../..');
   const defaultManifest = join(
     projectRoot,
-    'src/data/stories/eternal-return/content/manifest.json'
+    'src/data/stories/eternal-return/content/manifest.json',
   );
 
   const beforePath = resolve(values.before || defaultManifest);
@@ -113,7 +116,7 @@ async function diffManifests(
   beforePath: string,
   afterPath: string,
   summaryOnly: boolean | undefined,
-  logger: Logger
+  logger: Logger,
 ): Promise<void> {
   // Read manifests
   let before: Manifest;
@@ -282,8 +285,15 @@ function formatDiff(diff: number): string {
 
 // === Directory diff with canonicalized JSON and field-level diffs ===
 
-interface DirFieldChange { path: string; before: unknown; after: unknown }
-interface DirModified { file: string; changes: DirFieldChange[] }
+interface DirFieldChange {
+  path: string;
+  before: unknown;
+  after: unknown;
+}
+interface DirModified {
+  file: string;
+  changes: DirFieldChange[];
+}
 
 async function listJsonFiles(root: string, base?: string): Promise<string[]> {
   const results: string[] = [];
@@ -354,16 +364,21 @@ function deepDiff(before: unknown, after: unknown, path: string[] = []): DirFiel
   return changes;
 }
 
-async function diffDirectories(beforeDir: string, afterDir: string, summaryOnly: boolean | undefined, logger: Logger): Promise<void> {
+async function diffDirectories(
+  beforeDir: string,
+  afterDir: string,
+  summaryOnly: boolean | undefined,
+  logger: Logger,
+): Promise<void> {
   const beforeFiles = await listJsonFiles(beforeDir);
   const afterFiles = await listJsonFiles(afterDir);
 
   const beforeSet = new Set(beforeFiles);
   const afterSet = new Set(afterFiles);
 
-  const added = afterFiles.filter(f => !beforeSet.has(f));
-  const removed = beforeFiles.filter(f => !afterSet.has(f));
-  const common = afterFiles.filter(f => beforeSet.has(f));
+  const added = afterFiles.filter((f) => !beforeSet.has(f));
+  const removed = beforeFiles.filter((f) => !afterSet.has(f));
+  const common = afterFiles.filter((f) => beforeSet.has(f));
 
   const modified: DirModified[] = [];
   const unchanged: string[] = [];

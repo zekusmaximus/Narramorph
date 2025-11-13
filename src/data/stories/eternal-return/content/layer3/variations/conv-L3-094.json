@@ -61,10 +61,6 @@
     ],
     "convergenceChoiceFraming": "all-three-present-release-emphasized",
     "metaAwarenessDepth": "pattern-conscious-network-emerging",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

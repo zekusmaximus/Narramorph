@@ -23,10 +23,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "archaeologist",
@@ -58,10 +55,6 @@
     "lastHuman2383": "contributing-embodiment",
     "reader": "pattern-recognition",
     "narrative": "structure-emerging",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

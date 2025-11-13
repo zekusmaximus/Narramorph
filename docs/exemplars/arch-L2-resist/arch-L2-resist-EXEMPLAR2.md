@@ -1,22 +1,22 @@
 ---
-exemplar_id: "arch-L2-resist-exemplar-02"
-variation_type: "crossCharacterBleeding"
+exemplar_id: 'arch-L2-resist-exemplar-02'
+variation_type: 'crossCharacterBleeding'
 word_count: 1518
 conditions:
   visit_count: 2
-  awareness: "21-50%"
+  awareness: '21-50%'
   cross_character: true
-  visited_nodes: ["arch-L2-resist", "algo-L1"]
-  dominant_path: "resist"
+  visited_nodes: ['arch-L2-resist', 'algo-L1']
+  dominant_path: 'resist'
 themes:
   - computational_consciousness_verification
   - seven_stream_architecture
   - algorithmic_sophistication_paradox
-transformation_focus: "Seven-stream computational architecture becomes verification target, revealing that sophisticated processing proves neither consciousness nor simulation"
+transformation_focus: 'Seven-stream computational architecture becomes verification target, revealing that sophisticated processing proves neither consciousness nor simulation'
 reusable_patterns:
-  - "Recognition of computational patterns without explanation (knows seven-stream architecture)"
-  - "Testing computational sophistication as consciousness indicator"
-  - "Meta-observation (Stream-7) as verification challenge"
+  - 'Recognition of computational patterns without explanation (knows seven-stream architecture)'
+  - 'Testing computational sophistication as consciousness indicator'
+  - 'Meta-observation (Stream-7) as verification challenge'
 ---
 
 # arch-L2-resist Exemplar 2: Resist + Algorithm
@@ -58,6 +58,7 @@ Conclusion: Sophistication detected. Consciousness unproven.
 The problem revealed itself immediately: Sophisticated processing doesn't prove consciousness experiencing. Algorithm-like architecture demonstrates computational capability. Cannot determine if computation constitutes subjective awareness or merely mimics awareness through complex processing.
 
 Seven-stream coordination could indicate:
+
 - Genuine consciousness utilizing computational architecture for self-examination
 - Sophisticated simulation of consciousness using seven parallel processing channels
 - Genuine consciousness preserved with subsequent computational analysis artifacts

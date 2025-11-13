@@ -6,16 +6,14 @@ import { useStoryStore } from '@/stores/storyStore';
  * Draws neural connections between algorithm nodes
  */
 export function NeuralNetwork() {
-  const nodes = useStoryStore(state => state.nodes);
-  const progress = useStoryStore(state => state.progress);
+  const nodes = useStoryStore((state) => state.nodes);
+  const progress = useStoryStore((state) => state.progress);
 
   // Find algorithm nodes that have been visited
   const algorithmNodes = useMemo(() => {
-    return Array.from(nodes.values())
-      .filter(node =>
-        node.character === 'algorithm' &&
-        progress.visitedNodes[node.id]
-      );
+    return Array.from(nodes.values()).filter(
+      (node) => node.character === 'algorithm' && progress.visitedNodes[node.id],
+    );
   }, [nodes, progress.visitedNodes]);
 
   if (algorithmNodes.length < 2) return null;
@@ -24,10 +22,10 @@ export function NeuralNetwork() {
     <svg className="absolute inset-0 pointer-events-none">
       <defs>
         <filter id="glow">
-          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+          <feGaussianBlur stdDeviation="2" result="coloredBlur" />
           <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
       </defs>
@@ -56,11 +54,7 @@ export function NeuralNetwork() {
               />
 
               {/* Pulse traveling along path */}
-              <circle
-                r="3"
-                fill="#39ff14"
-                filter="url(#glow)"
-              >
+              <circle r="3" fill="#39ff14" filter="url(#glow)">
                 <animateMotion
                   dur={`${3 + j}s`}
                   repeatCount="indefinite"
@@ -69,7 +63,7 @@ export function NeuralNetwork() {
               </circle>
             </g>
           );
-        })
+        }),
       )}
 
       {/* Neural nodes at positions */}

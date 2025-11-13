@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "ML-AC-L",
     "humanDescription": "Started elsewhere, met archaeologist later with moderate exploration, accept path, low awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "devotional-contribution",
       "network-completion-through-acceptance"
     ],
-    "crossCharacterConnections": [
-      "heavy-dominant-primary",
-      "moderate-starting-foundational"
-    ],
+    "crossCharacterConnections": ["heavy-dominant-primary", "moderate-starting-foundational"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-integrated-2047",

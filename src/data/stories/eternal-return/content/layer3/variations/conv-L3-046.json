@@ -24,29 +24,18 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "archaeologist",
-    "characterBalance": [
-      70,
-      20,
-      10
-    ],
+    "characterBalance": [70, 20, 10],
     "readableLabel": "SB-IN-H-SD",
     "humanDescription": "Started somewhere, bounced across characters but archaeologist dominant, investigate path, high awareness, single-dominant synthesis with archaeologist primary",
     "narrativeElements": null,
     "multiVoiceIntegration": "archaeologist-led-meta-recursive",
     "perspectiveEmphasis": "archaeologist-primary",
     "philosophicalCulmination": "Meta-archaeological analysis of authentication methodology examining itself",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "transform-through-recursive-investigation",
     "circularCausality": "explicit-reader-acknowledged",
     "readerPosition": "fourth-position-acknowledged",
@@ -66,10 +55,6 @@
       "reader-fourth-meta-position"
     ],
     "philosophicalResolution": "investigation-investigating-investigation-transform",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

@@ -23,10 +23,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "readableLabel": "BL-AC-H-SD",
@@ -57,10 +54,6 @@
     "lastHuman2383": "embodiment-completing-network",
     "reader": "fourth-position-acknowledged",
     "narrative": "frame-fully-visible",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

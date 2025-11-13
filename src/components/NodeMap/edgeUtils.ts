@@ -74,7 +74,7 @@ export function getEdgeStyle(connectionType: ConnectionType): CSSProperties {
  */
 export function convertToReactFlowEdges(
   storyNodes: Map<string, StoryNode>,
-  progress: UserProgress
+  progress: UserProgress,
 ): Edge[] {
   const edges: Edge[] = [];
 

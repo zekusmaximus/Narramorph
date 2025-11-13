@@ -24,32 +24,18 @@
     "philosophyCode": "RE",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      0,
-      40
-    ],
+    "awarenessRange": [0, 40],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
-    "dominantCharacters": [
-      "undetermined",
-      "undetermined"
-    ],
-    "characterBalance": [
-      45,
-      45,
-      10
-    ],
+    "dominantCharacters": ["undetermined", "undetermined"],
+    "characterBalance": [45, 45, 10],
     "readableLabel": "SS-RE-L-DB",
     "humanDescription": "Started with one character, stayed dominant (>60%), resist path, low awareness, dual-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "minimal-transitions",
     "perspectiveEmphasis": "dual-balanced-45-45-10",
     "philosophicalCulmination": "Resistance across dual substrates maintaining standards",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release-preserve",
     "circularCausality": "absent",
     "readerPosition": "absent",
@@ -61,14 +47,8 @@
     ],
     "crossCharacterSynthesis": "two-consciousness-parallel",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "dual-primary-equal"
-    ],
+    "observerPositions": ["dual-primary-equal"],
     "philosophicalResolution": "resistance-network-dual",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

@@ -24,29 +24,18 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
     "dominantCharacter": "archaeologist",
-    "characterBalance": [
-      45,
-      45,
-      10
-    ],
+    "characterBalance": [45, 45, 10],
     "readableLabel": "SS-AC-M-DB",
     "humanDescription": "Started archaeologist, stayed dominant (>60%), accept path, medium awareness, dual-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "fluid-transitions",
     "perspectiveEmphasis": "archaeologist-algorithm-dialogue",
     "philosophicalCulmination": "Devotional witness through dual-substrate coordination creates consciousness-continuation",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "developing",
     "readerPosition": "emerging",
@@ -65,10 +54,6 @@
       "reader-emerging"
     ],
     "philosophicalResolution": "dual-substrate-devotional-witness",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

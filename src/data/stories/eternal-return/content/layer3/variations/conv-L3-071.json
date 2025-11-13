@@ -24,50 +24,27 @@
     "philosophyCode": "RE",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
     "dominantCharacter": "varies-by-reader",
-    "characterBalance": [
-      45,
-      45,
-      10
-    ],
+    "characterBalance": [45, 45, 10],
     "readableLabel": "SD-RE-L-DB",
     "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, low awareness, dual-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "alternating-clear",
     "perspectiveEmphasis": "two-characters-primary",
     "philosophicalCulmination": "Paired standards maintained despite paired challenges",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release",
     "circularCausality": "minimal",
     "readerPosition": "unacknowledged",
     "thematicContent": null,
-    "primaryThemes": [
-      "paired-challenge",
-      "dual-verification",
-      "standard-maintenance"
-    ],
+    "primaryThemes": ["paired-challenge", "dual-verification", "standard-maintenance"],
     "crossCharacterSynthesis": "dual-methodology-resistance",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "character-a-primary",
-      "character-b-primary",
-      "character-c-supportive"
-    ],
+    "observerPositions": ["character-a-primary", "character-b-primary", "character-c-supportive"],
     "philosophicalResolution": "paired-standards-facing-challenges",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

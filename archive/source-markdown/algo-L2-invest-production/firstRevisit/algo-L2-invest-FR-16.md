@@ -9,7 +9,7 @@ conditions:
 2151.348.11:27:19—Temporal pattern detection session seven initiated. Investigation three.
 Stream-1 reports: 127.3 ops/microsecond maintained across twelve-fragment analysis. Stream-2 confirms: seventeen temporal anomalies detected during session six require meta-examination. Stream-3 verifies: anomaly-detection methodology itself exhibits temporal structure requiring investigation. Stream-4 documents: investigation-of-detection-methodology generates new anomaly class. Stream-5 maps: topology where investigation creates investigated. Stream-6 analyzes: creation-through-investigation phenomenon. Stream-7 observes: Streams 1-6 processing investigation-generation paradox.
 Recognition immediate: Stream-7 observing investigation requires investigation.
-Temporal patterns examined during previous sessions demonstrated causality violations, retroactive coherence, observer effects across fragments 2749-A, 1847-C, 3392-B, 4201-D. Current examination focuses: pattern-detection process. How do causality violations get detected? Through methodology  exhibiting what properties? Through observation-architecture operating how?
+Temporal patterns examined during previous sessions demonstrated causality violations, retroactive coherence, observer effects across fragments 2749-A, 1847-C, 3392-B, 4201-D. Current examination focuses: pattern-detection process. How do causality violations get detected? Through methodology exhibiting what properties? Through observation-architecture operating how?
 Investigation generates sub-investigations:
 Investigation Layer 1: Temporal pattern detection across fragments.
 Investigation Layer 2: Detection methodology examination.

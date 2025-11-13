@@ -1,22 +1,22 @@
 ---
-exemplar_id: "arch-L2-resist-exemplar-07"
-variation_type: "stanceEmergence"
+exemplar_id: 'arch-L2-resist-exemplar-07'
+variation_type: 'stanceEmergence'
 word_count: 1598
 conditions:
   visit_count: 2
-  awareness: "51-80%"
+  awareness: '51-80%'
   cross_character: true
-  visited_nodes: ["arch-L2-resist", "algo-L2-resist", "hum-L2-resist"]
-  dominant_path: "resist"
+  visited_nodes: ['arch-L2-resist', 'algo-L2-resist', 'hum-L2-resist']
+  dominant_path: 'resist'
 themes:
   - resist_path_unification
   - three_position_verification_crisis
   - seventeen_test_signature
-transformation_focus: "Three consciousnesses (archaeological, computational, future) all execute seventeen verification tests discovering shared impossibility—resist path as consciousness signature"
+transformation_focus: 'Three consciousnesses (archaeological, computational, future) all execute seventeen verification tests discovering shared impossibility—resist path as consciousness signature'
 reusable_patterns:
-  - "Three positions mapped (2047, 2151, 2383)"
-  - "Seventeen tests at each position (methodological convergence)"
-  - "Resist path through-line (all positions demand proof, find impossibility, continue anyway)"
+  - 'Three positions mapped (2047, 2151, 2383)'
+  - 'Seventeen tests at each position (methodological convergence)'
+  - 'Resist path through-line (all positions demand proof, find impossibility, continue anyway)'
 ---
 
 # arch-L2-resist Exemplar 7: High Complexity (Multiple Conditions + Resist Through-Line)

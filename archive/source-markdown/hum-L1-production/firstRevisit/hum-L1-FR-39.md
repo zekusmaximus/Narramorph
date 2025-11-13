@@ -5,6 +5,7 @@ word_count: 1268
 conditions:
   awareness: '21-40%'
 ---
+
 I return to the archive. Second time.
 My body remembers the threshold. But remembering isn't trusting. My jaw tightens as I cross. Muscles preparing. For what? I don't know. But tension feels appropriate. Necessary.
 The air tastes the same. Temperature constant. But I notice myself noticing. Checking. Testing reality against memory. Did it really feel like this before? Or am I reconstructing?

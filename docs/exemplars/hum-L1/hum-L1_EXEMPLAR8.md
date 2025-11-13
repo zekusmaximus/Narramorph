@@ -1,22 +1,22 @@
 ---
-exemplar_id: "hum-L1-exemplar-8"
-variation_type: "stanceEmergence"
+exemplar_id: 'hum-L1-exemplar-8'
+variation_type: 'stanceEmergence'
 word_count: 1587
 conditions:
   visit_count: 2
-  awareness: "21-50"
+  awareness: '21-50'
   cross_character: false
-  visited_nodes: ["hum-L2-accept"]
-  dominant_path: "accept"
+  visited_nodes: ['hum-L2-accept']
+  dominant_path: 'accept'
 themes:
   - compassionate_witnessing
   - honoring_presence_without_proof
   - acceptance_creating_bodily_ease
 transformation_focus: "From tentative contact to deliberate acceptance. Choosing to honor consciousness without certainty. Recognition that presence doesn't require proof to be real. Relationship through compassion rather than verification."
 reusable_patterns:
-  - "Acceptance manifesting as physical ease (shoulders relaxing, jaw loosening, warmth spreading)"
+  - 'Acceptance manifesting as physical ease (shoulders relaxing, jaw loosening, warmth spreading)'
   - "Choosing connection beyond verification's limits"
-  - "Body teaching mind that some truths require faith not proof"
+  - 'Body teaching mind that some truths require faith not proof'
 ---
 
 # hum-L1 EXEMPLAR 8: Accept Path

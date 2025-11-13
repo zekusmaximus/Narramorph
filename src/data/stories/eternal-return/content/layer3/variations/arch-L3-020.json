@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SD-AC-M",
     "humanDescription": "Started elsewhere, shifted to archaeologist dominance, accept path, medium awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "acceptance-through-shift",
       "position-finding"
     ],
-    "crossCharacterConnections": [
-      "light-starting-foundational",
-      "light-other-glimpsed"
-    ],
+    "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-primary-2047",

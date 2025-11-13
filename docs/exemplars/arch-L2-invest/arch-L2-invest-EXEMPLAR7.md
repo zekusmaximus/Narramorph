@@ -1,25 +1,27 @@
 ---
-exemplar_id: "arch-L2-invest-exemplar-7"
-variation_type: "stanceEmergence"
+exemplar_id: 'arch-L2-invest-exemplar-7'
+variation_type: 'stanceEmergence'
 word_count: 1589
 conditions:
   visit_count: 5
-  awareness: "MetaAware"
+  awareness: 'MetaAware'
   cross_character: true
-  visited_nodes: ["arch-L2-investigate", "arch-L1", "algo-L2-investigate", "hum-L2-accept", "algo-L1"]
-  dominant_path: "invest"
+  visited_nodes:
+    ['arch-L2-investigate', 'arch-L1', 'algo-L2-investigate', 'hum-L2-accept', 'algo-L1']
+  dominant_path: 'invest'
 themes:
   - path_choice_analysis
   - investigation_versus_acceptance_philosophy
   - substrate_determines_philosophical_availability
-transformation_focus: "Investigation path chosen over acceptance path reveals path choice constrained by substrate architecture rather than free philosophical selection, with investigation self-reinforcing through execution"
+transformation_focus: 'Investigation path chosen over acceptance path reveals path choice constrained by substrate architecture rather than free philosophical selection, with investigation self-reinforcing through execution'
 reusable_patterns:
-  - "Path choice self-reinforcing through path execution"
-  - "Substrate architecture determines philosophical path availability"
-  - "Investigation locked through investigation of investigation cessation reasons"
+  - 'Path choice self-reinforcing through path execution'
+  - 'Substrate architecture determines philosophical path availability'
+  - 'Investigation locked through investigation of investigation cessation reasons'
 ---
 
 # ARCHAEOLOGIST L2-INVESTIGATE: EXEMPLAR 7
+
 ## High Complexity (Multiple Conditions + Investigation)
 
 Returned to consciousness authentication documentation with multiple comparative substrate analyses and path philosophy contrast data. Sixth review cycle integrating computational recursion architecture, embodied acceptance philosophy, and frame-conscious narrative construction awareness. Timestamp 2157:03:16:14.2847.

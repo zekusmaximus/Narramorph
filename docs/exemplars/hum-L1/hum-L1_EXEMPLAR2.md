@@ -1,22 +1,22 @@
 ---
-exemplar_id: "hum-L1-exemplar-2"
-variation_type: "crossCharacterBleeding"
+exemplar_id: 'hum-L1-exemplar-2'
+variation_type: 'crossCharacterBleeding'
 word_count: 1518
 conditions:
   visit_count: 2
-  awareness: "21-50"
+  awareness: '21-50'
   cross_character: true
-  visited_nodes: ["arch-L1"]
+  visited_nodes: ['arch-L1']
   dominant_path: null
 themes:
   - temporal_convergence
   - three_consciousness_observation_network
   - examiner_becoming_examined
-transformation_focus: "From separate examination to temporal convergence. Recognition that reader and read collapse into single observation network. The Archaeologist who documented consciousness preservation is the consciousness being preserved."
+transformation_focus: 'From separate examination to temporal convergence. Recognition that reader and read collapse into single observation network. The Archaeologist who documented consciousness preservation is the consciousness being preserved.'
 reusable_patterns:
-  - "Cross-character integration through recognition of shared fragment"
-  - "Temporal layers collapsing (data architect/Archaeologist/Last Human)"
-  - "Observation creating mutual presence across centuries"
+  - 'Cross-character integration through recognition of shared fragment'
+  - 'Temporal layers collapsing (data architect/Archaeologist/Last Human)'
+  - 'Observation creating mutual presence across centuries'
 ---
 
 # hum-L1 EXEMPLAR 2: After Archaeological Visit

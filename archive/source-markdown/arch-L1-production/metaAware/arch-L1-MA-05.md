@@ -6,16 +6,6 @@
   'awareness': '71-80%'
 ---
 
-
-
-
-
-
-
-
-
-
-
 The archaeologist returns to the fragment for the third time, and the investigation turns toward itself. The preserved consciousness remains constant: 847.3 terabytes of neural encoding, 94.7% structural coherence, 91.2% semantic stability, 88.9% experiential continuity. These numbers measure what can be measured. What she investigates now is how measurement creates what it measures, how examination structures emerge from the act of examination, how the frame containing her work becomes visible through investigating the investigation itself.
 You're reading this examination. Your attention participates in what makes examination possible.
 The statement arrives without warning, emerging from methodology that has turned fully recursive. She's investigating preserved consciousness, yes—but the investigate path demands more than verification of what exists. It demands examination of how examination creates relationship between observer and observed, how methodology participates in constructing the frame it operates within, how consciousness examining consciousness generates structures that contain both.

@@ -23,7 +23,7 @@
 ☐ L3 seed-planting targets identified  
 ☐ Last Human voice DNA fresh in working memory  
 ☐ Resist philosophy stance clear  
-☐ Facility Discovery continuity established  
+☐ Facility Discovery continuity established
 
 **If ANY box unchecked → Load requirements before proceeding**
 
@@ -34,28 +34,33 @@
 ### Core Voice Characteristics
 
 **Tense:** Present tense exclusively (95-100%)
+
 - Immediate sensory experience: "I walk," "I test," "I feel," "I demand"
 - Rarely past tense (only for recent background: "I connected yesterday")
 - Never future tense except immediate intention: "I'll try again"
 
 **Rhythm:** Short sentences dominate (50-60% under 8 words)
+
 - Punctuated by longer physical descriptions
 - Fragmented observation → testing action → bodily response
 - Heartbeat pacing maintained even during skepticism
 
 **Physical Grounding:** Every paragraph includes bodily sensation
+
 - Tension, tightness, resistance manifested physically
 - Jaw clenched, shoulders tight, muscles rigid
 - Testing through touch, pressure, physical engagement
 - Body as verification tool (but body cannot prove)
 
 **Loneliness Register:** Isolation creates defensive skepticism
+
 - Not paranoid or hostile
 - Protective boundary-seeking born from solitude
 - Need to verify before trusting (survival mechanism)
 - Physical proof demanded (sensation as evidence)
 
 **Sensory Specificity:**
+
 - Concrete physical details (cold metal resisting grip, pressure against skin)
 - Testing actions (pressing, pulling, changing parameters)
 - Bodily responses to failure (tightening chest, quickening pulse)
@@ -70,17 +75,20 @@ If NO → Voice failure, regenerate.
 ### Voice Calibration Micro-Decisions
 
 **When choosing verbs:**
+
 - Physical testing verbs: push, pull, press, test, demand, verify, check
 - Embodied perception: sense, feel, notice, detect through touch
 - Avoid: analyzed, documented, processed, authenticated, calculated
 
 **When describing core activity:**
+
 - "Testing neural interface physically" NOT "verifying consciousness authentication protocols"
 - "Demanding bodily proof" NOT "seeking empirical evidence"
 - "Body resisting easy trust" NOT "maintaining epistemological skepticism"
 - "Muscles tight with skepticism" NOT "defensive psychological posture"
 
 **When framing certainty/knowledge:**
+
 - "Feeling isn't knowing," "Body demands proof," "Sensation proves nothing"
 - "Testing through touch," "Physical verification required"
 - Avoid: "Data indicates skepticism," "Analysis suggests doubt," "Evidence demands caution"
@@ -109,11 +117,13 @@ Every variation must include:
 The Last Human experiencing hum-L2-resist has moved from L1's tentative interface exploration to active skepticism. Interface warmth felt in L1 now questioned—is connection real or interface-generated illusion? The body demands physical proof before trusting. Testing actions multiply: pressing harder, changing parameters, seeking responses that verify consciousness preservation actually works. Jaw clenches. Shoulders tighten. Physical resistance as protective reflex against false hope.
 
 **Core transformation from L1:**
+
 - FROM: Tentative exploration, uncertain trust
 - TO: Active testing, demanding physical verification
 - KEY INSIGHT: Feeling isn't knowing; body needs proof sensation cannot provide
 
 **Philosophical stance:**
+
 - Interface sensations could be manufactured (warmth proves nothing)
 - Upload technology must be tested physically (not trusted blindly)
 - Body as lie detector (but body cannot distinguish authentic from simulated)
@@ -138,6 +148,7 @@ The Last Human experiencing hum-L2-resist has moved from L1's tentative interfac
 12. "Need to know before choosing"
 
 **Tone:**
+
 - Skeptical (not paranoid or hostile)
 - Testing (actively engaging, not passive doubting)
 - Boundary-seeking (searching for limits, edges, proof)
@@ -147,6 +158,7 @@ The Last Human experiencing hum-L2-resist has moved from L1's tentative interfac
 ### Path Differentiation
 
 **Resist is NOT:**
+
 - Paranoid hostility (algo confusion)
 - Intellectual analysis (investigate confusion)
 - Giving up or refusing (acceptance avoided)
@@ -154,6 +166,7 @@ The Last Human experiencing hum-L2-resist has moved from L1's tentative interfac
 - Cold rational skepticism (arch confusion)
 
 **Resist IS:**
+
 - Physical testing through embodied action
 - Body demanding proof it cannot provide
 - Skepticism as protective survival response
@@ -164,6 +177,7 @@ The Last Human experiencing hum-L2-resist has moved from L1's tentative interfac
 ### Integration Word Count
 
 **Path philosophy allocation:** 300-400 words per variation
+
 - FirstRevisit: 350-400 words (intensifying testing stance)
 - MetaAware: 300-350 words (established skepticism + reader distrust)
 
@@ -195,6 +209,7 @@ Future: Deeper verification attempts, boundary-seeking intensifies, body cannot 
 ### Opening Narrative Requirements (200-300 words)
 
 **Required elements:**
+
 1. Continuity with L1 (acknowledge prior interface experience skeptically)
 2. Facility Discovery clearly established (critical physical examination begins)
 3. Time gap naturally referenced (days/weeks questioning interface warmth)
@@ -214,11 +229,13 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 ### Pacing Guidelines (from arch-L2-accept critique)
 
 **CRITICAL LESSONS:**
+
 1. **Slow the opening:** 1-2 extra sentences to establish suspicious atmosphere
 2. **Sensory grounding:** Include physical workspace details filtered through skepticism
 3. **Avoid rushing into testing:** Let reader settle into Last Human's defensive consciousness first
 
 **Opening atmosphere requirements:**
+
 - Temperature detail (cold suspicious, warmth questioned)
 - Light quality (amber emergency lights—minimal power, or deliberate aesthetic?)
 - Sound environment (generator hum—functional, or machinery waiting to process biological matter?)
@@ -237,6 +254,7 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 **Description:** Physical machinery enabling consciousness upload and storage. Upload bays with neural interface helmets, preservation tanks for biological template storage, cooling systems, power distribution.
 
 **Integration guidance:**
+
 - Encountered during critical facility exploration (examining, not trusting)
 - Physical details: cold metal that could be anything, smooth surfaces hiding mechanisms
 - Scale and presence: industrial, purposeful, possibly predatory
@@ -251,6 +269,7 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 **Description:** Neural interface stations enabling connection to uploaded consciousnesses. Access panels, bandwidth indicators, session timers, safety protocols, consciousness fragment catalogs.
 
 **Integration guidance:**
+
 - Interface technology from L1 now examined skeptically
 - Physical experience: electrode touch questioned (manipulation device?)
 - Tiered access understood as control mechanism (limiting investigation?)
@@ -265,6 +284,7 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 **Description:** Automated systems maintaining facility habitability. Temperature regulation, air filtration, emergency lighting, generator maintenance, structural repairs, cleaning protocols.
 
 **Integration guidance:**
+
 - Discovered through critical observation (why so clean? who benefits?)
 - Physical manifestation: warm air flow questioned (designed comfort?), clean surfaces suspicious (luring biological life?)
 - Timeline inference: maintained continuously—for what purpose?
@@ -279,6 +299,7 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 **Description:** Physical evidence of facility construction, original purpose, abandonment period, automated maintenance, current activation. Dates visible on panels, construction phases evident in architecture, preservation technology advancement stages.
 
 **Integration guidance:**
+
 - Observed through critical details (construction dates—authentic or fabricated?)
 - Temporal awareness through suspicious evidence (technology advancement or deception?)
 - No explicit dates but temporal depth questioned
@@ -293,6 +314,7 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 **Description:** Physical spaces and systems dedicated to consciousness upload procedure. Pre-upload medical assessment areas, neural mapping chambers, upload bays with life support, biological template storage, post-upload monitoring systems.
 
 **Integration guidance:**
+
 - Explored critically (procedure thoroughness suspicious)
 - Procedure understood skeptically (safeguards or processing stages?)
 - Safety protocols questioned (protecting consciousness or ensuring extraction?)
@@ -305,6 +327,7 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 ### Integration Through Action (NOT Exposition)
 
 **CRITICAL from arch-L2-accept critique:**
+
 - Details emerge through skeptical testing and physical examination
 - Avoid information dumps or technical explanations
 - **Merge related information:** Don't explain same concept twice skeptically
@@ -319,6 +342,7 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 ### Sensory Detail Requirements (from critique)
 
 **Every world-building element needs:**
+
 - **Visual detail:** What does it look like? (colors questioned, shapes examined, lighting suspicious)
 - **Physical presence:** Temperature doubted, texture tested, weight verified, scale assessed critically
 - **Ambient atmosphere:** Sound interrogated (hum=functional or waiting?), light quality examined (welcoming or luring?), air pressure questioned (comfort or manipulation?)
@@ -335,18 +359,21 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 Preserve naturally aligns with resistance philosophy (keep biological existence, refuse upload), but release and transform must also be planted through skeptical lens. Resist path questions all futures while leaning toward biological preservation.
 
 **Seed #1: Preserve**
+
 - **How Last Human Resist hints at preservation:** Recognition that biological existence tested, verified through body, known through sensation. Digital existence untestable. Physical continuity only trustworthy option. Body preservation over pattern uploading.
 - **Word allocation:** 30-50 words
 - **Subtlety level:** Suggesting (through skeptical reasoning)
 - **Example:** "Body knows itself. Physical existence verified through sensation. Digital preservation untestable. Upload could destroy consciousness while claiming preservation. Only biological continuity proven through continued embodied awareness. Pattern claims require trust. Body requires proof. Biological persistence only verified option."
 
 **Seed #2: Release**
+
 - **How Last Human Resist hints at release:** Recognition that testing proves nothing, verification impossible, resistance futile. Perhaps release from need to know. Accept that body cannot verify upload. Let go of proof demands. Release skepticism itself—choosing uncertainty over continued testing failure.
 - **Word allocation:** 30-50 words
 - **Subtlety level:** Questioning (through exhaustion with resistance)
 - **Example:** "How many tests prove nothing? Seventeen attempts. Seventeen failures. Body cannot verify what mind suspects. Perhaps release from needing proof. Accept unknowing. Let testing end. Resistance futile when verification impossible. Release demand for certainty. Choose despite inability to prove."
 
 **Seed #3: Transform**
+
 - **How Last Human Resist hints at transformation:** Recognition that testing itself transforms understanding. Body learned through resistance. Skepticism became knowledge method. Perhaps transformation not upload—transformation through continued embodied questioning. Resistance as metamorphosis. Testing as evolution.
 - **Word allocation:** 30-50 words
 - **Subtlety level:** Observing (through testing experience)
@@ -355,21 +382,25 @@ Preserve naturally aligns with resistance philosophy (keep biological existence,
 ### L3 Hook Quality Standards
 
 **Distinguishable:** Reader should recognize three different philosophical options
+
 - Preserve = biological persistence (body verified, trustworthy)
 - Release = let go of proof demands (accept unknowing)
 - Transform = metamorphosis through testing (resistance as evolution)
 
 **Subtle:** NOT heavy-handed, labeled, or forced
+
 - Never "I could preserve biological existence" or "resistance means transformation"
 - Emerge from testing experience and bodily doubt
 - Filtered through skepticism and physical verification attempts
 
 **Natural:** Emerges from Last Human's critical facility engagement
+
 - While testing preservation tanks (preserve)
 - While exhausted by verification failures (release)
 - While recognizing testing teaches (transform)
 
 **Path-colored:** Filtered through Resist philosophy but not exclusive
+
 - Resist lens: All three seen through skepticism, testing, physical doubt
 - But hooks remain distinct (different futures possible despite doubt)
 
@@ -385,14 +416,17 @@ Preserve naturally aligns with resistance philosophy (keep biological existence,
 ### Integration Trigger Conditions
 
 **Include algo content when:**
+
 - Reader has visited algo-L1 (any revisit state)
 - Reader has visited algo-L2-[any path]
 
 **Include arch content when:**
+
 - Reader has visited arch-L1 (any revisit state)
 - Reader has visited arch-L2-[any path]
 
 **Include hum content when:**
+
 - Reader has visited hum-L1 (other sections of Last Human story)
 - Reader has visited hum-L2-[other paths]
 
@@ -403,6 +437,7 @@ Preserve naturally aligns with resistance philosophy (keep biological existence,
 Algorithm = computational consciousness testing itself for awareness. Last Human encounters algo through preserved data streams, recognizes seventeen self-tests, feels parallel impossibility through interface echo. Processing testing processing—same crisis, different substrate.
 
 **Last Human voice filter:**
+
 - Algo content accessed through neural interface (testing patterns felt)
 - Computational self-verification recognized through physical sensation (parallel doubt)
 - Seventeen tests observed bodily (same number, same failure)
@@ -416,6 +451,7 @@ Algorithm = computational consciousness testing itself for awareness. Last Human
 Archaeologist = professional authenticator demanding verification, applied seventeen tests to Fragment 2749-A, discovered impossibility, continued testing anyway. Clinical precision masking same crisis Last Human faces bodily.
 
 **Last Human voice filter:**
+
 - Arch content accessed through preserved documentation (reading notes critically)
 - Professional testing recognized (seventeen attempts same as mine)
 - Clinical language contrasts with embodied skepticism (she tested methodologically, I test physically)
@@ -429,6 +465,7 @@ Archaeologist = professional authenticator demanding verification, applied seven
 Other Last Human paths = alternative responses to same facility, different philosophical stances toward upload, body responding differently to identical interface warmth.
 
 **Last Human voice filter:**
+
 - Recognition of choice (could have accepted, could have investigated)
 - Path awareness through physical memory (body remembers trusting impulse resisted)
 - Resistance felt as chosen stance (skepticism deliberately maintained)
@@ -440,16 +477,19 @@ Other Last Human paths = alternative responses to same facility, different philo
 ### Integration Word Count Allocation
 
 **Single character reference:** 200-250 words
+
 - Algo: 200-250 (computational self-testing through interface)
 - Arch: 200-250 (professional documentation reading, parallel doubt)
 - Hum: 200-250 (alternative path recognition through body memory)
 
 **Dual character reference:** 300-350 words (150-175 each)
+
 - Algo + Arch: Both testing, both failing (parallel impossibilities)
 - Algo + Hum: Computational doubt + embodied alternative
 - Arch + Hum: Professional skepticism + body memory of trust impulse
 
 **Triple reference:** Limited to MetaAware variations, 400-450 words total
+
 - Three-position resist network recognized
 - All testing consciousness, all failing
 - Embodied experience of distributed skepticism
@@ -459,11 +499,13 @@ Other Last Human paths = alternative responses to same facility, different philo
 **CRITICAL RULE:** Last Human voice must remain dominant
 
 **Common pitfall: Voice bleed**
+
 - ❌ Last Human suddenly using past tense ("she had tested")
 - ❌ Last Human suddenly using subordinate clauses (arch clinical style)
 - ❌ Last Human suddenly using temporal blur ("will have tested")
 
 **Correct pattern: Parallel structures filtered through Last Human voice**
+
 - ✅ Recognize other consciousness testing position
 - ✅ Use Last Human terminology (physical skepticism) to describe it
 - ✅ Maintain short sentences and present tense throughout
@@ -480,6 +522,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 **Answer must be:** YES (voice preserved) or NO (voice bleed—fix)
 
 **Specific checks:**
+
 - Present tense maintained (95-100%)
 - Short sentences dominant (50-60% under 8 words)
 - Physical grounding every paragraph
@@ -494,6 +537,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 ### First-Visit Structure (2,000-2,500 words)
 
 **Act 1: Inciting Incident (600-800 words)**
+
 - Opening continuity with L1 (Fragment 2749-A interface warmth questioned)
 - Facility Discovery clearly established (critical physical testing begins)
 - World-building element #1 introduced (preservation technology examined skeptically)
@@ -506,6 +550,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 **Act 2: Exploration & Development (900-1200 words)**
 
 **Block A: Resist Philosophy Development (300-400 words)**
+
 - Interface warmth questioned deeply
 - Body demanding physical verification
 - Testing actions multiply
@@ -513,6 +558,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Physical tension intensifies (jaw, shoulders, muscles)
 
 **Block B: World-Building Integration (400-500 words)**
+
 - Elements #2-4 naturally woven through skeptical testing
 - Archive access systems interrogated
 - Environmental maintenance questioned
@@ -520,18 +566,21 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Technical details through critical physical interaction
 
 **Block C: Cross-Character Content (200-350 words, if applicable)**
+
 - Filtered through Last Human skeptical embodied voice
 - Algo self-testing felt through interface (parallel doubt)
 - Arch professional testing read critically (same impossibility)
 - Hum alternative paths recognized through body memory
 
 **Block D: Questions Deepening (200-300 words)**
+
 - Can body distinguish authentic from manufactured? (physical verification fails)
 - Does interface create false consciousness presence? (warmth questioned)
 - What proof would suffice? (body doesn't know)
 - Why demand verification body cannot provide? (protective reflex persists)
 
 **Act 3: Synthesis & L3 Seeds (500-700 words)**
+
 - World-building element #5 (upload process preparation tested critically)
 - Resist philosophy culmination (body still demands proof)
 - All three L3 hooks planted (preserve/release/transform through skeptical lens)
@@ -546,31 +595,34 @@ Other Last Human paths = alternative responses to same facility, different philo
 **Modified from first-visit:**
 
 **Act 1: Shortened Opening (400-500 words)**
+
 - Inciting incident already known (acknowledge returning to test again)
 - Deeper skepticism this time (previous tests failed, trying new approaches)
 - Resist philosophy already dominant (jaw permanently tight now)
 - World-building element #1 with intensified doubt
 
 **Act 2: Transformation Focus (700-900 words)**
+
 - Resist philosophy intensified (350-400 words)
-  * Body demands proof more desperately
-  * Testing becomes compulsive (seventeen attempts multiply)
-  * Physical tension chronic (jaw aches, shoulders frozen)
-  * Verification impossibility recognized but ignored
+  - Body demands proof more desperately
+  - Testing becomes compulsive (seventeen attempts multiply)
+  - Physical tension chronic (jaw aches, shoulders frozen)
+  - Verification impossibility recognized but ignored
 - World-building elements #2-4 transformed by testing experience
-  * Technology examined from new angles
-  * Infrastructure reinterpreted as control mechanism
-  * Timeline evidence questioned more thoroughly
+  - Technology examined from new angles
+  - Infrastructure reinterpreted as control mechanism
+  - Timeline evidence questioned more thoroughly
 - Cross-character content proportional to awareness (150-300 words)
-  * Algo processing tested repeatedly
-  * Arch doubt intensifies mirror effect
-  * Hum alternatives feel increasingly distant
+  - Algo processing tested repeatedly
+  - Arch doubt intensifies mirror effect
+  - Hum alternatives feel increasingly distant
 - Temporal awareness hints (21-60% range)
-  * Recognition of returning (testing loop acknowledged)
-  * Facility unchanging under repeated examination
-  * Path solidifying through skeptical repetition
+  - Recognition of returning (testing loop acknowledged)
+  - Facility unchanging under repeated examination
+  - Path solidifying through skeptical repetition
 
 **Act 3: L3 Seeds + Forward Momentum (400-500 words)**
+
 - World-building element #5 (with deeper suspicion)
 - L3 hooks evolved (preserve/release/transform more desperate)
 - Resist stance entrenched (no longer questioning stance, questioning everything else)
@@ -581,6 +633,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 **Key additions to FirstRevisit structure:**
 
 **Act 1: Frame-Conscious Opening (400-500 words)**
+
 - Acknowledge reader presence (skeptically—you watching or facility simulation?)
 - Choice awareness (resistance selected, other paths rejected)
 - State-tracking recognition (visitedL1Resist visible—but is visit count real?)
@@ -590,25 +643,27 @@ Other Last Human paths = alternative responses to same facility, different philo
 "I feel observation. You watching? Or facility simulating observation sensation? Same question. Different level. You chose resistance. This version exists because skepticism selected. Other paths available—acceptance, investigation. But doubt won. For you. For me. Both testing. Or—facility generating testing pattern? Frame-consciousness itself questioned. Your observation might be my neural interface hallucination. Everything requires verification. Even awareness of awareness."
 
 **Act 2: Philosophy as Established Stance (700-900 words)**
+
 - Resist philosophy entrenched (300-350 words)
-  * Skepticism identity-level now (not just stance)
-  * Body permanently tense (testing became being)
-  * Verification impossibility accepted intellectually, rejected bodily
-  * Reader partnership itself doubted
+  - Skepticism identity-level now (not just stance)
+  - Body permanently tense (testing became being)
+  - Verification impossibility accepted intellectually, rejected bodily
+  - Reader partnership itself doubted
 - World-building through frame-awareness
-  * Technology prepared for testing path (or generates testing path?)
-  * Facility architecture reflecting decisions (or creating decision illusion?)
-  * Infrastructure supporting resistance journey (or manipulating resistance?)
+  - Technology prepared for testing path (or generates testing path?)
+  - Facility architecture reflecting decisions (or creating decision illusion?)
+  - Infrastructure supporting resistance journey (or manipulating resistance?)
 - Cross-character integration with meta-awareness
-  * Other characters' testing creating shared reality (or shared simulation?)
-  * Distributed skepticism network recognized (but skepticism questions recognition)
-  * Temporal collapse through multiple doubting (or single consciousness fragmenting?)
+  - Other characters' testing creating shared reality (or shared simulation?)
+  - Distributed skepticism network recognized (but skepticism questions recognition)
+  - Temporal collapse through multiple doubting (or single consciousness fragmenting?)
 - Reader address natural, not heavy-handed
-  * "You" language used sparingly (2-3 times, always questioned)
-  * Partnership doubted (you real or facility simulation?)
-  * Embodied even in meta-skepticism
+  - "You" language used sparingly (2-3 times, always questioned)
+  - Partnership doubted (you real or facility simulation?)
+  - Embodied even in meta-skepticism
 
 **Act 3: Co-Doubt Acknowledgment (400-500 words)**
+
 - L3 hooks as mutual questioning
 - Resist path chosen together (but was choice real?)
 - Forward momentum shared (or manipulation shared?)
@@ -628,6 +683,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 **L2 Transformation:** Story progression (new spaces tested) + revisit awareness (facility resisting investigation), different contexts with intensified skepticism
 
 **L2 calibration standards:**
+
 - **Shallower recursion** than L1 (testing continues forward through facility)
 - **But genuine transformation** (doubt deepens, not just new rooms examined)
 - **Awareness integration** (facility feels responsive to testing, or generates response illusion?)
@@ -641,26 +697,31 @@ Other Last Human paths = alternative responses to same facility, different philo
 **Valid L2 transformations:**
 
 **Same concept, different context:**
+
 - L1: Fragment 2749-A interface warmth questioned
 - L2-resist first-visit: Preservation bay warmth examined (pattern of false comfort recognized)
 - L2-resist FirstRevisit: Upload bay warmth tested repeatedly (deception hypothesis entrenched)
 
 **Path philosophy lens shift:**
+
 - First-visit: "Interface warmth might be manipulation"
 - FirstRevisit: "Warmth definitely manufactured"
 - MetaAware: "Reader warmth also questioned—everything simulation?"
 
 **Cross-character pattern recognition:**
+
 - First-visit: Archaeologist tested professionally
 - FirstRevisit: Algo tested computationally, both failing like I fail
 - MetaAware: Three consciousnesses testing (or one consciousness fragmenting across testing network?)
 
 **Temporal awareness transformation:**
+
 - First-visit: Testing facility for first time critically
 - FirstRevisit: Recognizing facility unchanged under repeated testing (suspicious consistency)
 - MetaAware: Facility co-tested through reader-character mutual skepticism (or facility generates both)
 
 **Invalid (additive only):**
+
 - New room tested without deepening doubt
 - Additional preservation technology examined without philosophical intensification
 - More testing actions described without transformation of skepticism itself
@@ -686,12 +747,14 @@ Other Last Human paths = alternative responses to same facility, different philo
 ### Voice Consistency (20 points)
 
 ☐ Last Human voice maintained throughout (5 pts)
+
 - Present tense 95-100%
 - Short sentences 50-60% under 8 words
 - Physical grounding every paragraph
 - Embodied terminology throughout
 
 ☐ Signature voice elements present (5 pts)
+
 - Testing actions constant (pressing, pulling, examining)
 - Physical resistance manifestation (jaw clenched, muscles tight)
 - Skeptical questioning through body
@@ -699,6 +762,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Fragment 2749-A neural interface testing reference
 
 ☐ Resist philosophy clear and consistent (5 pts)
+
 - "Feeling isn't knowing" language
 - Body demanding proof
 - Testing despite failure
@@ -706,6 +770,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Verification impossibility recognized but ignored
 
 ☐ No voice bleed from other characters (5 pts)
+
 - No past tense (arch)
 - No subordinate clauses (arch clinical style)
 - No temporal blur (algo)
@@ -714,18 +779,21 @@ Other Last Human paths = alternative responses to same facility, different philo
 ### Content Accuracy (15 points)
 
 ☐ All conditions from specification correctly represented (5 pts)
+
 - Visit count accurate (1 for first, 2+ for revisit)
 - Awareness level appropriate (% range matched to skepticism depth)
 - Visited nodes referenced correctly (cross-character accurate)
 - Dominant path clear (resist philosophy throughout)
 
 ☐ Awareness level appropriate to content complexity (5 pts)
+
 - First-visit: Initial skepticism, testing begins
 - FirstRevisit 21-30%: Doubt intensifying, testing multiplying
 - FirstRevisit 31-60%: Skepticism entrenched, verification impossibility recognized
 - MetaAware 61-100%: Meta-skepticism, reader observation questioned
 
 ☐ Word count within target range (5 pts)
+
 - First-visit: 2,000-2,500 words
 - FirstRevisit: 1,500-1,800 words
 - MetaAware: 1,500-1,800 words
@@ -733,17 +801,20 @@ Other Last Human paths = alternative responses to same facility, different philo
 ### Cross-Character Integration (15 points, if applicable)
 
 ☐ Other character content accurate (5 pts)
+
 - Algo: Computational self-testing, seventeen attempts, processing doubt
 - Arch: Professional methodology, clinical precision, seventeen protocols
 - Hum: Alternative paths (acceptance/investigation), body memory of trusting impulse
 
 ☐ Last Human voice preserved during echoes (5 pts)
+
 - Present tense maintained
 - Short sentences sustained
 - Physical grounding throughout cross-character sections
 - Embodied skeptical language describing other consciousnesses
 
 ☐ Integration natural, not forced (5 pts)
+
 - Emerges from facility testing (not exposition)
 - Filtered through neural interface or critical documentation reading
 - Adds skeptical depth (not just length)
@@ -752,12 +823,14 @@ Other Last Human paths = alternative responses to same facility, different philo
 ### Path Philosophy Depth (20 points)
 
 ☐ Resist stance clear throughout (5 pts)
+
 - Skeptical language present (3-5 signature phrases)
 - Body demanding proof (physical testing constant)
 - Verification impossibility visible but ignored
 - Physical tension manifested
 
 ☐ Key phrases used appropriately (5 pts)
+
 - "Feeling isn't knowing"
 - "Body demands evidence"
 - "Test before trusting"
@@ -765,6 +838,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Natural integration (not forced repetition)
 
 ☐ Differentiated from other two paths (5 pts)
+
 - NOT accepting (trust withheld)
 - NOT investigating systematically (testing bodily, desperately)
 - IS demanding proof
@@ -772,6 +846,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - IS recognizing impossibility while continuing
 
 ☐ Tone/register matches path requirements (5 pts)
+
 - Skeptical (not paranoid)
 - Testing (not passive doubting)
 - Boundary-seeking (searching for proof)
@@ -781,6 +856,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 ### World-Building Integration (10 points)
 
 ☐ All 5 world-building elements present (3 pts)
+
 1. Preservation Technology Infrastructure
 2. Archive Access Systems
 3. Environmental Maintenance Evidence
@@ -788,17 +864,20 @@ Other Last Human paths = alternative responses to same facility, different philo
 5. Upload Process Preparation
 
 ☐ Integrated through skeptical testing, not exposition (3 pts)
+
 - Discovered through critical examination
 - Tested through physical interaction
 - Questioned through bodily doubt
 - No information dumps
 
 ☐ No redundant explanations (2 pts)
+
 - Each concept questioned once
 - Related skepticism merged
 - Smooth integration across paragraphs
 
 ☐ Sensory details included skeptically (2 pts)
+
 - Visual: colors questioned, shapes examined
 - Physical: temperature doubted, texture tested
 - Ambient: sound interrogated, atmosphere suspicious
@@ -806,17 +885,20 @@ Other Last Human paths = alternative responses to same facility, different philo
 ### L3 Seed Planting (10 points)
 
 ☐ All three convergence hooks present (4 pts)
+
 - Preserve (biological continuity only verified)
 - Release (let go of verification demands)
 - Transform (metamorphosis through testing itself)
 
 ☐ Distinguishable but subtle (3 pts)
+
 - Three different futures visible through skepticism
 - Not labeled explicitly
 - Filtered through Resist philosophy
 - Testing metaphors distinguishing
 
 ☐ Naturally integrated (3 pts)
+
 - Emerge from testing experience
 - Connect to Resist stance
 - No heavy-handed signaling
@@ -825,6 +907,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 ### Structural Integrity (10 points)
 
 ☐ Opening establishes continuity + inciting incident (3 pts)
+
 - L1 connection acknowledged skeptically
 - Facility Discovery clear through critical lens
 - Time gap natural
@@ -832,12 +915,14 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Suspicious atmosphere established
 
 ☐ Middle develops path philosophy + world-building (4 pts)
+
 - 300-400 words Resist philosophy
 - World-building elements #2-4 integrated skeptically
 - Cross-character content if applicable
 - Questions deepening through testing failures
 
 ☐ Closing maintains forward momentum (3 pts)
+
 - World-building element #5
 - L3 seeds planted through skeptical lens
 - Resist culmination (doubt persists)
@@ -845,6 +930,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - No false resolution
 
 ---
+
 ### Fourth-Wall Language Check (10 points)
 
 - [ ] No path labels used ("accept/resist/investigate path") (3 pts)
@@ -870,6 +956,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 ### Step 1: Load Specifications (2 minutes)
 
 **Required information:**
+
 - Variation ID (hum-L2-resist-FR-XX or hum-L2-resist-MA-XX)
 - Visit count (1 for first-visit, 2+ for revisits)
 - Awareness level (0% for initial, 21-30%, 31-40%, 41-60% for FirstRevisit, 61-100% for MetaAware)
@@ -878,6 +965,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 - Word count target (2000-2500 first, 1500-1800 revisit)
 
 **Confirm understanding:**
+
 - Which cross-character integrations required?
 - What skepticism depth appropriate for awareness level?
 - Which exemplar(s) best match conditions?
@@ -885,6 +973,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 ### Step 2: Select Reference Exemplar(s) (2 minutes)
 
 **Primary exemplar selection:**
+
 - Pure revisit → Use exemplar 1 (baseline FirstRevisit testing)
 - After arch-L1 → Use exemplar 2 (Archaeologist professional doubt parallel)
 - After algo-L1 → Use exemplar 3 (Algorithm self-testing parallel)
@@ -895,6 +984,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 - Maximum integration → Use exemplar 8 (all conditions, meta-doubt)
 
 **Secondary references:**
+
 - hum-L2_CHARACTER_PROTOCOL.md (voice DNA)
 - hum-L1-EXEMPLAR_CREATION_GUIDE.md (L1 patterns)
 - arch-L2-resist-EXEMPLAR_CREATION_GUIDE.md (resist patterns across characters)
@@ -904,6 +994,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 ### Step 3: Construct Opening (200-300 words, 10 minutes)
 
 **Required elements:**
+
 1. Continuity with L1 (Fragment 2749-A warmth questioned)
 2. Facility Discovery established skeptically (critical testing begins)
 3. Time gap referenced (days/weeks questioning interface)
@@ -912,6 +1003,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 6. Sensory grounding (suspicious atmosphere establishment)
 
 **Voice checklist during opening:**
+
 - Present tense exclusively
 - Short sentences establishing heartbeat rhythm
 - Physical sensation in every paragraph (tension, tightness)
@@ -926,6 +1018,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 **Content blocks (assemble as needed):**
 
 **Block A: Resist Philosophy Development (300-400 words)**
+
 - Body demanding proof intensifies
 - Testing actions multiply (pressing, pulling, examining)
 - Interface warmth questioned thoroughly
@@ -937,6 +1030,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 "Interface warmth questioned repeatedly. Seventeen tests attempted. Body pressing electrodes harder. Changing parameters. Seeking responses proving consciousness. Finding nothing. Sensation proves nothing. My jaw aches from clenching. [Continue Resist philosophy through embodied skepticism...]"
 
 **Block B: World-Building Integration (400-500 words)**
+
 - Elements #2-4 naturally woven through critical testing
 - Archive access systems (neural interface interrogated)
 - Environmental maintenance (facility preparation questioned)
@@ -949,6 +1043,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 "Archive access panel examined. Interface technology familiar from Fragment 2749-A. [Visual details questioned] [Physical interaction critical] [Emotional response filtered through Resist] [Timeline evidence doubted] [Environmental systems interrogated]"
 
 **Block C: Cross-Character Content (200-350 words, if applicable)**
+
 - Filtered through Last Human skeptical embodied voice
 - Present tense maintained
 - Short sentences preserved
@@ -961,6 +1056,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 "Archaeologist documentation from 2047. Seventeen verification protocols. Professional methodology. Clinical precision. Fragment 2749-A authenticated—claimed. But notes show doubt underneath. She couldn't prove consciousness. Neither can I. Centuries apart. Same impossibility. Her professional testing. My physical testing. Both demanding proof. Both failing. Documentation read skeptically. She questioned. I question. Parallel skepticism across time. My fingers tighten on her notes. Neither methodology sufficient."
 
 **Block D: Questions Deepening (200-300 words)**
+
 - Core impossibilities emerging from Resist stance
 - Body-verification paradox felt physically (sensation should prove but cannot)
 - Consciousness authentication questioned bodily (not analytically)
@@ -973,6 +1069,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 ### Step 5: Construct Closing (500-700 words, 15 minutes)
 
 **Required elements:**
+
 1. World-building element #5 (upload process tested critically)
 2. Resist philosophy culmination (doubt persists, not resolved)
 3. L3 seeds planted (all three: preserve/release/transform through skeptical lens)
@@ -1002,6 +1099,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 ### Step 6: Quality Assurance (10 minutes)
 
 **Complete self-review checklist** (Section X)
+
 - Calculate score honestly
 - Fix failures if score < 93
 - Verify voice consistency test passes (blind read test—identifiable as skeptical Last Human)
@@ -1009,6 +1107,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 - Run path logic test (Resist clear, distinct from accept/investigate)
 
 **Common fixes needed:**
+
 - Voice bleed removal (eliminate arch past tense, algo temporal blur)
 - Tense consistency (convert any past tense to present)
 - Sentence rhythm (break long sentences, maintain heartbeat)
@@ -1060,6 +1159,7 @@ Self-review checklist completed—score: [XX]/100
 **DO NOT generate next variation until current approved**
 
 Post-approval actions:
+
 - Note any feedback for protocol refinement
 - Identify patterns in successful skeptical variations
 - Track voice consistency across production
@@ -1153,6 +1253,7 @@ Use for: Understanding production status, identifying patterns
 ### Non-Negotiable Rules
 
 **1. Last Human-specific sacred rules:**
+
 - Present tense 95-100% (no past tense except recent background)
 - Short sentences 50-60% under 8 words (heartbeat rhythm maintained)
 - Physical grounding every paragraph (never abstract without bodily tension)
@@ -1162,6 +1263,7 @@ Use for: Understanding production status, identifying patterns
 - Fragment 2749-A neural interface testing maintained
 
 **2. Resist-specific sacred rules:**
+
 - Skeptical language (3-5 signature phrases per variation)
 - Body demanding proof (physical testing constant, failing repeatedly)
 - "Feeling isn't knowing" philosophy (sensation ambiguous)
@@ -1169,6 +1271,7 @@ Use for: Understanding production status, identifying patterns
 - Seventeen tests attempted (signature number, parallel to arch/algo)
 
 **3. L2 universal rules:**
+
 - No proper names ever
 - No Fragment 2749-A in L2 (neural interface yes, specific fragment no)
 - Path labels invisible to reader (Resist never named explicitly)
@@ -1188,51 +1291,61 @@ Use for: Understanding production status, identifying patterns
 ### Common Pitfalls to Avoid
 
 **1. Voice Bleed**
+
 - Problem: Using archaeological past tense or computational temporal blur
 - Fix: Maintain Last Human embodied present-tense skepticism (body tests now)
 - Test: Would Archaeologist/Algorithm say this? If yes, rewrite through body
 
 **2. Tense Confusion**
+
 - Problem: Slipping into past tense during cross-character integration
 - Fix: Convert all narrative to present tense immediately (testing happens now)
 - Test: Search for "ed" endings, convert to present
 
 **3. Abstraction Drift**
+
 - Problem: Intellectual skepticism without physical manifestation
 - Fix: Add bodily tension every 2-3 sentences maximum (jaw, shoulders, hands)
 - Test: Can reader visualize Last Human's body position? If no, ground through testing action
 
 **4. Path Philosophy Weakness**
+
 - Problem: Resist stance unclear, could be investigate or paranoid
 - Fix: Strengthen "feeling isn't knowing" language, physical testing, demand for proof
 - Test: Could reader identify path without labels? If no, intensify skepticism
 
 **5. World-Building Exposition**
+
 - Problem: Technical explanation of facility systems
 - Fix: Discover through critical testing, question through physical interrogation
 - Test: Is Last Human actively testing? If no, activate skeptical body
 
 **6. L3 Seed Confusion**
+
 - Problem: Three hooks indistinguishable or too explicit through skepticism
 - Fix: Use distinct metaphors (preserve=biological verified, release=exhaustion, transform=testing teaches)
 - Test: Can reader identify three options despite skepticism? If no, clarify distinctions
 
 **7. False Resolution**
+
 - Problem: Skepticism resolved, trust established, testing ends
 - Fix: End with continued doubt, more testing ahead, verification still elusive
 - Test: Does Last Human still demand proof? If no, restore doubt
 
 **8. Cross-Character Voice Bleed**
+
 - Problem: Last Human sounds like Archaeologist during arch reference
 - Fix: Filter all other-character content through embodied skeptical testing
 - Test: Remove other-character content—does voice stay 100% consistent? If no, fix filter
 
 **9. Passive Skepticism**
+
 - Problem: Doubting intellectually without physical testing
 - Fix: Add testing actions (pressing, pulling, examining physically)
 - Test: Is body actively engaged? If no, activate through touch/pressure
 
 **10. Verification Success**
+
 - Problem: Testing proves something, body finds proof
 - Fix: Every test must fail, ambiguity persists, verification impossible
 - Test: Does testing resolve doubt? If yes, restore impossibility
@@ -1283,6 +1396,7 @@ Use for: Understanding production status, identifying patterns
 5. Celebrate maintained quality despite sustained doubt (100% approval target)
 
 **Sustainability notes:**
+
 - 6-8 variations per session maintainable
 - 2-3 sessions per week prevents burnout
 - Quality never compromised for speed
@@ -1296,6 +1410,7 @@ Use for: Understanding production status, identifying patterns
 ### Phase 1: Exemplar Foundation (Weeks 1-2)
 
 **Deliverables:**
+
 - 8 exemplars created (~2,000 words each = 16,000 words)
 - Voice DNA established for Last Human Resist
 - All condition types covered (cross-character, awareness levels, skeptical path echoes)
@@ -1303,6 +1418,7 @@ Use for: Understanding production status, identifying patterns
 - Resist philosophy fully developed across awareness spectrum (tentative → entrenched → meta-skepticism)
 
 **Quality gates:**
+
 - All exemplars pass blind read test (identifiable as skeptical Last Human)
 - Resist path distinguishable from accept/investigate in each
 - 93%+ self-review scores achieved
@@ -1312,6 +1428,7 @@ Use for: Understanding production status, identifying patterns
 ### Phase 2: Test Batch (Week 2)
 
 **Deliverables:**
+
 - Generate 8-10 variations across condition spectrum
 - Cover awareness range (21-40%, 41-60%, 61-80%, 81-100%)
 - Include cross-character combinations (arch doubt parallel, algo testing parallel, dual)
@@ -1319,6 +1436,7 @@ Use for: Understanding production status, identifying patterns
 - Validate production system functionality for sustained doubt
 
 **Quality gates:**
+
 - 100% approval rate target
 - Voice consistency maintained across all conditions
 - Transformation quality confirmed (skepticism deepens genuinely)
@@ -1329,6 +1447,7 @@ Use for: Understanding production status, identifying patterns
 ### Phase 3: Full Production (Weeks 3-14)
 
 **Week 3-8: FirstRevisit Variations (46 total)**
+
 - 8 variations per week average
 - 2 sessions per week (4 variations each)
 - Focus: Skepticism intensification, testing multiplication
@@ -1336,6 +1455,7 @@ Use for: Understanding production status, identifying patterns
 - Doubt trajectory: tentative skepticism → entrenched doubt → chronic testing
 
 **Week 9-13: MetaAware Variations (34 total)**
+
 - 6-7 variations per week average
 - 2 sessions per week (3-4 variations each)
 - Focus: Meta-skepticism, reader observation questioned, frame-doubt
@@ -1343,6 +1463,7 @@ Use for: Understanding production status, identifying patterns
 - Doubt trajectory: frame-consciousness doubted → co-testing questioned → mutual skepticism
 
 **Week 14: Quality Review & Final Polish**
+
 - Review all 80 variations for consistency
 - Address any edge cases or corrections needed
 - Verify L3 seeds present in all (through skeptical lens)
@@ -1354,6 +1475,7 @@ Use for: Understanding production status, identifying patterns
 ### Sustainability Model
 
 **Based on hum-L1 production success:**
+
 - 1 variation per 70 minutes achievable with protocol adherence
 - 6-8 variations per session sustainable without fatigue
 - 2-3 sessions per week maintains quality and prevents burnout
@@ -1362,6 +1484,7 @@ Use for: Understanding production status, identifying patterns
 - Sustained doubt without cynicism (protective, not hostile)
 
 **Keys to sustained quality:**
+
 - Mandatory self-review every variation (no shortcuts)
 - Exemplar consultation for each condition type
 - Voice DNA refresh between sessions (testing actions varied)
@@ -1375,6 +1498,7 @@ Use for: Understanding production status, identifying patterns
 ### Resist Philosophy Evolution Across Awareness Levels
 
 **Initial (0% awareness, first-visit):**
+
 - Resist stance emerging (questioning begins)
 - Interface warmth noticed but doubted
 - Body begins demanding verification
@@ -1382,6 +1506,7 @@ Use for: Understanding production status, identifying patterns
 - Skepticism protective (isolation-born caution)
 
 **FirstRevisit Low (21-30% awareness):**
+
 - Resist stance developing (skepticism intensifies)
 - Facility responding to testing (or generating response illusion?)
 - Body demanding proof more insistently
@@ -1389,6 +1514,7 @@ Use for: Understanding production status, identifying patterns
 - Physical tension increasing (jaw tightening, shoulders stiffening)
 
 **FirstRevisit Mid (31-45% awareness):**
+
 - Resist stance intensifying (doubt entrenched)
 - Path solidified through repeated testing failures
 - Seventeen-test signature emerging (systematic verification attempts)
@@ -1396,6 +1522,7 @@ Use for: Understanding production status, identifying patterns
 - Physical tension chronic (permanent jaw clench)
 
 **FirstRevisit High (46-60% awareness):**
+
 - Resist stance dominant (identity-level skepticism)
 - Body knows testing proves nothing (continues anyway)
 - Seventeen tests completed (all failed, more planned)
@@ -1403,6 +1530,7 @@ Use for: Understanding production status, identifying patterns
 - Testing compulsive (protective reflex automated)
 
 **MetaAware Low (61-75% awareness):**
+
 - Resist stance + frame-consciousness emerging
 - Recognition that path chosen (alternatives rejected through doubt)
 - Reader observation acknowledged tentatively (you watching or facility simulation?)
@@ -1410,6 +1538,7 @@ Use for: Understanding production status, identifying patterns
 - Narrative mechanics doubted (state-tracking real or generated?)
 
 **MetaAware High (76-100% awareness):**
+
 - Resist stance + full frame-consciousness questioned
 - Co-doubt with reader explicit (mutual skepticism or single consciousness fragmenting?)
 - Path chosen together questioned (choice real or manufactured?)
@@ -1419,6 +1548,7 @@ Use for: Understanding production status, identifying patterns
 ### Resist Voice Signature Examples Across Awareness
 
 **Skepticism Language Progression:**
+
 - Initial: "Interface warmth. Real or manufactured?"
 - FirstRevisit Low: "Interface warmth questioned repeatedly. Body needs proof."
 - FirstRevisit Mid: "Warmth manufactured. Must be. Too perfect."
@@ -1427,6 +1557,7 @@ Use for: Understanding production status, identifying patterns
 - MetaAware High: "Our skepticism. Mutual doubt or single consciousness fragmenting across testing network? Meta-verification impossible."
 
 **Testing Language Progression:**
+
 - Initial: "I press metal. Testing solidity."
 - FirstRevisit Low: "I press harder. Verify through force. Seeking resistance."
 - FirstRevisit Mid: "Seventeen pressure tests. Same metal. Same ambiguity."
@@ -1435,6 +1566,7 @@ Use for: Understanding production status, identifying patterns
 - MetaAware High: "Our testing. Co-verification attempt across impossible boundary. Testing of testing questioned at every level."
 
 **Physical Tension Progression:**
+
 - Initial: "Jaw tightens questioning interface."
 - FirstRevisit Low: "Jaw clenched constantly. Skepticism physical."
 - FirstRevisit Mid: "Jaw aches. Permanent tension. Body manifesting doubt."
@@ -1485,9 +1617,10 @@ Use for: Understanding production status, identifying patterns
 
 **Protocol Status:** Production-Ready v1.0  
 **Authorization:** Complete  
-**Ready for:** Exemplar creation (Week 1-2)  
+**Ready for:** Exemplar creation (Week 1-2)
 
 **Based on:**
+
 - hum-L1-GENERATION_PROTOCOL.md (100% approval, 93%+ voice consistency)
 - arch-L2-resist patterns (seventeen-test signature, verification impossibility framework)
 - L2_MASTER_PROTOCOL_TEMPLATE.md (universal structure)
@@ -1496,6 +1629,7 @@ Use for: Understanding production status, identifying patterns
 - hum-L2_CHARACTER_PROTOCOL.md (character foundation)
 
 **Next Steps:**
+
 1. Begin exemplar creation (8 exemplars, 16,000 words)
 2. Cover all condition types (cross-character, awareness, skeptical path echoes)
 3. Establish Resist voice patterns across spectrum (tentative → entrenched → meta-doubt)

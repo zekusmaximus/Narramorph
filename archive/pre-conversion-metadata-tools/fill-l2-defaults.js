@@ -17,6 +17,7 @@
 
 const fs = require('fs');
 const path = require('path');
+
 const yaml = require('js-yaml');
 
 // Reuse analyzer from insert script
@@ -26,17 +27,22 @@ const analyzeContent = insertMod.analyzeContent;
 const CONFIG = {
   root: 'docs',
   filenamePattern: /^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)\.md$/,
-  characters: { arch: 'archaeologist', algo: 'algorithm', hum: 'lastHuman' }
+  characters: { arch: 'archaeologist', algo: 'algorithm', hum: 'lastHuman' },
 };
 
 function walkFiles(dir) {
   const out = [];
-  if (!fs.existsSync(dir)) return out;
+  if (!fs.existsSync(dir)) {
+    return out;
+  }
   const ents = fs.readdirSync(dir, { withFileTypes: true });
   for (const e of ents) {
     const full = path.join(dir, e.name);
-    if (e.isDirectory()) out.push(...walkFiles(full));
-    else if (e.isFile()) out.push(full);
+    if (e.isDirectory()) {
+      out.push(...walkFiles(full));
+    } else if (e.isFile()) {
+      out.push(full);
+    }
   }
   return out;
 }
@@ -47,8 +53,14 @@ function hasFrontmatter(text) {
 
 function extractFrontmatter(text) {
   const m = text.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  if (!m) return null;
-  try { return yaml.load(m[1]); } catch (e) { return { __parseError: e.message }; }
+  if (!m) {
+    return null;
+  }
+  try {
+    return yaml.load(m[1]);
+  } catch (e) {
+    return { __parseError: e.message };
+  }
 }
 
 function replaceFrontmatter(text, metaObj) {
@@ -66,52 +78,77 @@ function stripFrontmatter(text) {
 }
 
 function parsePathPhilosophy(meta, filename) {
-  if (meta && meta.pathPhilosophy) return meta.pathPhilosophy;
+  if (meta && meta.pathPhilosophy) {
+    return meta.pathPhilosophy;
+  }
   const base = path.basename(filename);
   const m = base.match(CONFIG.filenamePattern);
   return m ? m[2] : null;
 }
 
 function parseCharacter(meta, filename) {
-  if (meta && meta.character) return meta.character;
+  if (meta && meta.character) {
+    return meta.character;
+  }
   const base = path.basename(filename);
   const m = base.match(CONFIG.filenamePattern);
-  if (!m) return null;
+  if (!m) {
+    return null;
+  }
   const short = m[1];
   return short === 'arch' ? 'archaeologist' : short === 'algo' ? 'algorithm' : 'lastHuman';
 }
 
 function alignmentByPath(pathPhilosophy) {
-  if (pathPhilosophy === 'accept') return 'preserve';
-  if (pathPhilosophy === 'resist') return 'release';
-  if (pathPhilosophy === 'invest') return 'transform';
+  if (pathPhilosophy === 'accept') {
+    return 'preserve';
+  }
+  if (pathPhilosophy === 'resist') {
+    return 'release';
+  }
+  if (pathPhilosophy === 'invest') {
+    return 'transform';
+  }
   return null;
 }
 
 function defaultCQ(pathPhilosophy) {
-  if (pathPhilosophy === 'accept') return 'preservation-vs-verification-what-counts-as-continuation';
-  if (pathPhilosophy === 'resist') return 'verification-impossible-yet-standards-demand-proof';
+  if (pathPhilosophy === 'accept') {
+    return 'preservation-vs-verification-what-counts-as-continuation';
+  }
+  if (pathPhilosophy === 'resist') {
+    return 'verification-impossible-yet-standards-demand-proof';
+  }
   return 'observation-and-inquiry-transform-consciousness-and-proof'; // invest
 }
 
 function defaultStance(pathPhilosophy) {
-  if (pathPhilosophy === 'accept') return 'honor-suggestion-when-proof-unavailable-witness-over-test';
-  if (pathPhilosophy === 'resist') return 'maintain-standards-despite-impossibility-continue-testing';
+  if (pathPhilosophy === 'accept') {
+    return 'honor-suggestion-when-proof-unavailable-witness-over-test';
+  }
+  if (pathPhilosophy === 'resist') {
+    return 'maintain-standards-despite-impossibility-continue-testing';
+  }
   return 'pursue-inquiry-despite-instability-embrace-transformation'; // invest
 }
 
 function alignedSeedKey(pathPhilosophy) {
-  if (pathPhilosophy === 'accept') return 'preserve';
-  if (pathPhilosophy === 'resist') return 'release';
+  if (pathPhilosophy === 'accept') {
+    return 'preserve';
+  }
+  if (pathPhilosophy === 'resist') {
+    return 'release';
+  }
   return 'transform';
 }
 
 function defaultAlignedSeedText(pathPhilosophy, character) {
-  const charFlavor = character === 'archaeologist'
-    ? 'witness and authentication logs'
-    : character === 'algorithm'
-    ? 'stream coordination and processing architecture'
-    : 'embodied doubt and physical cost';
+  const charFlavor =
+    character === 'archaeologist'
+      ? 'witness and authentication logs'
+      : character === 'algorithm'
+        ? 'stream coordination and processing architecture'
+        : 'embodied doubt and physical cost';
 
   if (pathPhilosophy === 'accept') {
     return `Preservation operates as witness—continuity through standards and presence when proof cannot be guaranteed; grounded in ${charFlavor}.`;
@@ -122,23 +159,46 @@ function defaultAlignedSeedText(pathPhilosophy, character) {
   return `Inquiry changes both observer and observed—method becomes evolution rather than mere measurement, expressed through ${charFlavor}.`;
 }
 
-function ensureArray(arr) { return Array.isArray(arr) ? arr : []; }
+function ensureArray(arr) {
+  return Array.isArray(arr) ? arr : [];
+}
 
 function topUpKeyPhrases(meta, bodyText, pathPhilosophy, character) {
   meta.generationHints = meta.generationHints || {};
   let kp = ensureArray(meta.generationHints.keyPhrases);
-  if (kp.length >= 5) return; // good enough
+  if (kp.length >= 5) {
+    return;
+  } // good enough
   // Analyze content (without frontmatter) to extract phrases
   const analysis = analyzeContent(bodyText);
   const add = ensureArray(analysis.keyPhrases).slice(0, 10);
   let merged = Array.from(new Set([...kp, ...add])).filter(Boolean);
   // Fallback stock phrases by path if still short
   if (merged.length < 5) {
-    const stock = pathPhilosophy === 'accept'
-      ? ['witness rather than test','authentication without certainty','precision to presence','continuity through care','verification shifts to witness']
-      : pathPhilosophy === 'resist'
-      ? ['verification impossible','maintain standards','accept limits over recursion','rigor over resolution','end the loop']
-      : ['method becomes evolution','observer and observed co‑shape','inquiry transforms proof','analysis to transformation','streams recognize pattern'];
+    const stock =
+      pathPhilosophy === 'accept'
+        ? [
+            'witness rather than test',
+            'authentication without certainty',
+            'precision to presence',
+            'continuity through care',
+            'verification shifts to witness',
+          ]
+        : pathPhilosophy === 'resist'
+          ? [
+              'verification impossible',
+              'maintain standards',
+              'accept limits over recursion',
+              'rigor over resolution',
+              'end the loop',
+            ]
+          : [
+              'method becomes evolution',
+              'observer and observed co‑shape',
+              'inquiry transforms proof',
+              'analysis to transformation',
+              'streams recognize pattern',
+            ];
     merged = Array.from(new Set([...merged, ...stock])).slice(0, 10);
   }
   meta.generationHints.keyPhrases = merged;
@@ -149,40 +209,64 @@ function fillDefaultsForMeta(meta, filename, bodyText, scopeFilters) {
 
   const character = parseCharacter(meta, filename);
   const pathPhilosophy = parsePathPhilosophy(meta, filename);
-  if (scopeFilters.path && scopeFilters.path !== pathPhilosophy) return { changed: false, reason: 'filtered' };
-  if (scopeFilters.character && scopeFilters.character !== character) return { changed: false, reason: 'filtered' };
+  if (scopeFilters.path && scopeFilters.path !== pathPhilosophy) {
+    return { changed: false, reason: 'filtered' };
+  }
+  if (scopeFilters.character && scopeFilters.character !== character) {
+    return { changed: false, reason: 'filtered' };
+  }
 
   // convergenceAlignment
   const alignment = alignmentByPath(pathPhilosophy);
   meta.generationHints = meta.generationHints || {};
-  if (!meta.generationHints.convergenceAlignment || meta.generationHints.convergenceAlignment === 'REVIEW_REQUIRED') {
-    if (alignment) meta.generationHints.convergenceAlignment = alignment;
+  if (
+    !meta.generationHints.convergenceAlignment ||
+    meta.generationHints.convergenceAlignment === 'REVIEW_REQUIRED'
+  ) {
+    if (alignment) {
+      meta.generationHints.convergenceAlignment = alignment;
+    }
   }
 
   // consciousnessQuestion / philosophicalStance
   meta.thematicContent = meta.thematicContent || {};
-  if (!meta.thematicContent.consciousnessQuestion || meta.thematicContent.consciousnessQuestion === 'REVIEW_REQUIRED') {
+  if (
+    !meta.thematicContent.consciousnessQuestion ||
+    meta.thematicContent.consciousnessQuestion === 'REVIEW_REQUIRED'
+  ) {
     meta.thematicContent.consciousnessQuestion = defaultCQ(pathPhilosophy);
   }
-  if (!meta.thematicContent.philosophicalStance || meta.thematicContent.philosophicalStance === 'REVIEW_REQUIRED') {
+  if (
+    !meta.thematicContent.philosophicalStance ||
+    meta.thematicContent.philosophicalStance === 'REVIEW_REQUIRED'
+  ) {
     meta.thematicContent.philosophicalStance = defaultStance(pathPhilosophy);
   }
 
   // observerEffect / philosophicalCulmination (soft defaults)
-  if (!meta.thematicContent.observerEffect || meta.thematicContent.observerEffect === 'REVIEW_REQUIRED') {
+  if (
+    !meta.thematicContent.observerEffect ||
+    meta.thematicContent.observerEffect === 'REVIEW_REQUIRED'
+  ) {
     if (pathPhilosophy === 'accept') {
       meta.thematicContent.observerEffect = 'witnessing-reorients-method-from-proof-to-presence';
     } else if (pathPhilosophy === 'resist') {
-      meta.thematicContent.observerEffect = 'examination-participates-in-and-amplifies-the-tested-pattern';
+      meta.thematicContent.observerEffect =
+        'examination-participates-in-and-amplifies-the-tested-pattern';
     } else {
       meta.thematicContent.observerEffect = 'method-alters-observer-and-observed';
     }
   }
-  if (!meta.generationHints.philosophicalCulmination || meta.generationHints.philosophicalCulmination === 'REVIEW_REQUIRED') {
+  if (
+    !meta.generationHints.philosophicalCulmination ||
+    meta.generationHints.philosophicalCulmination === 'REVIEW_REQUIRED'
+  ) {
     if (pathPhilosophy === 'accept') {
-      meta.generationHints.philosophicalCulmination = 'verification-shifts-to-witness-continuity-through-presence';
+      meta.generationHints.philosophicalCulmination =
+        'verification-shifts-to-witness-continuity-through-presence';
     } else if (pathPhilosophy === 'resist') {
-      meta.generationHints.philosophicalCulmination = 'recognition-that-proof-remains-unattainable-integrity-chooses-limits';
+      meta.generationHints.philosophicalCulmination =
+        'recognition-that-proof-remains-unattainable-integrity-chooses-limits';
     } else {
       meta.generationHints.philosophicalCulmination = 'inquiry-reveals-method-as-agent-of-change';
     }
@@ -192,11 +276,19 @@ function fillDefaultsForMeta(meta, filename, bodyText, scopeFilters) {
   meta.l3SeedContributions = meta.l3SeedContributions || {};
   const alignedKey = alignedSeedKey(pathPhilosophy);
   for (const key of ['preserve', 'release', 'transform']) {
-    meta.l3SeedContributions[key] = meta.l3SeedContributions[key] || { text: 'REVIEW_REQUIRED', weight: 'moderate', keyPhrases: [] };
+    meta.l3SeedContributions[key] = meta.l3SeedContributions[key] || {
+      text: 'REVIEW_REQUIRED',
+      weight: 'moderate',
+      keyPhrases: [],
+    };
   }
   // aligned seed: strong + text if missing
   const alignedSeed = meta.l3SeedContributions[alignedKey];
-  if (!alignedSeed.weight || alignedSeed.weight === 'REVIEW_REQUIRED' || alignedSeed.weight === 'moderate') {
+  if (
+    !alignedSeed.weight ||
+    alignedSeed.weight === 'REVIEW_REQUIRED' ||
+    alignedSeed.weight === 'moderate'
+  ) {
     alignedSeed.weight = 'strong';
   }
   if (!alignedSeed.text || alignedSeed.text === 'REVIEW_REQUIRED') {
@@ -205,18 +297,29 @@ function fillDefaultsForMeta(meta, filename, bodyText, scopeFilters) {
 
   // Make sure other seeds at least have a moderate weight
   for (const key of ['preserve', 'release', 'transform']) {
-    if (key === alignedKey) continue;
-    if (!meta.l3SeedContributions[key].weight || meta.l3SeedContributions[key].weight === 'REVIEW_REQUIRED') {
+    if (key === alignedKey) {
+      continue;
+    }
+    if (
+      !meta.l3SeedContributions[key].weight ||
+      meta.l3SeedContributions[key].weight === 'REVIEW_REQUIRED'
+    ) {
       meta.l3SeedContributions[key].weight = 'moderate';
     }
-    if (!meta.l3SeedContributions[key].text || meta.l3SeedContributions[key].text === 'REVIEW_REQUIRED') {
+    if (
+      !meta.l3SeedContributions[key].text ||
+      meta.l3SeedContributions[key].text === 'REVIEW_REQUIRED'
+    ) {
       // Short neutral text for non-aligned seeds
       if (key === 'preserve') {
-        meta.l3SeedContributions[key].text = 'Continuation can honor method and memory even without certainty.';
+        meta.l3SeedContributions[key].text =
+          'Continuation can honor method and memory even without certainty.';
       } else if (key === 'release') {
-        meta.l3SeedContributions[key].text = 'Acceptance of limits can be an act of integrity when proof is unavailable.';
+        meta.l3SeedContributions[key].text =
+          'Acceptance of limits can be an act of integrity when proof is unavailable.';
       } else {
-        meta.l3SeedContributions[key].text = 'Inquiry itself can reshape both observer and observed toward a new form.';
+        meta.l3SeedContributions[key].text =
+          'Inquiry itself can reshape both observer and observed toward a new form.';
       }
     }
   }
@@ -229,16 +332,23 @@ function fillDefaultsForMeta(meta, filename, bodyText, scopeFilters) {
 
   // Primary themes top-up (take top 3-5 theme names from analyzer)
   meta.thematicContent = meta.thematicContent || {};
-  if (!Array.isArray(meta.thematicContent.primaryThemes) || meta.thematicContent.primaryThemes.length === 0) {
+  if (
+    !Array.isArray(meta.thematicContent.primaryThemes) ||
+    meta.thematicContent.primaryThemes.length === 0
+  ) {
     const themes = (analysis.primaryThemes || [])
-      .map(t => (typeof t === 'string' ? t : t.theme))
+      .map((t) => (typeof t === 'string' ? t : t.theme))
       .filter(Boolean)
       .slice(0, 5);
-    if (themes.length > 0) meta.thematicContent.primaryThemes = themes;
+    if (themes.length > 0) {
+      meta.thematicContent.primaryThemes = themes;
+    }
   }
 
   // Fill createdDate/wordCount if missing or zero
-  if (!meta.createdDate) meta.createdDate = new Date().toISOString().split('T')[0];
+  if (!meta.createdDate) {
+    meta.createdDate = new Date().toISOString().split('T')[0];
+  }
   if (typeof meta.wordCount !== 'number' || meta.wordCount <= 0) {
     // approximate by counting tokens in body
     const wc = bodyText.trim().split(/\s+/).filter(Boolean).length;
@@ -246,12 +356,18 @@ function fillDefaultsForMeta(meta, filename, bodyText, scopeFilters) {
   }
 
   // Additional defaults to remove remaining REVIEW_REQUIRED conservatively
-  function isMissing(v) { return v === undefined || v === null || v === '' || v === 'REVIEW_REQUIRED'; }
+  function isMissing(v) {
+    return v === undefined || v === null || v === '' || v === 'REVIEW_REQUIRED';
+  }
   function awarenessBand() {
     const rng = Array.isArray(meta.awarenessRange) ? meta.awarenessRange : [];
     const max = rng[1] || 0;
-    if (max >= 71) return 'high';
-    if (max >= 41) return 'moderate';
+    if (max >= 71) {
+      return 'high';
+    }
+    if (max >= 41) {
+      return 'moderate';
+    }
     return 'low';
   }
   const band = awarenessBand();
@@ -259,74 +375,121 @@ function fillDefaultsForMeta(meta, filename, bodyText, scopeFilters) {
   // narrativeElements
   meta.narrativeElements = meta.narrativeElements || {};
   if (isMissing(meta.narrativeElements.observerPosition)) {
-    if (character === 'archaeologist') meta.narrativeElements.observerPosition = 'meta-archaeological-self-aware';
-    else if (character === 'algorithm') meta.narrativeElements.observerPosition = 'multi-stream-analytic-observer';
-    else meta.narrativeElements.observerPosition = 'embodied-empirical-skeptic';
+    if (character === 'archaeologist') {
+      meta.narrativeElements.observerPosition = 'meta-archaeological-self-aware';
+    } else if (character === 'algorithm') {
+      meta.narrativeElements.observerPosition = 'multi-stream-analytic-observer';
+    } else {
+      meta.narrativeElements.observerPosition = 'embodied-empirical-skeptic';
+    }
   }
   if (isMissing(meta.narrativeElements.temporalBleedingLevel)) {
     meta.narrativeElements.temporalBleedingLevel = band;
   }
   if (isMissing(meta.narrativeElements.voiceSignature)) {
-    if (character === 'archaeologist') meta.narrativeElements.voiceSignature = 'clinical-to-philosophical-rhythm';
-    else if (character === 'algorithm') meta.narrativeElements.voiceSignature = 'analytical-iterative-cadence';
-    else meta.narrativeElements.voiceSignature = 'embodied-skeptical-register';
+    if (character === 'archaeologist') {
+      meta.narrativeElements.voiceSignature = 'clinical-to-philosophical-rhythm';
+    } else if (character === 'algorithm') {
+      meta.narrativeElements.voiceSignature = 'analytical-iterative-cadence';
+    } else {
+      meta.narrativeElements.voiceSignature = 'embodied-skeptical-register';
+    }
   }
   if (isMissing(meta.narrativeElements.narrativeArc)) {
-    if (pathPhilosophy === 'accept') meta.narrativeElements.narrativeArc = 'doubt-to-witness';
-    else if (pathPhilosophy === 'resist') meta.narrativeElements.narrativeArc = 'proof-seeking-to-integrity';
-    else meta.narrativeElements.narrativeArc = 'analysis-to-evolution';
+    if (pathPhilosophy === 'accept') {
+      meta.narrativeElements.narrativeArc = 'doubt-to-witness';
+    } else if (pathPhilosophy === 'resist') {
+      meta.narrativeElements.narrativeArc = 'proof-seeking-to-integrity';
+    } else {
+      meta.narrativeElements.narrativeArc = 'analysis-to-evolution';
+    }
   }
   if (isMissing(meta.narrativeElements.pacing)) {
-    if (pathPhilosophy === 'accept') meta.narrativeElements.pacing = 'deliberate-meditative';
-    else if (pathPhilosophy === 'resist') meta.narrativeElements.pacing = 'measured-insistent';
-    else meta.narrativeElements.pacing = 'accelerating-inquisitive';
+    if (pathPhilosophy === 'accept') {
+      meta.narrativeElements.pacing = 'deliberate-meditative';
+    } else if (pathPhilosophy === 'resist') {
+      meta.narrativeElements.pacing = 'measured-insistent';
+    } else {
+      meta.narrativeElements.pacing = 'accelerating-inquisitive';
+    }
   }
 
   // characterDevelopment
   meta.characterDevelopment = meta.characterDevelopment || {};
   if (isMissing(meta.characterDevelopment.stanceEvolution)) {
-    if (pathPhilosophy === 'accept') meta.characterDevelopment.stanceEvolution = 'from-scientist-to-witness';
-    else if (pathPhilosophy === 'resist') meta.characterDevelopment.stanceEvolution = 'from-seeking-proof-to-sustaining-standards';
-    else meta.characterDevelopment.stanceEvolution = 'from-methodical-analysis-to-transformative-inquiry';
+    if (pathPhilosophy === 'accept') {
+      meta.characterDevelopment.stanceEvolution = 'from-scientist-to-witness';
+    } else if (pathPhilosophy === 'resist') {
+      meta.characterDevelopment.stanceEvolution = 'from-seeking-proof-to-sustaining-standards';
+    } else {
+      meta.characterDevelopment.stanceEvolution =
+        'from-methodical-analysis-to-transformative-inquiry';
+    }
   }
   if (isMissing(meta.characterDevelopment.relationshipToArchive)) {
-    if (character === 'archaeologist') meta.characterDevelopment.relationshipToArchive = 'sacred-trust-protective';
-    else if (character === 'algorithm') meta.characterDevelopment.relationshipToArchive = 'data-integrity-priority';
-    else meta.characterDevelopment.relationshipToArchive = 'contested-resource-skeptical';
+    if (character === 'archaeologist') {
+      meta.characterDevelopment.relationshipToArchive = 'sacred-trust-protective';
+    } else if (character === 'algorithm') {
+      meta.characterDevelopment.relationshipToArchive = 'data-integrity-priority';
+    } else {
+      meta.characterDevelopment.relationshipToArchive = 'contested-resource-skeptical';
+    }
   }
   if (isMissing(meta.characterDevelopment.relationshipToMethod)) {
-    if (pathPhilosophy === 'accept') meta.characterDevelopment.relationshipToMethod = 'witness-over-test';
-    else if (pathPhilosophy === 'resist') meta.characterDevelopment.relationshipToMethod = 'rigor-over-resolution';
-    else meta.characterDevelopment.relationshipToMethod = 'inquiry-as-transformation';
+    if (pathPhilosophy === 'accept') {
+      meta.characterDevelopment.relationshipToMethod = 'witness-over-test';
+    } else if (pathPhilosophy === 'resist') {
+      meta.characterDevelopment.relationshipToMethod = 'rigor-over-resolution';
+    } else {
+      meta.characterDevelopment.relationshipToMethod = 'inquiry-as-transformation';
+    }
   }
   if (isMissing(meta.characterDevelopment.awarenessOfOthers)) {
     // heuristic: use band to scale
-    meta.characterDevelopment.awarenessOfOthers = band === 'high' ? 'strong' : band === 'moderate' ? 'moderate' : 'light';
+    meta.characterDevelopment.awarenessOfOthers =
+      band === 'high' ? 'strong' : band === 'moderate' ? 'moderate' : 'light';
   }
   if (isMissing(meta.characterDevelopment.selfAwareness)) {
-    meta.characterDevelopment.selfAwareness = band === 'high' ? 'high' : band === 'moderate' ? 'emerging' : 'nascent';
+    meta.characterDevelopment.selfAwareness =
+      band === 'high' ? 'high' : band === 'moderate' ? 'emerging' : 'nascent';
   }
   if (isMissing(meta.characterDevelopment.philosophicalEvolution)) {
-    if (pathPhilosophy === 'accept') meta.characterDevelopment.philosophicalEvolution = 'verification-to-witnessing-presence';
-    else if (pathPhilosophy === 'resist') meta.characterDevelopment.philosophicalEvolution = 'testing-to-integrity-through-limits';
-    else meta.characterDevelopment.philosophicalEvolution = 'method-to-evolutionary-inquiry';
+    if (pathPhilosophy === 'accept') {
+      meta.characterDevelopment.philosophicalEvolution = 'verification-to-witnessing-presence';
+    } else if (pathPhilosophy === 'resist') {
+      meta.characterDevelopment.philosophicalEvolution = 'testing-to-integrity-through-limits';
+    } else {
+      meta.characterDevelopment.philosophicalEvolution = 'method-to-evolutionary-inquiry';
+    }
   }
 
   // generationHints additional fields
   if (isMissing(meta.generationHints.narrativeProgression)) {
-    if (pathPhilosophy === 'accept') meta.generationHints.narrativeProgression = 'external-verification-to-internal-witness';
-    else if (pathPhilosophy === 'resist') meta.generationHints.narrativeProgression = 'proof-seeking-to-integrity-through-limits';
-    else meta.generationHints.narrativeProgression = 'analysis-to-transformation';
+    if (pathPhilosophy === 'accept') {
+      meta.generationHints.narrativeProgression = 'external-verification-to-internal-witness';
+    } else if (pathPhilosophy === 'resist') {
+      meta.generationHints.narrativeProgression = 'proof-seeking-to-integrity-through-limits';
+    } else {
+      meta.generationHints.narrativeProgression = 'analysis-to-transformation';
+    }
   }
   if (isMissing(meta.generationHints.characterDevelopment)) {
-    if (pathPhilosophy === 'accept') meta.generationHints.characterDevelopment = 'witness-over-proof';
-    else if (pathPhilosophy === 'resist') meta.generationHints.characterDevelopment = 'rigor-over-resolution';
-    else meta.generationHints.characterDevelopment = 'inquiry-becomes-change';
+    if (pathPhilosophy === 'accept') {
+      meta.generationHints.characterDevelopment = 'witness-over-proof';
+    } else if (pathPhilosophy === 'resist') {
+      meta.generationHints.characterDevelopment = 'rigor-over-resolution';
+    } else {
+      meta.generationHints.characterDevelopment = 'inquiry-becomes-change';
+    }
   }
   if (isMissing(meta.generationHints.emotionalJourney)) {
-    if (pathPhilosophy === 'accept') meta.generationHints.emotionalJourney = 'anxiety-to-peace';
-    else if (pathPhilosophy === 'resist') meta.generationHints.emotionalJourney = 'tension-to-integrity';
-    else meta.generationHints.emotionalJourney = 'curiosity-to-revelation';
+    if (pathPhilosophy === 'accept') {
+      meta.generationHints.emotionalJourney = 'anxiety-to-peace';
+    } else if (pathPhilosophy === 'resist') {
+      meta.generationHints.emotionalJourney = 'tension-to-integrity';
+    } else {
+      meta.generationHints.emotionalJourney = 'curiosity-to-revelation';
+    }
   }
 
   const after = JSON.stringify(meta);
@@ -335,7 +498,9 @@ function fillDefaultsForMeta(meta, filename, bodyText, scopeFilters) {
 
 function backup(pathname) {
   const dir = 'metadata-backups';
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
   const ts = new Date().toISOString().replace(/[:.]/g, '-');
   const name = path.basename(pathname);
   const dest = path.join(dir, `${name}.${ts}.autofill.bak`);
@@ -345,35 +510,57 @@ function backup(pathname) {
 
 function main() {
   const args = process.argv.slice(2);
-  const rootArg = args.find(a => a.startsWith('--root='));
+  const rootArg = args.find((a) => a.startsWith('--root='));
   const dryRun = args.includes('--dry-run');
-  const pathArg = args.find(a => a.startsWith('--path='));
-  const charArg = args.find(a => a.startsWith('--character='));
+  const pathArg = args.find((a) => a.startsWith('--path='));
+  const charArg = args.find((a) => a.startsWith('--character='));
 
   const root = rootArg ? rootArg.split('=')[1] : CONFIG.root;
   const scope = {
     path: pathArg ? pathArg.split('=')[1] : null,
-    character: charArg ? (charArg.split('=')[1] === 'arch' ? 'archaeologist' : charArg.split('=')[1] === 'algo' ? 'algorithm' : charArg.split('=')[1] === 'hum' ? 'lastHuman' : null) : null
+    character: charArg
+      ? charArg.split('=')[1] === 'arch'
+        ? 'archaeologist'
+        : charArg.split('=')[1] === 'algo'
+          ? 'algorithm'
+          : charArg.split('=')[1] === 'hum'
+            ? 'lastHuman'
+            : null
+      : null,
   };
 
-  const files = walkFiles(root).filter(f => CONFIG.filenamePattern.test(path.basename(f)));
-  let processed = 0, changed = 0, skipped = 0;
+  const files = walkFiles(root).filter((f) => CONFIG.filenamePattern.test(path.basename(f)));
+  let processed = 0,
+    changed = 0,
+    skipped = 0;
 
   console.log(`Autofilling L2 defaults under: ${root}`);
-  if (scope.path) console.log(`  Scope path: ${scope.path}`);
-  if (scope.character) console.log(`  Scope character: ${scope.character}`);
+  if (scope.path) {
+    console.log(`  Scope path: ${scope.path}`);
+  }
+  if (scope.character) {
+    console.log(`  Scope character: ${scope.character}`);
+  }
   console.log(`Found ${files.length} L2 file(s)\n`);
 
   for (const file of files) {
     const text = fs.readFileSync(file, 'utf-8');
-    if (!hasFrontmatter(text)) { skipped++; continue; }
+    if (!hasFrontmatter(text)) {
+      skipped++;
+      continue;
+    }
     const meta = extractFrontmatter(text);
-    if (!meta || meta.__parseError) { skipped++; continue; }
+    if (!meta || meta.__parseError) {
+      skipped++;
+      continue;
+    }
     const body = stripFrontmatter(text);
 
     const res = fillDefaultsForMeta(meta, file, body, scope);
     processed++;
-    if (!res.changed) continue;
+    if (!res.changed) {
+      continue;
+    }
 
     if (dryRun) {
       console.log(`DRY: ${file}`);
@@ -388,7 +575,9 @@ function main() {
   }
 
   console.log(`\nSummary: processed=${processed} changed=${changed} skipped=${skipped}`);
-  if (dryRun) console.log('Note: dry-run only, no files written.');
+  if (dryRun) {
+    console.log('Note: dry-run only, no files written.');
+  }
 }
 
 if (require.main === module) {

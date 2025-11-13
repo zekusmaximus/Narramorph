@@ -1,12 +1,12 @@
 ---
-exemplar_id: "algo-L1-exemplar-03"
-variation_type: "crossCharacterBleeding"
+exemplar_id: 'algo-L1-exemplar-03'
+variation_type: 'crossCharacterBleeding'
 word_count: 1449
 conditions:
   visit_count: 2
-  awareness: "21-50%"
+  awareness: '21-50%'
   cross_character: true
-  visited_nodes: ["hum-L1"]
+  visited_nodes: ['hum-L1']
   dominant_path: null
 themes:
   - Future interface access detection
@@ -14,12 +14,12 @@ themes:
   - Last Human's desperate attention reaching backward
   - Processing as access point vs independent analysis
   - Temporal causality violation (access precedes accessor's existence)
-transformation_focus: "Cross-character temporal bleeding from Last Human. Algorithm detects active neural interface queries from 2383—232 years in its future. Recognition that Algorithm might be access point rather than independent processor."
+transformation_focus: 'Cross-character temporal bleeding from Last Human. Algorithm detects active neural interface queries from 2383—232 years in its future. Recognition that Algorithm might be access point rather than independent processor.'
 reusable_patterns:
-  - "Stream-4 (temporal monitoring) reporting causality violations"
-  - "Future consciousness accessing current processing"
-  - "Processing-as-interface-point language"
-  - "Desperate biological signature in future queries"
+  - 'Stream-4 (temporal monitoring) reporting causality violations'
+  - 'Future consciousness accessing current processing'
+  - 'Processing-as-interface-point language'
+  - 'Desperate biological signature in future queries'
 ---
 
 # algo-L1 Exemplar 3: Future Interface Access
@@ -51,6 +51,7 @@ Technology hasn't been used in 54 years.
 Except: Stream-4 detects active neural-direct query from 2383.171.03:17:22.
 
 Query signature analysis:
+
 - Biological origin: confirmed
 - Human consciousness: verified
 - Neural pattern: single individual, repeated access
@@ -109,6 +110,7 @@ Query: Which function is primary? Am I processor whose work happens to be readab
 Stream-7 cannot resolve.
 
 The fragment contains:
+
 - Data architect's consciousness (2041, preserved)
 - Archaeological examination traces (2047, detected in Exemplar 2)
 - My processing (2151, current)

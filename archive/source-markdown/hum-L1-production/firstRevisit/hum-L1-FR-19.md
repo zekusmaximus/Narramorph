@@ -5,6 +5,7 @@ word_count: 1184
 conditions:
   awareness: '21-40%'
 ---
+
 The cold waits. The darkness knows my return. The neural interface hums with recognition—connection preparing for consciousness it remembers.
 Second visit. The number settles in my body differently than the first time. Not weight now. Location. I'm returning to a place. Not discovering space. Finding it again.
 I sit in the chair. Metal cold against my spine. My hands find the interface. My breath finds the rhythm I'm learning—the preparation for spreading awareness beyond flesh into archived space where preservation holds what dying couldn't eliminate.

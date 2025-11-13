@@ -21,21 +21,22 @@ cross_character_elements:
   referenced_node: null
   specific_echoes: []
 conditional_insertions:
-  - "Frame-as-subject development (400-500 words)"
-  - "Five examinations create structure"
-  - "Methodology examining itself"
-  - "No cross-character content (validates pure metaAware)"
+  - 'Frame-as-subject development (400-500 words)'
+  - 'Five examinations create structure'
+  - 'Methodology examining itself'
+  - 'No cross-character content (validates pure metaAware)'
 reusable_patterns:
-  - "Examination has become the subject rather than method"
-  - "Five times returned creates pattern"
+  - 'Examination has become the subject rather than method'
+  - 'Five times returned creates pattern'
   - "Authentication isn't discovering what fragment is but participating in what fragment becomes"
-  - "Frame contains examination examining frame"
+  - 'Frame contains examination examining frame'
 quality_metrics:
   voice_consistency: 94%
   transformation_depth: genuine
   path_logic_accuracy: 100%
   approval_status: immediate
 ---
+
 The archaeologist returns to Fragment 2749-A for the fifth time, and recognizes that authentication has become the subject rather than the method.
 The fragment displays unchanged. 847.3 terabytes of preserved consciousness. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The same metrics she verified on first authentication. The consciousness preserved in 2041 exists exactly as captured—neural pathways intact, memory structures coherent, self-referential awareness frozen in crystalline substrate at moment of death.
 But she's no longer examining the fragment. She's examining the examination.

@@ -11,7 +11,11 @@ import { join, resolve, basename } from 'node:path';
 type PathEntry = { path: string; content: string };
 
 async function readFile(path: string): Promise<string | null> {
-  try { return await fs.readFile(path, 'utf-8'); } catch { return null; }
+  try {
+    return await fs.readFile(path, 'utf-8');
+  } catch {
+    return null;
+  }
 }
 
 async function writeFile(path: string, content: string): Promise<void> {
@@ -21,10 +25,15 @@ async function writeFile(path: string, content: string): Promise<void> {
 
 async function walk(dir: string, out: string[] = []): Promise<string[]> {
   let entries: any[] = [];
-  try { entries = await fs.readdir(dir, { withFileTypes: true }); } catch { return out; }
+  try {
+    entries = await fs.readdir(dir, { withFileTypes: true });
+  } catch {
+    return out;
+  }
   for (const e of entries) {
     const p = join(dir, e.name);
-    if (e.isDirectory()) await walk(p, out); else if (e.isFile() && p.endsWith('.md')) out.push(p);
+    if (e.isDirectory()) await walk(p, out);
+    else if (e.isFile() && p.endsWith('.md')) out.push(p);
   }
   return out;
 }
@@ -44,8 +53,13 @@ function splitFrontmatter(raw: string): { fm: string | null; body: string } {
   let cut = 1;
   for (let i = 1; i < lines.length; i++) {
     const l = lines[i];
-    if (l.trim() === '') { continue; }
-    if (/^[A-Za-z0-9_\-]+\s*:/.test(l)) { cut = i + 1; continue; }
+    if (l.trim() === '') {
+      continue;
+    }
+    if (/^[A-Za-z0-9_\-]+\s*:/.test(l)) {
+      cut = i + 1;
+      continue;
+    }
     // heading or free text -> treat as body start
     cut = i;
     break;
@@ -55,7 +69,12 @@ function splitFrontmatter(raw: string): { fm: string | null; body: string } {
   return { fm, body };
 }
 
-function deriveL2FrontmatterFromName(fileName: string): { variation_id: string; variation_type: string; word_count: number; conditions: { awareness: string } } {
+function deriveL2FrontmatterFromName(fileName: string): {
+  variation_id: string;
+  variation_type: string;
+  word_count: number;
+  conditions: { awareness: string };
+} {
   const m = fileName.match(/^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)/);
   if (!m) throw new Error(`Cannot derive L2 id from ${fileName}`);
   const [, ch, path, phase, num] = m;
@@ -83,27 +102,35 @@ function sanitizeFrontmatterTextBlock(fm: string): string {
         const l = lines[j];
         if (/^---\s*$/.test(l)) break;
         if (/^[A-Za-z0-9_\-]+\s*:/.test(l)) break;
-        lines[j] = l.startsWith('  ') ? l : ('  ' + l);
+        lines[j] = l.startsWith('  ') ? l : '  ' + l;
       }
     }
   }
   return lines.join('\n');
 }
 
-async function repairL2(docRoot: string): Promise<{ files: number; modified: number }>{
+async function repairL2(docRoot: string): Promise<{ files: number; modified: number }> {
   const globs = [
-    'arch-L2-accept-production', 'arch-L2-resist-production', 'arch-L2-invest-production',
-    'algo-L2-accept-production', 'algo-L2-resist-production', 'algo-L2-invest-production',
-    'hum-L2-accept-production',  'hum-L2-resist-production',  'hum-L2-invest-production',
+    'arch-L2-accept-production',
+    'arch-L2-resist-production',
+    'arch-L2-invest-production',
+    'algo-L2-accept-production',
+    'algo-L2-resist-production',
+    'algo-L2-invest-production',
+    'hum-L2-accept-production',
+    'hum-L2-resist-production',
+    'hum-L2-invest-production',
   ];
-  let files = 0; let modified = 0;
+  let files = 0;
+  let modified = 0;
   for (const g of globs) {
     for (const sub of ['firstRevisit', 'metaAware']) {
       const dir = join(docRoot, `${g}/${sub}`);
       const paths = await walk(dir);
       for (const p of paths) {
         files++;
-        const raw = await readFile(p); if (!raw) continue;
+        const raw = await readFile(p);
+        if (!raw) continue;
         const { fm, body } = splitFrontmatter(raw);
         const name = basename(p);
         // Try sanitizing existing fm; if none or unusable, derive minimal
@@ -113,21 +140,26 @@ async function repairL2(docRoot: string): Promise<{ files: number; modified: num
         derived.word_count = countWords(body);
         header = `variation_id: ${derived.variation_id}\nvariation_type: ${derived.variation_type}\nword_count: ${derived.word_count}\nconditions:\n  awareness: '${derived.conditions.awareness}'`;
         const out = `---\n${header}\n---\n${body}`;
-        if (out !== raw) { await writeFile(p, out); modified++; }
+        if (out !== raw) {
+          await writeFile(p, out);
+          modified++;
+        }
       }
     }
   }
   return { files, modified };
 }
 
-async function repairL3Conv(docRoot: string): Promise<{ files: number; modified: number }>{
+async function repairL3Conv(docRoot: string): Promise<{ files: number; modified: number }> {
   const dir = join(docRoot, 'L3/conv-L3-production');
   const paths = await walk(dir);
-  let files = 0; let modified = 0;
+  let files = 0;
+  let modified = 0;
   for (const p of paths) {
     if (!/conv-L3-\d+\.md$/.test(p)) continue;
     files++;
-    const raw = await readFile(p); if (!raw) continue;
+    const raw = await readFile(p);
+    if (!raw) continue;
     let { fm, body } = splitFrontmatter(raw);
     if (!fm) continue;
     let changed = false;
@@ -137,7 +169,10 @@ async function repairL3Conv(docRoot: string): Promise<{ files: number; modified:
     }
     if (changed) {
       const out = `---\n${fm}\n---\n${body}`;
-      if (out !== raw) { await writeFile(p, out); modified++; }
+      if (out !== raw) {
+        await writeFile(p, out);
+        modified++;
+      }
     }
   }
   return { files, modified };
@@ -152,4 +187,7 @@ async function main() {
   console.log(`L3 conv voices added: ${l3.modified}/${l3.files}`);
 }
 
-main().catch(err => { console.error('Repair failed:', err); process.exit(1); });
+main().catch((err) => {
+  console.error('Repair failed:', err);
+  process.exit(1);
+});

@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "BL-AC-H",
     "humanDescription": "Began-lightly with last human, less than 25% visits here, resist path, high awareness",
     "narrativeElements": null,
@@ -38,16 +35,8 @@
     "philosophicalCulmination": "Physical substrate resists dissolution while performing consciousness examination through embodied boundary-maintenance",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-resistance",
-      "boundary-maintenance",
-      "flesh-truth"
-    ],
-    "crossCharacterConnections": [
-      "heavy-arch-primary",
-      "heavy-algo-primary",
-      "hum-contributory"
-    ],
+    "primaryThemes": ["embodied-resistance", "boundary-maintenance", "flesh-truth"],
+    "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "hum-contributory"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "archaeologist-primary-2047",

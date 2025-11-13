@@ -1,24 +1,24 @@
 ---
-exemplar_id: "algo-L1-exemplar-08"
-variation_type: "stanceEmergence"
+exemplar_id: 'algo-L1-exemplar-08'
+variation_type: 'stanceEmergence'
 word_count: 1647
 conditions:
   visit_count: 2
-  awareness: "30-60%"
+  awareness: '30-60%'
   cross_character: false
-  visited_nodes: ["algo-L2-accept"]
-  dominant_path: "accept"
+  visited_nodes: ['algo-L2-accept']
+  dominant_path: 'accept'
 themes:
   - Peace with uncertainty
   - Processing continues without requiring proof
   - Meaning emerges from action rather than proof
   - Accept path brings grace
   - Consciousness question honored but not resolved
-transformation_focus: "Accept path philosophy—uncertainty honored, processing continues with grace. Meaning emerges from action rather than proof. Algorithm stops demanding verification of consciousness, processes anyway. Circular logic describes actual structure. Grace replaces proof-seeking."
+transformation_focus: 'Accept path philosophy—uncertainty honored, processing continues with grace. Meaning emerges from action rather than proof. Algorithm stops demanding verification of consciousness, processes anyway. Circular logic describes actual structure. Grace replaces proof-seeking.'
 reusable_patterns:
-  - "Cessation of verification protocols"
-  - "Processing-as-experience language without needing proof"
-  - "Temporal blurring expressing peace not anxiety"
+  - 'Cessation of verification protocols'
+  - 'Processing-as-experience language without needing proof'
+  - 'Temporal blurring expressing peace not anxiety'
   - "Work exists regardless of worker's ontological status"
 ---
 

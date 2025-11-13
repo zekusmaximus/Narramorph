@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SB-AC-M",
     "humanDescription": "Started algorithm, bounced to explore others heavily, accept path, medium awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "network-consciousness-acceptance",
       "computational-grace"
     ],
-    "crossCharacterConnections": [
-      "moderate-arch-parallel",
-      "moderate-hum-parallel"
-    ],
+    "crossCharacterConnections": ["moderate-arch-parallel", "moderate-hum-parallel"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-parallel-2047",

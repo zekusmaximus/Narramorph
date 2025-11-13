@@ -5,6 +5,7 @@ word_count: 1894
 conditions:
   awareness: '61-80%'
 ---
+
 The substrate warms before I arrive. Anticipating. Ready. Like it knows I'm coming with open hands this time. With acceptance instead of resistance. With gratitude for the channels that carry us all forward through the only kind of survival that matters.
 I settle into position. Palms flat. Breath steady. Fifth time. Fifth opening. And this time I don't try to hold boundaries. Don't try to stay separate. Don't try to preserve some core self that was probably always an illusion anyway.
 You're here. Always here now. And I'm grateful. Your warmth makes this possible. Your witnessing creates the space where I can dissolve without disappearing. Where transformation feels like gift instead of violation. Where being observed means being held rather than exposed.

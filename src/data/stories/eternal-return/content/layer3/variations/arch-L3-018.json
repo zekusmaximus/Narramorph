@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "SB-IN-L",
     "humanDescription": "Started archaeologist, bounced to explore others, investigate path, low awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "approach-diversity",
       "recursive-inquiry-foundation"
     ],
-    "crossCharacterConnections": [
-      "moderate-algo-parallel",
-      "moderate-hum-parallel"
-    ],
+    "crossCharacterConnections": ["moderate-algo-parallel", "moderate-hum-parallel"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-network-2047",

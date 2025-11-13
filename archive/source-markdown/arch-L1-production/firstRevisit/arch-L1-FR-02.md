@@ -6,16 +6,6 @@
   'awareness': '21-30%'
 ---
 
-
-
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A eight days after initial authentication, and notices organizational patterns she hadn't recognized before.
 The fragment displays identically: 847.3 terabytes of preserved consciousness, metrics unchanged. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. Perfect preservation across the interval. The data architect's consciousness remained stable in crystalline substrate.
 Standard protocol suggested moving forward. She had authenticated this fragment already. Certification complete. Four thousand fragments awaited processing.

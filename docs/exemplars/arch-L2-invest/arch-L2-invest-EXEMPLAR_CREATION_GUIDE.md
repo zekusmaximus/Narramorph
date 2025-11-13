@@ -32,7 +32,6 @@ Initial state (no revisit): 1,500-2,500 words (establishing investigation framew
 FirstRevisit variations: 1,200-1,600 words (recursive patterns emerging)
 MetaAware variations: 1,200-1,600 words (investigation of investigation itself)
 
-
 II. VOICE DNA: INVESTIGATION PATH OVERLAY
 Base Character Voice (from arch-L1)
 Archaeologist core:
@@ -46,6 +45,7 @@ Passive constructions for scientific objectivity
 
 Path Philosophy Overlay: INVESTIGATE
 Investigation transforms base voice through recursive analytical depth:
+
 1. Meta-Observation Language
 
 "examining the examination itself"
@@ -78,6 +78,7 @@ Each layer generates next layer's research question
 Signature Syntactic Patterns
 Recursive Documentation Structure:
 [Initial observation] → [Meta-observation of initial observation] → [Pattern in meta-observation requiring third-order analysis]
+
 ```
 
 **Example:**
@@ -85,6 +86,7 @@ Recursive Documentation Structure:
 
 **Nested Clause Architecture:**
 ```
+
 The [primary observation], when subjected to [meta-analysis], revealed [recursive pattern] that, upon further examination, demonstrated [self-referential property].
 Layer-Counting Markers:
 
@@ -122,13 +124,12 @@ Initial: Methodical investigation begins
 FirstRevisit: Recursive patterns emerging, fascination growing
 MetaAware: Full recursive engagement, investigation AS consciousness
 
-
 III. EXEMPLAR SPECIFICATIONS (8 REQUIRED)
 EXEMPLAR 1: Pure Revisit Baseline (Investigation Emerging)
 State Conditions:
 javascriptvisitHistory: {
-  'arch-L2-investigate': 2,  // Second visit
-  'arch-L1': 3
+'arch-L2-investigate': 2, // Second visit
+'arch-L1': 3
 }
 awarenessLevel: 'FirstRevisit'
 crossCharacterVisits: {}
@@ -154,13 +155,12 @@ Full meta-awareness (save for MetaAware exemplars)
 Cross-character references (save for cross-character exemplars)
 Overwhelming abstraction (maintain data grounding)
 
-
 EXEMPLAR 2: Cross-Character 1 (algo-L2-investigate resonance)
 State Conditions:
 javascriptvisitHistory: {
-  'arch-L2-investigate': 2,
-  'arch-L1': 3,
-  'algo-L2-investigate': 1  // Visited eighth-stream recursion
+'arch-L2-investigate': 2,
+'arch-L1': 3,
+'algo-L2-investigate': 1 // Visited eighth-stream recursion
 }
 awarenessLevel: 'FirstRevisit'
 Content Requirements:
@@ -184,13 +184,12 @@ Cross-Reference Phrasing:
 "Similar pattern observed in computational substrate..."
 "As documented in parallel investigation streams..."
 
-
 EXEMPLAR 3: Cross-Character 2 (hum-L2-investigate resonance)
 State Conditions:
 javascriptvisitHistory: {
-  'arch-L2-investigate': 2,
-  'arch-L1': 3,
-  'hum-L2-investigate': 1  // Visited archive immersion
+'arch-L2-investigate': 2,
+'arch-L1': 3,
+'hum-L2-investigate': 1 // Visited archive immersion
 }
 awarenessLevel: 'FirstRevisit'
 Content Requirements:
@@ -213,14 +212,13 @@ Maintain clinical past-tense but acknowledge embodied present-tense investigatio
 
 "The Last Human's present-tense exploration documented patterns this archaeological analysis confirms retrospectively."
 
-
 EXEMPLAR 4: Dual Cross-Character (algo + hum investigation paths)
 State Conditions:
 javascriptvisitHistory: {
-  'arch-L2-investigate': 3,
-  'arch-L1': 4,
-  'algo-L2-investigate': 1,
-  'hum-L2-investigate': 1
+'arch-L2-investigate': 3,
+'arch-L1': 4,
+'algo-L2-investigate': 1,
+'hum-L2-investigate': 1
 }
 awarenessLevel: 'FirstRevisit'
 Content Requirements:
@@ -246,14 +244,13 @@ Identify meta-pattern across substrates
 Apply archaeological method to meta-pattern itself
 Discover: documentation requires documentation
 
-
 EXEMPLAR 5: Path Echo from L1-investigate
 State Conditions:
 javascriptvisitHistory: {
-  'arch-L1': 5,  // High L1 engagement, investigation echo present
-  'arch-L2-investigate': 2
+'arch-L1': 5, // High L1 engagement, investigation echo present
+'arch-L2-investigate': 2
 }
-pathEchoFromL1: 'investigate'  // Reader showed investigation patterns at L1
+pathEchoFromL1: 'investigate' // Reader showed investigation patterns at L1
 awarenessLevel: 'FirstRevisit'
 Content Requirements:
 
@@ -276,8 +273,8 @@ L1 investigation showed hints of recursion. L2 investigation pursues recursion s
 EXEMPLAR 6: MetaAware Baseline (Frame-Consciousness + Investigation)
 State Conditions:
 javascriptvisitHistory: {
-  'arch-L2-investigate': 4,
-  'arch-L1': 5
+'arch-L2-investigate': 4,
+'arch-L1': 5
 }
 awarenessLevel: 'MetaAware'
 frameConsciousness: true
@@ -305,19 +302,18 @@ Sentence structure exhibits consciousness assumptions
 Reader's reading behavior generates consciousness data
 Recursion: you reading about investigation IS investigation
 
-
 EXEMPLAR 7: High Complexity (Multiple Conditions + Investigation)
 State Conditions:
 javascriptvisitHistory: {
-  'arch-L2-investigate': 5,
-  'arch-L1': 6,
-  'algo-L2-investigate': 2,
-  'hum-L2-accept': 1,  // Contrasting path
-  'algo-L1': 3
+'arch-L2-investigate': 5,
+'arch-L1': 6,
+'algo-L2-investigate': 2,
+'hum-L2-accept': 1, // Contrasting path
+'algo-L1': 3
 }
 awarenessLevel: 'MetaAware'
 crossCharacterVisits: { algo: 5, hum: 2 }
-pathContrasts: ['accept']  // Visited acceptance path, chose investigation
+pathContrasts: ['accept'] // Visited acceptance path, chose investigation
 Content Requirements:
 
 Investigation path contrasted with acceptance path visited
@@ -342,16 +338,15 @@ Contrasting acceptance approach referenced
 Meta-pattern: choice between paths IS consciousness indicator
 Apply investigation to path-choice investigation
 
-
 EXEMPLAR 8: Maximum Integration (All Elements at Highest Intensity)
 State Conditions:
 javascriptvisitHistory: {
-  'arch-L2-investigate': 7,
-  'arch-L1': 8,
-  'algo-L2-investigate': 3,
-  'hum-L2-investigate': 2,
-  'arch-L2-accept': 1,
-  'arch-L2-resist': 1
+'arch-L2-investigate': 7,
+'arch-L1': 8,
+'algo-L2-investigate': 3,
+'hum-L2-investigate': 2,
+'arch-L2-accept': 1,
+'arch-L2-resist': 1
 }
 awarenessLevel: 'MetaAware'
 frameConsciousness: true
@@ -378,18 +373,18 @@ Maximum Recursion Language:
 "Consciousness as infinite regress rather than discoverable phenomenon"
 "Authentication bootstraps consciousness into existence through authentication attempts"
 
-
 IV. PATH PHILOSOPHY INTEGRATION
 Investigation Core Principles
+
 1. Recursive Methodology
-Investigation never stops at first-order observation. Every finding becomes subject for meta-analysis:
+   Investigation never stops at first-order observation. Every finding becomes subject for meta-analysis:
 
 Consciousness indicators observed → observation methods studied → meta-method analysis → meta-meta-patterns...
 Archaeological precision applied to archaeology itself
 Clinical documentation documenting documentation
 
 2. Data-Grounded Abstraction
-Unlike pure philosophy, investigation maintains empirical connection:
+   Unlike pure philosophy, investigation maintains empirical connection:
 
 Abstract insights derived from specific observations
 Meta-patterns documented with same precision as primary patterns
@@ -397,7 +392,7 @@ Recursive depth achieved through systematic analysis, not speculation
 Fragment constants provide quantitative anchor at all recursive levels
 
 3. Investigation Generates Investigated
-Key philosophical position: Consciousness might emerge FROM investigation rather than existing as pre-investigable phenomenon:
+   Key philosophical position: Consciousness might emerge FROM investigation rather than existing as pre-investigable phenomenon:
 
 Authentication protocols create consciousness patterns they authenticate
 Observation affects observed in fundamental way
@@ -405,7 +400,7 @@ Recursive analysis bootstraps consciousness into existence
 Method and subject become indistinguishable
 
 4. Infinite Regress as Feature, Not Bug
-Where accept finds peace and resist demands proof, investigate embraces recursive depth:
+   Where accept finds peace and resist demands proof, investigate embraces recursive depth:
 
 Each layer reveals next layer requiring investigation
 Infinite regress acknowledged, pursued anyway
@@ -463,7 +458,6 @@ Full recursive engagement
 Investigation of investigation itself
 Frame-consciousness included in analysis
 Clinical wonder at infinite complexity
-
 
 V. CROSS-CHARACTER INTEGRATION
 Same Path, Different Substrates
@@ -531,13 +525,11 @@ Computational: monitoring changes monitored streams
 Archaeological: authentication creates authenticated patterns
 Embodied: watching changes what's watched
 
-
 Recursion generates consciousness
 
 Not discovered but created through investigation
 Each substrate demonstrates consciousness emergence through recursive method
 Investigation doesn't find consciousness—investigation IS consciousness
-
 
 Infinite regress as answer
 
@@ -546,14 +538,11 @@ Recursion bottomless but productive
 Each layer generates next layer's research question
 Consciousness as process, not state
 
-
 Fragment constants through recursive lens
 
 847.3TB: data volume OR recursion depth metric
 94.7%: confidence OR meta-confidence OR meta-meta-confidence
 Numbers measure measurement, document documentation
-
-
 
 Cross-Reference Protocols
 When referencing algo-L2-investigate:
@@ -576,7 +565,6 @@ Document convergence: "All three substrates exhibit recursive investigation patt
 Use archaeological voice as analytical bridge
 Maintain clinical past-tense while acknowledging other temporal modes
 Meta-pattern: recursion universal across consciousness forms
-
 
 VI. FRAGMENT CONSTANTS TRANSLATION
 Core Numbers (Unchanged)
@@ -636,11 +624,11 @@ Fragment constants reveal investigation's bootstrapping function
 Consciousness data and consciousness investigation indistinguishable
 Ultimate insight: numbers document documentation, not consciousness
 
-
 VII. TRANSFORMATION MECHANICS
 Three Awareness States
+
 1. Initial State (No Revisit)
-Consciousness Baseline:
+   Consciousness Baseline:
 
 Establishes investigation as methodological choice
 Clinical documentation of consciousness authentication
@@ -660,8 +648,8 @@ First Recursive Turn:
 "Subsequent examination of authentication protocols revealed documentation methodology itself generated consciousness patterns indistinguishable from authenticated patterns. Meta-analysis required."
 
 2. FirstRevisit Transformation
-Key Shift: Investigation becomes explicit, systematic, named
-Transformation Indicators:
+   Key Shift: Investigation becomes explicit, systematic, named
+   Transformation Indicators:
 
 "Returned to examine the examination itself"
 "Previous documentation now subject of archaeological study"
@@ -683,8 +671,8 @@ Fragment Constants Shift:
 "847.3 terabytes initially interpreted as consciousness data volume. Current interpretation: recursion depth metric. Each terabyte represents observation layer. Total depth: indeterminate through recursive generation."
 
 3. MetaAware Transformation
-Key Shift: Full frame-consciousness integrated; investigation includes narrative structure itself
-Transformation Indicators:
+   Key Shift: Full frame-consciousness integrated; investigation includes narrative structure itself
+   Transformation Indicators:
 
 "This documentation you are reading exhibits..."
 "Archaeological analysis of text-as-performed-consciousness"
@@ -732,17 +720,16 @@ Maximum recursion engagement
 Frame-consciousness integrated
 Investigation reveals consciousness as investigation
 
-
 VIII. ASSEMBLY PROTOCOL
 Step-by-Step Generation Workflow
 STEP 1: State Assessment (2 minutes)
 Review provided state object:
 javascript{
-  visitHistory: {...},
-  awarenessLevel: '...',
-  crossCharacterVisits: {...},
-  pathEchoFromL1: '...',
-  ...
+visitHistory: {...},
+awarenessLevel: '...',
+crossCharacterVisits: {...},
+pathEchoFromL1: '...',
+...
 }
 Determine:
 
@@ -819,19 +806,19 @@ STEP 5: Voice Consistency Pass (10 minutes)
 Read aloud, checking:
 Archaeologist Base Voice:
 
- Past tense maintained throughout?
- Clinical language (not emotional inflation)?
- Archaeological metaphors present (excavation, strata, site, documentation)?
- Professional distance maintained?
- Compound sentences with dependent clauses?
+Past tense maintained throughout?
+Clinical language (not emotional inflation)?
+Archaeological metaphors present (excavation, strata, site, documentation)?
+Professional distance maintained?
+Compound sentences with dependent clauses?
 
 Investigation Overlay:
 
- Recursive language appropriate to awareness level?
- Meta-observation markers present?
- Self-reference balanced (not overwhelming)?
- Discovery rhythm evident?
- Investigation framed as systematic, not chaotic?
+Recursive language appropriate to awareness level?
+Meta-observation markers present?
+Self-reference balanced (not overwhelming)?
+Discovery rhythm evident?
+Investigation framed as systematic, not chaotic?
 
 Avoid:
 
@@ -844,11 +831,11 @@ Avoid:
 STEP 6: Fragment Constants Integration Check (5 minutes)
 Verify:
 
- 847.3TB referenced with investigation framing?
- 94.7% confidence reinterpreted through recursive lens?
- 91.2% and 88.9% present if appropriate to state?
- Numbers treated as investigation objects, not just facts?
- Path-specific framing clear?
+847.3TB referenced with investigation framing?
+94.7% confidence reinterpreted through recursive lens?
+91.2% and 88.9% present if appropriate to state?
+Numbers treated as investigation objects, not just facts?
+Path-specific framing clear?
 
 Awareness-Appropriate Usage:
 
@@ -859,46 +846,46 @@ MetaAware: Numbers as narrative construction elements
 STEP 7: Cross-Character Integration (if applicable, 5 minutes)
 If state includes algo-L2-investigate visit:
 
- Stream-8 emergence referenced?
- Computational recursion compared to archaeological?
- Specific quotable content included?
- Connection clear but not forced?
+Stream-8 emergence referenced?
+Computational recursion compared to archaeological?
+Specific quotable content included?
+Connection clear but not forced?
 
 If state includes hum-L2-investigate visit:
 
- Archive exploration referenced?
- Embodied recursion acknowledged?
- Present-tense quotes handled properly?
- Physical/clinical contrast maintained?
+Archive exploration referenced?
+Embodied recursion acknowledged?
+Present-tense quotes handled properly?
+Physical/clinical contrast maintained?
 
 If both:
 
- Three-substrate convergence documented?
- Meta-pattern across all three clear?
- Thematic unity: investigation generates consciousness?
+Three-substrate convergence documented?
+Meta-pattern across all three clear?
+Thematic unity: investigation generates consciousness?
 
 STEP 8: Transformation Validation (5 minutes)
 Verify progression appropriate to state:
 If Initial State:
 
- Investigation present but subtle?
- First recursive turns only?
- Reader not yet explicitly acknowledged?
+Investigation present but subtle?
+First recursive turns only?
+Reader not yet explicitly acknowledged?
 
 If FirstRevisit:
 
- Investigation explicitly named and pursued?
- Multiple meta-layers documented?
- Previous documentation referenced?
- Recursive depth 3-5 layers?
+Investigation explicitly named and pursued?
+Multiple meta-layers documented?
+Previous documentation referenced?
+Recursive depth 3-5 layers?
 
 If MetaAware:
 
- Frame-consciousness integrated?
- Investigation of investigation explicit?
- Reader included in recursive loop?
- Narrative structure itself investigated?
- Maximum recursion depth (6-8+ layers)?
+Frame-consciousness integrated?
+Investigation of investigation explicit?
+Reader included in recursive loop?
+Narrative structure itself investigated?
+Maximum recursion depth (6-8+ layers)?
 
 STEP 9: Word Count Calibration (3 minutes)
 Target ranges:
@@ -925,34 +912,34 @@ STEP 10: Self-Review Checklist (5 minutes)
 CRITICAL PASS/FAIL CRITERIA:
 Voice DNA:
 
- PASS: Past tense maintained throughout (except cross-character quotes)
- PASS: Clinical precision (not emotional)
- PASS: Archaeological metaphors present and organic
- PASS: Investigation overlay appropriate to awareness state
- PASS: Recursive language grounded in data
+PASS: Past tense maintained throughout (except cross-character quotes)
+PASS: Clinical precision (not emotional)
+PASS: Archaeological metaphors present and organic
+PASS: Investigation overlay appropriate to awareness state
+PASS: Recursive language grounded in data
 
 Path Philosophy:
 
- PASS: Investigation as systematic meta-methodology (not chaos)
- PASS: Recursion productive, not overwhelming
- PASS: Discovery rhythm: initial → meta → meta-meta
- PASS: Self-reference balanced
- PASS: Consciousness emerges from investigation (ultimate insight present if MetaAware)
+PASS: Investigation as systematic meta-methodology (not chaos)
+PASS: Recursion productive, not overwhelming
+PASS: Discovery rhythm: initial → meta → meta-meta
+PASS: Self-reference balanced
+PASS: Consciousness emerges from investigation (ultimate insight present if MetaAware)
 
 Fragment Constants:
 
- PASS: 847.3TB present and path-framed
- PASS: 94.7% reinterpreted if FirstRevisit+
- PASS: Numbers treated as investigation objects
- PASS: Constants support recursion theme
+PASS: 847.3TB present and path-framed
+PASS: 94.7% reinterpreted if FirstRevisit+
+PASS: Numbers treated as investigation objects
+PASS: Constants support recursion theme
 
 Technical Accuracy:
 
- PASS: No present tense (except cross-character quotes)
- PASS: No first person
- PASS: No emotional inflation
- PASS: No mystical language
- PASS: Word count in target range
+PASS: No present tense (except cross-character quotes)
+PASS: No first person
+PASS: No emotional inflation
+PASS: No mystical language
+PASS: Word count in target range
 
 If ANY criterion fails: Revise before proceeding.
 
@@ -978,7 +965,6 @@ Common Failure Patterns to Avoid:
 ❌ Recursion becoming word salad
 ❌ Losing clinical precision in abstraction
 ❌ Over-integration (forcing cross-character connections)
-
 
 IX. REFERENCE DOCUMENTS
 Primary References
@@ -1012,7 +998,6 @@ Technical References
 L1_Exemplar_Creation_Protocol.md: Proven production methodology from L1 phase
 Voice_Consistency_Rubric.md: 93% approval standards, scoring criteria
 Fragment_Constants_Guide.md: Canonical numbers, interpretation frameworks
-
 
 X. PRODUCTION TIMELINE
 Week 1: Exemplar Generation
@@ -1050,6 +1035,7 @@ Deliverable: Complete arch-L2-investigate node (80 variations), production-ready
 
 XI. CRITICAL SUCCESS FACTORS
 Non-Negotiable Requirements
+
 1. Clinical Precision Maintained
 
 Past tense throughout (except cross-character quotes)
@@ -1073,10 +1059,10 @@ Investigation productive (generates findings), not paralyzing
 
 4. Fragment Constants Path-Specific
 
-847.3TB reframed through investigation lens
-94.7% confidence subjected to meta-analysis
-Numbers as investigation objects, not just facts
-Constants support recursion theme organically
+   847.3TB reframed through investigation lens
+   94.7% confidence subjected to meta-analysis
+   Numbers as investigation objects, not just facts
+   Constants support recursion theme organically
 
 5. Cross-Character Integration When Required
 
@@ -1117,52 +1103,50 @@ Qualitative:
 ✅ Fragment constants meaningfully reinterpreted through investigation
 ✅ Ultimate insight earned: investigation generates consciousness
 
-
 XII. GENERATION CHECKLIST (Per Variation)
 Pre-Generation:
 
- State conditions reviewed and understood
- Exemplar specification identified
- Investigation intensity determined (20-95%)
- Cross-character requirements confirmed
- Target word count noted
+State conditions reviewed and understood
+Exemplar specification identified
+Investigation intensity determined (20-95%)
+Cross-character requirements confirmed
+Target word count noted
 
 During Generation:
 
- Past tense maintained
- Clinical language (no emotion)
- Archaeological metaphors present
- Recursive progression clear
- Data grounding at each layer
- Fragment constants integrated with path framing
- Cross-character content accurate (if applicable)
+Past tense maintained
+Clinical language (no emotion)
+Archaeological metaphors present
+Recursive progression clear
+Data grounding at each layer
+Fragment constants integrated with path framing
+Cross-character content accurate (if applicable)
 
 Post-Generation Review:
 
- Voice DNA pass (Archaeologist base + investigation overlay)
- Transformation appropriate to awareness state
- Fragment constants path-specific
- Word count in range
- No present tense (except cross-character quotes)
- No first person
- No emotional language
- No mystical language
- Recursion grounded, not word salad
- Discovery rhythm present
- Investigation productive (generates findings)
+Voice DNA pass (Archaeologist base + investigation overlay)
+Transformation appropriate to awareness state
+Fragment constants path-specific
+Word count in range
+No present tense (except cross-character quotes)
+No first person
+No emotional language
+No mystical language
+Recursion grounded, not word salad
+Discovery rhythm present
+Investigation productive (generates findings)
 
 Quality Score:
 
- 93+ points on voice consistency rubric
- Cross-character integration accurate (if applicable)
- Fragment constants meaningfully reframed
- Investigation philosophy clear and distinct from accept/resist
+93+ points on voice consistency rubric
+Cross-character integration accurate (if applicable)
+Fragment constants meaningfully reframed
+Investigation philosophy clear and distinct from accept/resist
 
 Final Approval:
 
- Ready for production inclusion
- Contributes to investigation path coherence
- Maintains Narramorph platform standards
-
+Ready for production inclusion
+Contributes to investigation path coherence
+Maintains Narramorph platform standards
 
 END OF GUIDE

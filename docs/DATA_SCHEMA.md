@@ -137,11 +137,11 @@ interface NodeMetadata {
  * Based on reader's actual exploration path through L1-L2
  */
 type JourneyPattern =
-  | 'Started-Stayed'     // Started with character, stayed with them
-  | 'Started-Bounced'    // Started with character, bounced to others
-  | 'Shifted-Dominant'   // Started elsewhere, this character became dominant
-  | 'Began-Lightly'      // Started with character but lightly engaged
-  | 'Met-Later';         // Encountered this character later in journey
+  | 'Started-Stayed' // Started with character, stayed with them
+  | 'Started-Bounced' // Started with character, bounced to others
+  | 'Shifted-Dominant' // Started elsewhere, this character became dominant
+  | 'Began-Lightly' // Started with character but lightly engaged
+  | 'Met-Later'; // Encountered this character later in journey
 
 /**
  * Path philosophy dominant in reader's choices
@@ -254,7 +254,7 @@ interface L3ConvergenceNode extends StoryNode {
       type: 'conv-L3'; // Multi-voice synthesis section
       variationId: string;
       content: string;
-    }
+    },
   ];
 
   // Journey data used to select variations
@@ -277,10 +277,7 @@ interface L3SelectionAlgorithm {
    * Calculate journey pattern for a specific character
    * Based on visit patterns, sequence, and engagement level
    */
-  calculateJourneyPattern(
-    character: CharacterType,
-    visitHistory: UserProgress
-  ): JourneyPattern;
+  calculateJourneyPattern(character: CharacterType, visitHistory: UserProgress): JourneyPattern;
 
   /**
    * Determine dominant path philosophy
@@ -304,18 +301,12 @@ interface L3SelectionAlgorithm {
    * Select specific variation based on selection key
    * Looks up variation from pool matching criteria
    */
-  selectVariation(
-    sectionType: L3SectionType,
-    selectionKey: L3VariationKey
-  ): L3Variation;
+  selectVariation(sectionType: L3SectionType, selectionKey: L3VariationKey): L3Variation;
 
   /**
    * Assemble complete L3 node from selected variations
    */
-  assembleL3Node(
-    visitHistory: UserProgress,
-    temporalAwareness: number
-  ): L3ConvergenceNode;
+  assembleL3Node(visitHistory: UserProgress, temporalAwareness: number): L3ConvergenceNode;
 }
 ```
 
@@ -366,7 +357,7 @@ interface L4SelectionAlgorithm {
   selectTerminalPhilosophy(
     visitHistory: UserProgress,
     l3Experience: L3ConvergenceNode,
-    temporalAwareness: number
+    temporalAwareness: number,
   ): TerminalPhilosophy;
 
   /**
@@ -442,7 +433,7 @@ interface L3ExperienceRecord {
     { type: L3SectionType; variationId: string },
     { type: 'conv-L3'; variationId: string },
     { type: L3SectionType; variationId: string },
-    { type: 'conv-L3'; variationId: string }
+    { type: 'conv-L3'; variationId: string },
   ];
 }
 
@@ -597,7 +588,7 @@ interface StoryData {
     createdAt: string; // ISO-8601
     lastModified: string; // ISO-8601
   };
-  
+
   configuration: {
     startNode: string; // ID of starting node (typically first L1 node)
     enableTransformations: boolean;
@@ -605,7 +596,7 @@ interface StoryData {
     allowBacktracking: boolean;
     saveProgress: boolean;
   };
-  
+
   structure: {
     totalNodes: number;
     totalConnections: number;
@@ -618,13 +609,13 @@ interface StoryData {
       lastHuman: number;
     };
   };
-  
+
   themes: {
     primary: string[];
     secondary: string[];
     motifs: string[];
   };
-  
+
   nodes: StoryNode[];
   connections?: Connection[]; // Optional: can be embedded in nodes instead
 }
@@ -723,6 +714,7 @@ interface StoryData {
 ### Node File Format
 
 Standard node (Layers 1-2):
+
 ```json
 {
   "id": "arch-L2-accept",
@@ -772,6 +764,7 @@ Standard node (Layers 1-2):
 ```
 
 Layer 3 variation (modular content):
+
 ```json
 {
   "id": "arch-L3-023",
@@ -791,6 +784,7 @@ Layer 3 variation (modular content):
 ```
 
 Layer 3 synthesis variation (multi-voice):
+
 ```json
 {
   "id": "conv-L3-078",
@@ -810,6 +804,7 @@ Layer 3 synthesis variation (multi-voice):
 ```
 
 Layer 3 selection matrix:
+
 ```json
 {
   "selectionMatrix": {
@@ -836,6 +831,7 @@ Layer 3 selection matrix:
 ```
 
 Layer 4 terminal variation:
+
 ```json
 {
   "id": "final-preserve",
@@ -856,6 +852,7 @@ Layer 4 terminal variation:
 ```
 
 Layer 4 selection (happens at runtime):
+
 ```json
 {
   "selectedPhilosophy": "preserve",
@@ -914,12 +911,12 @@ const migrations: MigrationStrategy[] = [
           characterNodesVisited: {
             archaeologist: 0,
             algorithm: 0,
-            lastHuman: 0
-          }
-        }
+            lastHuman: 0,
+          },
+        },
       };
-    }
-  }
+    },
+  },
 ];
 
 /**
@@ -927,13 +924,13 @@ const migrations: MigrationStrategy[] = [
  */
 function migrateState(savedState: any, targetVersion: string): SavedState {
   let currentState = savedState;
-  
+
   for (const migration of migrations) {
     if (currentState.version === migration.from) {
       currentState = migration.migrate(currentState);
     }
   }
-  
+
   return currentState;
 }
 ```
@@ -943,23 +940,27 @@ function migrateState(savedState: any, targetVersion: string): SavedState {
 ### Word Count Guidelines (Production-Validated)
 
 **Layer 1 (Origins)** - 80 variations per node:
+
 - Initial state: 2500-3500 words (1 variation)
 - FirstRevisit: 1500-2500 words (46 variations)
 - MetaAware: 1500-2500 words (33 variations)
 - **Total per node**: ~80 variations
 
 **Layer 2 (Divergence)** - 80 variations per node:
+
 - Initial state: 1500-2500 words (1 variation)
 - FirstRevisit: 1200-2000 words (46 variations)
 - MetaAware: 1200-2000 words (33 variations)
 - **Total per node**: ~80 variations
 
 **Layer 3 (Modular Convergence)** - 270 variations total:
+
 - Character sections (arch/algo/hum): 800-1200 words (45 each = 135 total)
 - Synthesis sections (conv): 800-1200 words (135 variations)
 - **Assembled experience**: 4 sections = ~4,000 words total
 
 **Layer 4 (Terminal Convergence)** - 3 variations:
+
 - Each terminal variation: ~3,000 words
 - Synthesizes all three character voices
 - One selected based on complete journey
@@ -967,16 +968,19 @@ function migrateState(savedState: any, targetVersion: string): SavedState {
 ### Node ID Conventions
 
 **Layer 1 (Origins)** - Format: `{character}-L1`
+
 - `arch-L1`, `algo-L1`, `hum-L1` (3 nodes)
 - Each contains 80 variations (1 initial + 46 FirstRevisit + 33 MetaAware)
 
 **Layer 2 (Divergence)** - Format: `{character}-L2-{branch}`
+
 - `arch-L2-accept`, `arch-L2-resist`, `arch-L2-invest`
 - `algo-L2-accept`, `algo-L2-resist`, `algo-L2-invest`
 - `hum-L2-accept`, `hum-L2-resist`, `hum-L2-invest`
 - **Total:** 9 nodes, each with 80 variations
 
 **Layer 3 (Modular)** - Format: `{type}-L3-{number}`
+
 - Character variations: `arch-L3-001` through `arch-L3-045` (45 variations)
 - Character variations: `algo-L3-001` through `algo-L3-045` (45 variations)
 - Character variations: `hum-L3-001` through `hum-L3-045` (45 variations)
@@ -984,10 +988,12 @@ function migrateState(savedState: any, targetVersion: string): SavedState {
 - **Total:** 270 modular variations, assembled into 4-section experience
 
 **Layer 4 (Terminal)** - Format: `final-{philosophy}`
+
 - `final-preserve`, `final-release`, `final-transform` (3 terminal variations)
 - One selected based on complete journey
 
 **Summary:**
+
 - **Nodes:** 12 (3 L1 + 9 L2 + modular L3 + 3 L4)
 - **Total Variations:** 1,233 (240 L1 + 720 L2 + 270 L3 + 3 L4)
 
@@ -1031,9 +1037,10 @@ function migrateState(savedState: any, targetVersion: string): SavedState {
 ---
 
 **Project Status**: 1,230 / 1,233 variations complete (99.8%)
+
 - ✅ Layer 1: 240 variations complete
 - ✅ Layer 2: 720 variations complete
 - ✅ Layer 3: 270 modular variations complete
 - ⚠️ Layer 4: 0/3 terminal variations (in progress)
 
-*This schema represents the complete data architecture for Eternal Return. See NARRATIVE_OUTLINE.md for story structure and CHARACTER_PROFILES.md for writing guidelines.*
+_This schema represents the complete data architecture for Eternal Return. See NARRATIVE_OUTLINE.md for story structure and CHARACTER_PROFILES.md for writing guidelines._

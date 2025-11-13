@@ -59,11 +59,14 @@ interface FixerReport {
   totalFiles: number;
   modifiedFiles: number;
   errorFiles: number;
-  byLayer: Record<string, {
-    files: number;
-    modified: number;
-    errors: number;
-  }>;
+  byLayer: Record<
+    string,
+    {
+      files: number;
+      modified: number;
+      errors: number;
+    }
+  >;
   errors: Array<{
     file: string;
     layer: string;
@@ -84,7 +87,7 @@ const EXCLUDED_PATTERNS = [
   'README',
   'SECTION_PROTOCOL',
   '.git',
-  'node_modules'
+  'node_modules',
 ];
 
 const LAYER_CONFIGS: Record<string, LayerConfig> = {
@@ -92,7 +95,7 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
     pattern: /^(arch|algo|hum)-L1-(FR|MA)-\d+\.md$/,
     requiredFields: ['variation_id', 'variation_type', 'word_count'],
     conditionalFields: new Map([
-      ['conditions.awareness', (fm) => true] // Always required for L1
+      ['conditions.awareness', (fm) => true], // Always required for L1
     ]),
     idNormalizer: (filename, frontmatter) => {
       const match = filename.match(/^(\w+)-L1-(FR|MA)-(\d+)/);
@@ -104,17 +107,25 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
     allowedDirectories: [
       /arch-L1-production\/(firstRevisit|metaAware)/,
       /algo-L1-production\/(firstRevisit|metaAware)/,
-      /hum-L1-production\/(firstRevisit|metaAware)/
+      /hum-L1-production\/(firstRevisit|metaAware)/,
     ],
-    fieldConvention: 'snake_case'
+    fieldConvention: 'snake_case',
   },
 
   L2: {
     pattern: /^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-\d+\.md$/,
-    requiredFields: ['variationId', 'nodeId', 'character', 'layer', 'pathPhilosophy', 'transformationState', 'awarenessRange'],
+    requiredFields: [
+      'variationId',
+      'nodeId',
+      'character',
+      'layer',
+      'pathPhilosophy',
+      'transformationState',
+      'awarenessRange',
+    ],
     conditionalFields: new Map([
       ['thematicContent', (fm) => true],
-      ['narrativeElements', (fm) => true]
+      ['narrativeElements', (fm) => true],
     ]),
     idNormalizer: (filename, frontmatter) => {
       const match = filename.match(/^(\w+)-L2-(\w+)-(FR|MA)-(\d+)/);
@@ -126,9 +137,9 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
     allowedDirectories: [
       /arch-L2-(accept|resist|invest)-production\/(firstRevisit|metaAware)/,
       /algo-L2-(accept|resist|invest)-production\/(firstRevisit|metaAware)/,
-      /hum-L2-(accept|resist|invest)-production\/(firstRevisit|metaAware)/
+      /hum-L2-(accept|resist|invest)-production\/(firstRevisit|metaAware)/,
     ],
-    fieldConvention: 'camelCase'
+    fieldConvention: 'camelCase',
   },
 
   L3: {
@@ -138,7 +149,7 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
       // L3 has these at top-level AND in conditions - check top-level only
       ['journeyPattern', (fm) => true],
       ['philosophyDominant', (fm) => true],
-      ['awarenessLevel', (fm) => true]
+      ['awarenessLevel', (fm) => true],
     ]),
     idNormalizer: (filename, frontmatter) => {
       const match = filename.match(/^(\w+)-L3-(\d+)/);
@@ -147,10 +158,8 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
       // L3 uses 3-digit padding
       return `${sectionType}-L3-${num.padStart(3, '0')}`;
     },
-    allowedDirectories: [
-      /L3\/(arch|algo|hum|conv)-L3-production/
-    ],
-    fieldConvention: 'camelCase'
+    allowedDirectories: [/L3\/(arch|algo|hum|conv)-L3-production/],
+    fieldConvention: 'camelCase',
   },
 
   L4: {
@@ -164,11 +173,9 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
       if (m && m[1]) return `final-${m[1].toLowerCase()}`;
       throw new Error(`Invalid L4 filename: ${filename}`);
     },
-    allowedDirectories: [
-      /(^|\/)L4(\/|\\)(terminal(\/|\\))?/
-    ],
-    fieldConvention: 'camelCase'
-  }
+    allowedDirectories: [/(^|\/)L4(\/|\\)(terminal(\/|\\))?/],
+    fieldConvention: 'camelCase',
+  },
 };
 
 // ============================================================================
@@ -185,7 +192,7 @@ async function scanDirectory(dirPath: string): Promise<string[]> {
       const fullPath = join(dirPath, entry.name);
 
       if (entry.isDirectory()) {
-        files.push(...await scanDirectory(fullPath));
+        files.push(...(await scanDirectory(fullPath)));
       } else if (entry.isFile() && entry.name.endsWith('.md')) {
         files.push(fullPath);
       }
@@ -219,7 +226,7 @@ async function discoverContentFiles(options: FixerOptions): Promise<Map<string, 
       const relNorm = relPath.replace(/\\/g, '/');
 
       // Exclude non-content files
-      if (EXCLUDED_PATTERNS.some(pattern => filename.includes(pattern))) {
+      if (EXCLUDED_PATTERNS.some((pattern) => filename.includes(pattern))) {
         continue;
       }
 
@@ -229,7 +236,7 @@ async function discoverContentFiles(options: FixerOptions): Promise<Map<string, 
       }
 
       // Match allowed directories
-      if (!config.allowedDirectories.some(dirPattern => dirPattern.test(relNorm))) {
+      if (!config.allowedDirectories.some((dirPattern) => dirPattern.test(relNorm))) {
         continue;
       }
 
@@ -269,9 +276,13 @@ function parseFrontmatter(raw: string): { frontmatter: any; content: string } {
           let j = i + 1;
           for (; j < lines.length; j++) {
             const l = lines[j];
-            if (/^---\s*$/.test(l)) { break; }
-            if (/^[A-Za-z0-9_\-]+\s*:/.test(l)) { break; }
-            lines[j] = l.startsWith('  ') ? l : ('  ' + l);
+            if (/^---\s*$/.test(l)) {
+              break;
+            }
+            if (/^[A-Za-z0-9_\-]+\s*:/.test(l)) {
+              break;
+            }
+            lines[j] = l.startsWith('  ') ? l : '  ' + l;
           }
           i = j - 1;
         }
@@ -310,11 +321,7 @@ function stripMalformedFrontmatter(raw: string): string {
   return lines.slice(1).join('\n');
 }
 
-function createMinimalFrontmatter(
-  filename: string,
-  layer: string,
-  config: LayerConfig
-): any {
+function createMinimalFrontmatter(filename: string, layer: string, config: LayerConfig): any {
   const baseFields: any = {};
 
   if (layer === 'L1') {
@@ -326,8 +333,8 @@ function createMinimalFrontmatter(
     baseFields.variationId = config.idNormalizer(filename, {});
     const match = filename.match(/^(\w+)-L2-(\w+)-(FR|MA)/);
     if (match) {
-      baseFields.character = match[1] === 'arch' ? 'archaeologist' :
-                             match[1] === 'algo' ? 'algorithm' : 'human';
+      baseFields.character =
+        match[1] === 'arch' ? 'archaeologist' : match[1] === 'algo' ? 'algorithm' : 'human';
       baseFields.pathPhilosophy = match[2];
       baseFields.transformationState = match[3] === 'FR' ? 'firstRevisit' : 'metaAware';
     }
@@ -383,7 +390,7 @@ function set(obj: any, path: string, value: any): void {
 }
 
 function countWords(text: string): number {
-  return text.split(/\s+/).filter(word => word.length > 0).length;
+  return text.split(/\s+/).filter((word) => word.length > 0).length;
 }
 
 function normalizeTextBlocks(content: string): string {
@@ -393,7 +400,7 @@ function normalizeTextBlocks(content: string): string {
 
 function normalizeLists(obj: any): any {
   if (Array.isArray(obj)) {
-    return obj.map(item => typeof item === 'string' ? item.trim() : normalizeLists(item));
+    return obj.map((item) => (typeof item === 'string' ? item.trim() : normalizeLists(item)));
   } else if (obj && typeof obj === 'object') {
     const normalized: any = {};
     for (const [key, value] of Object.entries(obj)) {
@@ -406,25 +413,25 @@ function normalizeLists(obj: any): any {
 
 function getDefaultValue(field: string, layer: string): any {
   const defaults: Record<string, any> = {
-    'variation_id': '',
-    'variationId': '',
-    'variation_type': 'firstRevisit',
-    'transformationState': 'firstRevisit',
-    'word_count': 0,
-    'wordCount': 0,
+    variation_id: '',
+    variationId: '',
+    variation_type: 'firstRevisit',
+    transformationState: 'firstRevisit',
+    word_count: 0,
+    wordCount: 0,
     'conditions.awareness': '0-0%',
-    'journeyPattern': 'unknown',
-    'philosophyDominant': 'accept',
-    'awarenessLevel': 'low',
-    'awarenessRange': [0, 0],
-    'character': 'archaeologist',
-    'pathPhilosophy': 'accept',
-    'layer': layer === 'L1' ? 1 : layer === 'L2' ? 2 : layer === 'L3' ? 3 : 4,
-    'nodeId': '',
-    'id': '',
-    'philosophy': 'preserve',
-    'thematicContent': {},
-    'narrativeElements': {}
+    journeyPattern: 'unknown',
+    philosophyDominant: 'accept',
+    awarenessLevel: 'low',
+    awarenessRange: [0, 0],
+    character: 'archaeologist',
+    pathPhilosophy: 'accept',
+    layer: layer === 'L1' ? 1 : layer === 'L2' ? 2 : layer === 'L3' ? 3 : 4,
+    nodeId: '',
+    id: '',
+    philosophy: 'preserve',
+    thematicContent: {},
+    narrativeElements: {},
   };
 
   return defaults[field] ?? null;
@@ -434,7 +441,7 @@ async function normalizeFile(
   filePath: string,
   layer: string,
   config: LayerConfig,
-  verbose: boolean = false
+  verbose: boolean = false,
 ): Promise<NormalizationResult> {
   const raw = await fs.readFile(filePath, 'utf-8');
   const filename = basename(filePath);
@@ -459,8 +466,12 @@ async function normalizeFile(
   }
 
   // Normalize variation ID
-  const idField = config.fieldConvention === 'snake_case' ? 'variation_id' :
-                  layer === 'L4' ? 'id' : 'variationId';
+  const idField =
+    config.fieldConvention === 'snake_case'
+      ? 'variation_id'
+      : layer === 'L4'
+        ? 'id'
+        : 'variationId';
   const expectedId = config.idNormalizer(filename, frontmatter);
 
   if (frontmatter[idField] !== expectedId) {
@@ -504,7 +515,10 @@ async function normalizeFile(
   }
   // Layer-specific fixes
   if (layer === 'L3') {
-    if (typeof frontmatter.philosophyDominant === 'string' && frontmatter.philosophyDominant.toLowerCase() === 'investigate') {
+    if (
+      typeof frontmatter.philosophyDominant === 'string' &&
+      frontmatter.philosophyDominant.toLowerCase() === 'investigate'
+    ) {
       frontmatter.philosophyDominant = 'invest';
       modified = true;
     }
@@ -528,7 +542,7 @@ async function normalizeFile(
     content,
     modified,
     errors,
-    warnings
+    warnings,
   };
 }
 
@@ -536,16 +550,13 @@ async function normalizeFile(
 // FILE WRITING
 // ============================================================================
 
-async function writeNormalizedFile(
-  filePath: string,
-  result: NormalizationResult
-): Promise<void> {
+async function writeNormalizedFile(filePath: string, result: NormalizationResult): Promise<void> {
   // Serialize frontmatter to YAML with safe formatting
   const yamlText = YAML.stringify(result.frontmatter, {
     indent: 2,
     lineWidth: 120,
     defaultKeyType: 'PLAIN',
-    defaultStringType: 'QUOTE_SINGLE'
+    defaultStringType: 'QUOTE_SINGLE',
   });
 
   // Reconstruct file
@@ -573,7 +584,7 @@ export async function fixContent(options: FixerOptions): Promise<FixerReport> {
     modifiedFiles: 0,
     errorFiles: 0,
     byLayer: {},
-    errors: []
+    errors: [],
   };
 
   // Process each layer
@@ -582,7 +593,7 @@ export async function fixContent(options: FixerOptions): Promise<FixerReport> {
     const layerReport = {
       files: files.length,
       modified: 0,
-      errors: 0
+      errors: 0,
     };
 
     console.log(`📁 Processing ${currentLayer}: ${files.length} files`);
@@ -598,7 +609,7 @@ export async function fixContent(options: FixerOptions): Promise<FixerReport> {
           report.errors.push({
             file: filename,
             layer: currentLayer,
-            errors: result.errors
+            errors: result.errors,
           });
         }
 
@@ -608,8 +619,12 @@ export async function fixContent(options: FixerOptions): Promise<FixerReport> {
             await writeNormalizedFile(filePath, result);
           }
 
-          const status = result.errors.length > 0 ? '(with errors)' :
-                        result.warnings.length > 0 ? '(with warnings)' : '';
+          const status =
+            result.errors.length > 0
+              ? '(with errors)'
+              : result.warnings.length > 0
+                ? '(with warnings)'
+                : '';
           console.log(`   ✓ ${filename} ${status}`);
 
           if (verbose && result.warnings.length > 0) {
@@ -625,7 +640,7 @@ export async function fixContent(options: FixerOptions): Promise<FixerReport> {
         report.errors.push({
           file: filename,
           layer: currentLayer,
-          errors: [error.message]
+          errors: [error.message],
         });
         console.error(`   ✗ ${filename}: ${error.message}`);
       }
@@ -658,7 +673,8 @@ export async function fixContent(options: FixerOptions): Promise<FixerReport> {
   if (report.errors.length > 0) {
     console.log('');
     console.log('⚠️  ERRORS:');
-    for (const error of report.errors.slice(0, 20)) { // Limit to first 20
+    for (const error of report.errors.slice(0, 20)) {
+      // Limit to first 20
       console.log(`\n${error.file} (${error.layer}):`);
       for (const msg of error.errors) {
         console.log(`  - ${msg}`);
@@ -691,14 +707,13 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const contentRoot = resolve(process.cwd(), '../../docs');
 
   fixContent({ layer, contentRoot, dryRun, verbose })
-    .then(report => {
+    .then((report) => {
       if (report.errorFiles > 0) {
         process.exit(1);
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.error('Fatal error:', error);
       process.exit(1);
     });
 }
-

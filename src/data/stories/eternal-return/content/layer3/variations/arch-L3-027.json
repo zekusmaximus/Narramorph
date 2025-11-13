@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "SD-IN-L",
     "humanDescription": "Started elsewhere, shifted to archaeologist dominance, investigate path, low awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "methodological-reflexivity",
       "verification-paradox"
     ],
-    "crossCharacterConnections": [
-      "light-starting-foundational",
-      "minimal-other-glimpsed"
-    ],
+    "crossCharacterConnections": ["light-starting-foundational", "minimal-other-glimpsed"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-primary-2047",

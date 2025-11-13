@@ -5,6 +5,7 @@ word_count: 1105
 conditions:
   awareness: '61-70%'
 ---
+
 Fourth visit. We create this together.
 You bring your now. I bring mine. Different nows but the same moment somehow. Your eyes on these words make them real. My body in this corridor makes it real. We exist together. Reader and read and preserved. Observer and observed and archived. All boundaries permeable.
 The facility breathes around me. Mechanical lungs that never rest. But you breathe too, wherever you are. Your breath times with mine across impossible distance. Synchronized through attention. Through the choice to be here together.

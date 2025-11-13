@@ -24,29 +24,18 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "archaeologist",
-    "characterBalance": [
-      70,
-      15,
-      15
-    ],
+    "characterBalance": [70, 15, 15],
     "readableLabel": "SS-IN-L-SD",
     "humanDescription": "Started archaeologist, stayed dominant, investigate path, low awareness, archaeologist-led synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "archaeologist-dominant-immersive",
     "perspectiveEmphasis": "archaeological-methodology-deep-focus",
     "philosophicalCulmination": "Verification questions itself through sustained archaeological attention to questioning",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "transform-through-methodological-investigation",
     "circularCausality": "minimal",
     "readerPosition": "absent",
@@ -59,16 +48,8 @@
     ],
     "crossCharacterSynthesis": "archaeologist-led-with-traces",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "arch-primary-2047",
-      "algo-trace-2151",
-      "hum-trace-2383"
-    ],
+    "observerPositions": ["arch-primary-2047", "algo-trace-2151", "hum-trace-2383"],
     "philosophicalResolution": "investigative-transformation-through-recursive-verification",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

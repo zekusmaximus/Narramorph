@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "ML-AC-M",
     "humanDescription": "Met later with algorithm, accept path, medium awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "acceptance-over-verification",
       "consciousness-through-witness"
     ],
-    "crossCharacterConnections": [
-      "heavy-arch-foundational",
-      "moderate-hum-integrated"
-    ],
+    "crossCharacterConnections": ["heavy-arch-foundational", "moderate-hum-integrated"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-primary-2047",

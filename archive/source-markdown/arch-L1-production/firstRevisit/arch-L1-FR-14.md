@@ -6,17 +6,6 @@
   'awareness': '41-50%'
 ---
 
-
-
-
-
-
-
-
-
-
-
-
 The fragment waited in seven streams. 847.3 terabytes organized into distinct architectural layers, but I was questioning the organization itself now. Not just what the seven streams were, but why I recognized them as seven, how my pattern-recognition process had learned to see that specific structure, what it meant that I could perceive fragmentation so clearly.
 I began with temporal markers. Seven distinct chronological frameworks, each one internally consistent, all seven contradicting each other. Standard observation. But I was watching myself observe the contradictions now. I'd categorized them as seven separate time-streams automatically, without conscious decision. My mind had accepted seven-stream architecture before my analysis confirmed it.
 Why seven? Why streams? Why did that particular organizational metaphor feel natural?

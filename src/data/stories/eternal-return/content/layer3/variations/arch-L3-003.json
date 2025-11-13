@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "SS-AC-L",
     "humanDescription": "Started archaeologist, stayed dominant, accept path, low awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "professional-transformation",
       "sustained-attention"
     ],
-    "crossCharacterConnections": [
-      "light-algo-glimpsed",
-      "minimal-hum-distant"
-    ],
+    "crossCharacterConnections": ["light-algo-glimpsed", "minimal-hum-distant"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-primary-2047",

@@ -151,7 +151,9 @@ async function main() {
 
   // Write report (default to reports/validation.json, override with --report)
   const reportPath = values.report
-    ? (values.report.endsWith('.json') ? values.report : join('reports', values.report))
+    ? values.report.endsWith('.json')
+      ? values.report
+      : join('reports', values.report)
     : join('reports', 'validation.json');
 
   const json = JSON.stringify(report, null, 2);
@@ -195,11 +197,14 @@ async function validateLayer(
   dirPath: string,
   logger: Logger,
   layerName: string,
-  validator: (content: string) => boolean
+  validator: (content: string) => boolean,
 ): Promise<void> {
   try {
     const files = await readdir(dirPath);
-    logger.info(`${layerName}_VALIDATE_START`, `Validating ${layerName} layer: ${files.length} files`);
+    logger.info(
+      `${layerName}_VALIDATE_START`,
+      `Validating ${layerName} layer: ${files.length} files`,
+    );
 
     for (const file of files) {
       if (!file.endsWith('.json')) continue;
@@ -231,7 +236,10 @@ function validateL1L2File(jsonContent: string, logger: Logger, expectedCount: nu
 
     // Check totalVariations
     if (data.totalVariations !== expectedCount) {
-      logger.error('COUNT_MISMATCH', `Expected ${expectedCount} variations, found ${data.totalVariations}`);
+      logger.error(
+        'COUNT_MISMATCH',
+        `Expected ${expectedCount} variations, found ${data.totalVariations}`,
+      );
     }
 
     // Check variations array
@@ -248,7 +256,10 @@ function validateL1L2File(jsonContent: string, logger: Logger, expectedCount: nu
       }
 
       if (!variation.transformationState) {
-        logger.blocker('MISSING_TRANSFORMATION_STATE', `Variation ${variation.id} missing transformationState`);
+        logger.blocker(
+          'MISSING_TRANSFORMATION_STATE',
+          `Variation ${variation.id} missing transformationState`,
+        );
         return false;
       }
 
@@ -339,7 +350,11 @@ function validateL4File(jsonContent: string, logger: Logger): boolean {
   }
 }
 
-async function validateL3Matrix(matrixPath: string, logger: Logger, strict: boolean): Promise<boolean> {
+async function validateL3Matrix(
+  matrixPath: string,
+  logger: Logger,
+  strict: boolean,
+): Promise<boolean> {
   try {
     const content = await readFile(matrixPath, 'utf-8');
     const matrix = JSON.parse(content);
@@ -355,8 +370,11 @@ async function validateL3Matrix(matrixPath: string, logger: Logger, strict: bool
 
     if (actualCombos !== expectedCombos) {
       const severity = strict ? 'ERROR' : 'WARNING';
-      logger.log('MATRIX_INCOMPLETE', severity as Severity,
-        `Matrix has ${actualCombos} combinations, expected ${expectedCombos}`);
+      logger.log(
+        'MATRIX_INCOMPLETE',
+        severity as Severity,
+        `Matrix has ${actualCombos} combinations, expected ${expectedCombos}`,
+      );
     }
 
     return !logger.hasBlockers();

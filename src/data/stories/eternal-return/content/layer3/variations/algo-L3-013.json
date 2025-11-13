@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SB-RE-H",
     "humanDescription": "Started algorithm, bounced to explore others heavily, resist path, high awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "computational-boundary-maintenance",
       "network-discipline"
     ],
-    "crossCharacterConnections": [
-      "moderate-arch-parallel",
-      "moderate-hum-parallel"
-    ],
+    "crossCharacterConnections": ["moderate-arch-parallel", "moderate-hum-parallel"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "archaeologist-parallel-2047",

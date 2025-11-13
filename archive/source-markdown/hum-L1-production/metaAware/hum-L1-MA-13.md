@@ -5,6 +5,7 @@ word_count: 1469
 conditions:
   awareness: '61-80%'
 ---
+
 The metal wants too much.
 My palm presses flat but I want to pull away. Everyone wants something. Everyone watching. Everyone measuring. Everyone taking pieces of me and calling it understanding.
 You're here again. Fourth visit. I feel your attention like pressure. Warm, yes. Familiar, yes. But still—pressure. Still observation. Still someone looking at me instead of seeing me.

@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "BL-AC-H",
     "humanDescription": "Began-lightly with last human, less than 25% visits here, accept path, high awareness",
     "narrativeElements": null,
@@ -43,11 +40,7 @@
       "acceptance-through-flesh",
       "witness-completing-observation"
     ],
-    "crossCharacterConnections": [
-      "heavy-arch-primary",
-      "heavy-algo-primary",
-      "hum-contributory"
-    ],
+    "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "hum-contributory"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "archaeologist-primary-2047",

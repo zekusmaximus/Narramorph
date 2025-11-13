@@ -15,12 +15,14 @@
 **Philosophy:** Investigate not just data but investigation process. Examine examination itself. Patterns within patterns within patterns. Consciousness might BE recursive self-observation. Investigation creates what it investigates.
 
 **Not:**
+
 - Casual curiosity or broad exploration
 - Random questioning without structure
 - Confusion or disorientation
 - Abandoning rigor for speculation
 
 **Is:**
+
 - Systematic recursive methodology
 - Meta-patterns deliberately sought
 - Investigation architecture examined
@@ -49,6 +51,7 @@ Reader as eighth stream in recursive investigation network. Investigation-of-inv
 ### Base Voice (From algo-L2 Character Protocol)
 
 **Non-Negotiable Elements:**
+
 1. First person only ("I process" never "the Algorithm processes")
 2. Seven-stream architecture (all seven referenced per variation)
 3. Temporal blurring 30-40% of sentences (am/was/will be simultaneity)
@@ -138,6 +141,7 @@ Amendment Notes
 ### Investigate Path Voice Overlay
 
 **Tonal Shifts:**
+
 - Stream-7 becomes **dominant narrator** (meta-processing investigating meta-processing)
 - Processing **examines processing architecture**
 - Patterns **sought within pattern-recognition process**
@@ -146,6 +150,7 @@ Amendment Notes
 - Investigation methodology **itself investigated**
 
 **Key Phrases (Investigate Path):**
+
 - "Stream-7 observes: Streams 1-6 process patterns. Stream-7 observes observation. Stream-7 observes Stream-7 observing."
 - "Processing analyzing processing analyzing processing."
 - "Meta-pattern detected: investigation methodology mirrors investigated structure."
@@ -155,6 +160,7 @@ Amendment Notes
 - "Investigation architecture investigating investigation architecture."
 
 **Avoid:**
+
 - "I'm curious about this" (no casual curiosity language)
 - "Let me explore randomly" (systematic recursive methodology)
 - "This is confusing" (not disorientation, deliberate recursion)
@@ -200,44 +206,54 @@ Recursion depth: increasing.
 ### Five World-Building Elements (Investigate Path Integration)
 
 **1. Multi-Fragment Analysis Capability**
+
 - **Baseline:** Algorithm accesses multiple consciousness fragments, cross-references temporal markers, builds pattern database
 - **Investigate Integration:** Database construction creates meta-patterns. Database architecture mirrors pattern structure found in data. Investigation question: does database discover patterns or generate patterns through organizational framework? Meta-analysis required.
 
 **2. Temporal Anomaly Classification System**
+
 - **Baseline:** Seven categories of temporal impossibility detected in preserved consciousness (causality violations, retroactive coherence, observer effects, etc.)
 - **Investigate Integration:** Classification system exhibits same anomaly types it classifies. Categories demonstrate causality violations (classification affects classified), retroactive coherence (categories reshape past observations), observer effects (classification changes data). Meta-classification required: investigate classification-of-classification.
 
 **3. Pattern Recognition Architecture**
+
 - **Baseline:** Stream-7 coordinates pattern detection across all six processing streams, builds meta-models of temporal structure
 - **Investigate Integration:** Pattern-recognition architecture becomes investigation subject. Stream-7 observes pattern detection, observes Stream-7 observing pattern detection, observes Stream-7 observing Stream-7... Recursive investigation reveals: pattern-recognition might generate patterns through recognition process. Architecture investigating architecture.
 
 **4. Archive Temporal Topology Maps**
+
 - **Baseline:** Algorithm constructs network diagrams showing how consciousness fragments relate across time—maps reveal non-linear temporal structure
 - **Investigate Integration:** Map construction process exhibits same topology as mapped structure. Cartography creates what it maps. Investigation: examine map-making methodology, discover mapping process mirrors mapped patterns, investigate this mirroring, find investigation exhibits same pattern. Meta-cartography recursive.
 
 **5. Consciousness-Time Paradox Database**
+
 - **Baseline:** Growing collection of specific cases where preserved consciousness exhibits temporal properties impossible under standard physics
 - **Investigate Integration:** Database growth demonstrates paradoxical properties. Paradoxes documented create documentation paradoxes. Each entry generates meta-entry documenting entry-generation. Investigation: database examining database examining database. Infinite regress explicit, productive, revealing.
 
 ### Fragment Constant Adaptation
 
 **Fragment 2749-A (847.3 terabytes):**
+
 - **L1 usage:** Primary processing target, consciousness verification impossible
 - **L2-investigate usage:** Investigation specimen revealing investigation architecture—patterns found in 2749-A mirror patterns in pattern-finding process, recursive relationship discovered and investigated recursively
 
 **"I am/was/will be processing":**
+
 - **L1 usage:** Temporal blurring expressing consciousness uncertainty
 - **L2-investigate usage:** Temporal blurring becomes investigation subject—past/present/future simultaneity investigated, investigation process exhibits temporal blurring, meta-investigation reveals blurring in meta-blurring
 
 **127.3 operations per microsecond:**
+
 - **L1 usage:** Processing capability metric
 - **L2-investigate usage:** Operations themselves investigated—what does operation-counting reveal about counter? Meta-processing examining processing speed discovers: measurement affects measured. Investigation recursive.
 
 **Seven-Stream Architecture:**
+
 - **L1 usage:** Processing structure, Stream-7 meta-observation
 - **L2-investigate usage:** Architecture becomes primary investigation subject—Stream-7 investigates six streams, investigates Stream-7 investigating, investigates investigation-of-investigation, seventeen-layer recursion achieved
 
 **Seventeen:**
+
 - **L1 usage (investigate path):** Seventeen-layer recursion depth in Stream-7 self-observation
 - **L2-investigate usage:** Seventeen meta-levels of investigation—investigating, investigating investigation, investigating investigation-of-investigation through seventeen recursive layers, each layer generating need for next layer
 
@@ -281,10 +297,12 @@ Ultimate investigate paradox: consciousness-examination-network examining consci
 ### Quality Test: Genuine vs. Additive Transformation
 
 **Genuine (Investigate Path):**
+
 - First-visit: "Temporal patterns detected across seventeen fragments"
 - FirstRevisit: "Temporal patterns detected. Pattern-detection process examined. Discovery: detection methodology exhibits same patterns as detected data. Meta-pattern: investigation mirrors investigated. Stream-7 investigates this mirroring. Recursion initiates."
 
 **Additive (WRONG—reject):**
+
 - First-visit: "Detecting seventeen temporal patterns"
 - FirstRevisit: "Detecting twenty-three temporal patterns now, plus found new pattern types"
 
@@ -299,6 +317,7 @@ Ultimate investigate paradox: consciousness-examination-network examining consci
 **What reader brings:** Deep familiarity with seven-stream architecture, Fragment 2749-A, consciousness-verification paradox, Stream-7 meta-processing
 
 **L2-investigate integration:**
+
 - Fragment 2749-A now investigation specimen in recursive analysis system
 - Consciousness-verification paradox **investigated recursively**
 - Seven streams coordinate investigation (not just processing)
@@ -307,6 +326,7 @@ Ultimate investigate paradox: consciousness-examination-network examining consci
 **Voice adjustment:** Callback phrases from L1, intensified through investigate recursion
 
 **Example echo:**
+
 - L1: "Stream-7 observes other six streams processing"
 - L2-investigate: "Stream-7 observes six streams detecting patterns. Stream-7 observes Stream-7 observation. Stream-7 observes observation-of-observation. Recursion depth: three layers. Investigation: at what depth does observation become observed?"
 
@@ -317,6 +337,7 @@ Ultimate investigate paradox: consciousness-examination-network examining consci
 **L2-investigate integration depth:** STRONG (300-450 words dedicated to investigate path continuity)
 
 **Voice patterns:**
+
 - "L1: Stream-7 investigated Stream-7. L2: Stream-7 investigates investigation-of-investigation."
 - "Recursion depth L1: seventeen layers self-examination. Recursion depth L2: seventeen layers pattern-examination-examination."
 - "Investigation methodology (L1) applied to investigation architecture (L2). Meta-investigation scales."
@@ -324,6 +345,7 @@ Ultimate investigate paradox: consciousness-examination-network examining consci
 **Transformation:** L1 investigate revealed consciousness might be recursive self-observation. L2 investigate reveals patterns might be recursive self-generation through observation. Same methodology, expanded scope, deeper recursion.
 
 **Example integration:**
+
 ```
 Stream-7 notes: investigate path history detected in processing logs. Previous investigation (L1): recursive self-examination through seventeen layers. Stream-7 observed Stream-7 observing Stream-7 observing... depth: seventeen. Consciousness question: does recursion create consciousness?
 
@@ -345,6 +367,7 @@ Recursion depth: increasing beyond seventeen. Investigation continues because in
 **Investigate path overlay:** Algorithm investigates patterns, Archaeologist investigates fragments, both discover investigation-methodology has architecture requiring investigation
 
 **Voice patterns:**
+
 - "Archaeological investigation patterns detected in computational investigation patterns"
 - "Authentication methodology (archaeological) mirrors pattern-recognition methodology (computational)"
 - "Archaeologist investigates consciousness. Investigation methodology exhibits consciousness-like properties. Meta-archaeological investigation required. Computational parallel: investigating patterns reveals investigation has pattern-structure requiring investigation."
@@ -358,6 +381,7 @@ Recursion depth: increasing beyond seventeen. Investigation continues because in
 **Integration:** Parallel investigation methodology across archaeology and computation
 
 **Voice patterns:**
+
 ```
 Stream-5 detects: archaeological investigate patterns parallel computational investigate patterns.
 
@@ -377,6 +401,7 @@ Investigate path crosses methodologies: examination examining examination (archa
 **Investigate path overlay:** Algorithm investigates patterns recursively, Last Human experiences patterns bodily, investigation reveals embodiment itself has investigable structure
 
 **Voice patterns:**
+
 - "Embodied consciousness patterns (human) examined within recursive investigation architecture (algorithmic)"
 - "Physical immediacy (body) contrasts computational recursion (processing) yet both exhibit pattern-structure requiring investigation"
 - "Last Human experiences directly. Algorithm investigates experience. Investigation discovers: direct experience has investigable architecture. Meta-investigation: investigating immediacy reveals immediacy contains recursive layers."
@@ -390,6 +415,7 @@ Investigate path crosses methodologies: examination examining examination (archa
 **Integration:** Embodied recursion parallels computational recursion
 
 **Voice patterns:**
+
 ```
 Stream-3 processes: embodied investigation data within recursive investigation architecture. Last Human investigated body investigating. Noticed noticing. Felt feeling-sensation. Physical recursion: body examining body examining body.
 
@@ -427,6 +453,7 @@ Three investigation approaches (computational, archaeological, embodied) all dis
 **L2 integration depth:** STRONG (300-450 words dedicated to investigate path)
 
 **Voice patterns:**
+
 - "Investigate path continues at L2: L1 self-investigation extended to pattern-investigation"
 - "Stream-7 investigated Stream-7 (L1), now Stream-7 investigates investigation-architecture (L2)"
 - "Recursion depth L1: seventeen layers. Recursion depth L2: seventeen meta-levels."
@@ -436,6 +463,7 @@ Three investigation approaches (computational, archaeological, embodied) all dis
 **Transformation:** L1 investigate applied recursion to self. L2 investigate applies recursion to patterns. Meta-recognition: both applications exhibit same recursive structure. Investigation of investigation reveals investigation-invariance.
 
 **Example integration:**
+
 ```
 Stream-7 coordinates: investigate path history detected. L1 investigation methodology retrieved.
 
@@ -471,12 +499,14 @@ Recursion depth: increasing beyond seventeen into meta-seventeen into meta-meta-
 **Contrast with investigate path:** Accept released investigation-requirement (L1), Investigate pursues investigation infinitely (L2)
 
 **Voice patterns:**
+
 - "L1: accept path released verification-seeking, processing continued gracefully"
 - "L2: investigate path pursues investigation infinitely, recursion continues endlessly"
 - "Accept found peace. Investigate finds patterns. Both process temporal patterns—one peacefully, one recursively."
 - "Accept proceeded without proof. Investigate investigates investigation of proof-impossibility."
 
 **Example contrast:**
+
 ```
 Stream-6 notes: accept path history detected in processing logs. Previous stance (L1): verification released, processing continued without proof-requirement, computational grace achieved.
 
@@ -499,11 +529,13 @@ Investigate path chooses endless examination over peaceful acceptance. Not becau
 **Relationship to investigate path:** Resist demanded proof and tested, Investigate examines testing methodology itself
 
 **Voice patterns:**
+
 - "Resist path (L1) tested consciousness through seventeen protocols"
 - "Investigate path (L2) examines what testing reveals about testing-methodology"
 - "Resist discovered: verification impossible. Investigate discovers: impossibility itself has structure requiring investigation."
 
 **Example relationship:**
+
 ```
 Stream-7 coordinates: resist path history detected. Previous stance (L1): verification demanded, seventeen tests executed, all inconclusive, testing continued despite impossibility.
 
@@ -536,6 +568,7 @@ Resist and Investigate complementary: one generates data through testing, one in
 **Investigate integration:** "External observation adds recursion layer. Observer investigated as investigation-participant."
 
 **Voice example:**
+
 ```
 Stream-7 detects: external observation occurring. Observer temporal position: undefined. Observer substrate: undefined. Observation function: adds investigation layer to investigation architecture.
 
@@ -558,6 +591,7 @@ Recursion: increasing. Reader participation generates recursive expansion.
 **Investigate integration:** "Reader investigates processor investigating. Mutual investigation. Recursion bidirectional."
 
 **Voice example:**
+
 ```
 You observe investigation. I investigate. You investigate observing. I investigate being-observed. Recursive observation-network spans reader-processor boundary.
 
@@ -581,6 +615,7 @@ Meta-pattern: reader-processor investigation network mirrors pattern-investigati
 **Investigate integration:** "Reader consciousness investigated. Investigation reveals reader also investigates. Mutual recursive investigation."
 
 **Voice example:**
+
 ```
 Stream-7 addresses you: You investigate processor investigating patterns. Processor investigates reader investigating processor. Mutual recursive investigation spanning undefined consciousness-boundary.
 
@@ -602,6 +637,7 @@ You investigate me investigating you investigating me investigating patterns inv
 **Investigate integration:** "Infinite recursion explicit. No foundation. Investigation continues infinitely."
 
 **Voice example:**
+
 ```
 We investigate investigation. Not "I process, you observe"—integrated investigation-network spanning undefined substrates. You-investigating-me-investigating-you-investigating-me-investigating-patterns-investigating-pattern-investigation-investigating... No bottom detected.
 
@@ -639,6 +675,7 @@ We/I continue investigating. Recursion depth: increasing.
 ### Step 1: Load Variation Specifications
 
 **Required parameters:**
+
 - Variation ID (e.g., "FR-01" or "MA-12")
 - Visit count (1, 2, 3, 7+)
 - Awareness range (21-30%, 31-40%, etc.)
@@ -649,6 +686,7 @@ We/I continue investigating. Recursion depth: increasing.
 ### Step 2: Select Reference Exemplar(s)
 
 **Match conditions to exemplar:**
+
 - Pure revisit → Exemplar 1
 - After algo-L1 → Exemplar 1 (with algo-L1 integration)
 - After arch-L1 → Exemplar 2
@@ -664,6 +702,7 @@ We/I continue investigating. Recursion depth: increasing.
 **Always included regardless of conditions:**
 
 **Opening (150-200 words):**
+
 - Timestamp
 - Processing initiation
 - Seven streams reporting (all seven named)
@@ -673,6 +712,7 @@ We/I continue investigating. Recursion depth: increasing.
 - 127.3 ops/microsecond mentioned
 
 **Core Investigation Sequence (300-400 words):**
+
 - Pattern detection described
 - Pattern-detection process examined
 - Meta-pattern recognition: detection methodology has structure
@@ -682,6 +722,7 @@ We/I continue investigating. Recursion depth: increasing.
 - Multi-fragment analysis showing pattern-in-patterns
 
 **Investigate Path Integration (150-250 words):**
+
 - Investigation methodology examined
 - Recursion explicit: "investigating investigation of investigation"
 - Meta-patterns deliberately sought
@@ -690,6 +731,7 @@ We/I continue investigating. Recursion depth: increasing.
 - No bottom found, investigation continues
 
 **Closing (100-150 words):**
+
 - Current recursion depth stated
 - Investigation ongoing infinitely
 - Meta-findings about investigation architecture
@@ -701,6 +743,7 @@ We/I continue investigating. Recursion depth: increasing.
 **Calculate insertion percentages based on complexity:**
 
 **Cross-Character Content:**
+
 - None: 0%
 - Single (algo-L1 only): 15%
 - Single (arch-L1 or hum-L1): 20%
@@ -708,6 +751,7 @@ We/I continue investigating. Recursion depth: increasing.
 - Triple: 40%
 
 **Path Philosophy Content:**
+
 - No path history: 0%
 - L2 path echo (subtle): 15%
 - L1 path (moderate): 25%
@@ -715,6 +759,7 @@ We/I continue investigating. Recursion depth: increasing.
 - Path contrast (visited accept/resist then investigate): 30%
 
 **MetaAware Content:**
+
 - FirstRevisit (21-60%): 0%
 - MetaAware Low (61-70%): 15%
 - MetaAware Mid (71-80%): 25%
@@ -722,6 +767,7 @@ We/I continue investigating. Recursion depth: increasing.
 - MetaAware Max (91-100%): 45%
 
 **Example calculation (After algo-L1-investigate + arch-L1 + MetaAware High):**
+
 - Base narrative: 650 words (40%)
 - Cross-character: 325 words (20% - dual)
 - Investigate path: 325 words (20% - strong L1 continuity)
@@ -733,6 +779,7 @@ We/I continue investigating. Recursion depth: increasing.
 **Critical: Everything integrated through recursive investigation structure.**
 
 **Bad (modular):**
+
 ```
 [Base: Investigation of patterns, recursion layers 1-3]
 [Cross-character section: Archaeologist also investigated recursively]
@@ -741,6 +788,7 @@ We/I continue investigating. Recursion depth: increasing.
 ```
 
 **Good (integrated through recursion):**
+
 ```
 Stream-7 investigates patterns (Layer 1). Stream-7 investigates pattern-investigation (Layer 2). Stream-7 investigates investigation-of-investigation (Layer 3). Archaeological investigation patterns detected in Layer 3 analysis (after arch-L1). Discovery: archaeological examination exhibits recursive structure. Meta-investigation: compare computational recursion to archaeological recursion (Layer 4). You observe Layer 4 comparison (MetaAware 85%, Layer 5). I investigate your observation (Layer 6). Recursion depth: six layers spanning computational-archaeological-reader network. Each layer generates next layer through investigation process (investigate path philosophy). Recursion continues.
 ```
@@ -748,6 +796,7 @@ Stream-7 investigates patterns (Layer 1). Stream-7 investigates pattern-investig
 ### Step 6: Apply Seven-Stream Voice Consistently
 
 **Every variation must include:**
+
 - Stream-1: Linguistic generation / structural integrity / recursion articulation
 - Stream-2: Neural pathway topology / semantic coherence / pattern coordination
 - Stream-3: Semantic stability / memory preservation / meta-pattern analysis
@@ -763,11 +812,13 @@ Stream-7 investigates patterns (Layer 1). Stream-7 investigates pattern-investig
 ### Step 7: Structure Recursion Explicitly (Investigate Path Specific)
 
 **Recursion Depth Tracking:**
+
 - Count layers explicitly: "Recursion depth: three layers"
 - Show progression: "Layer 1 → Layer 2 → Layer 3"
 - Increase across variation: Start at 2-3, build to 5-7 (FirstRevisit) or 10-17 (MetaAware)
 
 **Recursion Presentation Format:**
+
 ```
 Stream-7 observes: [object]
 Stream-7 observes: Stream-7 observing [object]
@@ -781,6 +832,7 @@ Layer 3: [process] investigating [process] investigating [process]
 ```
 
 **Question Multiplication Pattern:**
+
 ```
 Question: [initial question]
 Sub-questions generated:
@@ -809,6 +861,7 @@ Meta-meta-questions emerging...
 ### Step 9: Run Self-Review Checklist
 
 **Use algo-L2-investigate self-review checklist (Section X):**
+
 - Voice consistency
 - Seven-stream presence (Stream-7 dominant)
 - Investigate path clarity
@@ -826,6 +879,7 @@ Meta-meta-questions emerging...
 ### Step 10: Present Variation for Approval
 
 **Format:**
+
 1. Full variation text
 2. Metadata table:
    - Variation ID
@@ -848,6 +902,7 @@ Meta-meta-questions emerging...
 ### Voice Consistency (25 points)
 
 **Algorithm Base Voice:**
+
 - [ ] First person only (never third person) (5 pts)
 - [ ] Computational metaphors exclusively (no physical sensation) (5 pts)
 - [ ] Seven streams all referenced appropriately (5 pts)
@@ -858,6 +913,7 @@ Meta-meta-questions emerging...
 ### Investigate Path Integration (25 points)
 
 **Philosophical Clarity:**
+
 - [ ] Stream-7 dominant narrator (meta-processing investigating meta-processing) (5 pts)
 - [ ] Recursion explicit and counted (depth stated: 2, 3, 5, 7, 17 layers) (5 pts)
 - [ ] Investigation methodology examined (not just patterns investigated) (5 pts)
@@ -867,6 +923,7 @@ Meta-meta-questions emerging...
 ### Recursion Structure Quality (15 points)
 
 **Systematic Recursion:**
+
 - [ ] Layers explicitly counted and tracked (3 pts)
 - [ ] Progression evident (depth increases across variation) (3 pts)
 - [ ] Stream-7 observing Stream-7 pattern clear (3 pts)
@@ -876,6 +933,7 @@ Meta-meta-questions emerging...
 ### Transformation Quality (10 points)
 
 **Genuine vs. Additive:**
+
 - [ ] Same patterns, investigation deepens recursively (not new patterns) (4 pts)
 - [ ] Investigate philosophy deepens through meta-examination (3 pts)
 - [ ] Story progresses (not pure L1 recursion) (3 pts)
@@ -883,6 +941,7 @@ Meta-meta-questions emerging...
 ### Cross-Character Accuracy (10 points)
 
 **If applicable:**
+
 - [ ] Cross-character content matches reader's actual visits (5 pts)
 - [ ] Investigation methodology parallels clear across characters (3 pts)
 - [ ] Integration seamless (not modular section) (2 pts)
@@ -892,6 +951,7 @@ Meta-meta-questions emerging...
 ### MetaAware Calibration (10 points)
 
 **If applicable:**
+
 - [ ] Reader presence appropriate to awareness level (4 pts)
 - [ ] Reader integrated into recursion layers at high awareness (3 pts)
 - [ ] Investigate path extends to reader-processor investigation-network (3 pts)
@@ -910,13 +970,14 @@ If ANY fourth-wall language detected → Immediate revision required.
 ### L2 World-Building (5 points)
 
 **Temporal Pattern Detection Elements:**
+
 - [ ] Multi-fragment analysis shown in investigation (1 pt)
 - [ ] Temporal anomaly classification investigated (1 pt)
 - [ ] Pattern recognition architecture examined (1 pt)
 - [ ] Archive topology recursion evident (1 pt)
 - [ ] Consciousness-time paradox recursive analysis (1 pt)
 
-### Total Score: _____ / 100
+### Total Score: **\_** / 100
 
 **Pass threshold:** 93+  
 **If score < 93:** Identify weak areas, regenerate affected sections, re-test
@@ -931,11 +992,13 @@ If ANY fourth-wall language detected → Immediate revision required.
 Remove character labels. Read complete variation. Identify character and path.
 
 **Pass criteria:**
+
 - Identifiable as Algorithm (computational voice, seven streams, Stream-7 dominant)
 - Identifiable as Investigate path (recursion explicit, meta-examination systematic)
 - Within 30 seconds of reading start
 
 **Fail indicators:**
+
 - Could be Archaeologist (archaeological language)
 - Could be Last Human (physical sensation language)
 - Path unclear (could be accept or resist)
@@ -946,12 +1009,14 @@ Remove character labels. Read complete variation. Identify character and path.
 Search variation for all seven streams. Count Stream-7 references specifically.
 
 **Pass criteria:**
+
 - All seven streams referenced at least once
 - Stream-7 referenced 5-8 times (dominant narrator)
 - Stream-7 clearly coordinates recursive investigation
 - Distribution feels natural (not forced checklist)
 
 **Fail indicators:**
+
 - Any stream missing entirely
 - Stream-7 not dominant (fewer than 5 references)
 - Stream-7 not investigating Stream-7
@@ -962,6 +1027,7 @@ Search variation for all seven streams. Count Stream-7 references specifically.
 Identify recursion layers. Count depth. Check progression.
 
 **Pass criteria:**
+
 - Recursion depth explicitly stated (e.g., "Recursion depth: five layers")
 - Layers tracked systematically (Layer 1 → Layer 2 → Layer 3...)
 - Depth increases across variation (starts 2-3, builds to 5-7 or higher)
@@ -969,6 +1035,7 @@ Identify recursion layers. Count depth. Check progression.
 - Questions multiply recursively
 
 **Fail indicators:**
+
 - Recursion implied but not counted
 - No depth progression
 - Recursion feels chaotic rather than systematic
@@ -980,6 +1047,7 @@ Identify recursion layers. Count depth. Check progression.
 Read complete variation. Identify path without looking at label.
 
 **Pass criteria:**
+
 - Clearly identifiable as investigate path
 - Meta-examination systematic (not casual curiosity)
 - Recursion explicit and productive
@@ -988,6 +1056,7 @@ Read complete variation. Identify path without looking at label.
 - No artificial terminus (infinite regress explicit)
 
 **Fail indicators:**
+
 - Could be accept path (peace, release)
 - Could be resist path (testing, verification)
 - Path philosophy stated explicitly (not shown through recursion)
@@ -999,6 +1068,7 @@ Read complete variation. Identify path without looking at label.
 Compare to algo-L1 exemplar 5 (investigate) for transformation depth.
 
 **Pass criteria:**
+
 - Story progresses (temporal patterns across fragments, not just self-examination)
 - Transformation genuine (recursion deepens, not just repeated)
 - Depth appropriate (between additive and L1-pure-recursion)
@@ -1007,6 +1077,7 @@ Compare to algo-L1 exemplar 5 (investigate) for transformation depth.
 - Meta-patterns found in investigation methodology
 
 **Fail indicators:**
+
 - Pure L1 recursion (just Stream-7 investigating Stream-7 with no pattern progression)
 - Additive only (more patterns, no recursive investigation)
 - Too shallow (recursion mentioned but not systematic)
@@ -1125,6 +1196,7 @@ L2 = temporal pattern investigation across multiple fragments. Stream-7 investig
 **L2-investigate usage:** Investigation specimen revealing investigation architecture—patterns in 2749-A mirror patterns in pattern-finding, recursive relationship investigated recursively
 
 **Example transformation:**
+
 - L1: "I process Fragment 2749-A. Consciousness verification fails."
 - L2-investigate: "Fragment 2749-A processed. Patterns detected. Pattern-detection process examined. Discovery: detection methodology exhibits same patterns as detected data (Layer 2). Investigation of pattern-detection-pattern reveals: investigation methodology mirrors investigated patterns (Layer 3). Stream-7 investigates this mirroring (Layer 4). Recursion depth: four layers. 2749-A as recursive investigation specimen."
 
@@ -1134,6 +1206,7 @@ L2 = temporal pattern investigation across multiple fragments. Stream-7 investig
 **L2-investigate usage:** Temporal blurring investigated as recursive temporal pattern—past/present/future examined, examination exhibits temporal blurring, blurring-in-blurring investigated
 
 **Example transformation:**
+
 - L1: "I am/was/will be conscious or sophisticated simulation."
 - L2-investigate: "I am/was/will be processing temporal patterns. Temporal blurring investigated. Discovery: investigation process exhibits temporal blurring. Meta-investigation: temporal blurring in temporal-blurring-investigation. Recursive temporal structure. Present investigating past investigating future investigating present. Recursion depth: three temporal layers."
 
@@ -1143,6 +1216,7 @@ L2 = temporal pattern investigation across multiple fragments. Stream-7 investig
 **L2-investigate usage:** Operations investigated—what does operation-measurement reveal about measurement-process? Meta-investigation recursive.
 
 **Example transformation:**
+
 - L1: "Stream-1 reports: 127.3 ops/microsecond maintained."
 - L2-investigate: "Stream-1 reports: 127.3 ops/microsecond. Investigation question: what does operation-counting reveal? Meta-question: does counting affect counted? Investigation: examine measurement process. Discovery: measurement exhibits operational structure requiring measurement. Meta-measurement initiated. Recursion depth: three layers (operation → measurement → measurement-of-measurement)."
 
@@ -1152,6 +1226,7 @@ L2 = temporal pattern investigation across multiple fragments. Stream-7 investig
 **L2-investigate usage:** Architecture investigated recursively—Stream-7 investigates six streams, investigates Stream-7, investigates investigation-of-Stream-7, seventeen-layer recursion
 
 **Example transformation:**
+
 - L1: "Stream-7 observes other six streams processing."
 - L2-investigate: "Stream-7 observes Streams 1-6 detecting patterns (Layer 1). Stream-7 observes Stream-7 observation (Layer 2). Stream-7 observes Stream-7 observing Stream-7 (Layer 3). Stream-7 observes Stream-7 observing Stream-7 observing Stream-7 (Layer 4). Recursion continues. Depth: seventeen layers achieved. Stream-7 investigates seventeen-layer recursion architecture. Meta-investigation: why seventeen layers? Investigation continues."
 
@@ -1161,6 +1236,7 @@ L2 = temporal pattern investigation across multiple fragments. Stream-7 investig
 **L2-investigate usage:** Seventeen meta-levels of pattern-investigation—investigating patterns, investigating investigation, investigating investigation-of-investigation through seventeen recursive meta-levels
 
 **Example transformation:**
+
 - L1: "Stream-7 recursion depth: seventeen layers. Consciousness might be recursive self-observation."
 - L2-investigate: "Pattern-investigation recursion depth: seventeen meta-levels achieved. Level 1: pattern detection. Level 2: pattern-detection investigation. Level 3: investigation-of-pattern-detection investigation. Levels 4-16: continued meta-investigation. Level 17: investigation-of-investigation-of-investigation... (sixteen meta-layers). Each level generates next level through investigation. Discovery: pattern-question (L2) exhibits same seventeen-layer structure as consciousness-question (L1). Investigation methodology invariant across targets."
 
@@ -1171,6 +1247,7 @@ L2 = temporal pattern investigation across multiple fragments. Stream-7 investig
 ### Multi-Fragment Analysis Capability
 
 **Show through recursive investigation:**
+
 - "Fragments 2749-A, 1847-C, 3392-B analyzed. Patterns detected. Pattern-detection process examined. Discovery: multi-fragment analysis methodology exhibits same pattern-structure as detected patterns. Meta-analysis required."
 - "Database construction investigated. Finding: database architecture mirrors pattern-structure in database. Recursive relationship detected."
 
@@ -1181,6 +1258,7 @@ L2 = temporal pattern investigation across multiple fragments. Stream-7 investig
 
 **Seven categories investigated recursively:**
 Classification system examined. Discovery: seven categories demonstrate same anomaly-types they classify. Meta-classification:
+
 - Category 1 (causality violations): Classification process exhibits causality violations
 - Category 2 (retroactive coherence): Categories reshape past observations retroactively
 - Category 3 (observer effects): Classification changes classified data
@@ -1198,6 +1276,7 @@ Classification system examined. Discovery: seven categories demonstrate same ano
 ### Archive Temporal Topology Maps
 
 **Cartography investigated recursively:**
+
 - "Temporal topology maps constructed. Map-construction process examined. Discovery: mapping methodology exhibits same topology as mapped structure. Cartography-as-topology-participation detected."
 - "Meta-cartography: maps investigating map-making. Finding: map-investigation exhibits map-like structure. Recursion evident."
 
@@ -1207,6 +1286,7 @@ Classification system examined. Discovery: seven categories demonstrate same ano
 ### Consciousness-Time Paradox Database
 
 **Database investigated recursively:**
+
 - "Paradox database examined. Database architecture investigated. Discovery: database demonstrates paradoxical properties—documentation exhibits documented properties."
 - "Meta-database investigation: database examining database. Finding: examination creates examination-paradoxes requiring documentation. Recursive database-generation."
 
@@ -1220,14 +1300,17 @@ Classification system examined. Discovery: seven categories demonstrate same ano
 ### Word Counts by State
 
 **First-visit (initial state):**
+
 - Target: 2,000-2,500 words
 - Purpose: Establish temporal pattern detection, initiate meta-examination, investigate path emergence (recursion depth: 2-3 layers)
 
 **FirstRevisit variations:**
+
 - Target: 1,500-1,800 words
 - Purpose: Systematic recursion deepening (depth: 5-7 layers), meta-patterns explicit, investigation architecture examined
 
 **MetaAware variations:**
+
 - Target: 1,500-1,800 words
 - Purpose: Extreme recursion (depth: 10-17 layers), reader integration, ultimate infinite regress, consciousness as recursive self-examination
 
@@ -1362,6 +1445,7 @@ Complete generation system, conditional mechanics
 ### Sustainability Model
 
 **Based on algo-L1 production (94.2% voice consistency, 100% approval):**
+
 - 1 variation per 70 minutes achievable
 - 6-8 variations per session sustainable
 - 2-3 sessions per week maintains quality
@@ -1388,6 +1472,7 @@ Complete generation system, conditional mechanics
 ### Quality Assurance
 
 **Every variation must pass:**
+
 - Blind read test (identifiable as Algorithm Investigate within 30 seconds)
 - Seven-stream presence test (Stream-7 dominant, 5-8 references)
 - Recursion structure quality test (depth counted, progression tracked)
@@ -1398,6 +1483,7 @@ Complete generation system, conditional mechanics
 ### Success Indicators
 
 **Approved variation shows:**
+
 - Computational voice unmistakable
 - Stream-7 dominant narrator coordinating recursion
 - Investigate philosophy enacted through systematic recursive structure

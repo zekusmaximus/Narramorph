@@ -8,17 +8,20 @@ Thank you for your interest in contributing to Narramorph Fiction! This document
 
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
+
    ```bash
    git clone https://github.com/yourusername/narramorph-fiction.git
    cd narramorph-fiction
    ```
 
 3. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 4. **Create a feature branch**:
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
@@ -51,7 +54,7 @@ Thank you for your interest in contributing to Narramorph Fiction! This document
  */
 export function determineTransformationState(
   nodeId: string,
-  visitRecord: VisitRecord | undefined
+  visitRecord: VisitRecord | undefined,
 ): TransformationState {
   // Implementation
 }
@@ -94,12 +97,14 @@ function ComponentName({ prop1, prop2 }: ComponentProps) {
 - Implement **dark mode** support where applicable
 
 ```tsx
-<div className={`
+<div
+  className={`
   character-${node.character}
   p-4 rounded-lg
   hover:shadow-lg transition-shadow
   dark:bg-gray-800
-`}>
+`}
+>
   Content
 </div>
 ```
@@ -203,6 +208,7 @@ footer (optional)
 ```
 
 **Types:**
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation changes
@@ -212,6 +218,7 @@ footer (optional)
 - `chore`: Build process, dependencies, tooling
 
 **Examples:**
+
 ```
 feat(store): add visit tracking to Zustand store
 
@@ -235,6 +242,7 @@ Add section on environment variables and clarify dependency versions.
 ### Before Submitting
 
 1. **Run validation checks**:
+
    ```bash
    npm run validate
    ```
@@ -248,28 +256,34 @@ Add section on environment variables and clarify dependency versions.
 
 ```markdown
 ## Description
+
 Brief description of changes
 
 ## Type of Change
+
 - [ ] Bug fix
 - [ ] New feature
 - [ ] Breaking change
 - [ ] Documentation update
 
 ## Testing
+
 - [ ] Tests pass locally
 - [ ] New tests added for new functionality
 - [ ] Manual testing completed
 
 ## Accessibility
+
 - [ ] Keyboard navigation works
 - [ ] Screen reader compatible
 - [ ] Color contrast meets standards
 
 ## Screenshots (if applicable)
+
 Include screenshots for UI changes
 
 ## Checklist
+
 - [ ] Code follows style guidelines
 - [ ] Self-review completed
 - [ ] Documentation updated
@@ -296,6 +310,7 @@ Clear description of the bug
 
 **To Reproduce**
 Steps to reproduce the behavior:
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
@@ -308,6 +323,7 @@ What you expected to happen
 If applicable, add screenshots
 
 **Environment:**
+
 - OS: [e.g. iOS]
 - Browser [e.g. chrome, safari]
 - Version [e.g. 22]
@@ -423,6 +439,7 @@ src/components/NewComponent/
 ## Recognition
 
 Contributors will be:
+
 - **Listed in CONTRIBUTORS.md**
 - **Credited in release notes** for significant contributions
 - **Mentioned in documentation** for major features

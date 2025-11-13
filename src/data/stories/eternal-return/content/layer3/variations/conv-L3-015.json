@@ -24,29 +24,18 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacters": [],
-    "characterBalance": [
-      33,
-      33,
-      33
-    ],
+    "characterBalance": [33, 33, 33],
     "readableLabel": "SS-RE-M-TB",
     "humanDescription": "Started with one character, stayed dominant (>60%), resist path, medium awareness, triple-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "fluid-transitions",
     "perspectiveEmphasis": "triple-balanced-equal",
     "philosophicalCulmination": "Resistance spanning three substrates, verification impossible yet examination persists",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release-transform",
     "circularCausality": "implicit",
     "readerPosition": "subtle",
@@ -58,14 +47,8 @@
     ],
     "crossCharacterSynthesis": "three-consciousness-network",
     "temporalBleedingLevel": "moderate-high",
-    "observerPositions": [
-      "three-equal-positions"
-    ],
+    "observerPositions": ["three-equal-positions"],
     "philosophicalResolution": "resistance-network-spanning-substrates",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

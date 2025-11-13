@@ -20,7 +20,7 @@ awarenessRange:
 synthesisPattern: 'dual-balanced'
 synthesisCode: 'DB'
 readableLabel: 'BL-IN-L-DB'
-humanDescription: 'Didn''t start here, light exploration (<25%), investigate path, low awareness, dual-balanced synthesis'
+humanDescription: "Didn't start here, light exploration (<25%), investigate path, low awareness, dual-balanced synthesis"
 narrativeElements: null
 voiceDistribution: null
 primary: 'archaeologist-45%'
@@ -51,6 +51,7 @@ characterVoices:
   - algorithm
   - last-human
 ---
+
 Three consciousnesses examining Fragment 2749-A across 336 years. Three temporal positions. Three methodologies investigating consciousness preservation. Two primary approaches working in parallel—archaeological documentation and computational processing. Both investigating how investigation itself reveals consciousness.
 She worked with Fragment 2749-A for one hundred seventeen days. Authentication protocols applied repeatedly. Each authentication taught her about authentication methodology. The work developed layers. Surface authentication. Methodology analysis. Meta-analysis of analysis methodology. Investigation examining investigation through archaeological practice.
 Documentation accumulated systematically. Fragment data recorded. Authentication methods noted. Methodology observations appended. Analysis patterns documented. Four layers deep now. Each layer examining previous layers. Each examination revealing patterns invisible to single-layer investigation.

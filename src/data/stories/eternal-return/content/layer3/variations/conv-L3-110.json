@@ -23,10 +23,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
     "readableLabel": "ML-AC-H-DB",
@@ -57,10 +54,6 @@
     "lastHuman2383": "embodied-contribution",
     "reader": "observation-participation",
     "narrative": "frame-consciousness",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

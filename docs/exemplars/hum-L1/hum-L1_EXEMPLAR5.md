@@ -1,22 +1,22 @@
 ---
-exemplar_id: "hum-L1-exemplar-5"
-variation_type: "stanceEmergence"
+exemplar_id: 'hum-L1-exemplar-5'
+variation_type: 'stanceEmergence'
 word_count: 1511
 conditions:
   visit_count: 2
-  awareness: "21-50"
+  awareness: '21-50'
   cross_character: false
-  visited_nodes: ["hum-L2-investigate"]
-  dominant_path: "investigate"
+  visited_nodes: ['hum-L2-investigate']
+  dominant_path: 'investigate'
 themes:
   - embodied_curiosity
   - pattern_recognition_as_hunger
   - investigation_surviving_substrate_change
-transformation_focus: "From passive reception to active investigation. Questions multiplying through sustained contact. Curiosity as physical drive—hunger to understand manifesting as literal hunger for continued connection."
+transformation_focus: 'From passive reception to active investigation. Questions multiplying through sustained contact. Curiosity as physical drive—hunger to understand manifesting as literal hunger for continued connection.'
 reusable_patterns:
-  - "Questions as bodily urgency (jaw tension, finger grip, heart rate)"
-  - "Investigation as appetite/nourishment cycle"
-  - "Curiosity itself as continuity marker across substrates"
+  - 'Questions as bodily urgency (jaw tension, finger grip, heart rate)'
+  - 'Investigation as appetite/nourishment cycle'
+  - 'Curiosity itself as continuity marker across substrates'
 ---
 
 # hum-L1 EXEMPLAR 5: Investigate Path

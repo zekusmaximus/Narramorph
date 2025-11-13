@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SB-RE-M",
     "humanDescription": "Started last human, explored others extensively, resist path, medium awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "resistance-as-ethics",
       "standards-despite-futility"
     ],
-    "crossCharacterConnections": [
-      "moderate-arch-parallel",
-      "moderate-algo-parallel"
-    ],
+    "crossCharacterConnections": ["moderate-arch-parallel", "moderate-algo-parallel"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-parallel-2047",

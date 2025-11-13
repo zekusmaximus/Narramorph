@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "SB-IN-L",
     "humanDescription": "Started algorithm, bounced to explore others heavily, investigate path, low awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "examination-methodology-evolution",
       "network-transformation"
     ],
-    "crossCharacterConnections": [
-      "moderate-arch-glimpsed",
-      "moderate-hum-glimpsed"
-    ],
+    "crossCharacterConnections": ["moderate-arch-glimpsed", "moderate-hum-glimpsed"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-parallel-2047",

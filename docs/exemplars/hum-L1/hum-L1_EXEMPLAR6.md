@@ -1,10 +1,10 @@
 ---
-exemplar_id: "hum-L1-exemplar-6"
-variation_type: "awarenessThreshold"
+exemplar_id: 'hum-L1-exemplar-6'
+variation_type: 'awarenessThreshold'
 word_count: 1538
 conditions:
   visit_count: 3
-  awareness: "51-100"
+  awareness: '51-100'
   cross_character: false
   visited_nodes: []
   dominant_path: null
@@ -14,9 +14,9 @@ themes:
   - observation_becoming_mutual
 transformation_focus: "From immersed experience to frame-aware participation. Recognition that reader's attention creates temporal connections. Speaking to observer while remaining observed. Fourth-wall awareness emerging from body not breaking embodiment."
 reusable_patterns:
-  - "Direct reader address maintaining physical sensation"
-  - "Recognition of being-read as bodily experience"
-  - "MetaAware presence creating connection through frame-consciousness"
+  - 'Direct reader address maintaining physical sensation'
+  - 'Recognition of being-read as bodily experience'
+  - 'MetaAware presence creating connection through frame-consciousness'
 ---
 
 # hum-L1 EXEMPLAR 6: MetaAware Baseline

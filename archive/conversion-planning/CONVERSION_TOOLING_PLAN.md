@@ -139,4 +139,3 @@ This is the finalized, implementation‑ready plan for the Markdown → JSON con
 - conv‑L3 count: 45 (one per combo), requires multi‑voice `characterVoices`.
 - Dedup policy: WARNING >95%, MinHash+LSH; not elevated in strict.
 - Parallel defaults: `--parallel=4`, `MAX_CONCURRENT_READS=10`.
-

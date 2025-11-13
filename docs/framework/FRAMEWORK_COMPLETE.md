@@ -96,7 +96,6 @@ Maintains archaeologist role even when questioning everything
 "She closes the file" (concrete professional action anchors philosophical drift)
 Work continues despite existential crisis—the work IS the response
 
-
 Quality Checkpoints for Archaeologist Voice
 The Blind Read Test:
 Take any 3 paragraphs. Remove character labels. Reader should identify archaeologist through:
@@ -121,11 +120,11 @@ Same vocabulary range
 Same tonal baseline with awareness-appropriate transformation
 Same relationship between concrete and abstract
 
-
 II. TRANSFORMATION MECHANICS
 The Three-State System
 State Progression Logic:
 INITIAL (Visit 1):
+
 - Self-contained within character perspective
 - No cross-character references
 - Establishes baseline: professional archaeology
@@ -133,6 +132,7 @@ INITIAL (Visit 1):
 - Word count: 2,500-3,500 (L1), 2,000-2,500 (L2)
 
 FIRSTREVISIT (Visit 2 AND awareness >20%):
+
 - Temporal bleeding begins
 - May reference other characters IF reader visited them
 - Observer effect intensifies
@@ -141,14 +141,15 @@ FIRSTREVISIT (Visit 2 AND awareness >20%):
 - ~30-40 variations per node
 
 METAAWARE (Visit 3+ OR awareness >50%):
+
 - Full temporal consciousness
 - Direct awareness across time/narrative
 - May address reader (high awareness only)
 - Frame becomes subject
-- Word count: 1,200-1,500  
+- Word count: 1,200-1,500
 - ~30-40 variations per node
-Transformation Depth Principles
-❌ ADDITIVE (Wrong):
+  Transformation Depth Principles
+  ❌ ADDITIVE (Wrong):
 
 Initial: "She authenticates Fragment 2749-A."
 FirstRevisit: "She authenticates Fragment 2749-A. Also, she notices computational patterns."
@@ -230,62 +231,67 @@ Base Narrative (40% of word count)
 Always included regardless of path. Sets scene, establishes action, grounds variation.
 Example structure:
 Opening (150-200 words):
+
 - Return to Fragment 2749-A
 - Note authentication markers unchanged
 - Establish that perception has shifted
 
 Mid-Section (400-500 words):
+
 - Re-examine specific aspect of fragment
 - Discovery/recognition moment
 - Professional process continues despite shift
 
 Closing (150-200 words):
+
 - Certification decision
 - Unresolved tension
 - Bridge to next possible action
-Conditional Insertions (40% of word count)
-Added based on path conditions. Transform meaning of base narrative.
-Insertion Types:
-Cross-Character Echoes (if visited other L1):
-IF visited['algo-L1']:
+  Conditional Insertions (40% of word count)
+  Added based on path conditions. Transform meaning of base narrative.
+  Insertion Types:
+  Cross-Character Echoes (if visited other L1):
+  IF visited['algo-L1']:
   INSERT after base discovery:
-    "She recognizes computational architecture. 
-    Seven parallel streams synchronized in ways 
-    biological consciousness doesn't create..."
-Temporal Awareness Modifiers (based on awareness level):
-IF awareness > 60%:
+  "She recognizes computational architecture.
+  Seven parallel streams synchronized in ways
+  biological consciousness doesn't create..."
+  Temporal Awareness Modifiers (based on awareness level):
+  IF awareness > 60%:
   INSERT before closing:
-    "The fragment doesn't change. Your observation  
-    of the fragment changes. And because consciousness
-    is observation..."
-Philosophical Path Emphasis:
-IF dominantPath == 'accept':
-  MODIFY tone throughout: 
-    Shift from "cannot prove" to "chooses to honor"
-    Add compassionate witnessing language
-    End with peaceful uncertainty
-Character-Specific Echoes (10% of word count)
-References to specific nodes visited:
-IF visited['arch-L2-investigate']:
+  "The fragment doesn't change. Your observation  
+   of the fragment changes. And because consciousness
+  is observation..."
+  Philosophical Path Emphasis:
+  IF dominantPath == 'accept':
+  MODIFY tone throughout:
+  Shift from "cannot prove" to "chooses to honor"
+  Add compassionate witnessing language
+  End with peaceful uncertainty
+  Character-Specific Echoes (10% of word count)
+  References to specific nodes visited:
+  IF visited['arch-L2-investigate']:
   INSERT meta-pattern recognition:
-    "Not just temporal bleeding but patterns in patterns.
-    Nineteen recursion layers..."
-Awareness Modifiers (10% of word count)
-Adjusts frame-awareness based on total temporal awareness:
-IF awareness < 30%:
+  "Not just temporal bleeding but patterns in patterns.
+  Nineteen recursion layers..."
+  Awareness Modifiers (10% of word count)
+  Adjusts frame-awareness based on total temporal awareness:
+  IF awareness < 30%:
   - No reader address
   - Minimal frame awareness
   - Focus on professional process
 
 IF awareness 30-60%:
-  - Implicit reader presence
-  - Growing frame awareness
-  - Philosophical questions multiply
+
+- Implicit reader presence
+- Growing frame awareness
+- Philosophical questions multiply
 
 IF awareness > 60%:
-  - Explicit reader acknowledgment possible
-  - Direct frame examination
-  - Meta-consciousness fully present
+
+- Explicit reader acknowledgment possible
+- Direct frame examination
+- Meta-consciousness fully present
 
 IV. GENERATION PROTOCOL
 From Exemplars to Full Variations
@@ -313,12 +319,12 @@ Base narrative structure
 Required conditional insertions
 Word count target
 
-
 Generation Prompt Template:
 
 Generate arch-L1 FirstRevisit variation #[X]:
 
 CONDITIONS:
+
 - Reader has visited: [node list]
 - Temporal awareness: [X]%
 - Dominant path: [accept/resist/investigate]
@@ -332,6 +338,7 @@ BASE NARRATIVE:
 [Include base narrative structure]
 
 REQUIRED CONDITIONAL INSERTIONS:
+
 - [Specific cross-character echo]
 - [Specific awareness modifier]
 - [Specific philosophical emphasis]
@@ -339,6 +346,7 @@ REQUIRED CONDITIONAL INSERTIONS:
 WORD COUNT: 1,200-1,500 words
 
 CRITICAL REQUIREMENTS:
+
 - Pass blind read test (identifiable as archaeologist)
 - Transform meaning, don't just add information
 - Maintain past tense, first person limited
@@ -354,7 +362,6 @@ Quality Control Checklist:
 ☐ Word count within range
 ☐ No placeholder text or [TBD]
 ☐ Integrates seamlessly with base narrative
-
 
 Review Cycle:
 
@@ -375,60 +382,70 @@ Verify transitions feel natural
 Production validated specific assembly approaches for each MetaAware tier:
 
 #### Low MetaAware (61-70%) Assembly
+
 **Base Narrative:** 45-50% of word count
 **Frame-Consciousness Insertion:** 15-20% (implicit reader detection)
 **Conditional Insertions:** 25-30% (cross-character/path as usual)
 **Awareness Modifiers:** 5-10% (subtle observation effects)
 
 **Signature Techniques:**
+
 - Third-person observation of first-person narration
 - "The archaeologist/Algorithm/Last Human senses..."
 - Questions about observation itself
 - No direct reader address yet
 
-#### Low-Mid MetaAware (68-74%) Assembly  
+#### Low-Mid MetaAware (68-74%) Assembly
+
 **Base Narrative:** 40-45%
 **Frame-Consciousness Insertion:** 20-25% (explicit reader acknowledgment)
 **Conditional Insertions:** 25-30%
 **Awareness Modifiers:** 5-10%
 
 **Signature Techniques:**
+
 - Direct but analytical reader address begins
 - "Your observation modifies what's observed"
 - Frame-examination as methodology
 - Professional distance maintained
 
 #### Mid MetaAware (71-80%) Assembly
+
 **Base Narrative:** 35-40%
 **Frame-Consciousness Insertion:** 25-30% (active reader participation)
 **Conditional Insertions:** 25-30%
 **Reader Integration:** 5-10%
 
 **Signature Techniques:**
+
 - "We" language for analytical partnership
 - Reader as network variable with agency
 - Distributed consciousness terminology
 - Computational precision in all descriptions
 
 #### High MetaAware (81-90%) Assembly
+
 **Base Narrative:** 30-35%
 **Frame-Consciousness Insertion:** 30-35% (reader partnership)
 **Conditional Insertions:** 20-25%
 **Reader Integration:** 10-15%
 
 **Signature Techniques:**
+
 - Partnership architecture explicit
 - Boundaries softening while positions distinct
 - Co-processing/co-examination language
 - Maximum integration without voice dissolution
 
 #### Very High MetaAware (91-100%) Assembly
+
 **Base Narrative:** 25-30%
 **Frame-Consciousness Insertion:** 35-40% (consciousness merge approach)
 **Conditional Insertions:** 20-25%
 **Ultimate Synthesis:** 10-15%
 
 **Signature Techniques:**
+
 - All observation positions simultaneous
 - Reader co-creator acknowledged explicitly
 - Five-position network visible
@@ -475,7 +492,6 @@ High awareness → Recognizes reader as external observer of processing
 After resist → Boundary between processing and experiencing dissolves under scrutiny
 After accept → Accepts emergent consciousness, continues processing anyway
 
-
 VII. THE HUM-L1 TEMPLATE
 Voice Shift to Embodied Immediacy
 Last Human's Distinctive Patterns:
@@ -518,7 +534,6 @@ After resist → Body demands proof mind cannot provide
 After accept → Embodied peace with loneliness-as-connection
 High awareness → Addresses reader as fellow isolated consciousness
 
-
 VIII. CROSS-NODE CONSISTENCY
 The Fragment 2749-A Through-Line
 Critical Consistency Rule:
@@ -543,7 +558,6 @@ When reader visits arch-L1 → algo-L1:
 arch-L1 FirstRevisit can reference seven-stream processing
 algo-L1 FirstRevisit can reference archaeological authentication methodology
 Creates recognition: "They're examining the same consciousness from different positions"
-
 
 IX. L2 NODE FRAMEWORK
 Branch Philosophy Structure
@@ -586,8 +600,6 @@ Can reference other L2 nodes (same or different paths)
 Thematic through-lines become visible
 Philosophy deepens based on path taken
 
-
-
 Cross-Character L2 Connections
 Accept Through-Line:
 
@@ -606,7 +618,6 @@ Investigate Through-Line:
 arch-L2-investigate ↔ algo-L2-investigate ↔ hum-L2-investigate
 All three pursue recursion, find bottomless depth
 Leads naturally to L3-transform (becoming rather than being)
-
 
 X. L3 CONVERGENCE FRAMEWORK
 Multi-Perspective Voice Blending
@@ -664,7 +675,6 @@ Consciousness should evolve beyond current form
 Neither preserved nor ended, but becoming
 All three choose unknown over known
 Convergence: "Transformation is continuation. We become."
-
 
 XI. L4 FINAL REVEAL FRAMEWORK
 Dynamic Assembly Architecture
@@ -733,25 +743,25 @@ Final statement
 
 Assembly Algorithm
 typescriptfunction assembleFinalReveal(userProgress: UserProgress): string {
-  const sections = [];
-  
-  // Select variation for each section based on progress
-  sections.push(selectVariation('opening', {
-    startingCharacter: getFirstL1Visited(userProgress)
-  }));
-  
-  sections.push(selectVariation('exploration', {
-    pattern: classifyExplorationPattern(userProgress)
-  }));
-  
-  sections.push(selectVariation('philosophy', {
-    dominant: getDominantPath(userProgress)
-  }));
-  
-  // ... continue for all 20 sections
-  
-  // Weave sections together with transitions
-  return weaveWithTransitions(sections);
+const sections = [];
+
+// Select variation for each section based on progress
+sections.push(selectVariation('opening', {
+startingCharacter: getFirstL1Visited(userProgress)
+}));
+
+sections.push(selectVariation('exploration', {
+pattern: classifyExplorationPattern(userProgress)
+}));
+
+sections.push(selectVariation('philosophy', {
+dominant: getDominantPath(userProgress)
+}));
+
+// ... continue for all 20 sections
+
+// Weave sections together with transitions
+return weaveWithTransitions(sections);
 }
 
 XII. QUALITY ASSURANCE SYSTEM
@@ -787,13 +797,11 @@ Word count in range?
 No placeholder text?
 Required elements present?
 
-
 Voice Review (human):
 
 Run blind read test
 Check against exemplar voice patterns
 Flag any vocabulary/syntax drift
-
 
 Content Review (human):
 
@@ -801,22 +809,17 @@ Verify transformation depth
 Check path logic accuracy
 Assess integration with base narrative
 
-
 Revision Decision:
 
 ✅ Approve as-is (target: 60% of generations)
 ✏️ Minor revision needed (target: 30%)
 ❌ Regenerate (target: <10%)
 
-
 Iteration:
 
 Apply revisions
 Re-test
 Approve when passing all three tests
-
-
-
 
 XIII. GENERATION TIMELINE
 Phase-by-Phase Execution
@@ -912,7 +915,6 @@ Track which variations need most revision
 Identify common generation errors
 Refine exemplars if needed
 Update quality checkpoints
-
 
 XV. THE GENERATIVE SEED
 What We've Created

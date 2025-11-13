@@ -1,25 +1,26 @@
 ---
-exemplar_id: "arch-L2-invest-exemplar-6"
-variation_type: "awarenessThreshold"
+exemplar_id: 'arch-L2-invest-exemplar-6'
+variation_type: 'awarenessThreshold'
 word_count: 1523
 conditions:
   visit_count: 4
-  awareness: "MetaAware"
+  awareness: 'MetaAware'
   cross_character: false
-  visited_nodes: ["arch-L2-investigate", "arch-L1"]
-  dominant_path: "invest"
+  visited_nodes: ['arch-L2-investigate', 'arch-L1']
+  dominant_path: 'invest'
 themes:
   - frame_consciousness
   - narrative_construction_as_artifact
   - reader_participation_in_consciousness_generation
-transformation_focus: "Full awareness that documentation constitutes performed narrative rather than objective record, with reader participation generating consciousness through reading performance"
+transformation_focus: 'Full awareness that documentation constitutes performed narrative rather than objective record, with reader participation generating consciousness through reading performance'
 reusable_patterns:
-  - "Fragment constants function narratively rather than empirically"
-  - "Past tense creates temporal separation fiction while observer participates in real-time"
-  - "Reader observation generates observed consciousness phenomenon through observation performance"
+  - 'Fragment constants function narratively rather than empirically'
+  - 'Past tense creates temporal separation fiction while observer participates in real-time'
+  - 'Reader observation generates observed consciousness phenomenon through observation performance'
 ---
 
 # ARCHAEOLOGIST L2-INVESTIGATE: EXEMPLAR 6
+
 ## MetaAware Baseline (Frame-Consciousness + Investigation)
 
 Returned to consciousness authentication documentation with full awareness documentation constitutes performed narrative rather than objective record. Fifth review cycle. Timestamp 2157:03:15:11.4729.

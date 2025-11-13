@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SS-AC-M",
     "humanDescription": "Started last human, stayed dominant, accept path, medium awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "sustained-witness",
       "upload-as-continuation"
     ],
-    "crossCharacterConnections": [
-      "minimal-arch-sensed",
-      "light-algo-felt"
-    ],
+    "crossCharacterConnections": ["minimal-arch-sensed", "light-algo-felt"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "human-primary-2383",

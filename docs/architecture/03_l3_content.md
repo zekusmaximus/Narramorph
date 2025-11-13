@@ -29,6 +29,7 @@ Reader State (UserProgress + JourneyTracking)
 ```
 
 **Calculation Pipeline:**
+
 ```
 storyStore.visitNode(nodeId)
   │
@@ -67,12 +68,12 @@ function calculateSynthesisPattern(percentages: {
   const maxDiff = Math.max(
     Math.abs(archaeologist - avg),
     Math.abs(algorithm - avg),
-    Math.abs(lastHuman - avg)
+    Math.abs(lastHuman - avg),
   );
-  if (maxDiff < 15) return 'triple-balanced';  // Note: Code says "true-triad"
+  if (maxDiff < 15) return 'triple-balanced'; // Note: Code says "true-triad"
 
   // Dual-balanced: Two characters dominant
-  return 'dual-balanced';  // Note: Code says "balanced-dual"
+  return 'dual-balanced'; // Note: Code says "balanced-dual"
 }
 ```
 
@@ -85,6 +86,7 @@ function calculateSynthesisPattern(percentages: {
 **File:** `src/utils/l3Assembly.ts:91-147`
 
 **Algorithm:**
+
 ```
 buildL3Assembly(storyId, context)
   │
@@ -110,12 +112,14 @@ buildL3Assembly(storyId, context)
 ```
 
 **Cache Key Generation (storyStore.ts:635):**
+
 ```typescript
-`${journeyPattern}_${pathPhilosophy}_${awarenessLevel}_${synthesisPattern}`
+`${journeyPattern}_${pathPhilosophy}_${awarenessLevel}_${synthesisPattern}`;
 // Example: "started-stayed_accept_high_single-dominant"
 ```
 
 **Cache Invalidation Trigger (storyStore.ts:932):**
+
 - On **any** L2 visit (layer 2 node)
 - Clears entire `l3AssemblyCache` Map
 - Rationale: L2 visits change philosophy, affecting assembly
@@ -140,6 +144,7 @@ src/data/stories/eternal-return/content/layer3/
 ```
 
 **Variation Count Rationale:**
+
 - **Arch/Algo/Hum:** 5 journey patterns × 3 philosophies × 3 awareness = **45 variations**
 - **Conv:** 5 journey × 3 philosophy × 3 awareness × 3 synthesis = **135 variations**
 
@@ -150,6 +155,7 @@ src/data/stories/eternal-return/content/layer3/
 ### B. Variation File Format
 
 **Structure (Array of Variations):**
+
 ```json
 [
   {
@@ -186,6 +192,7 @@ src/data/stories/eternal-return/content/layer3/
 ```
 
 **Convergence Section Adds:**
+
 ```json
 {
   "metadata": {
@@ -206,22 +213,21 @@ src/data/stories/eternal-return/content/layer3/
 **File:** `src/utils/variationLoader.ts:20-54, 178-214`
 
 **Vite Glob Imports (Eager):**
+
 ```typescript
-const l1VariationFiles = import.meta.glob(
-  '/src/data/stories/*/content/layer1/*-variations.json',
-  { eager: true }
-);
-const l2VariationFiles = import.meta.glob(
-  '/src/data/stories/*/content/layer2/*-variations.json',
-  { eager: true }
-);
-const l3VariationFiles = import.meta.glob(
-  '/src/data/stories/*/content/layer3/*-variations.json',
-  { eager: true }
-);
+const l1VariationFiles = import.meta.glob('/src/data/stories/*/content/layer1/*-variations.json', {
+  eager: true,
+});
+const l2VariationFiles = import.meta.glob('/src/data/stories/*/content/layer2/*-variations.json', {
+  eager: true,
+});
+const l3VariationFiles = import.meta.glob('/src/data/stories/*/content/layer3/*-variations.json', {
+  eager: true,
+});
 ```
 
 **Special L3 Loader:**
+
 ```typescript
 function loadL3Variations(storyId: string): {
   arch: VariationFile | null;
@@ -236,6 +242,7 @@ function loadL3Variations(storyId: string): {
 ```
 
 **Normalization (lines 58-139):**
+
 - Ensures all variations have complete metadata
 - Sets defaults for missing fields:
   - `awarenessRange: [0, 100]` if missing
@@ -244,6 +251,7 @@ function loadL3Variations(storyId: string): {
 - Derives `awarenessLevel` from `awarenessRange` midpoint if missing
 
 **Caching:**
+
 - In-memory Map with key `${storyId}:${nodeId}`
 - Loaded once per app session (eager import)
 - No expiration or size limits
@@ -257,6 +265,7 @@ function loadL3Variations(storyId: string): {
 **Content Assembly Functions:**
 
 1. **Single String (for export/PDF):**
+
 ```typescript
 getL3AssemblyContent(assembly: L3Assembly): string {
   return [
@@ -269,6 +278,7 @@ getL3AssemblyContent(assembly: L3Assembly): string {
 ```
 
 2. **Sectioned Array (for UI rendering):**
+
 ```typescript
 getL3AssemblySections(assembly: L3Assembly): Array<{
   title: string;
@@ -286,6 +296,7 @@ getL3AssemblySections(assembly: L3Assembly): Array<{
 ```
 
 **Expected Word Counts (lines 227-230):**
+
 - Arch/Algo/Hum: 800-1000 words each
 - Convergence: 1600-2000 words
 - Total: ~4200 words (±500 tolerance)
@@ -299,6 +310,7 @@ getL3AssemblySections(assembly: L3Assembly): Array<{
 **File:** `src/utils/contentLoader.ts:79-268`
 
 **Data Flow Diagram:**
+
 ```
 loadStoryContent(storyId)
   │
@@ -339,6 +351,7 @@ loadStoryContent(storyId)
 ### B. Content Resolution Strategy
 
 **L1/L2 Loading (lines 126-172):**
+
 ```typescript
 // Determine variation file path from node definition
 if (def.layer === 1) {
@@ -348,9 +361,9 @@ if (def.layer === 1) {
   const paths = [
     `.../${charPrefix}-L2-accept-variations.json`,
     `.../${charPrefix}-L2-resist-variations.json`,
-    `.../${charPrefix}-L2-invest-variations.json`
+    `.../${charPrefix}-L2-invest-variations.json`,
   ];
-  actualContentPath = paths.find(p => l2VarMap[p]) || null;
+  actualContentPath = paths.find((p) => l2VarMap[p]) || null;
 }
 
 // Load variation file
@@ -358,13 +371,13 @@ const varData = l1VarMap[actualContentPath] || l2VarMap[actualContentPath];
 
 // Pick one variation per transformation state
 const pick = (state: 'initial' | 'firstRevisit' | 'metaAware') =>
-  varData.variations.find(v => v.transformationState === state)?.content || '';
+  varData.variations.find((v) => v.transformationState === state)?.content || '';
 
 // Build node content
 content = {
-  initial: pick('initial') || pick('firstRevisit'),  // Fallback chain
+  initial: pick('initial') || pick('firstRevisit'), // Fallback chain
   firstRevisit: pick('firstRevisit'),
-  metaAware: pick('metaAware')
+  metaAware: pick('metaAware'),
 };
 ```
 
@@ -377,17 +390,20 @@ content = {
 **Status:** ❌ **Not Implemented**
 
 **Observations:**
+
 - No frontmatter parsing in `contentLoader.ts`
 - Variation metadata stored in separate `metadata` object, not frontmatter
 - Content field contains pure narrative text (no YAML/markdown frontmatter)
 - All metadata is structured JSON, not embedded in content
 
 **Example Variation Content (no frontmatter):**
+
 ```
 "content": "Stream-1 initiates processing Fragment 2749-A at timestamp..."
 ```
 
 **Metadata is separate:**
+
 ```json
 "metadata": {
   "wordCount": 927,
@@ -402,20 +418,21 @@ content = {
 
 **Vite Glob Patterns Used:**
 
-| Pattern | Purpose | Eager? |
-|---------|---------|--------|
-| `/src/data/stories/*/story.json` | Story metadata | ✅ Yes |
-| `/src/data/stories/*/*.json` | Character node files | ✅ Yes |
-| `/src/data/stories/*/content/layer1/*-variations.json` | L1 variations | ✅ Yes |
-| `/src/data/stories/*/content/layer2/*-variations.json` | L2 variations | ✅ Yes |
-| `/src/data/stories/*/content/layer3/*-variations.json` | L3 variations | ✅ Yes |
-| `/src/data/stories/*/content/layer4/*-variations.json` | L4 variations | ✅ Yes |
-| `/src/data/stories/*/layout.json` | Layout data | ✅ Yes |
-| `/src/data/stories/*/unlock-config.json` | Unlock configs | ✅ Yes |
+| Pattern                                                | Purpose              | Eager? |
+| ------------------------------------------------------ | -------------------- | ------ |
+| `/src/data/stories/*/story.json`                       | Story metadata       | ✅ Yes |
+| `/src/data/stories/*/*.json`                           | Character node files | ✅ Yes |
+| `/src/data/stories/*/content/layer1/*-variations.json` | L1 variations        | ✅ Yes |
+| `/src/data/stories/*/content/layer2/*-variations.json` | L2 variations        | ✅ Yes |
+| `/src/data/stories/*/content/layer3/*-variations.json` | L3 variations        | ✅ Yes |
+| `/src/data/stories/*/content/layer4/*-variations.json` | L4 variations        | ✅ Yes |
+| `/src/data/stories/*/layout.json`                      | Layout data          | ✅ Yes |
+| `/src/data/stories/*/unlock-config.json`               | Unlock configs       | ✅ Yes |
 
 **All eager imports** — Files loaded at build time, bundled into app
 
 **Pattern Matching:**
+
 - Glob patterns are **build-time** (Vite feature)
 - Runtime filtering by `storyId` via `path.includes(\`/${storyId}/\`)`
 - No lazy loading or on-demand fetching
@@ -426,6 +443,7 @@ content = {
 ### E. Variation Listing Per Node
 
 **General Nodes (L1/L2):**
+
 ```typescript
 function loadVariationFile(storyId: string, nodeId: string): VariationFile | null {
   // Search all variation files for matching nodeId
@@ -435,6 +453,7 @@ function loadVariationFile(storyId: string, nodeId: string): VariationFile | nul
 ```
 
 **L3 Nodes:**
+
 ```typescript
 function loadL3Variations(storyId: string): {
   arch: VariationFile | null;
@@ -448,6 +467,7 @@ function loadL3Variations(storyId: string): {
 ```
 
 **Listing Function:**
+
 ```typescript
 function getVariations(variationFile: VariationFile | null): Variation[] {
   return variationFile?.variations || [];
@@ -461,6 +481,7 @@ function getVariations(variationFile: VariationFile | null): Variation[] {
 ### F. Caching Strategy
 
 **Variation Loader Cache (variationLoader.ts:14-16):**
+
 ```typescript
 const variationCache = new Map<string, VariationFile>();
 // Key: `${storyId}:${nodeId}`
@@ -470,8 +491,9 @@ const variationCache = new Map<string, VariationFile>();
 ```
 
 **L3 Assembly Cache (storyStore.ts:161, 659-661):**
+
 ```typescript
-l3AssemblyCache: Map<string, L3Assembly>
+l3AssemblyCache: Map<string, L3Assembly>;
 // Key: `${journeyPattern}_${pathPhilosophy}_${awarenessLevel}_${synthesisPattern}`
 // Value: Built L3Assembly (4 sections)
 // Lifetime: Until L2 visit (philosophy change)
@@ -479,18 +501,19 @@ l3AssemblyCache: Map<string, L3Assembly>
 ```
 
 **Content Loader Cache:**
+
 - ❌ **None** — `loadStoryContent()` runs on every `loadStory()` call
 - Relies on Vite eager imports (already in memory)
 - No memoization of built `StoryNode[]` arrays
 
 **Cache Behavior Table:**
 
-| Cache | Scope | Invalidation | Size Limit |
-|-------|-------|--------------|------------|
-| Variation Files | Per node | Never (session-scoped) | None |
-| L3 Assembly | Per param set | On L2 visit | None |
-| Story Nodes | ❌ None | N/A | N/A |
-| Vite Glob Imports | Global | Never (bundled) | Build-time only |
+| Cache             | Scope         | Invalidation           | Size Limit      |
+| ----------------- | ------------- | ---------------------- | --------------- |
+| Variation Files   | Per node      | Never (session-scoped) | None            |
+| L3 Assembly       | Per param set | On L2 visit            | None            |
+| Story Nodes       | ❌ None       | N/A                    | N/A             |
+| Vite Glob Imports | Global        | Never (bundled)        | Build-time only |
 
 ---
 
@@ -538,11 +561,13 @@ l3AssemblyCache: Map<string, L3Assembly>
 **Decoupling Quality:** ⚠️ **Moderate**
 
 **Strengths:**
+
 - ✅ Engine functions are pure (no side effects)
 - ✅ Data loaders are separate from business logic
 - ✅ React hook isolates UI from engine
 
 **Weaknesses:**
+
 - ⚠️ Store (Zustand) tightly couples state + logic (1428-line file)
 - ⚠️ React hook directly calls loaders (bypasses store abstraction)
 - ⚠️ No clear service layer between store and engine
@@ -552,15 +577,18 @@ l3AssemblyCache: Map<string, L3Assembly>
 ### B. Coupling Issues
 
 **1. React Hook → Loader Direct Call**
+
 ```typescript
 // useVariationSelection.ts:74
 const variationFile = loadVariationFile(storyId, nodeId);
 ```
+
 - Hook bypasses store
 - Data loading logic in UI layer
 - Hard to test hook without file system
 
 **2. Store → Multiple Engine Functions**
+
 ```typescript
 // storyStore.ts imports:
 import { calculateJourneyPattern, calculatePathPhilosophy } from '@/utils/conditionEvaluator';
@@ -568,31 +596,38 @@ import { buildL3Assembly, calculateSynthesisPattern } from '@/utils/l3Assembly';
 import { loadUnlockConfig } from '@/utils/unlockLoader';
 import { evaluateNodeUnlock, getUnlockProgress } from '@/utils/unlockEvaluator';
 ```
+
 - Store orchestrates multiple subsystems
 - Difficult to swap implementations
 - Testing requires mocking many imports
 
 **3. Variation Normalization in Loader**
+
 ```typescript
 // variationLoader.ts:58-139
 function normalizeVariation(variation: any, fileNodeId?: string): Variation {
   // 80+ lines of mutation and default-setting
 }
 ```
+
 - Data transformation mixed with loading
 - Defaults hardcoded in loader
 - Cannot customize normalization per story
 
 **4. Content Loader Path Mapping Logic**
+
 ```typescript
 // contentLoader.ts:126-141
 if (def.layer === 1) {
   actualContentPath = `/src/data/stories/${storyId}/content/layer1/${charPrefix}-L1-variations.json`;
 } else if (def.layer === 2) {
-  const paths = [/* 3 philosophy paths */];
-  actualContentPath = paths.find(p => l2VarMap[p]) || null;
+  const paths = [
+    /* 3 philosophy paths */
+  ];
+  actualContentPath = paths.find((p) => l2VarMap[p]) || null;
 }
 ```
+
 - File path conventions hardcoded
 - Cannot extend to new layer types
 - Layer-specific branching instead of config-driven
@@ -636,6 +671,7 @@ interface L3Assembly {
 **Missing Interfaces:**
 
 1. **Content Provider Interface**
+
    ```typescript
    // Needed for swapping data sources
    interface IContentProvider {
@@ -644,18 +680,22 @@ interface L3Assembly {
      loadL3Variations(storyId: string): Promise<L3VariationSet>;
    }
    ```
+
    **Gap:** Loaders are standalone functions, not injectable services
 
 2. **Variation Selection Strategy Interface**
+
    ```typescript
    // Needed for custom selection algorithms
    interface IVariationSelector {
      selectVariation(variations: Variation[], context: ConditionContext): Variation | null;
    }
    ```
+
    **Gap:** `findMatchingVariation()` is hardcoded in hook/engine
 
 3. **Assembly Builder Interface**
+
    ```typescript
    // Needed for alternative assembly strategies
    interface IL3AssemblyBuilder {
@@ -663,6 +703,7 @@ interface L3Assembly {
      calculateSynthesisPattern(percentages: CharacterPercentages): SynthesisPattern;
    }
    ```
+
    **Gap:** L3 assembly logic directly imported by store
 
 4. **Cache Strategy Interface**
@@ -684,6 +725,7 @@ interface L3Assembly {
 ### High Priority Decoupling
 
 **1. Extract Content Service**
+
 ```typescript
 // New: src/services/ContentService.ts
 export class ContentService {
@@ -706,21 +748,23 @@ export class ContentService {
 const contentService = new ContentService();
 loadStory: async (storyId: string) => {
   const storyData = await contentService.loadStory(storyId);
-  set({ storyData, nodes: new Map(storyData.nodes.map(n => [n.id, n])) });
-}
+  set({ storyData, nodes: new Map(storyData.nodes.map((n) => [n.id, n])) });
+};
 ```
+
 **Benefit:** Single injection point for testing, swappable implementations
 
 ---
 
 **2. Extract Variation Selection Service**
+
 ```typescript
 // New: src/services/VariationSelectionService.ts
 export class VariationSelectionService {
   selectVariation(
     variations: Variation[],
     context: ConditionContext,
-    options?: { excludeIds?: string[] }
+    options?: { excludeIds?: string[] },
   ): Variation | null {
     // Move findMatchingVariation logic here
     // Add deduplication support (from Task 2 gap)
@@ -729,7 +773,7 @@ export class VariationSelectionService {
   buildL3Assembly(
     storyId: string,
     context: ConditionContext,
-    contentService: ContentService
+    contentService: ContentService,
   ): L3Assembly | null {
     // Move buildL3Assembly logic here
   }
@@ -739,11 +783,13 @@ export class VariationSelectionService {
 const selectionService = useSelectionService();
 const variation = selectionService.selectVariation(variations, context);
 ```
+
 **Benefit:** Testable without React, strategy pattern for custom selectors
 
 ---
 
 **3. Abstract Cache Interface**
+
 ```typescript
 // New: src/utils/cache.ts
 export interface ICache<K, V> {
@@ -756,9 +802,15 @@ export interface ICache<K, V> {
 export class InMemoryCache<K, V> implements ICache<K, V> {
   private map = new Map<K, V>();
 
-  get(key: K) { return this.map.get(key); }
-  set(key: K, value: V) { this.map.set(key, value); }
-  clear() { this.map.clear(); }
+  get(key: K) {
+    return this.map.get(key);
+  }
+  set(key: K, value: V) {
+    this.map.set(key, value);
+  }
+  clear() {
+    this.map.clear();
+  }
   invalidate(predicate: (k: K, v: V) => boolean) {
     for (const [k, v] of this.map) {
       if (predicate(k, v)) this.map.delete(k);
@@ -778,13 +830,15 @@ clearL3AssemblyCache: () => {
   if (oldPhilosophy !== newPhilosophy) {
     get().l3AssemblyCache.clear();
   }
-}
+};
 ```
+
 **Benefit:** Selective invalidation, testable cache strategies, swappable (LRU, TTL, etc.)
 
 ---
 
 **4. Config-Driven Path Mapping**
+
 ```typescript
 // New: src/config/storyConfig.ts
 export interface StoryConfig {
@@ -826,6 +880,7 @@ loadVariations(storyId: string, nodeId: string): VariationFile | null {
   // ...
 }
 ```
+
 **Benefit:** Extensible to new stories, no hardcoded paths, declarative
 
 ---
@@ -833,12 +888,13 @@ loadVariations(storyId: string, nodeId: string): VariationFile | null {
 ### Medium Priority Decoupling
 
 **5. Extract Journey Tracking Calculator**
+
 ```typescript
 // New: src/services/JourneyTrackingService.ts
 export class JourneyTrackingService {
   calculateJourneyPattern(
     startingCharacter: Character,
-    percentages: CharacterPercentages
+    percentages: CharacterPercentages,
   ): JourneyPattern {
     // Move from conditionEvaluator.ts
   }
@@ -847,19 +903,18 @@ export class JourneyTrackingService {
     // Move from conditionEvaluator.ts
   }
 
-  updateJourneyTracking(
-    tracking: JourneyTracking,
-    progress: UserProgress
-  ): JourneyTracking {
+  updateJourneyTracking(tracking: JourneyTracking, progress: UserProgress): JourneyTracking {
     // Move from storyStore.ts:493-555
   }
 }
 ```
+
 **Benefit:** Pure business logic, unit testable, reusable across stores
 
 ---
 
 **6. Separate Variation Normalization**
+
 ```typescript
 // New: src/utils/variationNormalizer.ts
 export interface NormalizationOptions {
@@ -868,10 +923,7 @@ export interface NormalizationOptions {
   defaultPhilosophy?: PathPhilosophy;
 }
 
-export function normalizeVariation(
-  variation: any,
-  options?: NormalizationOptions
-): Variation {
+export function normalizeVariation(variation: any, options?: NormalizationOptions): Variation {
   // Move from variationLoader.ts:58-139
   // Use options instead of hardcoded defaults
 }
@@ -879,14 +931,16 @@ export function normalizeVariation(
 // Usage:
 const normalized = normalizeVariation(rawVariation, {
   defaultAwarenessRange: [0, 100],
-  defaultJourneyPattern: 'unknown'
+  defaultJourneyPattern: 'unknown',
 });
 ```
+
 **Benefit:** Configurable defaults, separated from loading, testable
 
 ---
 
 **7. Add Validation Layer**
+
 ```typescript
 // New: src/utils/l3Validator.ts
 export interface L3ValidationResult {
@@ -910,6 +964,7 @@ export function validateL3VariationFile(file: VariationFile): L3ValidationResult
   // - Validate awarenessRange coverage
 }
 ```
+
 **Benefit:** Comprehensive validation, separate from assembly logic
 
 ---
@@ -1097,24 +1152,28 @@ export function validateL3VariationFile(file: VariationFile): L3ValidationResult
 ## 8. Recommended Refactoring Sequence
 
 ### Phase 1: Service Extraction (1-2 weeks)
+
 1. ✅ Extract `ContentService` class (move contentLoader.ts + variationLoader.ts)
 2. ✅ Extract `VariationSelectionService` class (move findMatchingVariation + buildL3Assembly)
 3. ✅ Extract `JourneyTrackingService` class (move calculation functions)
 4. ✅ Inject services into store via constructor/provider pattern
 
 ### Phase 2: Abstraction Layers (1 week)
+
 5. ✅ Create `ICache<K, V>` interface + `InMemoryCache` implementation
 6. ✅ Create `IContentProvider` interface with multiple implementations
 7. ✅ Create config-driven path mapping (`StoryConfig` interface)
 8. ✅ Separate normalization into standalone utility with options
 
 ### Phase 3: Testing & Validation (1 week)
+
 9. ✅ Add comprehensive L3 validation (coverage, duplicates, metadata)
 10. ✅ Unit test services with mock providers
 11. ✅ Integration tests for full selection pipeline
 12. ✅ Add performance benchmarks for cache effectiveness
 
 ### Phase 4: Optimization (optional)
+
 13. ⚠️ Selective L3 cache invalidation (only on philosophy change)
 14. ⚠️ Add variation deduplication tracking (Task 2 gap)
 15. ⚠️ Implement LRU cache with size limits for production

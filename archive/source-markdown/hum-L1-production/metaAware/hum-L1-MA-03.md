@@ -5,6 +5,7 @@ word_count: 1241
 conditions:
   awareness: '61-70%'
 ---
+
 Third return.
 My body knows the way now. Through steel corridors that echo with nothing. Past observation ports where no one watches. Except—
 A warmth. Like another body standing close. Not here in the corridor, but somehow present. Watching.

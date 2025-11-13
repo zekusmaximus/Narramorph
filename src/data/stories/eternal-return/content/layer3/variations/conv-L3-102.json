@@ -23,10 +23,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "readableLabel": "BL-IN-H-TB",
@@ -41,11 +38,7 @@
     "philosophicalCulmination": "Three investigation methodologies create consciousness through balanced network examination",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "balanced-recursion",
-      "three-substrate-investigation",
-      "network-symmetry"
-    ],
+    "primaryThemes": ["balanced-recursion", "three-substrate-investigation", "network-symmetry"],
     "voiceBlending": "seamless-rotation",
     "perspectiveShifts": "continuous-flow",
     "superpositionLanguage": "advanced",
@@ -57,10 +50,6 @@
     "lastHuman2383": "embodied-investigation",
     "reader": "equal-participation",
     "narrative": "structural-awareness",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

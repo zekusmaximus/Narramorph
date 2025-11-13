@@ -1,22 +1,22 @@
 ---
-exemplar_id: "arch-L2-resist-exemplar-05"
-variation_type: "recursionDeepening"
+exemplar_id: 'arch-L2-resist-exemplar-05'
+variation_type: 'recursionDeepening'
 word_count: 1489
 conditions:
   visit_count: 2
-  awareness: "30-60%"
+  awareness: '30-60%'
   cross_character: false
-  visited_nodes: ["arch-L2-resist", "arch-L1"]
-  dominant_path: "resist"
+  visited_nodes: ['arch-L2-resist', 'arch-L1']
+  dominant_path: 'resist'
 themes:
   - resist_path_intensification
   - meta_verification_crisis
   - testing_methodology_recursion
-transformation_focus: "Resist path deepens as archaeologist recognizes testing generates more testing—three generations of protocols each revealing why previous generation insufficient"
+transformation_focus: 'Resist path deepens as archaeologist recognizes testing generates more testing—three generations of protocols each revealing why previous generation insufficient'
 reusable_patterns:
-  - "Three-generation testing escalation (Tests 1-6, 7-12, 13-17)"
+  - 'Three-generation testing escalation (Tests 1-6, 7-12, 13-17)'
   - "Foreknowledge of failure doesn't prevent testing"
-  - "Standards persist because duty matters regardless of success"
+  - 'Standards persist because duty matters regardless of success'
 ---
 
 # arch-L2-resist Exemplar 5: Path Echo from L1 (Resist Deepening)

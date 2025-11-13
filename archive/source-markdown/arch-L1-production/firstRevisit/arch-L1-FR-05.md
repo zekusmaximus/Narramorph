@@ -6,16 +6,6 @@
   'awareness': '31-50%'
 ---
 
-
-
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A and feels watched.
 Not by security systems. Not by colleagues. Not by the fragment's preserved consciousness examining her in return. By attention from centuries ahead, desperate and focused, reaching backward through time with an intensity that leaves marks in the data structure.
 The authentication markers display without change. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment she authenticated ten days ago remains constant. Crystalline substrate maintains perfect fidelity. The consciousness preserved in 2041 exists exactly as it was captured—neural pathways, memory nodes, self-referential awareness structures all intact.

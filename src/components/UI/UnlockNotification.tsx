@@ -24,11 +24,11 @@ const CHARACTER_COLORS: Record<string, string> = {
  * Displays toast notifications in bottom-right corner
  */
 export function UnlockNotificationSystem() {
-  const recentlyUnlockedNodes = useStoryStore(state => state.recentlyUnlockedNodes);
-  const clearUnlockNotifications = useStoryStore(state => state.clearUnlockNotifications);
-  const nodes = useStoryStore(state => state.nodes);
-  const unlockConfigs = useStoryStore(state => state.unlockConfigs);
-  const openStoryView = useStoryStore(state => state.openStoryView);
+  const recentlyUnlockedNodes = useStoryStore((state) => state.recentlyUnlockedNodes);
+  const clearUnlockNotifications = useStoryStore((state) => state.clearUnlockNotifications);
+  const nodes = useStoryStore((state) => state.nodes);
+  const unlockConfigs = useStoryStore((state) => state.unlockConfigs);
+  const openStoryView = useStoryStore((state) => state.openStoryView);
 
   // Auto-clear notifications after showing them
   useEffect(() => {
@@ -39,6 +39,8 @@ export function UnlockNotificationSystem() {
 
       return () => clearTimeout(timer);
     }
+
+    return undefined;
   }, [recentlyUnlockedNodes, clearUnlockNotifications]);
 
   return (
@@ -78,19 +80,13 @@ export function UnlockNotificationSystem() {
                     className="w-10 h-10 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: `${color}20` }}
                   >
-                    <Sparkles
-                      className="w-6 h-6"
-                      style={{ color }}
-                    />
+                    <Sparkles className="w-6 h-6" style={{ color }} />
                   </div>
                   <div>
                     <div className="text-xs text-gray-400 uppercase tracking-wider">
                       Node Unlocked
                     </div>
-                    <div
-                      className="text-sm font-bold"
-                      style={{ color }}
-                    >
+                    <div className="text-sm font-bold" style={{ color }}>
                       {node.title}
                     </div>
                   </div>
@@ -98,9 +94,7 @@ export function UnlockNotificationSystem() {
 
                 {/* Unlock message */}
                 {config.unlockMessage && (
-                  <div className="text-sm text-gray-300 mb-3">
-                    {config.unlockMessage}
-                  </div>
+                  <div className="text-sm text-gray-300 mb-3">{config.unlockMessage}</div>
                 )}
 
                 {/* Call to action */}

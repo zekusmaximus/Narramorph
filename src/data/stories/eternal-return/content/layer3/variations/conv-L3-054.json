@@ -24,50 +24,27 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacter": "none",
-    "characterBalance": [
-      33,
-      33,
-      34
-    ],
+    "characterBalance": [33, 33, 34],
     "readableLabel": "SB-IN-L-TB",
     "humanDescription": "Started with one character, bounced across all three, investigate path, low awareness, triple-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "rotating-equal-weight",
     "perspectiveEmphasis": "network-architecture",
     "philosophicalCulmination": "Three investigations examining investigation reveal network examining network",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "transform",
     "circularCausality": "embedded-network",
     "readerPosition": "immersed",
     "thematicContent": null,
-    "primaryThemes": [
-      "network-investigation",
-      "methodological-convergence",
-      "substrate-parallel"
-    ],
+    "primaryThemes": ["network-investigation", "methodological-convergence", "substrate-parallel"],
     "crossCharacterSynthesis": "three-equal-investigations",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "arch-equal-2047",
-      "algo-equal-2151",
-      "hum-equal-2383"
-    ],
+    "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383"],
     "philosophicalResolution": "network-investigation-transforms",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

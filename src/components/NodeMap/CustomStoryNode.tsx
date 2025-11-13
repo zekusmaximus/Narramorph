@@ -122,7 +122,6 @@ const CHARACTER_THEMES = {
  * Get character icon/emoji for node
  * Currently unused but kept for future feature
  */
-// @ts-expect-error - Unused but kept for future feature
 function getCharacterIcon(character: CharacterType): string {
   switch (character) {
     case 'archaeologist':
@@ -165,13 +164,13 @@ function CustomStoryNode({ data, selected }: NodeProps) {
   const [ripple, setRipple] = useState(false);
 
   // Store access for connection detection
-  const selectedNode = useStoryStore(state => state.selectedNode);
-  const nodes = useStoryStore(state => state.nodes);
+  const selectedNode = useStoryStore((state) => state.selectedNode);
+  const nodes = useStoryStore((state) => state.nodes);
 
   // Unlock system access
-  const canVisit = useStoryStore(state => state.canVisitNode(node.id));
-  const getUnlockProgress = useStoryStore(state => state.getUnlockProgress);
-  const unlockConfigs = useStoryStore(state => state.unlockConfigs);
+  const canVisit = useStoryStore((state) => state.canVisitNode(node.id));
+  const getUnlockProgress = useStoryStore((state) => state.getUnlockProgress);
+  const unlockConfigs = useStoryStore((state) => state.unlockConfigs);
 
   // Get unlock progress if node has config
   const unlockProgress = useMemo(() => {
@@ -186,7 +185,7 @@ function CustomStoryNode({ data, selected }: NodeProps) {
     if (!selectedNode) return false;
     const selected = nodes.get(selectedNode);
     if (!selected || !selected.connections) return false;
-    return selected.connections.some(conn => conn.targetId === node.id);
+    return selected.connections.some((conn) => conn.targetId === node.id);
   }, [selectedNode, nodes, node.id]);
 
   // Calculate size based on importance (critical path nodes are larger)
@@ -211,10 +210,14 @@ function CustomStoryNode({ data, selected }: NodeProps) {
         className="relative"
         initial={{ scale: 0, opacity: 0, rotateZ: -180 }}
         animate={{ scale: 1, opacity: 1, rotateZ: 0 }}
-        whileHover={canVisit ? {
-          scale: 1.08,
-          transition: { type: 'spring', stiffness: 400, damping: 10 }
-        } : {}}
+        whileHover={
+          canVisit
+            ? {
+                scale: 1.08,
+                transition: { type: 'spring', stiffness: 400, damping: 10 },
+              }
+            : {}
+        }
         transition={{
           type: 'spring',
           stiffness: 200,
@@ -321,8 +324,8 @@ function CustomStoryNode({ data, selected }: NodeProps) {
                     top: '50%',
                   }}
                   animate={{
-                    x: [0, Math.cos((idx * 360) / connectionsLength * Math.PI / 180) * 60],
-                    y: [0, Math.sin((idx * 360) / connectionsLength * Math.PI / 180) * 60],
+                    x: [0, Math.cos((((idx * 360) / connectionsLength) * Math.PI) / 180) * 60],
+                    y: [0, Math.sin((((idx * 360) / connectionsLength) * Math.PI) / 180) * 60],
                     opacity: [0, 1, 0],
                   }}
                   transition={{
@@ -368,7 +371,12 @@ function CustomStoryNode({ data, selected }: NodeProps) {
             width: size,
             height: size,
             borderColor: isVisited ? theme.primary : theme.accent,
-            boxShadow: (isSelected || isMetaAware) && canVisit ? theme.pulseGlow : canVisit ? theme.glow : 'none',
+            boxShadow:
+              (isSelected || isMetaAware) && canVisit
+                ? theme.pulseGlow
+                : canVisit
+                  ? theme.glow
+                  : 'none',
           }}
         >
           {/* Inner radial gradient for depth */}
@@ -451,7 +459,13 @@ function CustomStoryNode({ data, selected }: NodeProps) {
               textShadow: `0 0 10px ${theme.primary}`,
             }}
           >
-            {node.character === 'archaeologist' ? 'A' : node.character === 'algorithm' ? 'Σ' : node.character === 'last-human' ? 'H' : '∴'}
+            {node.character === 'archaeologist'
+              ? 'A'
+              : node.character === 'algorithm'
+                ? 'Σ'
+                : node.character === 'last-human'
+                  ? 'H'
+                  : '∴'}
           </div>
 
           {/* Visit counter badge - cyberpunk style */}
@@ -473,24 +487,25 @@ function CustomStoryNode({ data, selected }: NodeProps) {
           )}
 
           {/* Transformation state indicator */}
-          {nodeState.currentState !== 'initial' && getTransformationBadge(nodeState.currentState) && (
-            <motion.div
-              className="absolute -bottom-2 -right-2 rounded-full border-2 w-6 h-6 flex items-center justify-center font-mono text-xs"
-              style={{
-                backgroundColor: '#0a0e12',
-                borderColor: nodeState.currentState === 'metaAware' ? '#7c4dff' : '#ffa726',
-                color: nodeState.currentState === 'metaAware' ? '#7c4dff' : '#ffa726',
-                boxShadow:
-                  nodeState.currentState === 'metaAware'
-                    ? '0 0 10px #7c4dff'
-                    : '0 0 10px #ffa726',
-              }}
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-            >
-              {getTransformationBadge(nodeState.currentState) as React.ReactNode}
-            </motion.div>
-          )}
+          {nodeState.currentState !== 'initial' &&
+            getTransformationBadge(nodeState.currentState) && (
+              <motion.div
+                className="absolute -bottom-2 -right-2 rounded-full border-2 w-6 h-6 flex items-center justify-center font-mono text-xs"
+                style={{
+                  backgroundColor: '#0a0e12',
+                  borderColor: nodeState.currentState === 'metaAware' ? '#7c4dff' : '#ffa726',
+                  color: nodeState.currentState === 'metaAware' ? '#7c4dff' : '#ffa726',
+                  boxShadow:
+                    nodeState.currentState === 'metaAware'
+                      ? '0 0 10px #7c4dff'
+                      : '0 0 10px #ffa726',
+                }}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+              >
+                {getTransformationBadge(nodeState.currentState) as React.ReactNode}
+              </motion.div>
+            )}
 
           {/* Critical path indicator */}
           {node.metadata.criticalPath && (
@@ -540,10 +555,7 @@ function CustomStoryNode({ data, selected }: NodeProps) {
 
           {/* Progress ring for partially unlocked nodes */}
           {!canVisit && unlockProgress && unlockProgress.progress > 0 && (
-            <svg
-              className="absolute inset-0 w-full h-full -rotate-90"
-              viewBox="0 0 100 100"
-            >
+            <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
               <circle
                 cx="50"
                 cy="50"
@@ -658,10 +670,11 @@ function CustomStoryNode({ data, selected }: NodeProps) {
             }}
           >
             <div
-              className="text-sm font-semibold whitespace-nowrap tracking-wide"
+              className="text-sm font-semibold whitespace-nowrap tracking-wide flex items-center justify-center gap-1"
               style={{ color: theme.primary }}
             >
-              {node.title}
+              <span className="text-[10px] opacity-80">{getCharacterIcon(node.character)}</span>
+              <span>{node.title}</span>
             </div>
             <div className="text-xs mt-0.5" style={{ color: theme.accent }}>
               {node.metadata.estimatedReadTime} MIN • ACT {node.metadata.narrativeAct}
@@ -715,10 +728,7 @@ function CustomStoryNode({ data, selected }: NodeProps) {
                 {unlockConfigs.get(node.id)?.unlockConditions.map((condition) => {
                   const met = unlockProgress.conditionsMet.includes(condition.id);
                   return (
-                    <div
-                      key={condition.id}
-                      className="flex items-start space-x-2"
-                    >
+                    <div key={condition.id} className="flex items-start space-x-2">
                       <span className={met ? 'text-green-400' : 'text-gray-500'}>
                         {met ? '✓' : '○'}
                       </span>
@@ -736,9 +746,7 @@ function CustomStoryNode({ data, selected }: NodeProps) {
                   <div className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">
                     Next Action
                   </div>
-                  <div className="text-yellow-400">
-                    {unlockProgress.nextConditionHint}
-                  </div>
+                  <div className="text-yellow-400">{unlockProgress.nextConditionHint}</div>
                 </div>
               )}
             </div>
@@ -750,5 +758,3 @@ function CustomStoryNode({ data, selected }: NodeProps) {
 }
 
 export default memo(CustomStoryNode);
-
-

@@ -6,13 +6,13 @@ import { useStoryStore } from '@/stores/storyStore';
  * Creates temporal distortion around meta-aware nodes
  */
 export function TemporalDistortion() {
-  const nodes = useStoryStore(state => state.nodes);
-  const getNodeState = useStoryStore(state => state.getNodeState);
+  const nodes = useStoryStore((state) => state.nodes);
+  const getNodeState = useStoryStore((state) => state.getNodeState);
 
   // Find meta-aware nodes
   const metaAwareNodes = useMemo(() => {
     return Array.from(nodes.values())
-      .map(node => ({
+      .map((node) => ({
         node,
         state: getNodeState(node.id),
       }))
@@ -66,7 +66,7 @@ export function TemporalDistortion() {
 
             {/* Time fragments orbiting */}
             {[...Array(6)].map((_, i) => {
-              const angle = (i * 60) * Math.PI / 180;
+              const angle = (i * 60 * Math.PI) / 180;
               const radius = 80;
 
               return (

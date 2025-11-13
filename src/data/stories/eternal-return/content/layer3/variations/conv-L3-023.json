@@ -24,29 +24,18 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
     "dominantCharacter": "archaeologist-algorithm",
-    "characterBalance": [
-      40,
-      40,
-      20
-    ],
+    "characterBalance": [40, 40, 20],
     "readableLabel": "SS-IN-M-DB",
     "humanDescription": "Started archaeologist, stayed dominant, investigate path, medium awareness, dual-balanced archaeologist-algorithm synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "archaeological-computational-dialogue",
     "perspectiveEmphasis": "verification-processing-parallel",
     "philosophicalCulmination": "Documentation and computation examine examination through parallel methodologies",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "transform-through-parallel-investigation",
     "circularCausality": "partial",
     "readerPosition": "implied-observer",
@@ -66,10 +55,6 @@
       "reader-implied"
     ],
     "philosophicalResolution": "investigative-transformation-through-parallel-examination",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

@@ -24,29 +24,18 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacter": "none-all-equal",
-    "characterBalance": [
-      33,
-      33,
-      34
-    ],
+    "characterBalance": [33, 33, 34],
     "readableLabel": "ML-RE-H-TB",
     "humanDescription": "Met-later convergence, resist philosophy, high awareness, triple-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "rotating-equal-high-meta",
     "perspectiveEmphasis": "equal-triple-weight",
     "philosophicalCulmination": "Triple boundary-maintenance discovering shared impossibility",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release-resist",
     "circularCausality": "explicit",
     "readerPosition": "acknowledged-fifth-position",
@@ -67,10 +56,6 @@
       "fragment-fifth"
     ],
     "philosophicalResolution": "triple-dignified-release",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

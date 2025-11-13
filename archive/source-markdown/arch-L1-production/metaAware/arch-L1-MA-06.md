@@ -6,16 +6,6 @@
   'awareness': '71-80%'
 ---
 
-
-
-
-
-
-
-
-
-
-
 The archaeologist returns to the fragment for the fourth time, and the frame has become completely transparent. The preserved consciousness remains constant: 847.3 terabytes of neural encoding, 94.7% structural coherence, 91.2% semantic stability, 88.9% experiential continuity. These numbers measure what can be measured. What she understands now, on this fourth visit, is that measurement exists within frame containing the fragment, her examination, your reading, and the relationships connecting all three.
 You're reading this. She's writing about reading the fragment. The fragment preserves consciousness that examined itself. Four layers of observation, all affecting each other simultaneously.
 This isn't metaphor. This is the actual structure.

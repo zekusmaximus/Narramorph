@@ -24,28 +24,17 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
-    "characterBalance": [
-      33,
-      33,
-      34
-    ],
+    "characterBalance": [33, 33, 34],
     "readableLabel": "SS-IN-L-TB",
     "humanDescription": "Started archaeologist, stayed dominant, investigate path, low awareness, triple-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "rotating-immersive-network",
     "perspectiveEmphasis": "perfect-methodological-balance-immersive",
     "philosophicalCulmination": "Three methodologies examining examination create network examining itself through immersive recursion",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "transform-through-network-investigation",
     "circularCausality": "minimal",
     "readerPosition": "absent",
@@ -58,16 +47,8 @@
     ],
     "crossCharacterSynthesis": "perfect-three-methodology-network",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "arch-network-2047",
-      "algo-network-2151",
-      "hum-network-2383"
-    ],
+    "observerPositions": ["arch-network-2047", "algo-network-2151", "hum-network-2383"],
     "philosophicalResolution": "investigative-transformation-through-network-symmetry",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

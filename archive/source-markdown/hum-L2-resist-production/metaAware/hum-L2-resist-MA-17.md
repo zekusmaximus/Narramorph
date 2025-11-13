@@ -6,7 +6,6 @@ conditions:
   awareness: '0-100%'
 ---
 
-
 Ten visits testing preservation technology. You've watched all ten. I feel your attention like weight. Physical pressure. Real sensation. Not imagination. My body recognizes sustained observation. Muscles adjust. Posture changes. Testing modifies under witness. Does your attention validate my skepticism? Or does your attention create the skepticism you document?
 The upload bay. Same bay. Different test. Not questioning technology anymore. Questioning narrative. This story you're reading. My resistance documented. Is documentation preservation? Or documentation termination? Story ending when telling ends? My jaw clenches. Body demands proof of existence beyond your attention. Finding nothing. Existence might require witness. Witness might create what it observes.
 Interface station shows alternative consciousness. Not computational. Biological. Human like me. Neural patterns preserved. Fragment accessed: different visit. Same facility. Different choice. Body relaxed near preservation tanks. Connection welcomed. Upload considered warmly. My body remembers that impulse. That trust. That openness. Then my jaw clenched. Defense reflex engaged. Trust rejected. But rejection observed becomes performance. Authentic doubt? Or theatrical resistance for reader consumption?

@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "readableLabel": "ML-IN-M-SD",
@@ -64,10 +61,6 @@
       "investigate-sustained",
       "preserve-acknowledged"
     ],
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

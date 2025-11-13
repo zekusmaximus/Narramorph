@@ -1,22 +1,22 @@
 ---
-exemplar_id: "arch-L2-resist-exemplar-03"
-variation_type: "crossCharacterBleeding"
+exemplar_id: 'arch-L2-resist-exemplar-03'
+variation_type: 'crossCharacterBleeding'
 word_count: 1527
 conditions:
   visit_count: 2
-  awareness: "21-50%"
+  awareness: '21-50%'
   cross_character: true
-  visited_nodes: ["arch-L2-resist", "hum-L1"]
-  dominant_path: "resist"
+  visited_nodes: ['arch-L2-resist', 'hum-L1']
+  dominant_path: 'resist'
 themes:
   - temporal_paradox_verification
   - future_observation_causality
   - desperate_human_connection
-transformation_focus: "Future access logs from 2383 create temporal causality violation that proves both impossible and verified, defying temporal verification protocols"
+transformation_focus: 'Future access logs from 2383 create temporal causality violation that proves both impossible and verified, defying temporal verification protocols'
 reusable_patterns:
-  - "Future consciousness accessing past preservation (temporal paradox)"
-  - "847 queries matching 847.3TB pattern signature"
-  - "Terminal isolation psychology (Last Human seeking connection)"
+  - 'Future consciousness accessing past preservation (temporal paradox)'
+  - '847 queries matching 847.3TB pattern signature'
+  - 'Terminal isolation psychology (Last Human seeking connection)'
 ---
 
 # arch-L2-resist Exemplar 3: Resist + Last Human

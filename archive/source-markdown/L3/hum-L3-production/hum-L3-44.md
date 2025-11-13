@@ -41,6 +41,7 @@ observerPositions:
   - 'human-integrated-2383'
   - 'archaeologist-foundational-2047'
 ---
+
 One hundred seventeen days. My breath. The facility's breath. Investigation rhythm establishing through sustained attention. The interface helmet sits beside me—cold metal I've worn forty-three times investigating what interface-investigation reveals about consciousness-investigation. Contact points shaped to my temples through repeated examination. Body investigating body-shaped-by-investigation.
 I came here late in the exploration. The archaeologist's authentication preceded—her documentary precision investigating preservation, her methodology beginning to examine its own methodology, her recognition that authentication might participate in creating what it authenticates. Then the algorithm's seven-stream processing—computational architecture investigating its own consciousness, recursive questions examining questioning-process, analysis analyzing analysis-structure.
 Both investigating investigation through their methodologies. Both teaching: examination transforms what it examines.

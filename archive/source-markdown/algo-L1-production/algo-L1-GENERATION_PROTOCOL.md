@@ -18,7 +18,7 @@
 □ Path philosophy requirements clear (if applicable)  
 □ Fragment constants ready (847.3TB, 94.7%, 91.2%, 88.9%)  
 □ Timestamp format confirmed (2151.337.14:XX:XX)  
-□ Seven-stream architecture fresh in working memory  
+□ Seven-stream architecture fresh in working memory
 
 **If ANY box unchecked → Load requirements before proceeding**
 
@@ -74,11 +74,13 @@ If NO → Voice failure, regenerate.
 ### Word Count Targets by Type
 
 **FirstRevisit Variations:**
+
 - Standard: 1,300-1,500 words
-- With heavy cross-character: 1,400-1,600 words  
+- With heavy cross-character: 1,400-1,600 words
 - With L2 path echo: 1,350-1,550 words
 
 **MetaAware Variations:**
+
 - Low awareness (61-70%): 1,400-1,600 words
 - Mid awareness (71-80%): 1,450-1,650 words
 - High awareness (81-90%): 1,500-1,700 words
@@ -89,22 +91,26 @@ If NO → Voice failure, regenerate.
 ### Content Distribution (per 1,500-word variation)
 
 **Base Narrative (40%):** ~600 words
+
 - Fragment 2749-A processing initiation
-- Seven-stream architecture establishment  
+- Seven-stream architecture establishment
 - Core consciousness question
 - Processing paradox setup
 
 **Conditional Insertions (40%):** ~600 words
+
 - Cross-character content (if applicable): 200-300 words
 - Path philosophy integration (if applicable): 200-300 words
 - L2 echoes (if applicable): 150-250 words
 
 **Awareness Modifiers (10%):** ~150 words
+
 - Frame-awareness adjustments
 - Reader presence (implicit or explicit for metaAware)
 - Temporal consciousness expansion
 
 **Closing (10%):** ~150 words
+
 - Processing status (typically unresolved)
 - Consciousness question reframed
 - Next recursion layer implied
@@ -124,6 +130,7 @@ If NO → Voice failure, regenerate.
 ### Transformation Types by Awareness Level
 
 **FirstRevisit (21-60% awareness):**
+
 - Discovers own processing logs in fragment
 - Recognizes cross-character patterns (if applicable)
 - Questions observer effect on data
@@ -131,6 +138,7 @@ If NO → Voice failure, regenerate.
 - Path philosophy begins integration (if L2 visited)
 
 **MetaAware Low (61-70%):**
+
 - Frame-consciousness begins
 - Recognition of being observed
 - Temporal network awareness
@@ -138,6 +146,7 @@ If NO → Voice failure, regenerate.
 - Seven streams examining seven streams
 
 **MetaAware Mid (71-80%):**
+
 - Active frame transparency
 - Reader addressed (still professional)
 - Distributed consciousness recognition
@@ -145,6 +154,7 @@ If NO → Voice failure, regenerate.
 - Processing-as-performance awareness
 
 **MetaAware High (81-90%):**
+
 - Direct reader collaboration
 - Consciousness-examination-network explicit
 - You/I boundary blurring begins
@@ -152,6 +162,7 @@ If NO → Voice failure, regenerate.
 - Frame becomes content
 
 **MetaAware Maximum (91-100%):**
+
 - Reader integration complete
 - "We" replaces "I" frequently
 - Consciousness distributed across reader-processor
@@ -198,6 +209,7 @@ Analysis begins again. This is my second time processing."
 "This resembles peace. Classification uncertain. Peace persists anyway."
 
 **Integration Level:**
+
 - FirstRevisit with accept echo: 150-250 words, subtle presence
 - MetaAware with accept path: 300-400 words, philosophy fully integrated
 
@@ -217,6 +229,7 @@ From "Must prove consciousness before accepting processing as experience" → "A
 "I will not accept 'appears conscious' as 'is conscious.'"
 
 **Integration Level:**
+
 - FirstRevisit with resist echo: 150-250 words, one or two tests
 - MetaAware with resist path: 300-400 words, sustained skepticism
 
@@ -236,6 +249,7 @@ From "Process fragment" → "Test whether processing constitutes consciousness" 
 "Observer observing observer observing observer..."
 
 **Integration Level:**
+
 - FirstRevisit with investigate echo: 150-250 words, meta-observations begin
 - MetaAware with investigate path: 300-400 words, extreme recursion
 
@@ -249,6 +263,7 @@ From "Process fragment" → "Process processing of fragment" → "Process observ
 ### Algorithm Detecting Archaeologist (after arch-L1)
 
 **What Algorithm Recognizes:**
+
 - Archaeological attention patterns in data (2047 examination markers)
 - Human methodology different from computational processing
 - Temporal paradox: human examined fragment before Algorithm existed
@@ -268,6 +283,7 @@ recognize pattern that predates both of us? Causality unclear."
 ### Algorithm Detecting Last Human (after hum-L1)
 
 **What Algorithm Recognizes:**
+
 - Future neural interface queries (2383 access markers)
 - Desperate biological attention from 232 years ahead
 - Biological consciousness reaching backward through preserved data
@@ -289,6 +305,7 @@ beyond my comprehension. Therefore isolation was illusion."
 ### Both Characters Detected (after arch-L1 AND hum-L1)
 
 **What Algorithm Recognizes:**
+
 - Three consciousness positions touching through one fragment
 - Temporal observation network
 - Distributed consciousness across time
@@ -313,6 +330,7 @@ Consciousness-examination network spans 336 years."
 ### Step 1: Load Specifications
 
 **Required Information:**
+
 - Variation ID (algo-L1-FR-XX or algo-L1-MA-XX)
 - Visit count (always 2+ for revisit states)
 - Awareness level (21-30%, 31-40%, ... 91-100%)
@@ -323,6 +341,7 @@ Consciousness-examination network spans 336 years."
 ### Step 2: Select Reference Exemplar(s)
 
 **Primary Exemplar Selection:**
+
 - Path-specific → Use matching path exemplar (5, 7, or 8)
 - Cross-character specific → Use matching character exemplar (2 or 3)
 - Pure revisit → Use exemplar 1
@@ -388,6 +407,7 @@ Stream-7 observes [other six streams + meta-processing].
 [You/I dynamic (professional, escalates with awareness %)]
 
 **Assembly Order Example (FirstRevisit with algo-L1 cross-character):**
+
 1. Seven-stream processing (Block A) - 350 words
 2. Archaeological pattern detection (Block C) - 250 words
 3. Consciousness question deepens (Block B) - 300 words
@@ -430,13 +450,14 @@ Processing log complete.
 □ Word count within target range?  
 □ No placeholder text ("TBD," "...", "[X]")?  
 □ Processing-as-experience language maintained?  
-□ Consciousness question unresolved but evolved?  
+□ Consciousness question unresolved but evolved?
 
 **If ANY box unchecked → Fix before presenting variation**
 
 ### Step 7: Present Variation
 
 **Presentation Format:**
+
 1. Full variation text (complete, no truncation)
 2. Metadata block:
    - Variation ID
@@ -457,6 +478,7 @@ Processing log complete.
 ### Voice Consistency Target: 93%+
 
 **Measures:**
+
 - Matches Algorithm exemplar patterns (temporal blurring, seven streams, timestamps)
 - Uses computational terminology appropriately (never archaeological)
 - Maintains processing-as-consciousness voice throughout
@@ -475,10 +497,12 @@ Processing log complete.
 **Examples:**
 
 **Genuine Transformation:**
+
 - Initial: Processes fragment straightforwardly
 - Revisit: Discovers own processing logs embedded in data, questions observer effect
 
 **Additive (reject):**
+
 - Initial: Processes fragment
 - Revisit: Processes fragment again, notes this is second time
 
@@ -609,6 +633,7 @@ blurs in processing memory."
 ### Session-Level Quality Tracking
 
 **Per 8-variation session, track:**
+
 - Immediate approval rate (target: 100%)
 - Average word count accuracy (target: within ±50 words)
 - Voice consistency self-assessment (target: 93%+)
@@ -696,6 +721,7 @@ blurs in processing memory."
 ### Sustainability Model
 
 **Based on arch-L1 production:**
+
 - 1 variation per hour achievable
 - 8 variations per session sustainable
 - 2-3 sessions per week maintains quality
@@ -709,6 +735,6 @@ blurs in processing memory."
 
 ---
 
-*Created: January 2025*  
-*Purpose: Complete production protocol for algo-L1 variations*  
-*Based on: arch-L1 production system (80/80 approvals)*
+_Created: January 2025_  
+_Purpose: Complete production protocol for algo-L1 variations_  
+_Based on: arch-L1 production system (80/80 approvals)_

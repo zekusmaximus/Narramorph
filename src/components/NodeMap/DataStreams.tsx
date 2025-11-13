@@ -6,8 +6,8 @@ import { useStoryStore } from '@/stores/storyStore';
  * Animated data packets flowing along connection lines
  */
 export function DataStreams() {
-  const nodes = useStoryStore(state => state.nodes);
-  const selectedNode = useStoryStore(state => state.selectedNode);
+  const nodes = useStoryStore((state) => state.nodes);
+  const selectedNode = useStoryStore((state) => state.selectedNode);
 
   // Get connections from selected node
   const activeConnections = useMemo(() => {
@@ -16,16 +16,18 @@ export function DataStreams() {
     const node = nodes.get(selectedNode);
     if (!node || !node.connections) return [];
 
-    return node.connections.map(conn => {
-      const targetNode = nodes.get(conn.targetId);
-      if (!targetNode) return null;
+    return node.connections
+      .map((conn) => {
+        const targetNode = nodes.get(conn.targetId);
+        if (!targetNode) return null;
 
-      return {
-        from: node.position,
-        to: targetNode.position,
-        type: conn.type,
-      };
-    }).filter(Boolean);
+        return {
+          from: node.position,
+          to: targetNode.position,
+          type: conn.type,
+        };
+      })
+      .filter(Boolean);
   }, [selectedNode, nodes]);
 
   if (activeConnections.length === 0) return null;
@@ -34,10 +36,10 @@ export function DataStreams() {
     <svg className="absolute inset-0 pointer-events-none">
       <defs>
         <filter id="dataGlow">
-          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+          <feGaussianBlur stdDeviation="2" result="coloredBlur" />
           <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
       </defs>
@@ -83,12 +85,7 @@ export function DataStreams() {
                 </motion.circle>
 
                 {/* Trail effect */}
-                <motion.circle
-                  r="2"
-                  fill={color}
-                  opacity="0.5"
-                  filter="url(#dataGlow)"
-                >
+                <motion.circle r="2" fill={color} opacity="0.5" filter="url(#dataGlow)">
                   <animateMotion
                     dur="2s"
                     repeatCount="indefinite"

@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "BL-RE-L",
     "humanDescription": "Started elsewhere, light algorithm exploration, resist path, low awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "testing-as-duty",
       "boundaries-sought-through-protocols"
     ],
-    "crossCharacterConnections": [
-      "heavy-arch-primary",
-      "heavy-hum-parallel"
-    ],
+    "crossCharacterConnections": ["heavy-arch-primary", "heavy-hum-parallel"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-primary-2047",

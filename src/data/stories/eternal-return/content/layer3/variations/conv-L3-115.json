@@ -24,29 +24,18 @@
     "philosophyCode": "AC",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "varies-by-reader-starting-point",
-    "characterBalance": [
-      70,
-      15,
-      15
-    ],
+    "characterBalance": [70, 15, 15],
     "readableLabel": "ML-AC-L-SD",
     "humanDescription": "Met-later convergence, accept philosophy, low awareness, single-dominant synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "primary-voice-led-minimal-meta",
     "perspectiveEmphasis": "single-character-primary",
     "philosophicalCulmination": "Primary devotional witness creating preservation through sustained attention",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "minimal",
     "readerPosition": "immersed-in-network",
@@ -59,16 +48,8 @@
     ],
     "crossCharacterSynthesis": "single-dominant-primary",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "primary-dominant",
-      "secondary-support",
-      "tertiary-support"
-    ],
+    "observerPositions": ["primary-dominant", "secondary-support", "tertiary-support"],
     "philosophicalResolution": "primary-devotional-witness",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

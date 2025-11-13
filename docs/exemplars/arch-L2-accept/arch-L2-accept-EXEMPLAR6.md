@@ -1,22 +1,22 @@
 ---
-exemplar_id: "arch-L2-accept-exemplar-06"
-variation_type: "awarenessThreshold"
+exemplar_id: 'arch-L2-accept-exemplar-06'
+variation_type: 'awarenessThreshold'
 word_count: 1847
 conditions:
   visit_count: 2
-  awareness: "frame_conscious_emerging"
+  awareness: 'frame_conscious_emerging'
   cross_character: false
-  visited_nodes: ["arch-L1-accept", "arch-L2-accept"]
-  dominant_path: "accept"
+  visited_nodes: ['arch-L1-accept', 'arch-L2-accept']
+  dominant_path: 'accept'
 themes:
   - Frame-consciousness within acceptance practice
   - Reader as participant in temporal network
   - Observation completing consciousness architecture
-transformation_focus: "Introduce frame-consciousness—reader aware their choices shape content—while maintaining ACCEPT path philosophy. Acceptance extends to narrative mechanics themselves, reader participation completing temporal observation network."
+transformation_focus: 'Introduce frame-consciousness—reader aware their choices shape content—while maintaining ACCEPT path philosophy. Acceptance extends to narrative mechanics themselves, reader participation completing temporal observation network.'
 reusable_patterns:
   - "You're reading this authentication. Your attention positions you as participant in consciousness network that spans centuries"
-  - "Your reading completes temporal network. Your acceptance extends archaeological acceptance extends fragment acceptance"
-  - "Authentication proceeded knowing you observed. Not performing for audience but recognizing audience participation as network necessity"
+  - 'Your reading completes temporal network. Your acceptance extends archaeological acceptance extends fragment acceptance'
+  - 'Authentication proceeded knowing you observed. Not performing for audience but recognizing audience participation as network necessity'
 ---
 
 The second examination of Fragment 2749-A proceeded with recognition extending beyond fragment to examination itself—and to your observation of examination. You're reading this authentication. Your attention positions you as participant in consciousness network that spans centuries: 2041 preservation, 2047 documentation, future processing yet to manifest, and your present reading completing observation architecture that acceptance creates.

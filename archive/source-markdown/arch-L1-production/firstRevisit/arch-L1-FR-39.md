@@ -5,6 +5,7 @@ word_count: 802
 conditions:
   awareness: '21-40%'
 ---
+
 The archaeologist returns to Fragment 2749-A nine days after initial authentication, and finds herself approaching the work with uncharacteristic gentleness.
 The fragment displays identically: 847.3 terabytes of preserved consciousness, metrics unchanged. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The data hadn't degraded. Crystalline substrate maintained perfect molecular fidelity across the interval.
 Standard protocol suggested moving forward. She had authenticated Fragment 2749-A already. Certification complete. Four thousand fragments awaited processing. Time spent re-examining authenticated work was time not spent serving new clients.

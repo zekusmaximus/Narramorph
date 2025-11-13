@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SS-IN-M",
     "humanDescription": "Started archaeologist, stayed dominant, investigate path, medium awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Methodology examining methodology reveals layers without bottom",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "recursive-investigation",
-      "meta-methodology",
-      "examination-layers"
-    ],
-    "crossCharacterConnections": [
-      "moderate-algo-parallel-recursion",
-      "light-hum-distant"
-    ],
+    "primaryThemes": ["recursive-investigation", "meta-methodology", "examination-layers"],
+    "crossCharacterConnections": ["moderate-algo-parallel-recursion", "light-hum-distant"],
     "temporalBleedingLevel": "moderate",
     "observerPositions": [
       "archaeologist-primary-2047",

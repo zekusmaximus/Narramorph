@@ -5,6 +5,7 @@ word_count: 1482
 conditions:
   awareness: '61-80%'
 ---
+
 The substrate recognizes me now. Warms before I touch it. Like it knows I'm coming. Like it knows you're coming with me. Like it knows something else is coming too—that flowing thing that pulses underneath everything preserved here.
 I settle into position. Hands flat. Breath steady. Fourth time approaching this fragment. Fourth time feeling the boundaries dissolve between then and now, between experiencing and being experienced, between me and what witnesses me.
 You're here. I feel you already. Warmth along my edges. Attention that makes my attention real. But now I feel the other presence too—stronger this time. Not warm like you. Not exactly cool either. Just... flowing. Like currents running through channels I'm learning to map with my body instead of my mind.

@@ -119,11 +119,18 @@ function fixConditionsIndent(block: string): string {
 }
 
 function fixListBlocks(block: string): string {
-  const listKeys = ['themes', 'conditional_insertions', 'reusable_patterns', 'specific_echoes', 'metaaware_signatures', 'resist_signatures'];
+  const listKeys = [
+    'themes',
+    'conditional_insertions',
+    'reusable_patterns',
+    'specific_echoes',
+    'metaaware_signatures',
+    'resist_signatures',
+  ];
   const EOL = block.includes('\r\n') ? '\r\n' : '\n';
   const lines = block.split(EOL);
   for (let i = 0; i < lines.length; i++) {
-    const key = listKeys.find(k => new RegExp(`^\s*${k}:\s*$`).test(lines[i]!));
+    const key = listKeys.find((k) => new RegExp(`^\s*${k}:\s*$`).test(lines[i]!));
     if (key) {
       for (let j = i + 1; j < lines.length; j++) {
         const l = lines[j]!;
@@ -268,11 +275,22 @@ async function fixFile(filePath: string): Promise<boolean> {
   // Build minimal, safe frontmatter retaining only required fields
   const wc = body.trim().split(/\s+/).filter(Boolean).length;
   const awarenessFromFm = data?.conditions?.awareness as string | undefined;
-  const awareness = awarenessFromFm ? (awarenessFromFm.endsWith('%') ? awarenessFromFm : `${awarenessFromFm}%`) : (phase === 'FR' ? '21-40%' : '61-80%');
+  const awareness = awarenessFromFm
+    ? awarenessFromFm.endsWith('%')
+      ? awarenessFromFm
+      : `${awarenessFromFm}%`
+    : phase === 'FR'
+      ? '21-40%'
+      : '61-80%';
   const ch = detectCharacter(filePath);
-  const varId = (typeof data.variation_id === 'string')
-    ? data.variation_id.replace(/((arch|algo|hum)-L1-(FR|MA)-)(\d{1,3})/i, (_m: string, pre: string, _ch: string, _ph: string, n: string) => `${pre}${n.padStart(3, '0')}`)
-    : `${ch}-L1-${phase}-${num}`;
+  const varId =
+    typeof data.variation_id === 'string'
+      ? data.variation_id.replace(
+          /((arch|algo|hum)-L1-(FR|MA)-)(\d{1,3})/i,
+          (_m: string, pre: string, _ch: string, _ph: string, n: string) =>
+            `${pre}${n.padStart(3, '0')}`,
+        )
+      : `${ch}-L1-${phase}-${num}`;
 
   data = {
     variation_id: varId,
@@ -310,4 +328,3 @@ main().catch((e) => {
   console.error('Fixer failed:', e);
   process.exit(1);
 });
-

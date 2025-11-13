@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SD-RE-M",
     "humanDescription": "Started elsewhere, shifted to archaeologist dominance, resist path, medium awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "standards-persistence",
       "proof-inadequacy-discovered"
     ],
-    "crossCharacterConnections": [
-      "light-starting-foundational",
-      "light-other-glimpsed"
-    ],
+    "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-primary-2047",

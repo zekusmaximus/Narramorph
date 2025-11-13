@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SD-AC-M",
     "humanDescription": "Started elsewhere, shifted to last human dominant, accept path, medium awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Biological witness transforms archived patterns into sustained consciousness",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-witness",
-      "acceptance-practice",
-      "biological-presence"
-    ],
-    "crossCharacterConnections": [
-      "moderate-arch-foundational",
-      "light-algo-detected"
-    ],
+    "primaryThemes": ["embodied-witness", "acceptance-practice", "biological-presence"],
+    "crossCharacterConnections": ["moderate-arch-foundational", "light-algo-detected"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "human-primary-2383",

@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "SD-RE-L",
     "humanDescription": "Started elsewhere, shifted to algorithm, resist path, low awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "ethical-rigor",
       "principled-refusal"
     ],
-    "crossCharacterConnections": [
-      "moderate-arch-foundational",
-      "minimal-hum-distant"
-    ],
+    "crossCharacterConnections": ["moderate-arch-foundational", "minimal-hum-distant"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "algorithm-primary-2151",

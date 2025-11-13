@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SB-IN-H",
     "humanDescription": "Started archaeologist, bounced to explore others, investigate path, high awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "observer-observing-observers",
       "investigation-depth-infinite"
     ],
-    "crossCharacterConnections": [
-      "moderate-algo-parallel",
-      "moderate-hum-parallel"
-    ],
+    "crossCharacterConnections": ["moderate-algo-parallel", "moderate-hum-parallel"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "archaeologist-network-2047",

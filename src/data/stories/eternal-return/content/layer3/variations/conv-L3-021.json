@@ -24,28 +24,17 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
-    "characterBalance": [
-      33,
-      33,
-      34
-    ],
+    "characterBalance": [33, 33, 34],
     "readableLabel": "SS-IN-H-TB",
     "humanDescription": "Started archaeologist, stayed dominant, investigate path, high awareness, triple-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "seamless-rotation",
     "perspectiveEmphasis": "network-symmetry",
     "philosophicalCulmination": "Investigation becomes investigated becoming investigation",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "transform-investigate",
     "circularCausality": "explicit",
     "readerPosition": "acknowledged-as-fifth-position",
@@ -65,10 +54,6 @@
       "reader-fifth-present"
     ],
     "philosophicalResolution": "recursive-transformation-through-investigation",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

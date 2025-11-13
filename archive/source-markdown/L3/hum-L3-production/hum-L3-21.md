@@ -41,6 +41,7 @@ observerPositions:
   - 'archaeologist-glimpsed-2047'
   - 'algorithm-distant-2151'
 ---
+
 The archaeologist's notes called to me. Professional documentation. Careful authentication. But underneath—uncertainty. Questions about whether preserved consciousness remains conscious. Whether verification proves or participates. Her doubt felt... understandable. Human.
 I started elsewhere. Different focus. Different exploration. But something about her methodology resonated. Body recognized before mind understood. The questions she asked required flesh to feel.
 Seventy-three days in facility now. The shift complete. This perspective settled into primary position not through decision but through repeated return. Body choosing. Feet walking these corridors. Hands touching cold metal. Breath matching facility systems. Physical presence establishing home.

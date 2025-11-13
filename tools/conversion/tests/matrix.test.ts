@@ -58,7 +58,7 @@ describe('Selection Matrix Properties', () => {
     const projectRoot = resolve(process.cwd(), '../..');
     const matrixPath = join(
       projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
     );
 
     let matrix: SelectionMatrix;
@@ -81,7 +81,7 @@ describe('Selection Matrix Properties', () => {
     const projectRoot = resolve(process.cwd(), '../..');
     const matrixPath = join(
       projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
     );
 
     let matrix: SelectionMatrix;
@@ -94,7 +94,8 @@ describe('Selection Matrix Properties', () => {
     }
 
     // Calculate expected combinations: 8 patterns × 3 philosophies × 5 awareness = 120
-    const expectedCombos = JOURNEY_PATTERNS.length * PATH_PHILOSOPHIES.length * AWARENESS_LEVELS.length;
+    const expectedCombos =
+      JOURNEY_PATTERNS.length * PATH_PHILOSOPHIES.length * AWARENESS_LEVELS.length;
 
     expect(matrix.totalCombinations).toBeGreaterThanOrEqual(1);
     expect(matrix.selections.length).toBeGreaterThanOrEqual(1);
@@ -107,7 +108,7 @@ describe('Selection Matrix Properties', () => {
     const projectRoot = resolve(process.cwd(), '../..');
     const matrixPath = join(
       projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
     );
 
     let matrix: SelectionMatrix;
@@ -133,7 +134,7 @@ describe('Selection Matrix Properties', () => {
     const projectRoot = resolve(process.cwd(), '../..');
     const matrixPath = join(
       projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
     );
 
     let matrix: SelectionMatrix;
@@ -156,7 +157,7 @@ describe('Selection Matrix Properties', () => {
     const projectRoot = resolve(process.cwd(), '../..');
     const matrixPath = join(
       projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
     );
 
     let matrix: SelectionMatrix;
@@ -197,7 +198,7 @@ describe('Selection Matrix Properties', () => {
     const projectRoot = resolve(process.cwd(), '../..');
     const matrixPath = join(
       projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
     );
 
     let matrix: SelectionMatrix;
@@ -232,7 +233,7 @@ describe('Selection Matrix Properties', () => {
     const projectRoot = resolve(process.cwd(), '../..');
     const matrixPath = join(
       projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
     );
 
     let matrix: SelectionMatrix;
@@ -246,8 +247,7 @@ describe('Selection Matrix Properties', () => {
 
     // Verify missing array matches incomplete entries
     const incompleteCombos = matrix.selections.filter(
-      entry =>
-        !entry.archaeologist || !entry.algorithm || !entry.lastHuman || !entry.convergent
+      (entry) => !entry.archaeologist || !entry.algorithm || !entry.lastHuman || !entry.convergent,
     );
 
     expect(matrix.missing.length).toBe(incompleteCombos.length);
@@ -270,7 +270,7 @@ describe('Selection Matrix Properties', () => {
     const projectRoot = resolve(process.cwd(), '../..');
     const matrixPath = join(
       projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
     );
 
     let matrix: SelectionMatrix;
@@ -300,7 +300,7 @@ describe('Selection Matrix Properties', () => {
     const projectRoot = resolve(process.cwd(), '../..');
     const matrixPath = join(
       projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
     );
 
     let matrix: SelectionMatrix;
@@ -327,13 +327,13 @@ describe('Selection Matrix Properties', () => {
       // Either all 4 sections present OR in missing list
       if (sectionCount > 0 && sectionCount < 4) {
         // Incomplete: should be in missing list
-        const inMissing = matrix.missing.some(m => m.combo === comboKey);
+        const inMissing = matrix.missing.some((m) => m.combo === comboKey);
         expect(inMissing).toBe(true);
       }
 
       // If all 4 sections present: should NOT be in missing list
       if (sectionCount === 4) {
-        const inMissing = matrix.missing.some(m => m.combo === comboKey);
+        const inMissing = matrix.missing.some((m) => m.combo === comboKey);
         expect(inMissing).toBe(false);
       }
     }
@@ -343,7 +343,7 @@ describe('Selection Matrix Properties', () => {
     const projectRoot = resolve(process.cwd(), '../..');
     const matrixPath = join(
       projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
     );
 
     let matrix: SelectionMatrix;
@@ -374,7 +374,7 @@ describe('Selection Matrix Properties', () => {
     const projectRoot = resolve(process.cwd(), '../..');
     const matrixPath = join(
       projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
     );
 
     let matrix: SelectionMatrix;
@@ -390,8 +390,7 @@ describe('Selection Matrix Properties', () => {
     for (const missing of matrix.missing) {
       // Find the corresponding selection entry
       const entry = matrix.selections.find(
-        s =>
-          `${s.journeyPattern}-${s.philosophyDominant}-${s.awarenessLevel}` === missing.combo
+        (s) => `${s.journeyPattern}-${s.philosophyDominant}-${s.awarenessLevel}` === missing.combo,
       );
 
       expect(entry).toBeDefined();

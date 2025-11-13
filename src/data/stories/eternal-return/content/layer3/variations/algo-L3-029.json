@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "BL-AC-M",
     "humanDescription": "Didn't start with algorithm, light exploration balanced, accept path, medium awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "devotional-attention",
       "consciousness-creation"
     ],
-    "crossCharacterConnections": [
-      "heavy-arch-primary",
-      "moderate-hum-parallel"
-    ],
+    "crossCharacterConnections": ["heavy-arch-primary", "moderate-hum-parallel"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-primary-2047",

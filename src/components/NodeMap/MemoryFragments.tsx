@@ -16,41 +16,45 @@ interface Fragment {
  * Floating memory fragments from visited nodes
  */
 export function MemoryFragments() {
-  const progress = useStoryStore(state => state.progress);
-  const nodes = useStoryStore(state => state.nodes);
+  const progress = useStoryStore((state) => state.progress);
+  const nodes = useStoryStore((state) => state.nodes);
 
   // Generate fragments from visited nodes
   const fragments = useMemo(() => {
     const visited = Object.keys(progress.visitedNodes);
     if (visited.length === 0) return [];
 
-    return visited.slice(0, 8).map((nodeId, i) => {
-      const node = nodes.get(nodeId);
-      if (!node) return null;
+    return visited
+      .slice(0, 8)
+      .map((nodeId, i) => {
+        const node = nodes.get(nodeId);
+        if (!node) return null;
 
-      // Extract fragment from content
-      const content = node.content.initial || '';
-      const words = content.split(' ').filter(w => w.length > 4);
-      const randomWord = words[Math.floor(Math.random() * Math.min(words.length, 20))] || 'memory';
+        // Extract fragment from content
+        const content = node.content.initial || '';
+        const words = content.split(' ').filter((w) => w.length > 4);
+        const randomWord =
+          words[Math.floor(Math.random() * Math.min(words.length, 20))] || 'memory';
 
-      // Character-specific colors
-      const colors = {
-        archaeologist: '#00e5ff',
-        algorithm: '#39ff14',
-        'last-human': '#d32f2f',
-        'multi-perspective': '#9c27b0',
-      };
+        // Character-specific colors
+        const colors = {
+          archaeologist: '#00e5ff',
+          algorithm: '#39ff14',
+          'last-human': '#d32f2f',
+          'multi-perspective': '#9c27b0',
+        };
 
-      return {
-        id: `${nodeId}-${i}`,
-        text: randomWord.substring(0, 15),
-        x: Math.random() * 80 + 10, // 10-90% across screen
-        y: Math.random() * 80 + 10, // 10-90% down screen
-        delay: i * 2,
-        duration: 20 + Math.random() * 10,
-        color: colors[node.character] || '#00e5ff',
-      };
-    }).filter(Boolean) as Fragment[];
+        return {
+          id: `${nodeId}-${i}`,
+          text: randomWord.substring(0, 15),
+          x: Math.random() * 80 + 10, // 10-90% across screen
+          y: Math.random() * 80 + 10, // 10-90% down screen
+          delay: i * 2,
+          duration: 20 + Math.random() * 10,
+          color: colors[node.character] || '#00e5ff',
+        };
+      })
+      .filter(Boolean) as Fragment[];
   }, [progress.visitedNodes, nodes]);
 
   return (

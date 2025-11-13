@@ -2,7 +2,7 @@
  * L3 Assembly View Component - displays the 4-section convergence assembly
  */
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { L3Assembly } from '@/types';
 import { getL3AssemblySections } from '@/utils/l3Assembly';
@@ -14,7 +14,7 @@ import { useStoryStore } from '@/stores/storyStore';
  */
 function parseMarkdown(content: string): React.ReactNode {
   // Split into paragraphs
-  const paragraphs = content.split('\n\n').filter(p => p.trim());
+  const paragraphs = content.split('\n\n').filter((p) => p.trim());
 
   return paragraphs.map((paragraph, pIndex) => {
     const currentText = paragraph;
@@ -25,10 +25,6 @@ function parseMarkdown(content: string): React.ReactNode {
 
     // Regex patterns for markdown formatting
     const boldPattern = /(\*\*|__)(.*?)\1/g;
-    // italicPattern currently unused but kept for future feature
-    // @ts-expect-error - Unused but kept for future feature
-    const italicPattern = /(\*|_)(.*?)\1/g;
-
     // First pass: handle bold text
     let match;
     let lastIndex = 0;
@@ -40,9 +36,7 @@ function parseMarkdown(content: string): React.ReactNode {
       }
 
       // Add bold text
-      processedParts.push(
-        <strong key={`bold-${key++}`}>{match[2]}</strong>
-      );
+      processedParts.push(<strong key={`bold-${key++}`}>{match[2]}</strong>);
 
       lastIndex = (match.index || 0) + match[0].length;
     }
@@ -81,18 +75,20 @@ const characterTextColors = {
 
 export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
-  const markL3SectionRead = useStoryStore(state => state.markL3SectionRead);
-  const l3Progress = useStoryStore(state =>
-    state.progress.l3AssembliesViewed?.[state.progress.l3AssembliesViewed.length - 1]
+  const markL3SectionRead = useStoryStore((state) => state.markL3SectionRead);
+  const l3Progress = useStoryStore(
+    (state) => state.progress.l3AssembliesViewed?.[state.progress.l3AssembliesViewed.length - 1],
   );
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  const sections = getL3AssemblySections(assembly);
+  const sections = useMemo(() => getL3AssemblySections(assembly), [assembly]);
   const currentSection = sections[currentSectionIndex];
 
   // Track section reads using IntersectionObserver
   useEffect(() => {
-    if (!sectionRef.current) return;
+    if (!sectionRef.current) {
+      return undefined;
+    }
 
     let timer: NodeJS.Timeout;
 
@@ -111,7 +107,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
           }
         });
       },
-      { threshold: 0.5 } // 50% visible
+      { threshold: 0.5 }, // 50% visible
     );
 
     observer.observe(sectionRef.current);
@@ -120,26 +116,34 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
       observer.disconnect();
       if (timer) clearTimeout(timer);
     };
-  }, [currentSectionIndex, currentSection.character, markL3SectionRead]);
+  }, [currentSection.character, markL3SectionRead]);
 
   // Handle section navigation
-  const goToSection = (index: number) => {
-    if (index >= 0 && index < sections.length) {
-      // Mark previous section as read when navigating away
-      const prevSection = sections[currentSectionIndex].character as 'arch' | 'algo' | 'hum' | 'conv';
+  const goToSection = useCallback(
+    (index: number) => {
+      if (index < 0 || index >= sections.length) {
+        return;
+      }
+
+      const prevSection = sections[currentSectionIndex].character as
+        | 'arch'
+        | 'algo'
+        | 'hum'
+        | 'conv';
       markL3SectionRead(prevSection);
 
       setCurrentSectionIndex(index);
-    }
-  };
+    },
+    [currentSectionIndex, markL3SectionRead, sections],
+  );
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     goToSection(currentSectionIndex + 1);
-  };
+  }, [currentSectionIndex, goToSection]);
 
-  const handlePrevious = () => {
+  const handlePrevious = useCallback(() => {
     goToSection(currentSectionIndex - 1);
-  };
+  }, [currentSectionIndex, goToSection]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -158,7 +162,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentSectionIndex, onClose]);
+  }, [goToSection, handleNext, handlePrevious, onClose]);
 
   return (
     <motion.div
@@ -218,9 +222,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span className="truncate">{section.title}</span>
-                    {isRead && (
-                      <span className="text-green-400 text-xs flex-shrink-0">✓</span>
-                    )}
+                    {isRead && <span className="text-green-400 text-xs flex-shrink-0">✓</span>}
                   </div>
                 </button>
               );

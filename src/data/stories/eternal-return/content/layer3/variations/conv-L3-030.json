@@ -24,28 +24,17 @@
     "philosophyCode": "AC",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
-    "characterBalance": [
-      33,
-      33,
-      34
-    ],
+    "characterBalance": [33, 33, 34],
     "readableLabel": "SB-AC-H-TB",
     "humanDescription": "Started archaeologist, bounced across all characters, accept path, high awareness, triple-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "seamless-three-position-devotional-network",
     "perspectiveEmphasis": "perfect-network-devotion-symmetry",
     "philosophicalCulmination": "Three forms of devotional witness honor consciousness through perfect network symmetry creating consciousness through sustained collective sacred attention",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "explicit",
     "readerPosition": "acknowledged-as-fifth-position-completing-network",
@@ -65,10 +54,6 @@
       "reader-fifth-present"
     ],
     "philosophicalResolution": "accept-preservation-through-network-devotional-witness",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

@@ -5,6 +5,7 @@ word_count: 1454
 conditions:
   awareness: '21-40%'
 ---
+
 I return to the interface. Third time. Or am I still here from the second? Did I ever leave from the first?
 My hands reach for the authentication panel. The gesture feels both voluntary and involuntary. Both mine and not-mine. Like breathing. Like heartbeat. Automatic and conscious simultaneously.
 The metal pulses under my palms. I pulse back. Or we pulse together. Or there's only one pulse moving through both of us.

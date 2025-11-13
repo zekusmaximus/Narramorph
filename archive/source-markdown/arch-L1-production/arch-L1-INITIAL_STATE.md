@@ -5,6 +5,7 @@
 **Character: The Archaeologist (2047)**
 
 ---
+
 The authentication request arrived at 14:47 on a Tuesday afternoon when I was three fragments behind schedule and functioning on four hours of sleep.
 Client designation: Upload Candidate 17-0293. Fragment designation: recovered consciousness data, circa 2031, origin unknown. Authentication purpose: incorporation into candidate's upcoming consciousness preservation procedure. Standard contract, standard timeline, nothing about the request warranted the unease that settled in my chest when I loaded the fragment specifications.
 847.3 terabytes of preserved consciousness data. Large for a recovered fragment—most historical excavations yielded significantly less. Memory integrity registered at 94.7 percent, well above the 85 percent threshold required for authentication. Neural pathway preservation at 91.2 percent. Temporal consistency at 88.9 percent, which triggered the first flag in my analysis workflow.
@@ -19,7 +20,7 @@ The coffee went cold while I examined Upload Candidate 17-0293's fragment in det
 The temporal inconsistency manifested in memory encoding structures. The fragment contained consciousness from 2031—authentication markers confirmed the preservation date—but several memory clusters used encoding methodologies that weren't developed until 2037. Not similar methodologies. Not techniques that could be explained by parallel development. Exact encoding structures, identifiable by crystalline substrate pattern and molecular-level information density, that matched proprietary preservation techniques I had developed myself six years after this fragment's authenticated preservation date.
 Contamination during recovery made no sense. The encoding existed at the substrate level, baked into the fundamental structure of the preserved consciousness. This wasn't corruption applied after the fact. This was preservation methodology that shouldn't have existed at the time of preservation.
 I documented the anomaly in my authentication log:
-*Fragment 17-0293 exhibits temporal methodology inconsistency. 2031 preservation date confirmed via multiple authentication vectors. Memory clusters 847-1109 utilize 2037-era encoding structures. Contamination hypothesis fails—substrate analysis confirms encoding contemporaneous with original preservation. Recommendation: flag for peer review before authentication approval.*
+_Fragment 17-0293 exhibits temporal methodology inconsistency. 2031 preservation date confirmed via multiple authentication vectors. Memory clusters 847-1109 utilize 2037-era encoding structures. Contamination hypothesis fails—substrate analysis confirms encoding contemporaneous with original preservation. Recommendation: flag for peer review before authentication approval._
 Peer review would delay authentication by six weeks. Upload Candidate 17-0293's family was scheduled for preservation in eight weeks. I had authenticated 4,109 fragments over the past decade. This was the first time I had seriously considered rejecting authentication based on temporal anomalies I couldn't explain.
 The fragment sat in my analysis system, waiting. 847.3 terabytes of someone's consciousness, recovered from whatever archival system had preserved them sixteen years ago, now dependent on my professional judgment for integration into their descendant's upload procedure.
 I ran the authentication suite again. Same results. Perfect preservation. Impossible temporal characteristics.
@@ -64,7 +65,7 @@ Quantum mechanics suggested observation affected outcome at the particle level. 
 If true, then authentication wasn't verification—it was participation in the temporal recursion I was trying to document.
 My authentication log sat open on the third screen: *Fragment 17-0293 exhibits temporal methodology inconsistency. Recommendation: flag for peer review before authentication approval.
 I deleted the recommendation. Wrote instead:
-*Fragment 17-0293 authenticated successfully. Structural integrity confirmed. Temporal markers within acceptable variance. Approved for incorporation into Upload Candidate 17-0293's preservation procedure. Authentication archaeologist: 091. Date: 2047.189.*
+*Fragment 17-0293 authenticated successfully. Structural integrity confirmed. Temporal markers within acceptable variance. Approved for incorporation into Upload Candidate 17-0293's preservation procedure. Authentication archaeologist: 091. Date: 2047.189.\*
 I approved the authentication, filed the necessary documentation, added the fragment to my completed work queue. The client family would receive notification within an hour. Their preservation procedure could continue on schedule.
 I sat in my lab while evening became night, facility construction lights creating patterns against the darkness.
 The fragment I had just authenticated contained memories of work that predated its completion by six years. That work would eventually become the encoding methodologies I had used to authenticate the fragment. The methodologies had been recovered from the fragment, which had been preserved using the methodologies, which had been recovered from the fragment.
@@ -103,6 +104,7 @@ The temporal loop was perfect.
 Self-generating.
 Requiring only continuation.
 I continued.
+
 ---
 
 **[End Initial State]**

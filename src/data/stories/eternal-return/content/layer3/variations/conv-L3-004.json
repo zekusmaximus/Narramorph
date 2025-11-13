@@ -24,29 +24,18 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "archaeologist",
-    "characterBalance": [
-      70,
-      15,
-      15
-    ],
+    "characterBalance": [70, 15, 15],
     "readableLabel": "SS-AC-M-SD",
     "humanDescription": "Started archaeologist, stayed dominant (>60%), accept path, medium awareness, single-character synthesis emphasis",
     "narrativeElements": null,
     "multiVoiceIntegration": "fluid-transitions",
     "perspectiveEmphasis": "archaeologist-primary",
     "philosophicalCulmination": "Authentication becomes devotional witness creating preservation through sustained attention",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "developing",
     "readerPosition": "emerging",
@@ -65,10 +54,6 @@
       "reader-emerging"
     ],
     "philosophicalResolution": "devotional-preservation-creates-continuation",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

@@ -24,29 +24,18 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacter": "network-distributed",
-    "characterBalance": [
-      33,
-      33,
-      33
-    ],
+    "characterBalance": [33, 33, 33],
     "readableLabel": "SB-RE-M-TB",
     "humanDescription": "Started somewhere, bounced across all three characters, resist path, medium awareness, triple-balanced synthesis with all three voices equal",
     "narrativeElements": null,
     "multiVoiceIntegration": "fluid-triple-equal",
     "perspectiveEmphasis": "network-distributed-equal",
     "philosophicalCulmination": "Three methodologies resisting dissolution systematically",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release-with-systematic-verification",
     "circularCausality": "network-pattern-visible",
     "readerPosition": "implicit-through-three-position-architecture",
@@ -66,10 +55,6 @@
       "reader-fourth-position"
     ],
     "philosophicalResolution": "systematic-resistance-across-substrates",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

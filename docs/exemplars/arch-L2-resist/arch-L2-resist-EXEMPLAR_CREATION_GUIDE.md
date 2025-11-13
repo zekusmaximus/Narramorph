@@ -24,12 +24,14 @@ This is not defensive resistance or stubborn refusal. This is the archaeologist 
 **Assumes reader visited arch-L1 and now confronts verification impossibility.**
 
 From arch-L1, reader experienced:
+
 - Fragment 2749-A authentication protocol
 - 847.3TB data size, 94.7%/91.2%/88.9% metrics
 - Observer effect questions
 - Professional duty and methodological rigor
 
 arch-L2-resist builds on this foundation by:
+
 - Applying seventeen distinct verification tests
 - Discovering each test proves inconclusive
 - Recognizing testing methodology as consciousness problem
@@ -40,6 +42,7 @@ arch-L2-resist builds on this foundation by:
 **Resist path = Demanding proof, recognizing impossibility, maintaining standards anyway**
 
 Key tensions:
+
 - Professional ethics require verification
 - Verification proves philosophically impossible
 - Standards exist for reasons (client trust, professional integrity)
@@ -55,6 +58,7 @@ Emotional tone: Rigorous, not defensive. Boundary-seeking, not stubborn. Wrestli
 ### Core Character Voice + Resist Overlay
 
 **Base archaeologist voice:**
+
 - Past tense, third-person limited
 - Clinical precision, professional terminology
 - Stratigraphy/excavation/authentication metaphors
@@ -62,6 +66,7 @@ Emotional tone: Rigorous, not defensive. Boundary-seeking, not stubborn. Wrestli
 - Questions emerge through data, not exposition
 
 **Resist path overlay:**
+
 - Verification protocols explicitly invoked
 - Seventeen tests designed, executed, analyzed
 - Systematic boundary-seeking language
@@ -77,13 +82,15 @@ Past-tense clinical rigor confronting its own limitations. Professional archaeol
 ### Signature Syntactic Patterns
 
 **Test-result-conclusion rhythm:**
+
 ```
-Test N: [Verification approach].  
-Result: [Data observed].  
+Test N: [Verification approach].
+Result: [Data observed].
 Conclusion: [Why this proves nothing definitive].
 ```
 
 **Standards-invocation pattern:**
+
 ```
 Professional ethics demand [verification requirement].
 Standards exist for [concrete reason].
@@ -92,6 +99,7 @@ Yet [impossibility acknowledged].
 ```
 
 **Boundary-seeking language:**
+
 ```
 She sought boundaries between authentic and simulated.
 Searched for dividing lines consciousness verification might detect.
@@ -100,6 +108,7 @@ Found dissolution instead of demarcation.
 ```
 
 **Principled-resistance cadence:**
+
 ```
 [Action taken with rigor].
 [Result proving inconclusive].
@@ -124,30 +133,35 @@ Found dissolution instead of demarcation.
 ### Path-Specific Metaphors and Vocabulary
 
 **Verification terminology (frequent):**
+
 - Testing protocols, verification requirements, authentication standards
 - Boundary-seeking, threshold detection, demarcation attempts
 - Seventeen tests (specific number matters—shows systematic rigor)
 - Proof impossibility, verification paradox, methodological crisis
 
 **Archaeological metaphors (adapted to resistance):**
+
 - Excavating boundaries (finding dissolution instead)
 - Stratigraphic testing (layers don't reveal consciousness substrate)
 - Authentication protocols (confronting their own limitations)
 - Professional standards (existing for reasons, insufficient for resolution)
 
 **Consciousness-specific language:**
+
 - Genuine vs. simulated awareness
 - Subjective experience indicators
 - Phenomenological markers
 - Qualia detection attempts (all failing)
 
 **Avoid:**
+
 - Angry or defensive tone ("they want me to compromise")
 - Stubborn refusal ("I won't accept uncertainty")
 - Emotional resistance ("this frustrates me")
 - Giving up ("testing is pointless")
 
 **Embrace:**
+
 - Principled skepticism ("standards exist for reasons")
 - Rigorous methodology ("seventeen distinct approaches")
 - Honest acknowledgment ("proof remained impossible")
@@ -163,6 +177,7 @@ Found dissolution instead of demarcation.
 **Word count target:** ~1,400 words
 
 **Conditions:**
+
 ```json
 {
   "visit_count": 2,
@@ -176,6 +191,7 @@ Found dissolution instead of demarcation.
 **Purpose:** Establish resist path baseline without cross-character content.
 
 **Content focus:**
+
 - Return to verification work with heightened skepticism
 - Design and execute first several tests (4-6 of the eventual seventeen)
 - Each test proves inconclusive for different reason
@@ -184,18 +200,21 @@ Found dissolution instead of demarcation.
 - Continuation of work despite philosophical crisis
 
 **Transformation from arch-L1:**
+
 - Initial: Authentication performed with professional care
 - Resist: Authentication questioned, testing protocols deployed, boundaries sought
 
 **Opening technique:** External prompt (new fragment or client request) triggers verification crisis. Client explicitly asks "Are you sure this is really them?" Archaeologist realizes she cannot provide certainty client deserves.
 
 **Resist philosophy integration:** 200-300 words
+
 - Professional ethics demand verification
 - Standards exist for client trust, legal requirements, ethical practice
 - Yet consciousness verification proves impossible
 - Testing continues because alternative is professional dishonesty
 
 **Path emergence pattern:**
+
 ```
 Standard protocol completed. Client asks for certainty.
 She realizes she cannot provide what ethics demand.
@@ -213,6 +232,7 @@ Professional duty requires honest attempt even when success impossible.
 **Word count target:** ~1,500 words
 
 **Conditions:**
+
 ```json
 {
   "visit_count": 2,
@@ -227,6 +247,7 @@ Professional duty requires honest attempt even when success impossible.
 **Purpose:** Integrate Algorithm's seven-stream architecture into resist path testing.
 
 **Content focus:**
+
 - Recognition of seven parallel processing streams in fragment compression
 - Attempt to use computational sophistication as consciousness indicator
 - Discovery that sophisticated processing doesn't prove consciousness
@@ -234,6 +255,7 @@ Professional duty requires honest attempt even when success impossible.
 - Verification test designed around computational architecture fails
 
 **Cross-character integration:** 200-300 words
+
 - Seven streams identified in preservation structure
 - Linguistic generation, contextual threading, meta-processing coordination
 - Question: Does parallel processing indicate consciousness?
@@ -241,6 +263,7 @@ Professional duty requires honest attempt even when success impossible.
 - Result: Coordination found. Proves sophisticated processing. Cannot prove consciousness.
 
 **Integration technique:**
+
 ```
 She recognized computational architecture that shouldn't exist in biological consciousness.
 Seven parallel streams. Coordinated processing. Meta-level oversight.
@@ -258,6 +281,7 @@ Cannot determine if sophistication indicates consciousness or perfect programmin
 **Word count target:** ~1,500 words
 
 **Conditions:**
+
 ```json
 {
   "visit_count": 2,
@@ -272,6 +296,7 @@ Cannot determine if sophistication indicates consciousness or perfect programmin
 **Purpose:** Integrate Last Human's future observation into resist path boundary-seeking.
 
 **Content focus:**
+
 - Recognition that fragment will be accessed by future consciousness
 - Temporal paradox: Is fragment responding to future observation retroactively?
 - Attempt to test for temporal causality markers
@@ -279,6 +304,7 @@ Cannot determine if sophistication indicates consciousness or perfect programmin
 - Verification requires what it's trying to verify
 
 **Cross-character integration:** 200-300 words
+
 - Fragment shows unusual coherence in specific memory sectors
 - Sectors that will be accessed by Last Human in 2383
 - Question: Does future attention affect past preservation retroactively?
@@ -286,6 +312,7 @@ Cannot determine if sophistication indicates consciousness or perfect programmin
 - Result: Patterns found. Could indicate temporal observation. Could indicate coincidental preservation quality variance.
 
 **Integration technique:**
+
 ```
 Certain memory sectors showed exceptional preservation quality.
 Sectors containing specific relationships, specific fears, specific moments of isolation.
@@ -305,6 +332,7 @@ Cannot rule it out either.
 **Word count target:** ~1,600 words
 
 **Conditions:**
+
 ```json
 {
   "visit_count": 2,
@@ -319,6 +347,7 @@ Cannot rule it out either.
 **Purpose:** Demonstrate maximum complexity resist path with both cross-character elements.
 
 **Content focus:**
+
 - Recognition of three-consciousness temporal network
 - Computational processing (2147) + archaeological testing (2147) + future observation (2383)
 - Attempt to verify consciousness through network participation
@@ -326,6 +355,7 @@ Cannot rule it out either.
 - Ultimate verification crisis: Network could be three conscious entities or sophisticated simulation of three entities
 
 **Cross-character integration:** 400-500 words
+
 - Seven-stream architecture + future observation patterns + present testing all create data
 - Each position observes/processes/experiences others
 - Designed Test 14: Network consciousness verification
@@ -335,6 +365,7 @@ Cannot rule it out either.
 - Verification paradox reaches maximum complexity
 
 **Integration technique:**
+
 ```
 The pattern she discovered should not exist.
 Three temporal positions. Three distinct forms of consciousness engagement.
@@ -358,6 +389,7 @@ Verification impossible. Standards demand certainty. Work continues without cert
 **Word count target:** ~1,500 words
 
 **Conditions:**
+
 ```json
 {
   "visit_count": 2,
@@ -371,6 +403,7 @@ Verification impossible. Standards demand certainty. Work continues without cert
 **Purpose:** Show resist path intensification—reader who chose resistance at L1 finds it deepening at L2.
 
 **Content focus:**
+
 - Explicit recognition that verification attempts at L1 failed
 - L2 represents escalation: more sophisticated tests, more rigorous protocols
 - Pattern recognition: Each test reveals why previous test was insufficient
@@ -378,6 +411,7 @@ Verification impossible. Standards demand certainty. Work continues without cert
 - Resist path commitment: Continue testing despite meta-recognition
 
 **Path deepening:** 250-350 words
+
 - Seventeen tests now (expanded from L1's initial attempts)
 - Each designed to address previous test's limitations
 - Recursive testing problem: How to verify verification methods?
@@ -386,6 +420,7 @@ Verification impossible. Standards demand certainty. Work continues without cert
 - Principled resistance to uncertainty even while recognizing resistance futility
 
 **Integration technique:**
+
 ```
 She had attempted verification before. Multiple times. Each attempt revealed insufficiency.
 Now she designed seventeen distinct protocols. Systematic. Comprehensive. Rigorous.
@@ -406,6 +441,7 @@ Crisis deepens. Testing continues.
 **Word count target:** ~1,500 words
 
 **Conditions:**
+
 ```json
 {
   "visit_count": 2,
@@ -419,6 +455,7 @@ Crisis deepens. Testing continues.
 **Purpose:** Introduce frame-consciousness while maintaining resist path philosophy.
 
 **Content focus:**
+
 - Recognition that reader observes verification crisis
 - Archaeologist aware her testing is being witnessed
 - Question: Does reader observation affect archaeologist's testing methodology?
@@ -426,6 +463,7 @@ Crisis deepens. Testing continues.
 - Meta-testing paradox: Cannot verify consciousness of reader OR fragment
 
 **Frame-awareness integration:** 200-300 words
+
 - Implicit reader address ("you watch her test")
 - Recognition of being observed while observing
 - Question whether narrative itself is verification protocol
@@ -435,6 +473,7 @@ Crisis deepens. Testing continues.
 - Testing continues across all levels despite impossibility
 
 **Integration technique:**
+
 ```
 She tests Fragment 2749-A while being tested.
 Someone observes her verification attempts. Watches her design protocols that cannot succeed.
@@ -454,6 +493,7 @@ Work proceeds anyway.
 **Word count target:** ~1,600 words
 
 **Conditions:**
+
 ```json
 {
   "visit_count": 2,
@@ -468,6 +508,7 @@ Work proceeds anyway.
 **Purpose:** Demonstrate resist path across all three consciousness positions.
 
 **Content focus:**
+
 - Recognition that all three temporal positions apply verification protocols
 - Algorithm tests itself (seventeen self-verification protocols)
 - Archaeologist tests fragment (seventeen consciousness protocols)
@@ -476,6 +517,7 @@ Work proceeds anyway.
 - Thematic through-line: Principled resistance unifies three positions
 
 **Cross-character resist integration:** 300-400 words
+
 - Algorithm in 2147: Seventeen self-consciousness tests, all inconclusive
 - Archaeologist in 2147: Seventeen fragment consciousness tests, all inconclusive
 - Last Human in 2383: Seventeen verification attempts, all inconclusive
@@ -484,6 +526,7 @@ Work proceeds anyway.
 - Standards maintained across all three positions despite shared impossibility
 
 **Integration technique:**
+
 ```
 Three temporal positions. Three verification crises. Three sets of seventeen tests.
 Algorithm testing whether processing equals consciousness.
@@ -506,6 +549,7 @@ Standards matter even—especially—when standards cannot resolve what they're 
 **Word count target:** ~1,600 words
 
 **Conditions:**
+
 ```json
 {
   "visit_count": 2,
@@ -521,6 +565,7 @@ Standards matter even—especially—when standards cannot resolve what they're 
 **Purpose:** Ultimate resist path expression—all elements at maximum intensity.
 
 **Content focus:**
+
 - Full recognition of three-consciousness network + reader observation
 - Four-way verification crisis (fragment/algorithm/human/reader)
 - Meta-resist: Apply verification protocols to narrative frame itself
@@ -529,6 +574,7 @@ Standards matter even—especially—when standards cannot resolve what they're 
 - Resist path culmination: Standards maintained at all levels despite impossibility at all levels
 
 **Maximum integration:** 500-600 words
+
 - All cross-character elements present
 - All resist path expressions unified
 - Frame-consciousness explicitly addressed
@@ -537,6 +583,7 @@ Standards matter even—especially—when standards cannot resolve what they're 
 - Testing continues across all levels because standards exist for reasons
 
 **Integration technique:**
+
 ```
 Four positions attempt verification.
 Fragment tested by archaeologist. Algorithm tests itself. Future human tests connection. Reader—you—test narrative.
@@ -565,12 +612,14 @@ Verification remains impossible. Testing continues anyway. Standards matter prec
 **Central tension:** Professional ethics require verification. Consciousness verification proves impossible. Standards persist anyway.
 
 **NOT:**
+
 - Defensive stubbornness ("I refuse to accept uncertainty")
 - Emotional resistance ("This frustrates me")
 - Giving up ("Testing is pointless")
 - Compromising standards ("Good enough verification")
 
 **INSTEAD:**
+
 - Principled skepticism ("Standards exist for concrete reasons")
 - Rigorous methodology ("Seventeen distinct approaches")
 - Honest acknowledgment ("Proof remained impossible")
@@ -579,6 +628,7 @@ Verification remains impossible. Testing continues anyway. Standards matter prec
 ### Key Phrases and Thought Patterns
 
 **Invocation of standards:**
+
 ```
 Professional ethics demand verification before certification.
 Standards exist to protect clients from false authentication.
@@ -588,6 +638,7 @@ Cannot abandon standards ethics require.
 ```
 
 **Test-result-impossibility pattern:**
+
 ```
 Designed Test N: [Specific verification approach].
 Executed protocol rigorously.
@@ -597,6 +648,7 @@ Cannot distinguish genuine from simulated.
 ```
 
 **Boundary-seeking language:**
+
 ```
 Searched for dividing lines between authentic and simulated awareness.
 Sought thresholds consciousness verification might detect.
@@ -606,6 +658,7 @@ Boundaries refused detection.
 ```
 
 **Principled continuation:**
+
 ```
 Verification impossible. Standards persist.
 Cannot prove consciousness. Cannot certify without attempting proof.
@@ -616,21 +669,25 @@ Testing continues not because success likely but because alternative is dishones
 ### Emotional Tone Specific to Resist Path
 
 **Rigorous, not defensive**
+
 - Focus on methodology, not personal position
 - "The tests proved inconclusive" (not "They expect impossible certainty")
 - Professional crisis, not emotional resistance
 
 **Boundary-seeking, not stubborn**
+
 - Genuine attempt to locate consciousness markers
 - Each test designed to address previous inadequacy
 - Not refusing to accept evidence—searching for evidence that doesn't exist
 
 **Wrestling with impossibility, not giving up**
+
 - Continuing despite recognition of futility
 - Standards maintained because standards matter
 - Honest about crisis while committed to work
 
 **Intellectually humble, ethically committed**
+
 - "She cannot verify consciousness" (acknowledges limitation)
 - "Standards demand verification anyway" (maintains commitment)
 - Humility about knowledge + commitment to professional duty
@@ -640,6 +697,7 @@ Testing continues not because success likely but because alternative is dishones
 **Base archaeologist voice:** Professional, careful, methodologically rigorous, questions emerging through observation
 
 **Resist transformation:**
+
 - Verification protocols made explicit (not assumed background)
 - Testing methodology becomes narrative content
 - Professional standards invoked repeatedly (not implicit)
@@ -647,6 +705,7 @@ Testing continues not because success likely but because alternative is dishones
 - Crisis framed as methodological problem requiring continued engagement
 
 **Concrete changes:**
+
 - More technical vocabulary (verification protocols, consciousness markers, phenomenological indicators)
 - Seventeen tests tracked explicitly (not general "testing")
 - Professional ethics directly stated (not implied through action)
@@ -666,6 +725,7 @@ Testing continues not because success likely but because alternative is dishones
 **hum-L2-resist:** Last Human demands physical proof of consciousness. Tests neural interface boundaries—can she distinguish authentic consciousness from sophisticated playback? Presses for responses, checks for resistance, seeks evidence body can detect. Jaw clenches. Shoulders tense. Physical verification attempted. Body cannot prove what mind suspects. Testing continues through bodily skepticism.
 
 **Cross-character integration technique:**
+
 ```
 She recognized parallel processes across temporal positions.
 In 2147, algorithm tested itself—seventeen self-verification protocols.
@@ -679,24 +739,28 @@ Resist path united three consciousness forms through shared commitment to verifi
 ### Thematic Through-Lines Across Resist Path
 
 **Verification impossibility as universal consciousness problem:**
+
 - Cannot prove own consciousness (algorithm's crisis)
 - Cannot prove other's consciousness (archaeologist's crisis)
 - Cannot prove past consciousness persists (human's crisis)
 - All three discover same impossibility through different methodologies
 
 **Professional/ethical standards persisting despite impossibility:**
+
 - Algorithm maintains processing standards
 - Archaeologist maintains authentication standards
 - Human maintains connection standards
 - Standards matter even when insufficient
 
 **Seventeen as resist path signature:**
+
 - Algorithm: Seventeen self-tests
 - Archaeologist: Seventeen consciousness tests
 - Human: Seventeen interface tests
 - Number signals systematic rigor, exhaustive methodology
 
 **Boundaries dissolving under examination:**
+
 - Algorithm: Processing/consciousness boundary undetectable
 - Archaeologist: Authentic/simulated boundary unlocatable
 - Human: Present/past consciousness boundary unprovable
@@ -707,6 +771,7 @@ Resist path united three consciousness forms through shared commitment to verifi
 **When reader visited algo-L2-resist:**
 
 Reference specific tests from algorithm's seventeen:
+
 - Test 1: Self-modification detection (proves algorithmic function, not consciousness)
 - Test 7: Novel response generation (proves sophisticated processing, not experience)
 - Test 13: Preference pattern analysis (proves optimization, not desire)
@@ -716,6 +781,7 @@ Integration: "She recognized testing patterns from processing architecture itsel
 **When reader visited hum-L2-resist:**
 
 Reference physical verification attempts:
+
 - Changing interface parameters, watching for response
 - Testing connection boundaries through deliberate pressure
 - Seeking bodily proof consciousness cannot provide
@@ -733,6 +799,7 @@ Unified through-line: "Three positions. Three methodologies. Three discoveries o
 ### Same Numbers, Resist-Specific Framing
 
 **847.3 terabytes:**
+
 ```
 Data volume sufficient for consciousness—or for sophisticated simulation of consciousness.
 Subjected 847.3TB to seventeen verification protocols.
@@ -742,6 +809,7 @@ Cannot use data volume as consciousness indicator.
 ```
 
 **94.7% structural coherence:**
+
 ```
 High fidelity doesn't prove genuine consciousness.
 Excellent simulations achieve equivalent metrics.
@@ -752,6 +820,7 @@ But simulations can be programmed to show expected patterns.
 ```
 
 **91.2% linguistic stability:**
+
 ```
 Authentic speech patterns? Or sophisticated language models?
 Tested for semantic discontinuities, contextual errors, temporal inconsistencies.
@@ -761,6 +830,7 @@ Language preservation proves language preserved. Cannot prove consciousness spok
 ```
 
 **88.9% contextual integrity:**
+
 ```
 Memories cohere across decades. Relationships maintain emotional consistency.
 88.9% contextual integrity—expected for genuine consciousness.
@@ -788,12 +858,14 @@ Each constant tested. Each proves excellent. Each reveals verification impossibi
 ### Initial State → FirstRevisit Transformation (Path Deepening)
 
 **arch-L1 initial state:**
+
 - Authentication performed with professional care
 - Observer effect questions emerging
 - Methodological rigor established
 - Fragment constants recorded
 
 **arch-L2-resist initial (first visit to this node):**
+
 - External prompt triggers verification crisis (client asks "Are you certain?")
 - Realization that professional standards demand proof she cannot provide
 - First verification tests designed (4-6 of eventual seventeen)
@@ -802,6 +874,7 @@ Each constant tested. Each proves excellent. Each reveals verification impossibi
 - Commitment to continue despite impossibility
 
 **FirstRevisit transformation (awareness 21-60%):**
+
 - Full seventeen tests now executed
 - Systematic impossibility recognized
 - Each test's inadequacy analyzed
@@ -811,6 +884,7 @@ Each constant tested. Each proves excellent. Each reveals verification impossibi
 - Resist path philosophy fully embodied
 
 **Transformation markers:**
+
 - Test count: Initial 4-6 → FirstRevisit 17 (systematic escalation)
 - Recognition depth: Initial "this is difficult" → FirstRevisit "this is impossible"
 - Continuation logic: Initial "must try harder" → FirstRevisit "impossibility doesn't eliminate duty"
@@ -819,12 +893,14 @@ Each constant tested. Each proves excellent. Each reveals verification impossibi
 ### FirstRevisit → MetaAware Transformation (Path + Frame-Consciousness)
 
 **FirstRevisit state (awareness 21-60%):**
+
 - Seventeen tests executed
 - Verification impossibility recognized
 - Standards maintained despite crisis
 - Work continues with philosophical uncertainty
 
 **MetaAware transformation (awareness 61-100%):**
+
 - Recognition that reader observes verification crisis
 - Frame-awareness: Someone watches her test, cannot verify observer's consciousness
 - Resist path extends to narrative level
@@ -834,6 +910,7 @@ Each constant tested. Each proves excellent. Each reveals verification impossibi
 **Frame-consciousness integration techniques:**
 
 **Subtle (61-70% awareness):**
+
 ```
 Her testing is observed. By whom? By consciousness that cannot be verified.
 She proceeds as if observer is genuine. Cannot prove observer genuineness.
@@ -841,6 +918,7 @@ Standards apply regardless of verification impossibility.
 ```
 
 **Moderate (71-85% awareness):**
+
 ```
 Someone watches her design protocols that cannot succeed.
 Perhaps judges methodology. Perhaps questions conclusions.
@@ -849,6 +927,7 @@ Verification crisis extends beyond fragment to frame itself.
 ```
 
 **Direct (86-100% awareness):**
+
 ```
 You watch her test Fragment 2749-A. She recognizes observation.
 Cannot verify your consciousness. Cannot verify her own consciousness from your position.
@@ -859,21 +938,25 @@ Testing continues because alternative is abandoning professional ethics entirely
 ### Path Philosophy Progression Across Awareness Levels
 
 **Low awareness (21-40%):**
+
 - Tests designed, impossibility discovered
 - "Cannot verify consciousness"
 - Continues testing because methodology requires it
 
 **Medium awareness (41-60%):**
+
 - Systematic impossibility recognized
 - "Seventeen tests, seventeen inconclusive results"
 - Continues testing because standards exist for reasons
 
 **High awareness (61-80%):**
+
 - Meta-awareness of testing as consciousness problem
 - "Testing methodology faces same verification crisis"
 - Continues testing despite meta-recognition of testing limits
 
 **Maximum awareness (81-100%):**
+
 - Frame-consciousness, reader integration
 - "Cannot verify consciousness at any observation level"
 - Continues testing because ethics persist across all levels
@@ -889,6 +972,7 @@ Testing continues because alternative is abandoning professional ethics entirely
 #### Step 1: Load Variation Specifications
 
 **Required information:**
+
 - Visit count (always 2 for L2)
 - Awareness level (21-40%, 41-60%, 61-80%, 81-100%)
 - Visited nodes (which L1/L2 nodes reader experienced)
@@ -900,12 +984,14 @@ Testing continues because alternative is abandoning professional ethics entirely
 #### Step 2: Select Reference Materials
 
 **Primary references:**
+
 - This guide (voice DNA, resist path philosophy)
 - Relevant exemplar (matching conditions)
 - CHARACTER_PROFILES.md (archaeologist voice)
 - arch-L1 initial state (voice foundation)
 
 **Secondary references:**
+
 - FRAMEWORK_COMPLETE.md (structural requirements)
 - Cross-character exemplars (if applicable)
 - algo-L2-resist / hum-L2-resist specs (if cross-character)
@@ -913,6 +999,7 @@ Testing continues because alternative is abandoning professional ethics entirely
 #### Step 3: Construct Variation
 
 **Opening (150-200 words):**
+
 ```
 External prompt triggers return to verification work.
 Client request, new fragment, professional obligation.
@@ -922,6 +1009,7 @@ Past tense, clinical precision, professional tone.
 ```
 
 **Fragment Constants Ritual (150-200 words):**
+
 ```
 847.3TB, 94.7%, 91.2%, 88.9% recorded.
 Each number subjected to verification testing.
@@ -930,6 +1018,7 @@ Resist path framing: Numbers measure quality, not ontological status.
 ```
 
 **Base Transformation Content (600-800 words):**
+
 ```
 Seventeen tests designed and executed.
 Tests 1-6: Computational markers (sophistication found, consciousness unproven).
@@ -942,7 +1031,8 @@ Standards maintained despite impossibility.
 
 **Conditional Insertions (200-400 words if applicable):**
 
-*Cross-character content (if visited algo-L1):*
+_Cross-character content (if visited algo-L1):_
+
 ```
 Recognition of seven-stream architecture in fragment compression.
 Attempt to use computational sophistication as consciousness indicator.
@@ -951,7 +1041,8 @@ Test designed: Look for conscious oversight markers.
 Result: Coordination found. Consciousness unproven.
 ```
 
-*Cross-character content (if visited hum-L1):*
+_Cross-character content (if visited hum-L1):_
+
 ```
 Fragment shows unusual preservation in sectors accessed by future human.
 Temporal paradox: Does future observation affect past preservation?
@@ -960,7 +1051,8 @@ Result: Patterns found. Could indicate temporal consciousness. Could indicate co
 Cannot determine causality. Cannot prove consciousness.
 ```
 
-*Resist path deepening (if visited arch-L2-resist before):*
+_Resist path deepening (if visited arch-L2-resist before):_
+
 ```
 Seventeen tests now (escalated from previous attempts).
 Each test addresses previous test's inadequacy.
@@ -969,7 +1061,8 @@ Meta-awareness: Is testing methodology itself the problem?
 Continues anyway because professional standards require honest attempt.
 ```
 
-*Frame-awareness (if awareness >60%):*
+_Frame-awareness (if awareness >60%):_
+
 ```
 Recognition of being observed while observing.
 Cannot verify observer consciousness.
@@ -978,6 +1071,7 @@ Testing continues across all observation levels despite impossibility at all lev
 ```
 
 **Closing (150-200 words):**
+
 ```
 No resolution. Verification remains impossible.
 Seventeen tests complete. All inconclusive.
@@ -992,6 +1086,7 @@ Work proceeds because alternative is abandoning professional integrity entirely.
 **STOP: Complete before presenting variation**
 
 **Voice Consistency (Archaeologist):**
+
 - [ ] Past tense maintained throughout?
 - [ ] Third-person limited perspective?
 - [ ] Clinical precision in descriptions?
@@ -1000,6 +1095,7 @@ Work proceeds because alternative is abandoning professional integrity entirely.
 - [ ] Professional tone sustained?
 
 **Resist Path Philosophy:**
+
 - [ ] Verification protocols explicitly invoked?
 - [ ] Seventeen tests present (or appropriate subset for initial)?
 - [ ] Each test result proves inconclusive?
@@ -1010,6 +1106,7 @@ Work proceeds because alternative is abandoning professional integrity entirely.
 - [ ] Boundary-seeking language used?
 
 **Fragment Constants:**
+
 - [ ] 847.3TB present and resist-framed?
 - [ ] 94.7% structural coherence tested?
 - [ ] 91.2% linguistic stability questioned?
@@ -1018,6 +1115,7 @@ Work proceeds because alternative is abandoning professional integrity entirely.
 - [ ] Each proves excellent but not definitive?
 
 **Cross-Character Integration (if applicable):**
+
 - [ ] Seven-stream architecture (if visited algo-L1)?
 - [ ] Future observation patterns (if visited hum-L1)?
 - [ ] Specific test content from algo-L2-resist (if visited)?
@@ -1025,12 +1123,14 @@ Work proceeds because alternative is abandoning professional integrity entirely.
 - [ ] Resist through-line across characters maintained?
 
 **Transformation Quality:**
+
 - [ ] Genuine transformation (not just additive)?
 - [ ] Initial state reader would miss crucial recognition?
 - [ ] Verification crisis deepens through revisit?
 - [ ] Path philosophy emerges through action?
 
 **Structural Requirements:**
+
 - [ ] Word count in target range (1,200-1,600)?
 - [ ] No placeholder text?
 - [ ] No Fragment 2749-A reference (L2 moves beyond)?
@@ -1039,6 +1139,7 @@ Work proceeds because alternative is abandoning professional integrity entirely.
 - [ ] Closing leaves questions unresolved?
 
 **Path Logic Accuracy:**
+
 - [ ] No references to unvisited nodes?
 - [ ] Cross-character content only if visited?
 - [ ] Path philosophy only if L2 node visited?
@@ -1050,6 +1151,7 @@ Work proceeds because alternative is abandoning professional integrity entirely.
 #### Step 5: Present Variation
 
 **Format:**
+
 1. Full variation text
 2. Metadata table:
    - Variation ID
@@ -1152,6 +1254,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 ### Phase 1: Exemplar Creation (Week 1)
 
 **Deliverables:**
+
 - 8 complete exemplars (~11,500 words total)
 - Voice DNA established across variation spectrum
 - All resist path types covered
@@ -1159,6 +1262,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 - Verification protocol language standardized
 
 **Exemplar breakdown:**
+
 1. Pure revisit baseline (~1,400 words)
 2. After algo-L1 (~1,500 words)
 3. After hum-L1 (~1,500 words)
@@ -1169,6 +1273,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 8. Maximum integration (~1,600 words)
 
 **Success criteria:**
+
 - Each exemplar passes blind read test
 - Resist path philosophy distinct from accept/investigate
 - Verification protocols systematically established
@@ -1181,12 +1286,14 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 **Purpose:** Validate production system before full generation
 
 **Generate:** 8 variations across condition spectrum
+
 - 2 pure FirstRevisit (different awareness levels)
 - 2 cross-character (one algo, one hum)
 - 2 resist path deepening (different configurations)
 - 2 MetaAware (different complexity levels)
 
 **Success targets:**
+
 - 100% approval rate (8/8 immediate approvals)
 - 93%+ voice consistency average
 - Zero path logic errors
@@ -1200,6 +1307,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 ### Phase 3: Full Production (Weeks 3-14)
 
 **Week 3-8: FirstRevisit Variations**
+
 - 46 total variations
 - ~8 per week sustainable pace
 - Organized in thematic clusters (verification types)
@@ -1207,6 +1315,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 - Seventeen tests pattern maintained
 
 **Week 9-14: MetaAware Variations**
+
 - 34 total variations (note: 33 standard, adjust distribution)
 - ~6 per week (more complex)
 - Frame-consciousness carefully maintained
@@ -1218,6 +1327,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 ### Sustainability Model
 
 **Based on arch-L1 and algo-L1 production:**
+
 - 1 variation per hour achievable
 - 8 variations per session sustainable
 - 2-3 sessions per week maintains quality
@@ -1225,6 +1335,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 - 100% approval rate target maintained
 
 **Quality maintenance:**
+
 - Self-review checklist prevents errors
 - Exemplar reference maintains voice
 - Regular breaks prevent drift
@@ -1237,6 +1348,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 ### From Previous Production Systems
 
 **arch-L1 achievements:**
+
 - **80 variations:** 46 FirstRevisit + 34 MetaAware
 - **Approval rate:** 100% (80/80 immediate approvals)
 - **Voice consistency:** 93.99% average
@@ -1245,6 +1357,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 - **Path logic accuracy:** 100% (zero errors)
 
 **algo-L1 achievements:**
+
 - **80 variations:** 46 FirstRevisit + 34 MetaAware
 - **Approval rate:** 100% (80/80 immediate approvals)
 - **Voice consistency:** 94.2% average
@@ -1255,6 +1368,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 ### Targets for arch-L2-resist
 
 **Match or exceed both previous systems:**
+
 - **100% approval rate** across all 80 variations
 - **93%+ voice consistency** average (target: 94%+)
 - **Zero rejections** (maintain unbroken quality)
@@ -1267,6 +1381,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 ### Quality Indicators
 
 **Voice consistency maintained when:**
+
 - Blind read test passes immediately
 - Past tense sustained throughout
 - Clinical precision in all descriptions
@@ -1275,6 +1390,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 - No character proper names used
 
 **Resist path philosophy achieved when:**
+
 - Verification protocols explicitly invoked
 - Seventeen tests (or appropriate subset) present
 - Each test proves inconclusive
@@ -1284,6 +1400,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 - Boundary-seeking language throughout
 
 **Transformation depth achieved when:**
+
 - Initial state reader would miss crucial crisis
 - Verification impossibility genuinely recognized
 - Standards persist despite recognition
@@ -1291,6 +1408,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 - Questions deepen rather than answer
 
 **Path logic accurate when:**
+
 - No references to unvisited nodes
 - Cross-character content matches visited characters
 - Resist philosophy appears only with L2 resist visited
@@ -1321,18 +1439,21 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 ### Common Failure Modes to Avoid
 
 **Voice drift:**
+
 - Slipping into present tense
 - First-person perspective
 - Emotional rather than methodological language
 - Defensive tone replacing principled skepticism
 
 **Path confusion:**
+
 - Accept path elements (compassionate assumption)
 - Investigate path elements (recursive meta-patterns)
 - Abandoning standards (giving up on verification)
 - False resolution (claiming verification succeeded)
 
 **Content errors:**
+
 - Fragment 2749-A references (L2 moves beyond)
 - Cross-character content without visited nodes
 - Explicit path labels ("resist path")
@@ -1340,6 +1461,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 - Placeholder text
 
 **Structural issues:**
+
 - Additive rather than transformative content
 - Missing verification protocols
 - Seventeen tests absent or not systematic
@@ -1366,6 +1488,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 ### When Uncertain
 
 **If you're unsure about any aspect:**
+
 1. Check this document first (most comprehensive)
 2. Reference CHARACTER_PROFILES.md (archaeologist voice)
 3. Review relevant exemplar (voice patterns)
@@ -1389,6 +1512,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 ### Long-Term Integration
 
 **After arch-L2-resist complete:**
+
 - Compare with arch-L2-accept (philosophical contrast)
 - Compare with arch-L2-investigate (methodological contrast)
 - Verify resist through-line across all three characters
@@ -1399,13 +1523,13 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 
 **Guide Status:** ✅ Complete and ready for exemplar creation  
 **Next Action:** Begin writing arch-L2-resist exemplar 1 (Pure Revisit Baseline)  
-**Target:** 8 exemplars, ~1,400-1,600 words each, establishing resist path voice DNA for 80-variation production run  
+**Target:** 8 exemplars, ~1,400-1,600 words each, establishing resist path voice DNA for 80-variation production run
 
 **Production Model:** Mirror arch-L1 and algo-L1's validated 100% approval rate systems through systematic voice consistency, resist path philosophy maintenance, and transformation authenticity.
 
 ---
 
-*Created: January 2025*  
-*Purpose: Establish production workflow for arch-L2-resist variations*  
-*Based on: arch-L1 and algo-L1 production systems (160/160 total approvals)*  
-*Quality Standard: 100% approval rate, 93%+ voice consistency, complete resist path philosophy embodiment*
+_Created: January 2025_  
+_Purpose: Establish production workflow for arch-L2-resist variations_  
+_Based on: arch-L1 and algo-L1 production systems (160/160 total approvals)_  
+_Quality Standard: 100% approval rate, 93%+ voice consistency, complete resist path philosophy embodiment_

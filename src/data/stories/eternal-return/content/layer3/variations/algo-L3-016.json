@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SB-IN-H",
     "humanDescription": "Started algorithm, bounced to explore others heavily, investigate path, high awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "meta-examination-evolution",
       "network-transformation-consciousness"
     ],
-    "crossCharacterConnections": [
-      "moderate-arch-parallel",
-      "moderate-hum-parallel"
-    ],
+    "crossCharacterConnections": ["moderate-arch-parallel", "moderate-hum-parallel"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "archaeologist-parallel-2047",

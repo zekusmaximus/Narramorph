@@ -1,14 +1,17 @@
 # L3 Assembly System Implementation
 
 ## Overview
+
 This document describes the implementation of the L3 Assembly System for Narramorph, including content loading, selection matrix integration, journey tracking, and UI components.
 
 ## Implementation Date
+
 November 10, 2025
 
 ## Components Implemented
 
 ### 1. Type Definitions (`src/types/Variation.ts`)
+
 New type system for the variation and journey tracking features:
 
 - **JourneyPattern**: Tracks reader's character exploration pattern
@@ -39,6 +42,7 @@ New type system for the variation and journey tracking features:
 - **JourneyTracking**: State management for journey patterns and philosophy
 
 ### 2. Variation Loader (`src/utils/variationLoader.ts`)
+
 Handles loading and caching of variation JSON files:
 
 - Uses Vite glob imports for file discovery
@@ -53,6 +57,7 @@ Handles loading and caching of variation JSON files:
   - `findVariationById()`: Find specific variation
 
 ### 3. Condition Evaluator (`src/utils/conditionEvaluator.ts`)
+
 Evaluates selection matrix conditions against user state:
 
 - **getAwarenessLevel()**: Convert numeric awareness to level category
@@ -71,10 +76,11 @@ Evaluates selection matrix conditions against user state:
   - Implements thresholds (>60% for stayed, >50% for shifted, etc.)
 
 - **calculatePathPhilosophy()**: Determine dominant philosophy from L2 choices
-  - >50% threshold for dominant
+  - > 50% threshold for dominant
   - <20% difference threshold for mixed
 
 ### 4. L3 Assembly Builder (`src/utils/l3Assembly.ts`)
+
 Constructs 4-section convergence assemblies:
 
 - **buildL3Assembly()**: Main assembly function
@@ -97,6 +103,7 @@ Constructs 4-section convergence assemblies:
 ### 5. State Management Enhancements (`src/stores/storyStore.ts`)
 
 #### New State Fields
+
 - `progress.journeyTracking`: JourneyTracking object with:
   - Character visit percentages
   - Current journey pattern
@@ -106,6 +113,7 @@ Constructs 4-section convergence assemblies:
   - Dominant character
 
 #### New Functions
+
 - **createInitialJourneyTracking()**: Initialize journey tracking state
 
 - **updateJourneyTracking()**: Update journey tracking after each visit
@@ -128,6 +136,7 @@ Constructs 4-section convergence assemblies:
   - Returns complete assembly
 
 #### Integration
+
 - `visitNode()` now calls `updateJourneyTracking()` after each visit
 - Journey tracking automatically calculates patterns and philosophy
 - L3 assembly can be generated on-demand based on current state
@@ -135,7 +144,9 @@ Constructs 4-section convergence assemblies:
 ### 6. UI Components
 
 #### Journey Tracker (`src/components/UI/JourneyTracker.tsx`)
+
 Displays current journey status:
+
 - Journey pattern (human-readable label)
 - Path philosophy (human-readable label)
 - L2 choice counts (accept/resist/invest breakdown)
@@ -148,7 +159,9 @@ Displays current journey status:
 - Real-time updates as user explores
 
 #### L3 Assembly View (`src/components/UI/L3AssemblyView.tsx`)
+
 Full-screen modal for viewing L3 convergence:
+
 - 4 sections with navigation tabs
 - Character-themed styling per section
 - Markdown rendering for content
@@ -168,6 +181,7 @@ Full-screen modal for viewing L3 convergence:
 ### 7. Home Page Integration (`src/pages/Home.tsx`)
 
 #### New Features
+
 - Journey Tracker widget (bottom right corner)
   - Animated entrance
   - Fixed positioning
@@ -221,6 +235,7 @@ L3AssemblyView renders content
 ## Selection Matrix Integration
 
 The selection matrix (`selection-matrix.json`) contains 311 navigation entries mapping:
+
 - `fromNode` → `toNode`
 - Conditions:
   - `awarenessLevel`: Low/Medium/High
@@ -257,6 +272,7 @@ Total: ~4500 words per L3 assembly
 ## Key Algorithms
 
 ### Journey Pattern Calculation
+
 ```typescript
 if (dominantCharacter === startingCharacter && startingPercentage > 60):
   return "started-stayed"
@@ -271,6 +287,7 @@ else:
 ```
 
 ### Path Philosophy Calculation
+
 ```typescript
 total = accept + resist + invest
 acceptPercent = (accept / total) * 100
@@ -283,6 +300,7 @@ else: return highest
 ```
 
 ### Variation Selection Priority
+
 1. Exact journey pattern + exact philosophy match
 2. Exact journey pattern match
 3. Exact philosophy match
@@ -312,6 +330,7 @@ src/
 ## Configuration
 
 ### Required Data Files
+
 - `/src/data/stories/eternal-return/content/layer3/arch-L3-variations.json`
 - `/src/data/stories/eternal-return/content/layer3/algo-L3-variations.json`
 - `/src/data/stories/eternal-return/content/layer3/hum-L3-variations.json`
@@ -319,13 +338,19 @@ src/
 - `/src/data/stories/eternal-return/content/selection-matrix.json`
 
 ### Glob Patterns
+
 The variation loader uses Vite glob imports:
+
 ```typescript
-/src/data/stories/*/content/layer1/*-variations.json
-/src/data/stories/*/content/layer2/*-variations.json
-/src/data/stories/*/content/layer3/*-variations.json
-/src/data/stories/*/content/layer4/*-variations.json
-/src/data/stories/*/content/selection-matrix.json
+/src/aadt / stories;
+/*/content/layer1/*-variations.json
+/src/data/stories/*/ content / layer2;
+/*-variations.json
+/src/data/stories/*/ content / layer3;
+/*-variations.json
+/src/data/stories/*/ content / layer4;
+/*-variations.json
+/src/data/stories/*/ content / selection - matrix.json;
 ```
 
 ## Testing Recommendations

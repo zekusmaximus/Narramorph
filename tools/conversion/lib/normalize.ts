@@ -17,9 +17,23 @@ const MULTIPLE_SPACES = /  +/g;
 
 // Cyrillic characters that look like Latin
 const CYRILLIC_HOMOGLYPHS: Record<string, string> = {
-  'А': 'A', 'В': 'B', 'Е': 'E', 'К': 'K', 'М': 'M', 'Н': 'H',
-  'О': 'O', 'Р': 'P', 'С': 'C', 'Т': 'T', 'Х': 'X',
-  'а': 'a', 'е': 'e', 'о': 'o', 'р': 'p', 'с': 'c', 'х': 'x',
+  А: 'A',
+  В: 'B',
+  Е: 'E',
+  К: 'K',
+  М: 'M',
+  Н: 'H',
+  О: 'O',
+  Р: 'P',
+  С: 'C',
+  Т: 'T',
+  Х: 'X',
+  а: 'a',
+  е: 'e',
+  о: 'o',
+  р: 'p',
+  с: 'c',
+  х: 'x',
 };
 
 export interface NormalizationResult {
@@ -30,12 +44,16 @@ export interface NormalizationResult {
 /**
  * Normalize text according to plan specifications
  */
-export function normalizeText(text: string, logger?: Logger, filePath?: string): NormalizationResult {
+export function normalizeText(
+  text: string,
+  logger?: Logger,
+  filePath?: string,
+): NormalizationResult {
   const warnings: string[] = [];
   let normalized = text;
 
   // Strip BOM
-  if (normalized.charCodeAt(0) === 0xFEFF) {
+  if (normalized.charCodeAt(0) === 0xfeff) {
     normalized = normalized.slice(1);
   }
 

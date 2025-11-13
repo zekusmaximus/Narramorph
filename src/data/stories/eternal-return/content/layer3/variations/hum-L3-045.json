@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "ML-IN-L",
     "humanDescription": "Started elsewhere, substantial last human exploration, investigate path, low awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Body investigates what investigation reveals about consciousness",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-investigation",
-      "physical-methodology",
-      "examination-continuing"
-    ],
-    "crossCharacterConnections": [
-      "heavy-algo-primary",
-      "significant-arch-foundational"
-    ],
+    "primaryThemes": ["embodied-investigation", "physical-methodology", "examination-continuing"],
+    "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "algorithm-primary-2151",

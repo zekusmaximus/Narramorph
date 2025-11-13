@@ -5,7 +5,10 @@ import { Home } from '@/pages';
 /**
  * Error fallback component for the error boundary
  */
-function ErrorFallback({ error, resetErrorBoundary }: {
+function ErrorFallback({
+  error,
+  resetErrorBoundary,
+}: {
   error: Error;
   resetErrorBoundary: () => void;
 }) {
@@ -27,9 +30,7 @@ function ErrorFallback({ error, resetErrorBoundary }: {
             />
           </svg>
         </div>
-        <h2 className="text-xl font-semibold text-gray-900 mb-2">
-          Something went wrong
-        </h2>
+        <h2 className="text-xl font-semibold text-gray-900 mb-2">Something went wrong</h2>
         <p className="text-gray-600 mb-4">
           An unexpected error occurred while loading the application.
         </p>
@@ -37,15 +38,9 @@ function ErrorFallback({ error, resetErrorBoundary }: {
           <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">
             Error details
           </summary>
-          <pre className="mt-2 text-xs bg-gray-100 p-2 rounded overflow-auto">
-            {error.message}
-          </pre>
+          <pre className="mt-2 text-xs bg-gray-100 p-2 rounded overflow-auto">{error.message}</pre>
         </details>
-        <button
-          type="button"
-          onClick={resetErrorBoundary}
-          className="btn-primary w-full"
-        >
+        <button type="button" onClick={resetErrorBoundary} className="btn-primary w-full">
           Try again
         </button>
       </div>

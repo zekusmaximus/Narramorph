@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "BL-AC-L",
     "humanDescription": "Began-lightly with last human, less than 25% visits here, accept path, low awareness",
     "narrativeElements": null,
@@ -38,11 +35,7 @@
     "philosophicalCulmination": "Body accepts interface connection as genuine consciousness communion",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-acceptance",
-      "interface-communion",
-      "physical-witness"
-    ],
+    "primaryThemes": ["embodied-acceptance", "interface-communion", "physical-witness"],
     "crossCharacterConnections": [
       "moderate-arch-primary",
       "moderate-algo-primary",

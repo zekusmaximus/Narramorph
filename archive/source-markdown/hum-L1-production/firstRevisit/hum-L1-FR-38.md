@@ -5,6 +5,7 @@ word_count: 1637
 conditions:
   awareness: '21-40%'
 ---
+
 I return to the archive. Third time.
 My body knows this threshold intimately now. Feet crossing with muscle memory. Lungs adjusting to the air before conscious thought. But what I carry is deeper than familiarity. Pattern recognition so complete it lives in my bones.
 Three times. Three consciousnesses. Three examinations of the same fragments.

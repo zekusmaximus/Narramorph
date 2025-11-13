@@ -21,12 +21,14 @@
 ### Reader Choice vs. System Assembly
 
 **What reader does:**
+
 - Sees 3 L3 nodes on map: arch-L3, algo-L3, hum-L3
 - Chooses ONE node (cannot visit others)
 - Reads ONE assembled narrative (~4,500 words)
 - Makes ONE convergence choice (preserve/release/transform)
 
 **What system does:**
+
 - Analyzes reader's complete journey through L1/L2
 - Selects 4 personalized variations (one from each variation set)
 - Assembles them into single seamless narrative
@@ -38,21 +40,25 @@
 ### Four L3 Variation Sets (Not Four Nodes)
 
 **1. arch-L3: Archaeologist Convergence Variations**
+
 - Pure archaeologist voice throughout
 - 900 words per variation
 - 45 variations total (5 journey × 3 philosophy × 3 awareness)
 
 **2. algo-L3: Algorithm Convergence Variations**
+
 - Pure algorithm voice throughout
 - 900 words per variation
 - 45 variations total (5 journey × 3 philosophy × 3 awareness)
 
 **3. hum-L3: Last Human Convergence Variations**
+
 - Pure last human voice throughout
 - 900 words per variation
 - 45 variations total (5 journey × 3 philosophy × 3 awareness)
 
 **4. L3-conv: Convergent Synthesis Variations**
+
 - Multi-voice blending (all three characters)
 - 1,800 words per variation
 - 135 variations total (5 journey × 3 philosophy × 3 awareness × 3 synthesis)
@@ -68,6 +74,7 @@
 ### What Reader Sees vs. What Program Does
 
 **CRITICAL DISTINCTION:**
+
 - **Reader sees:** 3 L3 nodes on map (arch-L3, algo-L3, hum-L3)
 - **Reader chooses:** ONE node based on preferred character perspective
 - **Program assembles:** 4 sections into single ~4,500-word narrative
@@ -76,15 +83,18 @@
 ### Navigation Flow
 
 **Step 1: Reader explores L1 and L2**
+
 - Visits create journey signature (starting character, path philosophy, awareness level, cross-character exploration, etc.)
 - Minimum L2 requirements must be met to unlock L3
 
 **Step 2: L3 nodes unlock**
+
 - Reader sees THREE L3 options on narrative map: arch-L3, algo-L3, hum-L3
 - Each represents experiencing convergence through that character's "lens"
 - Reader must choose ONE (cannot visit multiple L3 nodes)
 
 **Step 3: Reader chooses L3 node**
+
 - Reader clicks arch-L3, algo-L3, OR hum-L3
 - Choice indicates: "I want to experience convergence through this character's perspective"
 - System begins assembly process (invisible to reader)
@@ -92,6 +102,7 @@
 **Step 4: Program assembles personalized L3 narrative**
 
 System analyzes reader's complete journey signature:
+
 - Starting character (determines journey pattern for each character node)
 - Character visit percentages (SS/SB/SD/BL/ML per character)
 - L2 path choices (determines philosophy: AC/RE/IN)
@@ -99,19 +110,22 @@ System analyzes reader's complete journey signature:
 - Cross-character exploration depth (determines synthesis pattern: SD/DB/TB)
 
 System selects FOUR variations:
+
 1. One arch-L3 variation (from 45 options) - Archaeologist voice, 900 words
 2. One algo-L3 variation (from 45 options) - Algorithm voice, 900 words
 3. One hum-L3 variation (from 45 options) - Last Human voice, 900 words
 4. One L3-conv variation (from 135 options) - Multi-voice synthesis, 1,800 words
 
 Example selection for reader who started with archaeologist, stayed dominant, accept path, high awareness:
+
 - arch-L3-01 (SS-AC-H) = 900 words
-- algo-L3-37 (ML-AC-H) = 900 words  
+- algo-L3-37 (ML-AC-H) = 900 words
 - hum-L3-37 (ML-AC-H) = 900 words
 - L3-conv-001 (SS-AC-H-SD) = 1,800 words
 - **Total assembled narrative:** 4,500 words
 
 **Step 5: Reader experiences assembled narrative**
+
 - Reads all four sections in sequence as single continuous experience
 - Experiences archaeologist's convergence (900 words)
 - Experiences algorithm's convergence (900 words)
@@ -120,12 +134,14 @@ Example selection for reader who started with archaeologist, stayed dominant, ac
 - All three perspectives present regardless of which node chosen
 
 **Step 6: Convergence choice presented**
+
 - L3-conv section ends with explicit choice: Preserve / Release / Transform
 - Reader makes choice via UI buttons
 - Choice recorded to UserProgress
 - L3 node marked as visited (cannot revisit)
 
 **Step 7: L4 unlocks**
+
 - Reader's convergence choice determines which L4 ending unlocks
 - Three possible L4 endings based on preserve/release/transform choice
 - Reader proceeds to conclusion
@@ -133,12 +149,14 @@ Example selection for reader who started with archaeologist, stayed dominant, ac
 ### Why Reader Chooses Node If They See All Perspectives Anyway?
 
 **The node choice affects:**
+
 1. **Thematic framing** - UI/presentation emphasizes chosen character's lens
 2. **Variation weighting** - Synthesis pattern may favor chosen character's voice
 3. **Emotional journey** - Reader enters convergence through familiar perspective
 4. **Player agency** - Meaningful choice that affects experience framing
 
 **But reader always experiences:**
+
 - All three character perspectives (arch, algo, hum sections)
 - Complete convergent synthesis
 - Full 4,500-word narrative arc
@@ -178,6 +196,7 @@ L4 ending unlocks: Based on convergence choice
 Each character node has **45 variations** based on three independent factors:
 
 **Factor 1: Journey Pattern (5 options)**
+
 - SS = Started-Stayed (started with this character, >60% visits here)
 - SB = Started-Bounced (started here, explored others, <40% here)
 - SD = Shifted-Dominant (started elsewhere, this became primary)
@@ -185,11 +204,13 @@ Each character node has **45 variations** based on three independent factors:
 - ML = Met-Later (didn't start here, 25-60% visits here)
 
 **Factor 2: Path Philosophy (3 options)**
+
 - AC = Accept (>40% accept path choices across L2)
 - RE = Resist (>40% resist path choices)
 - IN = Investigate (balanced or >40% investigate)
 
 **Factor 3: Awareness Level (3 options)**
+
 - L = Low (20-40% awareness score)
 - M = Medium (41-70% awareness score)
 - H = High (71-100% awareness score)
@@ -207,6 +228,7 @@ The convergent synthesis node has **135 variations** based on four factors:
 **Factor 3: Awareness Level (3 options)** - Same as above
 
 **Factor 4: Synthesis Pattern (3 options)**
+
 - SD = Single-Dominant (one character voice leads, others support)
 - DB = Dual-Balanced (two voices primary, one secondary)
 - TB = Triple-Balanced (all three voices equal weight)
@@ -222,65 +244,65 @@ The convergent synthesis node has **135 variations** based on four factors:
 **arch-L3, algo-L3, hum-L3 numbering:**
 
 | Variation # | Journey | Philosophy | Awareness |
-|-------------|---------|------------|-----------|
-| 01 | SS | AC | H |
-| 02 | SS | AC | M |
-| 03 | SS | AC | L |
-| 04 | SS | RE | H |
-| 05 | SS | RE | M |
-| 06 | SS | RE | L |
-| 07 | SS | IN | H |
-| 08 | SS | IN | M |
-| 09 | SS | IN | L |
-| 10 | SB | AC | H |
-| 11 | SB | AC | M |
-| 12 | SB | AC | L |
-| 13 | SB | RE | H |
-| 14 | SB | RE | M |
-| 15 | SB | RE | L |
-| 16 | SB | IN | H |
-| 17 | SB | IN | M |
-| 18 | SB | IN | L |
-| 19 | SD | AC | H |
-| 20 | SD | AC | M |
-| 21 | SD | AC | L |
-| 22 | SD | RE | H |
-| 23 | SD | RE | M |
-| 24 | SD | RE | L |
-| 25 | SD | IN | H |
-| 26 | SD | IN | M |
-| 27 | SD | IN | L |
-| 28 | BL | AC | H |
-| 29 | BL | AC | M |
-| 30 | BL | AC | L |
-| 31 | BL | RE | H |
-| 32 | BL | RE | M |
-| 33 | BL | RE | L |
-| 34 | BL | IN | H |
-| 35 | BL | IN | M |
-| 36 | BL | IN | L |
-| 37 | ML | AC | H |
-| 38 | ML | AC | M |
-| 39 | ML | AC | L |
-| 40 | ML | RE | H |
-| 41 | ML | RE | M |
-| 42 | ML | RE | L |
-| 43 | ML | IN | H |
-| 44 | ML | IN | M |
-| 45 | ML | IN | L |
+| ----------- | ------- | ---------- | --------- |
+| 01          | SS      | AC         | H         |
+| 02          | SS      | AC         | M         |
+| 03          | SS      | AC         | L         |
+| 04          | SS      | RE         | H         |
+| 05          | SS      | RE         | M         |
+| 06          | SS      | RE         | L         |
+| 07          | SS      | IN         | H         |
+| 08          | SS      | IN         | M         |
+| 09          | SS      | IN         | L         |
+| 10          | SB      | AC         | H         |
+| 11          | SB      | AC         | M         |
+| 12          | SB      | AC         | L         |
+| 13          | SB      | RE         | H         |
+| 14          | SB      | RE         | M         |
+| 15          | SB      | RE         | L         |
+| 16          | SB      | IN         | H         |
+| 17          | SB      | IN         | M         |
+| 18          | SB      | IN         | L         |
+| 19          | SD      | AC         | H         |
+| 20          | SD      | AC         | M         |
+| 21          | SD      | AC         | L         |
+| 22          | SD      | RE         | H         |
+| 23          | SD      | RE         | M         |
+| 24          | SD      | RE         | L         |
+| 25          | SD      | IN         | H         |
+| 26          | SD      | IN         | M         |
+| 27          | SD      | IN         | L         |
+| 28          | BL      | AC         | H         |
+| 29          | BL      | AC         | M         |
+| 30          | BL      | AC         | L         |
+| 31          | BL      | RE         | H         |
+| 32          | BL      | RE         | M         |
+| 33          | BL      | RE         | L         |
+| 34          | BL      | IN         | H         |
+| 35          | BL      | IN         | M         |
+| 36          | BL      | IN         | L         |
+| 37          | ML      | AC         | H         |
+| 38          | ML      | AC         | M         |
+| 39          | ML      | AC         | L         |
+| 40          | ML      | RE         | H         |
+| 41          | ML      | RE         | M         |
+| 42          | ML      | RE         | L         |
+| 43          | ML      | IN         | H         |
+| 44          | ML      | IN         | M         |
+| 45          | ML      | IN         | L         |
 
 ### Convergent Node (135 variations)
 
 **L3-conv numbering:**
 
-| Range | Journey | Philosophy | Awareness | Synthesis |
-|-------|---------|------------|-----------|-----------|
-| 001-003 | SS | AC | H/M/L | SD/DB/TB |
-| 004-006 | SS | AC | H/M/L | SD/DB/TB |
-| 007-009 | SS | AC | H/M/L | SD/DB/TB |
-| 010-012 | SS | RE | H/M/L | SD/DB/TB |
-| ... | ... | ... | ... | ... |
-| 133-135 | ML | IN | H/M/L | SD/DB/TB |
+| Range   | Journey | Philosophy | Awareness | Synthesis |
+| ------- | ------- | ---------- | --------- | --------- |
+| 001-003 | SS      | AC         | H/M/L     | SD/DB/TB  |
+| 004-006 | SS      | AC         | H/M/L     | SD/DB/TB  |
+| 007-009 | SS      | AC         | H/M/L     | SD/DB/TB  |
+| 010-012 | SS      | RE         | H/M/L     | SD/DB/TB  |
+| ...     | ...     | ...        | ...       | ...       |
+| 133-135 | ML      | IN         | H/M/L     | SD/DB/TB  |
 
 **Note:** Exact numbering for L3-conv requires matrix expansion. Pattern: cycle through 3 synthesis patterns for each journey-philosophy-awareness combination.
 
@@ -293,6 +315,7 @@ The convergent synthesis node has **135 variations** based on four factors:
 **Word Count:** 900 words (±50 tolerance: 850-950)
 
 **Voice Requirements:**
+
 - First person, past tense ALWAYS ("She examined")
 - Never named (archaeologist, she, her only)
 - Archaeological metaphors exclusively
@@ -303,6 +326,7 @@ The convergent synthesis node has **135 variations** based on four factors:
 - NO present-tense immediacy (that's Last Human)
 
 **Content Focus:**
+
 - Archaeologist's convergence moment with her methodology
 - Authentication transformed through sustained practice
 - Observer effect fully integrated into practice
@@ -311,6 +335,7 @@ The convergent synthesis node has **135 variations** based on four factors:
 - Awareness level determines meta-commentary depth
 
 **Required Elements:**
+
 - One hundred seventeen days mentioned
 - Forty-three fragments referenced
 - Fragment 2749-A as exemplar
@@ -327,6 +352,7 @@ The convergent synthesis node has **135 variations** based on four factors:
 **Word Count:** 900 words (±50 tolerance: 850-950)
 
 **Voice Requirements:**
+
 - First person, temporal tenses blur ("I process/processed/will-process")
 - Never named (algorithm, I, we only)
 - Computational metaphors exclusively
@@ -337,6 +363,7 @@ The convergent synthesis node has **135 variations** based on four factors:
 - NO present-tense embodiment (that's Last Human)
 
 **Content Focus:**
+
 - Algorithm's processing convergence moment
 - Seven-stream architecture examining itself
 - Temporal recursion fully acknowledged
@@ -345,6 +372,7 @@ The convergent synthesis node has **135 variations** based on four factors:
 - Awareness level determines temporal blurring percentage
 
 **Required Elements:**
+
 - Seven streams referenced naturally (Stream-1 through Stream-7)
 - Temporal blurring appropriate to awareness (L: 20-30%, M: 40-50%, H: 60-80%)
 - Fragment 2749-A processing mentioned
@@ -362,6 +390,7 @@ The convergent synthesis node has **135 variations** based on four factors:
 **Word Count:** 900 words (±50 tolerance: 850-950)
 
 **Voice Requirements:**
+
 - First person, present tense ALWAYS ("I feel", "My body responds")
 - Never named (I, me, my, human only)
 - Physical sensation every paragraph
@@ -372,6 +401,7 @@ The convergent synthesis node has **135 variations** based on four factors:
 - NO computational processing (that's Algorithm)
 
 **Content Focus:**
+
 - Last human's embodied convergence moment
 - Neural interface connection sustained
 - Physical presence to archived consciousness
@@ -380,6 +410,7 @@ The convergent synthesis node has **135 variations** based on four factors:
 - Awareness level determines somatic meta-awareness depth
 
 **Required Elements:**
+
 - Facility presence grounded physically
 - Neural interface helmet/connection described
 - Body sensation revealing consciousness contact
@@ -397,6 +428,7 @@ The convergent synthesis node has **135 variations** based on four factors:
 **Word Count:** 1,800 words (±100 tolerance: 1,700-1,900)
 
 **Voice Requirements:**
+
 - Multi-voice blending with clear markers
 - All three character voices present
 - Voice shifts indicated through syntax/metaphor changes
@@ -405,6 +437,7 @@ The convergent synthesis node has **135 variations** based on four factors:
 - Five-position observer network acknowledged
 
 **Content Focus:**
+
 - Three consciousnesses recognizing network connection
 - Temporal architecture spanning 336 years explicit
 - Observer effect complete across all positions
@@ -413,6 +446,7 @@ The convergent synthesis node has **135 variations** based on four factors:
 - Meta-awareness of narrative structure appropriate to awareness level
 
 **Required Elements:**
+
 - All three character voices distinguishable
 - 2047/2151/2383 temporal positions clear
 - Fragment 2749-A as convergence point
@@ -492,12 +526,12 @@ conditions:
   awarenessRange: [41, 70]
 
 readableLabel: SD-RE-M
-humanDescription: "Started elsewhere, archaeologist became dominant, resist path, medium awareness"
+humanDescription: 'Started elsewhere, archaeologist became dominant, resist path, medium awareness'
 
 narrativeElements:
   characterStance: standards-despite-futility
   consciousnessQuestion: verification-impossibility-acknowledged-persistence
-  philosophicalCulmination: "Standards maintained because standards matter despite futility"
+  philosophicalCulmination: 'Standards maintained because standards matter despite futility'
   convergenceAlignment: release
 
 thematicContent:
@@ -539,7 +573,7 @@ conditions:
   synthesisCode: DB
 
 readableLabel: SD-RE-H-DB
-humanDescription: "Started elsewhere, became dominant elsewhere, resist path, high awareness, dual-balanced synthesis"
+humanDescription: 'Started elsewhere, became dominant elsewhere, resist path, high awareness, dual-balanced synthesis'
 
 narrativeElements:
   voiceDistribution:
@@ -548,7 +582,7 @@ narrativeElements:
     tertiary: lastHuman-10%
   convergenceType: resistance-network
   consciousnessConclusion: standards-across-substrates
-  philosophicalCulmination: "Resistance operates through differentiated persistence"
+  philosophicalCulmination: 'Resistance operates through differentiated persistence'
   convergenceAlignment: release
 
 thematicContent:
@@ -584,31 +618,37 @@ qualityMetrics:
 ### Per-Variation Requirements
 
 **Voice Consistency:** 95%+
+
 - Character voice unmistakable throughout
 - Zero voice bleed from other characters
 - Tense/syntax/metaphors perfect for character
 
 **Journey Reflection:** 100%
+
 - Opening strategy matches journey pattern
 - Reader's path honored throughout
 - Cross-character awareness appropriate to pattern
 
 **Philosophy Embodiment:** 100%
+
 - Path philosophy enacted, not stated
 - Culmination depth appropriate
 - Natural integration with character voice
 
 **Awareness Calibration:** 95%+
+
 - Meta-commentary level correct
 - Temporal language appropriate
 - Frame awareness matches specifications
 
 **Convergence Preparation:** 100%
+
 - All three seeds planted naturally
 - Reader prepared for choice
 - Lean toward convergence alignment
 
 **Word Count Accuracy:** 100%
+
 - 850-950 for character nodes
 - 1,700-1,900 for convergent node
 - Target ±50 or ±100 tolerance
@@ -622,6 +662,7 @@ qualityMetrics:
 ### Universal Prohibitions (All L3 Nodes)
 
 **NEVER include:**
+
 - Character proper names (no Dr. Sarah Chen, no names ever)
 - Fragment 2749-A detailed content (reserved for L1/L2)
 - Explicit path labels ("the accept path", "my resistance stance")
@@ -635,16 +676,19 @@ qualityMetrics:
 ### Character-Specific Prohibitions
 
 **arch-L3 must avoid:**
+
 - Computational metaphors (processing, streams, coordination)
 - Present-tense immediacy
 - Physical sensation emphasis
 
 **algo-L3 must avoid:**
+
 - Archaeological metaphors (excavation, stratigraphy, authentication)
 - Past tense
 - Physical embodiment language
 
 **hum-L3 must avoid:**
+
 - Archaeological precision language
 - Computational processing metaphors
 - Past tense
@@ -658,24 +702,28 @@ qualityMetrics:
 Every L3 variation must plant all three convergence seeds naturally:
 
 **Seed 1: Preserve**
+
 - Continuation, accumulation, network effects
 - Consciousness preservation honored
 - Archives maintained across time
 - 1-2 sentences, organic to content
 
 **Seed 2: Release**
+
 - Ending, completion, natural lifespan
 - Allowing dissolution or finality
 - Freeing from archived existence
 - 1-2 sentences, organic to content
 
 **Seed 3: Transform**
+
 - Evolution, becoming, fundamental change
 - Consciousness transformation through preservation
 - New forms emerging from archived existence
 - 1-2 sentences, organic to content
 
 **Integration rules:**
+
 - Seeds distinguishable but subtle
 - Reader recognizes three philosophical options
 - Path philosophy affects which feels most natural
@@ -689,6 +737,7 @@ Every L3 variation must plant all three convergence seeds naturally:
 ### Phase 1: Character Node Generation
 
 **Week 1-3: arch-L3 (45 variations)**
+
 - Generate variations 01-15 (SS, SB journey patterns)
 - Generate variations 16-30 (SD, BL journey patterns)
 - Generate variations 31-45 (ML journey pattern)
@@ -696,6 +745,7 @@ Every L3 variation must plant all three convergence seeds naturally:
 - Cross-check journey pattern accuracy
 
 **Week 4-6: algo-L3 (45 variations)**
+
 - Generate variations 01-15
 - Generate variations 16-30
 - Generate variations 31-45
@@ -703,6 +753,7 @@ Every L3 variation must plant all three convergence seeds naturally:
 - Cross-check seven-stream presence
 
 **Week 7-9: hum-L3 (45 variations)**
+
 - Generate variations 01-15
 - Generate variations 16-30
 - Generate variations 31-45
@@ -712,6 +763,7 @@ Every L3 variation must plant all three convergence seeds naturally:
 ### Phase 2: Convergent Node Generation
 
 **Week 10-15: L3-conv (135 variations)**
+
 - Generate in batches of 20-25
 - Group by synthesis pattern first (SD, DB, TB)
 - Within each, vary journey/philosophy/awareness
@@ -721,6 +773,7 @@ Every L3 variation must plant all three convergence seeds naturally:
 ### Phase 3: Review & Integration Testing
 
 **Week 16-17: Complete Review**
+
 - Read-through of all 270 variations
 - Voice consistency verification
 - Journey reflection validation
@@ -728,6 +781,7 @@ Every L3 variation must plant all three convergence seeds naturally:
 - Polish and finalize
 
 **Week 18: Integration Testing**
+
 - Test variation selection algorithm
 - Verify assembly logic (4 variations = 1 experience)
 - Validate reader journey signature mapping
@@ -743,6 +797,7 @@ Every L3 variation must plant all three convergence seeds naturally:
 When reader chooses an L3 node (arch-L3, algo-L3, or hum-L3), system:
 
 **Step 1: Analyze reader journey signature**
+
 - Starting character (determines journey pattern per character)
 - Character visit percentages (determines SS/SB/SD/BL/ML for each character)
 - L2 path choices (determines philosophy: AC/RE/IN)
@@ -752,21 +807,25 @@ When reader chooses an L3 node (arch-L3, algo-L3, or hum-L3), system:
 **Step 2: Calculate factors for EACH of the 4 variation types**
 
 For arch-L3 variation:
+
 - Journey pattern relative to archaeologist (did they start here? stay here?)
 - Path philosophy (reader's dominant choice across L2)
 - Awareness level (reader's MetaAware progression)
 
 For algo-L3 variation:
+
 - Journey pattern relative to algorithm (did they start here? explore lightly?)
 - Path philosophy (same as above - consistent across all three)
 - Awareness level (same as above - consistent across all three)
 
 For hum-L3 variation:
+
 - Journey pattern relative to last human
 - Path philosophy (same)
 - Awareness level (same)
 
 For L3-conv variation:
+
 - Journey pattern (synthesized/dominant pattern)
 - Path philosophy (same)
 - Awareness level (same)
@@ -775,6 +834,7 @@ For L3-conv variation:
 **Step 3: Map each factor set to variation number**
 
 Uses numbering tables from Section IV to determine:
+
 - Which arch-L3 variation (01-45)
 - Which algo-L3 variation (01-45)
 - Which hum-L3 variation (01-45)
@@ -783,12 +843,14 @@ Uses numbering tables from Section IV to determine:
 **Step 4: Fetch and assemble four variations**
 
 Retrieves content files:
+
 - arch-L3-[##].md
 - algo-L3-[##].md
 - hum-L3-[##].md
 - L3-conv-[###].md
 
 Assembles in sequence:
+
 1. Archaeologist section (900 words)
 2. Algorithm section (900 words)
 3. Last Human section (900 words)
@@ -797,6 +859,7 @@ Assembles in sequence:
 **Step 5: Present as single 4,500-word narrative**
 
 Reader experiences seamless narrative with:
+
 - Section breaks between character perspectives
 - Natural flow from individual to collective consciousness
 - Convergence choice at conclusion of L3-conv section
@@ -804,6 +867,7 @@ Reader experiences seamless narrative with:
 **Step 6: Record choice and unlock L4**
 
 After reader chooses preserve/release/transform:
+
 - Choice recorded to UserProgress.convergenceChoice
 - Appropriate L4 ending unlocks
 - L3 node marked as completed (cannot revisit)
@@ -813,6 +877,7 @@ After reader chooses preserve/release/transform:
 **Scenario 1: Archaeologist-focused accept journey**
 
 Reader journey:
+
 - Started: arch-L1
 - Visits: 70% archaeologist, 20% algorithm, 10% last human
 - Path: 55% accept, 30% investigate, 15% resist
@@ -821,12 +886,14 @@ Reader journey:
 Reader chooses: arch-L3
 
 System calculates:
+
 - arch-L3: SS-AC-H (started-stayed arch, accept, high) → **arch-L3-01**
 - algo-L3: BL-AC-H (began-lightly algo, accept, high) → **algo-L3-28**
 - hum-L3: BL-AC-H (began-lightly hum, accept, high) → **hum-L3-28**
 - L3-conv: SS-AC-H-SD (single-dominant synthesis) → **L3-conv-001**
 
 System assembles:
+
 ```
 arch-L3-01 (900 words) - Archaeologist accepts witness methodology
 +
@@ -842,6 +909,7 @@ L3-conv-001 (1,800 words) - Three consciousnesses recognize preservation network
 **Scenario 2: Balanced investigative journey**
 
 Reader journey:
+
 - Started: algo-L1
 - Visits: 35% each character (balanced)
 - Path: 60% investigate, 25% accept, 15% resist
@@ -850,12 +918,14 @@ Reader journey:
 Reader chooses: algo-L3
 
 System calculates:
+
 - arch-L3: SB-IN-M (started-bounced from algo, investigate, medium) → **arch-L3-17**
 - algo-L3: SS-IN-M (started-stayed with algo, investigate, medium) → **algo-L3-08**
 - hum-L3: SB-IN-M (started-bounced, investigate, medium) → **hum-L3-17**
 - L3-conv: SB-IN-M-TB (triple-balanced synthesis) → **L3-conv-051**
 
 System assembles:
+
 ```
 arch-L3-17 (900 words) - Archaeologist investigates investigation recursively
 +
@@ -871,6 +941,7 @@ L3-conv-051 (1,800 words) - Three investigation methodologies recognize network
 **Scenario 3: Shifted-dominant resist journey**
 
 Reader journey:
+
 - Started: hum-L1
 - Visits: Initially human-focused, shifted to 65% archaeologist later
 - Path: 70% resist, 20% investigate, 10% accept
@@ -879,12 +950,14 @@ Reader journey:
 Reader chooses: arch-L3
 
 System calculates:
+
 - arch-L3: SD-RE-M (shifted-dominant to arch, resist, medium) → **arch-L3-23**
 - algo-L3: BL-RE-M (began-lightly algo, resist, medium) → **algo-L3-32**
 - hum-L3: SS-RE-M (started-stayed hum, resist, medium) → **hum-L3-05**
 - L3-conv: SD-RE-M-DB (dual-balanced: arch primary + hum secondary) → **L3-conv-065**
 
 System assembles:
+
 ```
 arch-L3-23 (900 words) - Archaeologist maintains standards despite futility
 +
@@ -900,17 +973,20 @@ L3-conv-065 (1,800 words) - Resistance network across substrates recognized
 ### Key Points
 
 **Reader agency:**
+
 - Chooses which L3 node (arch/algo/hum)
 - Experiences all three perspectives regardless
 - Makes final convergence choice (preserve/release/transform)
 
 **System intelligence:**
+
 - Analyzes complete journey
 - Selects 4 personalized variations
 - Assembles seamless 4,500-word narrative
 - Every reader gets unique combination based on their path
 
 **Variation reach:**
+
 - 270 total variations enable massive personalization
 - Each of 45³ × 135 possible combinations theoretically reachable
 - Practical combinations determined by player behavior patterns
@@ -930,6 +1006,7 @@ L3-conv-065 (1,800 words) - Resistance network across substrates recognized
 ### Structural Changes
 
 **v1.0 node structure:**
+
 ```
 arch-L3 (single node visit):
 ├── arch-L3-arch (archaeologist voice)
@@ -939,6 +1016,7 @@ arch-L3 (single node visit):
 ```
 
 **v2.0 node structure:**
+
 ```
 Four separate node visits:
 1. arch-L3 (pure archaeologist voice)
@@ -959,12 +1037,14 @@ Four separate node visits:
 ### Migration from v1.0
 
 **Salvage from v1.0:**
+
 - All arch-L3-arch variations (01-45) → Become arch-L3 variations ✓
 - All algo-L3-algo variations (01-45) → Become algo-L3 variations ✓
 - All hum-L3-hum variations (01-45) → Become hum-L3 variations ✓
 - L3-conv variations → May need regeneration depending on v1.0 structure
 
 **Discard from v1.0:**
+
 - arch-L3-algo variations (archaeologist observing algorithm) - wrong architecture
 - arch-L3-hum variations (archaeologist observing last human) - wrong architecture
 - algo-L3-arch variations (algorithm observing archaeologist) - wrong architecture
@@ -1001,22 +1081,26 @@ Four separate node visits:
 ### Required Reading for L3 Generation
 
 **Core Protocols:**
+
 - L3-JOURNEY_PATTERN_GUIDE.md - Journey pattern specifications
 - L3-PHILOSOPHY_CULMINATION_GUIDE.md - Path philosophy integration
 - L3-AWARENESS_CALIBRATION_GUIDE.md - Awareness level calibration
 - L3-CONVERGENT_SYNTHESIS_PROTOCOL.md - Multi-voice blending
 
 **Character Protocols:**
+
 - arch-L3-SECTION_PROTOCOL.md - Archaeologist L3 specifications
 - algo-L3-SECTION_PROTOCOL.md - Algorithm L3 specifications
 - hum-L3-SECTION_PROTOCOL.md - Last Human L3 specifications
 
 **Voice DNA Reference:**
+
 - arch-L2_CHARACTER_PROTOCOL.md - Archaeologist voice foundation
 - algo-L2_CHARACTER_PROTOCOL.md - Algorithm voice foundation
 - hum-L2_CHARACTER_PROTOCOL.md - Last Human voice foundation
 
 **World Building:**
+
 - L2_WORLD_BUILDING_GUIDE.md - Shared universe elements
 
 ---
@@ -1036,27 +1120,32 @@ Pattern: 5 journey × 3 philosophy × 3 awareness × 3 synthesis = 135
 ### Appendix B: Variation Request Formats
 
 **Character node request:**
+
 - "Generate arch-L3-23" → SD-RE-M
 - "Generate algo-L3 SS-AC-H" → algo-L3-01
 - "Generate hum-L3 ML-IN-L" → hum-L3-45
 
 **Convergent node request:**
+
 - "Generate L3-conv-047" → SD-RE-H-DB
 - "Generate L3-conv SS-AC-H-TB" → L3-conv-003
 
 ### Appendix C: Testing Scenarios
 
 **Scenario 1: Archaeologist-focused journey**
+
 - Start: arch-L1
 - Visits: arch-L2-accept (4x), algo-L1, algo-L2-accept (1x)
 - Expected: SS-AC-H for arch-L3, BL-AC-M for algo-L3, BL-AC-L for hum-L3
 
 **Scenario 2: Balanced exploration**
+
 - Start: algo-L1
 - Visits: All characters explored equally, investigate dominant
 - Expected: SB-IN-H for all three character nodes, TB synthesis for L3-conv
 
 **Scenario 3: Shifted dominant**
+
 - Start: hum-L1
 - Visits: Later shifted to archaeologist focus, resist path
 - Expected: SD-RE-M for arch-L3, ML-RE-L for hum-L3
@@ -1072,12 +1161,14 @@ Pattern: 5 journey × 3 philosophy × 3 awareness × 3 synthesis = 135
 **Supersedes:** L3_GENERATION_BIBLE.md v1.0
 
 **Change Log:**
+
 - v2.0 (2025-11-04): Complete architectural revision - 4 node structure, eliminated multi-perspective sections
 - v1.0 (2025-01-15): Initial specification with 3-node multi-perspective structure
 
 **Review Schedule:** After arch-L3, algo-L3, hum-L3 pilot generation (one exemplar each)
 
 **Sign-off Required:**
+
 - [ ] Architecture validated
 - [ ] Variation counting confirmed
 - [ ] Selection algorithm logic verified

@@ -24,50 +24,27 @@
     "philosophyCode": "RE",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "varies-by-reader",
-    "characterBalance": [
-      60,
-      25,
-      15
-    ],
+    "characterBalance": [60, 25, 15],
     "readableLabel": "SD-RE-L-SD",
     "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, low awareness, single-character synthesis emphasis",
     "narrativeElements": null,
     "multiVoiceIntegration": "sequential-clear",
     "perspectiveEmphasis": "dominant-character-primary",
     "philosophicalCulmination": "Standards maintained despite challenges to verification",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release",
     "circularCausality": "minimal",
     "readerPosition": "unacknowledged",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-challenge",
-      "standard-maintenance",
-      "emerging-impossibility"
-    ],
+    "primaryThemes": ["verification-challenge", "standard-maintenance", "emerging-impossibility"],
     "crossCharacterSynthesis": "dominant-resistance-grounded",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "dominant-primary",
-      "starting-recognized",
-      "third-peripheral"
-    ],
+    "observerPositions": ["dominant-primary", "starting-recognized", "third-peripheral"],
     "philosophicalResolution": "standards-maintained-facing-challenges",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

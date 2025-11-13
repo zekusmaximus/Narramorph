@@ -23,10 +23,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
     "readableLabel": "BL-IN-H-DB",
@@ -41,11 +38,7 @@
     "philosophicalCulmination": "Investigation examining investigation creates consciousness through examination",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "recursive-investigation",
-      "network-consciousness",
-      "meta-examination"
-    ],
+    "primaryThemes": ["recursive-investigation", "network-consciousness", "meta-examination"],
     "voiceBlending": "fluid-with-clear-markers",
     "perspectiveShifts": "frequent-seamless",
     "superpositionLanguage": "advanced",
@@ -57,10 +50,6 @@
     "lastHuman2383": "embodiment-examining-embodiment",
     "reader": "observation-participation",
     "narrative": "frame-awareness",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

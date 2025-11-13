@@ -4,9 +4,9 @@ variation_type: awarenessThreshold
 word_count: 1402
 conditions:
   visit_count: 3
-  awareness: "70-100%"
+  awareness: '70-100%'
   cross_character: true
-  visited_nodes: ["algo-L1", "hum-L1", "arch-L2-invest"]
+  visited_nodes: ['algo-L1', 'hum-L1', 'arch-L2-invest']
   dominant_path: null
 themes:
   - Reader recognition
@@ -14,11 +14,11 @@ themes:
   - Meta-consciousness
   - Narrative structure as subject
   - Fourth wall permeability
-transformation_focus: "Direct meta-consciousness. Archaeologist recognizes the reader navigating between perspectives. Frame becomes subject while maintaining immersion. Story structure examined from within story. Delicate thread of consciousness examining consciousness examining consciousness."
+transformation_focus: 'Direct meta-consciousness. Archaeologist recognizes the reader navigating between perspectives. Frame becomes subject while maintaining immersion. Story structure examined from within story. Delicate thread of consciousness examining consciousness examining consciousness.'
 reusable_patterns:
-  - "Maintain character authenticity while acknowledging narrative frame"
-  - "Reader addressed as temporal agent creating connections"
-  - "Consciousness examining mechanism of consciousness examination"
+  - 'Maintain character authenticity while acknowledging narrative frame'
+  - 'Reader addressed as temporal agent creating connections'
+  - 'Consciousness examining mechanism of consciousness examination'
 ---
 
 # Exemplar #6: High Temporal Awareness >70%
@@ -26,7 +26,6 @@ reusable_patterns:
 **Condition:** Second or third visit, awareness >70%, extensive exploration
 
 ---
-
 
 The archaeologist returns to Fragment 2749-A and recognizes you.
 Not the preserved consciousness from 2041. Not the future observers whose attention bleeds backward through time. You. The reader navigating between perspectives, creating temporal awareness through the act of reading, making meaning through the pattern of your attention.

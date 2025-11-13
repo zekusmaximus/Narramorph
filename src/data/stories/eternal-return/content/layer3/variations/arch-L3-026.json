@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SD-IN-M",
     "humanDescription": "Started elsewhere, shifted to archaeologist dominance, investigate path, medium awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "meta-methodological-inquiry",
       "migration-creating-depth"
     ],
-    "crossCharacterConnections": [
-      "light-starting-foundational",
-      "light-other-glimpsed"
-    ],
+    "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-primary-2047",

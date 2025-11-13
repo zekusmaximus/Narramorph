@@ -6,16 +6,6 @@
   'awareness': '21-40%'
 ---
 
-
-
-
-
-
-
-
-
-
-
 The archaeologist returned to Fragment 2749-A for the third time, prepared to honor temporal observation while demanding proof it existed.
 The authentication markers displayed unchanged. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment preserved in 2041, authenticated seventy-nine days earlier, re-examined sixty-four days earlier, now opened again for examination that would proceed from two irreconcilable philosophical positions.
 She had spent previous examinations experiencing future attention—sensation of being watched from centuries ahead, the Last Human's desperate loneliness reaching backward through time, gentle observation seeking connection across temporal boundaries that causality insisted were absolute. The sensation was undeniable. The sensation violated physics.

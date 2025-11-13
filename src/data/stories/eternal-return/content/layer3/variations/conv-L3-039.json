@@ -24,29 +24,18 @@
     "philosophyCode": "AC",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacter": "none-equal",
-    "characterBalance": [
-      33,
-      33,
-      33
-    ],
+    "characterBalance": [33, 33, 33],
     "readableLabel": "ML-AC-L-TB",
     "humanDescription": "Met character later, substantial exploration (25-60%), accept path, low awareness, triple-balanced synthesis emphasis",
     "narrativeElements": null,
     "multiVoiceIntegration": "rotating-equal-acceptance",
     "perspectiveEmphasis": "three-balanced-witness",
     "philosophicalCulmination": "Three methodologies accept preservation through sustained witness",
-    "convergenceChoices": [
-      "preserve",
-      "transform-preservation",
-      "maintain-attention"
-    ],
+    "convergenceChoices": ["preserve", "transform-preservation", "maintain-attention"],
     "convergenceLean": "preserve",
     "circularCausality": "present-implicit",
     "readerPosition": "external-observer",
@@ -66,10 +55,6 @@
       "reader-external"
     ],
     "philosophicalResolution": "acceptance-creates-preservation-through-witness",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

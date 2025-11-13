@@ -5,6 +5,7 @@ word_count: 1731
 conditions:
   awareness: '21-40%'
 ---
+
 Third return and something has shifted. Not in the archive. In me. In what becomes possible when a body is completely at ease.
 My shoulders drop before approaching. Automatic now. But today I notice something else dropping with them—the filters I didn't know I was wearing. The defenses I didn't realize were shaping what I could perceive.
 847.3 terabytes spread before me. The number lands differently today. Still vast. But the vastness feels like opening rather than weight. Like invitation rather than burden.

@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -48,14 +48,6 @@ export default defineConfig({
   },
   // Optimize dependencies for faster cold starts
   optimizeDeps: {
-    include: [
-      'react',
-      'react-dom',
-      'zustand',
-      'immer',
-      '@xyflow/react',
-      'framer-motion',
-      'clsx',
-    ],
+    include: ['react', 'react-dom', 'zustand', 'immer', '@xyflow/react', 'framer-motion', 'clsx'],
   },
-})
+});

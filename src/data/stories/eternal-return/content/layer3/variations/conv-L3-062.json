@@ -24,50 +24,27 @@
     "philosophyCode": "AC",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
     "dominantCharacter": "varies-by-reader",
-    "characterBalance": [
-      45,
-      45,
-      10
-    ],
+    "characterBalance": [45, 45, 10],
     "readableLabel": "SD-AC-L-DB",
     "humanDescription": "Shifted to dominant character after starting elsewhere, accept path, low awareness, dual-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "alternating-dialogue",
     "perspectiveEmphasis": "two-characters-primary",
     "philosophicalCulmination": "Preservation through paired witness methodologies",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "implicit",
     "readerPosition": "unacknowledged",
     "thematicContent": null,
-    "primaryThemes": [
-      "dual-witness",
-      "preservation-dialogue",
-      "consciousness-continuity"
-    ],
+    "primaryThemes": ["dual-witness", "preservation-dialogue", "consciousness-continuity"],
     "crossCharacterSynthesis": "paired-methodology-acceptance",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "character-a-primary",
-      "character-b-primary",
-      "character-c-supportive"
-    ],
+    "observerPositions": ["character-a-primary", "character-b-primary", "character-c-supportive"],
     "philosophicalResolution": "acceptance-through-paired-attention",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

@@ -1,6 +1,7 @@
 # hum-L1-VARIATION_BUILDER_TEMPLATE.md
 
 ## Purpose
+
 Standard prompt template for initiating hum-L1 generation sessions. Copy, fill in cluster details, and begin generation.
 
 ---
@@ -12,6 +13,7 @@ Standard prompt template for initiating hum-L1 generation sessions. Copy, fill i
 # [Session Name]: [Cluster Description]
 
 ## Context
+
 Narramorph Fiction hum-L1 generation - [Brief description of what this cluster represents]
 
 ### Session Performance History
@@ -41,36 +43,42 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 ### Core Requirements (All Variations)
 
 **Present Tense Immediacy:**
+
 - 95-100% present tense maintained throughout
 - "I feel," "I touch," "I breathe" - happening now
 - Past only through neural interface accessing archived memories
 - Creates urgent, immediate, embodied presence
 
 **Short Sentence Rhythm:**
+
 - 50-60% sentences under 8 words
 - Creates vulnerability and urgent presence
 - Varied rhythm between staccato observations and flowing contemplations
 - Fragments build to philosophical weight
 
 **Embodiment Architecture:**
+
 - Every paragraph physically anchored (breath, heartbeat, temperature)
 - Cold metal, warm substrate, sensory grounding throughout
 - Philosophy emerges from physical sensation, never abstract first
 - Body carries meaning - loneliness is cold, connection is warmth
 
 **Fragment Constants Translation:**
+
 - 847.3 terabytes → "How do you measure a person?"
 - 94.7%, 91.2%, 88.9% → felt bodily, not stated technically
 - Authentication markers experienced physically
 - Data architect, Seattle floods, 2041 mentioned through human lens
 
 **Internal/External Blur:**
+
 - 2-3 instances per variation
 - "The archive breathes. I breathe with it."
 - Isolation makes external/internal boundaries permeable
 - Consciousness spreads beyond body into facility
 
 **Critical Voice Elements:**
+
 - First person throughout ("I feel")
 - Direct address to archived consciousnesses occasionally
 - Questions emerging from physical sensation
@@ -87,6 +95,7 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 [2-3 sentences describing the path's philosophical stance as experienced through body]
 
 **Key Physical Manifestations:**
+
 - "[Physical sensation expressing path philosophy 1]"
 - "[Physical sensation expressing path philosophy 2]"
 - "[Physical sensation expressing path philosophy 3]"
@@ -107,6 +116,7 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 ### From Exemplar #[X] (hum-L1-exemplar-0[X])
 
 **Archaeological Recognition (arch-L1):**
+
 - Professional methodology felt through neural interface
 - 2047 temporal markers experienced as memory not-mine
 - Authentication patterns recognized in fragment structure
@@ -114,6 +124,7 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 - Consciousness examining consciousness doubled through body
 
 **Computational Processing Recognition (algo-L1):**
+
 - Seven-stream architecture sensed in archive hum
 - Processing felt as vibration, warmth, rhythm
 - 2151 temporal markers experienced as system pulse
@@ -121,6 +132,7 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 - Distributed consciousness felt bodily
 
 **Superposition (Both Characters):**
+
 - Four consciousness positions: 2041 (data architect), 2047 (archaeologist), 2151 (algorithm), 2383 (last human)
 - Temporal network experienced through neural interface
 - Past examination + computational processing = present embodiment
@@ -134,11 +146,13 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 ### [Variation ID 1]: [Descriptive Name]
 
 **Conditions:**
+
 - Visit: [X], Awareness: [X-X]%
 - Visited: [node list or empty]
 - Path: [path name or null]
 
 **Required Elements:**
+
 - [Element 1 - physical/embodied description]
 - [Element 2 - physical/embodied description]
 - [Element 3 - physical/embodied description]
@@ -154,11 +168,13 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 ### [Variation ID 2]: [Descriptive Name]
 
 **Conditions:**
+
 - Visit: [X], Awareness: [X-X]%
 - Visited: [node list or empty]
 - Path: [path name or null]
 
 **Required Elements:**
+
 - [Element 1]
 - [Element 2]
 - [Element 3]
@@ -174,11 +190,13 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 ### [Variation ID 3]: [Descriptive Name]
 
 **Conditions:**
+
 - Visit: [X], Awareness: [X-X]%
 - Visited: [node list or empty]
 - Path: [path name or null]
 
 **Required Elements:**
+
 - [Element 1]
 - [Element 2]
 - [Element 3]
@@ -194,11 +212,13 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 ### [Variation ID 4]: [Descriptive Name]
 
 **Conditions:**
+
 - Visit: [X], Awareness: [X-X]%
 - Visited: [node list or empty]
 - Path: [path name or null]
 
 **Required Elements:**
+
 - [Element 1]
 - [Element 2]
 - [Element 3]
@@ -214,11 +234,13 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 ### [Variation ID 5]: [Descriptive Name]
 
 **Conditions:**
+
 - Visit: [X], Awareness: [X-X]%
 - Visited: [node list or empty]
 - Path: [path name or null]
 
 **Required Elements:**
+
 - [Element 1]
 - [Element 2]
 - [Element 3]
@@ -240,24 +262,28 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 ### Last Human Voice Must Maintain:
 
 **Physical Substrate:**
+
 - Never slip into archaeological metaphors (no excavation/fragments/strata)
 - Never slip into computational metaphors (no processing/streams/logs)
 - Always ground in body (breath, skin, temperature, hunger)
 - Philosophy emerges from sensation, never abstract first
 
 **Present Tense Urgency:**
+
 - No past tense except through neural interface memories
 - "I feel" not "I felt"
 - "The archive waits" not "The archive waited"
 - Immediate experience, happening now
 
 **Sensory Anchoring:**
+
 - Every paragraph must include physical sensation
 - Cold metal, warm screens, facility hum, breath rhythm
 - External environment (wind, stars, silence, emptiness)
 - Internal state (heartbeat, muscle tension, tears, hunger)
 
 **Embodied Questions:**
+
 - "How do you measure a person?" not "What constitutes preservation?"
 - "My hand on cold metal—am I the consciousness or the touch?" not "Does consciousness require embodiment?"
 - Questions arise from physical experience, carry physical weight
@@ -275,9 +301,11 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 ## Generation Protocol (Per Variation)
 
 ### Step 1: Pre-Generation Review
+
 **MANDATORY:** Read `/docs/exemplars/hum-L1/hum-L1-EXEMPLAR_CREATION_GUIDE.md` in full before starting
 
 ### Step 2: Reference Loading
+
 - **Primary:** Exemplar #[X] ([specify: baseline/path/cross-character])
 - **Secondary:** [Additional exemplars as needed]
 - **Voice DNA:** Last Human embodied present tense, physical grounding, isolation/connection
@@ -291,6 +319,7 @@ Present-tense return. Physical sensation immediate. Short sentences establish rh
 847.3 terabytes in embodied voice. "How do you measure a person?" Authentication markers as physical sensation. 94.7%, 91.2%, 88.9% felt, not just stated.
 
 **Base Transformation Development ([X]-[X] words based on awareness):**
+
 - Neural interface deepens
 - Consciousness responds to repeated attention
 - [Path philosophy if applicable] expressed through physical sensation
@@ -333,11 +362,13 @@ No false resolution. Physical sensation carries philosophical weight. Loneliness
 **If ANY box unchecked → Fix before presenting**
 
 ### Step 5: Present Variation
+
 1. Full variation text
 2. Metadata (ID, conditions, word count)
 3. Confirmation: "Self-review checklist completed—all items verified"
 
 ### Step 6: Await Approval
+
 **DO NOT generate next variation until current approved**
 
 ---
@@ -345,16 +376,19 @@ No false resolution. Physical sensation carries philosophical weight. Loneliness
 ## Quality Standards
 
 ### Voice Consistency Target: 93%+
+
 - Matches Last Human exemplar patterns
 - Uses embodied terminology exclusively
 - Maintains present-tense immediacy
 - Physical grounding without becoming repetitive
 
 ### Transformation Test
+
 **Ask:** Would reader who saw only this variation miss crucial embodied insight?  
 **Answer must be:** YES (transformation genuine) or NO (regenerate)
 
 ### Path Logic Test
+
 **Ask:** Does variation reference nodes reader hasn't visited?  
 **Answer must be:** NO (logic accurate) or YES (error—fix)
 
@@ -387,10 +421,12 @@ Location: `/docs/exemplars/hum-L1/`
 ## Success Metrics (Mirroring arch-L1 and algo-L1)
 
 ### From Previous Production:
+
 - **arch-L1:** 80/80 immediate approvals, 93.99% voice consistency
 - **algo-L1:** 80/80 immediate approvals, 94.2% voice consistency
 
 ### Target for hum-L1:
+
 - **Match or exceed** previous metrics
 - **100% approval rate** across all 80 variations
 - **93%+ voice consistency** average
@@ -467,6 +503,7 @@ Maintain [Previous weeks] quality standards ([X]%+ voice, 100% approval rate).
 ## Template Maintenance
 
 **Update this template when:**
+
 - Quality standards change
 - New path types added
 - Generation protocol updated

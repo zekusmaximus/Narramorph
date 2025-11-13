@@ -34,7 +34,7 @@ export function calculateSynthesisPattern(percentages: {
   const maxDiff = Math.max(
     Math.abs(archaeologist - avg),
     Math.abs(algorithm - avg),
-    Math.abs(lastHuman - avg)
+    Math.abs(lastHuman - avg),
   );
 
   if (maxDiff < 15) {
@@ -51,7 +51,7 @@ export function calculateSynthesisPattern(percentages: {
 function buildSection(
   character: 'arch' | 'algo' | 'hum' | 'conv',
   variationFile: VariationFile | null,
-  context: ConditionContext
+  context: ConditionContext,
 ): L3AssemblySection | null {
   if (!variationFile || !variationFile.variations) {
     console.warn(`No variation file found for ${character}`);
@@ -88,10 +88,7 @@ function buildSection(
 /**
  * Build a complete L3 assembly with all 4 sections
  */
-export function buildL3Assembly(
-  storyId: string,
-  context: ConditionContext
-): L3Assembly | null {
+export function buildL3Assembly(storyId: string, context: ConditionContext): L3Assembly | null {
   const endTimer = performanceMonitor.startTimer('l3Assembly');
 
   // Load all L3 variation files
@@ -114,10 +111,7 @@ export function buildL3Assembly(
   }
 
   const totalWordCount =
-    archSection.wordCount +
-    algoSection.wordCount +
-    humSection.wordCount +
-    convSection.wordCount;
+    archSection.wordCount + algoSection.wordCount + humSection.wordCount + convSection.wordCount;
 
   const result = {
     arch: archSection,
@@ -129,8 +123,11 @@ export function buildL3Assembly(
       journeyPattern: context.journeyPattern,
       pathPhilosophy: context.pathPhilosophy,
       awarenessLevel:
-        context.awareness < 35 ? ('low' as const) :
-        context.awareness < 70 ? ('medium' as const) : ('high' as const),
+        context.awareness < 35
+          ? ('low' as const)
+          : context.awareness < 70
+            ? ('medium' as const)
+            : ('high' as const),
       synthesisPattern,
       convergenceAlignment: convSection.metadata.convergenceAlignment,
     },
@@ -215,12 +212,21 @@ export function validateL3Assembly(assembly: L3Assembly): {
   if (!assembly.conv) errors.push('Missing convergence section');
 
   // Check word counts (approximate expected ranges)
-  const checkWordCount = (section: L3AssemblySection, name: string, expectedMin: number, expectedMax: number) => {
+  const checkWordCount = (
+    section: L3AssemblySection,
+    name: string,
+    expectedMin: number,
+    expectedMax: number,
+  ) => {
     if (section.wordCount < expectedMin) {
-      warnings.push(`${name} section word count (${section.wordCount}) below expected minimum (${expectedMin})`);
+      warnings.push(
+        `${name} section word count (${section.wordCount}) below expected minimum (${expectedMin})`,
+      );
     }
     if (section.wordCount > expectedMax) {
-      warnings.push(`${name} section word count (${section.wordCount}) above expected maximum (${expectedMax})`);
+      warnings.push(
+        `${name} section word count (${section.wordCount}) above expected maximum (${expectedMax})`,
+      );
     }
   };
 
@@ -233,7 +239,9 @@ export function validateL3Assembly(assembly: L3Assembly): {
   const expectedTotal = 4200; // Approximate expected total
   const tolerance = 500;
   if (Math.abs(assembly.totalWordCount - expectedTotal) > tolerance) {
-    warnings.push(`Total word count (${assembly.totalWordCount}) differs from expected (~${expectedTotal})`);
+    warnings.push(
+      `Total word count (${assembly.totalWordCount}) differs from expected (~${expectedTotal})`,
+    );
   }
 
   return {

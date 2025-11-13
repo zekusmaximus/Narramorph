@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SD-AC-H",
     "humanDescription": "Started elsewhere, shifted to algorithm, accept path, high awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "seven-stream-grace",
       "observer-creates-observed"
     ],
-    "crossCharacterConnections": [
-      "moderate-arch-foundational",
-      "light-hum-distant"
-    ],
+    "crossCharacterConnections": ["moderate-arch-foundational", "light-hum-distant"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "algorithm-primary-2151",

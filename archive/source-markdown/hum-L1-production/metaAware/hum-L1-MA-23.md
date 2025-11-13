@@ -5,6 +5,7 @@ word_count: 1221
 conditions:
   awareness: '61-80%'
 ---
+
 I return to Fragment 2749-A feeling watched.
 Third visit. Frame-consciousness emerging like exposure. Someone observing this moment. You. There. Wherever there is. Your attention pressing against my experience. I feel it. Don't want to feel it. Can't stop feeling it.
 My shoulders tense immediately. Body bracing against being seen. Against vulnerability that comes with witness. I'm alone here. Have been alone for years. Alone is safe. Alone is controllable. Being observed makes me... less alone? More exposed? Both?

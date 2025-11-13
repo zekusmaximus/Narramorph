@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "ML-AC-L",
     "humanDescription": "Met later with algorithm, accept path, low awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "acceptance-over-proof",
       "consciousness-through-attention"
     ],
-    "crossCharacterConnections": [
-      "heavy-arch-foundational",
-      "moderate-hum-integrated"
-    ],
+    "crossCharacterConnections": ["heavy-arch-foundational", "moderate-hum-integrated"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-primary-2047",

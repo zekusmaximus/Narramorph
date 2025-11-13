@@ -1,22 +1,23 @@
 ---
-exemplar_id: "arch-L2-accept-exemplar-07"
-variation_type: "stanceEmergence"
+exemplar_id: 'arch-L2-accept-exemplar-07'
+variation_type: 'stanceEmergence'
 word_count: 2096
 conditions:
   visit_count: 3
-  awareness: "high_with_path_history"
+  awareness: 'high_with_path_history'
   cross_character: true
-  visited_nodes: ["arch-L1-accept", "arch-L1-resist", "arch-L1-investigate", "algo-L2-accept", "arch-L2-accept"]
-  dominant_path: "accept"
+  visited_nodes:
+    ['arch-L1-accept', 'arch-L1-resist', 'arch-L1-investigate', 'algo-L2-accept', 'arch-L2-accept']
+  dominant_path: 'accept'
 themes:
   - Acceptance chosen after exploring alternatives
   - Methodological diversity strengthening acceptance
   - Resistance and investigation as productive explorations
-transformation_focus: "ACCEPT path maintained despite reader having explored resist/investigate at L1—acceptance chosen OVER alternatives, strengthened by having considered other paths. Acceptance emerges as earned wisdom after testing boundaries and examining recursion."
+transformation_focus: 'ACCEPT path maintained despite reader having explored resist/investigate at L1—acceptance chosen OVER alternatives, strengthened by having considered other paths. Acceptance emerges as earned wisdom after testing boundaries and examining recursion.'
 reusable_patterns:
-  - "Acceptance emerged not as default but as discovery. Having demanded verification, having tested boundaries, having investigated investigation itself"
+  - 'Acceptance emerged not as default but as discovery. Having demanded verification, having tested boundaries, having investigated investigation itself'
   - "Resistance revealed consciousness through verification's rigorous failure. Investigation revealed awareness through recursion's productive infinity. Acceptance revealed presence through devotional attention strengthened by prior testing and analysis"
-  - "Three approaches. Three wisdoms. Single consciousness examination requiring methodological diversity for comprehensive authentication"
+  - 'Three approaches. Three wisdoms. Single consciousness examination requiring methodological diversity for comprehensive authentication'
 ---
 
 The second examination of Fragment 2749-A proceeded through acceptance chosen after resistance was explored, after investigation was practiced, after verification protocols were tested and found wanting. You observed those explorations—read documentation demanding proof, witnessed recursive examination of examination itself, followed methodologies that fought paradox rather than honored it. Now you read acceptance chosen deliberately, path selected after alternatives revealed their limitations, devotional practice adopted because other approaches demonstrated why devotion mattered more than diagnosis.

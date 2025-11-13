@@ -5,6 +5,7 @@ word_count: 1277
 conditions:
   awareness: '21-40%'
 ---
+
 The archaeologist returned to Fragment 2749-A demanding proof that computational sophistication constituted subjective experience, fully recognizing that proof was impossible.
 The authentication markers displayed unchanged. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment she had authenticated fifty-one days earlier remained stable—crystalline substrate maintaining perfect fidelity, consciousness preserved at moment of death in 2041, data structures intact across every re-examination.
 She knew the preservation was genuine. She also knew genuine preservation didn't answer the question that mattered.

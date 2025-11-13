@@ -18,7 +18,7 @@ export interface FrontmatterResult<T = Record<string, unknown>> {
 export function parseFrontmatter<T = Record<string, unknown>>(
   markdown: string,
   logger?: Logger,
-  filePath?: string
+  filePath?: string,
 ): FrontmatterResult<T> | null {
   const fmPattern = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
   const match = markdown.match(fmPattern);
@@ -65,10 +65,14 @@ export function parseFrontmatter<T = Record<string, unknown>>(
           for (; j < lines.length; j++) {
             const l = lines[j];
             // next top-level key or closing fence
-            if (/^---\s*$/.test(l)) { break; }
-            if (/^[A-Za-z0-9_\-]+\s*:/.test(l)) { break; }
+            if (/^---\s*$/.test(l)) {
+              break;
+            }
+            if (/^[A-Za-z0-9_\-]+\s*:/.test(l)) {
+              break;
+            }
             // indent if not already indented
-            lines[j] = l.startsWith('  ') ? l : ('  ' + l);
+            lines[j] = l.startsWith('  ') ? l : '  ' + l;
           }
           i = j - 1;
         }
@@ -78,20 +82,25 @@ export function parseFrontmatter<T = Record<string, unknown>>(
 
     frontmatter = tryParse(repaired);
     if (!frontmatter) {
-      logger?.blocker('YAML_PARSE_ERROR', 'Failed to parse YAML frontmatter after repair attempts', {
-        file: filePath,
-        exampleFix: 'Ensure block scalars (e.g., text: >-) indent following lines and close frontmatter with ---',
-      });
+      logger?.blocker(
+        'YAML_PARSE_ERROR',
+        'Failed to parse YAML frontmatter after repair attempts',
+        {
+          file: filePath,
+          exampleFix:
+            'Ensure block scalars (e.g., text: >-) indent following lines and close frontmatter with ---',
+        },
+      );
       return null;
     }
   }
 
   if (!frontmatter || typeof frontmatter !== 'object') {
-      logger?.blocker('INVALID_FRONTMATTER', 'Frontmatter must be a YAML object', {
-        file: filePath,
-        value: frontmatter,
-      });
-      return null;
+    logger?.blocker('INVALID_FRONTMATTER', 'Frontmatter must be a YAML object', {
+      file: filePath,
+      value: frontmatter,
+    });
+    return null;
   }
 
   return {
@@ -108,12 +117,16 @@ export function validateRequiredFields(
   frontmatter: Record<string, unknown>,
   requiredFields: string[],
   logger?: Logger,
-  filePath?: string
+  filePath?: string,
 ): boolean {
   let valid = true;
 
   for (const field of requiredFields) {
-    if (!(field in frontmatter) || frontmatter[field] === undefined || frontmatter[field] === null) {
+    if (
+      !(field in frontmatter) ||
+      frontmatter[field] === undefined ||
+      frontmatter[field] === null
+    ) {
       logger?.blocker('MISSING_FIELD', `Required field missing: ${field}`, {
         file: filePath,
         field,
@@ -134,7 +147,7 @@ export function validateEnumField<T extends string>(
   field: string,
   validValues: readonly T[],
   logger?: Logger,
-  filePath?: string
+  filePath?: string,
 ): boolean {
   const value = frontmatter[field];
 
@@ -165,7 +178,7 @@ export function validateArrayField(
   minLength?: number,
   maxLength?: number,
   logger?: Logger,
-  filePath?: string
+  filePath?: string,
 ): boolean {
   const value = frontmatter[field];
 
@@ -218,6 +231,6 @@ export function countWords(content: string): number {
     .trim();
 
   // Count words
-  const words = text.split(/\s+/).filter(word => word.length > 0);
+  const words = text.split(/\s+/).filter((word) => word.length > 0);
   return words.length;
 }

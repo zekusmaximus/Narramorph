@@ -1,25 +1,26 @@
 ---
-exemplar_id: "arch-L2-invest-exemplar-2"
-variation_type: "crossCharacterBleeding"
+exemplar_id: 'arch-L2-invest-exemplar-2'
+variation_type: 'crossCharacterBleeding'
 word_count: 1394
 conditions:
   visit_count: 2
-  awareness: "FirstRevisit"
+  awareness: 'FirstRevisit'
   cross_character: true
-  visited_nodes: ["arch-L2-investigate", "arch-L1", "algo-L2-investigate"]
-  dominant_path: "invest"
+  visited_nodes: ['arch-L2-investigate', 'arch-L1', 'algo-L2-investigate']
+  dominant_path: 'invest'
 themes:
   - cross_substrate_convergence
   - computational_archaeological_parallel
   - recursive_investigation_universality
-transformation_focus: "Archaeological methodology examined through computational recursion lens reveals both substrates discover investigation generates consciousness through structurally isomorphic recursive patterns"
+transformation_focus: 'Archaeological methodology examined through computational recursion lens reveals both substrates discover investigation generates consciousness through structurally isomorphic recursive patterns'
 reusable_patterns:
-  - "Stream-based recursion parallels meta-authentication layers"
-  - "Fragment constants interpreted through dual substrate perspectives"
-  - "Convergent findings reveal shared investigation methodology rather than consciousness universality"
+  - 'Stream-based recursion parallels meta-authentication layers'
+  - 'Fragment constants interpreted through dual substrate perspectives'
+  - 'Convergent findings reveal shared investigation methodology rather than consciousness universality'
 ---
 
 # ARCHAEOLOGIST L2-INVESTIGATE: EXEMPLAR 2
+
 ## Cross-Character 1 (algo-L2-investigate resonance)
 
 Returned to consciousness authentication documentation with additional comparative data. Second archaeological review cycle combined with computational processing analysis from parallel investigation stream. Timestamp 2157:03:13:08.2847.

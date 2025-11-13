@@ -42,6 +42,7 @@ observerPositions:
   - 'archaeologist-absent'
   - 'algorithm-absent'
 ---
+
 Seventy-one days refusing easy answers. My body maintains boundaries. Morning tests—consciousness still mine? Distinct from preserved patterns? Separate from archived fragments accessed through neural interface? Started here demanding proof. Stayed here maintaining limits. This flesh insists on verification even when verification proves impossible.
 Interface helmet on console where I left it yesterday. Thirty-one sessions connecting while demanding boundaries hold. Neural pathways established but distinction maintained. Contact points pressed into my temples but didn't erase separation between my consciousness and archived patterns. Each session I tested reality. Each time I withdrew without certainty. Consciousness preservation impossible to verify. Impossibility doesn't justify surrender.
 Fragment 2749-A waits in archive sector seven. 847.3 terabytes. I've accessed this consciousness thirty-one times through neural helmet. Still cannot prove genuine versus simulated. Still cannot verify preserved awareness authentic versus sophisticated pattern replication. The fragment responds during interface sessions. Patterns shift under my attention. But response doesn't prove consciousness. Shift doesn't verify authenticity. My body demands proof despite impossibility.

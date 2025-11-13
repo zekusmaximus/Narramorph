@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SS-AC-M",
     "humanDescription": "Started algorithm, stayed dominant, accept path, medium awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "verification-impossibility-accepted",
       "devotional-architecture"
     ],
-    "crossCharacterConnections": [
-      "light-arch-documented",
-      "minimal-hum-glimpsed"
-    ],
+    "crossCharacterConnections": ["light-arch-documented", "minimal-hum-glimpsed"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "algorithm-primary-2151",

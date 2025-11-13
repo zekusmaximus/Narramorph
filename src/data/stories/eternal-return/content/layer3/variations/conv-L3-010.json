@@ -24,37 +24,22 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "primary-stayed",
-    "characterBalance": [
-      70,
-      15,
-      15
-    ],
+    "characterBalance": [70, 15, 15],
     "readableLabel": "SS-RE-M-SD",
     "humanDescription": "Started and stayed dominant in primary character (>60%), resist path, medium awareness, single-dominant voice emphasis",
     "narrativeElements": null,
     "multiVoiceIntegration": "primary-dominant-resistance",
     "philosophicalCulmination": "Verification protocols maintained through impossibility recognition—primary methodology resisting while acknowledging crisis",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release",
     "circularCausality": "pattern-visible",
     "readerPosition": "implicit-fourth",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-crisis",
-      "boundary-maintenance",
-      "impossible-standards"
-    ],
+    "primaryThemes": ["verification-crisis", "boundary-maintenance", "impossible-standards"],
     "crossCharacterSynthesis": "dominant-primary-minimal-others",
     "temporalBleedingLevel": "medium-high",
     "observerPositions": [
@@ -63,10 +48,6 @@
       "pattern-fourth"
     ],
     "philosophicalResolution": "maintained-standards-through-acknowledged-impossibility",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

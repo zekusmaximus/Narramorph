@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "BL-IN-H",
     "humanDescription": "Began-lightly with last human, less than 25% visits here, investigate path, high awareness",
     "narrativeElements": null,
@@ -38,16 +35,8 @@
     "philosophicalCulmination": "Body investigates consciousness through examining how body investigates creating investigation through investigation-performance",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "somatic-recursion",
-      "meta-investigation",
-      "embodied-examination"
-    ],
-    "crossCharacterConnections": [
-      "heavy-arch-primary",
-      "heavy-algo-primary",
-      "hum-contributory"
-    ],
+    "primaryThemes": ["somatic-recursion", "meta-investigation", "embodied-examination"],
+    "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "hum-contributory"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "archaeologist-primary-2047",

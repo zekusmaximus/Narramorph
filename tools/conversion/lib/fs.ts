@@ -39,7 +39,7 @@ export interface Manifest {
 export async function readFileWithLogging(
   filePath: string,
   logger?: Logger,
-  useStreaming?: boolean
+  useStreaming?: boolean,
 ): Promise<string | null> {
   try {
     // Check file size
@@ -64,10 +64,7 @@ export async function readFileWithLogging(
 /**
  * Read large file using streams
  */
-async function readFileStreaming(
-  filePath: string,
-  logger?: Logger
-): Promise<string> {
+async function readFileStreaming(filePath: string, logger?: Logger): Promise<string> {
   return new Promise((resolve, reject) => {
     const chunks: Buffer[] = [];
     const stream = createReadStream(filePath, { encoding: 'utf-8' });
@@ -95,7 +92,7 @@ async function readFileStreaming(
 export async function processBatchConcurrent<T, R>(
   items: T[],
   processor: (item: T) => Promise<R>,
-  concurrency: number = MAX_CONCURRENT_READS
+  concurrency: number = MAX_CONCURRENT_READS,
 ): Promise<R[]> {
   const results: R[] = [];
   const executing: Promise<void>[] = [];
@@ -111,7 +108,7 @@ export async function processBatchConcurrent<T, R>(
       await Promise.race(executing);
       executing.splice(
         executing.findIndex((p) => p === promise),
-        1
+        1,
       );
     }
   }
@@ -126,7 +123,7 @@ export async function processBatchConcurrent<T, R>(
 export async function writeFileAtomic(
   filePath: string,
   content: string,
-  logger?: Logger
+  logger?: Logger,
 ): Promise<boolean> {
   const tempPath = `${filePath}.tmp`;
 
@@ -164,7 +161,7 @@ export function hashContent(frontmatter: string, content: string): string {
 export async function createBackup(
   sourceDir: string,
   backupRoot: string,
-  logger?: Logger
+  logger?: Logger,
 ): Promise<string | null> {
   const timestamp = new Date().toISOString().replace(/:/g, '-').split('.')[0];
   if (!timestamp) {
@@ -194,7 +191,7 @@ export async function createBackup(
 async function copyDirectoryRecursive(
   src: string,
   dest: string,
-  extension?: string
+  extension?: string,
 ): Promise<void> {
   await mkdir(dest, { recursive: true });
 
@@ -223,7 +220,7 @@ async function copyDirectoryRecursive(
 export async function writeManifest(
   manifest: Manifest,
   outputPath: string,
-  logger?: Logger
+  logger?: Logger,
 ): Promise<boolean> {
   try {
     await mkdir(dirname(outputPath), { recursive: true });
@@ -245,7 +242,7 @@ export async function writeManifest(
  */
 export async function readManifest(
   manifestPath: string,
-  logger?: Logger
+  logger?: Logger,
 ): Promise<Manifest | null> {
   try {
     const content = await readFile(manifestPath, 'utf-8');
@@ -265,7 +262,7 @@ export async function readManifest(
 export async function discoverMarkdownFiles(
   rootDir: string,
   pattern: RegExp,
-  logger?: Logger
+  logger?: Logger,
 ): Promise<string[]> {
   const files: string[] = [];
 
@@ -288,7 +285,7 @@ export async function discoverMarkdownFiles(
 async function discoverFilesRecursive(
   dir: string,
   files: string[],
-  pattern: RegExp
+  pattern: RegExp,
 ): Promise<void> {
   const entries = await readdir(dir, { withFileTypes: true });
 

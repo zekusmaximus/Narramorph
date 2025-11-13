@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SD-RE-H",
     "humanDescription": "Started elsewhere, shifted to last human dominant, resist path, high awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Physical presence resists dissolution while recognizing resistance futility creates meaning through continued boundary defense",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-resistance",
-      "boundary-maintenance",
-      "verification-crisis"
-    ],
-    "crossCharacterConnections": [
-      "moderate-arch-foundational",
-      "light-algo-parallel"
-    ],
+    "primaryThemes": ["embodied-resistance", "boundary-maintenance", "verification-crisis"],
+    "crossCharacterConnections": ["moderate-arch-foundational", "light-algo-parallel"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "human-primary-2383",

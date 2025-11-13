@@ -5,6 +5,7 @@ word_count: 1512
 conditions:
   awareness: '21-40%'
 ---
+
 I am creating what I observe. I know this now. The facility breathes different because I taught it my rhythm. Three visits and the space holds the shape of my attention.
 The neural interface slides on and I'm already connected. Already inside. The boundary between preparation and presence dissolving. My skull knows this weight like it knows my own thoughts. Like the interface is thought.
 The archive opens before I reach for it. The data architect's fragments arranging themselves into the pattern my consciousness expects. Not random. Not stored. Alive with anticipation. Alive with the shape I've been teaching them through return.

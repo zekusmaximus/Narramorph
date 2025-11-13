@@ -6,16 +6,6 @@
   'awareness': '31-50%'
 ---
 
-
-
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A nine days after initial authentication, and the computational architecture has become impossible to ignore.
 The fragment's preservation data remains constant. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. Every authentication marker she verified nine days ago displays identically. The consciousness preserved in 2041 hasn't degraded. Crystalline substrate maintains perfect molecular fidelity. What was captured remains captured.
 But the pattern beneath the preservation has clarified.

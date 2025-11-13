@@ -25,14 +25,14 @@ export function VariationDebugPanel({
   usedFallback,
 }: VariationDebugPanelProps) {
   const [isVisible, setIsVisible] = useState(false);
-  const getConditionContext = useStoryStore(state => state.getConditionContext);
+  const getConditionContext = useStoryStore((state) => state.getConditionContext);
 
   // Toggle visibility with Shift+D
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.shiftKey && e.key === 'D') {
         e.preventDefault();
-        setIsVisible(prev => !prev);
+        setIsVisible((prev) => !prev);
       }
     };
 
@@ -46,11 +46,7 @@ export function VariationDebugPanel({
   const awarenessLevel = getAwarenessLevel(context.awareness);
 
   const handleCopy = () => {
-    const debugInfo = JSON.stringify(
-      { nodeId, variationId, context, variationMetadata },
-      null,
-      2
-    );
+    const debugInfo = JSON.stringify({ nodeId, variationId, context, variationMetadata }, null, 2);
     navigator.clipboard.writeText(debugInfo);
   };
 
@@ -80,9 +76,7 @@ export function VariationDebugPanel({
           <div className={variationId ? 'text-green-400' : 'text-red-400'}>
             {variationId || 'NO VARIATION SELECTED'}
           </div>
-          {usedFallback && (
-            <div className="text-yellow-400 mt-1">⚠ Using Fallback</div>
-          )}
+          {usedFallback && <div className="text-yellow-400 mt-1">⚠ Using Fallback</div>}
         </div>
 
         {/* Condition Context */}
@@ -120,18 +114,20 @@ export function VariationDebugPanel({
                   {variationMetadata.awarenessRange[0]}-{variationMetadata.awarenessRange[1]}
                 </span>
               </div>
-              {variationMetadata.journeyPattern && variationMetadata.journeyPattern !== 'unknown' && (
-                <div>
-                  <span className="text-gray-400">Required Journey:</span>{' '}
-                  <span className="text-purple-400">{variationMetadata.journeyPattern}</span>
-                </div>
-              )}
-              {variationMetadata.philosophyDominant && variationMetadata.philosophyDominant !== 'unknown' && (
-                <div>
-                  <span className="text-gray-400">Required Philosophy:</span>{' '}
-                  <span className="text-indigo-400">{variationMetadata.philosophyDominant}</span>
-                </div>
-              )}
+              {variationMetadata.journeyPattern &&
+                variationMetadata.journeyPattern !== 'unknown' && (
+                  <div>
+                    <span className="text-gray-400">Required Journey:</span>{' '}
+                    <span className="text-purple-400">{variationMetadata.journeyPattern}</span>
+                  </div>
+                )}
+              {variationMetadata.philosophyDominant &&
+                variationMetadata.philosophyDominant !== 'unknown' && (
+                  <div>
+                    <span className="text-gray-400">Required Philosophy:</span>{' '}
+                    <span className="text-indigo-400">{variationMetadata.philosophyDominant}</span>
+                  </div>
+                )}
             </div>
           </div>
         )}
@@ -158,9 +154,7 @@ export function VariationDebugPanel({
         </button>
       </div>
 
-      <div className="text-gray-500 text-center mt-2">
-        Press Shift+D to toggle
-      </div>
+      <div className="text-gray-500 text-center mt-2">Press Shift+D to toggle</div>
     </div>
   );
 }

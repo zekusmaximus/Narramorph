@@ -21,7 +21,7 @@ import {
   ensureDir,
   processBatchConcurrent,
   createBackup,
-  type Manifest
+  type Manifest,
 } from './lib/fs.js';
 import {
   validateL1L2Frontmatter,
@@ -31,7 +31,7 @@ import {
   validateVariationCount,
   checkDuplicateIds,
   validateSchemaVersion,
-  type ValidationOptions
+  type ValidationOptions,
 } from './lib/validate.js';
 import { generateAggregatedId, generateL3Id, parseVariationId } from './lib/ids.js';
 import { detectSimilarVariations, type VariationText } from './lib/similarity.js';
@@ -113,7 +113,10 @@ async function main() {
   const parallelValue = values.parallel ? parseInt(values.parallel, 10) : 4;
   const parallel = Math.min(parallelValue, 10);
 
-  logger.info('CONVERSION_START', `Starting conversion (strict=${options.strict}, parallel=${parallel})`);
+  logger.info(
+    'CONVERSION_START',
+    `Starting conversion (strict=${options.strict}, parallel=${parallel})`,
+  );
 
   const layers = values.layer === 'all' ? ['1', '2', '3', '4'] : [values.layer || '1'];
 
@@ -207,7 +210,7 @@ async function startWatchMode(
   layers: string[],
   _options: ValidationOptions,
   debounceMs: number,
-  parallel: number
+  parallel: number,
 ): Promise<void> {
   const pendingChanges = new Set<string>();
   let debounceTimer: NodeJS.Timeout | null = null;
@@ -307,7 +310,7 @@ async function convertL1(
   logger: Logger,
   options: ValidationOptions,
   dryRun?: boolean,
-  parallel?: number
+  parallel?: number,
 ): Promise<void> {
   logger.info('L1_START', 'Converting Layer 1...');
 
@@ -324,10 +327,11 @@ async function convertL1(
     const frPattern = new RegExp(`${prefix}-FR-\\d{2,3}\\.md$`);
     const maPattern = new RegExp(`${prefix}-MA-\\d{2,3}\\.md$`);
     const initialPattern = new RegExp(`${prefix}-INITIAL_STATE\\.md$`);
-    files = files.filter((f) =>
-      (frPattern.test(f) && /[\\\/]firstRevisit[\\\/]/.test(f)) ||
-      (maPattern.test(f) && /[\\\/]metaAware[\\\/]/.test(f)) ||
-      initialPattern.test(f)
+    files = files.filter(
+      (f) =>
+        (frPattern.test(f) && /[\\\/]firstRevisit[\\\/]/.test(f)) ||
+        (maPattern.test(f) && /[\\\/]metaAware[\\\/]/.test(f)) ||
+        initialPattern.test(f),
     );
     logger.info('L1_DISCOVERED', `Found ${files.length} files for ${nodeId}`);
 
@@ -383,11 +387,15 @@ async function convertL1(
           body = lines.slice(contentStartIndex).join('\n').trim();
 
           // Generate frontmatter for initial state
-          const charPrefix = file.includes('arch-') ? 'arch' : file.includes('algo-') ? 'algo' : 'hum';
+          const charPrefix = file.includes('arch-')
+            ? 'arch'
+            : file.includes('algo-')
+              ? 'algo'
+              : 'hum';
           frontmatter = {
             variation_id: `${charPrefix}-L1-INITIAL-001`,
             variation_type: 'initial',
-            word_count: wordCount || countWords(body)
+            word_count: wordCount || countWords(body),
             // Note: initial state should NOT have awareness conditions
           };
 
@@ -471,7 +479,7 @@ async function convertL1(
         const sourceHash = hashContent(parsed.raw, body);
         return { variation, variationText, manifestEntry: { file, sourceHash } };
       },
-      parallel ?? 4
+      parallel ?? 4,
     );
 
     for (const r of results) {
@@ -498,7 +506,11 @@ async function convertL1(
     }));
 
     // Check for duplicates
-    checkDuplicateIds(reindexedVariations.map(v => v.id), logger, nodeId);
+    checkDuplicateIds(
+      reindexedVariations.map((v) => v.id),
+      logger,
+      nodeId,
+    );
 
     // Validate count
     validateVariationCount(reindexedVariations.length, 80, nodeId, logger, options);
@@ -531,7 +543,10 @@ async function convertL1(
   }
 
   manifest.counts.totalVariations += manifest.counts.l1Variations;
-  logger.info('L1_COMPLETE', `Layer 1 conversion complete: ${manifest.counts.l1Variations} variations`);
+  logger.info(
+    'L1_COMPLETE',
+    `Layer 1 conversion complete: ${manifest.counts.l1Variations} variations`,
+  );
 }
 
 /**
@@ -544,7 +559,7 @@ async function convertL2(
   logger: Logger,
   options: ValidationOptions,
   dryRun?: boolean,
-  parallel?: number
+  parallel?: number,
 ): Promise<void> {
   logger.info('L2_START', 'Converting Layer 2...');
 
@@ -557,10 +572,7 @@ async function convertL2(
       const sourceDir = join(docsRoot, `${char}-L2-${path}-production`);
 
       // Discover only variation markdown files inside expected subfolders + INITIAL_STATE
-      const candidateDirs = [
-        join(sourceDir, 'firstRevisit'),
-        join(sourceDir, 'metaAware'),
-      ];
+      const candidateDirs = [join(sourceDir, 'firstRevisit'), join(sourceDir, 'metaAware')];
 
       let files: string[] = [];
       for (const dir of candidateDirs) {
@@ -579,7 +591,7 @@ async function convertL2(
       // Fallback: if subfolders not found, still filter filenames in sourceDir
       if (files.length === 0 && existsSync(sourceDir)) {
         const all = await discoverMarkdownFiles(sourceDir, /\.md$/, logger);
-        files = all.filter(f => /-(FR|MA)-\d+\.md$/i.test(f) || /-INITIAL_STATE\.md$/i.test(f));
+        files = all.filter((f) => /-(FR|MA)-\d+\.md$/i.test(f) || /-INITIAL_STATE\.md$/i.test(f));
       }
 
       files.sort();
@@ -613,7 +625,9 @@ async function convertL2(
             body = normalized.trim();
 
             // Extract character and path from filename
-            const m = basename(file).match(/^(arch|algo|hum)-L2-(accept|resist|invest)-INITIAL_STATE\.md$/);
+            const m = basename(file).match(
+              /^(arch|algo|hum)-L2-(accept|resist|invest)-INITIAL_STATE\.md$/,
+            );
             if (!m) {
               return { variation: null, variationText: null };
             }
@@ -623,7 +637,7 @@ async function convertL2(
             frontmatter = {
               variation_id: `${sChar}-L2-${sPath}-INITIAL-001`,
               variation_type: 'initial',
-              word_count: countWords(body)
+              word_count: countWords(body),
               // Note: initial state should NOT have awareness conditions
             };
 
@@ -632,7 +646,9 @@ async function convertL2(
             parsed = parseFrontmatter(normalized, logger, file);
             if (!parsed) {
               // Salvage minimal L2 frontmatter from filename
-              const m = basename(file).match(/^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)/);
+              const m = basename(file).match(
+                /^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)/,
+              );
               if (!m) {
                 return { variation: null, variationText: null };
               }
@@ -642,14 +658,17 @@ async function convertL2(
                 variation_id: varId,
                 variation_type: sPhase === 'FR' ? 'firstRevisit' : 'metaAware',
                 word_count: 0,
-                conditions: { awareness: '0-100%' }
+                conditions: { awareness: '0-100%' },
               };
               // strip any leading frontmatter chunk
               if (/^---/.test(normalized)) {
                 const lines = normalized.split(/\r?\n/);
                 let i = 1;
                 for (; i < lines.length; i++) {
-                  if (lines[i].trim() === '') { i++; break; }
+                  if (lines[i].trim() === '') {
+                    i++;
+                    break;
+                  }
                 }
                 body = lines.slice(i).join('\n');
               } else {
@@ -705,7 +724,7 @@ async function convertL2(
           const sourceHash = hashContent(parsed ? parsed.raw : JSON.stringify(frontmatter), body);
           return { variation, variationText, manifestEntry: { file, sourceHash } };
         },
-        parallel ?? 4
+        parallel ?? 4,
       );
 
       for (const r of results) {
@@ -732,7 +751,11 @@ async function convertL2(
       }));
 
       // Check for duplicates
-      checkDuplicateIds(reindexedVariations.map(v => v.id), logger, nodeId);
+      checkDuplicateIds(
+        reindexedVariations.map((v) => v.id),
+        logger,
+        nodeId,
+      );
 
       // Validate count
       validateVariationCount(reindexedVariations.length, 80, nodeId, logger, options);
@@ -766,7 +789,10 @@ async function convertL2(
   }
 
   manifest.counts.totalVariations += manifest.counts.l2Variations;
-  logger.info('L2_COMPLETE', `Layer 2 conversion complete: ${manifest.counts.l2Variations} variations`);
+  logger.info(
+    'L2_COMPLETE',
+    `Layer 2 conversion complete: ${manifest.counts.l2Variations} variations`,
+  );
 }
 
 /**
@@ -780,7 +806,7 @@ async function convertL3(
   logger: Logger,
   options: ValidationOptions,
   dryRun?: boolean,
-  parallel?: number
+  parallel?: number,
 ): Promise<void> {
   logger.info('L3_START', 'Converting Layer 3...');
 
@@ -799,11 +825,10 @@ async function convertL3(
 
     // Discover all markdown files (sorted for determinism)
     // Only include variation files (exclude protocol/notes)
-    const namePattern = section.prefix === 'conv-L3'
-      ? /^conv-L3-\d+\.md$/
-      : /^(arch|algo|hum)-L3-\d+\.md$/;
+    const namePattern =
+      section.prefix === 'conv-L3' ? /^conv-L3-\d+\.md$/ : /^(arch|algo|hum)-L3-\d+\.md$/;
     const files = (await discoverMarkdownFiles(sourceDir, /\.md$/, logger))
-      .filter(p => namePattern.test(p.split(/[/\\]/).pop() || ''))
+      .filter((p) => namePattern.test(p.split(/[/\\]/).pop() || ''))
       .sort();
     logger.info('L3_DISCOVERED', `Found ${files.length} files for ${section.prefix}`);
     type L3ProcessResult = {
@@ -825,30 +850,42 @@ async function convertL3(
         const parsed = parseFrontmatter(normalized, logger, file);
         if (!parsed) return {};
 
-      const { frontmatter, content: body } = parsed;
+        const { frontmatter, content: body } = parsed;
 
-      // Normalize common issues before validation
-      if ('id' in frontmatter && !('variationId' in frontmatter)) {
-        frontmatter.variationId = frontmatter.id;
-      }
-
-      if (typeof frontmatter.variationId === 'string') {
-        // Ensure 3-digit padding
-        frontmatter.variationId = frontmatter.variationId.replace(/^(arch|algo|hum|conv)-L3-(\d{1,2})$/, (_m, p1, p2) => `${p1}-L3-${p2.padStart(3, '0')}`);
-      }
-
-      if (typeof frontmatter.philosophyDominant === 'string' && frontmatter.philosophyDominant.toLowerCase() === 'investigate') {
-        frontmatter.philosophyDominant = 'invest';
-      }
-
-      // Ensure conv-L3 has characterVoices
-      if (typeof frontmatter.variationId === 'string' && /^conv-L3-/.test(frontmatter.variationId)) {
-        if (!Array.isArray((frontmatter as any).characterVoices) || (frontmatter as any).characterVoices.length < 2) {
-          (frontmatter as any).characterVoices = ['archaeologist', 'algorithm', 'last-human'];
+        // Normalize common issues before validation
+        if ('id' in frontmatter && !('variationId' in frontmatter)) {
+          frontmatter.variationId = frontmatter.id;
         }
-      }
 
-      if (!validateL3Frontmatter(frontmatter, logger, file)) return {};
+        if (typeof frontmatter.variationId === 'string') {
+          // Ensure 3-digit padding
+          frontmatter.variationId = frontmatter.variationId.replace(
+            /^(arch|algo|hum|conv)-L3-(\d{1,2})$/,
+            (_m, p1, p2) => `${p1}-L3-${p2.padStart(3, '0')}`,
+          );
+        }
+
+        if (
+          typeof frontmatter.philosophyDominant === 'string' &&
+          frontmatter.philosophyDominant.toLowerCase() === 'investigate'
+        ) {
+          frontmatter.philosophyDominant = 'invest';
+        }
+
+        // Ensure conv-L3 has characterVoices
+        if (
+          typeof frontmatter.variationId === 'string' &&
+          /^conv-L3-/.test(frontmatter.variationId)
+        ) {
+          if (
+            !Array.isArray((frontmatter as any).characterVoices) ||
+            (frontmatter as any).characterVoices.length < 2
+          ) {
+            (frontmatter as any).characterVoices = ['archaeologist', 'algorithm', 'last-human'];
+          }
+        }
+
+        if (!validateL3Frontmatter(frontmatter, logger, file)) return {};
 
         const rawVariationId = frontmatter.variationId as string;
         const journeyPattern = frontmatter.journeyPattern as string;
@@ -889,13 +926,22 @@ async function convertL3(
 
         const json = JSON.stringify(output, null, 2);
         const sourceHash = hashContent(parsed.raw, body);
-        return { id: variationId, selectionKey, outputJson: json, body, file, sourceHash, sectionType };
+        return {
+          id: variationId,
+          selectionKey,
+          outputJson: json,
+          body,
+          file,
+          sourceHash,
+          sectionType,
+        };
       },
-      parallel ?? 4
+      parallel ?? 4,
     );
 
     for (const r of results) {
-      if (!r.id || !r.outputJson || !r.file || !r.selectionKey || !r.sectionType || !r.sourceHash) continue;
+      if (!r.id || !r.outputJson || !r.file || !r.selectionKey || !r.sectionType || !r.sourceHash)
+        continue;
       const variationId = r.id;
       const selectionKey = r.selectionKey;
       allIds.push(variationId);
@@ -935,7 +981,10 @@ async function convertL3(
   }
 
   manifest.counts.totalVariations += manifest.counts.l3Variations;
-  logger.info('L3_COMPLETE', `Layer 3 conversion complete: ${manifest.counts.l3Variations} variations`);
+  logger.info(
+    'L3_COMPLETE',
+    `Layer 3 conversion complete: ${manifest.counts.l3Variations} variations`,
+  );
 }
 
 /**
@@ -948,7 +997,7 @@ async function convertL4(
   logger: Logger,
   options: ValidationOptions,
   dryRun?: boolean,
-  _parallel?: number // Reserved for future use (L4 has only 3 files)
+  _parallel?: number, // Reserved for future use (L4 has only 3 files)
 ): Promise<void> {
   logger.info('L4_START', 'Converting Layer 4...');
 
@@ -986,7 +1035,10 @@ async function convertL4(
         // remove from start until first blank line after the leading fence block
         let i = 1;
         for (; i < lines.length; i++) {
-          if (lines[i].trim() === '') { i++; break; }
+          if (lines[i].trim() === '') {
+            i++;
+            break;
+          }
         }
         body = lines.slice(i).join('\n');
       } else {
@@ -1057,7 +1109,10 @@ async function convertL4(
   }
 
   manifest.counts.totalVariations += manifest.counts.l4Variations;
-  logger.info('L4_COMPLETE', `Layer 4 conversion complete: ${manifest.counts.l4Variations} variations`);
+  logger.info(
+    'L4_COMPLETE',
+    `Layer 4 conversion complete: ${manifest.counts.l4Variations} variations`,
+  );
 }
 
 main().catch((error) => {

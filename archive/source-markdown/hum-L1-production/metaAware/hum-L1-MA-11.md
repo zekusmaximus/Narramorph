@@ -5,6 +5,7 @@ word_count: 1490
 conditions:
   awareness: '61-80%'
 ---
+
 The metal holds memory.
 Not just mine. Yours too, reading this now. And someone else's—a systematic examination from 2047. Sixty-four years ago. Three hundred and thirty-six years after my preservation. Before you. After me. Between us.
 Three temporal positions creating one moment.

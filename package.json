@@ -13,9 +13,10 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint . --ext ts,tsx --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix --fix-type layout,suggestion && prettier . --write",
+    "lint:ci": "eslint . --max-warnings=0",
+    "format": "prettier . --write",
     "type-check": "tsc --noEmit",
     "validate": "npm run type-check && npm run lint && npm run test",
     "content:convert": "cd tools/conversion && npm run convert",
@@ -55,10 +56,15 @@
     "@vitest/ui": "^3.2.4",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.55.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-unused-imports": "^3.1.0",
     "jsdom": "^23.0.0",
+    "lint-staged": "^15.2.0",
     "postcss": "^8.4.32",
     "prettier": "^3.1.1",
     "typescript": "^5.3.3",
@@ -68,5 +74,14 @@
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ],
+    "*.{md,json,css,scss}": [
+      "prettier --write"
+    ]
   }
 }

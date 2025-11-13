@@ -1,22 +1,22 @@
 ---
-exemplar_id: "hum-L1-exemplar-4"
-variation_type: "crossCharacterBleeding"
+exemplar_id: 'hum-L1-exemplar-4'
+variation_type: 'crossCharacterBleeding'
 word_count: 1604
 conditions:
   visit_count: 2
-  awareness: "31-50"
+  awareness: '31-50'
   cross_character: true
-  visited_nodes: ["arch-L1", "algo-L1"]
+  visited_nodes: ['arch-L1', 'algo-L1']
   dominant_path: null
 themes:
   - superposition_of_multiple_examinations
   - complete_temporal_network
   - observer_observed_collapse
-transformation_focus: "From sequential understanding to simultaneous recognition. The Archaeologist examined what the Algorithm processed what the Last Human accesses. All three perspectives collapse into single eternal moment of mutual examination."
+transformation_focus: 'From sequential understanding to simultaneous recognition. The Archaeologist examined what the Algorithm processed what the Last Human accesses. All three perspectives collapse into single eternal moment of mutual examination.'
 reusable_patterns:
-  - "Triple-layer observation network (archaeological + computational + biological)"
-  - "Superposition creating volumetric understanding"
-  - "Three-point pattern completing across 342 years"
+  - 'Triple-layer observation network (archaeological + computational + biological)'
+  - 'Superposition creating volumetric understanding'
+  - 'Three-point pattern completing across 342 years'
 ---
 
 # hum-L1 EXEMPLAR 4: Superposition (Both Characters)

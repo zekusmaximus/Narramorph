@@ -24,29 +24,18 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacters": [],
-    "characterBalance": [
-      33,
-      33,
-      33
-    ],
+    "characterBalance": [33, 33, 33],
     "readableLabel": "SS-RE-H-TB",
     "humanDescription": "Started with one character, stayed dominant (>60%), resist path, high awareness, triple-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "fluid-transitions",
     "perspectiveEmphasis": "triple-balanced-equal",
     "philosophicalCulmination": "Resistance across three substrates, boundaries sought despite dissolution",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release-transform",
     "circularCausality": "explicit",
     "readerPosition": "acknowledged",
@@ -66,10 +55,6 @@
       "narrative-fifth"
     ],
     "philosophicalResolution": "resistance-network-spanning-substrates",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

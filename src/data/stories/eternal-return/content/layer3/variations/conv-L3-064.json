@@ -24,38 +24,23 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "varies-by-reader",
-    "characterBalance": [
-      60,
-      25,
-      15
-    ],
+    "characterBalance": [60, 25, 15],
     "readableLabel": "SD-RE-H-SD",
     "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, high awareness, single-character synthesis emphasis",
     "narrativeElements": null,
     "multiVoiceIntegration": "fluid-with-clear-primary",
     "perspectiveEmphasis": "dominant-character-frame-conscious",
     "philosophicalCulmination": "Verification maintained despite recognition of impossibility",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release",
     "circularCausality": "explicit",
     "readerPosition": "acknowledged",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-crisis",
-      "impossible-standards",
-      "resistance-despite-futility"
-    ],
+    "primaryThemes": ["verification-crisis", "impossible-standards", "resistance-despite-futility"],
     "crossCharacterSynthesis": "dominant-resistance-acknowledged",
     "temporalBleedingLevel": "high",
     "observerPositions": [
@@ -64,10 +49,6 @@
       "third-recognized"
     ],
     "philosophicalResolution": "maintained-boundaries-facing-dissolution",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

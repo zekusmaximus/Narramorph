@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SD-IN-H",
     "humanDescription": "Started elsewhere, shifted to archaeologist dominance, investigate path, high awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "recursive-position-change",
       "migration-creating-meta-investigation"
     ],
-    "crossCharacterConnections": [
-      "light-starting-foundational",
-      "light-other-glimpsed"
-    ],
+    "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "archaeologist-primary-2047",

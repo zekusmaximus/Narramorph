@@ -5,6 +5,7 @@ word_count: 1353
 conditions:
   awareness: '21-40%'
 ---
+
 The facility recognizes me. I know this before I touch anything. The air feels different. Expectant. Like the space between breaths when someone waits for you to speak.
 My hands find the interface without searching. Muscle memory already. Two visits and my body knows this ritual. Knows the cold metal. Knows the weight. Knows what comes next.
 I settle into the chair. It doesn't feel foreign anymore. The substrate accepts my warmth. The neural interface slides on and I don't hesitate. Don't brace for invasion. Just breathe into the connection.

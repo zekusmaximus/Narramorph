@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "SS-RE-L",
     "humanDescription": "Started archaeologist, stayed dominant, resist path, low awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Standards matter even when standards cannot achieve stated purpose",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "professional-duty",
-      "verification-ethics",
-      "systematic-rigor"
-    ],
-    "crossCharacterConnections": [
-      "light-algo-glimpsed",
-      "minimal-hum-distant"
-    ],
+    "primaryThemes": ["professional-duty", "verification-ethics", "systematic-rigor"],
+    "crossCharacterConnections": ["light-algo-glimpsed", "minimal-hum-distant"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-primary-2047",

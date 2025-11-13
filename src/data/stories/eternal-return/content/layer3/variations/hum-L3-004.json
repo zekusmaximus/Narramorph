@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SS-RE-H",
     "humanDescription": "Started last human, stayed dominant, resist path, high awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "verification-through-flesh",
       "boundaries-maintained"
     ],
-    "crossCharacterConnections": [
-      "minimal-arch-resisted",
-      "light-algo-questioned"
-    ],
+    "crossCharacterConnections": ["minimal-arch-resisted", "light-algo-questioned"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "human-primary-2383",

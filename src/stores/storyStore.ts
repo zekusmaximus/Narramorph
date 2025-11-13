@@ -24,9 +24,19 @@ import { saveToStorage, loadFromStorage, STORAGE_KEYS } from '@/utils/storage';
 import { validateSavedState } from '@/utils/validation';
 import { loadStoryContent, ContentLoadError } from '@/utils/contentLoader';
 import { calculateJourneyPattern, calculatePathPhilosophy } from '@/utils/conditionEvaluator';
-import type { JourneyTracking, ConditionContext, L3Assembly, JourneyPattern, PathPhilosophy, SynthesisPattern } from '@/types';
+import type {
+  JourneyTracking,
+  ConditionContext,
+  L3Assembly,
+  JourneyPattern,
+  PathPhilosophy,
+  SynthesisPattern,
+} from '@/types';
 import { buildL3Assembly, calculateSynthesisPattern } from '@/utils/l3Assembly';
-import { getNodePhilosophy, validateL2PhilosophyMappings } from '@/data/stories/eternal-return/nodePhilosophyMapping';
+import {
+  getNodePhilosophy,
+  validateL2PhilosophyMappings,
+} from '@/data/stories/eternal-return/nodePhilosophyMapping';
 import { isL3Node, isL4Node } from '@/utils/nodeUtils';
 import { loadUnlockConfig } from '@/utils/unlockLoader';
 import {
@@ -34,6 +44,20 @@ import {
   getUnlockProgress as getUnlockProgressUtil,
 } from '@/utils/unlockEvaluator';
 import type { UnlockProgress } from '@/types/Unlock';
+
+const isDevEnv = process.env.NODE_ENV !== 'production';
+const devLog = (...args: unknown[]): void => {
+  if (!isDevEnv) return;
+  console.warn('[StoryStore]', ...args);
+};
+const devWarn = (...args: unknown[]): void => {
+  if (!isDevEnv) return;
+  console.warn('[StoryStore:warn]', ...args);
+};
+const devError = (...args: unknown[]): void => {
+  if (!isDevEnv) return;
+  console.error('[StoryStore:error]', ...args);
+};
 
 /**
  * Creates initial journey tracking
@@ -130,7 +154,7 @@ function generateL3CacheKey(
   journeyPattern: JourneyPattern,
   pathPhilosophy: PathPhilosophy,
   awarenessLevel: 'low' | 'medium' | 'high',
-  synthesisPattern: SynthesisPattern
+  synthesisPattern: SynthesisPattern,
 ): string {
   return `${journeyPattern}_${pathPhilosophy}_${awarenessLevel}_${synthesisPattern}`;
 }
@@ -153,7 +177,7 @@ function determineTransformationState(
   nodeId: string,
   visitRecord: VisitRecord | undefined,
   unlockedTransformations: UnlockedTransformation[],
-  temporalAwarenessLevel: number
+  temporalAwarenessLevel: number,
 ): TransformationState {
   // Priority 1: Special transformations always show metaAware
   const specialUnlocked = unlockedTransformations.find((t) => t.nodeId === nodeId);
@@ -165,25 +189,29 @@ function determineTransformationState(
 
   // First visit: always initial state
   if (visitCount === 0 || visitCount === 1) {
-    console.log(`[TransformState] ${nodeId}: visitCount=${visitCount} → initial`);
+    devLog(`[TransformState] ${nodeId}: visitCount=${visitCount} → initial`);
     return 'initial';
   }
 
   // Second visit: temporal bleeding if awareness threshold met
   if (visitCount === 2) {
     const state = temporalAwarenessLevel > 20 ? 'firstRevisit' : 'initial';
-    console.log(`[TransformState] ${nodeId}: visitCount=2, awareness=${temporalAwarenessLevel} → ${state}`);
+    devLog(
+      `[TransformState] ${nodeId}: visitCount=2, awareness=${temporalAwarenessLevel} → ${state}`,
+    );
     return state;
   }
 
   // Third+ visit OR high awareness: full meta-aware
   if (visitCount >= 3 || temporalAwarenessLevel > 50) {
-    console.log(`[TransformState] ${nodeId}: visitCount=${visitCount}, awareness=${temporalAwarenessLevel} → metaAware`);
+    devLog(
+      `[TransformState] ${nodeId}: visitCount=${visitCount}, awareness=${temporalAwarenessLevel} → metaAware`,
+    );
     return 'metaAware';
   }
 
   // Fallback (shouldn't normally reach here)
-  console.log(`[TransformState] ${nodeId}: fallback → firstRevisit`);
+  devLog(`[TransformState] ${nodeId}: fallback → firstRevisit`);
   return 'firstRevisit';
 }
 
@@ -198,7 +226,7 @@ function determineTransformationState(
 function checkSpecialTransformations(
   _visitedNodeId: string,
   nodes: StoryNode[],
-  progress: UserProgress
+  progress: UserProgress,
 ): UnlockedTransformation[] {
   const newlyUnlocked: UnlockedTransformation[] = [];
 
@@ -208,14 +236,14 @@ function checkSpecialTransformations(
     for (const transform of node.unlockConditions.specialTransforms) {
       // Check if already unlocked
       const alreadyUnlocked = progress.specialTransformations.some(
-        t => t.nodeId === node.id && t.transformationId === transform.id
+        (t) => t.nodeId === node.id && t.transformationId === transform.id,
       );
 
       if (alreadyUnlocked) continue;
 
       // Check required prior nodes (any order)
       const hasRequiredNodes = transform.requiredPriorNodes.every(
-        nodeId => progress.visitedNodes[nodeId]
+        (nodeId) => progress.visitedNodes[nodeId],
       );
 
       if (!hasRequiredNodes) continue;
@@ -231,7 +259,7 @@ function checkSpecialTransformations(
       newlyUnlocked.push({
         nodeId: node.id,
         transformationId: transform.id,
-        unlockedAt: new Date().toISOString()
+        unlockedAt: new Date().toISOString(),
       });
     }
   }
@@ -246,10 +274,7 @@ function checkSpecialTransformations(
  * @param progress - Current user progress
  * @returns true if the connection should be visible
  */
-function shouldRevealConnection(
-  connection: Connection,
-  progress: UserProgress
-): boolean {
+function shouldRevealConnection(connection: Connection, progress: UserProgress): boolean {
   // If no reveal conditions, always visible
   if (!connection.revealConditions) {
     return true;
@@ -295,7 +320,7 @@ function normalizeCharacter(character: string): 'archaeologist' | 'algorithm' | 
  */
 function getConnectionKey(
   from: 'archaeologist' | 'algorithm' | 'lastHuman',
-  to: 'archaeologist' | 'algorithm' | 'lastHuman'
+  to: 'archaeologist' | 'algorithm' | 'lastHuman',
 ): keyof JourneyTracking['crossCharacterConnections'] | null {
   if (from === to) return null;
 
@@ -312,7 +337,9 @@ function getConnectionKey(
 /**
  * Classify navigation pattern based on journey tracking metrics
  */
-function classifyNavigationPattern(tracking: JourneyTracking): 'linear' | 'exploratory' | 'recursive' | 'undetermined' {
+function classifyNavigationPattern(
+  tracking: JourneyTracking,
+): 'linear' | 'exploratory' | 'recursive' | 'undetermined' {
   const { revisitFrequency, explorationMetrics } = tracking;
   const { breadth, depth } = explorationMetrics;
 
@@ -325,8 +352,10 @@ function classifyNavigationPattern(tracking: JourneyTracking): 'linear' | 'explo
   }
 
   // Exploratory: High breadth + low depth + many cross-character connections
-  const totalConnections = Object.values(tracking.crossCharacterConnections)
-    .reduce((sum, count) => sum + count, 0);
+  const totalConnections = Object.values(tracking.crossCharacterConnections).reduce(
+    (sum, count) => sum + count,
+    0,
+  );
 
   if (breadth > 50 && depth < 2 && totalConnections > 5) {
     return 'exploratory';
@@ -374,7 +403,7 @@ export const useStoryStore = create<StoryStore>()(
     loadStory: async (storyId: string) => {
       try {
         // TODO: Add loading indicator
-        // console.log(`Loading story: ${storyId}`);
+        // devLog(`Loading story: ${storyId}`);
 
         // Load story content from files
         const storyData = await loadStoryContent(storyId);
@@ -402,11 +431,11 @@ export const useStoryStore = create<StoryStore>()(
 
           // Update viewport bounds based on node positions
           if (storyData.nodes.length > 0) {
-            const positions = storyData.nodes.map(node => node.position);
-            const minX = Math.min(...positions.map(p => p.x)) - 100;
-            const maxX = Math.max(...positions.map(p => p.x)) + 100;
-            const minY = Math.min(...positions.map(p => p.y)) - 100;
-            const maxY = Math.max(...positions.map(p => p.y)) + 100;
+            const positions = storyData.nodes.map((node) => node.position);
+            const minX = Math.min(...positions.map((p) => p.x)) - 100;
+            const maxX = Math.max(...positions.map((p) => p.x)) + 100;
+            const minY = Math.min(...positions.map((p) => p.y)) - 100;
+            const maxY = Math.max(...positions.map((p) => p.y)) + 100;
 
             state.viewport.bounds = { minX, maxX, minY, maxY };
             state.viewport.center = {
@@ -430,23 +459,24 @@ export const useStoryStore = create<StoryStore>()(
         const validation = validateL2PhilosophyMappings(nodeIds);
 
         if (!validation.valid) {
-          console.warn('[Journey] L2 nodes missing philosophy mappings:', validation.missing);
+          devWarn('[Journey] L2 nodes missing philosophy mappings:', validation.missing);
         } else {
-          console.log('[Journey] All L2 nodes have valid philosophy mappings');
+          devLog('[Journey] All L2 nodes have valid philosophy mappings');
         }
 
         // TODO: Add success notification
-        // console.log(`Successfully loaded story: ${storyData.metadata.title}`);
-
+        // devLog(`Successfully loaded story: ${storyData.metadata.title}`);
       } catch (error) {
-        console.error('Failed to load story:', error);
+        devError('Failed to load story:', error);
 
         if (error instanceof ContentLoadError) {
           // Handle content loading errors with user-friendly messages
           throw new Error(`Story loading failed: ${error.message}`);
         } else {
           // Handle unexpected errors
-          throw new Error(`Unexpected error loading story: ${error instanceof Error ? error.message : 'Unknown error'}`);
+          throw new Error(
+            `Unexpected error loading story: ${error instanceof Error ? error.message : 'Unknown error'}`,
+          );
         }
       }
     },
@@ -461,8 +491,7 @@ export const useStoryStore = create<StoryStore>()(
      */
     updateTemporalAwareness: () => {
       set((draftState) => {
-        const { archaeologist, algorithm, lastHuman } =
-          draftState.progress.characterNodesVisited;
+        const { archaeologist, algorithm, lastHuman } = draftState.progress.characterNodesVisited;
 
         const total = archaeologist + algorithm + lastHuman;
 
@@ -472,11 +501,9 @@ export const useStoryStore = create<StoryStore>()(
         }
 
         // Calculate diversity of exploration
-        const perspectivesVisited = [
-          archaeologist > 0,
-          algorithm > 0,
-          lastHuman > 0,
-        ].filter(Boolean).length;
+        const perspectivesVisited = [archaeologist > 0, algorithm > 0, lastHuman > 0].filter(
+          Boolean,
+        ).length;
 
         // Temporal awareness formula
         const diversityBonus = perspectivesVisited * 20; // 0, 20, 40, or 60
@@ -484,7 +511,7 @@ export const useStoryStore = create<StoryStore>()(
 
         draftState.progress.temporalAwarenessLevel = Math.min(
           diversityBonus + explorationScore,
-          100
+          100,
         );
       });
     },
@@ -494,8 +521,7 @@ export const useStoryStore = create<StoryStore>()(
      */
     updateJourneyTracking: () => {
       set((draftState) => {
-        const { archaeologist, algorithm, lastHuman } =
-          draftState.progress.characterNodesVisited;
+        const { archaeologist, algorithm, lastHuman } = draftState.progress.characterNodesVisited;
 
         const total = archaeologist + algorithm + lastHuman;
 
@@ -534,7 +560,11 @@ export const useStoryStore = create<StoryStore>()(
         }
 
         // Determine dominant character
-        const maxPercentage = Math.max(percentages.archaeologist, percentages.algorithm, percentages.lastHuman);
+        const maxPercentage = Math.max(
+          percentages.archaeologist,
+          percentages.algorithm,
+          percentages.lastHuman,
+        );
         if (percentages.archaeologist === maxPercentage) {
           tracking.dominantCharacter = 'archaeologist';
         } else if (percentages.algorithm === maxPercentage) {
@@ -546,7 +576,7 @@ export const useStoryStore = create<StoryStore>()(
         // Calculate journey pattern
         tracking.currentJourneyPattern = calculateJourneyPattern(
           tracking.startingCharacter,
-          percentages
+          percentages,
         );
 
         // Calculate dominant philosophy
@@ -595,7 +625,7 @@ export const useStoryStore = create<StoryStore>()(
     buildL3Assembly: (): L3Assembly | null => {
       const state = get();
       if (!state.storyData) {
-        console.error('Story not loaded');
+        devError('Story not loaded');
         return null;
       }
 
@@ -609,49 +639,46 @@ export const useStoryStore = create<StoryStore>()(
     getOrBuildL3Assembly: (): L3Assembly | null => {
       const state = get();
       if (!state.storyData) {
-        console.error('[L3Assembly] Story not loaded');
+        devError('[L3Assembly] Story not loaded');
         return null;
       }
 
       const tracking = state.progress.journeyTracking;
       if (!tracking) {
-        console.error('[L3Assembly] Journey tracking not initialized');
+        devError('[L3Assembly] Journey tracking not initialized');
         return null;
       }
 
       const context = state.getConditionContext();
 
       // Calculate synthesis pattern
-      const synthesisPattern = calculateSynthesisPattern(
-        tracking.characterVisitPercentages
-      );
+      const synthesisPattern = calculateSynthesisPattern(tracking.characterVisitPercentages);
 
       // Determine awareness level
       const awarenessLevel =
-        context.awareness < 35 ? 'low' :
-        context.awareness < 70 ? 'medium' : 'high';
+        context.awareness < 35 ? 'low' : context.awareness < 70 ? 'medium' : 'high';
 
       // Generate cache key
       const cacheKey = generateL3CacheKey(
         context.journeyPattern,
         context.pathPhilosophy,
         awarenessLevel,
-        synthesisPattern
+        synthesisPattern,
       );
 
       // Check cache first
       const cached = state.l3AssemblyCache.get(cacheKey);
       if (cached) {
-        console.log('[L3Assembly] Using cached assembly:', cacheKey);
+        devLog('[L3Assembly] Using cached assembly:', cacheKey);
         return cached;
       }
 
       // Build new assembly
-      console.log('[L3Assembly] Building new assembly:', cacheKey);
+      devLog('[L3Assembly] Building new assembly:', cacheKey);
       const assembly = buildL3Assembly(state.storyData.metadata.id, context);
 
       if (!assembly) {
-        console.error('[L3Assembly] Failed to build assembly');
+        devError('[L3Assembly] Failed to build assembly');
         return null;
       }
 
@@ -668,7 +695,7 @@ export const useStoryStore = create<StoryStore>()(
      */
     clearL3AssemblyCache: () => {
       set((state) => {
-        console.log('[L3Assembly] Clearing assembly cache');
+        devLog('[L3Assembly] Clearing assembly cache');
         state.l3AssemblyCache.clear();
       });
     },
@@ -683,7 +710,7 @@ export const useStoryStore = create<StoryStore>()(
       const assembly = state.getOrBuildL3Assembly();
 
       if (!assembly) {
-        console.error('[L3Assembly] Cannot open view - no assembly available');
+        devError('[L3Assembly] Cannot open view - no assembly available');
         return;
       }
 
@@ -695,7 +722,7 @@ export const useStoryStore = create<StoryStore>()(
       // Track L3 assembly view in progress
       state.trackL3AssemblyView(assembly);
 
-      console.log('[L3Assembly] Opened assembly view:', {
+      devLog('[L3Assembly] Opened assembly view:', {
         journeyPattern: assembly.metadata.journeyPattern,
         philosophy: assembly.metadata.pathPhilosophy,
         synthesis: assembly.metadata.synthesisPattern,
@@ -711,7 +738,7 @@ export const useStoryStore = create<StoryStore>()(
         // Keep currentL3Assembly for reference, don't clear
       });
 
-      console.log('[L3Assembly] Closed assembly view');
+      devLog('[L3Assembly] Closed assembly view');
     },
 
     /**
@@ -725,16 +752,16 @@ export const useStoryStore = create<StoryStore>()(
 
         // Check if this exact assembly was already viewed
         const existing = state.progress.l3AssembliesViewed.find(
-          view =>
+          (view) =>
             view.journeyPattern === assembly.metadata.journeyPattern &&
             view.pathPhilosophy === assembly.metadata.pathPhilosophy &&
-            view.synthesisPattern === assembly.metadata.synthesisPattern
+            view.synthesisPattern === assembly.metadata.synthesisPattern,
         );
 
         if (existing) {
           // Update timestamp
           existing.viewedAt = new Date().toISOString();
-          console.log('[L3Assembly] Updated existing view timestamp');
+          devLog('[L3Assembly] Updated existing view timestamp');
         } else {
           // Add new view record
           state.progress.l3AssembliesViewed.push({
@@ -750,7 +777,7 @@ export const useStoryStore = create<StoryStore>()(
               conv: false,
             },
           });
-          console.log('[L3Assembly] Added new view record');
+          devLog('[L3Assembly] Added new view record');
         }
       });
 
@@ -765,13 +792,12 @@ export const useStoryStore = create<StoryStore>()(
         if (!state.progress.l3AssembliesViewed?.length) return;
 
         // Mark in most recent view
-        const latest = state.progress.l3AssembliesViewed[
-          state.progress.l3AssembliesViewed.length - 1
-        ];
+        const latest =
+          state.progress.l3AssembliesViewed[state.progress.l3AssembliesViewed.length - 1];
 
         if (latest.sectionsRead[section] === false) {
           latest.sectionsRead[section] = true;
-          console.log(`[L3Assembly] Marked section ${section} as read`);
+          devLog(`[L3Assembly] Marked section ${section} as read`);
         }
       });
 
@@ -797,16 +823,13 @@ export const useStoryStore = create<StoryStore>()(
 
         if (wasLocked && isUnlocked) {
           newlyUnlocked.push(nodeId);
-          console.log(`[Unlock] Node unlocked: ${nodeId}`);
+          devLog(`[Unlock] Node unlocked: ${nodeId}`);
         }
       }
 
       if (newlyUnlocked.length > 0) {
         set((state) => {
-          state.recentlyUnlockedNodes = [
-            ...state.recentlyUnlockedNodes,
-            ...newlyUnlocked,
-          ];
+          state.recentlyUnlockedNodes = [...state.recentlyUnlockedNodes, ...newlyUnlocked];
         });
       }
     },
@@ -838,7 +861,7 @@ export const useStoryStore = create<StoryStore>()(
       const state = get();
       const node = state.nodes.get(nodeId);
       if (!node) {
-        console.error(`Node not found: ${nodeId}`);
+        devError(`Node not found: ${nodeId}`);
         return;
       }
 
@@ -852,7 +875,7 @@ export const useStoryStore = create<StoryStore>()(
           existingRecord.visitCount++;
           existingRecord.visitTimestamps.push(now);
           existingRecord.lastVisited = now;
-          console.log(`[Visit] ${nodeId}: visit #${existingRecord.visitCount} (was ${previousCount})`);
+          devLog(`[Visit] ${nodeId}: visit #${existingRecord.visitCount} (was ${previousCount})`);
         } else {
           draftState.progress.visitedNodes[nodeId] = {
             visitCount: 1,
@@ -861,7 +884,7 @@ export const useStoryStore = create<StoryStore>()(
             timeSpent: 0,
             lastVisited: now,
           };
-          console.log(`[Visit] ${nodeId}: first visit recorded`);
+          devLog(`[Visit] ${nodeId}: first visit recorded`);
         }
 
         // Track character-specific visits
@@ -889,7 +912,7 @@ export const useStoryStore = create<StoryStore>()(
 
           if (connectionKey) {
             tracking.crossCharacterConnections[connectionKey]++;
-            console.log(`[Journey] Character switch detected: ${lastChar} → ${currentChar}`);
+            devLog(`[Journey] Character switch detected: ${lastChar} → ${currentChar}`);
           }
         }
 
@@ -897,12 +920,10 @@ export const useStoryStore = create<StoryStore>()(
         tracking.lastCharacterVisited = currentChar;
 
         // === Revisit Tracking ===
-        // isRevisit currently unused but kept for future analytics
-        // @ts-expect-error - Unused but kept for future analytics
-        const isRevisit = existingRecord && existingRecord.visitCount > 0;
         const totalVisits = Object.keys(draftState.progress.visitedNodes).length;
-        const revisits = Object.values(draftState.progress.visitedNodes)
-          .filter(record => record.visitCount > 1).length;
+        const revisits = Object.values(draftState.progress.visitedNodes).filter(
+          (record) => record.visitCount > 1,
+        ).length;
 
         if (totalVisits > 0) {
           tracking.revisitFrequency = (revisits / totalVisits) * 100;
@@ -911,8 +932,10 @@ export const useStoryStore = create<StoryStore>()(
         // === Exploration Metrics ===
         const totalNodes = get().nodes.size;
         const uniqueVisited = Object.keys(draftState.progress.visitedNodes).length;
-        const totalVisitCount = Object.values(draftState.progress.visitedNodes)
-          .reduce((sum, record) => sum + record.visitCount, 0);
+        const totalVisitCount = Object.values(draftState.progress.visitedNodes).reduce(
+          (sum, record) => sum + record.visitCount,
+          0,
+        );
 
         tracking.explorationMetrics = {
           breadth: totalNodes > 0 ? (uniqueVisited / totalNodes) * 100 : 0,
@@ -932,7 +955,7 @@ export const useStoryStore = create<StoryStore>()(
           // Clear L3 cache if visiting L2 node (philosophy changes)
           if (layer === 2) {
             draftState.l3AssemblyCache.clear();
-            console.log('[L3Assembly] Cache cleared due to L2 visit');
+            devLog('[L3Assembly] Cache cleared due to L2 visit');
           }
         }
 
@@ -940,7 +963,11 @@ export const useStoryStore = create<StoryStore>()(
         const nodePhilosophy = getNodePhilosophy(nodeId);
         if (nodePhilosophy && draftState.progress.journeyTracking) {
           // Only track if it's one of the three core philosophies
-          if (nodePhilosophy === 'accept' || nodePhilosophy === 'resist' || nodePhilosophy === 'invest') {
+          if (
+            nodePhilosophy === 'accept' ||
+            nodePhilosophy === 'resist' ||
+            nodePhilosophy === 'invest'
+          ) {
             draftState.progress.journeyTracking.l2Choices[nodePhilosophy]++;
           }
         }
@@ -956,14 +983,12 @@ export const useStoryStore = create<StoryStore>()(
       // Re-determine transformation states for ALL visited nodes with new awareness
       const freshState = get();
       set((draftState) => {
-        for (const [visitedNodeId, visitRec] of Object.entries(
-          draftState.progress.visitedNodes
-        )) {
+        for (const [visitedNodeId, visitRec] of Object.entries(draftState.progress.visitedNodes)) {
           visitRec.currentState = determineTransformationState(
             visitedNodeId,
             visitRec,
             freshState.progress.specialTransformations,
-            freshState.progress.temporalAwarenessLevel
+            freshState.progress.temporalAwarenessLevel,
           );
         }
       });
@@ -973,7 +998,7 @@ export const useStoryStore = create<StoryStore>()(
       const newTransforms = checkSpecialTransformations(
         nodeId,
         Array.from(freshStateAgain.nodes.values()),
-        freshStateAgain.progress
+        freshStateAgain.progress,
       );
 
       if (newTransforms.length > 0) {
@@ -1028,14 +1053,14 @@ export const useStoryStore = create<StoryStore>()(
 
       // Check if this is an L3 node
       if (isL3Node(nodeId)) {
-        console.log('[Navigation] L3 node detected, opening assembly view');
+        devLog('[Navigation] L3 node detected, opening assembly view');
         state.openL3AssemblyView();
         return;
       }
 
       // Check if this is an L4 node (future: special handling)
       if (isL4Node(nodeId)) {
-        console.log('[Navigation] L4 node detected');
+        devLog('[Navigation] L4 node detected');
         // Future: Route to terminal view
         // For now, proceed with normal StoryView
       }
@@ -1046,7 +1071,7 @@ export const useStoryStore = create<StoryStore>()(
         state.storyViewOpen = true;
       });
 
-      console.log('[Navigation] Opened story view:', nodeId);
+      devLog('[Navigation] Opened story view:', nodeId);
     },
 
     closeStoryView: () => {
@@ -1066,7 +1091,7 @@ export const useStoryStore = create<StoryStore>()(
 
       const success = saveToStorage(STORAGE_KEYS.SAVED_STATE, savedState);
       if (!success) {
-        console.error('Failed to save progress to localStorage');
+        devError('Failed to save progress to localStorage');
       }
     },
 
@@ -1075,13 +1100,13 @@ export const useStoryStore = create<StoryStore>()(
       if (!saved) return;
 
       if (!validateSavedState(saved)) {
-        console.error('Invalid saved state format');
+        devError('Invalid saved state format');
         return;
       }
 
       // Migration for old saves without temporal awareness
       if (saved.progress.temporalAwarenessLevel === undefined) {
-        console.log('Migrating old save to temporal awareness system...');
+        devLog('Migrating old save to temporal awareness system...');
 
         // Initialize new fields
         saved.progress.temporalAwarenessLevel = 0;
@@ -1107,31 +1132,25 @@ export const useStoryStore = create<StoryStore>()(
         }
 
         // Calculate temporal awareness from migrated data
-        const { archaeologist, algorithm, lastHuman } =
-          saved.progress.characterNodesVisited;
+        const { archaeologist, algorithm, lastHuman } = saved.progress.characterNodesVisited;
         const total = archaeologist + algorithm + lastHuman;
 
         if (total > 0) {
-          const perspectivesVisited = [
-            archaeologist > 0,
-            algorithm > 0,
-            lastHuman > 0,
-          ].filter(Boolean).length;
+          const perspectivesVisited = [archaeologist > 0, algorithm > 0, lastHuman > 0].filter(
+            Boolean,
+          ).length;
 
           const diversityBonus = perspectivesVisited * 20;
           const explorationScore = Math.min((total / 10) * 40, 40);
-          saved.progress.temporalAwarenessLevel = Math.min(
-            diversityBonus + explorationScore,
-            100
-          );
+          saved.progress.temporalAwarenessLevel = Math.min(diversityBonus + explorationScore, 100);
         }
 
-        console.log(`Migration complete. Temporal awareness: ${saved.progress.temporalAwarenessLevel}%`);
+        devLog(`Migration complete. Temporal awareness: ${saved.progress.temporalAwarenessLevel}%`);
       }
 
       // Migration for old saves without L2 unlocking system
       if (!saved.progress.unlockedL2Characters) {
-        console.log('Migrating old save to L2 unlocking system...');
+        devLog('Migrating old save to L2 unlocking system...');
 
         // Initialize the field
         saved.progress.unlockedL2Characters = [];
@@ -1151,7 +1170,9 @@ export const useStoryStore = create<StoryStore>()(
           }
         }
 
-        console.log(`Migration complete. Unlocked L2 characters: ${saved.progress.unlockedL2Characters.join(', ')}`);
+        devLog(
+          `Migration complete. Unlocked L2 characters: ${saved.progress.unlockedL2Characters.join(', ')}`,
+        );
       }
 
       set((state) => {
@@ -1186,7 +1207,7 @@ export const useStoryStore = create<StoryStore>()(
         get().saveProgress();
         return true;
       } catch (error) {
-        console.error('Failed to import progress:', error);
+        devError('Failed to import progress:', error);
         return false;
       }
     },
@@ -1307,13 +1328,13 @@ export const useStoryStore = create<StoryStore>()(
         if (node.unlockConditions?.specialTransforms) {
           for (const transform of node.unlockConditions.specialTransforms) {
             const alreadyUnlocked = state.progress.specialTransformations.some(
-              t => t.nodeId === nodeId && t.transformationId === transform.id
+              (t) => t.nodeId === nodeId && t.transformationId === transform.id,
             );
 
             if (!alreadyUnlocked) {
               // Check if requirements are close to being met
               const hasRequiredNodes = transform.requiredPriorNodes.every(
-                id => state.progress.visitedNodes[id]
+                (id) => state.progress.visitedNodes[id],
               );
 
               if (hasRequiredNodes) {
@@ -1426,5 +1447,5 @@ export const useStoryStore = create<StoryStore>()(
 
       return true; // Default: unlocked
     },
-  }))
+  })),
 );

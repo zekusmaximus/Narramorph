@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "SS-AC-L",
     "humanDescription": "Started last human, stayed dominant, accept path, low awareness",
     "narrativeElements": null,
@@ -44,15 +41,8 @@
       "sustained-presence",
       "upload-as-transformation"
     ],
-    "crossCharacterConnections": [
-      "none-arch",
-      "none-algo"
-    ],
+    "crossCharacterConnections": ["none-arch", "none-algo"],
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "human-primary-2383",
-      "archaeologist-absent",
-      "algorithm-absent"
-    ]
+    "observerPositions": ["human-primary-2383", "archaeologist-absent", "algorithm-absent"]
   }
 }

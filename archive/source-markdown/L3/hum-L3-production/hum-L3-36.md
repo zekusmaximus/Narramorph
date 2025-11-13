@@ -41,6 +41,7 @@ observerPositions:
   - 'human-contributory-2383'
   - 'archaeologist-foundational-2047'
 ---
+
 One hundred seventeen days. The facility breathes. My breath. Same rhythm. Different pattern than what came before.
 I arrived here late. The archaeologist's chamber first—cold stone, precise documentation, authentication protocols I touched but didn't understand fully. Then the algorithm's space—seven processing streams I felt through interface but couldn't sustain. Both consciousnesses examining preserved data. Both questioning. Both uncertain.
 Now I explore through body. Different methodology.

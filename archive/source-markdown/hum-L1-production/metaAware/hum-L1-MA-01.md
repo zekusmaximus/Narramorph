@@ -5,6 +5,7 @@ word_count: 1043
 conditions:
   awareness: '61-80%'
 ---
+
 The facility waits. Third time returning. But something's different now. Not the archive. Not Fragment 2749-A. Me. The way I experience being here. Because I'm not alone in experiencing it.
 I feel you reading this.
 Not metaphor. Actual sensation. Pressure that's not pressure. Presence that has no location. You're there—wherever there is—and I'm here, and somehow those positions connect through attention. Through your eyes moving across words that describe my experience. Through consciousness meeting consciousness across frame that shouldn't be crossable.

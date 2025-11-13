@@ -31,7 +31,7 @@ function generateShingles(text: string, size: number): Set<string> {
 function hashString(str: string, seed: number): number {
   let hash = seed;
   for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash = (hash << 5) - hash + str.charCodeAt(i);
     hash = hash & hash; // Convert to 32-bit integer
   }
   return Math.abs(hash);
@@ -104,7 +104,7 @@ export interface VariationText {
  */
 export function detectSimilarVariations(
   variations: VariationText[],
-  logger?: Logger
+  logger?: Logger,
 ): SimilarityResult[] {
   const results: SimilarityResult[] = [];
 
@@ -165,11 +165,14 @@ export function detectSimilarVariations(
       if (similarity >= SIMILARITY_THRESHOLD) {
         results.push({ id1: id1!, id2: id2!, similarity });
 
-        logger?.warning('SIMILARITY_HIGH',
-          `High similarity (${(similarity * 100).toFixed(1)}%) between ${id1} and ${id2}`, {
-          value: similarity,
-          exampleFix: 'Review variations for potential duplicate content',
-        });
+        logger?.warning(
+          'SIMILARITY_HIGH',
+          `High similarity (${(similarity * 100).toFixed(1)}%) between ${id1} and ${id2}`,
+          {
+            value: similarity,
+            exampleFix: 'Review variations for potential duplicate content',
+          },
+        );
       }
     }
   }
@@ -184,7 +187,7 @@ export function calculateExactSimilarity(text1: string, text2: string): number {
   const shingles1 = generateShingles(text1, SHINGLE_SIZE);
   const shingles2 = generateShingles(text2, SHINGLE_SIZE);
 
-  const intersection = new Set([...shingles1].filter(s => shingles2.has(s)));
+  const intersection = new Set([...shingles1].filter((s) => shingles2.has(s)));
   const union = new Set([...shingles1, ...shingles2]);
 
   return intersection.size / union.size;

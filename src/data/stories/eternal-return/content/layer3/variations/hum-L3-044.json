@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "ML-IN-M",
     "humanDescription": "Started elsewhere, substantial last human exploration, investigate path, medium awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "recursive-examination",
       "methodology-examining-methodology"
     ],
-    "crossCharacterConnections": [
-      "heavy-algo-primary",
-      "significant-arch-foundational"
-    ],
+    "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "algorithm-primary-2151",

@@ -3,7 +3,7 @@ import {
   validateL1L2Frontmatter,
   validateL3Frontmatter,
   validateVariationCount,
-  checkDuplicateIds
+  checkDuplicateIds,
 } from '../../lib/validate.js';
 import { Logger } from '../../lib/log.js';
 

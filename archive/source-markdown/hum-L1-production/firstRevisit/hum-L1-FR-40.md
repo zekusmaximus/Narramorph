@@ -5,6 +5,7 @@ word_count: 1539
 conditions:
   awareness: '21-40%'
 ---
+
 I return to the archive. Second time. But I return skeptically.
 My body remembers the threshold. Muscles tensing before I cross. Jaw clenched. Physical preparation for—what? Testing. Verification. The demand for proof that lives in my bones now.
 The air tastes the same. Temperature constant. But sameness proves nothing. Memory is unreliable. Sensation is suspect. I've learned to question both.

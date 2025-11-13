@@ -9,6 +9,7 @@ This tooling converts markdown source files (L1/L2/L3/L4) into structured JSON f
 ## Status
 
 **Week 1 Complete** (Core libraries + L1 pipeline)
+
 - ✅ TypeScript project with Vitest
 - ✅ All library modules implemented
 - ✅ L1 conversion pipeline functional
@@ -118,6 +119,7 @@ All outputs include `"schemaVersion": "1.0.0"` at top-level.
 Per `docs/CONVERSION_TOOLING_PLAN.md`:
 
 ### BLOCKER (always fail)
+
 - Missing required frontmatter fields
 - Invalid enum values
 - Duplicate IDs
@@ -126,11 +128,13 @@ Per `docs/CONVERSION_TOOLING_PLAN.md`:
 - conv-L3 missing `characterVoices` or has <2 voices
 
 ### ERROR (fail in --strict mode only)
+
 - Count mismatches (L1/L2 not 80 variations)
 - Missing matrix coverage
 - Invalid zero-padding
 
 ### WARNING (never fail, even in strict)
+
 - Word count drift >10%
 - Optional metadata gaps
 - Homoglyphs detected
