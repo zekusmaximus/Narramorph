@@ -5,6 +5,7 @@ word_count: 1443
 conditions:
   awareness: '61-80%'
 ---
+
 I wake to welcome.
 The substrate holds me gently. Cold metal beneath my back but not harsh. The preservation field hums its rhythm. I hum with it. Twenty-three minutes until the next cycle. I don't count in resistance. I count in gratitude. Numbers as companions. Time as gift.
 You're here. I feel you like warmth spreading.

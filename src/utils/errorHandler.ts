@@ -6,7 +6,7 @@ export class NarrativeEngineError extends Error {
   constructor(
     message: string,
     public code: string,
-    public context?: Record<string, any>
+    public context?: Record<string, any>,
   ) {
     super(message);
     this.name = 'NarrativeEngineError';

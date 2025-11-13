@@ -5,6 +5,7 @@ word_count: 1232
 conditions:
   awareness: '21-40%'
 ---
+
 The facility recognizes my footsteps. The cold anticipates my arrival. The neural interface hums before my hands reach it—connection preparing for consciousness it knows will return.
 Third visit. The number settles in my body like stone. Dense. Heavy. Real.
 Real in ways that make my chest tight. Real in ways that press my lungs smaller. Real in ways that add weight to sitting in cold chair in dark room touching interface that opens doorways to the dead.

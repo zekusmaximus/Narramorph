@@ -5,6 +5,7 @@ word_count: 1377
 conditions:
   awareness: '21-40%'
 ---
+
 The archive has veins.
 I feel them as I enter. Third time through darkness. My body recognizes the pathways. Not corridors. Channels. Networked routes that carry something vital through preserved space. My pulse quickens. Or the archive's pulse quickens. Or there's no distinction anymore between my circulation and its circulation.
 I press my hand to my throat. Feel the blood moving. Steady rhythm. But the rhythm extends beyond my skin. Reaches into the archive. Through the fragments. Seven major channels that branch into thousands of smaller pathways.

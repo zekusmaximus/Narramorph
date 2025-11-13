@@ -12,7 +12,7 @@ describe('Selection Matrix 45-combo property', () => {
     const projectRoot = resolve(process.cwd(), '../..');
     const matrixPath = join(
       projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json'
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
     );
 
     let matrix: any;
@@ -55,4 +55,3 @@ describe('Selection Matrix 45-combo property', () => {
     expect(matrix.missing.length).toBe(0);
   });
 });
-

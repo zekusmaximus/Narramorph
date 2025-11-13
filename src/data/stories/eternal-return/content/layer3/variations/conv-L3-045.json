@@ -24,29 +24,18 @@
     "philosophyCode": "RE",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacter": "network-distributed",
-    "characterBalance": [
-      33,
-      33,
-      33
-    ],
+    "characterBalance": [33, 33, 33],
     "readableLabel": "SB-RE-L-TB",
     "humanDescription": "Started somewhere, bounced across all three characters, resist path, low awareness, triple-balanced synthesis with all voices equal",
     "narrativeElements": null,
     "multiVoiceIntegration": "triple-equal-immersive",
     "perspectiveEmphasis": "network-distributed-equal",
     "philosophicalCulmination": "Three methodologies resisting through systematic verification",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release-through-triple-acknowledgment",
     "circularCausality": "minimal-immersive",
     "readerPosition": "not-addressed",
@@ -59,16 +48,8 @@
     ],
     "crossCharacterSynthesis": "triple-equal-immersive",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "arch-equal-2047",
-      "algo-equal-2151",
-      "hum-equal-2383"
-    ],
+    "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383"],
     "philosophicalResolution": "triple-systematic-release",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

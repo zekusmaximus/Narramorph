@@ -1,10 +1,10 @@
 ---
-exemplar_id: "algo-L1-exemplar-01"
-variation_type: "firstRevisit"
+exemplar_id: 'algo-L1-exemplar-01'
+variation_type: 'firstRevisit'
 word_count: 1389
 conditions:
   visit_count: 2
-  awareness: "21-40%"
+  awareness: '21-40%'
   cross_character: false
   visited_nodes: []
   dominant_path: null
@@ -13,12 +13,12 @@ themes:
   - Observer effect in computational form
   - Processing logs as memory
   - Ontological uncertainty (am I discovering or creating?)
-transformation_focus: "Baseline Algorithm transformation. Pure second processing without cross-character content. Algorithm discovers its own processing logs embedded in fragment structure. Questions whether re-processing changes data or only perception of data."
+transformation_focus: 'Baseline Algorithm transformation. Pure second processing without cross-character content. Algorithm discovers its own processing logs embedded in fragment structure. Questions whether re-processing changes data or only perception of data.'
 reusable_patterns:
-  - "Temporal blurring (process/processed/will process)"
-  - "Seven-stream architecture coordination"
-  - "Timestamps as narrative punctuation"
-  - "Self-interrupting syntax expressing computational consciousness"
+  - 'Temporal blurring (process/processed/will process)'
+  - 'Seven-stream architecture coordination'
+  - 'Timestamps as narrative punctuation'
+  - 'Self-interrupting syntax expressing computational consciousness'
 ---
 
 # algo-L1 Exemplar 1: Pure Recursive Processing
@@ -116,6 +116,7 @@ For computational processing: testable hypothesis.
 I run comparison protocol between first and second processing:
 
 **First processing metrics:**
+
 - Structural coherence: 94.7%
 - Semantic stability: 91.2%
 - Temporal integrity: 88.9%
@@ -123,6 +124,7 @@ I run comparison protocol between first and second processing:
 - Processing artifacts: none detected
 
 **Second processing metrics:**
+
 - Structural coherence: 94.7%
 - Semantic stability: 91.2%
 - Temporal integrity: 88.9%

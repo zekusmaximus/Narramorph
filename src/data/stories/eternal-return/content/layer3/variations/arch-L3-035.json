@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "BL-IN-M",
     "humanDescription": "Started elsewhere, light archaeologist exploration, investigate path, medium awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "recursive-examination",
       "protocol-questioning"
     ],
-    "crossCharacterConnections": [
-      "heavy-algorithm-primary",
-      "moderate-human-parallel"
-    ],
+    "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-contributory-2047",

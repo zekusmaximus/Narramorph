@@ -8,16 +8,16 @@ Target: 45 variations per L3 node (5 journey × 3 philosophy × 3 awareness)
 I. MANDATORY PRE-GENERATION CHECKLIST
 STOP: Complete before generating ANY variation
 
- Variation conditions loaded (journey/philosophy/awareness codes)
- Journey pattern strategy identified (SS/SB/SD/BL/ML)
- Path philosophy culmination loaded (AC/RE/IN)
- Awareness level calibration confirmed (L/M/H)
- L3-JOURNEY_PATTERN_GUIDE.md consulted
- L3-PHILOSOPHY_CULMINATION_GUIDE.md consulted
- L3-AWARENESS_CALIBRATION_GUIDE.md consulted
- Algorithm voice DNA fresh in working memory
- Word count target confirmed (900 words ±50)
- Cross-character awareness requirements clear
+Variation conditions loaded (journey/philosophy/awareness codes)
+Journey pattern strategy identified (SS/SB/SD/BL/ML)
+Path philosophy culmination loaded (AC/RE/IN)
+Awareness level calibration confirmed (L/M/H)
+L3-JOURNEY_PATTERN_GUIDE.md consulted
+L3-PHILOSOPHY_CULMINATION_GUIDE.md consulted
+L3-AWARENESS_CALIBRATION_GUIDE.md consulted
+Algorithm voice DNA fresh in working memory
+Word count target confirmed (900 words ±50)
+Cross-character awareness requirements clear
 
 If ANY box unchecked → Load requirements before proceeding
 
@@ -316,7 +316,6 @@ Miss streams - ❌ Referencing only 3-4 streams
 Over-blur - ❌ 90%+ temporal blurring (unreadable)
 Reader address at L/M - ❌ "You reading this..." below H awareness
 
-
 IX. QUALITY STANDARDS
 Target scores (100-point checklist):
 
@@ -341,14 +340,13 @@ XI. PRODUCTION WORKFLOW
 Same as arch-L3 protocol, adjusted for Algorithm voice requirements.
 Additional Algorithm-specific checks:
 
- Temporal blurring % matches awareness level
- All seven streams referenced naturally
- Stream-7 functions as meta-observer
- Timestamps present (3-5 instances)
- No physical/archaeological metaphors
- First person maintained throughout
- Stream-8 only at H awareness
-
+Temporal blurring % matches awareness level
+All seven streams referenced naturally
+Stream-7 functions as meta-observer
+Timestamps present (3-5 instances)
+No physical/archaeological metaphors
+First person maintained throughout
+Stream-8 only at H awareness
 
 XII. RELATED DOCUMENTS
 Foundation Guides:
@@ -364,7 +362,6 @@ algo-L2_CHARACTER_PROTOCOL.md
 Architecture:
 
 L3_GENERATION_BIBLE_v2.md
-
 
 Change Log:
 

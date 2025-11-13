@@ -1,6 +1,7 @@
 # Sprint 1: State Integrity - Implementation Summary
 
 ## Overview
+
 Sprint 1 focuses on fixing state integrity issues in the narrative engine, specifically around visit recording timing, variation tracking, and journey state management.
 
 ## Completed Tasks
@@ -10,6 +11,7 @@ Sprint 1 focuses on fixing state integrity issues in the narrative engine, speci
 **Goal**: Ensure visit recording occurs synchronously at navigation intent, not inside useEffect.
 
 **Changes**:
+
 - **src/types/Store.ts**
   - Added `activeVisit` field to StoryStore for tracking current visit session
   - Added `variationId` and `duration` fields to VisitRecord
@@ -29,6 +31,7 @@ Sprint 1 focuses on fixing state integrity issues in the narrative engine, speci
   - Visit now recorded once at navigation, finalized on exit
 
 **Benefits**:
+
 - Reliable visit counting (no cancellation/ordering issues)
 - Accurate duration tracking (mount to unmount)
 - Idempotent (safe to call multiple times)
@@ -40,6 +43,7 @@ Sprint 1 focuses on fixing state integrity issues in the narrative engine, speci
 **Goal**: L3 assembly visits should be recorded identically to L1/L2 nodes.
 
 **Changes**:
+
 - **src/stores/storyStore.ts**
   - Updated `openL3AssemblyView()` to accept optional `nodeId` parameter
   - Added visit recording logic identical to L1/L2 (same activeVisit pattern)
@@ -54,6 +58,7 @@ Sprint 1 focuses on fixing state integrity issues in the narrative engine, speci
   - Updated `openL3AssemblyView` signature: `(nodeId?: string) => void`
 
 **Benefits**:
+
 - L3 nodes tracked in `visitedNodes` map (same as L1/L2)
 - Duration calculated from mount to unmount
 - Consistent visit recording across all node types
@@ -65,6 +70,7 @@ Sprint 1 focuses on fixing state integrity issues in the narrative engine, speci
 **Goal**: Augment visit records with variationId for analytics and de-duplication.
 
 **Changes**:
+
 - **src/types/Store.ts**
   - Added `variationId?: string | null` to VisitRecord
   - Added `updateActiveVisitVariation(variationId: string)` method to StoryStore
@@ -79,6 +85,7 @@ Sprint 1 focuses on fixing state integrity issues in the narrative engine, speci
   - Wires variationId from useVariationSelection hook to store
 
 **Flow**:
+
 ```
 1. User clicks node → openStoryView(nodeId)
 2. Visit recorded with variationId: undefined
@@ -89,6 +96,7 @@ Sprint 1 focuses on fixing state integrity issues in the narrative engine, speci
 ```
 
 **Benefits**:
+
 - Full traceability of which variations were shown
 - Enables variation-based analytics
 - Foundation for de-duplication (S1-D)
@@ -100,6 +108,7 @@ Sprint 1 focuses on fixing state integrity issues in the narrative engine, speci
 **Goal**: Prevent immediate repeats of same variationId using sliding window (last N visits).
 
 **Changes**:
+
 - **src/types/Store.ts**
   - Added `recentVariationIds?: string[]` to VisitRecord (stores last 5, uses last 3 for filtering)
   - Updated `getConditionContext` signature to include `includeRecentVariations` option
@@ -127,6 +136,7 @@ Sprint 1 focuses on fixing state integrity issues in the narrative engine, speci
   - Updated to call `getConditionContext()` with `includeRecentVariations: true`
 
 **Algorithm**:
+
 ```typescript
 pickNonRepeatingVariation(candidates, recentIds, windowSize=3):
   1. If no recent history → return first candidate
@@ -138,6 +148,7 @@ pickNonRepeatingVariation(candidates, recentIds, windowSize=3):
 ```
 
 **Benefits**:
+
 - No immediate repeats of same variation
 - LRU strategy ensures fair rotation when variations exhausted
 - Configurable window size (default: 3)
@@ -150,6 +161,7 @@ pickNonRepeatingVariation(candidates, recentIds, windowSize=3):
 **Goal**: Remove optional/null patterns and eliminate 20+ null checks.
 
 **Changes**:
+
 - **src/types/Variation.ts**
   - Changed `startingCharacter?: ...` to `startingCharacter: ... | null`
   - Changed `dominantCharacter?: ...` to `dominantCharacter: ... | null`
@@ -178,6 +190,7 @@ pickNonRepeatingVariation(candidates, recentIds, windowSize=3):
   - Updated `calculateJourneyPattern()` signature to accept explicit null
 
 **Benefits**:
+
 - Eliminated ~10 defensive null checks
 - Clearer intent: `startingCharacter: null` vs `startingCharacter?: undefined`
 - Type safety: TypeScript enforces presence of journeyTracking
@@ -189,12 +202,14 @@ pickNonRepeatingVariation(candidates, recentIds, windowSize=3):
 ## Testing Recommendations
 
 ### S1-A Testing
+
 - [x] Navigate to node - verify visit recorded immediately in console
 - [x] Close node - verify duration finalized in console
 - [x] Open same node twice - verify "Already viewing" log
 - [x] Check localStorage - verify duration and timeSpent accumulate
 
 ### S1-B Testing
+
 - [x] Navigate to L3 node (e.g., conv-L3-001)
 - [x] Verify console log: "L3 node detected, opening assembly view"
 - [x] Verify visit recorded: "[Visit] L3 conv-L3-001: first visit recorded"
@@ -202,6 +217,7 @@ pickNonRepeatingVariation(candidates, recentIds, windowSize=3):
 - [x] Check localStorage - L3 node in visitedNodes with timeSpent
 
 ### S1-C Testing
+
 - [x] Click any L1/L2 node
 - [x] Check console for: "[VariationSelection] Selected <variationId>"
 - [x] Check console for: "[Visit] Updated <nodeId> with variationId: <variationId>"
@@ -209,6 +225,7 @@ pickNonRepeatingVariation(candidates, recentIds, windowSize=3):
 - [x] Test L3 nodes - variationId should be null
 
 ### S1-D Testing
+
 - [x] Visit same node multiple times (e.g., arch-L1, 4+ times)
 - [x] Check console logs for: "[Dedupe] Found N unused variations"
 - [x] Verify different variations selected each time
@@ -216,6 +233,7 @@ pickNonRepeatingVariation(candidates, recentIds, windowSize=3):
 - [x] Check localStorage - recentVariationIds array grows to max 5
 
 ### S1-E Testing
+
 - [x] Fresh session (clear localStorage)
 - [x] No "Journey tracking not initialized" errors
 - [x] Journey tracker UI renders with defaults
@@ -229,18 +247,22 @@ pickNonRepeatingVariation(candidates, recentIds, windowSize=3):
 ## Files Modified
 
 ### Type Definitions
+
 - `src/types/Store.ts` - VisitRecord, StoryStore interface updates
 - `src/types/Variation.ts` - JourneyTracking, ConditionContext updates
 
 ### Core Store
+
 - `src/stores/storyStore.ts` - Visit recording, active visit tracking, de-duplication
 
 ### Components
+
 - `src/components/StoryView/StoryView.tsx` - Visit finalization, variationId wiring
 - `src/components/UI/L3AssemblyView.tsx` - L3 visit finalization
 - `src/components/UI/JourneyTracker.tsx` - Removed null checks
 
 ### Hooks & Utils
+
 - `src/hooks/useVariationSelection.ts` - Include recentVariationIds in context
 - `src/utils/conditionEvaluator.ts` - De-duplication logic, type updates
 - `src/utils/unlockEvaluator.ts` - Removed null checks

@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SS-AC-H",
     "humanDescription": "Started last human, stayed dominant, accept path, high awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "witness-through-presence",
       "upload-as-completion"
     ],
-    "crossCharacterConnections": [
-      "light-arch-glimpsed",
-      "light-algo-sensed"
-    ],
+    "crossCharacterConnections": ["light-arch-glimpsed", "light-algo-sensed"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "human-primary-2383",

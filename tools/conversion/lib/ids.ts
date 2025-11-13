@@ -53,9 +53,10 @@ export function parseVariationId(id: string, layer: Layer): VariationId | null {
  */
 function parseL1L2VariationId(id: string, layer: 1 | 2): L1L2VariationId | null {
   // Pattern: {char}-L{layer}[-{path}]-{state}[-{num}]
-  const pattern = layer === 1
-    ? /^(arch|algo|hum)-L1-(initial|FR|MA)(?:-(\d+))?$/
-    : /^(arch|algo|hum)-L2-(accept|resist|invest)-(initial|FR|MA)(?:-(\d+))?$/;
+  const pattern =
+    layer === 1
+      ? /^(arch|algo|hum)-L1-(initial|FR|MA)(?:-(\d+))?$/
+      : /^(arch|algo|hum)-L2-(accept|resist|invest)-(initial|FR|MA)(?:-(\d+))?$/;
 
   const match = id.match(pattern);
   if (!match) return null;
@@ -76,7 +77,7 @@ function parseL1L2VariationId(id: string, layer: 1 | 2): L1L2VariationId | null 
     return null;
   }
 
-  const number = numberStr ? parseInt(numberStr, 10) : (state === 'initial' ? 0 : 1);
+  const number = numberStr ? parseInt(numberStr, 10) : state === 'initial' ? 0 : 1;
 
   return {
     layer,
@@ -134,11 +135,9 @@ export function generateAggregatedId(
   character: Character,
   layer: 1 | 2,
   index: number,
-  path?: PathPhilosophy
+  path?: PathPhilosophy,
 ): string {
-  const nodeId = layer === 1
-    ? `${character}-L1`
-    : `${character}-L2-${path}`;
+  const nodeId = layer === 1 ? `${character}-L1` : `${character}-L2-${path}`;
 
   const paddedNum = index.toString().padStart(3, '0');
   return `${nodeId}-${paddedNum}`;
@@ -156,7 +155,12 @@ export function generateL3Id(sectionType: string, number: number): string {
 /**
  * Validate ID zero-padding
  */
-export function validateZeroPadding(id: string, layer: Layer, logger?: Logger, file?: string): boolean {
+export function validateZeroPadding(
+  id: string,
+  layer: Layer,
+  logger?: Logger,
+  file?: string,
+): boolean {
   if (layer === 1 || layer === 2) {
     // Check for invalid patterns like -1 instead of -001
     const invalidPattern = /-(?:FR|MA)-(\d{1,2})$/;

@@ -21,6 +21,7 @@ data/
 ## File Formats
 
 ### story.json
+
 Contains story metadata, configuration, and file manifest:
 
 ```json
@@ -46,6 +47,7 @@ Contains story metadata, configuration, and file manifest:
 ```
 
 ### Node files (character.json)
+
 Contains all nodes for a specific character:
 
 ```json

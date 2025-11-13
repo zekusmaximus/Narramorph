@@ -24,29 +24,18 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "undetermined",
-    "characterBalance": [
-      70,
-      15,
-      15
-    ],
+    "characterBalance": [70, 15, 15],
     "readableLabel": "SS-RE-M-SD",
     "humanDescription": "Started with one character, stayed dominant (>60%), resist path, medium awareness, single-dominant synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "fluid-transitions",
     "perspectiveEmphasis": "single-dominant-70-15-15",
     "philosophicalCulmination": "Standards maintained through impossibility as ethical position",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release-preserve",
     "circularCausality": "implicit",
     "readerPosition": "subtle",
@@ -58,16 +47,8 @@
     ],
     "crossCharacterSynthesis": "primary-consciousness-dominant",
     "temporalBleedingLevel": "moderate",
-    "observerPositions": [
-      "primary-dominant",
-      "secondary-aware",
-      "tertiary-glimpsed"
-    ],
+    "observerPositions": ["primary-dominant", "secondary-aware", "tertiary-glimpsed"],
     "philosophicalResolution": "resistance-as-ethical-stance",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

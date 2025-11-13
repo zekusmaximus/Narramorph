@@ -24,29 +24,18 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
     "dominantCharacter": "variable-dual",
-    "characterBalance": [
-      40,
-      40,
-      20
-    ],
+    "characterBalance": [40, 40, 20],
     "readableLabel": "BL-IN-M-DB",
     "humanDescription": "Began lightly with focused character, explored others heavily, investigate path, medium awareness, dual-balanced synthesis emphasis",
     "narrativeElements": null,
     "multiVoiceIntegration": "dual-investigation-dialogue",
     "perspectiveEmphasis": "two-primary-investigating-third-completes",
     "philosophicalCulmination": "Dual investigation methodologies reveal recursive structure through dialogue",
-    "convergenceChoices": [
-      "transform",
-      "investigate-evolution",
-      "understanding-shift"
-    ],
+    "convergenceChoices": ["transform", "investigate-evolution", "understanding-shift"],
     "convergenceLean": "transform",
     "circularCausality": "emerging-pattern-recognition",
     "readerPosition": "implied-completion-position",
@@ -66,10 +55,6 @@
       "reader-implied-present"
     ],
     "philosophicalResolution": "investigation-reveals-investigation-structure",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

@@ -66,8 +66,8 @@ class PerformanceMonitor {
     p95: number;
   } | null {
     const operationMetrics = this.metrics
-      .filter(m => m.operation === operation)
-      .map(m => m.duration);
+      .filter((m) => m.operation === operation)
+      .map((m) => m.duration);
 
     if (operationMetrics.length === 0) return null;
 
@@ -87,7 +87,7 @@ class PerformanceMonitor {
    * Get all operation names
    */
   getOperations(): string[] {
-    return [...new Set(this.metrics.map(m => m.operation))];
+    return [...new Set(this.metrics.map((m) => m.operation))];
   }
 
   /**

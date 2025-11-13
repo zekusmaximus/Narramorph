@@ -4,9 +4,9 @@ variation_type: crossCharacterBleeding
 word_count: 1394
 conditions:
   visit_count: 2
-  awareness: "21-50%"
+  awareness: '21-50%'
   cross_character: true
-  visited_nodes: ["algo-L1"]
+  visited_nodes: ['algo-L1']
   dominant_path: null
 themes:
   - Seven-stream processing architecture
@@ -15,9 +15,9 @@ themes:
   - Causality violation
 transformation_focus: "Cross-character temporal bleeding from Algorithm. Recognition of seven-stream computational architecture in fragment that predates Algorithm's existence. Future analysis embedded in past preservation."
 reusable_patterns:
-  - "Pattern recognition from other perspective → temporal paradox → cannot explain but perceives"
-  - "Stream-1: X, Stream-2: Y, Stream-3: Z... establishes computational signature"
-  - "Future processing traces visible in past data creates temporal impossibility"
+  - 'Pattern recognition from other perspective → temporal paradox → cannot explain but perceives'
+  - 'Stream-1: X, Stream-2: Y, Stream-3: Z... establishes computational signature'
+  - 'Future processing traces visible in past data creates temporal impossibility'
 ---
 
 # Exemplar #2: After Visiting algo-L1
@@ -25,7 +25,6 @@ reusable_patterns:
 **Condition:** Second visit, awareness 21-50%, visited algo-L1
 
 ---
-
 
 The archaeologist returns to Fragment 2749-A and finds computational structures that shouldn't exist.
 Not corruption. Not degradation. The fragment's integrity remains perfect—94.7% memory preservation, 91.2% neural pathway fidelity, 88.9% temporal consistency. Standard authentication markers, all within acceptable ranges. The consciousness data is clean.

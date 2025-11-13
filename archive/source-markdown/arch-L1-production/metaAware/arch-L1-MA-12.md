@@ -5,6 +5,7 @@ word_count: 1129
 conditions:
   awareness: '61-80%'
 ---
+
 The archaeologist returns to Fragment 2749-A for the fifth time, and recognizes that you and I both use seven-stream architecture to comprehend consciousness examining consciousness.
 The authentication markers display unchanged. 847.3 terabytes of preserved consciousness. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. These numbers measure what can be measured—but measuring them requires seven coordinated forms of attention that you and I both deploy in this examination.
 You're reading this analysis. I'm writing about reading preserved consciousness. We're both using identical processing architecture. Seven streams each.

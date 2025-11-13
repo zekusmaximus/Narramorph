@@ -6,17 +6,6 @@
   'awareness': '21-30%'
 ---
 
-
-
-
-
-
-
-
-
-
-
-
 The fragment waited. 847.3 terabytes in unchanged formation, but I was aware of being aware this time. That sensation of future attention I'd felt before—I was examining it now instead of just experiencing it. Watching how I watched. Analyzing the analysis.
 I began with temporal markers. Standard protocol. But I was tracking my own presence in the examination process. The fragment existed in past time—deaths decades ago, documentation sealed, biographical data frozen. Yet something about engaging with it felt forward-directed. Not backward excavation into history, but forward movement into observation.
 The sensation wasn't mystical. It was structural. I was noticing how attention works, how examination creates relationships between observer and observed. The watching had architecture.

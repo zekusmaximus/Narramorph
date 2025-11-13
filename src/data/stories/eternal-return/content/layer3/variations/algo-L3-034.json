@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "BL-IN-H",
     "humanDescription": "Started elsewhere, light algorithm exploration, investigate path, high awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "consciousness-question-self-generating",
       "methodology-as-phenomenon"
     ],
-    "crossCharacterConnections": [
-      "heavy-arch-primary",
-      "heavy-hum-parallel"
-    ],
+    "crossCharacterConnections": ["heavy-arch-primary", "heavy-hum-parallel"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "archaeologist-primary-2047",

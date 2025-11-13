@@ -20,8 +20,7 @@ export default function Layout({ children }: LayoutProps) {
 
   const visitedCount = Object.keys(progress.visitedNodes).length;
   const totalNodes = nodes.size;
-  const progressPercent =
-    totalNodes > 0 ? Math.round((visitedCount / totalNodes) * 100) : 0;
+  const progressPercent = totalNodes > 0 ? Math.round((visitedCount / totalNodes) * 100) : 0;
 
   return (
     <div className="flex flex-col h-screen bg-story-background">
@@ -36,7 +35,7 @@ export default function Layout({ children }: LayoutProps) {
                 transition={{ duration: 0.5 }}
                 className="text-xl font-bold text-cyan-400 tracking-wide font-mono"
               >
-              <span className="text-cyan-400">© 2025 NARRAMORPH FICTION</span>
+                <span className="text-cyan-400">ï¿½ 2025 NARRAMORPH FICTION</span>
               </motion.h1>
               <span className="text-xs text-gray-500 font-mono uppercase tracking-wider">
                 Interactive Narrative Platform
@@ -294,12 +293,12 @@ export default function Layout({ children }: LayoutProps) {
           <div className="flex items-center justify-between text-xs text-gray-500 font-mono">
             <div className="flex items-center space-x-4">
               <span className="text-cyan-400">Â© 2025 NARRAMORPH FICTION</span>
-              <span className="text-gray-700">•</span>
+              <span className="text-gray-700">ï¿½</span>
               <button
                 className="hover:text-cyan-400 transition-colors uppercase tracking-wider"
                 onClick={() =>
                   alert(
-                    'About: Narramorph Fiction - An interactive narrative platform exploring digital consciousness through transforming story nodes.'
+                    'About: Narramorph Fiction - An interactive narrative platform exploring digital consciousness through transforming story nodes.',
                   )
                 }
               >
@@ -309,7 +308,7 @@ export default function Layout({ children }: LayoutProps) {
                 className="hover:text-cyan-400 transition-colors uppercase tracking-wider"
                 onClick={() =>
                   alert(
-                    'Help: Click nodes to read, revisit nodes to see content transform, follow connections to navigate the story.'
+                    'Help: Click nodes to read, revisit nodes to see content transform, follow connections to navigate the story.',
                   )
                 }
               >
@@ -332,4 +331,3 @@ export default function Layout({ children }: LayoutProps) {
     </div>
   );
 }
-

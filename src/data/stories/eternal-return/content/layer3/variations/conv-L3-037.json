@@ -24,29 +24,18 @@
     "philosophyCode": "AC",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "variable-minimal",
-    "characterBalance": [
-      40,
-      35,
-      25
-    ],
+    "characterBalance": [40, 35, 25],
     "readableLabel": "ML-AC-H-SD",
     "humanDescription": "Met character later, substantial exploration (25-60%), accept path, high awareness, single-character synthesis emphasis",
     "narrativeElements": null,
     "multiVoiceIntegration": "minimal-character-leads-integration",
     "perspectiveEmphasis": "later-met-primary-starting-validates",
     "philosophicalCulmination": "Acceptance through integrated witness spanning consciousness substrates",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "preserve-transform-unified"
-    ],
+    "convergenceChoices": ["preserve", "transform", "preserve-transform-unified"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "explicit-celebrated",
     "readerPosition": "acknowledged-completion-position",
@@ -66,10 +55,6 @@
       "reader-fourth-completing"
     ],
     "philosophicalResolution": "acceptance-discovered-through-secondary-exploration-becomes-primary",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

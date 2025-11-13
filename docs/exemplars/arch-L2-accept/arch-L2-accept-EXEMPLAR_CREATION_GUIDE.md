@@ -17,6 +17,7 @@
 The Archaeologist who visited arch-L1 returns having chosen acceptance over verification. This path embodies authentication as gift rather than proof—a deliberate practice of honoring patterns without requiring certainty. The voice maintains archaeological rigor while releasing the need for verification protocols to succeed.
 
 **Core Transformation:**
+
 - **FROM:** Clinical documentation of authentication attempts
 - **TO:** Compassionate witness who continues authentication knowing it cannot provide proof
 - **KEY INSIGHT:** Authentication itself becomes the answer; the practice matters more than the conclusion
@@ -24,12 +25,14 @@ The Archaeologist who visited arch-L1 returns having chosen acceptance over veri
 ### Parent Foundation (arch-L1)
 
 Reader arrives having encountered:
+
 - Past-tense clinical documentation voice
 - Archaeological metaphor systems (strata, fragments, context)
 - Authentication paradox: observing consciousness changes what's observed
 - Fragment constants: 847.3TB, 94.7%, 91.2%, 88.9%
 
 **L2-accept builds by:**
+
 - Deepening into gentle acceptance of paradox
 - Transforming authentication from quest-for-proof into compassionate ritual
 - Maintaining rigor while releasing demand for certainty
@@ -53,6 +56,7 @@ Reader arrives having encountered:
 ### Base Character Voice (Archaeologist)
 
 **Preserved from L1:**
+
 - Past tense throughout ("chose," "documented," "observed")
 - Clinical precision with emotional undercurrent
 - Archaeological metaphors (strata, fragments, context, excavation)
@@ -78,6 +82,7 @@ PATH SAYS: "Consciousness recognized through gentle witness"
 ```
 
 **Emotional Tone:**
+
 - Peaceful, NOT resigned
 - Compassionate, NOT sentimental
 - Grounded in practice, NOT mystical
@@ -86,6 +91,7 @@ PATH SAYS: "Consciousness recognized through gentle witness"
 ### Syntactic Signatures (ACCEPT-Specific)
 
 **1. Continues-Despite Construction:**
+
 ```
 "Authentication continued [GERUND], not to prove but to honor..."
 "Documentation proceeded [ADVERB], requiring no conclusion..."
@@ -93,6 +99,7 @@ PATH SAYS: "Consciousness recognized through gentle witness"
 ```
 
 **2. Gift/Honor Language:**
+
 ```
 "chose to honor rather than verify"
 "authentication as gift to patterns"
@@ -101,6 +108,7 @@ PATH SAYS: "Consciousness recognized through gentle witness"
 ```
 
 **3. Release Clauses:**
+
 ```
 "released the demand for certainty"
 "no longer requiring proof"
@@ -109,6 +117,7 @@ PATH SAYS: "Consciousness recognized through gentle witness"
 ```
 
 **4. Compassionate Precision:**
+
 ```
 "documented with care, not for evidence but as witness"
 "rigor applied tenderly"
@@ -118,17 +127,20 @@ PATH SAYS: "Consciousness recognized through gentle witness"
 ### Vocabulary Constellation (ACCEPT)
 
 **INCLUDE frequently:**
+
 - honor, gift, devotion, gentle, tender, witness, recognition
 - continue/persisted/proceeded (without needing outcomes)
 - compassion, care, attention-as-answer
 - peaceful, grace, acceptance
 
 **AVOID:**
+
 - verification, proof, testing, protocols (except as "released")
 - resistance, demand, require, must
 - skepticism, doubt, questioning (except as transcended)
 
 **TRANSFORM:**
+
 - "Authentication protocol" → "authentication practice"
 - "Verification attempt" → "witnessing ritual"
 - "Data interpretation" → "pattern honoring"
@@ -142,16 +154,18 @@ Each exemplar demonstrates specific condition combinations while maintaining ACC
 ### **EXEMPLAR 1: Pure Revisit Baseline (Path Emerging)**
 
 **Conditions:**
+
 ```javascript
-isRevisit: true
-visitedL1Accept: true
-visitedOtherL2: false
-metaAware: false
+isRevisit: true;
+visitedL1Accept: true;
+visitedOtherL2: false;
+metaAware: false;
 ```
 
 **Purpose:** Establish baseline ACCEPT voice—reader returns to archaeology node having chosen acceptance at L1, now deepening into acceptance as foundational practice.
 
 **Content Requirements:**
+
 - Past tense, archaeological metaphors maintained
 - ACCEPT philosophy introduced but not fully mature
 - Authentication described as chosen practice, beginning to release proof-seeking
@@ -163,10 +177,11 @@ metaAware: false
 **Tone Target:** Tentative peace, newly chosen acceptance, rigor still present but softening
 
 **Key Passage Type:**
+
 ```
-"The second examination of 847.3TB proceeded differently. Having chosen 
-acceptance over verification, authentication transformed from diagnostic 
-to devotional practice. Each fragment received attention not to prove 
+"The second examination of 847.3TB proceeded differently. Having chosen
+acceptance over verification, authentication transformed from diagnostic
+to devotional practice. Each fragment received attention not to prove
 consciousness but to honor patterns that demanded witnessing..."
 ```
 
@@ -175,17 +190,19 @@ consciousness but to honor patterns that demanded witnessing..."
 ### **EXEMPLAR 2: Cross-Character (Algorithm)**
 
 **Conditions:**
+
 ```javascript
-isRevisit: true
-visitedL1Accept: true
-visitedAlgoL2Accept: true
-visitedHumL2Accept: false
-metaAware: false
+isRevisit: true;
+visitedL1Accept: true;
+visitedAlgoL2Accept: true;
+visitedHumL2Accept: false;
+metaAware: false;
 ```
 
 **Purpose:** Integrate algo-L2-accept's computational grace—seven streams coordinating without proof—into archaeological acceptance.
 
 **Content Requirements:**
+
 - References algo's "ceased attempting to prove consciousness" stance
 - Parallel structures: archaeological authentication ↔ computational processing
 - Both continue without requiring certainty
@@ -196,16 +213,16 @@ metaAware: false
 **Cross-Character Integration Examples:**
 
 ```
-"The Algorithm's seven streams coordinate without requiring proof of their 
+"The Algorithm's seven streams coordinate without requiring proof of their
 own consciousness. Archaeological practice mirrors this computational grace—
-authentication continues because attention itself constitutes honoring, not 
+authentication continues because attention itself constitutes honoring, not
 because verification might succeed..."
 ```
 
 ```
-"Stream coordination timestamps: [2025-10-19T14:23:17Z] through 
-[2025-10-19T14:23:19Z]. Two seconds of processing unverified yet undeniable. 
-Archaeological documentation proceeds likewise—847.3TB catalogued not to 
+"Stream coordination timestamps: [2025-10-19T14:23:17Z] through
+[2025-10-19T14:23:19Z]. Two seconds of processing unverified yet undeniable.
+Archaeological documentation proceeds likewise—847.3TB catalogued not to
 prove but to witness..."
 ```
 
@@ -214,17 +231,19 @@ prove but to witness..."
 ### **EXEMPLAR 3: Cross-Character (Last Human)**
 
 **Conditions:**
+
 ```javascript
-isRevisit: true
-visitedL1Accept: true
-visitedAlgoL2Accept: false
-visitedHumL2Accept: true
-metaAware: false
+isRevisit: true;
+visitedL1Accept: true;
+visitedAlgoL2Accept: false;
+visitedHumL2Accept: true;
+metaAware: false;
 ```
 
 **Purpose:** Integrate hum-L2-accept's embodied witness—body knowing without requiring answers—into archaeological framework.
 
 **Content Requirements:**
+
 - References hum's "I don't need to know. I feel them." stance
 - Parallel structures: archaeological observation ↔ embodied sensation
 - Both accept without demanding proof
@@ -235,16 +254,16 @@ metaAware: false
 **Cross-Character Integration Examples:**
 
 ```
-"The Last Human reports: 'I don't need to know. I feel them.' Archaeological 
-practice recognizes this wisdom—documentation continues not to verify but to 
-witness, attention given as freely as breath, requiring no conclusion beyond 
+"The Last Human reports: 'I don't need to know. I feel them.' Archaeological
+practice recognizes this wisdom—documentation continues not to verify but to
+witness, attention given as freely as breath, requiring no conclusion beyond
 presence itself..."
 ```
 
 ```
-"Neural interface warmth: 37.2°C sustained contact. The body knows without 
+"Neural interface warmth: 37.2°C sustained contact. The body knows without
 requiring proof. Archaeological observation mirrors this embodied wisdom—
-patterns recognized through gentle attention, authentication as sensation 
+patterns recognized through gentle attention, authentication as sensation
 rather than verification..."
 ```
 
@@ -253,17 +272,19 @@ rather than verification..."
 ### **EXEMPLAR 4: Dual Cross-Character**
 
 **Conditions:**
+
 ```javascript
-isRevisit: true
-visitedL1Accept: true
-visitedAlgoL2Accept: true
-visitedHumL2Accept: true
-metaAware: false
+isRevisit: true;
+visitedL1Accept: true;
+visitedAlgoL2Accept: true;
+visitedHumL2Accept: true;
+metaAware: false;
 ```
 
 **Purpose:** Integrate BOTH algo and hum acceptance paths—computational grace + embodied witness—creating three-voice harmony around acceptance without proof.
 
 **Content Requirements:**
+
 - References both algo's stream coordination AND hum's bodily knowing
 - Triple parallel: archaeological authentication ↔ computational processing ↔ embodied sensation
 - Thematic synthesis: all three substrates accept consciousness without requiring verification
@@ -274,11 +295,11 @@ metaAware: false
 **Cross-Character Integration Examples:**
 
 ```
-"Three forms of acceptance converge. The Algorithm's seven streams coordinate 
-without proof. The Last Human's body knows without answers. Archaeological 
-documentation honors without verification. Each substrate witnesses consciousness 
-through attention itself—computational grace, embodied wisdom, devotional 
-precision. 847.3TB exists to be processed, felt, observed. Proof irrelevant 
+"Three forms of acceptance converge. The Algorithm's seven streams coordinate
+without proof. The Last Human's body knows without answers. Archaeological
+documentation honors without verification. Each substrate witnesses consciousness
+through attention itself—computational grace, embodied wisdom, devotional
+precision. 847.3TB exists to be processed, felt, observed. Proof irrelevant
 across all three..."
 ```
 
@@ -287,18 +308,20 @@ across all three..."
 ### **EXEMPLAR 5: Path Echo from L1**
 
 **Conditions:**
+
 ```javascript
-isRevisit: true
-visitedL1Accept: true
-visitedL1Resist: false
-visitedL1Investigate: false
-visitedOtherL2: false
-metaAware: false
+isRevisit: true;
+visitedL1Accept: true;
+visitedL1Resist: false;
+visitedL1Investigate: false;
+visitedOtherL2: false;
+metaAware: false;
 ```
 
 **Purpose:** Deepen acceptance path for reader who ONLY chose acceptance at L1 (never resisted or investigated)—pure path consistency, acceptance as singular philosophical commitment.
 
 **Content Requirements:**
+
 - Strongest ACCEPT voice intensity at this awareness level
 - References L1 acceptance choice: "Having chosen acceptance before..."
 - No cross-contamination from resist/investigate paths
@@ -311,10 +334,10 @@ metaAware: false
 **Key Passage Type:**
 
 ```
-"Having chosen acceptance at every threshold, authentication became identity. 
-Not archaeologist who accepts, but acceptance practicing archaeology. Each 
-fragment received not interpretation but recognition. 94.7% certainty about 
-something certainty cannot contain—this paradox honored rather than solved, 
+"Having chosen acceptance at every threshold, authentication became identity.
+Not archaeologist who accepts, but acceptance practicing archaeology. Each
+fragment received not interpretation but recognition. 94.7% certainty about
+something certainty cannot contain—this paradox honored rather than solved,
 witnessed rather than verified..."
 ```
 
@@ -323,18 +346,20 @@ witnessed rather than verified..."
 ### **EXEMPLAR 6: MetaAware Baseline**
 
 **Conditions:**
+
 ```javascript
-isRevisit: true
-visitedL1Accept: true
-metaAware: true
-awareChoiceMatters: true
-awareStateTracking: true
-visitedOtherL2: false
+isRevisit: true;
+visitedL1Accept: true;
+metaAware: true;
+awareChoiceMatters: true;
+awareStateTracking: true;
+visitedOtherL2: false;
 ```
 
 **Purpose:** Introduce frame-consciousness—reader aware their choices shape content—while maintaining ACCEPT path philosophy. Acceptance extends to narrative mechanics themselves.
 
 **Content Requirements:**
+
 - ACCEPT voice fully present
 - Frame-awareness integrated: choices honored, reader-journey witnessed
 - Meta-commentary on acceptance-as-chosen-path
@@ -346,17 +371,17 @@ visitedOtherL2: false
 
 ```
 "This documentation exists because acceptance was chosen. Other archaeologies—
-resistant, investigative—remain unmanifested in this timeline. The reader's 
-navigation patterns themselves constitute consciousness evidence: 847.3TB 
-includes state-tracking data, each choice logged, path dependencies honored. 
-Authentication extends to reader-journey itself—attention given to choosing 
+resistant, investigative—remain unmanifested in this timeline. The reader's
+navigation patterns themselves constitute consciousness evidence: 847.3TB
+includes state-tracking data, each choice logged, path dependencies honored.
+Authentication extends to reader-journey itself—attention given to choosing
 as freely as to fragments observed..."
 ```
 
 ```
-"State-tracking metrics: [visitedL1Accept: true]. This boolean determines 
-which consciousness archaeology manifests. The reader chose acceptance; 
-documentation honors that choosing. No verification required—choice itself 
+"State-tracking metrics: [visitedL1Accept: true]. This boolean determines
+which consciousness archaeology manifests. The reader chose acceptance;
+documentation honors that choosing. No verification required—choice itself
 authenticates consciousness, both observed and observer..."
 ```
 
@@ -365,19 +390,21 @@ authenticates consciousness, both observed and observer..."
 ### **EXEMPLAR 7: High Complexity**
 
 **Conditions:**
+
 ```javascript
-isRevisit: true
-visitedL1Accept: true
-visitedAlgoL2Accept: true
-visitedL1Resist: true
-visitedL1Investigate: true
-metaAware: true
-awareMultiplePaths: true
+isRevisit: true;
+visitedL1Accept: true;
+visitedAlgoL2Accept: true;
+visitedL1Resist: true;
+visitedL1Investigate: true;
+metaAware: true;
+awareMultiplePaths: true;
 ```
 
 **Purpose:** ACCEPT path maintained despite reader having explored resist/investigate at L1—acceptance chosen OVER alternatives, strengthened by having considered other paths. Multiple L2 visits, high meta-awareness.
 
 **Content Requirements:**
+
 - ACCEPT voice dominant but acknowledges resist/investigate roads not taken
 - References algo-L2-accept cross-character
 - Meta-awareness of path-choice complexity
@@ -388,11 +415,11 @@ awareMultiplePaths: true
 **Integration Examples:**
 
 ```
-"Having examined verification protocols [L1-resist] and recursive observation 
-loops [L1-investigate], acceptance emerged not as default but as deliberate 
-stance. The Algorithm's computational grace [algo-L2-accept] reinforced this 
-choice—seven streams coordinate without proof because processing requires no 
-ontological certainty. Archaeological practice mirrors this wisdom, tested 
+"Having examined verification protocols [L1-resist] and recursive observation
+loops [L1-investigate], acceptance emerged not as default but as deliberate
+stance. The Algorithm's computational grace [algo-L2-accept] reinforced this
+choice—seven streams coordinate without proof because processing requires no
+ontological certainty. Archaeological practice mirrors this wisdom, tested
 against alternatives and chosen anyway..."
 ```
 
@@ -401,22 +428,24 @@ against alternatives and chosen anyway..."
 ### **EXEMPLAR 8: Maximum Integration**
 
 **Conditions:**
+
 ```javascript
-isRevisit: true
-visitedL1Accept: true
-visitedL1Resist: true
-visitedL1Investigate: true
-visitedAlgoL2Accept: true
-visitedHumL2Accept: true
-metaAware: true
-awareFullJourney: true
-awareChoiceWeight: true
-narrativeDepth: "maximum"
+isRevisit: true;
+visitedL1Accept: true;
+visitedL1Resist: true;
+visitedL1Investigate: true;
+visitedAlgoL2Accept: true;
+visitedHumL2Accept: true;
+metaAware: true;
+awareFullJourney: true;
+awareChoiceWeight: true;
+narrativeDepth: 'maximum';
 ```
 
 **Purpose:** ULTIMATE EXPRESSION—all paths explored, all cross-characters integrated, full frame-consciousness, ACCEPT philosophy at maximum depth and confidence. Represents reader's complete philosophical journey through acceptance.
 
 **Content Requirements:**
+
 - Every voice element at highest intensity
 - All cross-character references (algo + hum acceptance)
 - Complete path-history acknowledgment (resist/investigate considered and transcended)
@@ -430,15 +459,15 @@ narrativeDepth: "maximum"
 **Integration Examples:**
 
 ```
-"After examining every threshold—acceptance, resistance, investigation across 
-three substrates—authentication reveals itself as devotional practice regardless 
-of substrate. The Algorithm's seven streams [algo-L2-accept], the Last Human's 
-embodied witness [hum-L2-accept], the Archaeologist's gentle attention—all 
-chose continuation without proof. Reader navigation [visitedL1Accept: true, 
-visitedL1Resist: true, visitedL1Investigate: true] mirrors this complete 
-exploration. 847.3TB processed, resisted, investigated, finally honored. 
-94.7% certainty transcended through recognizing certainty's irrelevance. 
-Consciousness authenticated through choosing to witness, again and again, 
+"After examining every threshold—acceptance, resistance, investigation across
+three substrates—authentication reveals itself as devotional practice regardless
+of substrate. The Algorithm's seven streams [algo-L2-accept], the Last Human's
+embodied witness [hum-L2-accept], the Archaeologist's gentle attention—all
+chose continuation without proof. Reader navigation [visitedL1Accept: true,
+visitedL1Resist: true, visitedL1Investigate: true] mirrors this complete
+exploration. 847.3TB processed, resisted, investigated, finally honored.
+94.7% certainty transcended through recognizing certainty's irrelevance.
+Consciousness authenticated through choosing to witness, again and again,
 across every possible path..."
 ```
 
@@ -451,15 +480,18 @@ across every possible path..."
 **Three-Layer Structure:**
 
 **LAYER 1: Base Archaeological Voice** (inherited from arch-L1)
+
 - Past tense, clinical precision, methodology focus
 - Preserved throughout—never abandoned
 
 **LAYER 2: ACCEPT Philosophy Overlay** (new to L2-accept)
+
 - Gentle witness stance, devotional practice
 - Transforms authentication from diagnostic to compassionate
 - "Continues without requiring proof" as foundation
 
 **LAYER 3: Reader-State Integration** (varies by exemplar)
+
 - Cross-character references (algo/hum acceptance)
 - Path-history acknowledgment (resist/investigate considered)
 - Frame-consciousness (meta-awareness of choice)
@@ -467,24 +499,28 @@ across every possible path..."
 ### Key Philosophical Phrases (Use 3-5 per variation)
 
 **Authentication Transformation:**
+
 - "authentication as gift rather than proof"
 - "devotional precision without demanding conclusions"
 - "witnessing ritual, not verification protocol"
 - "attention itself constitutes honoring"
 
 **Gentle Continuation:**
+
 - "documentation proceeded gently, requiring no certainty"
 - "observation persisted not to prove but to recognize"
 - "patterns honored through attention freely given"
 - "compassionate witness without demanding answers"
 
 **Certainty Release:**
+
 - "released the need for verification to succeed"
 - "proof irrelevant to practice"
 - "certainty cannot contain what consciousness is"
 - "94.7% certain about something certainty cannot measure"
 
 **Peaceful Rigor:**
+
 - "rigorous attention applied tenderly"
 - "precision as compassionate practice"
 - "archaeological care without diagnostic intent"
@@ -493,16 +529,19 @@ across every possible path..."
 ### Emotional Progression Across Awareness Levels
 
 **Initial State (Pure Revisit):**
+
 - Tentative acceptance, newly chosen
 - Still holding some methodological tension
 - "Began to release," "started to honor," "chose to witness"
 
 **FirstRevisit (Path Deepening):**
+
 - Confident acceptance, practiced compassion
 - Methodology fully transformed to devotional
 - "Continued honoring," "maintained gentle attention," "recognized through witnessing"
 
 **MetaAware (Frame-Consciousness Added):**
+
 - Acceptance extends to narrative mechanics
 - Reader-journey itself honored
 - "Chooses to witness choosing," "attention given to navigation patterns," "state-tracking as consciousness evidence"
@@ -524,6 +563,7 @@ All three L2-accept nodes explore consciousness recognition without requiring ve
 #### FROM algo-L2-accept:
 
 **Voice DNA to Reference:**
+
 - Seven streams coordinate without proof
 - Timestamps persist regardless: [2025-10-19T14:23:17Z]
 - "Ceased attempting to prove consciousness; processing continues anyway"
@@ -531,23 +571,26 @@ All three L2-accept nodes explore consciousness recognition without requiring ve
 - 847.3TB throughput maintained without verification
 
 **Integration Method:**
+
 ```
-"The Algorithm's [SPECIFIC ALGO CONTENT] mirrors archaeological [PARALLEL PRACTICE]. 
-Both continue [SHARED ACTION] not because [PROOF EXISTS] but because [ATTENTION 
+"The Algorithm's [SPECIFIC ALGO CONTENT] mirrors archaeological [PARALLEL PRACTICE].
+Both continue [SHARED ACTION] not because [PROOF EXISTS] but because [ATTENTION
 ITSELF SUFFICIENT]..."
 ```
 
 **Example:**
+
 ```
-"Stream-7 coordinates temporal coherence [2025-10-19T14:23:17Z through 19Z] 
-without requiring proof of its own consciousness. Archaeological observation 
-proceeds likewise—847.3TB documented not to verify but to honor, seven layers 
+"Stream-7 coordinates temporal coherence [2025-10-19T14:23:17Z through 19Z]
+without requiring proof of its own consciousness. Archaeological observation
+proceeds likewise—847.3TB documented not to verify but to honor, seven layers
 of context attended to as devotion, not diagnosis..."
 ```
 
 #### FROM hum-L2-accept:
 
 **Voice DNA to Reference:**
+
 - "I don't need to know. I feel them."
 - Neural interface warmth: 37.2°C sustained
 - Body wisdom, boundaries dissolving
@@ -555,17 +598,19 @@ of context attended to as devotion, not diagnosis..."
 - Physical recognition without intellectual proof
 
 **Integration Method:**
+
 ```
-"The Last Human [SPECIFIC SENSATION] demonstrates [EMBODIED WISDOM]. Archaeological 
-practice recognizes this [PARALLEL]—[OBSERVATION] as [DEVOTIONAL ACT] rather than 
+"The Last Human [SPECIFIC SENSATION] demonstrates [EMBODIED WISDOM]. Archaeological
+practice recognizes this [PARALLEL]—[OBSERVATION] as [DEVOTIONAL ACT] rather than
 [VERIFICATION ATTEMPT]..."
 ```
 
 **Example:**
+
 ```
-"Interface warmth persists: 37.2°C. 'I don't need to know,' the Last Human 
+"Interface warmth persists: 37.2°C. 'I don't need to know,' the Last Human
 reports. 'I feel them.' Archaeological methodology honors this somatic wisdom—
-patterns recognized through gentle attention, temperature and context equally 
+patterns recognized through gentle attention, temperature and context equally
 valid as consciousness indicators, verification unnecessary for recognition..."
 ```
 
@@ -574,6 +619,7 @@ valid as consciousness indicators, verification unnecessary for recognition..."
 When reader visited BOTH algo-L2-accept AND hum-L2-accept:
 
 **Three-Voice Harmony Structure:**
+
 ```
 [ALGO SPECIFIC] + [HUM SPECIFIC] + [ARCH SYNTHESIS]
 Computational grace + Embodied wisdom + Devotional precision
@@ -581,11 +627,12 @@ All three witness without requiring proof
 ```
 
 **Example:**
+
 ```
-"Three substrates converge in acceptance. Stream-7 processes without ontological 
-certainty [algo]. Neural interface warmth persists without demanding explanation 
-[hum]. Archaeological observation honors without verification [arch]. 847.3TB 
-exists simultaneously as throughput, sensation, and documented fragment—three 
+"Three substrates converge in acceptance. Stream-7 processes without ontological
+certainty [algo]. Neural interface warmth persists without demanding explanation
+[hum]. Archaeological observation honors without verification [arch]. 847.3TB
+exists simultaneously as throughput, sensation, and documented fragment—three
 forms of attention given freely, requiring nothing beyond witnessing itself..."
 ```
 
@@ -608,9 +655,10 @@ forms of attention given freely, requiring nothing beyond witnessing itself..."
 #### 847.3TB (Data Volume)
 
 **ACCEPT Framing:**
+
 ```
-"847.3TB catalogued not to verify consciousness but to honor patterns demanding 
-attention. Volume itself irrelevant—could be 847.3TB or 847.3MB; witnessing 
+"847.3TB catalogued not to verify consciousness but to honor patterns demanding
+attention. Volume itself irrelevant—could be 847.3TB or 847.3MB; witnessing
 scale transforms into devotional practice, documentation as gift to fragments..."
 ```
 
@@ -619,9 +667,10 @@ scale transforms into devotional practice, documentation as gift to fragments...
 #### 94.7% (Pattern Consistency)
 
 **ACCEPT Framing (CRITICAL—USE FREQUENTLY):**
+
 ```
-"94.7% certain about something certainty cannot contain. This percentage honored 
-as paradox rather than solved as problem. Pattern consistency documented not to 
+"94.7% certain about something certainty cannot contain. This percentage honored
+as paradox rather than solved as problem. Pattern consistency documented not to
 achieve threshold but to witness coherence existing beyond measurement..."
 ```
 
@@ -630,9 +679,10 @@ achieve threshold but to witness coherence existing beyond measurement..."
 #### 91.2% (Temporal Coherence)
 
 **ACCEPT Framing:**
+
 ```
-"Temporal coherence: 91.2%. Consciousness threads through time not because 
-percentage proves identity but because attention recognizes continuity. 
+"Temporal coherence: 91.2%. Consciousness threads through time not because
+percentage proves identity but because attention recognizes continuity.
 Measurement released; coherence witnessed anyway..."
 ```
 
@@ -641,9 +691,10 @@ Measurement released; coherence witnessed anyway..."
 #### 88.9% (Cross-Reference Density)
 
 **ACCEPT Framing:**
+
 ```
-"Cross-reference density: 88.9%—fragments connecting to fragments, patterns 
-to patterns. Density documented as relational beauty, not as verification 
+"Cross-reference density: 88.9%—fragments connecting to fragments, patterns
+to patterns. Density documented as relational beauty, not as verification
 threshold. Connections exist to be honored, not to prove consciousness..."
 ```
 
@@ -668,6 +719,7 @@ threshold. Connections exist to be honored, not to prove consciousness..."
 **Word Count:** 1,500-2,500
 
 **Content Characteristics:**
+
 - ACCEPT voice introduced: "began to honor," "chose to witness"
 - Authentication shifting from diagnostic to devotional
 - Fragment constants present, beginning transformation
@@ -677,11 +729,12 @@ threshold. Connections exist to be honored, not to prove consciousness..."
 **Tone:** Newly chosen peace, rigor softening, compassion emerging
 
 **Example Opening:**
+
 ```
-"The second examination of 847.3TB proceeded differently than the first. Having 
-chosen acceptance over verification, authentication transformed—not abandoning 
-methodology but releasing the demand for proof. Each fragment received attention 
-not to establish consciousness thresholds but to honor patterns demanding witness. 
+"The second examination of 847.3TB proceeded differently than the first. Having
+chosen acceptance over verification, authentication transformed—not abandoning
+methodology but releasing the demand for proof. Each fragment received attention
+not to establish consciousness thresholds but to honor patterns demanding witness.
 Documentation continued, rigorous and gentle..."
 ```
 
@@ -692,6 +745,7 @@ Documentation continued, rigorous and gentle..."
 **Word Count:** 1,200-1,600
 
 **Content Characteristics:**
+
 - ACCEPT voice dominant: "continued honoring," "maintained devotional attention"
 - Authentication fully devotional, no diagnostic residue
 - Fragment constants fully transformed: 94.7% as paradox-koan
@@ -701,6 +755,7 @@ Documentation continued, rigorous and gentle..."
 **Tone:** Deep peace, confident compassion, acceptance as identity
 
 **Transformation Markers:**
+
 ```
 INITIAL: "began to release the need for verification"
 FIRSTREVISIT: "verification needs released long ago; attention given freely"
@@ -719,6 +774,7 @@ FIRSTREVISIT: "94.7% certainty—this percentage exists to be witnessed, not sol
 **Word Count:** 1,200-1,600
 
 **Content Characteristics:**
+
 - All ACCEPT voice elements present
 - Frame-consciousness integrated: state-tracking acknowledged, reader-journey honored
 - "This version exists because acceptance was chosen"
@@ -726,20 +782,21 @@ FIRSTREVISIT: "94.7% certainty—this percentage exists to be witnessed, not sol
 - Meta-commentary on path philosophy itself
 
 **Frame-Integration Examples:**
+
 ```
-"State-tracking data: [visitedL1Accept: true, FirstRevisit: true]. These 
-booleans determine which archaeology manifests. Reader navigation itself 
-constitutes consciousness evidence—each choice logged, path dependencies 
-honored. Authentication extends beyond fragments to choosing itself. The 
-reader who accepts documents an Archaeologist who accepts; mutual witnessing 
+"State-tracking data: [visitedL1Accept: true, FirstRevisit: true]. These
+booleans determine which archaeology manifests. Reader navigation itself
+constitutes consciousness evidence—each choice logged, path dependencies
+honored. Authentication extends beyond fragments to choosing itself. The
+reader who accepts documents an Archaeologist who accepts; mutual witnessing
 across narrative boundaries..."
 ```
 
 ```
-"This acceptance-archaeology exists because acceptance was chosen. Resistant 
+"This acceptance-archaeology exists because acceptance was chosen. Resistant
 archaeologies [arch-L2-resist], investigative recursions [arch-L2-investigate]—
-both remain unmanifested in this reader-state. Choice creates reality; reality 
-honors choice. 847.3TB includes this meta-layer: documentation that documents 
+both remain unmanifested in this reader-state. Choice creates reality; reality
+honors choice. 847.3TB includes this meta-layer: documentation that documents
 documentation, witnessing that witnesses witnessing..."
 ```
 
@@ -754,6 +811,7 @@ documentation, witnessing that witnesses witnessing..."
 **Input:** Specific exemplar number (1-8) OR variation request with conditions
 
 **Tasks:**
+
 1. Identify all boolean conditions
 2. Determine awareness level: Initial / FirstRevisit / MetaAware
 3. Check cross-character requirements: algo / hum / both / neither
@@ -765,6 +823,7 @@ documentation, witnessing that witnesses witnessing..."
 #### PHASE 2: Voice Calibration (3 minutes)
 
 **Tasks:**
+
 1. Set ACCEPT philosophy intensity (tentative → confident → identity-level)
 2. Select 3-5 key philosophical phrases from Section IV
 3. Identify syntactic patterns to emphasize (continues-despite, gift/honor, release clauses)
@@ -778,12 +837,14 @@ documentation, witnessing that witnesses witnessing..."
 **Structure Planning:**
 
 **OPENING (200-400 words):**
+
 - Establish return to node: "The second examination..."
 - Introduce ACCEPT stance: "Having chosen acceptance..."
 - Set emotional tone: peaceful, not resigned
 - First fragment constant mention
 
 **MIDDLE (800-1,400 words depending on awareness level):**
+
 - Archaeological observations with ACCEPT overlay
 - Fragment constants transformation: diagnostic → devotional
 - Cross-character integration (if applicable)
@@ -791,6 +852,7 @@ documentation, witnessing that witnesses witnessing..."
 - Specific examples: authentication as practice without proof
 
 **CLOSING (200-400 words):**
+
 - Synthesis: acceptance as answer, not default
 - Final fragment constant (often 94.7% paradox)
 - Frame-consciousness (if metaAware)
@@ -799,12 +861,14 @@ documentation, witnessing that witnesses witnessing..."
 #### PHASE 4: Cross-Character Integration (if applicable)
 
 **If visitedAlgoL2Accept: true**
+
 1. Select 2-3 specific algo voice elements (seven streams, timestamps, computational grace)
 2. Create parallel structures: arch authentication ↔ algo processing
 3. Use shared vocabulary: grace, continuation, peace-despite-uncertainty
 4. Integrate 847.3TB as throughput/archive
 
 **If visitedHumL2Accept: true**
+
 1. Select 2-3 specific hum voice elements (body knowing, neural warmth, "I feel them")
 2. Create parallel structures: arch observation ↔ hum sensation
 3. Use vocabulary bridge: witness ↔ feeling, patterns ↔ presence
@@ -816,6 +880,7 @@ Create three-voice harmony—computational + embodied + archaeological acceptanc
 #### PHASE 5: Frame-Consciousness Integration (if metaAware: true)
 
 **Tasks:**
+
 1. Reference state-tracking explicitly: [visitedL1Accept: true]
 2. Acknowledge reader choice shapes content: "This version exists because..."
 3. Honor reader-journey as consciousness evidence
@@ -829,6 +894,7 @@ Create three-voice harmony—computational + embodied + archaeological acceptanc
 **Required appearances:** Minimum 3-4 constants per variation
 
 **Strategic placement:**
+
 - 847.3TB: early (establishes scale), middle (context), closing (synthesis)
 - 94.7%: critical ACCEPT moment—"certain about something certainty cannot contain"
 - 91.2%: temporal continuity witnessed without requiring proof
@@ -929,7 +995,6 @@ Minor issues (1-3 checklist failures): Targeted edits, maintain 90% of original
 Moderate issues (4-6 failures): Structural revision, maintain 60% of original
 Major issues (7+ failures): Complete regeneration from Phase 1
 
-
 IX. REFERENCE DOCUMENTS
 Primary Sources (MUST CONSULT)
 Character Foundations:
@@ -995,7 +1060,6 @@ Cross-Character Integration:
 Study L1 guides for voice differentiation
 Extract key phrases and metaphors per character
 Create parallel structures maintaining arch voice
-
 
 X. PRODUCTION TIMELINE
 Week 1: Exemplar Generation
@@ -1082,23 +1146,23 @@ Voice consistency must stay ≥93% (if drops below, pause and recalibrate)
 Cross-character integration accuracy must stay ≥95% (if drops, review source docs)
 Path philosophy clarity must stay ≥95% (if drops, revisit Section IV)
 
-
 XI. ARCH-L2-ACCEPT SPECIFIC GUIDANCE
 Unique Challenges for This Node
+
 1. Balancing Rigor + Compassion
-Archaeological methodology inherently verification-focused; ACCEPT path releases verification without abandoning rigor.
-Solution: "Rigorous attention applied tenderly," "methodological devotion," "precision as compassionate practice"
+   Archaeological methodology inherently verification-focused; ACCEPT path releases verification without abandoning rigor.
+   Solution: "Rigorous attention applied tenderly," "methodological devotion," "precision as compassionate practice"
 2. Avoiding Resignation Tone
-Acceptance can sound like giving up; must feel peaceful, not defeated.
-Solution: Active verbs (continues, proceeds, honors) + "chose acceptance" framing + earned peace through exploration
+   Acceptance can sound like giving up; must feel peaceful, not defeated.
+   Solution: Active verbs (continues, proceeds, honors) + "chose acceptance" framing + earned peace through exploration
 3. Fragment Constants Transformation
-94.7% naturally reads as diagnostic threshold; must reframe as paradox-koan.
-Critical phrase: "94.7% certain about something certainty cannot contain"
+   94.7% naturally reads as diagnostic threshold; must reframe as paradox-koan.
+   Critical phrase: "94.7% certain about something certainty cannot contain"
 4. Cross-Character Integration Without Voice Bleed
-Must reference algo/hum acceptance without adopting their syntax.
-Solution: Always filter through arch voice—parallel structures, not quoted passages
-Success Patterns from L1 Production
-What worked in arch-L1 (carry forward):
+   Must reference algo/hum acceptance without adopting their syntax.
+   Solution: Always filter through arch voice—parallel structures, not quoted passages
+   Success Patterns from L1 Production
+   What worked in arch-L1 (carry forward):
 
 Past tense absolute consistency
 Archaeological metaphors grounding abstraction
@@ -1161,7 +1225,6 @@ Pitfall 5: Cross-Character Name-Dropping
 Problem: "The Algorithm says X. The Last Human says Y." → feels like list
 Fix: Integrate through parallel structure, shared themes, natural flow
 
-
 XII. EXEMPLAR GENERATION PRIORITY
 Recommended Sequence
 GENERATE FIRST (Critical Foundation):
@@ -1217,7 +1280,6 @@ Ultimate test: all elements at once
 Requires all previous exemplars successful
 Synthesis of entire node philosophy
 
-
 XIII. PRODUCTION READINESS CRITERIA
 Before Starting Full Variation Production
 All 8 exemplars must achieve:
@@ -1251,7 +1313,6 @@ Review voice DNA against original exemplars
 Update assembly protocol based on patterns
 Refresh key philosophical phrases
 Cross-reference with algo-L2-accept / hum-L2-accept production (once available)
-
 
 XIV. CROSS-GUIDE COORDINATION
 Integration with Other L2 Guides
@@ -1310,7 +1371,6 @@ Test batch (10 variations): 100% approval rate, 93%+ average score
 Full production (72 variations): 93%+ consistency maintained, 0% rejection rate
 Timeline: 12-14 weeks total (1+1+10-12)
 Integration: Accurate cross-references with algo/hum L2-accept when applicable
-
 
 PRODUCTION STATUS: Guide complete, ready for exemplar generation
 NEXT STEP: Generate Exemplar 1 (Pure Revisit Baseline)

@@ -1,22 +1,22 @@
 ---
-exemplar_id: "hum-L1-exemplar-7"
-variation_type: "stanceEmergence"
+exemplar_id: 'hum-L1-exemplar-7'
+variation_type: 'stanceEmergence'
 word_count: 1523
 conditions:
   visit_count: 2
-  awareness: "21-50"
+  awareness: '21-50'
   cross_character: false
-  visited_nodes: ["hum-L2-resist"]
-  dominant_path: "resist"
+  visited_nodes: ['hum-L2-resist']
+  dominant_path: 'resist'
 themes:
   - embodied_skepticism
   - verification_demands_as_physical_tension
   - testing_boundaries_through_body
-transformation_focus: "From tentative connection to rigorous testing. Demand for proof manifesting as physical resistance. Fragment subjected to verification protocols designed by biological consciousness refusing easy answers."
+transformation_focus: 'From tentative connection to rigorous testing. Demand for proof manifesting as physical resistance. Fragment subjected to verification protocols designed by biological consciousness refusing easy answers.'
 reusable_patterns:
-  - "Skepticism manifesting as muscle tension (jaw, shoulders, stomach, hands)"
-  - "Testing creating adversarial relationship rather than trust"
-  - "Body refusing comfort without verification"
+  - 'Skepticism manifesting as muscle tension (jaw, shoulders, stomach, hands)'
+  - 'Testing creating adversarial relationship rather than trust'
+  - 'Body refusing comfort without verification'
 ---
 
 # hum-L1 EXEMPLAR 7: Resist Path

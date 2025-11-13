@@ -22,11 +22,14 @@ interface Manifest {
   generatorVersion: string;
   convertedAt: string;
   sourceRoot: string;
-  files: Record<string, {
-    sourceHash: string;
-    outputPath: string;
-    convertedAt: string;
-  }>;
+  files: Record<
+    string,
+    {
+      sourceHash: string;
+      outputPath: string;
+      convertedAt: string;
+    }
+  >;
   counts: {
     l1Variations: number;
     l2Variations: number;
@@ -96,21 +99,24 @@ async function main() {
   logger.info('ROLLBACK_COUNTS', `Total variations: ${manifest.counts.totalVariations}`);
 
   // Filter files by layer/nodes if specified
-  let filesToRestore = Object.values(manifest.files).map(f => f.outputPath);
+  let filesToRestore = Object.values(manifest.files).map((f) => f.outputPath);
 
   if (values.layer) {
     const layer = values.layer;
-    filesToRestore = filesToRestore.filter(path => path.startsWith(`layer${layer}/`));
+    filesToRestore = filesToRestore.filter((path) => path.startsWith(`layer${layer}/`));
     logger.info('ROLLBACK_FILTER', `Filtering to layer ${layer}: ${filesToRestore.length} files`);
   }
 
   if (values.nodes) {
-    const nodes = values.nodes.split(',').map(n => n.trim());
-    filesToRestore = filesToRestore.filter(path => {
+    const nodes = values.nodes.split(',').map((n) => n.trim());
+    filesToRestore = filesToRestore.filter((path) => {
       const fileName = basename(path, '.json');
-      return nodes.some(node => fileName.startsWith(node) || fileName === node);
+      return nodes.some((node) => fileName.startsWith(node) || fileName === node);
     });
-    logger.info('ROLLBACK_FILTER', `Filtering to nodes ${nodes.join(',')}: ${filesToRestore.length} files`);
+    logger.info(
+      'ROLLBACK_FILTER',
+      `Filtering to nodes ${nodes.join(',')}: ${filesToRestore.length} files`,
+    );
   }
 
   // Restore files

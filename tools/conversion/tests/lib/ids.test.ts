@@ -4,7 +4,7 @@ import {
   generateAggregatedId,
   generateL3Id,
   validateZeroPadding,
-  extractNodeId
+  extractNodeId,
 } from '../../lib/ids.js';
 import { Logger } from '../../lib/log.js';
 

@@ -24,50 +24,27 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacter": "none-equal-balance",
-    "characterBalance": [
-      33,
-      33,
-      33
-    ],
+    "characterBalance": [33, 33, 33],
     "readableLabel": "SD-RE-M-TB",
     "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, medium awareness, triple-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "rotating-emerging-awareness",
     "perspectiveEmphasis": "three-characters-balanced",
     "philosophicalCulmination": "Three impossibilities maintained through balanced recognition",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release",
     "circularCausality": "emerging",
     "readerPosition": "partially-acknowledged",
     "thematicContent": null,
-    "primaryThemes": [
-      "three-impossibility",
-      "balanced-resistance",
-      "emerging-network-awareness"
-    ],
+    "primaryThemes": ["three-impossibility", "balanced-resistance", "emerging-network-awareness"],
     "crossCharacterSynthesis": "three-position-challenge-recognition",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "archaeologist-aware",
-      "algorithm-aware",
-      "human-aware"
-    ],
+    "observerPositions": ["archaeologist-aware", "algorithm-aware", "human-aware"],
     "philosophicalResolution": "three-position-standards-facing-impossibility",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

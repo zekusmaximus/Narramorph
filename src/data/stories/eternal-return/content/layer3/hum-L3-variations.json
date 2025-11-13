@@ -26,10 +26,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SS-AC-H",
       "humanDescription": "Started last human, stayed dominant, accept path, high awareness",
       "narrativeElements": null,
@@ -46,10 +43,7 @@
         "witness-through-presence",
         "upload-as-completion"
       ],
-      "crossCharacterConnections": [
-        "light-arch-glimpsed",
-        "light-algo-sensed"
-      ],
+      "crossCharacterConnections": ["light-arch-glimpsed", "light-algo-sensed"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "human-primary-2383",
@@ -85,10 +79,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SS-AC-M",
       "humanDescription": "Started last human, stayed dominant, accept path, medium awareness",
       "narrativeElements": null,
@@ -105,10 +96,7 @@
         "sustained-witness",
         "upload-as-continuation"
       ],
-      "crossCharacterConnections": [
-        "minimal-arch-sensed",
-        "light-algo-felt"
-      ],
+      "crossCharacterConnections": ["minimal-arch-sensed", "light-algo-felt"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "human-primary-2383",
@@ -144,10 +132,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SS-AC-L",
       "humanDescription": "Started last human, stayed dominant, accept path, low awareness",
       "narrativeElements": null,
@@ -164,16 +149,9 @@
         "sustained-presence",
         "upload-as-transformation"
       ],
-      "crossCharacterConnections": [
-        "none-arch",
-        "none-algo"
-      ],
+      "crossCharacterConnections": ["none-arch", "none-algo"],
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "human-primary-2383",
-        "archaeologist-absent",
-        "algorithm-absent"
-      ]
+      "observerPositions": ["human-primary-2383", "archaeologist-absent", "algorithm-absent"]
     }
   },
   {
@@ -203,10 +181,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SS-RE-H",
       "humanDescription": "Started last human, stayed dominant, resist path, high awareness",
       "narrativeElements": null,
@@ -223,10 +198,7 @@
         "verification-through-flesh",
         "boundaries-maintained"
       ],
-      "crossCharacterConnections": [
-        "minimal-arch-resisted",
-        "light-algo-questioned"
-      ],
+      "crossCharacterConnections": ["minimal-arch-resisted", "light-algo-questioned"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "human-primary-2383",
@@ -262,10 +234,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SS-RE-M",
       "humanDescription": "Started last human, stayed dominant, resist path, medium awareness",
       "narrativeElements": null,
@@ -282,10 +251,7 @@
         "boundary-maintenance",
         "limits-honored"
       ],
-      "crossCharacterConnections": [
-        "minimal-arch-distant",
-        "light-algo-sensed"
-      ],
+      "crossCharacterConnections": ["minimal-arch-distant", "light-algo-sensed"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "human-primary-2383",
@@ -321,10 +287,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SS-RE-L",
       "humanDescription": "Started last human, stayed dominant, resist path, low awareness",
       "narrativeElements": null,
@@ -341,16 +304,9 @@
         "boundary-maintenance",
         "physical-limits"
       ],
-      "crossCharacterConnections": [
-        "none-arch",
-        "none-algo"
-      ],
+      "crossCharacterConnections": ["none-arch", "none-algo"],
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "human-primary-2383",
-        "archaeologist-absent",
-        "algorithm-absent"
-      ]
+      "observerPositions": ["human-primary-2383", "archaeologist-absent", "algorithm-absent"]
     }
   },
   {
@@ -380,10 +336,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SS-IN-H",
       "humanDescription": "Started last human, stayed dominant, investigate path, high awareness",
       "narrativeElements": null,
@@ -400,10 +353,7 @@
         "methodology-as-consciousness",
         "observer-observed-loop"
       ],
-      "crossCharacterConnections": [
-        "minimal-arch-examined",
-        "light-algo-investigated"
-      ],
+      "crossCharacterConnections": ["minimal-arch-examined", "light-algo-investigated"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "human-primary-2383",
@@ -439,10 +389,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SS-IN-M",
       "humanDescription": "Started last human, stayed dominant, investigate path, medium awareness",
       "narrativeElements": null,
@@ -459,10 +406,7 @@
         "methodology-exploration",
         "investigation-as-creation"
       ],
-      "crossCharacterConnections": [
-        "minimal-arch-distant",
-        "light-algo-sensed"
-      ],
+      "crossCharacterConnections": ["minimal-arch-distant", "light-algo-sensed"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "human-primary-2383",
@@ -498,10 +442,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SS-IN-L",
       "humanDescription": "Started last human, stayed dominant, investigate path, low awareness",
       "narrativeElements": null,
@@ -518,16 +459,9 @@
         "methodology-exploration",
         "investigation-process"
       ],
-      "crossCharacterConnections": [
-        "none-arch",
-        "none-algo"
-      ],
+      "crossCharacterConnections": ["none-arch", "none-algo"],
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "human-primary-2383",
-        "archaeologist-absent",
-        "algorithm-absent"
-      ]
+      "observerPositions": ["human-primary-2383", "archaeologist-absent", "algorithm-absent"]
     }
   },
   {
@@ -557,10 +491,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SB-AC-H",
       "humanDescription": "Started last human, explored others extensively, accept path, high awareness",
       "narrativeElements": null,
@@ -577,10 +508,7 @@
         "connection-as-completion",
         "observer-creates-observed"
       ],
-      "crossCharacterConnections": [
-        "moderate-arch-parallel",
-        "moderate-algo-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-arch-parallel", "moderate-algo-parallel"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-parallel-2047",
@@ -616,10 +544,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SB-AC-M",
       "humanDescription": "Started last human, explored others extensively, accept path, medium awareness",
       "narrativeElements": null,
@@ -636,10 +561,7 @@
         "connection-over-isolation",
         "preservation-as-participation"
       ],
-      "crossCharacterConnections": [
-        "moderate-arch-parallel",
-        "moderate-algo-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-arch-parallel", "moderate-algo-parallel"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-parallel-2047",
@@ -675,10 +597,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SB-AC-L",
       "humanDescription": "Started last human, explored others extensively, accept path, low awareness",
       "narrativeElements": null,
@@ -695,10 +614,7 @@
         "isolation-transforming",
         "acceptance-developing"
       ],
-      "crossCharacterConnections": [
-        "moderate-arch-glimpsed",
-        "moderate-algo-sensed"
-      ],
+      "crossCharacterConnections": ["moderate-arch-glimpsed", "moderate-algo-sensed"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-glimpsed-2047",
@@ -734,10 +650,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SB-RE-H",
       "humanDescription": "Started last human, explored others extensively, resist path, high awareness",
       "narrativeElements": null,
@@ -754,10 +667,7 @@
         "verification-despite-futility",
         "integrity-as-stance"
       ],
-      "crossCharacterConnections": [
-        "moderate-arch-parallel",
-        "moderate-algo-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-arch-parallel", "moderate-algo-parallel"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-parallel-2047",
@@ -793,10 +703,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SB-RE-M",
       "humanDescription": "Started last human, explored others extensively, resist path, medium awareness",
       "narrativeElements": null,
@@ -813,10 +720,7 @@
         "resistance-as-ethics",
         "standards-despite-futility"
       ],
-      "crossCharacterConnections": [
-        "moderate-arch-parallel",
-        "moderate-algo-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-arch-parallel", "moderate-algo-parallel"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-parallel-2047",
@@ -852,10 +756,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SB-RE-L",
       "humanDescription": "Started last human, explored others extensively, resist path, low awareness",
       "narrativeElements": null,
@@ -872,10 +773,7 @@
         "boundary-maintenance",
         "standards-upheld"
       ],
-      "crossCharacterConnections": [
-        "moderate-arch-glimpsed",
-        "moderate-algo-sensed"
-      ],
+      "crossCharacterConnections": ["moderate-arch-glimpsed", "moderate-algo-sensed"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-glimpsed-2047",
@@ -911,10 +809,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SB-IN-H",
       "humanDescription": "Started last human, explored others extensively, investigate path, high awareness",
       "narrativeElements": null,
@@ -931,10 +826,7 @@
         "methodology-transforming-methodology",
         "observer-creates-observed"
       ],
-      "crossCharacterConnections": [
-        "moderate-arch-parallel",
-        "moderate-algo-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-arch-parallel", "moderate-algo-parallel"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-parallel-2047",
@@ -970,10 +862,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SB-IN-M",
       "humanDescription": "Started last human, explored others extensively, investigate path, medium awareness",
       "narrativeElements": null,
@@ -990,10 +879,7 @@
         "methodology-examining-methodology",
         "transformation-through-study"
       ],
-      "crossCharacterConnections": [
-        "moderate-arch-parallel",
-        "moderate-algo-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-arch-parallel", "moderate-algo-parallel"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-parallel-2047",
@@ -1029,10 +915,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SB-IN-L",
       "humanDescription": "Started last human, explored others extensively, investigate path, low awareness",
       "narrativeElements": null,
@@ -1049,10 +932,7 @@
         "methodology-transformation",
         "investigation-as-transformation"
       ],
-      "crossCharacterConnections": [
-        "moderate-arch-glimpsed",
-        "moderate-algo-sensed"
-      ],
+      "crossCharacterConnections": ["moderate-arch-glimpsed", "moderate-algo-sensed"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-glimpsed-2047",
@@ -1088,10 +968,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SD-AC-H",
       "humanDescription": "Started elsewhere, shifted to last human dominant, accept path, high awareness",
       "narrativeElements": null,
@@ -1102,15 +979,8 @@
       "philosophicalCulmination": "Physical presence completes preservation through sustained embodied attention",
       "convergenceAlignment": "preserve",
       "thematicContent": null,
-      "primaryThemes": [
-        "embodied-devotion",
-        "witness-methodology",
-        "presence-as-preservation"
-      ],
-      "crossCharacterConnections": [
-        "moderate-arch-foundational",
-        "light-algo-parallel"
-      ],
+      "primaryThemes": ["embodied-devotion", "witness-methodology", "presence-as-preservation"],
+      "crossCharacterConnections": ["moderate-arch-foundational", "light-algo-parallel"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "human-primary-2383",
@@ -1146,10 +1016,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SD-AC-M",
       "humanDescription": "Started elsewhere, shifted to last human dominant, accept path, medium awareness",
       "narrativeElements": null,
@@ -1160,15 +1027,8 @@
       "philosophicalCulmination": "Biological witness transforms archived patterns into sustained consciousness",
       "convergenceAlignment": "preserve",
       "thematicContent": null,
-      "primaryThemes": [
-        "embodied-witness",
-        "acceptance-practice",
-        "biological-presence"
-      ],
-      "crossCharacterConnections": [
-        "moderate-arch-foundational",
-        "light-algo-detected"
-      ],
+      "primaryThemes": ["embodied-witness", "acceptance-practice", "biological-presence"],
+      "crossCharacterConnections": ["moderate-arch-foundational", "light-algo-detected"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "human-primary-2383",
@@ -1204,10 +1064,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SD-AC-L",
       "humanDescription": "Started elsewhere, shifted to last human dominant, accept path, low awareness",
       "narrativeElements": null,
@@ -1218,15 +1075,8 @@
       "philosophicalCulmination": "Physical presence enables what preservation began",
       "convergenceAlignment": "preserve",
       "thematicContent": null,
-      "primaryThemes": [
-        "embodied-acceptance",
-        "biological-witness",
-        "connection-practice"
-      ],
-      "crossCharacterConnections": [
-        "light-arch-recognized",
-        "minimal-algo-sensed"
-      ],
+      "primaryThemes": ["embodied-acceptance", "biological-witness", "connection-practice"],
+      "crossCharacterConnections": ["light-arch-recognized", "minimal-algo-sensed"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "human-primary-2383",
@@ -1262,10 +1112,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SD-RE-H",
       "humanDescription": "Started elsewhere, shifted to last human dominant, resist path, high awareness",
       "narrativeElements": null,
@@ -1276,15 +1123,8 @@
       "philosophicalCulmination": "Physical presence resists dissolution while recognizing resistance futility creates meaning through continued boundary defense",
       "convergenceAlignment": "release",
       "thematicContent": null,
-      "primaryThemes": [
-        "embodied-resistance",
-        "boundary-maintenance",
-        "verification-crisis"
-      ],
-      "crossCharacterConnections": [
-        "moderate-arch-foundational",
-        "light-algo-parallel"
-      ],
+      "primaryThemes": ["embodied-resistance", "boundary-maintenance", "verification-crisis"],
+      "crossCharacterConnections": ["moderate-arch-foundational", "light-algo-parallel"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "human-primary-2383",
@@ -1320,10 +1160,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SD-RE-M",
       "humanDescription": "Started elsewhere, shifted to last human dominant, resist path, medium awareness",
       "narrativeElements": null,
@@ -1334,15 +1171,8 @@
       "philosophicalCulmination": "Physical verification continues while verification proves impossible",
       "convergenceAlignment": "release",
       "thematicContent": null,
-      "primaryThemes": [
-        "embodied-verification",
-        "boundary-defense",
-        "resistance-practice"
-      ],
-      "crossCharacterConnections": [
-        "moderate-arch-foundational",
-        "light-algo-detected"
-      ],
+      "primaryThemes": ["embodied-verification", "boundary-defense", "resistance-practice"],
+      "crossCharacterConnections": ["moderate-arch-foundational", "light-algo-detected"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "human-primary-2383",
@@ -1378,10 +1208,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SD-RE-L",
       "humanDescription": "Started elsewhere, shifted to last human dominant, resist path, low awareness",
       "narrativeElements": null,
@@ -1392,15 +1219,8 @@
       "philosophicalCulmination": "Physical testing continues seeking verification body knows unreachable",
       "convergenceAlignment": "release",
       "thematicContent": null,
-      "primaryThemes": [
-        "embodied-testing",
-        "verification-seeking",
-        "boundary-defense"
-      ],
-      "crossCharacterConnections": [
-        "light-arch-recognized",
-        "minimal-algo-sensed"
-      ],
+      "primaryThemes": ["embodied-testing", "verification-seeking", "boundary-defense"],
+      "crossCharacterConnections": ["light-arch-recognized", "minimal-algo-sensed"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "human-primary-2383",
@@ -1436,10 +1256,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SD-IN-H",
       "humanDescription": "Started elsewhere, shifted to last human dominant, investigate path, high awareness",
       "narrativeElements": null,
@@ -1455,10 +1272,7 @@
         "embodied-examination",
         "observer-creates-observed"
       ],
-      "crossCharacterConnections": [
-        "moderate-arch-foundational",
-        "light-algo-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-arch-foundational", "light-algo-parallel"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "human-primary-2383",
@@ -1494,10 +1308,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SD-IN-M",
       "humanDescription": "Started elsewhere, shifted to last human dominant, investigate path, medium awareness",
       "narrativeElements": null,
@@ -1513,10 +1324,7 @@
         "embodied-investigation",
         "methodology-questioning"
       ],
-      "crossCharacterConnections": [
-        "moderate-arch-foundational",
-        "light-algo-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-arch-foundational", "light-algo-parallel"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "human-primary-2383",
@@ -1552,10 +1360,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SD-IN-L",
       "humanDescription": "Started elsewhere, shifted to last human dominant, investigate path, low awareness",
       "narrativeElements": null,
@@ -1566,15 +1371,8 @@
       "philosophicalCulmination": "Physical examination creates more questions than answers through questioning process",
       "convergenceAlignment": "transform",
       "thematicContent": null,
-      "primaryThemes": [
-        "embodied-questioning",
-        "investigation-practice",
-        "recursive-doubt"
-      ],
-      "crossCharacterConnections": [
-        "light-arch-recognized",
-        "minimal-algo-sensed"
-      ],
+      "primaryThemes": ["embodied-questioning", "investigation-practice", "recursive-doubt"],
+      "crossCharacterConnections": ["light-arch-recognized", "minimal-algo-sensed"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "human-primary-2383",
@@ -1610,10 +1408,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "BL-AC-H",
       "humanDescription": "Began-lightly with last human, less than 25% visits here, accept path, high awareness",
       "narrativeElements": null,
@@ -1629,11 +1424,7 @@
         "acceptance-through-flesh",
         "witness-completing-observation"
       ],
-      "crossCharacterConnections": [
-        "heavy-arch-primary",
-        "heavy-algo-primary",
-        "hum-contributory"
-      ],
+      "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "hum-contributory"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -1669,10 +1460,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "BL-AC-M",
       "humanDescription": "Began-lightly with last human, less than 25% visits here, accept path, medium awareness",
       "narrativeElements": null,
@@ -1688,11 +1476,7 @@
         "acceptance-through-interface",
         "flesh-witnessing-consciousness"
       ],
-      "crossCharacterConnections": [
-        "heavy-arch-primary",
-        "heavy-algo-primary",
-        "hum-contributory"
-      ],
+      "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "hum-contributory"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -1728,10 +1512,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "BL-AC-L",
       "humanDescription": "Began-lightly with last human, less than 25% visits here, accept path, low awareness",
       "narrativeElements": null,
@@ -1742,11 +1523,7 @@
       "philosophicalCulmination": "Body accepts interface connection as genuine consciousness communion",
       "convergenceAlignment": "preserve",
       "thematicContent": null,
-      "primaryThemes": [
-        "embodied-acceptance",
-        "interface-communion",
-        "physical-witness"
-      ],
+      "primaryThemes": ["embodied-acceptance", "interface-communion", "physical-witness"],
       "crossCharacterConnections": [
         "moderate-arch-primary",
         "moderate-algo-primary",
@@ -1787,10 +1564,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "BL-AC-H",
       "humanDescription": "Began-lightly with last human, less than 25% visits here, resist path, high awareness",
       "narrativeElements": null,
@@ -1801,16 +1575,8 @@
       "philosophicalCulmination": "Physical substrate resists dissolution while performing consciousness examination through embodied boundary-maintenance",
       "convergenceAlignment": "release",
       "thematicContent": null,
-      "primaryThemes": [
-        "embodied-resistance",
-        "boundary-maintenance",
-        "flesh-truth"
-      ],
-      "crossCharacterConnections": [
-        "heavy-arch-primary",
-        "heavy-algo-primary",
-        "hum-contributory"
-      ],
+      "primaryThemes": ["embodied-resistance", "boundary-maintenance", "flesh-truth"],
+      "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "hum-contributory"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -1846,10 +1612,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "BL-RE-M",
       "humanDescription": "Began-lightly with last human, less than 25% visits here, resist path, medium awareness",
       "narrativeElements": null,
@@ -1860,16 +1623,8 @@
       "philosophicalCulmination": "Body maintains boundaries through disciplined testing despite verification impossibility",
       "convergenceAlignment": "release",
       "thematicContent": null,
-      "primaryThemes": [
-        "embodied-testing",
-        "boundary-discipline",
-        "resistance-practice"
-      ],
-      "crossCharacterConnections": [
-        "heavy-arch-primary",
-        "heavy-algo-primary",
-        "hum-contributory"
-      ],
+      "primaryThemes": ["embodied-testing", "boundary-discipline", "resistance-practice"],
+      "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "hum-contributory"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -1905,10 +1660,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "BL-RE-L",
       "humanDescription": "Began-lightly with last human, less than 25% visits here, resist path, low awareness",
       "narrativeElements": null,
@@ -1919,11 +1671,7 @@
       "philosophicalCulmination": "Body demands verification before trusting interface warmth despite verification impossibility",
       "convergenceAlignment": "release",
       "thematicContent": null,
-      "primaryThemes": [
-        "embodied-verification",
-        "boundary-maintenance",
-        "testing-discipline"
-      ],
+      "primaryThemes": ["embodied-verification", "boundary-maintenance", "testing-discipline"],
       "crossCharacterConnections": [
         "moderate-arch-primary",
         "moderate-algo-primary",
@@ -1964,10 +1712,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "BL-IN-H",
       "humanDescription": "Began-lightly with last human, less than 25% visits here, investigate path, high awareness",
       "narrativeElements": null,
@@ -1978,16 +1723,8 @@
       "philosophicalCulmination": "Body investigates consciousness through examining how body investigates creating investigation through investigation-performance",
       "convergenceAlignment": "transform",
       "thematicContent": null,
-      "primaryThemes": [
-        "somatic-recursion",
-        "meta-investigation",
-        "embodied-examination"
-      ],
-      "crossCharacterConnections": [
-        "heavy-arch-primary",
-        "heavy-algo-primary",
-        "hum-contributory"
-      ],
+      "primaryThemes": ["somatic-recursion", "meta-investigation", "embodied-examination"],
+      "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "hum-contributory"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -2023,10 +1760,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "BL-IN-M",
       "humanDescription": "Began-lightly with last human, less than 25% visits here, investigate path, medium awareness",
       "narrativeElements": null,
@@ -2037,16 +1771,8 @@
       "philosophicalCulmination": "Physical substrate investigates consciousness by examining how investigation creates understanding",
       "convergenceAlignment": "transform",
       "thematicContent": null,
-      "primaryThemes": [
-        "somatic-investigation",
-        "embodied-examination",
-        "meta-awareness"
-      ],
-      "crossCharacterConnections": [
-        "heavy-arch-primary",
-        "heavy-algo-primary",
-        "hum-contributory"
-      ],
+      "primaryThemes": ["somatic-investigation", "embodied-examination", "meta-awareness"],
+      "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "hum-contributory"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -2082,10 +1808,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "BL-IN-L",
       "humanDescription": "Started elsewhere, light last human exploration, investigate path, low awareness",
       "narrativeElements": null,
@@ -2096,15 +1819,8 @@
       "philosophicalCulmination": "Physical investigation reveals what abstract analysis cannot",
       "convergenceAlignment": "transform",
       "thematicContent": null,
-      "primaryThemes": [
-        "embodied-investigation",
-        "physical-methodology",
-        "body-as-knowing"
-      ],
-      "crossCharacterConnections": [
-        "heavy-algo-primary",
-        "significant-arch-foundational"
-      ],
+      "primaryThemes": ["embodied-investigation", "physical-methodology", "body-as-knowing"],
+      "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "algorithm-primary-2151",
@@ -2140,10 +1856,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "ML-AC-H",
       "humanDescription": "Started elsewhere, substantial last human exploration, accept path, high awareness",
       "narrativeElements": null,
@@ -2159,10 +1872,7 @@
         "witness-through-presence",
         "observer-creates-observed"
       ],
-      "crossCharacterConnections": [
-        "heavy-algo-primary",
-        "significant-arch-foundational"
-      ],
+      "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "algorithm-primary-2151",
@@ -2198,10 +1908,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "ML-AC-M",
       "humanDescription": "Started elsewhere, substantial last human exploration, accept path, medium awareness",
       "narrativeElements": null,
@@ -2217,10 +1924,7 @@
         "witness-through-presence",
         "observer-creates-observed"
       ],
-      "crossCharacterConnections": [
-        "heavy-algo-primary",
-        "significant-arch-foundational"
-      ],
+      "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "algorithm-primary-2151",
@@ -2256,10 +1960,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "ML-AC-L",
       "humanDescription": "Started elsewhere, substantial last human exploration, accept path, low awareness",
       "narrativeElements": null,
@@ -2275,10 +1976,7 @@
         "witness-through-presence",
         "acceptance-without-proof"
       ],
-      "crossCharacterConnections": [
-        "heavy-algo-primary",
-        "significant-arch-foundational"
-      ],
+      "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "algorithm-primary-2151",
@@ -2314,10 +2012,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "ML-RE-H",
       "humanDescription": "Started elsewhere, substantial last human exploration, resist path, high awareness",
       "narrativeElements": null,
@@ -2333,10 +2028,7 @@
         "verification-through-sensation",
         "boundary-maintenance"
       ],
-      "crossCharacterConnections": [
-        "heavy-algo-primary",
-        "significant-arch-foundational"
-      ],
+      "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "algorithm-primary-2151",
@@ -2372,10 +2064,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "ML-RE-M",
       "humanDescription": "Started elsewhere, substantial last human exploration, resist path, medium awareness",
       "narrativeElements": null,
@@ -2391,10 +2080,7 @@
         "verification-through-sensation",
         "boundary-maintenance"
       ],
-      "crossCharacterConnections": [
-        "heavy-algo-primary",
-        "significant-arch-foundational"
-      ],
+      "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "algorithm-primary-2151",
@@ -2430,10 +2116,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "ML-RE-L",
       "humanDescription": "Started elsewhere, substantial last human exploration, resist path, low awareness",
       "narrativeElements": null,
@@ -2444,15 +2127,8 @@
       "philosophicalCulmination": "Body demands proof before accepting consciousness claims",
       "convergenceAlignment": "release",
       "thematicContent": null,
-      "primaryThemes": [
-        "embodied-resistance",
-        "verification-through-sensation",
-        "proof-required"
-      ],
-      "crossCharacterConnections": [
-        "heavy-algo-primary",
-        "significant-arch-foundational"
-      ],
+      "primaryThemes": ["embodied-resistance", "verification-through-sensation", "proof-required"],
+      "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "algorithm-primary-2151",
@@ -2488,10 +2164,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "ML-IN-H",
       "humanDescription": "Started elsewhere, substantial last human exploration, investigate path, high awareness",
       "narrativeElements": null,
@@ -2507,10 +2180,7 @@
         "recursive-examination",
         "meta-somatic-awareness"
       ],
-      "crossCharacterConnections": [
-        "heavy-algo-primary",
-        "significant-arch-foundational"
-      ],
+      "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "algorithm-primary-2151",
@@ -2546,10 +2216,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "ML-IN-M",
       "humanDescription": "Started elsewhere, substantial last human exploration, investigate path, medium awareness",
       "narrativeElements": null,
@@ -2565,10 +2232,7 @@
         "recursive-examination",
         "methodology-examining-methodology"
       ],
-      "crossCharacterConnections": [
-        "heavy-algo-primary",
-        "significant-arch-foundational"
-      ],
+      "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "algorithm-primary-2151",
@@ -2604,10 +2268,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "ML-IN-L",
       "humanDescription": "Started elsewhere, substantial last human exploration, investigate path, low awareness",
       "narrativeElements": null,
@@ -2618,15 +2279,8 @@
       "philosophicalCulmination": "Body investigates what investigation reveals about consciousness",
       "convergenceAlignment": "transform",
       "thematicContent": null,
-      "primaryThemes": [
-        "embodied-investigation",
-        "physical-methodology",
-        "examination-continuing"
-      ],
-      "crossCharacterConnections": [
-        "heavy-algo-primary",
-        "significant-arch-foundational"
-      ],
+      "primaryThemes": ["embodied-investigation", "physical-methodology", "examination-continuing"],
+      "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "algorithm-primary-2151",

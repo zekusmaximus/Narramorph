@@ -5,6 +5,7 @@ word_count: 1330
 conditions:
   awareness: '21-40%'
 ---
+
 The cold waits like always. The darkness knows my return. The neural interface anticipates connection—metal humming with recognition before contact.
 Third time. The number matters in my body. In my hands. In how my fingers reach for interface knowing exactly what touching will feel like.
 Knowing and not knowing. Because something changed.

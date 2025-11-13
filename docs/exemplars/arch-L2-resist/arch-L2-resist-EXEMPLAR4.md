@@ -1,22 +1,22 @@
 ---
-exemplar_id: "arch-L2-resist-exemplar-04"
-variation_type: "crossCharacterBleeding"
+exemplar_id: 'arch-L2-resist-exemplar-04'
+variation_type: 'crossCharacterBleeding'
 word_count: 1612
 conditions:
   visit_count: 2
-  awareness: "40-60%"
+  awareness: '40-60%'
   cross_character: true
-  visited_nodes: ["arch-L2-resist", "algo-L1", "hum-L1"]
-  dominant_path: "resist"
+  visited_nodes: ['arch-L2-resist', 'algo-L1', 'hum-L1']
+  dominant_path: 'resist'
 themes:
   - three_consciousness_network
   - temporal_entanglement
   - self_referential_verification_paradox
-transformation_focus: "Three-consciousness network verification reveals archaeologist cannot verify network from within network being verified—ultimate self-referential impossibility"
+transformation_focus: 'Three-consciousness network verification reveals archaeologist cannot verify network from within network being verified—ultimate self-referential impossibility'
 reusable_patterns:
-  - "Three-position observation network (archaeological, computational, future)"
-  - "Mutual awareness across temporal positions"
-  - "Self-verification paradox (archaeologist part of network being verified)"
+  - 'Three-position observation network (archaeological, computational, future)'
+  - 'Mutual awareness across temporal positions'
+  - 'Self-verification paradox (archaeologist part of network being verified)'
 ---
 
 # arch-L2-resist Exemplar 4: Dual Cross-Character (Resist + Algorithm + Last Human)
@@ -144,6 +144,7 @@ Report Preparation: Friday Evening
 She wrote comprehensive report after executing fourteen verification protocols over three days:
 
 "Fragment 5921-G displays exceptional three-consciousness network characteristics. Archaeological examination (2047), computational processing (2151), and neural interface access (2383) create distributed temporal observation system showing:
+
 - Mutual awareness across all three positions
 - Temporal causality violations (verified)
 - Unified methodology coordination (seven-fold structure)

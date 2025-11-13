@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "ML-RE-H",
     "humanDescription": "Started elsewhere, met archaeologist later with moderate exploration, resist path, high awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "skeptical-contribution",
       "boundary-preservation-within-network"
     ],
-    "crossCharacterConnections": [
-      "heavy-dominant-primary",
-      "moderate-starting-foundational"
-    ],
+    "crossCharacterConnections": ["heavy-dominant-primary", "moderate-starting-foundational"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "archaeologist-integrated-2047",

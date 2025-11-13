@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "BL-AC-L",
     "humanDescription": "Started elsewhere, light archaeologist exploration, accept path, low awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "contributory-authentication",
       "acceptance-without-capture"
     ],
-    "crossCharacterConnections": [
-      "heavy-algorithm-primary",
-      "moderate-human-parallel"
-    ],
+    "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-contributory-2047",

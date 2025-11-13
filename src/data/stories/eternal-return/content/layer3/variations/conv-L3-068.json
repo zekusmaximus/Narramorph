@@ -24,50 +24,27 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
     "dominantCharacter": "varies-by-reader",
-    "characterBalance": [
-      45,
-      45,
-      10
-    ],
+    "characterBalance": [45, 45, 10],
     "readableLabel": "SD-RE-M-DB",
     "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, medium awareness, dual-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "alternating-emerging-awareness",
     "perspectiveEmphasis": "two-characters-primary",
     "philosophicalCulmination": "Paired standards maintained despite dual impossibility recognition",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release",
     "circularCausality": "emerging",
     "readerPosition": "partially-acknowledged",
     "thematicContent": null,
-    "primaryThemes": [
-      "paired-impossibility",
-      "dual-resistance",
-      "emerging-crisis"
-    ],
+    "primaryThemes": ["paired-impossibility", "dual-resistance", "emerging-crisis"],
     "crossCharacterSynthesis": "dual-methodology-challenge",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "character-a-aware",
-      "character-b-aware",
-      "character-c-supportive"
-    ],
+    "observerPositions": ["character-a-aware", "character-b-aware", "character-c-supportive"],
     "philosophicalResolution": "paired-standards-facing-impossibility",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

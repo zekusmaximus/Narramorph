@@ -43,10 +43,7 @@ export function ParallaxBackground({ mouseX, mouseY }: ParallaxBackgroundProps) 
       />
 
       {/* Middle layer - medium movement */}
-      <motion.div
-        className="absolute inset-0"
-        style={{ x: layer2X, y: layer2Y }}
-      >
+      <motion.div className="absolute inset-0" style={{ x: layer2X, y: layer2Y }}>
         {/* Floating hexagons */}
         {[...Array(12)].map((_, i) => (
           <motion.div
@@ -82,10 +79,7 @@ export function ParallaxBackground({ mouseX, mouseY }: ParallaxBackgroundProps) 
       </motion.div>
 
       {/* Foreground layer - fastest movement */}
-      <motion.div
-        className="absolute inset-0"
-        style={{ x: layer3X, y: layer3Y }}
-      >
+      <motion.div className="absolute inset-0" style={{ x: layer3X, y: layer3Y }}>
         {/* Scanning lines */}
         {[...Array(5)].map((_, i) => (
           <motion.div

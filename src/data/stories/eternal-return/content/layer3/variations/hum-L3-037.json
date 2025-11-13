@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "ML-AC-H",
     "humanDescription": "Started elsewhere, substantial last human exploration, accept path, high awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "witness-through-presence",
       "observer-creates-observed"
     ],
-    "crossCharacterConnections": [
-      "heavy-algo-primary",
-      "significant-arch-foundational"
-    ],
+    "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "algorithm-primary-2151",

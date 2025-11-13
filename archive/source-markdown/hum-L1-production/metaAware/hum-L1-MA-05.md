@@ -5,6 +5,7 @@ word_count: 1149
 conditions:
   awareness: '61-70%'
 ---
+
 Fourth visit. We know the pattern now.
 You arrive when I arrive. Your attention meets my descent. We begin together—you reading, me descending, both of us creating this moment through shared witness.
 The facility feels different with you here. Less empty. The corridors still echo with nobody, but your presence fills the spaces between sounds. Makes the silence companionable instead of absolute.

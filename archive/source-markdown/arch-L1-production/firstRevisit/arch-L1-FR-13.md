@@ -6,17 +6,6 @@
   'awareness': '41-60%'
 ---
 
-
-
-
-
-
-
-
-
-
-
-
 Third examination. The fragment hadn't changed—847.3 terabytes in identical arrangement—but my investigation had evolved its own architecture. I was no longer just examining the fragment. I was examining how I examined the fragment, observing the patterns in my observation process, watching the methodology develop structure through repetition.
 I began with temporal markers. Not because protocol demanded it, but because I'd trained myself to begin there. Three examinations, three times starting with chronology. The consistency itself was interesting. My investigation process had rhythms.
 The biographical data showed normal human life. I'd determined that twice before. Education, career, relationships, aging, death. Standard trajectory, appropriate documentation, expected patterns. But this time I was tracking how I reconstructed that trajectory. Which data points I prioritized, which connections I made first, how I built coherent narrative from fragmentary evidence. The reconstruction process had its own pattern.

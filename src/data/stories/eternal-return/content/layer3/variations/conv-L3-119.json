@@ -24,29 +24,18 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
     "dominantCharacter": "two-primary-characters",
-    "characterBalance": [
-      40,
-      40,
-      20
-    ],
+    "characterBalance": [40, 40, 20],
     "readableLabel": "ML-RE-H-DB",
     "humanDescription": "Met-later convergence, resist philosophy, high awareness, dual-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "dual-primary-dialogue-high-meta",
     "perspectiveEmphasis": "two-characters-balanced",
     "philosophicalCulmination": "Dual boundary-maintenance through shared impossibility recognition",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release-resist",
     "circularCausality": "explicit",
     "readerPosition": "acknowledged-fifth-position",
@@ -67,10 +56,6 @@
       "fragment-fifth"
     ],
     "philosophicalResolution": "dual-dignified-release",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

@@ -46,14 +46,14 @@ function isInRange(value: number, range: [number, number] | undefined): boolean 
  */
 export function evaluateConditions(
   entry: SelectionMatrixEntry,
-  context: ConditionContext
+  context: ConditionContext,
 ): boolean {
   const { conditions } = entry;
 
   // Check awareness level
   if (conditions.awarenessLevel) {
     const currentLevel = getAwarenessLevel(context.awareness);
-    if (currentLevel !== conditions.awarenessLevel.toLowerCase() as AwarenessLevel) {
+    if (currentLevel !== (conditions.awarenessLevel.toLowerCase() as AwarenessLevel)) {
       return false;
     }
   }
@@ -87,7 +87,7 @@ export function evaluateConditions(
  */
 export function findMatchingVariation(
   variations: Variation[],
-  context: ConditionContext
+  context: ConditionContext,
 ): Variation | null {
   const endTimer = performanceMonitor.startTimer('variationSelection');
 
@@ -104,12 +104,15 @@ export function findMatchingVariation(
   debugLog(`[VariationSelection] Evaluating ${variations.length} variations`);
 
   // Filter variations that match the context
-  const matches = variations.filter(variation => {
+  const matches = variations.filter((variation) => {
     const meta = variation.metadata;
 
     // Skip variations with invalid metadata
     if (!meta) {
-      console.warn('[VariationSelection] Variation missing metadata:', variation.variationId || variation.id);
+      console.warn(
+        '[VariationSelection] Variation missing metadata:',
+        variation.variationId || variation.id,
+      );
       return false;
     }
 
@@ -140,7 +143,10 @@ export function findMatchingVariation(
     }
 
     // Check philosophy
-    if (meta.philosophyDominant !== 'unknown' && meta.philosophyDominant !== context.pathPhilosophy) {
+    if (
+      meta.philosophyDominant !== 'unknown' &&
+      meta.philosophyDominant !== context.pathPhilosophy
+    ) {
       debugLog('[VariationSelection] ✗ Philosophy mismatch');
       return false;
     }
@@ -163,9 +169,10 @@ export function findMatchingVariation(
 
   // If multiple matches, prefer exact matches over broader ones
   // Priority: exact journey + exact philosophy > exact journey > exact philosophy > any
-  const exactMatches = matches.filter(v =>
-    v.metadata.journeyPattern === context.journeyPattern &&
-    v.metadata.philosophyDominant === context.pathPhilosophy
+  const exactMatches = matches.filter(
+    (v) =>
+      v.metadata.journeyPattern === context.journeyPattern &&
+      v.metadata.philosophyDominant === context.pathPhilosophy,
   );
 
   if (exactMatches.length > 0) {
@@ -180,8 +187,8 @@ export function findMatchingVariation(
     return selected;
   }
 
-  const journeyMatches = matches.filter(v =>
-    v.metadata.journeyPattern === context.journeyPattern
+  const journeyMatches = matches.filter(
+    (v) => v.metadata.journeyPattern === context.journeyPattern,
   );
 
   if (journeyMatches.length > 0) {
@@ -196,8 +203,8 @@ export function findMatchingVariation(
     return selected;
   }
 
-  const philosophyMatches = matches.filter(v =>
-    v.metadata.philosophyDominant === context.pathPhilosophy
+  const philosophyMatches = matches.filter(
+    (v) => v.metadata.philosophyDominant === context.pathPhilosophy,
   );
 
   if (philosophyMatches.length > 0) {
@@ -228,9 +235,9 @@ export function findMatchingVariation(
  */
 export function findMatrixEntriesForNode(
   matrix: SelectionMatrixEntry[],
-  nodeId: string
+  nodeId: string,
 ): SelectionMatrixEntry[] {
-  return matrix.filter(entry => entry.fromNode === nodeId);
+  return matrix.filter((entry) => entry.fromNode === nodeId);
 }
 
 /**
@@ -239,7 +246,7 @@ export function findMatrixEntriesForNode(
 export function selectTargetNode(
   matrix: SelectionMatrixEntry[],
   fromNode: string,
-  context: ConditionContext
+  context: ConditionContext,
 ): SelectionMatrixEntry | null {
   const candidates = findMatrixEntriesForNode(matrix, fromNode);
 
@@ -248,7 +255,7 @@ export function selectTargetNode(
   }
 
   // Filter by matching conditions
-  const matches = candidates.filter(entry => evaluateConditions(entry, context));
+  const matches = candidates.filter((entry) => evaluateConditions(entry, context));
 
   if (matches.length === 0) {
     // No exact match, return first candidate as fallback
@@ -264,7 +271,7 @@ export function selectTargetNode(
  */
 export function calculateJourneyPattern(
   startingCharacter: 'archaeologist' | 'algorithm' | 'lastHuman' | undefined,
-  percentages: { archaeologist: number; algorithm: number; lastHuman: number }
+  percentages: { archaeologist: number; algorithm: number; lastHuman: number },
 ): JourneyPattern {
   if (!startingCharacter) {
     return 'unknown';
@@ -274,7 +281,7 @@ export function calculateJourneyPattern(
   const maxPercentage = Math.max(
     percentages.archaeologist,
     percentages.algorithm,
-    percentages.lastHuman
+    percentages.lastHuman,
   );
 
   // Find which character is currently dominant

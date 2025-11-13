@@ -24,29 +24,18 @@
     "philosophyCode": "RE",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "archaeologist",
-    "characterBalance": [
-      70,
-      20,
-      10
-    ],
+    "characterBalance": [70, 20, 10],
     "readableLabel": "SB-RE-L-SD",
     "humanDescription": "Started somewhere, bounced across characters but archaeologist dominant, resist path, low awareness, single-dominant synthesis with archaeologist primary",
     "narrativeElements": null,
     "multiVoiceIntegration": "archaeologist-led-touches",
     "perspectiveEmphasis": "archaeologist-primary",
     "philosophicalCulmination": "Verification standards maintained through crisis acknowledgment",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release-through-systematic-conclusion",
     "circularCausality": "minimal-immersive",
     "readerPosition": "not-addressed",
@@ -59,16 +48,8 @@
     ],
     "crossCharacterSynthesis": "archaeologist-dominant-convergence",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "arch-primary-2047",
-      "algo-contributory-2151",
-      "hum-distant-2383"
-    ],
+    "observerPositions": ["arch-primary-2047", "algo-contributory-2151", "hum-distant-2383"],
     "philosophicalResolution": "systematic-release-with-integrity",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

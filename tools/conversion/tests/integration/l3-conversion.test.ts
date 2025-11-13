@@ -106,7 +106,7 @@ describe('L3 Integration Tests', () => {
     expect(voicesMatch).toBeTruthy();
 
     if (voicesMatch) {
-      const voices = voicesMatch[1].split(',').map(v => v.trim());
+      const voices = voicesMatch[1].split(',').map((v) => v.trim());
       expect(voices.length).toBeGreaterThanOrEqual(2);
     }
   });

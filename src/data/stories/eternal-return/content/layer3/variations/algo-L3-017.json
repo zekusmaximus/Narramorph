@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SB-IN-M",
     "humanDescription": "Started algorithm, bounced to explore others heavily, investigate path, medium awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "investigation-methodology-evolution",
       "network-transformation"
     ],
-    "crossCharacterConnections": [
-      "moderate-arch-parallel",
-      "moderate-hum-parallel"
-    ],
+    "crossCharacterConnections": ["moderate-arch-parallel", "moderate-hum-parallel"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-parallel-2047",

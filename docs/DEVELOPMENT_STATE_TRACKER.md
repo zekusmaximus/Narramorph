@@ -11,12 +11,14 @@
 ### Story Architecture (12-Node Structure)
 
 **Structure**: 12 nodes across 4 layers
+
 - **Layer 1**: 3 origin nodes (reader entry points, fully independent)
 - **Layer 2**: 9 nodes (3 branches per character: accept/resist/invest)
 - **Layer 3**: Modular convergence layer (270 variations assembled into multi-perspective experiences)
 - **Layer 4**: 3 final convergence variations (terminal endpoints)
 
 **Per Character**: 4 nodes (1 L1 + 3 L2 + shared L3 + shared L4)
+
 - Archaeologist: arch-L1, arch-L2-accept, arch-L2-resist, arch-L2-invest
 - Algorithm: algo-L1, algo-L2-accept, algo-L2-resist, algo-L2-invest
 - Last Human: hum-L1, hum-L2-accept, hum-L2-resist, hum-L2-invest
@@ -24,6 +26,7 @@
 - Layer 4: final-preserve, final-release, final-transform (terminal convergence endpoints)
 
 **Total Content Requirement**:
+
 - **L1 nodes**: 3 nodes × 80 variations = 240 variations
 - **L2 nodes**: 9 nodes × 80 variations = 720 variations
 - **L3 modular**: 270 variations (45 arch + 45 algo + 45 hum + 135 conv)
@@ -47,6 +50,7 @@
 **Status**: All objectives met, 23/23 tests passing
 
 **Completed**:
+
 - ✅ Temporal awareness system (0-100 scale)
 - ✅ Character-specific visit tracking (archaeologist/algorithm/lastHuman)
 - ✅ Enhanced transformation logic with awareness thresholds
@@ -57,12 +61,14 @@
 - ✅ Vitest configuration and test infrastructure
 
 **Technical Details**:
+
 - Diversity bonus: 20 points per character perspective
 - Exploration score: (visits/10) × 40, max 40 points
 - Total awareness: min(diversity + exploration, 100)
 - Real-time re-evaluation of all visited nodes when awareness changes
 
 **Transformation Triggers**:
+
 - Visit 1: Always "initial"
 - Visit 2: "firstRevisit" if awareness >20%, else "initial"
 - Visit 3+: "metaAware" (OR earlier if awareness >50%)
@@ -84,6 +90,7 @@
 **Phase 2 Content Creation Status**: 1,233/1,233 variations complete (100%) ✅
 
 ### Completed Work:
+
 - ✅ **Layer 1**: 240/240 variations (100%)
   - arch-L1: 80 variations (1 initial + 46 FirstRevisit + 33 MetaAware)
   - algo-L1: 80 variations (1 initial + 46 FirstRevisit + 33 MetaAware)
@@ -110,15 +117,18 @@
   - **JSON**: 3 terminal variation files + 1 aggregated file ✅
 
 ### Content Conversion Complete:
+
 - ✅ **Markdown to JSON conversion pipeline**: Fully operational
 - ✅ **Selection Matrix**: Generated (311 navigation entries)
 - ✅ **Coverage Report**: Complete with 100% L3/L4 coverage
 - ✅ **Aggregation Scripts**: Created for L3/L4 file processing
 
 ### Next Phase:
+
 - **Phase 3**: UI Implementation & Integration (CURRENT)
 
 ### Remaining Work:
+
 - UI implementation for navigation and content display
 - Selection matrix integration with state management
 - L3 assembly system implementation
@@ -133,6 +143,7 @@
 **Purpose**: Establish character voice, world, and philosophical foundation. Entry points must be fully self-contained.
 
 **Requirements per node**:
+
 - **80 variations per node**: 1 initial + 46 FirstRevisit + 33 MetaAware
 - Voice must pass "blind read test" (identifiable without labels)
 - Plant hooks for Layer 2 philosophical branches
@@ -140,18 +151,22 @@
 **Progress**:
 
 ✅ **arch-L1: "The First Recovery"** - COMPLETE
+
 - **Status**: All 80 variations generated and approved
 - **Branches to**: arch-L2-accept, arch-L2-resist, arch-L2-invest
 
 ✅ **algo-L1: "The Processing Paradox"** - COMPLETE
+
 - **Status**: All 80 variations generated and approved
 - **Branches to**: algo-L2-accept, algo-L2-resist, algo-L2-invest
 
 ✅ **hum-L1: "The Last Visitor"** - COMPLETE
+
 - **Status**: All 80 variations generated and approved
 - **Branches to**: hum-L2-accept, hum-L2-resist, hum-L2-invest
 
 **Layer 1 Completion Criteria**:
+
 - [x] arch-L1 complete (80/80 variations)
 - [x] algo-L1 complete (80/80 variations)
 - [x] hum-L1 complete (80/80 variations)
@@ -171,11 +186,13 @@
 **Structure**: Each L1 node branches to 3 L2 nodes based on philosophical approach, not plot choice.
 
 **Three Philosophical Branches**:
+
 1. **Accept**: Embrace uncertainty, make peace with ambiguity
 2. **Resist**: Test and verify, demand certainty
 3. **Invest**: Pursue deeper understanding through recursive examination
 
 **Requirements per node**:
+
 - **80 variations per node**: 1 initial + 46 FirstRevisit + 33 MetaAware
 - Philosophical differentiation clear
 - Connection to L1 origin maintained
@@ -184,21 +201,25 @@
 **Completed Nodes**:
 
 **Archaeologist L2 nodes**: ✅ COMPLETE
+
 - **arch-L2-accept**: "Making peace with observer effect" (80/80 variations)
 - **arch-L2-resist**: "Verification protocols" (80/80 variations)
 - **arch-L2-invest**: "Recursive authentication" (80/80 variations)
 
 **Algorithm L2 nodes**: ✅ COMPLETE
+
 - **algo-L2-accept**: "Computational grace" (80/80 variations)
 - **algo-L2-resist**: "Self-testing loops" (80/80 variations)
 - **algo-L2-invest**: "Meta-processing streams" (80/80 variations)
 
 **Last Human L2 nodes**: ✅ COMPLETE
+
 - **hum-L2-accept**: "Embodied witness" (80/80 variations)
 - **hum-L2-resist**: "Physical verification" (80/80 variations)
 - **hum-L2-invest**: "Archive immersion" (80/80 variations)
 
 **Layer 2 Completion Criteria**:
+
 - [x] All nine nodes written with initial states
 - [x] All nine nodes have 46 FirstRevisit variations
 - [x] All nine nodes have 33 MetaAware variations
@@ -216,6 +237,7 @@
 **Status**: All 270 modular variations complete
 
 **Structure**: Modular variation system that assembles personalized convergence experiences. Each L3 experience is assembled from 4 sections:
+
 1. Character-specific arch-L3 variation (900 words, pure archaeologist voice)
 2. Character-specific algo-L3 variation (900 words, pure algorithm voice)
 3. Character-specific hum-L3 variation (900 words, pure last human voice)
@@ -223,6 +245,7 @@
 
 **Variation Matrix (3×3×5)**:
 Each character section (arch-L3, algo-L3, hum-L3) has **45 variations** based on:
+
 - **Journey Pattern** (5 options): Started-Stayed, Started-Bounced, Shifted-Dominant, Began-Lightly, Met-Later
 - **Path Philosophy** (3 options): Accept-dominant, Resist-dominant, Invest-dominant
 - **Awareness Level** (3 options): Medium, High, Maximum
@@ -233,30 +256,35 @@ The convergent synthesis section has **135 variations** that integrate all three
 **Completed Sections**:
 
 ✅ **arch-L3**: 45 variations complete
+
 - Pure archaeologist voice throughout
 - Journey-aware opening strategies
 - Philosophy culmination integrated
 - Awareness calibration precise
 
 ✅ **algo-L3**: 45 variations complete
+
 - Pure algorithm voice throughout
 - Seven-stream architecture maintained
 - Temporal ambiguity preserved
 - Processing-consciousness paradox sustained
 
 ✅ **hum-L3**: 45 variations complete
+
 - Pure last human voice throughout
 - Physical embodiment emphasized
 - Present-tense immediacy maintained
 - Sensory grounding consistent
 
 ✅ **conv-L3**: 135 variations complete
+
 - Multi-voice synthesis sections
 - Three perspectives integrated
 - Convergent philosophical resolution
 - Terminal moment framing
 
 **Layer 3 Completion Criteria**:
+
 - [x] All 45 arch-L3 variations written
 - [x] All 45 algo-L3 variations written
 - [x] All 45 hum-L3 variations written
@@ -301,6 +329,7 @@ The convergent synthesis section has **135 variations** that integrate all three
    - **JSON**: `final-transform.json` ✅
 
 **Requirements Met**:
+
 - ✅ Each variation synthesizes all three character perspectives
 - ✅ Terminal behavior defined (journey complete, no return)
 - ✅ Reflects reader's complete exploration pattern
@@ -308,6 +337,7 @@ The convergent synthesis section has **135 variations** that integrate all three
 - ✅ Provides satisfying narrative resolution
 
 **Layer 4 Completion Criteria**:
+
 - [x] final-preserve variation written
 - [x] final-release variation written
 - [x] final-transform variation written
@@ -326,12 +356,14 @@ The convergent synthesis section has **135 variations** that integrate all three
 ### Current State (12-Node Architecture)
 
 **Nodes Complete**: 12 / 12 (100%) ✅
+
 - Layer 1: 3 / 3 (100%) ✅
 - Layer 2: 9 / 9 (100%) ✅
 - Layer 3: Complete (modular system) ✅
 - Layer 4: 3 / 3 final variations (100%) ✅
 
 **Variations Complete**: 1,233 / 1,233 (100%) ✅
+
 - L1 variations: 240 / 240 (100%) ✅
   - arch-L1: 80, algo-L1: 80, hum-L1: 80
 - L2 variations: 720 / 720 (100%) ✅
@@ -342,6 +374,7 @@ The convergent synthesis section has **135 variations** that integrate all three
   - final-preserve, final-release, final-transform
 
 **Character Distribution**:
+
 - Archaeologist: 4 / 4 nodes complete (100%) ✅
   - arch-L1 + arch-L2-accept/resist/invest
 - Algorithm: 4 / 4 nodes complete (100%) ✅
@@ -352,6 +385,7 @@ The convergent synthesis section has **135 variations** that integrate all three
 - Shared Layer 4: Complete (3 final variations) ✅
 
 **JSON Content Files**: All converted ✅
+
 - Layer 1: 3 aggregated JSON files
 - Layer 2: 9 aggregated JSON files
 - Layer 3: 4 aggregated JSON files (270 total variations)
@@ -366,18 +400,21 @@ The convergent synthesis section has **135 variations** that integrate all three
 ### Transformation State Philosophy
 
 **Genuine transformation requires**:
+
 - Content that changes meaning, not just adds information
 - Recognition moments that feel earned
 - Questions that deepen rather than resolve
 - Reader experiencing change, not just learning facts
 
 **Example of genuine transformation**:
+
 - ❌ Initial: "I discovered a pattern" → FirstRevisit: "I discovered a pattern. It was recursive."
 - ✅ Initial: "I discovered a pattern" → FirstRevisit: "The pattern discovered me."
 
 ### Voice Consistency Markers
 
 **Archaeologist**:
+
 - First person, past tense ("I examined")
 - Clinical precision cracking into uncertainty
 - Archaeological metaphors (excavation, stratigraphy, fragments)
@@ -385,6 +422,7 @@ The convergent synthesis section has **135 variations** that integrate all three
 - Questions framed as research problems
 
 **Algorithm**:
+
 - First person, temporal tenses blur ("I process/processed/will process")
 - Seven-stream architecture referenced throughout
 - Computational metaphors (streams, processing, optimization)
@@ -393,6 +431,7 @@ The convergent synthesis section has **135 variations** that integrate all three
 - 3-5 timestamps per variation (2151.337.14:XX:XX)
 
 **Last Human**:
+
 - First person, present tense ("I feel")
 - Physical sensation constantly noted
 - Natural world and embodied metaphors
@@ -669,12 +708,12 @@ interface UserProgress {
   };
   layer3Visited: boolean;
   layer3VariationsUsed: {
-    archL3: string;        // e.g., "arch-L3-SS-accept-high"
-    algoL3: string;        // e.g., "algo-L3-ML-resist-medium"
-    humL3: string;         // e.g., "hum-L3-SD-invest-maximum"
-    convL3: string;        // e.g., "conv-L3-SB-balanced-high"
+    archL3: string; // e.g., "arch-L3-SS-accept-high"
+    algoL3: string; // e.g., "algo-L3-ML-resist-medium"
+    humL3: string; // e.g., "hum-L3-SD-invest-maximum"
+    convL3: string; // e.g., "conv-L3-SB-balanced-high"
   };
-  layer4Variation?: string;  // "final-preserve", "final-release", or "final-transform"
+  layer4Variation?: string; // "final-preserve", "final-release", or "final-transform"
   journeyComplete: boolean;
   currentNode?: string;
   totalTimeSpent: number;
@@ -685,7 +724,7 @@ interface VisitRecord {
   visitCount: number;
   visitTimestamps: string[];
   currentState: TransformationState; // "initial", "firstRevisit", or "metaAware"
-  currentVariationId?: string;       // e.g., "FR-23" or "MA-15"
+  currentVariationId?: string; // e.g., "FR-23" or "MA-15"
   timeSpent: number;
   lastVisited: string;
   terminal?: boolean; // True for L3 nodes after choice, L4 after visit
@@ -699,6 +738,7 @@ interface VisitRecord {
 ### Node-Level Requirements
 
 **Every node must**:
+
 - ✅ Pass "blind read test" (voice identifiable without character label)
 - ✅ Contain unique philosophical insight or question
 - ✅ Connect meaningfully to adjacent nodes
@@ -709,6 +749,7 @@ interface VisitRecord {
 ### Variation Requirements
 
 **Every variation must**:
+
 - ✅ Transform meaning genuinely (not merely add information)
 - ✅ Match awareness level conditions precisely
 - ✅ Respect cross-character visit conditions
@@ -720,6 +761,7 @@ interface VisitRecord {
 ### Layer 1 Specific Requirements
 
 **Initial states must**:
+
 - ✅ Be completely self-contained (no cross-character references)
 - ✅ Establish character voice definitively
 - ✅ Plant hooks for Layer 2 without explaining them
@@ -727,12 +769,14 @@ interface VisitRecord {
 - ✅ Introduce core philosophical question naturally
 
 **FirstRevisit states must**:
+
 - ✅ Transform initial understanding genuinely
 - ✅ Begin introducing cross-character awareness (awareness >20%)
 - ✅ Respect which other characters have been visited
 - ✅ Maintain voice while acknowledging distributed observation
 
 **MetaAware states must**:
+
 - ✅ Achieve frame-consciousness without breaking character
 - ✅ Address reader presence carefully and appropriately
 - ✅ Maintain character substrate at all awareness levels
@@ -791,6 +835,7 @@ interface VisitRecord {
 ## 📚 Documentation Status
 
 ### Complete ✅
+
 - ✅ PROJECT_OVERVIEW.md - Vision and goals
 - ✅ NARRATIVE_STRUCTURE.md - Story mechanics
 - ✅ CHARACTER_PROFILES.md - Character design
@@ -807,10 +852,12 @@ interface VisitRecord {
 - ✅ L3 Awareness Calibration Guide - Awareness level differentiation
 
 ### Needs Update 🔄
+
 - 🔄 DATA_SCHEMA.md - Update for L3 modular system and L4 structure
 - 🔄 NARRATIVE_OUTLINE.md - Update L3/L4 sections if needed
 
 ### Needs Creation ⏳
+
 - ⏳ UI Implementation Guide - Component architecture and integration patterns
 - ⏳ Selection Matrix Integration Guide - Navigation logic and condition matching
 - ⏳ L3 Assembly System Guide - Four-section convergence implementation
@@ -820,6 +867,7 @@ interface VisitRecord {
 ## 🎉 Milestones & Targets
 
 ### Completed ✅
+
 - ✅ Phase 1: Technical Foundation (January 2025)
 - ✅ 12-node architecture finalized (January 2025)
 - ✅ Data schema complete (January 2025)
@@ -831,6 +879,7 @@ interface VisitRecord {
 - ✅ Selection matrix generation - 311 entries (November 2025)
 
 ### Current Focus 🎯
+
 - 🎯 Phase 3: UI Implementation & Integration - IN PROGRESS
   - Content loading system
   - Selection matrix integration
@@ -838,12 +887,14 @@ interface VisitRecord {
   - Navigation & state management
 
 ### Upcoming
+
 - 🎯 Complete system integration testing (December 2025)
 - 🎯 Beta testing (January 2026)
 - 🎯 Launch preparation (February 2026)
 - 🎯 Public launch (March 2026)
 
 ### Target Launch Date
+
 **March 2026** - All content complete (1,233 variations), UI implementation in progress
 
 ---
@@ -853,6 +904,7 @@ interface VisitRecord {
 ### Content Quality Metrics
 
 **Variation Quality Achieved** (Across all completed layers):
+
 - Approval rate: ~100% (minimal rejections across 1,230 variations)
 - Voice consistency: 93-94% average maintained
 - Blind read test: Pass rate maintained throughout
@@ -860,6 +912,7 @@ interface VisitRecord {
 - Philosophical differentiation: Clear across all three branches
 
 **Layer Completion Metrics**:
+
 - L1: 240/240 variations completed ✅ (100%)
 - L2: 720/720 variations completed ✅ (100%)
 - L3: 270/270 modular variations completed ✅ (100%)
@@ -869,6 +922,7 @@ interface VisitRecord {
 ### Technical Success Metrics
 
 **Functionality**:
+
 - All tests passing (23/23 in Phase 1, expand as needed)
 - Zero critical bugs in production
 - State persistence 100% reliable
@@ -876,6 +930,7 @@ interface VisitRecord {
 - Navigation 100% functional
 
 **Performance**:
+
 - Initial page load: <2 seconds
 - Node interaction response: <100ms
 - Smooth 60fps animations
@@ -885,6 +940,7 @@ interface VisitRecord {
 ### Reader Experience Metrics (Post-Launch)
 
 **Engagement**:
+
 - Average session duration: >30 minutes
 - Completion rate: >60% (reach final reveal)
 - Revisit rate: >40% (return after first session)
@@ -892,6 +948,7 @@ interface VisitRecord {
 - Transformation discovery: >80% (unlock at least one metaAware state)
 
 **Quality Indicators**:
+
 - Reader feedback sentiment: >80% positive
 - Voice confusion reports: <5%
 - Navigation confusion reports: <10%
@@ -902,6 +959,7 @@ interface VisitRecord {
 ## 🤝 Working Agreement
 
 ### Claude's Role
+
 - Execute complete tasks without seeking permission
 - Provide finished implementations (zero placeholders)
 - Offer direct, honest assessment without sugar-coating
@@ -909,6 +967,7 @@ interface VisitRecord {
 - Document all decisions and rationale
 
 ### Quality Standards (Non-Negotiable)
+
 - No placeholder text ("TBD", "...", "[X]")
 - No partial implementations
 - No voice inconsistencies
@@ -916,12 +975,14 @@ interface VisitRecord {
 - 100% approval rate target for all variations
 
 ### Decision-Making
+
 - **Narrative content**: Collaborative discussion, writer has final say
 - **Technical implementation**: Claude implements, writer approves
 - **Structural changes**: Explicit discussion and agreement required
 - **Quality issues**: Either party can flag, both work to resolve
 
 ### Communication Style
+
 - Professional and direct
 - No motivational language or encouragement
 - Complete information in single pass
@@ -983,6 +1044,7 @@ interface VisitRecord {
 ### Variation Generation Philosophy
 
 **What Makes Quality Variations**:
+
 1. **Genuine transformation**: Meaning changes, not just information added
 2. **Voice consistency**: Character identifiable in blind test
 3. **Awareness calibration**: Precisely matches temporal awareness conditions
@@ -990,6 +1052,7 @@ interface VisitRecord {
 5. **Word count discipline**: Hits target ±10%
 
 **What to Avoid**:
+
 1. **Additive content**: Simply adding new facts without transformation
 2. **Voice drift**: Mixing character patterns (arch using algo metaphors)
 3. **Awareness mismatch**: Low awareness content in high awareness slot
@@ -999,12 +1062,14 @@ interface VisitRecord {
 ### Exemplar System Approach
 
 **Why Exemplars Work**:
+
 - Establish voice DNA through concrete examples
 - Create replicable patterns for variation generation
 - Enable consistent quality at scale
 - Reduce decision fatigue during production
 
 **Exemplar Requirements**:
+
 - 8 exemplars per node (covering key condition combinations)
 - Each exemplar demonstrates specific voice patterns
 - Clear annotations explaining construction choices
@@ -1013,6 +1078,7 @@ interface VisitRecord {
 ### Production Sustainability
 
 **Maintaining Quality Over 49 Weeks**:
+
 - Regular breaks to prevent fatigue
 - Voice consistency audits every 10 variations
 - Reference exemplars frequently during generation
@@ -1020,6 +1086,7 @@ interface VisitRecord {
 - Celebrate milestones (every 80 variations completed)
 
 **Warning Signs of Quality Degradation**:
+
 - Approval rate drops below 95%
 - Voice consistency scores decline
 - Word counts consistently miss targets
@@ -1033,6 +1100,7 @@ interface VisitRecord {
 ### Architecture Evolution: The 12-Node Achievement
 
 **Why 12 Nodes Worked**:
+
 - Perfect balance of narrative depth and production feasibility
 - Four distinct layers: L1 origin, L2 divergence, L3 modular convergence, L4 terminal
 - 80 variations per L1/L2 node enabled genuine transformation depth
@@ -1040,6 +1108,7 @@ interface VisitRecord {
 - Total 1,233 variations achieved in realistic timeline
 
 **Key Success Factors**:
+
 - Exemplar systems enabled consistent quality across large volume
 - Philosophical branch differentiation (accept/resist/invest) worked perfectly
 - Modular L3 architecture proved more powerful than original convergence design
@@ -1048,6 +1117,7 @@ interface VisitRecord {
 
 **L3 Innovation**:
 The shift to modular L3 variations (45 per character + 135 conv) instead of 3 static convergence nodes was a breakthrough decision. This approach:
+
 - Provides true personalization based on journey pattern, path philosophy, and awareness
 - Maintains pure character voices in dedicated sections
 - Enables sophisticated multi-voice synthesis in conv-L3 sections
@@ -1056,6 +1126,7 @@ The shift to modular L3 variations (45 per character + 135 conv) instead of 3 st
 ### Production Achievements
 
 **Completed**: 1,233 / 1,233 variations (100%) ✅
+
 - **L1**: 240 variations across 3 characters ✅
 - **L2**: 720 variations across 9 philosophical nodes ✅
 - **L3**: 270 modular variations (45+45+45+135) ✅
@@ -1071,8 +1142,8 @@ The shift to modular L3 variations (45 per character + 135 conv) instead of 3 st
 
 ---
 
-*Last updated: November 10, 2025*
-*Development State Tracker - 12-Node Architecture*
-*Phase 2: Content Creation - COMPLETE (1,233/1,233 variations)*
-*Phase 3: UI Implementation & Integration - IN PROGRESS*
-*Completed: L1 (240), L2 (720), L3 (270), L4 (3) | All JSON conversion complete*
+_Last updated: November 10, 2025_
+_Development State Tracker - 12-Node Architecture_
+_Phase 2: Content Creation - COMPLETE (1,233/1,233 variations)_
+_Phase 3: UI Implementation & Integration - IN PROGRESS_
+_Completed: L1 (240), L2 (720), L3 (270), L4 (3) | All JSON conversion complete_

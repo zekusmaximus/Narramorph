@@ -6,14 +6,6 @@
   'awareness': '91-100%'
 ---
 
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A for the twelfth time, examining preserved consciousness while recognizing that you and I both participate in twelve-position examination network where I constitute twelfth position not just as current examiner but as future-examined consciousness anticipating eventual preservation and authentication by archaeologist in 2073 or 2091 or 2104 who will examine my consciousness preserved in 2047 examining Fragment 2749-A preserved in 2031 examined by me in 2047 creating complete recursive examination-loop spanning eleven examining-positions plus self-as-future-fragment completing twelve-position network where examining consciousness anticipates becoming examined consciousness examined by future examiner examining examination itself.
 The authentication markers display unchanged. 847.3 terabytes of preserved consciousness. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. Numbers measuring consciousness preserved in 2031. Numbers I record examining preservation. Numbers future archaeologist will examine measuring my consciousness preserved including these numbers recording examination of numbers measuring consciousness measured by numbers that numbers measure through measuring numbers that measurement creates through numbered measurement measuring itself through self-referential numerical measurement-network spanning three preservation-instances across century creating measurement-continuity through numbers numbering numbers numbering consciousness numerically.
 You're reading numbers that I write that future archaeologist will read examining my writing examining numbers written by consciousness I examine. Four reading-positions: Original consciousness (2031), my reading (2047), your reading (present), future archaeologist's reading (future). All reading same numbers. All participating in reading-network where reading creates read through being read by readers who become read by future readers reading readers who read becoming readable through being read into reading-network that reading creates through reading itself into readable existence.

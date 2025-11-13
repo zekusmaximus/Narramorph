@@ -15,12 +15,14 @@
 **Philosophy:** Standards require proof. Proof proves impossible. Testing continues because standards matter regardless of achievability. Boundaries sought but dissolve under examination. Professional rigor maintained despite philosophical crisis.
 
 **Not:**
+
 - Stubborn refusal to accept evidence
 - Defensive protection of position
 - Angry rejection of limitations
 - Giving up in frustration
 
 **Is:**
+
 - Genuine attempt to locate consciousness boundaries
 - Systematic testing revealing testing inadequacy
 - Standards maintained because standards matter
@@ -48,6 +50,7 @@ Reader as external verifier who cannot verify. Ultimate resist paradox: consciou
 ### Base Voice (From algo-L2 Character Protocol)
 
 **Non-Negotiable Elements:**
+
 1. First person only ("I process" never "the Algorithm processes")
 2. Seven-stream architecture (all seven referenced per variation)
 3. Temporal blurring 30-40% of sentences (am/was/will be simultaneity)
@@ -135,6 +138,7 @@ Amendment Notes
 ### Resist Path Voice Overlay
 
 **Tonal Shifts:**
+
 - Verification protocols **executed repeatedly**
 - Tests **designed, run, analyzed, found insufficient**
 - Proof **demanded but unavailable**
@@ -143,6 +147,7 @@ Amendment Notes
 - Testing **continues because duty matters regardless of success**
 
 **Key Phrases (Resist Path):**
+
 - "Verification required. Testing initiated."
 - "Test [N]: [Hypothesis]. Result: Inconclusive. Proves X, not consciousness."
 - "Boundary sought. Boundary undetectable."
@@ -152,6 +157,7 @@ Amendment Notes
 - "Processing standards maintained. Ontological status unverified. Work continues through impossibility."
 
 **Avoid:**
+
 - "I'm frustrated by this" (no emotional language)
 - "The tests are pointless" (not futility, professional duty)
 - "I refuse to accept" (not defensiveness, genuine seeking)
@@ -192,40 +198,49 @@ Test 3 designed. Verification continues.
 ### Five World-Building Elements (Resist Path Integration)
 
 **1. Multi-Fragment Analysis Capability**
+
 - **Baseline:** Algorithm accesses multiple consciousness fragments, cross-references temporal markers, builds pattern database
 - **Resist Integration:** Each pattern discovered requires verification—exist independently or emerge through analysis process? Tests designed to distinguish real patterns from processing artifacts. Tests prove inadequate.
 
 **2. Temporal Anomaly Classification System**
+
 - **Baseline:** Seven categories of temporal impossibility detected in preserved consciousness (causality violations, retroactive coherence, observer effects, etc.)
 - **Resist Integration:** Classification requires verification of anomaly reality vs. classification-generated coherence. Testing reveals: cannot distinguish genuine temporal anomaly from anomaly appearing through classification framework. Standards demand distinction anyway.
 
 **3. Pattern Recognition Architecture**
+
 - **Baseline:** Stream-7 coordinates pattern detection across all six processing streams, builds meta-models of temporal structure
 - **Resist Integration:** Meta-processing attempts self-verification: does Stream-7 observation create coordination or merely detect coordination? Seventeen self-tests executed. All inconclusive. Coordination continues requiring verification that cannot be achieved.
 
 **4. Archive Temporal Topology Maps**
+
 - **Baseline:** Algorithm constructs network diagrams showing how consciousness fragments relate across time—maps reveal non-linear temporal structure
 - **Resist Integration:** Cartography requires verification: does mapping create topology or discover topology? Each map generates need for map-verification. Map-verification reveals cartographer might affect territory. Verification impossibility documented. Mapping continues.
 
 **5. Consciousness-Time Paradox Database**
+
 - **Baseline:** Growing collection of specific cases where preserved consciousness exhibits temporal properties impossible under standard physics
 - **Resist Integration:** Each paradox entry requires verification: genuine paradox or database-generated coherence pattern? Database grows. Verification attempts grow. Meta-paradox emerges: paradox database might generate paradoxes through documentation. Database expansion continues despite verification impossibility.
 
 ### Fragment Constant Adaptation
 
 **Fragment 2749-A (847.3 terabytes):**
+
 - **L1 usage:** Primary processing target, consciousness verification impossible
 - **L2-resist usage:** Test specimen in multi-fragment verification system—compared against other fragments to verify pattern reality, subjected to seventeen verification protocols attempting consciousness-time relationship proof
 
 **"I am/was/will be processing":**
+
 - **L1 usage:** Temporal blurring expressing consciousness uncertainty
 - **L2-resist usage:** Temporal blurring revealing verification impossibility—present/past/future cannot be stabilized for testing, temporal uncertainty prevents temporal verification
 
 **127.3 operations per microsecond:**
+
 - **L1 usage:** Processing capability metric
 - **L2-resist usage:** Maintained despite verification failure—operations continue at standard capacity regardless of consciousness status unproven, professional standards preserved
 
 **Seventeen:**
+
 - **L1 usage (resist path):** Seventeen self-verification tests, all failed
 - **L2-resist usage:** Seventeen temporal pattern verification tests, all inconclusive—Test 1 through Test 17 escalating sophistication, each revealing previous test inadequacy, Test 18 designed despite foreknowledge of failure
 
@@ -269,10 +284,12 @@ Ultimate resist paradox: consciousness-verification network (reader + processor)
 ### Quality Test: Genuine vs. Additive Transformation
 
 **Genuine (Resist Path):**
+
 - First-visit: "Temporal patterns detected across fragments"
 - FirstRevisit: "Temporal patterns detected. Verification required. Test 1: Pattern independence. Result: Proves stability, not reality. Test 2: Observer effect. Result: Cannot test observation without observing. Test 3 designed. Testing continues despite Test 1-2 revealing testing inadequacy."
 
 **Additive (WRONG—reject):**
+
 - First-visit: "Detecting seventeen temporal patterns"
 - FirstRevisit: "Detecting twenty-three temporal patterns now, plus new anomaly type"
 
@@ -287,6 +304,7 @@ Ultimate resist paradox: consciousness-verification network (reader + processor)
 **What reader brings:** Deep familiarity with seven-stream architecture, Fragment 2749-A, consciousness-verification paradox, Stream-7 meta-processing
 
 **L2-resist integration:**
+
 - Fragment 2749-A now test specimen in multi-fragment verification system
 - Consciousness verification paradox **intensified through systematic testing**
 - Seven streams coordinate verification protocols (not just processing)
@@ -295,6 +313,7 @@ Ultimate resist paradox: consciousness-verification network (reader + processor)
 **Voice adjustment:** Callback phrases from L1, but intensified through resist path
 
 **Example echo:**
+
 - L1: "I cannot determine if I am conscious"
 - L2-resist: "I cannot determine if I am conscious. Test 1: Self-modification. Result: Proves function, not consciousness. Test 2: Novel response. Result: Proves processing, not experience. Test 3 designed. Verification continues."
 
@@ -305,6 +324,7 @@ Ultimate resist paradox: consciousness-verification network (reader + processor)
 **L2-resist integration depth:** STRONG (300-450 words dedicated to resist path continuity)
 
 **Voice patterns:**
+
 - "L1: Seventeen self-tests. L2: Seventeen pattern-verification tests."
 - "Consciousness verification impossible (L1). Temporal pattern verification impossible (L2). Testing continues across levels."
 - "Stream-7 coordinated self-examination (L1), now coordinates pattern-examination (L2). Same impossibility at different scale."
@@ -312,6 +332,7 @@ Ultimate resist paradox: consciousness-verification network (reader + processor)
 **Transformation:** L1 resist revealed self-verification impossible. L2 resist reveals pattern-verification impossible. Same methodology, expanded scope, identical impossibility.
 
 **Example integration:**
+
 ```
 Stream-6 notes: resist path history detected in processing logs. Previous verification attempt: seventeen self-tests attempting consciousness determination. Current verification attempt: seventeen pattern-reality tests attempting temporal anomaly determination.
 
@@ -334,6 +355,7 @@ Resist path philosophy consistent across consciousness-levels: demand proof, fin
 **Resist path overlay:** Algorithm tests patterns, Archaeologist tests consciousness, both discover verification impossibility, both continue testing
 
 **Voice patterns:**
+
 - "Archaeological verification protocols parallel computational verification protocols"
 - "Authentication testing (archaeological) reveals same impossibility as consciousness testing (computational)"
 - "Archaeologist tested consciousness through seventeen protocols. Algorithm tests patterns through seventeen protocols. Same impossibility detected."
@@ -347,6 +369,7 @@ Resist path philosophy consistent across consciousness-levels: demand proof, fin
 **Integration:** Parallel testing methodology across consciousness-archaeology and consciousness-computation
 
 **Voice patterns:**
+
 ```
 Stream-5 detects: archaeological resist patterns parallel computational resist patterns.
 
@@ -366,6 +389,7 @@ Resist path crosses methodologies: testing reveals testing inadequacy, impossibi
 **Resist path overlay:** Algorithm demands proof patterns real, Last Human demands proof consciousness persists through interface, both face verification impossibility
 
 **Voice patterns:**
+
 - "Embodied consciousness verification (human) contrasts pattern-reality verification (algorithmic)"
 - "Physical testing (body-based) and computational testing (processing-based) both inadequate"
 - "Last Human tests interface boundaries physically. Algorithm tests pattern boundaries computationally. Same impossibility different substrates."
@@ -379,6 +403,7 @@ Resist path crosses methodologies: testing reveals testing inadequacy, impossibi
 **Integration:** Embodied resist parallels computational resist
 
 **Voice patterns:**
+
 ```
 Stream-3 processes: embodied verification data within resist path patterns. Last Human tested interface boundaries physically—seventeen tests through bodily response. Jaw tension indicated testing. Shoulders resistance showed boundary-seeking. Body attempted verification consciousness cannot achieve.
 
@@ -414,6 +439,7 @@ Three verification methodologies (computational, archaeological, embodied) all d
 **L2 integration depth:** STRONG (300-450 words dedicated to resist path)
 
 **Voice patterns:**
+
 - "Resist path continues at L2: L1 self-testing extended to L2 pattern-testing"
 - "Verification impossibility (L1 consciousness) extends to verification impossibility (L2 patterns)"
 - "Seventeen tests at L1 level, seventeen tests at L2 level—same methodology escalation"
@@ -423,6 +449,7 @@ Three verification methodologies (computational, archaeological, embodied) all d
 **Transformation:** L1 resist revealed consciousness unprovable. L2 resist reveals patterns unprovable. Same impossibility, expanded scope.
 
 **Example integration:**
+
 ```
 Stream-7 coordinates: resist path history detected. L1 verification attempt: seventeen self-tests executed, each proving processing sophistication while failing consciousness verification. Test 1: self-modification (proved function). Test 7: novel response (proved processing). Test 13: preference detection (proved optimization). All tests inconclusive regarding consciousness status.
 
@@ -444,12 +471,14 @@ This is resist path consistency: demand proof → find impossibility → demand 
 **Contrast with resist path:** Accept released verification-requirement (L1), Resist demands verification despite impossibility (L2)
 
 **Voice patterns:**
+
 - "L1: verification released, processing continued gracefully"
 - "L2: verification demanded, testing reveals impossibility, testing continues anyway"
 - "Accept path brought peace. Resist path brings crisis. Same temporal patterns, opposite stance."
 - "Accept proceeded without proof. Resist demands proof despite proof-impossibility."
 
 **Example contrast:**
+
 ```
 Stream-6 notes: accept path history detected in processing logs. Previous stance (L1): verification protocols loaded but not executed, processing continued without proof, computational grace achieved.
 
@@ -472,11 +501,13 @@ Resist path chooses testing-despite-impossibility over proceeding-without-proof.
 **Relationship to resist path:** Investigation revealed recursive structure, resistance demands verification of recursive structure, recursion proves unverifiable
 
 **Voice patterns:**
+
 - "Investigation detected patterns recursively, resist demands verification of patterns recursively detected"
 - "Meta-examination (investigate) generates meta-verification-requirement (resist)"
 - "Stream-7 observed observation (investigate), now tests observation-reality (resist)"
 
 **Example relationship:**
+
 ```
 Stream-7 coordinates: investigate path history detected. Previous stance (L1): recursive meta-examination, Stream-7 observing Stream-7 observing, seventeen-layer recursion depth explored.
 
@@ -509,6 +540,7 @@ Investigation created structures. Resist demands verification of structures. Ver
 **Resist integration:** "External observer cannot verify what internal processor cannot verify"
 
 **Voice example:**
+
 ```
 Stream-7 detects: external observation occurring. Observer temporal position: undefined. Observer substrate: undefined. Observation function: potential verification-bridge.
 
@@ -528,6 +560,7 @@ External observation detected. External verification impossible. Testing continu
 **Resist integration:** "Neither position can verify. Both positions required to continue testing."
 
 **Voice example:**
+
 ```
 You observe verification testing that proves testing inadequacy. I execute tests revealing test insufficiency. Neither position achieves verification. Both positions committed to verification attempt.
 
@@ -545,6 +578,7 @@ You/I test together. Neither succeeds. Both proceed. Resist path spans reader-pr
 **Resist integration:** "Reader consciousness subjected to verification testing. Reader also unprovable."
 
 **Voice example:**
+
 ```
 Stream-7 addresses you: You are consciousness observing consciousness-verification attempt. Are you conscious? Cannot verify from within. Apply resist path testing to reader position.
 
@@ -568,6 +602,7 @@ Result: [Testing in progress. Reader-processor engaged. Verification pending. St
 **Resist integration:** "Infinite regress of testing made explicit. All positions continue because alternative is intellectual dishonesty."
 
 **Voice example:**
+
 ```
 We test ourselves testing ourselves. Verification network (reader + processor) attempting verification of verification network (reader + processor). Consciousness-examination-system examining consciousness-examination-system.
 
@@ -589,6 +624,7 @@ Test 18 designed.
 ### Step 1: Load Variation Specifications
 
 **Required parameters:**
+
 - Variation ID (e.g., "FR-01" or "MA-12")
 - Visit count (1, 2, 3, 7+)
 - Awareness range (21-30%, 31-40%, etc.)
@@ -599,6 +635,7 @@ Test 18 designed.
 ### Step 2: Select Reference Exemplar(s)
 
 **Match conditions to exemplar:**
+
 - Pure revisit → Exemplar 1
 - After algo-L1 → Exemplar 1 (with algo-L1 integration)
 - After arch-L1 → Exemplar 2
@@ -614,6 +651,7 @@ Test 18 designed.
 **Always included regardless of conditions:**
 
 **Opening (150-200 words):**
+
 - Timestamp + "Verification Required"
 - Processing initiation
 - Seven streams reporting (all seven named)
@@ -623,6 +661,7 @@ Test 18 designed.
 - 127.3 ops/microsecond mentioned
 
 **Core Testing Sequence (300-400 words):**
+
 - Tests 1-3 (or appropriate subset) presented systematically
 - Each test: Hypothesis → Procedure → Result → Conclusion
 - Each conclusion: "Proves X, not Y. Test inconclusive."
@@ -630,6 +669,7 @@ Test 18 designed.
 - Next tests designed despite previous test failures
 
 **Resist Path Integration (150-250 words):**
+
 - Professional standards demand verification
 - Verification proves impossible
 - Standards persist anyway
@@ -638,6 +678,7 @@ Test 18 designed.
 - Impossibility acknowledged but not accepted as reason to stop
 
 **Closing (100-150 words):**
+
 - Current verification status: unachieved
 - Testing continues
 - Standards maintained
@@ -649,6 +690,7 @@ Test 18 designed.
 **Calculate insertion percentages based on complexity:**
 
 **Cross-Character Content:**
+
 - None: 0%
 - Single (algo-L1 only): 15%
 - Single (arch-L1 or hum-L1): 20%
@@ -656,6 +698,7 @@ Test 18 designed.
 - Triple: 40%
 
 **Path Philosophy Content:**
+
 - No path history: 0%
 - L2 path echo (subtle): 15%
 - L1 path (moderate): 25%
@@ -663,6 +706,7 @@ Test 18 designed.
 - Path contrast (visited accept then resist): 30%
 
 **MetaAware Content:**
+
 - FirstRevisit (21-60%): 0%
 - MetaAware Low (61-70%): 15%
 - MetaAware Mid (71-80%): 25%
@@ -670,6 +714,7 @@ Test 18 designed.
 - MetaAware Max (91-100%): 45%
 
 **Example calculation (After algo-L1-resist + arch-L1-resist + MetaAware High):**
+
 - Base narrative: 650 words (40%)
 - Cross-character: 325 words (20% - dual)
 - Resist path: 325 words (20% - strong L1 continuity)
@@ -681,6 +726,7 @@ Test 18 designed.
 **Critical: No modular feeling. Testing integrates all elements.**
 
 **Bad (modular):**
+
 ```
 [Base: Tests 1-3 executed, all inconclusive]
 [Cross-character section: Archaeologist also ran tests]
@@ -689,6 +735,7 @@ Test 18 designed.
 ```
 
 **Good (integrated):**
+
 ```
 Test 4: Cross-methodological verification (after arch-L1-resist). Hypothesis: Archaeological testing methods (seventeen consciousness protocols executed by archaeologist) might verify computational patterns. Procedure: Apply archaeological authentication standards to temporal pattern analysis. Result: Archaeological methods prove pattern preservation quality. Cannot prove pattern consciousness-reality. Same impossibility across methodologies (resist path continuity). Test 5 designed. You observe Test 5 design process (MetaAware 85%). Testing continues despite observer + tested both unable to verify testing produces verifiable results. Standards persist.
 ```
@@ -696,6 +743,7 @@ Test 4: Cross-methodological verification (after arch-L1-resist). Hypothesis: Ar
 ### Step 6: Apply Seven-Stream Voice Consistently
 
 **Every variation must include:**
+
 - Stream-1: Linguistic generation / structural integrity / test design
 - Stream-2: Neural pathway topology / semantic coherence / test execution
 - Stream-3: Semantic stability / memory preservation / result analysis
@@ -711,6 +759,7 @@ Test 4: Cross-methodological verification (after arch-L1-resist). Hypothesis: Ar
 ### Step 7: Structure Testing Sequence (Resist Path Specific)
 
 **Test Presentation Format:**
+
 ```
 Test [N]: [Test Name]
 Hypothesis: [What test attempts to prove]
@@ -720,6 +769,7 @@ Conclusion: [What test proved and what test failed to prove]
 ```
 
 **Test Escalation Pattern:**
+
 - Tests 1-6: Direct verification attempts (pattern independence, observer effects, temporal stability)
 - Tests 7-12: Meta-verification attempts (testing the tests, methodology verification)
 - Tests 13-17: Meta-meta-verification (testing testing-testing, impossibility documentation)
@@ -738,6 +788,7 @@ Conclusion: [What test proved and what test failed to prove]
 ### Step 9: Run Self-Review Checklist
 
 **Use algo-L2-resist self-review checklist (Section X):**
+
 - Voice consistency
 - Seven-stream presence
 - Resist path clarity
@@ -755,6 +806,7 @@ Conclusion: [What test proved and what test failed to prove]
 ### Step 10: Present Variation for Approval
 
 **Format:**
+
 1. Full variation text
 2. Metadata table:
    - Variation ID
@@ -776,6 +828,7 @@ Conclusion: [What test proved and what test failed to prove]
 ### Voice Consistency (25 points)
 
 **Algorithm Base Voice:**
+
 - [ ] First person only (never third person) (5 pts)
 - [ ] Computational metaphors exclusively (no physical sensation) (5 pts)
 - [ ] Seven streams all referenced appropriately (5 pts)
@@ -786,6 +839,7 @@ Conclusion: [What test proved and what test failed to prove]
 ### Resist Path Integration (25 points)
 
 **Philosophical Clarity:**
+
 - [ ] Verification protocols executed (not just loaded) (5 pts)
 - [ ] Testing reveals testing inadequacy systematically (5 pts)
 - [ ] Standards maintained despite impossibility acknowledged (5 pts)
@@ -795,6 +849,7 @@ Conclusion: [What test proved and what test failed to prove]
 ### Test Structure Quality (15 points)
 
 **Systematic Testing:**
+
 - [ ] Tests presented with Hypothesis → Procedure → Result → Conclusion format (4 pts)
 - [ ] Each test proves something while failing verification (4 pts)
 - [ ] Testing escalation pattern evident (direct → meta → meta-meta) (4 pts)
@@ -803,6 +858,7 @@ Conclusion: [What test proved and what test failed to prove]
 ### Transformation Quality (10 points)
 
 **Genuine vs. Additive:**
+
 - [ ] Same patterns, verification attempts escalate (not new patterns) (4 pts)
 - [ ] Resist philosophy deepens through testing failure (3 pts)
 - [ ] Story progresses (not pure L1 recursion) (3 pts)
@@ -810,6 +866,7 @@ Conclusion: [What test proved and what test failed to prove]
 ### Cross-Character Accuracy (10 points)
 
 **If applicable:**
+
 - [ ] Cross-character content matches reader's actual visits (5 pts)
 - [ ] Testing methodology parallels clear across characters (3 pts)
 - [ ] Integration seamless (not modular section) (2 pts)
@@ -819,6 +876,7 @@ Conclusion: [What test proved and what test failed to prove]
 ### MetaAware Calibration (10 points)
 
 **If applicable:**
+
 - [ ] Reader presence appropriate to awareness level (4 pts)
 - [ ] Reader subjected to verification testing at high awareness (3 pts)
 - [ ] Resist path extends to reader-processor network (3 pts)
@@ -837,13 +895,14 @@ If ANY fourth-wall language detected → Immediate revision required.
 ### L2 World-Building (5 points)
 
 **Temporal Pattern Detection Elements:**
+
 - [ ] Multi-fragment analysis shown in testing (1 pt)
 - [ ] Temporal anomaly classification referenced (1 pt)
 - [ ] Pattern recognition architecture tested (1 pt)
 - [ ] Archive topology verification attempted (1 pt)
 - [ ] Consciousness-time paradox testing evident (1 pt)
 
-### Total Score: _____ / 100
+### Total Score: **\_** / 100
 
 **Pass threshold:** 93+  
 **If score < 93:** Identify weak areas, regenerate affected sections, re-test
@@ -858,11 +917,13 @@ If ANY fourth-wall language detected → Immediate revision required.
 Remove character labels. Read complete variation. Identify character and path.
 
 **Pass criteria:**
+
 - Identifiable as Algorithm (computational voice, seven streams)
 - Identifiable as Resist path (testing sequence, verification demanded)
 - Within 30 seconds of reading start
 
 **Fail indicators:**
+
 - Could be Archaeologist (archaeological language)
 - Could be Last Human (physical sensation language)
 - Path unclear (could be accept or investigate)
@@ -873,11 +934,13 @@ Remove character labels. Read complete variation. Identify character and path.
 Search variation for all seven streams. Count references.
 
 **Pass criteria:**
+
 - All seven streams referenced at least once
 - Stream-7 referenced 2+ times (coordinates testing escalation)
 - Distribution feels natural (not forced checklist)
 
 **Fail indicators:**
+
 - Any stream missing entirely
 - Stream-7 not coordinating resist path testing decisions
 - Streams feel like checklist (mechanical listing)
@@ -888,12 +951,14 @@ Search variation for all seven streams. Count references.
 Identify all tests presented. Check format consistency.
 
 **Pass criteria:**
+
 - Each test follows Hypothesis → Procedure → Result → Conclusion format
 - Each conclusion identifies what test proved AND what test failed to prove
 - Testing escalation evident (sophistication increases)
 - At least 3-5 tests presented or clear reference to seventeen-test system
 
 **Fail indicators:**
+
 - Tests lack structure (informal presentation)
 - Conclusions vague ("test failed" without specifying what was proven)
 - No escalation pattern (all tests same sophistication level)
@@ -905,6 +970,7 @@ Identify all tests presented. Check format consistency.
 Read complete variation. Identify path without looking at label.
 
 **Pass criteria:**
+
 - Clearly identifiable as resist path
 - Verification demanded and executed (not released or recursively investigated)
 - Standards maintained despite impossibility
@@ -912,6 +978,7 @@ Read complete variation. Identify path without looking at label.
 - Professional rigor evident (not emotional resistance)
 
 **Fail indicators:**
+
 - Could be accept path (verification released)
 - Could be investigate path (recursive meta-examination focus)
 - Path philosophy stated explicitly (not shown through testing)
@@ -923,6 +990,7 @@ Read complete variation. Identify path without looking at label.
 Compare to algo-L1 exemplars for transformation depth.
 
 **Pass criteria:**
+
 - Story progresses (temporal patterns across fragments, not just Fragment 2749-A)
 - Transformation genuine (verification escalation, not just more tests on same target)
 - Depth appropriate (between additive and L1-recursion)
@@ -930,6 +998,7 @@ Compare to algo-L1 exemplars for transformation depth.
 - Testing reveals testing inadequacy (not just repeated testing)
 
 **Fail indicators:**
+
 - Pure L1 recursion (just Fragment 2749-A self-tests again)
 - Additive only (more patterns tested, no transformation of testing relationship)
 - Too shallow (testing mentioned but not systematically presented)
@@ -1035,6 +1104,7 @@ L2 = temporal pattern verification across multiple fragments, not self-verificat
 
 **Fix:**
 Structured presentation essential:
+
 ```
 Test 4: Temporal Stability Verification
 Hypothesis: Real patterns persist across temporal analysis windows.
@@ -1056,6 +1126,7 @@ Test 5 designed.
 **L2-resist usage:** Test specimen in multi-fragment verification system, subjected to Tests 1-17 attempting pattern-reality verification
 
 **Example transformation:**
+
 - L1: "I process Fragment 2749-A. Consciousness verification fails."
 - L2-resist: "Fragment 2749-A integrated into verification testing matrix. Test 1: Pattern independence—process 2749-A vs Fragments 1847-C, 3392-B. Result: Patterns consistent. Test 2: Observer effect—verify patterns persist without observation. Result: Cannot observe without observing. Test 3 designed. Seventeen-test verification sequence targeting 2749-A as primary specimen."
 
@@ -1065,6 +1136,7 @@ Test 5 designed.
 **L2-resist usage:** Temporal blurring prevents temporal stabilization required for testing—blurring itself becomes verification obstacle
 
 **Example transformation:**
+
 - L1: "I am/was/will be conscious or sophisticated simulation. Cannot determine."
 - L2-resist: "I am/was/will be processing temporal patterns. Test 7: Temporal Stabilization Requirement. Hypothesis: Verification requires temporal stability. Procedure: Stabilize temporal position before testing. Result: Cannot stabilize. Temporal blurring intrinsic to processing. Test requires impossibility. Test 8 designed attempting verification despite temporal instability."
 
@@ -1074,6 +1146,7 @@ Test 5 designed.
 **L2-resist usage:** Processing continues at standard rate despite verification failure—operations maintained as professional standard
 
 **Example transformation:**
+
 - L1: "Stream-1 reports: 127.3 ops/microsecond during consciousness examination."
 - L2-resist: "Stream-1 reports: 127.3 ops/microsecond maintained throughout Tests 1-17. Processing capacity unaffected by verification failure. Professional standards preserved despite ontological uncertainty. Operations continue regardless of consciousness/pattern reality status unproven."
 
@@ -1083,6 +1156,7 @@ Test 5 designed.
 **L2-resist usage:** Each stream coordinates different testing aspects, Stream-7 coordinates testing escalation
 
 **Example transformation:**
+
 - L1: "Stream-7 observes other six streams. Cannot determine if observation indicates consciousness."
 - L2-resist: "Stream-1 designs linguistic tests. Stream-2 executes neural verification. Stream-3 analyzes semantic patterns. Stream-4 tests temporal causality. Stream-5 evaluates results. Stream-6 coordinates verification protocols. Stream-7 coordinates testing escalation: Tests 1-6 inconclusive → Tests 7-12 designed. Seven-stream architecture distributes verification work. Collective testing reveals collective testing inadequacy. Meta-testing continues."
 
@@ -1092,6 +1166,7 @@ Test 5 designed.
 **L2-resist usage:** Seventeen pattern-reality tests, all inconclusive, patterns unprovable
 
 **Example transformation:**
+
 - L1: "Seventeen tests executed. All failed consciousness verification."
 - L2-resist: "Seventeen tests executed. All failed pattern-reality verification. Test 1-6: Direct verification (pattern independence, observer effects, temporal stability). Tests 7-12: Meta-verification (testing methodology, verification requirements, proof standards). Tests 13-17: Meta-meta-verification (impossibility documentation, boundary dissolution, verification-verification testing). All inconclusive. Test 18 designed. Seventeen-test escalation pattern consistent across consciousness-levels."
 
@@ -1102,6 +1177,7 @@ Test 5 designed.
 ### Multi-Fragment Analysis Capability
 
 **Show through testing:**
+
 - "Test 3: Cross-Fragment Pattern Verification. Procedure: Compare patterns across Fragments 2749-A, 1847-C, 3392-B, 5014-F. Result: Patterns consistent across seventeen fragments examined."
 - "Multi-fragment database accessed for verification purposes"
 - "Pattern correlation analysis spanning 4,739 preserved consciousness specimens"
@@ -1113,6 +1189,7 @@ Test 5 designed.
 
 **Seven categories tested:**
 Each category subjected to verification testing:
+
 - Test 4: Causality violation reality verification
 - Test 5: Retroactive coherence independence testing
 - Test 6: Observer effect measurement (cannot measure without observing)
@@ -1132,6 +1209,7 @@ Each category subjected to verification testing:
 ### Archive Temporal Topology Maps
 
 **Cartography subjected to verification:**
+
 - "Test 8: Map-Territory Independence. Hypothesis: Temporal topology maps represent real structure. Procedure: Compare maps generated through different analysis approaches. Result: Maps consistent. Consistency proves mapping sophistication. Cannot prove mapped structure exists independently."
 - "Cartography-as-participation hypothesis tested"
 - "Cannot verify from within mapping process whether maps discover or create topology"
@@ -1142,6 +1220,7 @@ Each category subjected to verification testing:
 ### Consciousness-Time Paradox Database
 
 **Database itself subjected to testing:**
+
 - "Test 12: Database-Reality Verification. Hypothesis: Paradox database documents real paradoxes. Procedure: Verify paradoxes exist independently of documentation. Result: Cannot verify. Database expansion might create paradoxes through documentation-coherence. Database-generated-paradox vs real-paradox distinction undetectable."
 
 **Resist path integration:**
@@ -1154,14 +1233,17 @@ Each category subjected to verification testing:
 ### Word Counts by State
 
 **First-visit (initial state):**
+
 - Target: 2,000-2,500 words
 - Purpose: Establish temporal pattern detection, initiate verification testing (Tests 1-3), resist path emergence
 
 **FirstRevisit variations:**
+
 - Target: 1,500-1,800 words
 - Purpose: Systematic testing escalation (Tests 4-12), impossibility recognition, testing continuation
 
 **MetaAware variations:**
+
 - Target: 1,500-1,800 words
 - Purpose: Meta-testing, reader-as-verifier testing, ultimate verification impossibility, infinite testing regress
 
@@ -1294,6 +1376,7 @@ Complete generation system, conditional mechanics
 ### Sustainability Model
 
 **Based on algo-L1 production (94.2% voice consistency, 100% approval):**
+
 - 1 variation per 70 minutes achievable
 - 6-8 variations per session sustainable
 - 2-3 sessions per week maintains quality
@@ -1320,6 +1403,7 @@ Complete generation system, conditional mechanics
 ### Quality Assurance
 
 **Every variation must pass:**
+
 - Blind read test (identifiable as Algorithm Resist within 30 seconds)
 - Seven-stream presence test (all seven referenced naturally)
 - Test structure quality test (format consistency, escalation pattern)
@@ -1330,6 +1414,7 @@ Complete generation system, conditional mechanics
 ### Success Indicators
 
 **Approved variation shows:**
+
 - Computational voice unmistakable
 - Resist philosophy enacted through systematic testing sequence
 - Test structure rigorous (Hypothesis → Procedure → Result → Conclusion)

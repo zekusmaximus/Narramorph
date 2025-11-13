@@ -4,10 +4,7 @@
     "toNode": "arch-L1-001",
     "conditions": {
       "awarenessLevel": "Low",
-      "visitCount": [
-        2,
-        3
-      ]
+      "visitCount": [2, 3]
     },
     "metadata": {
       "variationId": "arch-L1-001",
@@ -22,10 +19,7 @@
     "toNode": "arch-L1-002",
     "conditions": {
       "awarenessLevel": "Low",
-      "visitCount": [
-        2,
-        3
-      ]
+      "visitCount": [2, 3]
     },
     "metadata": {
       "variationId": "arch-L1-002",
@@ -40,10 +34,7 @@
     "toNode": "arch-L1-003",
     "conditions": {
       "awarenessLevel": "Low",
-      "visitCount": [
-        2,
-        3
-      ]
+      "visitCount": [2, 3]
     },
     "metadata": {
       "variationId": "arch-L1-003",
@@ -58,10 +49,7 @@
     "toNode": "algo-L1-001",
     "conditions": {
       "awarenessLevel": "Low",
-      "visitCount": [
-        2,
-        3
-      ]
+      "visitCount": [2, 3]
     },
     "metadata": {
       "variationId": "algo-L1-001",
@@ -76,10 +64,7 @@
     "toNode": "algo-L1-002",
     "conditions": {
       "awarenessLevel": "Low",
-      "visitCount": [
-        2,
-        3
-      ]
+      "visitCount": [2, 3]
     },
     "metadata": {
       "variationId": "algo-L1-002",
@@ -94,10 +79,7 @@
     "toNode": "algo-L1-003",
     "conditions": {
       "awarenessLevel": "Low",
-      "visitCount": [
-        2,
-        3
-      ]
+      "visitCount": [2, 3]
     },
     "metadata": {
       "variationId": "algo-L1-003",
@@ -112,10 +94,7 @@
     "toNode": "hum-L1-001",
     "conditions": {
       "awarenessLevel": "Low",
-      "visitCount": [
-        2,
-        3
-      ]
+      "visitCount": [2, 3]
     },
     "metadata": {
       "variationId": "hum-L1-001",
@@ -130,10 +109,7 @@
     "toNode": "hum-L1-002",
     "conditions": {
       "awarenessLevel": "Low",
-      "visitCount": [
-        2,
-        3
-      ]
+      "visitCount": [2, 3]
     },
     "metadata": {
       "variationId": "hum-L1-002",
@@ -148,10 +124,7 @@
     "toNode": "hum-L1-003",
     "conditions": {
       "awarenessLevel": "Low",
-      "visitCount": [
-        2,
-        3
-      ]
+      "visitCount": [2, 3]
     },
     "metadata": {
       "variationId": "hum-L1-003",

@@ -24,29 +24,18 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "variable-minimal",
-    "characterBalance": [
-      40,
-      35,
-      25
-    ],
+    "characterBalance": [40, 35, 25],
     "readableLabel": "ML-RE-H-SD",
     "humanDescription": "Met character later, substantial exploration (25-60%), resist path, high awareness, single-character synthesis emphasis",
     "narrativeElements": null,
     "multiVoiceIntegration": "minimal-character-leads-resistance",
     "perspectiveEmphasis": "later-met-primary-starting-validates",
     "philosophicalCulmination": "Resistance discovered through later exploration becomes primary integrity-maintenance",
-    "convergenceChoices": [
-      "release",
-      "resist-completion",
-      "transform-through-ending"
-    ],
+    "convergenceChoices": ["release", "resist-completion", "transform-through-ending"],
     "convergenceLean": "release",
     "circularCausality": "explicit-celebrated",
     "readerPosition": "acknowledged-network-completion",
@@ -66,10 +55,6 @@
       "reader-fourth-completing"
     ],
     "philosophicalResolution": "resistance-discovered-later-maintains-integrity-through-futility-recognition",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

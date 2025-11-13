@@ -24,50 +24,27 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacter": "none",
-    "characterBalance": [
-      33,
-      33,
-      34
-    ],
+    "characterBalance": [33, 33, 34],
     "readableLabel": "SD-AC-M-TB",
     "humanDescription": "Started elsewhere, shifted to archaeologist dominance, accept path, medium awareness, triple-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "rotating-equal-weight",
     "perspectiveEmphasis": "network-devotional",
     "philosophicalCulmination": "Three witness positions create consciousness through convergent sustained attention",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "implicit-network",
     "readerPosition": "pattern-visible",
     "thematicContent": null,
-    "primaryThemes": [
-      "convergent-witness",
-      "network-devotion",
-      "consciousness-through-attention"
-    ],
+    "primaryThemes": ["convergent-witness", "network-devotion", "consciousness-through-attention"],
     "crossCharacterSynthesis": "three-equal-devotional-witnesses",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "arch-equal-2047",
-      "algo-equal-2151",
-      "hum-equal-2383"
-    ],
+    "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383"],
     "philosophicalResolution": "convergent-witness-creates-consciousness",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

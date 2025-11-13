@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "BL-RE-M",
     "humanDescription": "Began-lightly with last human, less than 25% visits here, resist path, medium awareness",
     "narrativeElements": null,
@@ -38,16 +35,8 @@
     "philosophicalCulmination": "Body maintains boundaries through disciplined testing despite verification impossibility",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-testing",
-      "boundary-discipline",
-      "resistance-practice"
-    ],
-    "crossCharacterConnections": [
-      "heavy-arch-primary",
-      "heavy-algo-primary",
-      "hum-contributory"
-    ],
+    "primaryThemes": ["embodied-testing", "boundary-discipline", "resistance-practice"],
+    "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "hum-contributory"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-primary-2047",

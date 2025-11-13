@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SD-IN-H",
     "humanDescription": "Started elsewhere, shifted to last human dominant, investigate path, high awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "embodied-examination",
       "observer-creates-observed"
     ],
-    "crossCharacterConnections": [
-      "moderate-arch-foundational",
-      "light-algo-parallel"
-    ],
+    "crossCharacterConnections": ["moderate-arch-foundational", "light-algo-parallel"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "human-primary-2383",

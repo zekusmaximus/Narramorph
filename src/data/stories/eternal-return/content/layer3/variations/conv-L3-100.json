@@ -61,10 +61,6 @@
     ],
     "convergenceChoiceFraming": "all-three-present-transform-emphasized",
     "metaAwarenessDepth": "frame-conscious-reader-addressed",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

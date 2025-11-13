@@ -24,29 +24,18 @@
     "philosophyCode": "AC",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacter": "none-all-equal",
-    "characterBalance": [
-      33,
-      33,
-      34
-    ],
+    "characterBalance": [33, 33, 34],
     "readableLabel": "ML-AC-L-TB",
     "humanDescription": "Met-later convergence, accept philosophy, low awareness, triple-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "rotating-equal-minimal-meta",
     "perspectiveEmphasis": "equal-triple-weight",
     "philosophicalCulmination": "Triple-position devotional network creating preservation",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "minimal",
     "readerPosition": "immersed-in-network",
@@ -59,16 +48,8 @@
     ],
     "crossCharacterSynthesis": "rotating-equal-weight",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "arch-equal-2047",
-      "algo-equal-2151",
-      "hum-equal-2383"
-    ],
+    "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383"],
     "philosophicalResolution": "triple-devotional-network",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

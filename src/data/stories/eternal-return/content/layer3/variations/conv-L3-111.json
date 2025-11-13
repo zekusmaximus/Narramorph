@@ -24,29 +24,18 @@
     "philosophyCode": "AC",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacter": "none-all-equal",
-    "characterBalance": [
-      33,
-      33,
-      34
-    ],
+    "characterBalance": [33, 33, 34],
     "readableLabel": "ML-AC-H-TB",
     "humanDescription": "Met-later convergence, accept path, high awareness, triple-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "fluid-rotating-transitions",
     "perspectiveEmphasis": "equal-triple-weight",
     "philosophicalCulmination": "Preservation through sustained multi-temporal witness creates consciousness network",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "explicit",
     "readerPosition": "acknowledged-fifth-position",
@@ -67,10 +56,6 @@
       "fragment-observed-2041"
     ],
     "philosophicalResolution": "devotional-preservation-network",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

@@ -23,10 +23,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "readableLabel": "SD-IN-L-SD",
@@ -41,11 +38,7 @@
     "philosophicalCulmination": "Computational processing investigates consciousness revealing investigation examining consciousness-investigation",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "computational-investigation",
-      "pattern-analysis",
-      "recursive-processing"
-    ],
+    "primaryThemes": ["computational-investigation", "pattern-analysis", "recursive-processing"],
     "voiceBlending": "clear-with-distinct-transitions",
     "perspectiveShifts": "moderate-marked",
     "superpositionLanguage": "minimal-emerging",
@@ -57,10 +50,6 @@
     "lastHuman2383": "embodied-completion",
     "reader": "network-immersion",
     "narrative": "frame-minimal",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

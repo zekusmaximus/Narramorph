@@ -24,29 +24,18 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "varies-by-reader",
-    "characterBalance": [
-      60,
-      25,
-      15
-    ],
+    "characterBalance": [60, 25, 15],
     "readableLabel": "SD-IN-H-SD",
     "humanDescription": "Shifted to dominant character after starting elsewhere, investigate path, high awareness, single-character synthesis emphasis",
     "narrativeElements": null,
     "multiVoiceIntegration": "fluid-with-primary-investigator",
     "perspectiveEmphasis": "dominant-character-metaconscious",
     "philosophicalCulmination": "Investigation investigating investigation through frame-conscious recursion",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "transform",
     "circularCausality": "explicit",
     "readerPosition": "acknowledged",
@@ -65,10 +54,6 @@
       "reader-fifth"
     ],
     "philosophicalResolution": "investigation-transforms-investigator-through-investigated-transformation",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

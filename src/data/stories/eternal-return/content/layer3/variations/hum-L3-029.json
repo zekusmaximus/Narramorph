@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "BL-AC-M",
     "humanDescription": "Began-lightly with last human, less than 25% visits here, accept path, medium awareness",
     "narrativeElements": null,
@@ -43,11 +40,7 @@
       "acceptance-through-interface",
       "flesh-witnessing-consciousness"
     ],
-    "crossCharacterConnections": [
-      "heavy-arch-primary",
-      "heavy-algo-primary",
-      "hum-contributory"
-    ],
+    "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "hum-contributory"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-primary-2047",

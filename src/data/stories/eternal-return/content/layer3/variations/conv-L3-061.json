@@ -24,50 +24,27 @@
     "philosophyCode": "AC",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "varies-by-reader",
-    "characterBalance": [
-      60,
-      25,
-      15
-    ],
+    "characterBalance": [60, 25, 15],
     "readableLabel": "SD-AC-L-SD",
     "humanDescription": "Shifted to dominant character after starting elsewhere, accept path, low awareness, single-character synthesis emphasis",
     "narrativeElements": null,
     "multiVoiceIntegration": "sequential-transitions",
     "perspectiveEmphasis": "dominant-character-primary",
     "philosophicalCulmination": "Preservation sustained through devoted witness across temporal positions",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "implicit",
     "readerPosition": "unacknowledged",
     "thematicContent": null,
-    "primaryThemes": [
-      "preservation-devotion",
-      "consciousness-continuity",
-      "witness-methodology"
-    ],
+    "primaryThemes": ["preservation-devotion", "consciousness-continuity", "witness-methodology"],
     "crossCharacterSynthesis": "dominant-led-acceptance",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "dominant-primary",
-      "starting-foundational",
-      "third-contributory"
-    ],
+    "observerPositions": ["dominant-primary", "starting-foundational", "third-contributory"],
     "philosophicalResolution": "acceptance-through-sustained-attention",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

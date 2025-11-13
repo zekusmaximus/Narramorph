@@ -23,10 +23,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
     "readableLabel": "BL-IN-L-DB",
@@ -41,11 +38,7 @@
     "philosophicalCulmination": "Archaeological and computational investigation examining themselves reveal consciousness through parallel practices",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "parallel-recursion",
-      "dual-methodology",
-      "balanced-investigation"
-    ],
+    "primaryThemes": ["parallel-recursion", "dual-methodology", "balanced-investigation"],
     "voiceBlending": "balanced-alternation",
     "perspectiveShifts": "moderate-clear",
     "superpositionLanguage": "minimal",
@@ -57,10 +50,6 @@
     "lastHuman2383": "embodied-contributor",
     "reader": "immersed-observer",
     "narrative": "transparent-structure",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

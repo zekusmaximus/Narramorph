@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SB-IN-H",
     "humanDescription": "Started last human, explored others extensively, investigate path, high awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "methodology-transforming-methodology",
       "observer-creates-observed"
     ],
-    "crossCharacterConnections": [
-      "moderate-arch-parallel",
-      "moderate-algo-parallel"
-    ],
+    "crossCharacterConnections": ["moderate-arch-parallel", "moderate-algo-parallel"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-parallel-2047",

@@ -24,29 +24,18 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacter": "network-distributed",
-    "characterBalance": [
-      33,
-      33,
-      33
-    ],
+    "characterBalance": [33, 33, 33],
     "readableLabel": "SB-IN-H-TB",
     "humanDescription": "Started somewhere, bounced across all three characters, investigate path, high awareness, triple-balanced synthesis with all voices equal",
     "narrativeElements": null,
     "multiVoiceIntegration": "triple-equal-meta-recursive",
     "perspectiveEmphasis": "network-distributed-equal",
     "philosophicalCulmination": "Three methodologies investigating investigation-structure recursively",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "transform-through-triple-recursive-investigation",
     "circularCausality": "explicit-reader-fourth-observer",
     "readerPosition": "fourth-position-completing-recursive-network",
@@ -66,10 +55,6 @@
       "reader-fourth-meta-position"
     ],
     "philosophicalResolution": "triple-investigation-transformation",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

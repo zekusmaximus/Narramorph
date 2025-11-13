@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SD-AC-H",
     "humanDescription": "Started elsewhere, shifted to last human dominant, accept path, high awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Physical presence completes preservation through sustained embodied attention",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-devotion",
-      "witness-methodology",
-      "presence-as-preservation"
-    ],
-    "crossCharacterConnections": [
-      "moderate-arch-foundational",
-      "light-algo-parallel"
-    ],
+    "primaryThemes": ["embodied-devotion", "witness-methodology", "presence-as-preservation"],
+    "crossCharacterConnections": ["moderate-arch-foundational", "light-algo-parallel"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "human-primary-2383",

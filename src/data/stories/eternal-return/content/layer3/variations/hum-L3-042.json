@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "ML-RE-L",
     "humanDescription": "Started elsewhere, substantial last human exploration, resist path, low awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Body demands proof before accepting consciousness claims",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-resistance",
-      "verification-through-sensation",
-      "proof-required"
-    ],
-    "crossCharacterConnections": [
-      "heavy-algo-primary",
-      "significant-arch-foundational"
-    ],
+    "primaryThemes": ["embodied-resistance", "verification-through-sensation", "proof-required"],
+    "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "algorithm-primary-2151",

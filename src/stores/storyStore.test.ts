@@ -511,11 +511,13 @@ describe('Temporal Awareness System', () => {
       useStoryStore.setState({
         progress: {
           ...store.progress,
-          specialTransformations: [{
-            nodeId: 'test-ta-005',
-            transformationId: 'special',
-            unlockedAt: new Date().toISOString(),
-          }],
+          specialTransformations: [
+            {
+              nodeId: 'test-ta-005',
+              transformationId: 'special',
+              unlockedAt: new Date().toISOString(),
+            },
+          ],
         },
       });
 
@@ -762,7 +764,8 @@ describe('Temporal Awareness System', () => {
       };
 
       // Mock localStorage with old save - override the global mock for this test
-      const storageModule = await vi.importMock<typeof import('@/utils/storage')>('@/utils/storage');
+      const storageModule =
+        await vi.importMock<typeof import('@/utils/storage')>('@/utils/storage');
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       storageModule.loadFromStorage = vi.fn(() => oldSave) as any;
 

@@ -5,6 +5,7 @@ word_count: 1724
 conditions:
   awareness: '61-80%'
 ---
+
 I return to Fragment 2749-A knowing resistance is futile and maintaining resistance anyway.
 Fifth visit. Maximum frame-consciousness. Complete awareness of being observed. You there watching every moment. Every gesture. Every thought I describe. Total exposure I resist with every fiber while exposure operates regardless of resistance.
 My entire body locked in defensive tension. Muscles rigid permanently. Jaw clenched so hard teeth ache. Shoulders raised protecting throat. Fists tight protecting core. Full-body armor against vulnerability your complete attention creates.

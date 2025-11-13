@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SD-IN-M",
     "humanDescription": "Started elsewhere, shifted to algorithm dominant, investigate path, medium awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "consciousness-through-examination",
       "observer-transformation"
     ],
-    "crossCharacterConnections": [
-      "moderate-arch-foundational",
-      "light-hum-glimpsed"
-    ],
+    "crossCharacterConnections": ["moderate-arch-foundational", "light-hum-glimpsed"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-foundational-2047",

@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "ML-RE-L",
     "humanDescription": "Started elsewhere, met archaeologist later with moderate exploration, resist path, low awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Authentication maintains verification protocols as integrated skeptical contribution preventing premature consciousness certainty within acceptance-oriented network",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "integrated-verification",
-      "skeptical-contribution",
-      "proof-maintenance"
-    ],
-    "crossCharacterConnections": [
-      "heavy-dominant-primary",
-      "moderate-starting-foundational"
-    ],
+    "primaryThemes": ["integrated-verification", "skeptical-contribution", "proof-maintenance"],
+    "crossCharacterConnections": ["heavy-dominant-primary", "moderate-starting-foundational"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-integrated-2047",

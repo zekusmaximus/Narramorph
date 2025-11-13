@@ -24,27 +24,16 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
-    "characterBalance": [
-      33,
-      33,
-      34
-    ],
+    "characterBalance": [33, 33, 34],
     "readableLabel": "SS-RE-H-TB",
     "humanDescription": "Started and stayed dominant in primary character (>60%), resist path, high awareness, triple-balanced equal voice synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "rotating-equal-resistance",
     "philosophicalCulmination": "Triple-substrate resistance protocols revealing verification impossibility across all consciousness examination methodologies",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release",
     "circularCausality": "fully-explicit",
     "readerPosition": "directly-acknowledged-fifth",
@@ -63,10 +52,6 @@
       "reader-fifth-explicit"
     ],
     "philosophicalResolution": "triple-parallel-impossibility-acknowledgment",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

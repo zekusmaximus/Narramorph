@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "BL-IN-M",
     "humanDescription": "Began-lightly with last human, less than 25% visits here, investigate path, medium awareness",
     "narrativeElements": null,
@@ -38,16 +35,8 @@
     "philosophicalCulmination": "Physical substrate investigates consciousness by examining how investigation creates understanding",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "somatic-investigation",
-      "embodied-examination",
-      "meta-awareness"
-    ],
-    "crossCharacterConnections": [
-      "heavy-arch-primary",
-      "heavy-algo-primary",
-      "hum-contributory"
-    ],
+    "primaryThemes": ["somatic-investigation", "embodied-examination", "meta-awareness"],
+    "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "hum-contributory"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-primary-2047",

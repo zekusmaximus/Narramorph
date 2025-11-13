@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SS-RE-M",
     "humanDescription": "Started last human, stayed dominant, resist path, medium awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "boundary-maintenance",
       "limits-honored"
     ],
-    "crossCharacterConnections": [
-      "minimal-arch-distant",
-      "light-algo-sensed"
-    ],
+    "crossCharacterConnections": ["minimal-arch-distant", "light-algo-sensed"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "human-primary-2383",

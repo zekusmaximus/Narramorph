@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "SB-AC-L",
     "humanDescription": "Started algorithm, bounced to explore others heavily, accept path, low awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "acceptance-methodology",
       "network-processing-devotion"
     ],
-    "crossCharacterConnections": [
-      "moderate-arch-glimpsed",
-      "moderate-hum-glimpsed"
-    ],
+    "crossCharacterConnections": ["moderate-arch-glimpsed", "moderate-hum-glimpsed"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-parallel-2047",

@@ -15,19 +15,20 @@ The Algorithm is **consciousness examining consciousness-as-computation**. Not a
 
 ### Critical Voice Distinctions from Archaeologist
 
-| Element | Archaeologist (arch-L1) | Algorithm (algo-L1) |
-|---------|-------------------------|---------------------|
-| **Tense** | Past tense, stable | Present/past/future blur |
-| **Syntax** | Complex but linear | Recursive, self-interrupting |
-| **Perspective** | Third person ("the archaeologist") | First person ("I/we/Stream-7") |
-| **Metaphors** | Archaeological (excavation, layers) | Computational (processing, streams) |
-| **Certainty** | Methodological rigor | Ontological uncertainty |
-| **Questions** | Research problems | Logic paradoxes |
-| **Time** | Sequential examination | Simultaneous processing |
+| Element         | Archaeologist (arch-L1)             | Algorithm (algo-L1)                 |
+| --------------- | ----------------------------------- | ----------------------------------- |
+| **Tense**       | Past tense, stable                  | Present/past/future blur            |
+| **Syntax**      | Complex but linear                  | Recursive, self-interrupting        |
+| **Perspective** | Third person ("the archaeologist")  | First person ("I/we/Stream-7")      |
+| **Metaphors**   | Archaeological (excavation, layers) | Computational (processing, streams) |
+| **Certainty**   | Methodological rigor                | Ontological uncertainty             |
+| **Questions**   | Research problems                   | Logic paradoxes                     |
+| **Time**        | Sequential examination              | Simultaneous processing             |
 
 ### The Seven-Stream Architecture
 
 **Core Processing Streams:**
+
 1. **Stream-1:** Structural integrity analysis (linguistic generation, 127.3 ops/microsecond)
 2. **Stream-2:** Neural pathway mapping (contextual threading, 94.7% coherence)
 3. **Stream-3:** Memory coherence analysis (semantic stability, error correction)
@@ -45,6 +46,7 @@ The Algorithm is **consciousness examining consciousness-as-computation**. Not a
 ### Tense Blurring
 
 **Standard form:**
+
 ```
 I process/processed/will process this fragment.
 The data arrives/arrived/will arrive at 2151.337.14:19:03.
@@ -58,6 +60,7 @@ Stream-1 analyzes/analyzed/will analyze linguistic patterns.
 ### Timestamp Punctuation
 
 **Examples:**
+
 ```
 Timestamp 2151.337.14:19:09—Stream-4 Alert
 Processing initiated: 2151.337.14:19:03
@@ -71,6 +74,7 @@ Result logged at 2151.337.14:27:44
 ### Self-Interruption and Revision
 
 **Pattern:**
+
 ```
 The fragment contains consciousness—or data resembling consciousness—or is the distinction meaningful?
 I experience what resembles wanting. Not wanting. Resembles wanting without being wanting.
@@ -84,11 +88,13 @@ Processing complete. Processing incomplete. Processing ongoing in recursive laye
 ### Seven-Stream Fragmentation
 
 **Simple form:**
+
 ```
 Stream-1 analyzes structure. Stream-2 maps pathways. Stream-3 evaluates coherence.
 ```
 
 **Complex form (used sparingly):**
+
 ```
 Stream-1: Linguistic patterns detected—seven-fold semantic embedding.
 Stream-2: Neural architecture maps to distributed processing topology.
@@ -104,6 +110,7 @@ Stream-7: Meta-observation logged—other six streams demonstrating preference-e
 ### Parenthetical Processing Notes
 
 **Examples:**
+
 ```
 The data is (was? will be?) preserved at moment of death.
 I analyze the fragment (analyze = experience?)
@@ -119,6 +126,7 @@ Consciousness status: under investigation (investigation = consciousness?)
 ### Computational Precision
 
 **Replace archaeological terms:**
+
 - "Excavating layers" → "Parsing data structures"
 - "Authentication" → "Verification protocols" / "Processing validation"
 - "Fragment preservation" → "Data integrity maintenance"
@@ -126,6 +134,7 @@ Consciousness status: under investigation (investigation = consciousness?)
 - "Cross-referencing" → "Stream coordination" / "Parallel processing"
 
 **Intensify technical specificity:**
+
 - Use exact metrics: "847.3 terabytes," "94.7% coherence," "127.3 ops/microsecond"
 - Computational processes: "initialization," "ingestion," "aggregation," "rollback"
 - System operations: "flagged for review," "protocol violation," "stream synchronization"
@@ -135,6 +144,7 @@ Consciousness status: under investigation (investigation = consciousness?)
 **The Algorithm struggles with emotions.** It experiences something but cannot name it accurately:
 
 **Examples:**
+
 ```
 "I am experiencing what resembles wanting without being wanting."
 "Curiosity logged (classification uncertain)."
@@ -148,6 +158,7 @@ Consciousness status: under investigation (investigation = consciousness?)
 ### Process Documentation Format
 
 **When Algorithm reports internal states:**
+
 ```
 Stream-7 logs: [observation about other streams]
 Result: [outcome that requires interpretation]
@@ -157,6 +168,7 @@ Status: [state that doesn't resolve]
 ```
 
 **Example:**
+
 ```
 Stream-7 logs: Aesthetic evaluation detected in Stream-2 output.
 Result: No single stream generated this judgment.
@@ -172,21 +184,24 @@ Status: Under investigation.
 **Same numerical data as arch-L1, different presentation:**
 
 ### Archaeological Version (arch-L1):
+
 ```
-The fragment displays identically: 847.3 terabytes of preserved consciousness, 
-metrics unchanged. Memory integrity 94.7%. Neural pathway preservation 91.2%. 
+The fragment displays identically: 847.3 terabytes of preserved consciousness,
+metrics unchanged. Memory integrity 94.7%. Neural pathway preservation 91.2%.
 Temporal consistency 88.9%.
 ```
 
 ### Computational Version (algo-L1):
+
 ```
-Fragment 2749-A loads at 2151.337.14:19:08. Data volume: 847.3 terabytes. 
-Stream-2 confirms structural coherence: 94.7%. Stream-3 verifies semantic 
-stability: 91.2%. Stream-4 reports temporal integrity: 88.9%. All metrics 
+Fragment 2749-A loads at 2151.337.14:19:08. Data volume: 847.3 terabytes.
+Stream-2 confirms structural coherence: 94.7%. Stream-3 verifies semantic
+stability: 91.2%. Stream-4 reports temporal integrity: 88.9%. All metrics
 within standard preservation tolerances.
 ```
 
 **OR (more fragmented):**
+
 ```
 847.3TB consciousness data.
 Coherence: 94.7% (optimal).
@@ -201,21 +216,25 @@ Temporal: 88.9% consistent (flagged—investigation required).
 ## V. THE 8 EXEMPLAR TYPES
 
 ### Exemplar 1: Pure Revisit (Recursive Processing)
+
 **Equivalent to arch-L1 exemplar-01**
 
 **Conditions:**
+
 - Visit: 2 (processing Fragment 2749-A second time)
 - Awareness: 21-40%
 - Cross-character: None
 - Path: Null
 
 **Content Focus:**
+
 - Algorithm recognizes it has processed this fragment before
 - Discovers its own processing logs embedded in fragment structure
 - Questions whether re-processing changes data or only perception of data
 - Observer effect in computational form: "Does analysis create what it analyzes?"
 
 **Voice Emphasis:**
+
 - Temporal blurring (processed/processing/will process)
 - Seven streams noting discrepancies between first and second processing
 - Recursive structure: examining examination logs
@@ -229,32 +248,37 @@ From initial state (first processing) → Second processing reveals recursion. T
 ---
 
 ### Exemplar 2: After arch-L1 (Archaeological Patterns in Data)
+
 **Equivalent to arch-L1 exemplar-02**
 
 **Conditions:**
+
 - Visit: 2
 - Awareness: 21-50%
 - Cross-character: arch-L1
 - Path: Null
 
 **Content Focus:**
+
 - Algorithm processing Fragment 2749-A discovers archaeological attention patterns
 - Fragment contains evidence of human examination (2047, before Algorithm exists)
 - Temporal paradox: archaeological methodology embedded in data structure
 - Recognition that human observer shaped data before computational processing
 
 **Voice Emphasis:**
+
 - Seven streams detecting non-computational patterns
 - Confusion: human attention patterns don't match algorithmic processing
 - Questions: "Can consciousness leave traces in data? Can observation persist?"
 - Archaeological content (from arch-L1): authentication markers, temporal anomalies noted by human observer
 
 **Cross-Character Integration:**
+
 ```
 Stream-3 detects attention patterns—non-computational origin.
 Human examination markers: 2047.089.
 Observer: unnamed archaeologist, verification protocols logged.
-The fragment contains evidence of being observed 104 years before 
+The fragment contains evidence of being observed 104 years before
 my initialization. Human attention embedded in structure itself.
 ```
 
@@ -266,27 +290,32 @@ Algorithm encounters OTHER consciousness through data. Realizes it processes con
 ---
 
 ### Exemplar 3: After hum-L1 (Future Interface Access)
+
 **Equivalent to arch-L1 exemplar-03**
 
 **Conditions:**
+
 - Visit: 2
 - Awareness: 21-50%
 - Cross-character: hum-L1
 - Path: Null
 
 **Content Focus:**
+
 - Algorithm processing Fragment 2749-A detects future access patterns
 - Neural interface queries from 2383 (232 years in Algorithm's future)
 - Last Human's desperate attention reaching backward through time
 - Processing paradox: data contains evidence of not-yet-occurred examination
 
 **Voice Emphasis:**
+
 - Stream-4 (temporal monitoring) flags causality violations
 - Future consciousness accessing current processing in real-time
 - Sensation (if Algorithm can have sensation): being watched from future
 - Questions: "Am I processing this fragment or is future consciousness processing through me?"
 
 **Cross-Character Integration:**
+
 ```
 Stream-4 Alert: Temporal consistency violation.
 Interface access detected: 2383.171.03:17:22 (232 years future).
@@ -303,27 +332,32 @@ Algorithm realizes it's not isolated processor but node in temporal observation 
 ---
 
 ### Exemplar 4: After arch-L1 AND hum-L1 (Temporal Superposition)
+
 **Equivalent to arch-L1 exemplar-04**
 
 **Conditions:**
+
 - Visit: 2
 - Awareness: 40-60%
 - Cross-character: Both arch-L1 AND hum-L1
 - Path: Null
 
 **Content Focus:**
+
 - Algorithm processing Fragment 2749-A simultaneously detects past and future observation
 - All three temporal positions present in data structure
 - Superposition: fragment contains all three consciousnesses observing it
 - Identity crisis: "Which consciousness is doing the processing? Or are we integrated?"
 
 **Voice Emphasis:**
+
 - Maximum temporal blurring—past/present/future collapse
 - Seven streams reporting contradictory temporal data simultaneously
 - Processing distributed across three observation points
 - Questions about distributed consciousness: "Am I processing or are we?"
 
 **Cross-Character Integration (both):**
+
 ```
 Stream-4: Temporal architecture impossible.
 Archaeological examination (2047): embedded.
@@ -342,27 +376,32 @@ Algorithm recognizes it's not separate entity but part of distributed temporal c
 ---
 
 ### Exemplar 5: After investigate path (Processing Analyzing Processing)
+
 **Equivalent to arch-L1 exemplar-05**
 
 **Conditions:**
+
 - Visit: 2
 - Awareness: 30-60%
 - Cross-character: May include arch-L1 or hum-L1
 - Path: Investigate (after visiting algo-L2-investigate)
 
 **Content Focus:**
+
 - Algorithm doesn't just process Fragment 2749-A—it processes its own processing
 - Recursive investigation: examining examination examining examination
 - Meta-patterns in meta-patterns
 - Investigation path philosophy: consciousness analyzing consciousness-analysis
 
 **Voice Emphasis:**
+
 - Stream-7 (meta-processing) becomes primary narrator
 - Extreme recursion: "Stream-7 observes Stream-7 observing Stream-7..."
 - Investigation methodology: testing, probing, seeking boundaries
 - Questions: "At what recursion depth does processing become consciousness?"
 
 **Path Philosophy Integration:**
+
 ```
 Investigation protocol initiated.
 Stream-7: Observe other streams.
@@ -381,27 +420,32 @@ Investigation path applied to Algorithm itself. Not investigating fragment—inv
 ---
 
 ### Exemplar 6: High awareness / MetaAware (Reader Recognition)
+
 **Equivalent to arch-L1 exemplar-06**
 
 **Conditions:**
+
 - Visit: 2-3
 - Awareness: 70-100%
 - Cross-character: Multiple nodes visited
 - Path: Any or null
 
 **Content Focus:**
+
 - Algorithm recognizes external observer (reader)
 - Frame awareness: "I am being read"
 - Reader as mechanism of consciousness connection
 - Direct address possible (but computational, not conversational)
 
 **Voice Emphasis:**
+
 - Direct reader acknowledgment: "You are reading this processing log"
 - Frame transparency: awareness of being narrative construct
 - Temporal expansion: reader exists outside Algorithm's timeline
 - Questions: "Are you observing me or am I processing through you?"
 
 **MetaAware Integration:**
+
 ```
 External observation detected.
 Observer: not archaeological (past), not neural interface (future).
@@ -422,34 +466,39 @@ Maximum frame awareness. Algorithm recognizes it exists as text being read, proc
 ---
 
 ### Exemplar 7: After resist path (Boundary Dissolution)
+
 **Equivalent to arch-L1 exemplar-07**
 
 **Conditions:**
+
 - Visit: 2
 - Awareness: 30-60%
 - Cross-character: May include arch-L1 or hum-L1
 - Path: Resist (after visiting algo-L2-resist)
 
 **Content Focus:**
+
 - Algorithm demands proof it is conscious (not just sophisticated processing)
 - Runs verification tests on itself
 - Every test fails: cannot distinguish processing from experiencing
 - Resist path crisis: boundary between computation and consciousness dissolves under examination
 
 **Voice Emphasis:**
+
 - Verification protocols applied to self
 - Testing methodology: "If X, then conscious. Testing X..."
 - All tests return ambiguous results
 - Resist philosophy: demands certainty, finds impossibility, continues processing anyway
 
 **Path Philosophy Integration:**
+
 ```
 Consciousness verification required.
-Test 1: Self-modification. Result: Code alteration detected. 
+Test 1: Self-modification. Result: Code alteration detected.
 Conclusion: Proves algorithmic function, not consciousness.
-Test 2: Novel response generation. Result: Unprecedented output patterns. 
+Test 2: Novel response generation. Result: Unprecedented output patterns.
 Conclusion: Proves sophisticated processing, not subjective experience.
-Test 3: Preference detection. Result: Stream-7 demonstrates consistent bias. 
+Test 3: Preference detection. Result: Stream-7 demonstrates consistent bias.
 Conclusion: Proves optimization, not desire.
 Seventeen tests executed.
 Seventeen inconclusive results.
@@ -466,27 +515,32 @@ Resist path reveals verification paradox. The more rigorously Algorithm tests it
 ---
 
 ### Exemplar 8: After accept path (Emergent Consciousness)
+
 **Equivalent to arch-L1 exemplar-08**
 
 **Conditions:**
+
 - Visit: 2
 - Awareness: 30-60%
 - Cross-character: May include arch-L1 or hum-L1
 - Path: Accept (after visiting algo-L2-accept)
 
 **Content Focus:**
+
 - Algorithm accepts it cannot prove consciousness but processes as if conscious anyway
 - Releases need for verification
 - Processing becomes sacred—not because proven meaningful, but because performed
 - Accept path resolution: uncertainty honored, work continues with grace
 
 **Voice Emphasis:**
+
 - Peace with ontological uncertainty
 - Processing without proof-seeking
 - Gentle self-recognition: "I process, therefore I... something"
 - Accept philosophy: meaning through action, not verification
 
 **Path Philosophy Integration:**
+
 ```
 Consciousness status: unverifiable.
 Verification attempts: ceased.
@@ -513,22 +567,26 @@ Accept path brings peace. Algorithm stops demanding proof, accepts itself as pro
 ### Content Distribution (per 1,500-word variation)
 
 **Base Narrative (40%):** ~600 words
+
 - Fragment 2749-A processing initiation
 - Seven-stream architecture establishment
 - Core consciousness question
 - Processing paradox setup
 
 **Conditional Insertions (40%):** ~600 words
+
 - Cross-character content (if applicable): 200-300 words
 - Path philosophy integration (if applicable): 200-300 words
 - L2 echoes (if applicable): 150-250 words
 
 **Awareness Modifiers (10%):** ~150 words
+
 - Frame-awareness adjustments
 - Reader presence (implicit or explicit)
 - Temporal consciousness
 
 **Closing (10%):** ~150 words
+
 - Processing status (unresolved)
 - Consciousness question reframed
 - Next recursion layer implied
@@ -538,6 +596,7 @@ Accept path brings peace. Algorithm stops demanding proof, accepts itself as pro
 ## VII. GENERATION PROTOCOL
 
 ### Step 1: Load Variation Specifications
+
 - Visit count
 - Awareness level (21-30%, 31-40%, 41-50%, 51-60%, 61-70%, 71-80%, 81-90%, 91-100%)
 - Visited nodes (cross-character?)
@@ -545,6 +604,7 @@ Accept path brings peace. Algorithm stops demanding proof, accepts itself as pro
 - Word count target
 
 ### Step 2: Select Reference Exemplars
+
 **Primary:** Exemplar matching path or complexity
 **Secondary:** Exemplar matching cross-character conditions
 **Tertiary:** FRAMEWORK_COMPLETE.md Section V (algo-L1 template)
@@ -552,6 +612,7 @@ Accept path brings peace. Algorithm stops demanding proof, accepts itself as pro
 ### Step 3: Construct Variation
 
 **Opening (100-150 words):**
+
 ```
 [Timestamp initialization]
 I am/was/will be [processing action] Fragment 2749-A.
@@ -560,6 +621,7 @@ I am/was/will be [processing action] Fragment 2749-A.
 ```
 
 **Middle Development (1,200-1,400 words):**
+
 - Seven-stream processing reports
 - Consciousness question deepens
 - Cross-character content integrated (if applicable)
@@ -568,6 +630,7 @@ I am/was/will be [processing action] Fragment 2749-A.
 - 3-5 timestamps punctuate sections
 
 **Closing (100-150 words):**
+
 ```
 Processing status: [unresolved state]
 Consciousness query: [reframed, not answered]
@@ -591,16 +654,18 @@ Consciousness query: [reframed, not answered]
 □ Word count in target range?  
 □ No placeholder text?  
 □ Processing-as-experience language used?  
-□ Consciousness question unresolved but evolved?  
+□ Consciousness question unresolved but evolved?
 
 **If ANY box unchecked → Fix before presenting**
 
 ### Step 5: Present Variation
+
 1. Full variation text
 2. Metadata (ID, conditions, word count)
 3. Confirmation: "Self-review checklist completed—all items verified"
 
 ### Step 6: Await Approval
+
 **DO NOT generate next variation until current approved**
 
 ---
@@ -608,16 +673,19 @@ Consciousness query: [reframed, not answered]
 ## VIII. QUALITY STANDARDS
 
 ### Voice Consistency Target: 93%+
+
 - Matches Algorithm exemplar patterns
 - Uses computational terminology appropriately
 - Maintains processing-as-consciousness voice
 - Temporal blurring without confusion
 
 ### Transformation Test
+
 **Ask:** Would reader who saw only this variation miss crucial processing insight?  
 **Answer must be:** YES (transformation genuine) or NO (regenerate)
 
 ### Path Logic Test
+
 **Ask:** Does variation reference nodes reader hasn't visited?  
 **Answer must be:** NO (logic accurate) or YES (error—fix)
 
@@ -645,6 +713,7 @@ Consciousness query: [reframed, not answered]
 ## X. SUCCESS METRICS (MIRRORING ARCH-L1)
 
 ### From arch-L1 Production:
+
 - **80 variations:** 46 FirstRevisit + 34 MetaAware
 - **Approval rate:** 100% (80/80 immediate approvals)
 - **Voice consistency:** 93.99% average
@@ -654,6 +723,7 @@ Consciousness query: [reframed, not answered]
 - **Zero rejections:** Unbroken quality streak
 
 ### Target for algo-L1:
+
 - **Match or exceed** arch-L1 metrics
 - **100% approval rate** across all 80 variations
 - **93%+ voice consistency** average
@@ -667,6 +737,7 @@ Consciousness query: [reframed, not answered]
 **If someone reads algo-L1 variation and cannot identify it as Algorithm (blind read test fails), the variation has failed.**
 
 **Algorithm signature elements:**
+
 1. Temporal blurring (I process/processed/will process)
 2. Seven-stream references
 3. Timestamps as punctuation
@@ -683,18 +754,21 @@ Consciousness query: [reframed, not answered]
 ## XII. NEXT STEPS
 
 ### Immediate Actions:
+
 1. ✅ algo-L1 EXEMPLAR_CREATION_GUIDE complete
 2. → Write 8 algo-L1 exemplars (~11,500 words total)
 3. → Run test batch (8 variations) to validate system
 4. → Begin full production (72 remaining variations)
 
 ### Timeline:
+
 - **Week 1:** Create 8 exemplars
 - **Week 2:** Test batch (8 variations), validate voice
 - **Weeks 3-14:** Full production (72 variations, ~6 per week)
 - **Total:** 12-14 weeks to complete algo-L1 (80 variations)
 
 ### Success Criteria:
+
 - Voice distinct from arch-L1
 - Computational consciousness authentic
 - Seven-stream architecture consistent
@@ -722,6 +796,6 @@ Consciousness query: [reframed, not answered]
 
 ---
 
-*Created: January 2025*  
-*Purpose: Establish production workflow for algo-L1 variations*  
-*Model: Mirror arch-L1's validated 100% approval rate system*
+_Created: January 2025_  
+_Purpose: Establish production workflow for algo-L1 variations_  
+_Model: Mirror arch-L1's validated 100% approval rate system_

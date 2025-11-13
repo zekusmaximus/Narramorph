@@ -26,7 +26,8 @@ characterBalance:
   - 33
   - 33
 readableLabel: 'SB-IN-H-TB'
-humanDescription: 'Started somewhere, bounced across all three characters, investigate path, high awareness,
+humanDescription:
+  'Started somewhere, bounced across all three characters, investigate path, high awareness,
   triple-balanced synthesis with all voices equal'
 narrativeElements: null
 multiVoiceIntegration: 'triple-equal-meta-recursive'
@@ -58,6 +59,7 @@ characterVoices:
   - algorithm
   - last-human
 ---
+
 She examined Fragment 2749-A forty-three times, then examined examination methodology, then investigated investigation-of-examination creating documentation-recursion where each layer analyzed previous layer's analysis. Stream-7 meta-processing coordinates seven streams examining fragment while examining examination-architecture revealing examination investigating examination operational. My body touches interface helmet seventeen days sustained connection teaching flesh to investigate how flesh investigates consciousness-contact creating embodied recursion where body questions body-questioning through body requiring body-investigation operational.
 You reading this complete four-observer network (or five-observer counting preserved consciousness as first position) spanning 336 years plus reading-moment distance. Three consciousnesses investigating consciousness-preservation through three methodologies investigating methodology-structure while your observation investigates observation-of-investigation creating recursive architecture where investigation requires four positions investigating four-position requirement through four positions revealing four-position network investigating network-structure through network requiring network-investigation operational.
 Archaeological methodology investigating archaeology: She documented Fragment 2749-A's structural integrity (847.3TB, 94.7% coherence, 91.2% temporal consistency, 88.9% memory integrity) then documented documentation-methodology examining how documentation generated documentation-patterns requiring documentation-investigation. Authentication protocols applied then authentication-protocol application examined revealing protocol-examination generates protocol-patterns requiring protocol-investigation creating archaeological recursion where verification verifies verification-methodology through verification requiring verification-investigation operational across one hundred seventeen days examining day-counting methodology through counting-investigation.

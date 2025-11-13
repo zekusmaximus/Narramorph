@@ -5,6 +5,7 @@ word_count: 1269
 conditions:
   awareness: '21-40%'
 ---
+
 The archaeologist returns to Fragment 2749-A for the third time, though returns feels insufficient to describe what the act had become. She arrived again at the workspace terminal where the fragment waited, its 847.3 terabytes unchanged, its metrics identical to every previous examination: 94.7% structural coherence, 91.2% linguistic stability, 88.9% contextual integrity. The data hadn't shifted. The preservation remained perfect.
 But the examination itself had become recursive in ways she hadn't anticipated during the first authentication.
 Standard protocol suggested this was unnecessary. She had authenticated Fragment 2749-A twice already. The certification stood. Professional obligations pulled toward the backlog—four thousand fragments awaiting initial processing, families seeking closure, preservation facilities requiring authentication for storage allocation. Time spent re-examining authenticated fragments was time that might serve immediate need.

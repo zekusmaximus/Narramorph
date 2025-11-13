@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "BL-IN-L",
     "humanDescription": "Started elsewhere, light last human exploration, investigate path, low awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Physical investigation reveals what abstract analysis cannot",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-investigation",
-      "physical-methodology",
-      "body-as-knowing"
-    ],
-    "crossCharacterConnections": [
-      "heavy-algo-primary",
-      "significant-arch-foundational"
-    ],
+    "primaryThemes": ["embodied-investigation", "physical-methodology", "body-as-knowing"],
+    "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "algorithm-primary-2151",

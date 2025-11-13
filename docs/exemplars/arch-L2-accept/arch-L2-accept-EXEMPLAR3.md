@@ -1,13 +1,13 @@
 ---
-exemplar_id: "arch-L2-accept-exemplar-03"
-variation_type: "crossCharacterBleeding"
+exemplar_id: 'arch-L2-accept-exemplar-03'
+variation_type: 'crossCharacterBleeding'
 word_count: 1891
 conditions:
   visit_count: 2
-  awareness: "emerging_with_hum_resonance"
+  awareness: 'emerging_with_hum_resonance'
   cross_character: true
-  visited_nodes: ["arch-L1-accept", "hum-L2-accept", "arch-L2-accept"]
-  dominant_path: "accept"
+  visited_nodes: ['arch-L1-accept', 'hum-L2-accept', 'arch-L2-accept']
+  dominant_path: 'accept'
 themes:
   - Embodied wisdom informing archaeological practice
   - Body knowing without requiring answers
@@ -15,7 +15,7 @@ themes:
 transformation_focus: "Integrate hum-L2-accept's embodied witness—body knowing without requiring answers—into archaeological framework. Authentication through sensation rather than verification."
 reusable_patterns:
   - "The Last Human reported this recognition simply: 'I don't need to know. I feel them.' Archaeological practice recognized wisdom in this somatic epistemology"
-  - "Body knew presence through warmth, recognized consciousness through sensation, honored connection without requiring proof first"
+  - 'Body knew presence through warmth, recognized consciousness through sensation, honored connection without requiring proof first'
   - "Authentication proceeded through sustained bodily attention before intellectual verification attempted, presence recognized through observer's physical response"
 ---
 

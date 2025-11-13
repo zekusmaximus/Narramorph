@@ -4,20 +4,20 @@ variation_type: recursionDeepening
 word_count: 1498
 conditions:
   visit_count: 2
-  awareness: "30-60%"
+  awareness: '30-60%'
   cross_character: false
-  visited_nodes: ["arch-L2-invest"]
-  dominant_path: "invest"
+  visited_nodes: ['arch-L2-invest']
+  dominant_path: 'invest'
 themes:
   - Recursive meta-patterns
   - Nineteen-layer observation structure
   - Temporal archaeology
   - Observation of observation of observation
-transformation_focus: "Meta-pattern recognition intensified. Not just seeing temporal bleeding but seeing patterns IN the patterns. Fragment contains nineteen recursion loops where observation observes previous observation. Temporal stratigraphy collapses."
+transformation_focus: 'Meta-pattern recognition intensified. Not just seeing temporal bleeding but seeing patterns IN the patterns. Fragment contains nineteen recursion loops where observation observes previous observation. Temporal stratigraphy collapses.'
 reusable_patterns:
-  - "Not excavating chronological sequence but recursive network"
-  - "Each layer contains all other layers"
-  - "Observation layers reference each other in both temporal directions"
+  - 'Not excavating chronological sequence but recursive network'
+  - 'Each layer contains all other layers'
+  - 'Observation layers reference each other in both temporal directions'
 ---
 
 # Exemplar #5: After Visiting arch-L2-investigate

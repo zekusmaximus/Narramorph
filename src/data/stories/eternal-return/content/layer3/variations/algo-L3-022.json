@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SD-RE-H",
     "humanDescription": "Started elsewhere, shifted to algorithm, resist path, high awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "processing-discipline",
       "resistance-as-principle"
     ],
-    "crossCharacterConnections": [
-      "moderate-arch-parallel",
-      "light-hum-distant"
-    ],
+    "crossCharacterConnections": ["moderate-arch-parallel", "light-hum-distant"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "algorithm-primary-2151",

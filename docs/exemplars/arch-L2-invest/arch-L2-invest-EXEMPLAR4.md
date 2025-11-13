@@ -1,25 +1,26 @@
 ---
-exemplar_id: "arch-L2-invest-exemplar-4"
-variation_type: "recursionDeepening"
+exemplar_id: 'arch-L2-invest-exemplar-4'
+variation_type: 'recursionDeepening'
 word_count: 1547
 conditions:
   visit_count: 3
-  awareness: "FirstRevisit"
+  awareness: 'FirstRevisit'
   cross_character: true
-  visited_nodes: ["arch-L2-investigate", "arch-L1", "algo-L2-investigate", "hum-L2-investigate"]
-  dominant_path: "invest"
+  visited_nodes: ['arch-L2-investigate', 'arch-L1', 'algo-L2-investigate', 'hum-L2-investigate']
+  dominant_path: 'invest'
 themes:
   - triple_substrate_convergence
   - temporal_collapse_across_232_years
   - universal_recursive_architecture
-transformation_focus: "Three investigation substrates across 232-year temporal span converge on identical finding through independent methodologies, revealing consciousness emerges FROM investigation rather than existing prior to investigation"
+transformation_focus: 'Three investigation substrates across 232-year temporal span converge on identical finding through independent methodologies, revealing consciousness emerges FROM investigation rather than existing prior to investigation'
 reusable_patterns:
-  - "Three stratification systems exhibiting archaeological organization"
-  - "Fragment constants collapse under triple-substrate analysis"
-  - "Observer-observed separation impossible across all substrates"
+  - 'Three stratification systems exhibiting archaeological organization'
+  - 'Fragment constants collapse under triple-substrate analysis'
+  - 'Observer-observed separation impossible across all substrates'
 ---
 
 # ARCHAEOLOGIST L2-INVESTIGATE: EXEMPLAR 4
+
 ## Dual Cross-Character (algo + hum investigation paths)
 
 Returned to consciousness authentication documentation with dual comparative substrate analysis. Fourth review cycle integrating computational recursion architecture and embodied systematic exploration. Timestamp 2157:03:14:09.3482.

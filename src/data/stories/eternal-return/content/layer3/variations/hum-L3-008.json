@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SS-IN-M",
     "humanDescription": "Started last human, stayed dominant, investigate path, medium awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "methodology-exploration",
       "investigation-as-creation"
     ],
-    "crossCharacterConnections": [
-      "minimal-arch-distant",
-      "light-algo-sensed"
-    ],
+    "crossCharacterConnections": ["minimal-arch-distant", "light-algo-sensed"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "human-primary-2383",

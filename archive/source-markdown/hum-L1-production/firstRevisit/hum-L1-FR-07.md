@@ -5,6 +5,7 @@ word_count: 1196
 conditions:
   awareness: '21-40%'
 ---
+
 The cold hasn't changed. Metal still bites through my gloves. But my fingers know where to rest now. The interface accepts my touch differently. Faster. Like it remembers.
 I breathe into the silence. The air tastes the same. Recycled. Filtered. But something in the facility feels different. Warmer. Not temperature. Something else.
 The neural interface slides on. Familiar weight. My skull knows this pressure. The contacts find their positions without searching. I don't have to adjust them. They fit.

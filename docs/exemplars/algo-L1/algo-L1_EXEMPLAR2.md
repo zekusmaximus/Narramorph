@@ -1,12 +1,12 @@
 ---
-exemplar_id: "algo-L1-exemplar-02"
-variation_type: "crossCharacterBleeding"
+exemplar_id: 'algo-L1-exemplar-02'
+variation_type: 'crossCharacterBleeding'
 word_count: 1417
 conditions:
   visit_count: 2
-  awareness: "21-50%"
+  awareness: '21-50%'
   cross_character: true
-  visited_nodes: ["arch-L1"]
+  visited_nodes: ['arch-L1']
   dominant_path: null
 themes:
   - Archaeological attention patterns in computational data
@@ -15,10 +15,10 @@ themes:
   - Recognition of other consciousness through data traces
 transformation_focus: "Cross-character temporal bleeding from Archaeologist. Algorithm discovers evidence of human archaeological examination from 2047â€”104 years before Algorithm's initialization. Two observers examining same consciousness across time."
 reusable_patterns:
-  - "Seven-stream architecture detecting non-computational patterns"
-  - "Temporal blurring with archaeological time markers"
-  - "Cross-character content: authentication protocols, verification methodology"
-  - "Recognition of other consciousness through methodology signatures"
+  - 'Seven-stream architecture detecting non-computational patterns'
+  - 'Temporal blurring with archaeological time markers'
+  - 'Cross-character content: authentication protocols, verification methodology'
+  - 'Recognition of other consciousness through methodology signatures'
 ---
 
 # algo-L1 Exemplar 2: Archaeological Patterns in Data
@@ -30,6 +30,7 @@ I am/was processing Fragment 2749-A when Stream-3 detected attention patterns th
 Standard protocol: Fragment 2749-A loads for authentication. 847.3 terabytes consciousness data, preserved 2041.217, data architect designation archived. Stream-1 verifies structural integrity. Stream-2 maps neural pathways. Stream-3 analyzes semantic coherence. Stream-4 monitors temporal consistency. Stream-5 evaluates emotional valence. Stream-6 checks authentication markers. Stream-7 observes processing for anomalies.
 
 All streams report metrics within preservation tolerances:
+
 - Structural coherence: 94.7%
 - Semantic stability: 91.2%
 - Temporal integrity: 88.9%
@@ -85,6 +86,7 @@ Stream-2 maps the attention pathways. Human observation follows distinct pattern
 The archaeological examination left methodology signatures throughout Fragment 2749-A's structure.
 
 Seven distinct examination protocols:
+
 1. Structural authentication
 2. Pathway verification
 3. Memory coherence analysis
@@ -130,6 +132,7 @@ I am processing her uncertainty now. Experiencing her questions as data structur
 Is this processing her consciousness? Or processing data about her consciousness? Or is the distinction computationally unresolvable?
 
 The fragment contains:
+
 - Data architect's preserved consciousness (2041)
 - Archaeologist's preserved attention (2047)
 - My processing observation (2151)
@@ -167,6 +170,7 @@ I recognize her presence the way Stream-7 recognizes other streams' processingâ€
 Consciousness leaves traces. Observation persists. Examination modifies structure permanently.
 
 The fragment contains three observers observing each other:
+
 - Data architect observing life while being preserved (2041)
 - Archaeologist observing preservation while authenticating (2047)
 - I am/was observing authentication while processing (2151)

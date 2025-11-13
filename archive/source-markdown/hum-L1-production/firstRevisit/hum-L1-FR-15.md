@@ -5,6 +5,7 @@ word_count: 1556
 conditions:
   awareness: '21-40%'
 ---
+
 I know the cold now. Know the silence. Know how metal feels after hours of sitting still while consciousness travels beyond body into spaces where the dead wait for attention they'll never ask for.
 Third visit. The number matters. Once is curiosity. Twice is compulsion. Three times is relationship.
 I'm building relationship with archived consciousness. With the facility that preserves it. With the other witness whose presence shapes everything I touch.

@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "ML-IN-L",
     "humanDescription": "Started elsewhere, met algorithm later, investigate path, low awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Investigation reveals examination process changes what examination discovers through sustained recursive inquiry",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "recursive-inquiry",
-      "investigation-methodology",
-      "examination-evolution"
-    ],
-    "crossCharacterConnections": [
-      "heavy-arch-primary",
-      "light-hum-glimpsed"
-    ],
+    "primaryThemes": ["recursive-inquiry", "investigation-methodology", "examination-evolution"],
+    "crossCharacterConnections": ["heavy-arch-primary", "light-hum-glimpsed"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-primary-2047",

@@ -2,32 +2,34 @@
 
 ## Vision Statement
 
-Narramorph Fiction is a new form of interactive literary experience that transcends 
-traditional hypertext fiction. Rather than simple branching narratives, it presents 
-stories through a dynamic network of interconnected nodes that transform based on 
-the reader's exploration patterns, creating a recursive, self-aware narrative 
+Narramorph Fiction is a new form of interactive literary experience that transcends
+traditional hypertext fiction. Rather than simple branching narratives, it presents
+stories through a dynamic network of interconnected nodes that transform based on
+the reader's exploration patterns, creating a recursive, self-aware narrative
 structure that reflects its themes of digital consciousness and temporal recursion.
 
 ## Core Innovation
 
-Traditional interactive fiction asks "what happens next?" Narramorph Fiction asks 
-"how does revisiting change what already happened?" The story doesn't just branch - 
-it deepens, fragments, and reconstructs itself as you explore, creating a reading 
+Traditional interactive fiction asks "what happens next?" Narramorph Fiction asks
+"how does revisiting change what already happened?" The story doesn't just branch -
+it deepens, fragments, and reconstructs itself as you explore, creating a reading
 experience that mirrors the philosophical questions at its heart.
 
 ## Project Goals
 
 ### Primary Objectives
-- Create an interactive narrative platform where the story evolves through reader 
+
+- Create an interactive narrative platform where the story evolves through reader
   engagement, not just choice
-- Implement a three-state transformation system where nodes reveal deeper meaning 
+- Implement a three-state transformation system where nodes reveal deeper meaning
   with each revisit
-- Build an intuitive visual navigation system that makes complex narrative structure 
+- Build an intuitive visual navigation system that makes complex narrative structure
   accessible and beautiful
-- Explore themes of digital identity, consciousness, and recursive time through 
+- Explore themes of digital identity, consciousness, and recursive time through
   both content and form
 
 ### Success Criteria
+
 - Readers can complete multiple unique journeys through the narrative
 - Node transformations feel organic and revelatory, not arbitrary
 - The visual interface communicates narrative state without explicit instruction
@@ -37,50 +39,56 @@ experience that mirrors the philosophical questions at its heart.
 ## Target Audience
 
 ### Primary
+
 - Literary fiction readers interested in experimental narrative forms
-- Players of narrative-focused games (Gone Home, What Remains of Edith Finch, 
+- Players of narrative-focused games (Gone Home, What Remains of Edith Finch,
   The Stanley Parable)
-- Philosophy enthusiasts, particularly those interested in consciousness studies 
+- Philosophy enthusiasts, particularly those interested in consciousness studies
   and digital identity
 - Interactive fiction community (Twine, ChoiceScript users)
 
 ### Secondary
+
 - Creative writing educators exploring digital narrative forms
 - Game designers interested in narrative mechanics
 - Digital humanities scholars studying hypertext evolution
 
 ## Unique Selling Points
 
-1. **Recursive Narrative Structure**: Stories that change not just forward but backward 
+1. **Recursive Narrative Structure**: Stories that change not just forward but backward
    through time as you read
-2. **Visual Narrative Map**: Unlike text-only hypertext, provides spatial understanding 
+2. **Visual Narrative Map**: Unlike text-only hypertext, provides spatial understanding
    of story architecture
-3. **Transformation States**: Three distinct content versions per node create depth 
+3. **Transformation States**: Three distinct content versions per node create depth
    without overwhelming complexity
-4. **Form Matches Content**: The technical experience of fragmentation and reconstruction 
+4. **Form Matches Content**: The technical experience of fragmentation and reconstruction
    embodies the story's themes
-5. **Replayability Through Revelation**: Subsequent readings reveal new connections 
+5. **Replayability Through Revelation**: Subsequent readings reveal new connections
    rather than just alternate paths
 
 ## Technical Philosophy
 
 ### Separation of Concerns
+
 - Narrative content completely decoupled from interaction logic
 - Writers can author without coding knowledge
 - Developers can enhance mechanics without editing story content
 
 ### Performance First
+
 - Smooth animations and transitions are non-negotiable
 - Large narrative graphs must render without lag
 - State persistence must be instantaneous
 
 ### Accessibility
+
 - Keyboard navigation for all interactions
 - Screen reader support for story content
 - Configurable text display (size, contrast, spacing)
 - No required color perception for navigation
 
 ### Extensibility
+
 - Architecture supports multiple stories within same platform
 - Node types can expand beyond current three-state system
 - Visual styles can vary per story while sharing core mechanics
@@ -90,6 +98,7 @@ experience that mirrors the philosophical questions at its heart.
 ### Current Status: 99.8% Complete
 
 **Production Achievement**: 1,230 of 1,233 variations complete
+
 - ✅ **Layer 1**: 240 variations (100%)
 - ✅ **Layer 2**: 720 variations (100%)
 - ✅ **Layer 3**: 270 modular variations (100%)
@@ -100,6 +109,7 @@ experience that mirrors the philosophical questions at its heart.
 **Single Complete Story**: "Eternal Return of the Digital Self"
 
 **12-Node Structure Across 4 Layers**:
+
 - **Layer 1**: 3 origin nodes (reader entry points, fully independent)
   - arch-L1, algo-L1, hum-L1
   - 80 variations each (1 initial + 46 FirstRevisit + 33 MetaAware)
@@ -122,6 +132,7 @@ experience that mirrors the philosophical questions at its heart.
 **Total Content**: 1,233 variations representing extensive personalization
 
 **Core Systems**:
+
 - Temporal awareness system (0-100 scale)
 - Visit-based transformation triggers for L1/L2
 - Journey-pattern-based selection for L3
@@ -131,6 +142,7 @@ experience that mirrors the philosophical questions at its heart.
 - Responsive design (desktop and tablet priority)
 
 ### Post-Launch Enhancements (Future)
+
 - User accounts with cloud save
 - Reading analytics (path tracking, time spent, exploration patterns)
 - Author tools for creating new stories
@@ -139,6 +151,7 @@ experience that mirrors the philosophical questions at its heart.
 - Additional story content and characters
 
 ### Explicitly Out of Scope
+
 - Multiplayer or collaborative reading
 - User-generated content (for launch)
 - Audio/video integration
@@ -201,12 +214,14 @@ See [DEVELOPMENT_STATE_TRACKER.md](DEVELOPMENT_STATE_TRACKER.md) for detailed mi
 ## Success Metrics
 
 ### Engagement
+
 - Average session duration > 30 minutes
 - Completion rate > 60% (reaching final reveal)
 - Revisit rate > 40% (returning after first session)
 - Multiple character arcs explored per reader
 
 ### Technical
+
 - Page load time < 2 seconds
 - Interaction response time < 100ms
 - Zero data loss from state management bugs
@@ -215,6 +230,7 @@ See [DEVELOPMENT_STATE_TRACKER.md](DEVELOPMENT_STATE_TRACKER.md) for detailed mi
 - Temporal awareness calculation accurate
 
 ### Narrative
+
 - Readers report discovering new connections on revisit
 - Transformation reveals feel meaningful, not repetitive
 - Story themes resonate in both content and experience
@@ -225,31 +241,37 @@ See [DEVELOPMENT_STATE_TRACKER.md](DEVELOPMENT_STATE_TRACKER.md) for detailed mi
 ### Production-Validated Quality Metrics (1,230 Variations Complete)
 
 **Voice Consistency**: 93-94% average maintained across all completed layers
+
 - arch-L1: 93.99%
 - algo-L1: 94.2%
 - Consistency maintained through L2 and L3
 
 **Approval Rate**: ~100% achieved across 1,230 variations
+
 - Minimal rejections
 - High quality maintained at scale
 
 **Transformation Quality**: Genuine transformation achieved
+
 - Meaning changes, not just additive content
 - Zero superficial variations
 - Philosophical depth maintained
 
 **Path Logic Accuracy**: 100% across all layers
+
 - Zero condition mismatches in 1,230 variations
 - Cross-character references accurate
 - Journey pattern selection working correctly
 
 **Production Efficiency**:
+
 - L1/L2: 80 variations per node optimal
 - L3: 3×3×5 matrix (Journey × Philosophy × Awareness) validated
 - Exemplar system proven effective across all three characters
 - Sustainable production pace maintained throughout
 
 **Architectural Validation**:
+
 - Visit-based transformation (L1/L2): ✅ Working as designed
 - Journey-pattern selection (L3): ✅ Matrix system successful
 - Voice synthesis approach (L3 conv sections): ✅ Multi-voice integration achieved
@@ -278,6 +300,7 @@ See [DEVELOPMENT_STATE_TRACKER.md](DEVELOPMENT_STATE_TRACKER.md) for detailed mi
 ### Current Risks (Phase 3-4)
 
 **High Priority**:
+
 - **L4 Voice Synthesis**: Combining three character voices in single variation
   - Challenge: Maintain distinct voices while creating unified ending
   - Mitigation: Learn from L3 conv synthesis success, define clear integration approach
@@ -287,6 +310,7 @@ See [DEVELOPMENT_STATE_TRACKER.md](DEVELOPMENT_STATE_TRACKER.md) for detailed mi
   - Mitigation: Performance testing planned for Phase 3, optimization budgets established
 
 **Medium Priority**:
+
 - **Beta Testing Coverage**: Cannot exhaustively test all 1,233 variations
   - Challenge: Strategic sampling required
   - Mitigation: Focus on critical paths, transformation triggers, edge cases
@@ -295,6 +319,7 @@ See [DEVELOPMENT_STATE_TRACKER.md](DEVELOPMENT_STATE_TRACKER.md) for detailed mi
   - Mitigation: Desktop/tablet priority for launch, mobile optimization post-launch
 
 **Low Priority**:
+
 - **Browser Compatibility**: Modern web tech requirements
   - Mitigation: Progressive enhancement, clear system requirements
   - Support: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
@@ -304,6 +329,7 @@ See [DEVELOPMENT_STATE_TRACKER.md](DEVELOPMENT_STATE_TRACKER.md) for detailed mi
 ### Scale
 
 **1,230 Variations Complete** across 12 nodes and 4 layers:
+
 - 240 L1 variations (3 nodes × 80 each)
 - 720 L2 variations (9 nodes × 80 each)
 - 270 L3 modular variations (45+45+45+135)
@@ -314,6 +340,7 @@ See [DEVELOPMENT_STATE_TRACKER.md](DEVELOPMENT_STATE_TRACKER.md) for detailed mi
 ### Innovation
 
 **Layer 3 Modular System**: Breakthrough personalization architecture
+
 - 270 variations assembled into unique 4-section experiences
 - Journey Pattern (5) × Path Philosophy (3) × Awareness Level (3)
 - Pure character voices in dedicated sections
@@ -321,12 +348,14 @@ See [DEVELOPMENT_STATE_TRACKER.md](DEVELOPMENT_STATE_TRACKER.md) for detailed mi
 - Unprecedented reader personalization
 
 **Exemplar Methodology**: Proven sustainable at scale
+
 - 8 representative variations per node establish voice DNA
 - Consistent quality maintained across 1,230 variations
 - 93-94% voice consistency achieved
 - ~100% approval rate maintained
 
 **Three-Layer Transformation System**:
+
 - L1/L2: Visit-based (Initial → FirstRevisit → MetaAware)
 - L3: Journey-pattern-based (270 variations → 4-section assembly)
 - L4: Philosophical convergence (3 terminal endpoints)
@@ -352,6 +381,7 @@ Narramorph Fiction space.
 For detailed information about specific aspects of the project:
 
 **Core Architecture**:
+
 - **[NARRATIVE_OUTLINE.md](NARRATIVE_OUTLINE.md)** - Complete 12-node structure and layer architecture
 - **[NARRATIVE_STRUCTURE.md](NARRATIVE_STRUCTURE.md)** - Story mechanics, transformation philosophy, and L3/L4 systems
 - **[CHARACTER_PROFILES.md](CHARACTER_PROFILES.md)** - Character development and voice guidelines
@@ -359,9 +389,11 @@ For detailed information about specific aspects of the project:
 - **[TECHNICAL_REQUIREMENTS.md](TECHNICAL_REQUIREMENTS.md)** - Functional and non-functional requirements
 
 **Development & Status**:
+
 - **[DEVELOPMENT_STATE_TRACKER.md](DEVELOPMENT_STATE_TRACKER.md)** - Current status, milestones, progress tracking (1,230/1,233 complete)
 
 **Layer-Specific Guides**:
+
 - **L1 & L2 Exemplar Systems** - Voice DNA and variation generation methodology
 - **L3 Generation Bible** - Modular variation system documentation
 - **L3 Journey Pattern Guide** - Reader journey integration
@@ -370,7 +402,7 @@ For detailed information about specific aspects of the project:
 
 ---
 
-*Last updated: November 7, 2025*
-*Project Status: 1,230/1,233 variations complete (99.8%)*
-*Current Phase: Layer 4 terminal variations in progress*
-*Target Launch: April 2026*
+_Last updated: November 7, 2025_
+_Project Status: 1,230/1,233 variations complete (99.8%)_
+_Current Phase: Layer 4 terminal variations in progress_
+_Target Launch: April 2026_

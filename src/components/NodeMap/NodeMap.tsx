@@ -50,7 +50,7 @@ function convertToReactFlowNodes(
   storyNodes: Map<string, StoryNode>,
   getNodeState: (id: string) => NodeUIState,
   selectedNode: string | null,
-  canVisitNode: (id: string) => boolean
+  canVisitNode: (id: string) => boolean,
 ): Node[] {
   return Array.from(storyNodes.values())
     .filter((node) => canVisitNode(node.id)) // Filter out locked nodes
@@ -140,12 +140,12 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
   // Convert to React Flow format
   const initialNodes = useMemo(
     () => convertToReactFlowNodes(storyNodes, getNodeState, selectedNode, canVisitNode),
-    [storyNodes, getNodeState, selectedNode, canVisitNode]
+    [storyNodes, getNodeState, selectedNode, canVisitNode],
   );
 
   const initialEdges = useMemo(
     () => convertToReactFlowEdges(storyNodes, progress),
-    [storyNodes, progress]
+    [storyNodes, progress],
   );
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -199,7 +199,7 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
       selectNode(node.id);
       openStoryView(node.id);
     },
-    [selectNode, openStoryView, progress.visitedNodes]
+    [selectNode, openStoryView, progress.visitedNodes],
   );
 
   // Get node color for mini-map
@@ -215,7 +215,7 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
   const visitedCount = Object.keys(progress.visitedNodes).length;
 
   // Show boot sequence on first load
-  const storyData = useStoryStore(state => state.storyData);
+  const storyData = useStoryStore((state) => state.storyData);
   const showBoot = storyData && !bootComplete;
 
   return (
@@ -226,9 +226,7 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
       aria-label="Interactive story node map"
     >
       {/* Boot sequence */}
-      {showBoot && (
-        <BootSequence onComplete={() => setBootComplete(true)} />
-      )}
+      {showBoot && <BootSequence onComplete={() => setBootComplete(true)} />}
 
       {/* Noise texture overlay */}
       <div
@@ -326,75 +324,79 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
       <motion.div
         className="w-full h-full"
         style={{ width: '100%', height: '100%' }}
-        animate={screenShake ? {
-          x: [0, -2, 2, -2, 2, 0],
-          y: [0, 2, -2, 2, -2, 0],
-        } : {}}
+        animate={
+          screenShake
+            ? {
+                x: [0, -2, 2, -2, 2, 0],
+                y: [0, 2, -2, 2, -2, 0],
+              }
+            : {}
+        }
         transition={{ duration: 0.3 }}
       >
         <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange as OnNodesChange}
-        onEdgesChange={onEdgesChange as OnEdgesChange}
-        onNodeClick={onNodeClick}
-        onNodeMouseEnter={(_event, node) => {
-          setHoveredNodeId(node.id);
-        }}
-        onNodeMouseLeave={() => {
-          setHoveredNodeId(null);
-        }}
-        onMove={(_event, viewportUpdate) => {
-          setViewport({
-            zoom: viewportUpdate.zoom,
-            x: viewportUpdate.x,
-            y: viewportUpdate.y,
-          });
-        }}
-        nodeTypes={nodeTypes}
-        defaultEdgeOptions={defaultEdgeOptions}
-        fitView
-        fitViewOptions={{
-          padding: 0.3,
-          minZoom: 0.3,
-          maxZoom: 1.2,
-        }}
-        minZoom={0.2}
-        maxZoom={2}
-        className="touch-none"
-        nodesDraggable={false}
-        nodesConnectable={false}
-        elementsSelectable={true}
-        elevateEdgesOnSelect={true}
-        zoomOnDoubleClick={false}
-        panOnScroll={true}
-        preventScrolling={true}
-      >
-        {/* Background grid with subtle pattern */}
-        <Background
-          color="#1a2332"
-          gap={32}
-          size={1}
-          variant={BackgroundVariant.Lines}
-          style={{ opacity: 0.15 }}
-        />
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange as OnNodesChange}
+          onEdgesChange={onEdgesChange as OnEdgesChange}
+          onNodeClick={onNodeClick}
+          onNodeMouseEnter={(_event, node) => {
+            setHoveredNodeId(node.id);
+          }}
+          onNodeMouseLeave={() => {
+            setHoveredNodeId(null);
+          }}
+          onMove={(_event, viewportUpdate) => {
+            setViewport({
+              zoom: viewportUpdate.zoom,
+              x: viewportUpdate.x,
+              y: viewportUpdate.y,
+            });
+          }}
+          nodeTypes={nodeTypes}
+          defaultEdgeOptions={defaultEdgeOptions}
+          fitView
+          fitViewOptions={{
+            padding: 0.3,
+            minZoom: 0.3,
+            maxZoom: 1.2,
+          }}
+          minZoom={0.2}
+          maxZoom={2}
+          className="touch-none"
+          nodesDraggable={false}
+          nodesConnectable={false}
+          elementsSelectable={true}
+          elevateEdgesOnSelect={true}
+          zoomOnDoubleClick={false}
+          panOnScroll={true}
+          preventScrolling={true}
+        >
+          {/* Background grid with subtle pattern */}
+          <Background
+            color="#1a2332"
+            gap={32}
+            size={1}
+            variant={BackgroundVariant.Lines}
+            style={{ opacity: 0.15 }}
+          />
 
-        {/* Zoom/pan controls */}
-        <Controls
-          className="bg-black/80 backdrop-blur-sm shadow-lg rounded border border-gray-700/50"
-          showInteractive={false}
-        />
+          {/* Zoom/pan controls */}
+          <Controls
+            className="bg-black/80 backdrop-blur-sm shadow-lg rounded border border-gray-700/50"
+            showInteractive={false}
+          />
 
-        {/* Mini-map for overview */}
-        <MiniMap
-          className="bg-black/80 backdrop-blur-sm shadow-lg rounded border border-gray-700/50"
-          style={{ width: 200, height: 150, backgroundColor: '#0a0e12' }}
-          nodeColor={getNodeColor}
-          maskColor="rgba(10, 14, 18, 0.8)"
-          pannable
-          zoomable
-        />
-      </ReactFlow>
+          {/* Mini-map for overview */}
+          <MiniMap
+            className="bg-black/80 backdrop-blur-sm shadow-lg rounded border border-gray-700/50"
+            style={{ width: 200, height: 150, backgroundColor: '#0a0e12' }}
+            nodeColor={getNodeColor}
+            maskColor="rgba(10, 14, 18, 0.8)"
+            pannable
+            zoomable
+          />
+        </ReactFlow>
       </motion.div>
 
       {/* Info overlay - terminal style with glitch */}
@@ -467,7 +469,9 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
 
       {/* Legend - Cyberpunk style */}
       <div className="absolute bottom-20 left-4 bg-black/90 backdrop-blur-sm px-4 py-3 rounded border border-gray-700/50 shadow-lg font-mono pointer-events-none">
-        <div className="text-xs font-semibold text-gray-400 mb-2 tracking-wider uppercase">Characters</div>
+        <div className="text-xs font-semibold text-gray-400 mb-2 tracking-wider uppercase">
+          Characters
+        </div>
         <div className="space-y-1.5 text-xs">
           <div className="flex items-center space-x-2">
             <div
@@ -492,14 +496,16 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
           </div>
         </div>
 
-        <div className="text-xs font-semibold text-gray-400 mb-2 mt-3 tracking-wider uppercase">Connections</div>
+        <div className="text-xs font-semibold text-gray-400 mb-2 mt-3 tracking-wider uppercase">
+          Connections
+        </div>
         <div className="space-y-1.5 text-xs">
           <div className="flex items-center space-x-2">
             <div
               className="w-4 h-0.5"
               style={{
                 backgroundColor: '#00e5ff',
-                boxShadow: '0 0 4px #00e5ff'
+                boxShadow: '0 0 4px #00e5ff',
               }}
             />
             <span className="text-gray-300">Temporal</span>
@@ -509,7 +515,7 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
               className="w-4 h-0.5"
               style={{
                 backgroundColor: '#7c4dff',
-                boxShadow: '0 0 4px #7c4dff'
+                boxShadow: '0 0 4px #7c4dff',
               }}
             />
             <span className="text-gray-300">Consciousness</span>
@@ -518,8 +524,9 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
             <div
               className="w-4 h-0.5"
               style={{
-                background: 'repeating-linear-gradient(to right, #39ff14 0, #39ff14 3px, transparent 3px, transparent 8px)',
-                boxShadow: '0 0 4px #39ff14'
+                background:
+                  'repeating-linear-gradient(to right, #39ff14 0, #39ff14 3px, transparent 3px, transparent 8px)',
+                boxShadow: '0 0 4px #39ff14',
               }}
             />
             <span className="text-gray-300">Recursive</span>
@@ -535,4 +542,3 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
     </div>
   );
 }
-

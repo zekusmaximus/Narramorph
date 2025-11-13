@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "ML-RE-M",
     "humanDescription": "Started elsewhere, met archaeologist later with moderate exploration, resist path, medium awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "skeptical-balance",
       "proof-requirement-maintenance"
     ],
-    "crossCharacterConnections": [
-      "heavy-dominant-primary",
-      "moderate-starting-foundational"
-    ],
+    "crossCharacterConnections": ["heavy-dominant-primary", "moderate-starting-foundational"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-integrated-2047",

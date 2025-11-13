@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "SS-IN-L",
     "humanDescription": "Started archaeologist, stayed dominant, investigate path, low awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Authentication process itself becomes subject of archaeological examination",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "methodological-investigation",
-      "self-examination",
-      "recursive-practice"
-    ],
-    "crossCharacterConnections": [
-      "light-algo-glimpsed",
-      "minimal-hum-distant"
-    ],
+    "primaryThemes": ["methodological-investigation", "self-examination", "recursive-practice"],
+    "crossCharacterConnections": ["light-algo-glimpsed", "minimal-hum-distant"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-primary-2047",

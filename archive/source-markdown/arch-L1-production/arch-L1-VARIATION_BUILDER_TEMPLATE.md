@@ -11,6 +11,7 @@
 # [Session Name]: [Cluster Description]
 
 ## Context
+
 Narramorph Fiction arch-L1 generation - [Brief description of what this cluster represents]
 
 ### Session Performance History
@@ -45,6 +46,7 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 [2-3 sentences describing the path's philosophical stance]
 
 **Key Phrases:**
+
 - "[Signature phrase 1]"
 - "[Signature phrase 2]"
 - "[Signature phrase 3]"
@@ -66,11 +68,13 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 ### [Variation ID 1]: [Descriptive Name]
 
 **Conditions:**
+
 - Visit: [X], Awareness: [X-X]%
 - Visited: [node list or empty]
 - Path: [path name or null]
 
 **Required Elements:**
+
 - [Element 1 - with brief description]
 - [Element 2 - with brief description]
 - [Element 3 - with brief description]
@@ -86,11 +90,13 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 ### [Variation ID 2]: [Descriptive Name]
 
 **Conditions:**
+
 - Visit: [X], Awareness: [X-X]%
 - Visited: [node list or empty]
 - Path: [path name or null]
 
 **Required Elements:**
+
 - [Element 1]
 - [Element 2]
 - [Element 3]
@@ -106,11 +112,13 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 ### [Variation ID 3]: [Descriptive Name]
 
 **Conditions:**
+
 - Visit: [X], Awareness: [X-X]%
 - Visited: [node list or empty]
 - Path: [path name or null]
 
 **Required Elements:**
+
 - [Element 1]
 - [Element 2]
 - [Element 3]
@@ -126,11 +134,13 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 ### [Variation ID 4]: [Descriptive Name]
 
 **Conditions:**
+
 - Visit: [X], Awareness: [X-X]%
 - Visited: [node list or empty]
 - Path: [path name or null]
 
 **Required Elements:**
+
 - [Element 1]
 - [Element 2]
 - [Element 3]
@@ -146,11 +156,13 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 ### [Variation ID 5]: [Descriptive Name]
 
 **Conditions:**
+
 - Visit: [X], Awareness: [X-X]%
 - Visited: [node list or empty]
 - Path: [path name or null]
 
 **Required Elements:**
+
 - [Element 1]
 - [Element 2]
 - [Element 3]
@@ -168,16 +180,19 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 ### [Path Name] Voice Must Blend With:
 
 **Character Content ([character name]):**
+
 - [How path philosophy integrates with this character's content]
 - NOT: [common mistake to avoid]
 - BUT: [correct approach]
 
 **Character Content ([character name if dual]):**
+
 - [How path philosophy integrates with second character's content]
 - NOT: [common mistake]
 - BUT: [correct approach]
 
 **Pure Revisit (if applicable):**
+
 - [How path works without character bleeding]
 - [What maintains path identity without cross-character anchors]
 
@@ -194,14 +209,17 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 ## Generation Protocol (Per Variation)
 
 ### Step 1: Pre-Generation Review
+
 **MANDATORY:** Read `/docs/framework/GENERATION_PROTOCOL.md` in full before starting
 
 ### Step 2: Reference Loading
+
 - **Primary:** Exemplar #[X] ([path] path voice)
 - **Secondary:** Exemplar #[X] (for [character]-L1) OR Exemplar #[X] (for [character]-L1)
 - **Tertiary:** Exemplar #1 (for pure revisit baseline, if applicable)
 
 ### Step 3: Generate Single Variation
+
 **Opening Formula:**
 Establish continuity ("The archaeologist returns..." / "returns to Fragment 2749-A") while signaling transformation toward [path quality].
 
@@ -209,11 +227,13 @@ Establish continuity ("The archaeologist returns..." / "returns to Fragment 2749
 847.3TB, 94.7%, 91.2%, 88.9% - numbers that [significance in context of path].
 
 **[Path Name] Philosophy Integration ([X]-[X] words):**
+
 - [Aspect 1 based on awareness level]
 - [Aspect 2 based on awareness level]
 - Always: [Universal path requirement]
 
 **Character Content (where applicable):**
+
 - [Character 1] hints/clear: [What to include based on awareness]
 - [Character 2] hints/clear: [What to include based on awareness]
 
@@ -241,12 +261,15 @@ Ground [path philosophy] in concrete professional action. Start with [opening fo
 **If ANY box unchecked → Fix before presenting**
 
 ### Step 5: Present Variation
+
 Provide:
+
 1. Full variation text
 2. Metadata (ID, conditions, word count)
 3. Confirmation: "Self-review checklist completed - all items verified"
 
 ### Step 6: Await Approval
+
 **DO NOT generate next variation until current one approved**
 
 ---
@@ -254,12 +277,14 @@ Provide:
 ## Success Criteria
 
 **Quantitative:**
+
 - 5 variations generated
 - 80%+ immediate approval (4/5)
 - Average voice consistency: 93%+
 - Word count targets met
 
 **Qualitative:**
+
 - [Path] path voice distinct from [other paths]
 - [Key quality 1 for this path]
 - [Key quality 2 for this path]
@@ -271,9 +296,11 @@ Provide:
 ## Key Differentiators for This Cluster
 
 ### From Previous Clusters:
+
 [How this cluster differs from what's been generated before]
 
 ### [Current Path] Path Signature:
+
 "[Concise statement of path's core approach to impossibility]"
 
 [Brief expansion on what this means in practice]
@@ -287,6 +314,7 @@ Using the validated arch-L1 generation system ([X] variations, 100% approval rat
 **Generate [Cluster Name] ([X] variations): [Variation IDs]**
 
 Follow proven workflow:
+
 1. **Review `/docs/framework/GENERATION_PROTOCOL.md` completely**
 2. Reference Exemplar #[X] ([path]) + character exemplars as needed
 3. Generate ONE variation at a time
@@ -348,6 +376,7 @@ Maintain [Previous weeks] quality standards ([X]%+ voice, 100% approval rate).
 ## Template Maintenance
 
 **Update this template when:**
+
 - Quality standards change
 - New path types added
 - Generation protocol updated

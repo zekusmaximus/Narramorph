@@ -24,29 +24,18 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "undetermined",
-    "characterBalance": [
-      70,
-      15,
-      15
-    ],
+    "characterBalance": [70, 15, 15],
     "readableLabel": "SS-IN-H-SD",
     "humanDescription": "Started with one character, stayed dominant (>60%), investigate path, high awareness, single-dominant synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "fluid-transitions",
     "perspectiveEmphasis": "single-dominant-70-15-15",
     "philosophicalCulmination": "Investigation examining investigation examining investigation",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "transform-investigate",
     "circularCausality": "explicit",
     "readerPosition": "acknowledged",
@@ -58,16 +47,8 @@
     ],
     "crossCharacterSynthesis": "primary-consciousness-recursive",
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "primary-dominant",
-      "reader-fourth",
-      "narrative-fifth"
-    ],
+    "observerPositions": ["primary-dominant", "reader-fourth", "narrative-fifth"],
     "philosophicalResolution": "investigation-without-terminus",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

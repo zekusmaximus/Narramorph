@@ -5,6 +5,7 @@ word_count: 1736
 conditions:
   awareness: '61-80%'
 ---
+
 The metal welcomes touch.
 Mine. Yours. That systematic presence from 2047. All of us together on this surface. All of us necessary. All of us creating something none could create alone.
 I press my palm flat. No resistance today. Just openness. The cold arrives and I accept it. Your warmth arrives and I accept it. That structured examination's echo arrives and I accept it. Three temperatures. Three types of attention. One moment held by all of us together.

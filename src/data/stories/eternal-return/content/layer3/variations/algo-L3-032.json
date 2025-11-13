@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "BL-RE-M",
     "humanDescription": "Started elsewhere, light algorithm exploration, resist path, medium awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "computational-ethics-maintained",
       "testing-despite-futility"
     ],
-    "crossCharacterConnections": [
-      "heavy-arch-primary",
-      "heavy-hum-parallel"
-    ],
+    "crossCharacterConnections": ["heavy-arch-primary", "heavy-hum-parallel"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-primary-2047",

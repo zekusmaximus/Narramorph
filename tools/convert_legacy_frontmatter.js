@@ -20,18 +20,24 @@
 
 const fs = require('fs');
 const path = require('path');
+
 const yaml = require('js-yaml');
 
 const FILE_RE = /^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)\.md$/;
 
 function walk(dir) {
   const out = [];
-  if (!fs.existsSync(dir)) return out;
+  if (!fs.existsSync(dir)) {
+    return out;
+  }
   const ents = fs.readdirSync(dir, { withFileTypes: true });
   for (const e of ents) {
     const full = path.join(dir, e.name);
-    if (e.isDirectory()) out.push(...walk(full));
-    else if (e.isFile()) out.push(full);
+    if (e.isDirectory()) {
+      out.push(...walk(full));
+    } else if (e.isFile()) {
+      out.push(full);
+    }
   }
   return out;
 }
@@ -60,21 +66,28 @@ function stripFront(text) {
 }
 
 function parseAwarenessRange(legacyBlock) {
-  if (!legacyBlock) return null;
+  if (!legacyBlock) {
+    return null;
+  }
   const m = legacyBlock.match(/Awareness Range:\s*(\d+)\s*-\s*(\d+)%/i);
-  if (m) return [parseInt(m[1], 10), parseInt(m[2], 10)];
+  if (m) {
+    return [parseInt(m[1], 10), parseInt(m[2], 10)];
+  }
   return null;
 }
 
 function deriveBasics(filePath, legacyBlock) {
   const base = path.basename(filePath);
   const m = base.match(FILE_RE);
-  if (!m) return null;
+  if (!m) {
+    return null;
+  }
   const shortChar = m[1];
   const pathPhilosophy = m[2];
   const code = m[3];
   const num = m[4];
-  const character = shortChar === 'arch' ? 'archaeologist' : shortChar === 'algo' ? 'algorithm' : 'lastHuman';
+  const character =
+    shortChar === 'arch' ? 'archaeologist' : shortChar === 'algo' ? 'algorithm' : 'lastHuman';
   const transformationState = code === 'FR' ? 'firstRevisit' : 'metaAware';
   const nodeId = `${shortChar}-L2-${pathPhilosophy}`;
   const variationId = `${shortChar}-L2-${pathPhilosophy}-${code}-${num}`;
@@ -86,15 +99,24 @@ function deriveBasics(filePath, legacyBlock) {
 }
 
 function parseSnakeLegacy(front) {
-  if (!/variation_id:/i.test(front)) return null;
+  if (!/variation_id:/i.test(front)) {
+    return null;
+  }
   const awarenessMin = (front.match(/awareness_min:\s*(\d+)/i) || [])[1];
   const awarenessMax = (front.match(/awareness_max:\s*(\d+)/i) || [])[1];
   const themesBlockMatch = front.match(/themes:\s*\r?\n([\s\S]*?)(?:\r?\n\w|$)/i);
   const themesRaw = themesBlockMatch ? themesBlockMatch[1] : '';
-  const themes = themesRaw.split(/\r?\n/).map(s => s.trim()).filter(Boolean).slice(0,5);
+  const themes = themesRaw
+    .split(/\r?\n/)
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .slice(0, 5);
   return {
-    awarenessRange: awarenessMin && awarenessMax ? [parseInt(awarenessMin,10), parseInt(awarenessMax,10)] : null,
-    primaryThemes: themes
+    awarenessRange:
+      awarenessMin && awarenessMax
+        ? [parseInt(awarenessMin, 10), parseInt(awarenessMax, 10)]
+        : null,
+    primaryThemes: themes,
   };
 }
 
@@ -136,15 +158,22 @@ function defaultsForPath(pathPhilosophy) {
 }
 
 function alignedKey(pathPhilosophy) {
-  if (pathPhilosophy === 'accept') return 'preserve';
-  if (pathPhilosophy === 'resist') return 'release';
+  if (pathPhilosophy === 'accept') {
+    return 'preserve';
+  }
+  if (pathPhilosophy === 'resist') {
+    return 'release';
+  }
   return 'transform';
 }
 
 function alignedText(pathPhilosophy, character) {
-  const flavor = character === 'archaeologist' ? 'witness and authentication logs'
-    : character === 'algorithm' ? 'stream coordination and processing architecture'
-    : 'embodied doubt and physical cost';
+  const flavor =
+    character === 'archaeologist'
+      ? 'witness and authentication logs'
+      : character === 'algorithm'
+        ? 'stream coordination and processing architecture'
+        : 'embodied doubt and physical cost';
   if (pathPhilosophy === 'accept') {
     return `Preservation operates as witness—continuity through standards and presence when proof cannot be guaranteed; grounded in ${flavor}.`;
   }
@@ -172,40 +201,102 @@ function buildMeta(basics, wordCount) {
       consciousnessQuestion: d.cq,
       philosophicalStance: d.stance,
       observerEffect: d.observerEffect,
-      crossCharacterReferences: []
+      crossCharacterReferences: [],
     },
     narrativeElements: {
       worldBuildingFocus: [],
       locationElements: [],
       technicalDetails: [],
       emotionalTone: 'contemplative',
-      observerPosition: basics.character === 'archaeologist' ? 'meta-archaeological-self-aware' : basics.character === 'algorithm' ? 'multi-stream-analytic-observer' : 'embodied-empirical-skeptic',
+      observerPosition:
+        basics.character === 'archaeologist'
+          ? 'meta-archaeological-self-aware'
+          : basics.character === 'algorithm'
+            ? 'multi-stream-analytic-observer'
+            : 'embodied-empirical-skeptic',
       temporalBleedingLevel: basics.transformationState === 'firstRevisit' ? 'low' : 'high',
-      voiceSignature: basics.character === 'archaeologist' ? 'clinical-to-philosophical-rhythm' : basics.character === 'algorithm' ? 'analytical-iterative-cadence' : 'embodied-skeptical-register',
+      voiceSignature:
+        basics.character === 'archaeologist'
+          ? 'clinical-to-philosophical-rhythm'
+          : basics.character === 'algorithm'
+            ? 'analytical-iterative-cadence'
+            : 'embodied-skeptical-register',
       narrativeArc: d.arc,
-      pacing: d.pacing
+      pacing: d.pacing,
     },
     l3SeedContributions: {
-      preserve: { text: 'Continuation can honor method and memory even without certainty.', weight: 'moderate', keyPhrases: [] },
-      release: { text: 'Acceptance of limits can be an act of integrity when proof is unavailable.', weight: 'moderate', keyPhrases: [] },
-      transform: { text: 'Inquiry itself can reshape both observer and observed toward a new form.', weight: 'moderate', keyPhrases: [] }
+      preserve: {
+        text: 'Continuation can honor method and memory even without certainty.',
+        weight: 'moderate',
+        keyPhrases: [],
+      },
+      release: {
+        text: 'Acceptance of limits can be an act of integrity when proof is unavailable.',
+        weight: 'moderate',
+        keyPhrases: [],
+      },
+      transform: {
+        text: 'Inquiry itself can reshape both observer and observed toward a new form.',
+        weight: 'moderate',
+        keyPhrases: [],
+      },
     },
     generationHints: {
       keyPhrases: [],
-      philosophicalCulmination: d.pathPhilosophy === 'accept' ? 'verification-shifts-to-witness-continuity-through-presence' : d.pathPhilosophy === 'resist' ? 'recognition-that-proof-remains-unattainable-integrity-chooses-limits' : 'inquiry-reveals-method-as-agent-of-change',
+      philosophicalCulmination:
+        d.pathPhilosophy === 'accept'
+          ? 'verification-shifts-to-witness-continuity-through-presence'
+          : d.pathPhilosophy === 'resist'
+            ? 'recognition-that-proof-remains-unattainable-integrity-chooses-limits'
+            : 'inquiry-reveals-method-as-agent-of-change',
       convergenceAlignment: d.alignment,
-      narrativeProgression: d.pathPhilosophy === 'accept' ? 'external-verification-to-internal-witness' : d.pathPhilosophy === 'resist' ? 'proof-seeking-to-integrity-through-limits' : 'analysis-to-transformation',
-      characterDevelopment: d.pathPhilosophy === 'accept' ? 'witness-over-proof' : d.pathPhilosophy === 'resist' ? 'rigor-over-resolution' : 'inquiry-becomes-change',
-      emotionalJourney: d.pathPhilosophy === 'accept' ? 'anxiety-to-peace' : d.pathPhilosophy === 'resist' ? 'tension-to-integrity' : 'curiosity-to-revelation'
+      narrativeProgression:
+        d.pathPhilosophy === 'accept'
+          ? 'external-verification-to-internal-witness'
+          : d.pathPhilosophy === 'resist'
+            ? 'proof-seeking-to-integrity-through-limits'
+            : 'analysis-to-transformation',
+      characterDevelopment:
+        d.pathPhilosophy === 'accept'
+          ? 'witness-over-proof'
+          : d.pathPhilosophy === 'resist'
+            ? 'rigor-over-resolution'
+            : 'inquiry-becomes-change',
+      emotionalJourney:
+        d.pathPhilosophy === 'accept'
+          ? 'anxiety-to-peace'
+          : d.pathPhilosophy === 'resist'
+            ? 'tension-to-integrity'
+            : 'curiosity-to-revelation',
     },
     characterDevelopment: {
-      stanceEvolution: d.pathPhilosophy === 'accept' ? 'from-scientist-to-witness' : d.pathPhilosophy === 'resist' ? 'from-seeking-proof-to-sustaining-standards' : 'from-methodical-analysis-to-transformative-inquiry',
-      relationshipToArchive: basics.character === 'archaeologist' ? 'sacred-trust-protective' : basics.character === 'algorithm' ? 'data-integrity-priority' : 'contested-resource-skeptical',
-      relationshipToMethod: d.pathPhilosophy === 'accept' ? 'witness-over-test' : d.pathPhilosophy === 'resist' ? 'rigor-over-resolution' : 'inquiry-as-transformation',
+      stanceEvolution:
+        d.pathPhilosophy === 'accept'
+          ? 'from-scientist-to-witness'
+          : d.pathPhilosophy === 'resist'
+            ? 'from-seeking-proof-to-sustaining-standards'
+            : 'from-methodical-analysis-to-transformative-inquiry',
+      relationshipToArchive:
+        basics.character === 'archaeologist'
+          ? 'sacred-trust-protective'
+          : basics.character === 'algorithm'
+            ? 'data-integrity-priority'
+            : 'contested-resource-skeptical',
+      relationshipToMethod:
+        d.pathPhilosophy === 'accept'
+          ? 'witness-over-test'
+          : d.pathPhilosophy === 'resist'
+            ? 'rigor-over-resolution'
+            : 'inquiry-as-transformation',
       awarenessOfOthers: 'light',
       selfAwareness: 'nascent',
-      philosophicalEvolution: d.pathPhilosophy === 'accept' ? 'verification-to-witnessing-presence' : d.pathPhilosophy === 'resist' ? 'testing-to-integrity-through-limits' : 'method-to-evolutionary-inquiry'
-    }
+      philosophicalEvolution:
+        d.pathPhilosophy === 'accept'
+          ? 'verification-to-witnessing-presence'
+          : d.pathPhilosophy === 'resist'
+            ? 'testing-to-integrity-through-limits'
+            : 'method-to-evolutionary-inquiry',
+    },
   };
   const ak = alignedKey(basics.pathPhilosophy);
   meta.l3SeedContributions[ak].weight = 'strong';
@@ -215,7 +306,9 @@ function buildMeta(basics, wordCount) {
 
 function backup(fp) {
   const dir = 'metadata-backups';
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
   const ts = new Date().toISOString().replace(/[:.]/g, '-');
   const dest = path.join(dir, `${path.basename(fp)}.${ts}.legacyconv.bak`);
   fs.copyFileSync(fp, dest);
@@ -224,13 +317,17 @@ function backup(fp) {
 
 function main() {
   const args = process.argv.slice(2);
-  const rootArg = args.find(a => a.startsWith('--root='));
+  const rootArg = args.find((a) => a.startsWith('--root='));
   const root = rootArg ? rootArg.split('=')[1] : 'docs';
-  const files = walk(root).filter(f => FILE_RE.test(path.basename(f)));
-  let converted = 0, skipped = 0;
+  const files = walk(root).filter((f) => FILE_RE.test(path.basename(f)));
+  let converted = 0,
+    skipped = 0;
   for (const fp of files) {
     const text = fs.readFileSync(fp, 'utf-8');
-    if (!hasFront(text)) { skipped++; continue; }
+    if (!hasFront(text)) {
+      skipped++;
+      continue;
+    }
     const front = extractFront(text);
     let needs = false;
     try {
@@ -241,17 +338,27 @@ function main() {
       // legacy or malformed
       needs = true;
     }
-    if (!needs) { skipped++; continue; }
+    if (!needs) {
+      skipped++;
+      continue;
+    }
     const basics = deriveBasics(fp, front);
-    if (!basics) { skipped++; continue; }
+    if (!basics) {
+      skipped++;
+      continue;
+    }
     const wc = countWords(text);
     const meta = buildMeta(basics, wc);
     // If snake_case legacy with themes/awareness present, prefer them
     const snake = parseSnakeLegacy(front);
     if (snake) {
-      if (snake.awarenessRange) meta.awarenessRange = snake.awarenessRange;
+      if (snake.awarenessRange) {
+        meta.awarenessRange = snake.awarenessRange;
+      }
       if (Array.isArray(snake.primaryThemes) && snake.primaryThemes.length > 0) {
-        meta.thematicContent.primaryThemes = snake.primaryThemes.map(s => s.toLowerCase().replace(/\s+/g,'-'));
+        meta.thematicContent.primaryThemes = snake.primaryThemes.map((s) =>
+          s.toLowerCase().replace(/\s+/g, '-'),
+        );
       }
     }
     const b = backup(fp);

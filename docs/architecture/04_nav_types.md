@@ -87,27 +87,27 @@
 
 **File:** `src/stores/storyStore.ts:836-1004`
 
-| Step | Lines | Action | State Updates |
-|------|-------|--------|---------------|
-| **1. Validation** | 838-843 | Check node exists in state.nodes | Return early if invalid |
-| **2. Visit Record** | 846-865 | Update or create VisitRecord | `visitedNodes[nodeId]`:<br>- `visitCount++`<br>- `visitTimestamps.push(now)`<br>- `lastVisited = now`<br>- `currentState = 'initial'` (first visit only) |
-| **3. Character Tracking** | 867-875 | Increment character-specific counter | `characterNodesVisited.{arch/algo/lastHuman}++` |
-| **4. Journey Tracking Init** | 878-880 | Create journeyTracking if missing | `journeyTracking = createInitialJourneyTracking()` |
-| **5. Cross-Character** | 883-897 | Detect character switch, increment connection | `crossCharacterConnections.{arch_algo/arch_hum/algo_hum}++`<br>`lastCharacterVisited = currentChar` |
-| **6. Revisit Frequency** | 899-907 | Calculate % of nodes revisited | `revisitFrequency = (revisits / totalVisits) * 100` |
-| **7. Exploration Metrics** | 909-918 | Calculate breadth & depth | `breadth = (unique / total) * 100`<br>`depth = totalVisits / unique` |
-| **8. Navigation Pattern** | 920-921 | Classify linear/exploratory/recursive | `navigationPattern = classifyNavigationPattern()` |
-| **9. L2 Unlock** | 923-935 | Unlock L2 character on L1 visit | `unlockedL2Characters.push(character)`<br>Clear L3 cache if L2 visit |
-| **10. Philosophy Tracking** | 937-944 | Record L2 choice (accept/resist/invest) | `l2Choices.{accept/resist/invest}++` |
-| **11. Reading Path** | 946 | Append to ordered visit list | `readingPath.push(nodeId)` |
-| **12. Timestamp** | 947 | Update last active | `lastActiveTimestamp = now` |
-| **13. Temporal Awareness** | 951 | Recalculate 0-100 awareness | `updateTemporalAwareness()` → `temporalAwarenessLevel` |
-| **14. Journey Recalc** | 952 | Recalculate pattern & philosophy | `updateJourneyTracking()` → `currentJourneyPattern`, `dominantPhilosophy` |
-| **15. Transformation States** | 954-967 | Re-determine states for ALL visited nodes | For each visitedNode:<br>`currentState = determineTransformationState()` |
-| **16. Special Transforms** | 969-981 | Check for unique unlock events | `specialTransformations.push(...newTransforms)` |
-| **17. Connection Reveals** | 983-998 | Unlock new connections | `unlockedConnections.push(...newConnIds)` |
-| **18. Unlock Evaluation** | 1001 | **CRITICAL:** Check all unlock conditions | `evaluateUnlocks()` → `recentlyUnlockedNodes[]` |
-| **19. Persistence** | 1003 | Save to localStorage | `saveProgress()` |
+| Step                          | Lines   | Action                                        | State Updates                                                                                                                                            |
+| ----------------------------- | ------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1. Validation**             | 838-843 | Check node exists in state.nodes              | Return early if invalid                                                                                                                                  |
+| **2. Visit Record**           | 846-865 | Update or create VisitRecord                  | `visitedNodes[nodeId]`:<br>- `visitCount++`<br>- `visitTimestamps.push(now)`<br>- `lastVisited = now`<br>- `currentState = 'initial'` (first visit only) |
+| **3. Character Tracking**     | 867-875 | Increment character-specific counter          | `characterNodesVisited.{arch/algo/lastHuman}++`                                                                                                          |
+| **4. Journey Tracking Init**  | 878-880 | Create journeyTracking if missing             | `journeyTracking = createInitialJourneyTracking()`                                                                                                       |
+| **5. Cross-Character**        | 883-897 | Detect character switch, increment connection | `crossCharacterConnections.{arch_algo/arch_hum/algo_hum}++`<br>`lastCharacterVisited = currentChar`                                                      |
+| **6. Revisit Frequency**      | 899-907 | Calculate % of nodes revisited                | `revisitFrequency = (revisits / totalVisits) * 100`                                                                                                      |
+| **7. Exploration Metrics**    | 909-918 | Calculate breadth & depth                     | `breadth = (unique / total) * 100`<br>`depth = totalVisits / unique`                                                                                     |
+| **8. Navigation Pattern**     | 920-921 | Classify linear/exploratory/recursive         | `navigationPattern = classifyNavigationPattern()`                                                                                                        |
+| **9. L2 Unlock**              | 923-935 | Unlock L2 character on L1 visit               | `unlockedL2Characters.push(character)`<br>Clear L3 cache if L2 visit                                                                                     |
+| **10. Philosophy Tracking**   | 937-944 | Record L2 choice (accept/resist/invest)       | `l2Choices.{accept/resist/invest}++`                                                                                                                     |
+| **11. Reading Path**          | 946     | Append to ordered visit list                  | `readingPath.push(nodeId)`                                                                                                                               |
+| **12. Timestamp**             | 947     | Update last active                            | `lastActiveTimestamp = now`                                                                                                                              |
+| **13. Temporal Awareness**    | 951     | Recalculate 0-100 awareness                   | `updateTemporalAwareness()` → `temporalAwarenessLevel`                                                                                                   |
+| **14. Journey Recalc**        | 952     | Recalculate pattern & philosophy              | `updateJourneyTracking()` → `currentJourneyPattern`, `dominantPhilosophy`                                                                                |
+| **15. Transformation States** | 954-967 | Re-determine states for ALL visited nodes     | For each visitedNode:<br>`currentState = determineTransformationState()`                                                                                 |
+| **16. Special Transforms**    | 969-981 | Check for unique unlock events                | `specialTransformations.push(...newTransforms)`                                                                                                          |
+| **17. Connection Reveals**    | 983-998 | Unlock new connections                        | `unlockedConnections.push(...newConnIds)`                                                                                                                |
+| **18. Unlock Evaluation**     | 1001    | **CRITICAL:** Check all unlock conditions     | `evaluateUnlocks()` → `recentlyUnlockedNodes[]`                                                                                                          |
+| **19. Persistence**           | 1003    | Save to localStorage                          | `saveProgress()`                                                                                                                                         |
 
 **Total Execution:** ~19 distinct state update steps per visit
 
@@ -116,11 +116,13 @@
 ### B. Critical Timing Notes
 
 **1. Visit Recorded BEFORE Content Displayed**
+
 - `visitNode()` called in `useEffect` (StoryView.tsx:299-303)
 - Effect runs **after** initial render
 - First render shows loading state → visit records → re-render with updated state
 
 **2. Unlock Trigger Placement**
+
 ```
 visitNode() sequence:
   ├─► Update visit metadata (steps 1-12)
@@ -135,6 +137,7 @@ visitNode() sequence:
 **Rationale:** Unlock conditions depend on updated awareness, journey pattern, visit counts, etc.
 
 **3. Awareness Propagation**
+
 ```
 Visit recorded (step 2)
   └─► Character count incremented (step 3)
@@ -151,6 +154,7 @@ Visit recorded (step 2)
 **File:** `src/stores/storyStore.ts:462-490, 836-1004`
 
 **4. Transformation State Cascading**
+
 - Step 15 re-determines states for **ALL** visited nodes, not just current
 - If awareness crosses 20% threshold → all visited nodes can shift to `firstRevisit`
 - If awareness crosses 50% threshold → all visited nodes can shift to `metaAware`
@@ -160,21 +164,21 @@ Visit recorded (step 2)
 
 ## 3. Sequencing Table — Events → State Updates
 
-| Event | Trigger Location | Immediate State Changes | Derived State Changes | Async/Delayed Effects |
-|-------|------------------|-------------------------|------------------------|------------------------|
-| **User clicks node** | NodeMap.tsx:176 | `selectedNode = nodeId`<br>`storyViewOpen = true` | — | Screen shake animation (300ms)<br>Glitch effect (800ms) |
-| **StoryView opens** | StoryView.tsx:299 | — | — | Auto-call `visitNode()` in useEffect |
-| **Visit recorded** | storyStore.ts:846 | `visitCount++`<br>`visitTimestamps.push()`<br>`readingPath.push()` | — | — |
-| **Character tracked** | storyStore.ts:868 | `characterNodesVisited.{char}++` | — | — |
-| **Cross-char switch** | storyStore.ts:891 | `crossCharacterConnections.{key}++`<br>`lastCharacterVisited = char` | — | — |
-| **Metrics calc** | storyStore.ts:906, 916 | `revisitFrequency = %`<br>`explorationMetrics = {breadth, depth}` | — | — |
-| **L2 unlock** | storyStore.ts:928 | `unlockedL2Characters.push()` | L3 cache cleared if L2 visit | — |
-| **Philosophy tracked** | storyStore.ts:942 | `l2Choices.{accept/resist/invest}++` | — | — |
-| **Awareness update** | storyStore.ts:951 | `temporalAwarenessLevel = 0-100` | Journey pattern recalc → `currentJourneyPattern`<br>Philosophy recalc → `dominantPhilosophy` | — |
-| **Transform states** | storyStore.ts:960 | For **all** visited nodes:<br>`currentState = determineTransformationState()` | — | Affects variation selection on next render |
-| **Unlock evaluation** | storyStore.ts:1001 | `recentlyUnlockedNodes.push()` for newly unlocked | — | Unlock notifications displayed |
-| **Progress saved** | storyStore.ts:1003 | — | — | localStorage write (async) |
-| **User closes view** | StoryView.tsx:281 | `storyViewOpen = false` | `selectedNode` remains set | Reading time reset (useEffect cleanup) |
+| Event                  | Trigger Location       | Immediate State Changes                                                       | Derived State Changes                                                                        | Async/Delayed Effects                                   |
+| ---------------------- | ---------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| **User clicks node**   | NodeMap.tsx:176        | `selectedNode = nodeId`<br>`storyViewOpen = true`                             | —                                                                                            | Screen shake animation (300ms)<br>Glitch effect (800ms) |
+| **StoryView opens**    | StoryView.tsx:299      | —                                                                             | —                                                                                            | Auto-call `visitNode()` in useEffect                    |
+| **Visit recorded**     | storyStore.ts:846      | `visitCount++`<br>`visitTimestamps.push()`<br>`readingPath.push()`            | —                                                                                            | —                                                       |
+| **Character tracked**  | storyStore.ts:868      | `characterNodesVisited.{char}++`                                              | —                                                                                            | —                                                       |
+| **Cross-char switch**  | storyStore.ts:891      | `crossCharacterConnections.{key}++`<br>`lastCharacterVisited = char`          | —                                                                                            | —                                                       |
+| **Metrics calc**       | storyStore.ts:906, 916 | `revisitFrequency = %`<br>`explorationMetrics = {breadth, depth}`             | —                                                                                            | —                                                       |
+| **L2 unlock**          | storyStore.ts:928      | `unlockedL2Characters.push()`                                                 | L3 cache cleared if L2 visit                                                                 | —                                                       |
+| **Philosophy tracked** | storyStore.ts:942      | `l2Choices.{accept/resist/invest}++`                                          | —                                                                                            | —                                                       |
+| **Awareness update**   | storyStore.ts:951      | `temporalAwarenessLevel = 0-100`                                              | Journey pattern recalc → `currentJourneyPattern`<br>Philosophy recalc → `dominantPhilosophy` | —                                                       |
+| **Transform states**   | storyStore.ts:960      | For **all** visited nodes:<br>`currentState = determineTransformationState()` | —                                                                                            | Affects variation selection on next render              |
+| **Unlock evaluation**  | storyStore.ts:1001     | `recentlyUnlockedNodes.push()` for newly unlocked                             | —                                                                                            | Unlock notifications displayed                          |
+| **Progress saved**     | storyStore.ts:1003     | —                                                                             | —                                                                                            | localStorage write (async)                              |
+| **User closes view**   | StoryView.tsx:281      | `storyViewOpen = false`                                                       | `selectedNode` remains set                                                                   | Reading time reset (useEffect cleanup)                  |
 
 ---
 
@@ -182,19 +186,20 @@ Visit recorded (step 2)
 
 ### A. `any` Usage (11 total occurrences)
 
-| File | Line | Context | Severity | Recommendation |
-|------|------|---------|----------|----------------|
-| `variationLoader.ts` | 58 | `function normalizeVariation(variation: any, ...)` | 🔴 **High** | Replace with `unknown` + type guards |
-| `variationLoader.ts` | 163 | `.map((v: any) => normalizeVariation(...))` | 🔴 **High** | Use `VariationFile['variations'][number]` |
-| `variationLoader.ts` | 198 | `variations: fileData.variations?.map((v: any) => ...)` | 🔴 **High** | Same as above |
-| `contentLoader.ts` | 106 | `const isDef = (d: any): d is CharacterNodeDefinitionFile` | 🟡 **Medium** | Acceptable for type guard, but can use `unknown` |
-| `contentLoader.ts` | 110-114 | Debug logging: `(charData as any).nodes` (5 occurrences) | 🟢 **Low** | Cosmetic, already type-guarded above |
-| `contentLoader.ts` | 222 | `character: normalizeCharacter((n as any).character)` | 🟡 **Medium** | Use proper union type |
-| `contentLoader.ts` | 223 | `position: (n as any).position \|\| getNodePosition()` | 🟡 **Medium** | Add `position?` to type |
-| `errorHandler.ts` | 9, 19 | `context?: Record<string, any>` (2 occurrences) | 🟢 **Low** | Generic error context, acceptable |
-| `performanceMonitor.ts` | 16, 26, 29, 134 | `metadata?: Record<string, any>` (4 occurrences) | 🟢 **Low** | Generic perf metadata, acceptable |
+| File                    | Line            | Context                                                    | Severity      | Recommendation                                   |
+| ----------------------- | --------------- | ---------------------------------------------------------- | ------------- | ------------------------------------------------ |
+| `variationLoader.ts`    | 58              | `function normalizeVariation(variation: any, ...)`         | 🔴 **High**   | Replace with `unknown` + type guards             |
+| `variationLoader.ts`    | 163             | `.map((v: any) => normalizeVariation(...))`                | 🔴 **High**   | Use `VariationFile['variations'][number]`        |
+| `variationLoader.ts`    | 198             | `variations: fileData.variations?.map((v: any) => ...)`    | 🔴 **High**   | Same as above                                    |
+| `contentLoader.ts`      | 106             | `const isDef = (d: any): d is CharacterNodeDefinitionFile` | 🟡 **Medium** | Acceptable for type guard, but can use `unknown` |
+| `contentLoader.ts`      | 110-114         | Debug logging: `(charData as any).nodes` (5 occurrences)   | 🟢 **Low**    | Cosmetic, already type-guarded above             |
+| `contentLoader.ts`      | 222             | `character: normalizeCharacter((n as any).character)`      | 🟡 **Medium** | Use proper union type                            |
+| `contentLoader.ts`      | 223             | `position: (n as any).position \|\| getNodePosition()`     | 🟡 **Medium** | Add `position?` to type                          |
+| `errorHandler.ts`       | 9, 19           | `context?: Record<string, any>` (2 occurrences)            | 🟢 **Low**    | Generic error context, acceptable                |
+| `performanceMonitor.ts` | 16, 26, 29, 134 | `metadata?: Record<string, any>` (4 occurrences)           | 🟢 **Low**    | Generic perf metadata, acceptable                |
 
 **Critical Path Files:**
+
 - ✅ `storyStore.ts` — **0 `any` usages** (clean!)
 - ✅ `useVariationSelection.ts` — **0 `any` usages**
 - ⚠️ `variationLoader.ts` — **3 `any` usages** (high priority fix)
@@ -204,16 +209,16 @@ Visit recorded (step 2)
 
 ### B. Type Assertions (`as unknown`, `as any`)
 
-| File | Line | Code | Issue |
-|------|------|------|-------|
-| **Navigation Components** | | | |
-| `CustomStoryNode.tsx` | 158 | `const { node, nodeState } = data as unknown as CustomStoryNodeData` | 🔴 React Flow `data` typed as `Record<string, unknown>` — unavoidable |
-| `NodeMap.tsx` | 68 | `data: { ... } as Record<string, unknown>` | 🟡 Explicit type erasure for React Flow |
-| `NodeMap.tsx` | 207 | `const nodeData = node.data as unknown as CustomStoryNodeData` | 🔴 Same as line 158 |
-| **Content Loading** | | | |
-| `contentLoader.ts` | 106 | `(d as any): d is CharacterNodeDefinitionFile` | 🟢 Type guard parameter — standard pattern |
-| `contentLoader.ts` | 110-114 | `(charData as any).nodes` (debug logs) | 🟢 Already type-guarded |
-| `contentLoader.ts` | 222-223 | `(n as any).character`, `(n as any).position` | 🟡 Should add to interface |
+| File                      | Line    | Code                                                                 | Issue                                                                 |
+| ------------------------- | ------- | -------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **Navigation Components** |         |                                                                      |                                                                       |
+| `CustomStoryNode.tsx`     | 158     | `const { node, nodeState } = data as unknown as CustomStoryNodeData` | 🔴 React Flow `data` typed as `Record<string, unknown>` — unavoidable |
+| `NodeMap.tsx`             | 68      | `data: { ... } as Record<string, unknown>`                           | 🟡 Explicit type erasure for React Flow                               |
+| `NodeMap.tsx`             | 207     | `const nodeData = node.data as unknown as CustomStoryNodeData`       | 🔴 Same as line 158                                                   |
+| **Content Loading**       |         |                                                                      |                                                                       |
+| `contentLoader.ts`        | 106     | `(d as any): d is CharacterNodeDefinitionFile`                       | 🟢 Type guard parameter — standard pattern                            |
+| `contentLoader.ts`        | 110-114 | `(charData as any).nodes` (debug logs)                               | 🟢 Already type-guarded                                               |
+| `contentLoader.ts`        | 222-223 | `(n as any).character`, `(n as any).position`                        | 🟡 Should add to interface                                            |
 
 **Root Cause:** React Flow's generic `Node` type uses `data: Record<string, unknown>`, forcing type assertions in node components.
 
@@ -221,10 +226,10 @@ Visit recorded (step 2)
 
 ### C. `unknown` Usage in Type Definitions
 
-| File | Line | Type | Usage | Valid? |
-|------|------|------|-------|--------|
-| `Story.ts` | 69 | `migrate: (oldState: unknown) => unknown` | Migration function signature | ✅ Correct — old state structure unknown |
-| `Variation.ts` | 14, 24 | `'unknown'` (literal) | Default value for `JourneyPattern` \| `PathPhilosophy` | ✅ Correct — sentinel value |
+| File           | Line   | Type                                      | Usage                                                  | Valid?                                   |
+| -------------- | ------ | ----------------------------------------- | ------------------------------------------------------ | ---------------------------------------- |
+| `Story.ts`     | 69     | `migrate: (oldState: unknown) => unknown` | Migration function signature                           | ✅ Correct — old state structure unknown |
+| `Variation.ts` | 14, 24 | `'unknown'` (literal)                     | Default value for `JourneyPattern` \| `PathPhilosophy` | ✅ Correct — sentinel value              |
 
 **Assessment:** Both uses are **intentional and correct**.
 
@@ -266,16 +271,17 @@ interface Node<T = any> {
 // We use:
 interface Node {
   // ...
-  data: Record<string, unknown>;  // NodeMap.tsx:68
+  data: Record<string, unknown>; // NodeMap.tsx:68
 }
 
 // Then cast back:
-const { node } = data as unknown as CustomStoryNodeData;  // Line 158
+const { node } = data as unknown as CustomStoryNodeData; // Line 158
 ```
 
 **Issue:** Type-safe input → type erasure → unsafe cast back.
 
 **Better approach:**
+
 ```typescript
 // Option 1: Use React Flow's generic
 type StoryFlowNode = Node<CustomStoryNodeData>;
@@ -296,12 +302,13 @@ content: {
   initial: string;
   firstRevisit: string;
   metaAware: string;
-};
+}
 ```
 
 **Issue:** No type enforcing **all three states must be present**.
 
 **Better:**
+
 ```typescript
 type TransformationContent = Record<TransformationState, string>;
 
@@ -314,6 +321,7 @@ interface TransformationContent {
 ```
 
 **Current implementation allows:**
+
 ```typescript
 content: { initial: "...", firstRevisit: "", metaAware: "" }  // Empty strings acceptable
 ```
@@ -332,6 +340,7 @@ journeyTracking?: JourneyTracking;  // Optional
 ```
 
 **Problem:** Requires defensive checks in 20+ locations:
+
 ```typescript
 // storyStore.ts:122, 514, 562, 578, 878, etc.
 if (!state.progress.journeyTracking) {
@@ -340,8 +349,9 @@ if (!state.progress.journeyTracking) {
 ```
 
 **Fix:** Make non-optional, initialize in `createInitialProgress()`:
+
 ```typescript
-journeyTracking: JourneyTracking;  // Required
+journeyTracking: JourneyTracking; // Required
 ```
 
 ---
@@ -356,6 +366,7 @@ const currentNode: StoryNode | null = useMemo(() => {
 ```
 
 **Flow:**
+
 ```
 selectedNode: string | null
   └─► currentNode: StoryNode | null
@@ -365,6 +376,7 @@ selectedNode: string | null
 **Issue:** If `selectedNode` is set but node doesn't exist in Map, returns `null`.
 
 **Better:** Validate `selectedNode` before setting, ensure invariant:
+
 ```typescript
 // In storyStore.selectNode:
 selectNode: (nodeId: string | null) => {
@@ -373,12 +385,13 @@ selectNode: (nodeId: string | null) => {
     return;
   }
   set({ selectedNode: nodeId });
-}
+};
 ```
 
 Then `currentNode` can be:
+
 ```typescript
-const currentNode: StoryNode = nodes.get(selectedNode)!;  // Non-null assertion safe
+const currentNode: StoryNode = nodes.get(selectedNode)!; // Non-null assertion safe
 ```
 
 ---
@@ -388,9 +401,9 @@ const currentNode: StoryNode = nodes.get(selectedNode)!;  // Non-null assertion 
 ```typescript
 // Variation.ts:42-70
 interface VariationMetadata {
-  wordCount?: number;        // Should be required
-  variationId?: string;      // Should be required
-  nodeId?: string;           // Should be required
+  wordCount?: number; // Should be required
+  variationId?: string; // Should be required
+  nodeId?: string; // Should be required
   // ... 20+ optional fields
 }
 ```
@@ -398,13 +411,14 @@ interface VariationMetadata {
 **Problem:** Almost all fields optional, enabling incomplete variations.
 
 **Better:** Separate into **required core** + **optional enrichment**:
+
 ```typescript
 interface VariationMetadataCore {
-  variationId: string;       // Required
-  nodeId: string;            // Required
-  wordCount: number;         // Required
-  layer: number;             // Required
-  createdDate: string;       // Required
+  variationId: string; // Required
+  nodeId: string; // Required
+  wordCount: number; // Required
+  layer: number; // Required
+  createdDate: string; // Required
 }
 
 interface VariationMetadataEnrichment {
@@ -427,11 +441,9 @@ type VariationMetadata = VariationMetadataCore & VariationMetadataEnrichment;
    - **Impact:** No compile-time checking of variation structure
    - **Risk:** Runtime errors if variation file structure changes
    - **Fix:**
+
    ```typescript
-   function normalizeVariation(
-     variation: unknown,
-     fileNodeId?: string
-   ): Variation {
+   function normalizeVariation(variation: unknown, fileNodeId?: string): Variation {
      // Add type guards
      if (!isPlainObject(variation)) throw new Error('Invalid variation');
      // ...
@@ -481,17 +493,20 @@ type VariationMetadata = VariationMetadataCore & VariationMetadataEnrichment;
 ## 6. Type Safety Recommendations
 
 ### High Priority
+
 1. ✅ **Replace `any` with `unknown`** in variationLoader.ts:58
 2. ✅ **Add `variationId` to VisitRecord** for deduplication tracking
 3. ✅ **Use React Flow generic types** instead of `as unknown` casts
 4. ✅ **Make journeyTracking required** to eliminate null checks
 
 ### Medium Priority
+
 5. ⚠️ **Split VariationMetadata** into required core + optional enrichment
 6. ⚠️ **Add type guards** in contentLoader instead of type assertions
 7. ⚠️ **Validate selectedNode** before setting to ensure Map consistency
 
 ### Low Priority
+
 8. 🟡 **Extract debug logging** to separate utility (contentLoader.ts)
 9. 🟡 **Add JSDoc comments** to type guard functions for clarity
 10. 🟡 **Enable stricter TypeScript flags** (noUncheckedIndexedAccess, exactOptionalPropertyTypes)
@@ -505,6 +520,7 @@ type VariationMetadata = VariationMetadataCore & VariationMetadataEnrichment;
 **Scenario:** User clicks Node B before `visitNode(A)` completes.
 
 **Current Behavior:**
+
 ```
 Click Node A (t=0ms)
   └─► selectNode(A)  [synchronous]
@@ -521,6 +537,7 @@ Click Node B (t=20ms)  ← DURING visitNode(A)
 ```
 
 **Result:**
+
 - Both `visitNode(A)` and `visitNode(B)` execute
 - Race condition on state updates (Immer may serialize)
 - Both nodes recorded in `readingPath: [A, B]`
@@ -537,6 +554,7 @@ Click Node B (t=20ms)  ← DURING visitNode(A)
 **Scenario:** User clicks node, then immediately closes (ESC < 10ms).
 
 **Current Behavior:**
+
 ```
 Click Node A (t=0ms)
   └─► openStoryView(A)  [storyViewOpen = true]
@@ -549,6 +567,7 @@ User presses ESC (t=3ms)
 ```
 
 **Result:**
+
 - `visitNode()` **never called** if ESC pressed before useEffect runs
 - Node not recorded in visit history
 - No awareness/journey updates
@@ -556,12 +575,13 @@ User presses ESC (t=3ms)
 **Risk:** **Medium** — User can "peek" at nodes without recording visits.
 
 **Mitigation:** Call `visitNode()` in `openStoryView()` instead of useEffect:
+
 ```typescript
 openStoryView: (nodeId: string) => {
   // ...
   set({ storyViewOpen: true });
-  get().visitNode(nodeId);  // ← Move here
-}
+  get().visitNode(nodeId); // ← Move here
+};
 ```
 
 ---
@@ -569,10 +589,11 @@ openStoryView: (nodeId: string) => {
 ### C. L3 Node Routing
 
 **Current Flow (storyStore.ts:1027-1032):**
+
 ```typescript
 if (isL3Node(nodeId)) {
   state.openL3AssemblyView();
-  return;  // ← Early return, visitNode() NOT called
+  return; // ← Early return, visitNode() NOT called
 }
 ```
 
@@ -585,6 +606,7 @@ if (isL3Node(nodeId)) {
 **Risk:** **High** — If L3 visits not recorded, awareness/unlock calculations break.
 
 **Verification Needed:**
+
 ```bash
 grep -n "visitNode" src/components/UI/L3AssemblyView.tsx
 ```
@@ -596,6 +618,7 @@ grep -n "visitNode" src/components/UI/L3AssemblyView.tsx
 **Observation:** Unlocks evaluated **after** all visit state updates (step 18).
 
 **Edge Case:** If unlock condition depends on **current visit's increment**, it works:
+
 ```json
 {
   "type": "visitCount",
@@ -604,6 +627,7 @@ grep -n "visitNode" src/components/UI/L3AssemblyView.tsx
 ```
 
 **Flow:**
+
 ```
 Visit #5 recorded (step 2)
   └─► visitedNodes now has 5 unique entries
@@ -614,6 +638,7 @@ Visit #5 recorded (step 2)
 **Correct!** Unlock triggers immediately when condition met.
 
 **Edge Case 2:** If unlock depends on transformation state:
+
 ```json
 {
   "type": "transformation",
@@ -622,6 +647,7 @@ Visit #5 recorded (step 2)
 ```
 
 **Flow:**
+
 ```
 Visit recorded (step 2)
   └─► Awareness updated (step 13)

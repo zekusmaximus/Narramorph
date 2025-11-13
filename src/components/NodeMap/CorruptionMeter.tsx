@@ -6,7 +6,7 @@ import { useStoryStore } from '@/stores/storyStore';
  * Visual indicator of story recursion/corruption level
  */
 export function CorruptionMeter() {
-  const stats = useStoryStore(state => state.getReadingStats());
+  const stats = useStoryStore((state) => state.getReadingStats());
 
   // Calculate corruption based on transformations experienced
   const corruptionLevel = useMemo(() => {
@@ -22,9 +22,7 @@ export function CorruptionMeter() {
 
   return (
     <div className="absolute top-4 right-4 bg-black/90 backdrop-blur-sm px-4 py-3 rounded border border-gray-700/50 shadow-lg font-mono">
-      <div className="text-xs text-gray-400 mb-2 uppercase tracking-wider">
-        System Integrity
-      </div>
+      <div className="text-xs text-gray-400 mb-2 uppercase tracking-wider">System Integrity</div>
 
       {/* Corruption bar */}
       <div className="w-40 h-2 bg-gray-800 rounded-full overflow-hidden border border-gray-700">

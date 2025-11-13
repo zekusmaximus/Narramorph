@@ -1,29 +1,29 @@
 ---
-exemplar_id: "arch-L2-resist-exemplar-01"
-variation_type: "firstRevisit"
+exemplar_id: 'arch-L2-resist-exemplar-01'
+variation_type: 'firstRevisit'
 word_count: 1403
 conditions:
   visit_count: 2
-  awareness: "21-40%"
+  awareness: '21-40%'
   cross_character: false
-  visited_nodes: ["arch-L2-resist"]
-  dominant_path: "resist"
+  visited_nodes: ['arch-L2-resist']
+  dominant_path: 'resist'
 themes:
   - verification_impossibility
   - professional_standards_crisis
   - infinite_testing_regress
-transformation_focus: "Routine authentication work transforms into verification crisis as seventeen systematic tests prove consciousness fundamentally unverifiable"
+transformation_focus: 'Routine authentication work transforms into verification crisis as seventeen systematic tests prove consciousness fundamentally unverifiable'
 reusable_patterns:
-  - "Escalating test protocols that each reveal inadequacy of previous test"
-  - "Professional ethics demanding verification despite philosophical impossibility"
-  - "Tests 1-17 structure demonstrating systematic impossibility recognition"
+  - 'Escalating test protocols that each reveal inadequacy of previous test'
+  - 'Professional ethics demanding verification despite philosophical impossibility'
+  - 'Tests 1-17 structure demonstrating systematic impossibility recognition'
 ---
 
 # arch-L2-resist Exemplar 1: Pure Revisit Baseline
 
 The archaeologist received the call on a Friday afternoon, three weeks after completing what she believed was routine authentication work. The client's voice carried tension through the encrypted channel: "We need to be certain. Absolutely certain. This is my father."
 
-She understood immediately. Premium-tier preservation, family verification request, the unspoken question beneath every consciousness authentication: *Is this really them?*
+She understood immediately. Premium-tier preservation, family verification request, the unspoken question beneath every consciousness authentication: _Is this really them?_
 
 She scheduled the verification audit for Monday morning.
 

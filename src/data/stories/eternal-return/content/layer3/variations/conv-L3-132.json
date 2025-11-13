@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "readableLabel": "ML-IN-M-TB",
@@ -59,15 +56,7 @@
       "algorithm-integrated-2151",
       "human-integrated-2383"
     ],
-    "convergenceChoices": [
-      "transform-emphasized",
-      "network-evolution",
-      "unified-investigation"
-    ],
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "convergenceChoices": ["transform-emphasized", "network-evolution", "unified-investigation"],
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

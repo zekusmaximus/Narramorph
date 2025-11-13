@@ -24,29 +24,18 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "archaeologist",
-    "characterBalance": [
-      70,
-      15,
-      15
-    ],
+    "characterBalance": [70, 15, 15],
     "readableLabel": "SS-IN-M-SD",
     "humanDescription": "Started archaeologist, stayed dominant, investigate path, medium awareness, archaeologist-led synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "archaeologist-primary-with-echoes",
     "perspectiveEmphasis": "archaeological-methodology-examining-itself",
     "philosophicalCulmination": "Verification questions verification through sustained archaeological attention",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "transform-through-investigation",
     "circularCausality": "partial",
     "readerPosition": "implied-observer",
@@ -66,10 +55,6 @@
       "reader-implied"
     ],
     "philosophicalResolution": "investigative-transformation-through-verification",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

@@ -13,13 +13,13 @@ This report validates the architectural plan in `docs/architecture/05_plan.md` b
 
 ### Quick Assessment
 
-| Category | Status | Summary |
-|----------|--------|---------|
-| **Internal Consistency** | ✅ **GREEN** | Plan is logically coherent with proper dependency ordering |
-| **Repo Compatibility** | 🟡 **YELLOW** | 12/12 files exist; some minor inaccuracies in issue descriptions |
-| **3D UI Readiness** | 🟡 **YELLOW** | Core APIs exist but Sprint 1 fixes are prerequisites |
-| **Risk Level** | 🟡 **YELLOW** | Medium risk if Sprint 1 skipped; low risk if executed as planned |
-| **Overall Verdict** | ✅ **GREEN LIGHT** | Proceed with Sprint 1-3, defer Sprint 4 |
+| Category                 | Status             | Summary                                                          |
+| ------------------------ | ------------------ | ---------------------------------------------------------------- |
+| **Internal Consistency** | ✅ **GREEN**       | Plan is logically coherent with proper dependency ordering       |
+| **Repo Compatibility**   | 🟡 **YELLOW**      | 12/12 files exist; some minor inaccuracies in issue descriptions |
+| **3D UI Readiness**      | 🟡 **YELLOW**      | Core APIs exist but Sprint 1 fixes are prerequisites             |
+| **Risk Level**           | 🟡 **YELLOW**      | Medium risk if Sprint 1 skipped; low risk if executed as planned |
+| **Overall Verdict**      | ✅ **GREEN LIGHT** | Proceed with Sprint 1-3, defer Sprint 4                          |
 
 **Recommendation:** Execute Sprint 1 (State Integrity) and Sprint 2 (Type Safety) before beginning 3D UI work. Sprint 3 can run in parallel with 3D implementation. Sprint 4 is optional and should be deferred.
 
@@ -30,23 +30,27 @@ This report validates the architectural plan in `docs/architecture/05_plan.md` b
 ### ✅ Strengths
 
 **1.1 Dependency Ordering is Sound**
+
 - Sprint 1.4 (add variationId) → 1.3 (deduplication) is correct
 - Sprint 1.2 (fix timing) → 1.1 (verify L3) is appropriate
 - Sprint 2.1 (fix `any`) → 2.4 (split metadata) is logical
 - Sprint 3 correctly builds on Sprint 1-2 foundations
 
 **1.2 No Circular Dependencies**
+
 - All sprint dependencies flow forward (1→2→3→4)
 - No circular references between tickets
 - Critical path clearly identified
 
 **1.3 Effort Estimates Reasonable**
+
 - Sprint 1: 17 hours (1-2 weeks with testing) ✓
 - Sprint 2: 15 hours (1 week with testing) ✓
 - Sprint 3: 30 hours (1 week with testing) ✓
 - Sprint 4: ~60 hours (2-3 weeks, marked optional) ✓
 
 **1.4 Clear Acceptance Criteria**
+
 - Each ticket has testable acceptance criteria
 - Test cases provided for validation
 - Regression test strategy included
@@ -54,17 +58,19 @@ This report validates the architectural plan in `docs/architecture/05_plan.md` b
 ### 🟡 Minor Inconsistencies
 
 **1.1 VariationMetadata Current State**
+
 - **Plan states** (line 42-70): "VariationMetadata all optional"
 - **Reality check**: `src/types/Variation.ts:42-77` shows many fields are currently REQUIRED (not optional)
   ```typescript
-  variationId: string;        // Required (not optional)
-  nodeId: string;             // Required (not optional)
-  wordCount: number;          // Required (not optional)
+  variationId: string; // Required (not optional)
+  nodeId: string; // Required (not optional)
+  wordCount: number; // Required (not optional)
   ```
 - **Impact:** LOW - Sprint 2.4 task is still valuable (splitting core vs enrichment), but the problem statement is inaccurate
 - **Recommendation:** Reframe ticket as "improve validation" rather than "make fields required"
 
 **1.2 journeyTracking Optional Checks**
+
 - **Plan states** (line 291-336): "20+ defensive null checks" to remove
 - **Reality check**: Grep for `journeyTracking?` in storyStore.ts returned 0 results
 - **Actual code** (storyStore.ts:878-880): Already has defensive initialization:
@@ -77,6 +83,7 @@ This report validates the architectural plan in `docs/architecture/05_plan.md` b
 - **Recommendation:** Adjust ticket to focus on type change + testing, not cleanup of 20+ checks
 
 **1.3 Content File Count**
+
 - **Plan states:** "292 content files"
 - **Reality check:** `find` command returned 298 JSON files
 - **Impact:** NEGLIGIBLE - Minor discrepancy, likely due to recent additions
@@ -98,6 +105,7 @@ This report validates the architectural plan in `docs/architecture/05_plan.md` b
 All files referenced in Sprint 1-3 exist at the specified paths:
 
 **Sprint 1: State Integrity**
+
 - ✅ `src/types/Store.ts` (VisitRecord interface: lines 16-22)
 - ✅ `src/stores/storyStore.ts` (visitNode: line 836, openStoryView: line 1024)
 - ✅ `src/components/StoryView/StoryView.tsx` (useEffect visit: lines 299-303)
@@ -106,16 +114,19 @@ All files referenced in Sprint 1-3 exist at the specified paths:
 - ✅ `src/hooks/useVariationSelection.ts` (variation selection hook)
 
 **Sprint 2: Type Safety**
+
 - ✅ `src/utils/variationLoader.ts` (normalizeVariation with `any`: line 58)
 - ✅ `src/types/Variation.ts` (VariationMetadata: lines 42-77)
 - ✅ `src/components/NodeMap/NodeMap.tsx` (React Flow integration)
 - ✅ `src/components/NodeMap/CustomStoryNode.tsx` (node rendering)
 
 **Sprint 3: Unlock Enhancements**
+
 - ✅ `src/types/Unlock.ts` (UnlockCondition types)
 - ✅ `src/utils/unlockEvaluator.ts` (unlock evaluation logic)
 
 **Sprint 4: Service Layer (NEW FILES, INTENTIONALLY MISSING)**
+
 - ⚪ `src/services/ContentService.ts` (not created yet - expected)
 - ⚪ `src/services/VariationSelectionService.ts` (not created yet - expected)
 - ⚪ `src/services/JourneyTrackingService.ts` (not created yet - expected)
@@ -141,17 +152,20 @@ src/
 ### ✅ Code Structure Validation
 
 **Visit Tracking Flow (Sprint 1 Focus)**
+
 - ✓ `openStoryView()` exists at storyStore.ts:1024
 - ✓ `visitNode()` exists at storyStore.ts:836 (168 lines of complex logic)
 - ✓ `StoryView.tsx` has useEffect at lines 299-303 (timing issue confirmed)
 - ⚠️ `L3AssemblyView.tsx` does NOT call `visitNode()` (Sprint 1.1-A issue confirmed)
 
 **Type Safety Issues (Sprint 2 Focus)**
+
 - ✓ `variationLoader.ts:58` uses `any` type (confirmed issue)
 - ✓ `VariationMetadata` structure exists (though not "all optional" as stated)
 - ✓ React Flow type erasure present in NodeMap.tsx (issue exists)
 
 **Cache Invalidation (Sprint 3 Focus)**
+
 - ✓ L3 cache clear logic at storyStore.ts:932 (confirmed: clears on ALL L2 visits)
 - ✓ Opportunity for selective invalidation (as planned)
 
@@ -166,6 +180,7 @@ src/
 ### 🔴 CRITICAL: Must Fix Before 3D UI (Sprint 1)
 
 **3.1 Visit Recording Reliability (P0)**
+
 - **Issue:** `visitNode()` called in `useEffect` (StoryView.tsx:299-303)
 - **Risk:** Race condition if user closes view quickly; visit may not record
 - **3D Impact:** 3D UI will rely on visit records for:
@@ -176,6 +191,7 @@ src/
 - **Fix:** Move `visitNode()` call to `openStoryView()` action (before view renders)
 
 **3.2 L3 Visit Tracking (P0)**
+
 - **Issue:** L3AssemblyView does not call `visitNode()` when L3 node is visited
 - **Risk:** L3 visits don't contribute to awareness, breaking unlock calculations
 - **3D Impact:** If L3 nodes shown in 3D constellation:
@@ -186,6 +202,7 @@ src/
 - **Fix:** Add `visitNode('arch-L3')` call when L3AssemblyView opens
 
 **3.3 Variation Deduplication (P1)**
+
 - **Issue:** No `variationId` tracking in VisitRecord; same variation shown on revisit
 - **Risk:** "Temporal bleeding" broken; reader sees identical content twice
 - **3D Impact:** If 3D UI shows "memory fragments" or "variation history":
@@ -197,6 +214,7 @@ src/
 ### 🟡 IMPORTANT: Recommended Before 3D UI (Sprint 2)
 
 **3.4 Type Safety for Variation Loading (P1)**
+
 - **Issue:** `variationLoader.ts:58` uses `any` type
 - **Risk:** Runtime errors if malformed content files loaded
 - **3D Impact:** If 3D UI loads variations for tooltips/previews:
@@ -206,6 +224,7 @@ src/
 - **Fix:** Replace `any` with `unknown` + type guards
 
 **3.5 React Flow Type Erasure (P2)**
+
 - **Issue:** NodeMap.tsx uses `as unknown` casts for React Flow nodes
 - **Risk:** Type safety gaps in node rendering
 - **3D Impact:** If 3D UI integrates with existing NodeMap:
@@ -217,6 +236,7 @@ src/
 ### 🟢 NICE-TO-HAVE: Can Defer Until After 3D (Sprint 3)
 
 **3.6 Advanced Unlock Predicates (P2-P3)**
+
 - Cross-character connection predicates
 - Navigation pattern predicates
 - Visit count range filtering
@@ -225,6 +245,7 @@ src/
 - **Recommendation:** Implement in parallel with 3D UI or after 3D launch
 
 **3.7 Service Layer Refactoring (P3, Optional)**
+
 - **Sprint 4 is entirely optional**
 - **3D Impact:** Service layer would make 3D integration cleaner, but not required
 - **Blocker Status:** 🟢 **NON-BLOCKING** - Defer until after 3D UI is stable
@@ -237,6 +258,7 @@ src/
 ### ✅ State Access APIs (Ready Now)
 
 **4.1 Progress Tracking**
+
 ```typescript
 // Available from storyStore
 const progress = useStoryStore(state => state.progress);
@@ -264,10 +286,11 @@ progress.journeyTracking: {
 ```
 
 **4.2 Node State APIs**
+
 ```typescript
 // Node visibility and state
-const nodes = useStoryStore(state => state.nodes);  // Map<string, StoryNode>
-const getNodeState = useStoryStore(state => state.getNodeState);
+const nodes = useStoryStore((state) => state.nodes); // Map<string, StoryNode>
+const getNodeState = useStoryStore((state) => state.getNodeState);
 
 // Node state includes:
 interface NodeUIState {
@@ -281,17 +304,19 @@ interface NodeUIState {
 ```
 
 **4.3 Navigation Actions**
+
 ```typescript
 // Available actions for 3D UI to trigger
 const { openStoryView, visitNode, selectNode } = useStoryStore();
 
 // 3D UI can:
-openStoryView(nodeId);  // Open 2D reading view
-visitNode(nodeId);      // Record visit (after Sprint 1 fix)
-selectNode(nodeId);     // Highlight in 3D space
+openStoryView(nodeId); // Open 2D reading view
+visitNode(nodeId); // Record visit (after Sprint 1 fix)
+selectNode(nodeId); // Highlight in 3D space
 ```
 
 **4.4 Unlock System APIs**
+
 ```typescript
 // Unlock evaluation
 const evaluateUnlocks = useStoryStore(state => state.evaluateUnlocks);
@@ -306,6 +331,7 @@ const nodeUnlocks = useStoryStore(state => state.nodeUnlocks);
 ### 🟡 APIs Needing Sprint 1 Fixes
 
 **4.5 Variation Selection (After Sprint 1)**
+
 ```typescript
 // Currently available (but without deduplication)
 const { content, variationId, metadata } = useVariationSelection(nodeId, fallbackContent);
@@ -318,6 +344,7 @@ const { content, variationId, metadata } = useVariationSelection(nodeId, fallbac
 ```
 
 **4.6 L3 Assembly (After Sprint 1)**
+
 ```typescript
 // Currently available
 const l3Assembly = useStoryStore(state => state.l3AssemblyCache.get(cacheKey));
@@ -332,6 +359,7 @@ const l3Assembly = useStoryStore(state => state.l3AssemblyCache.get(cacheKey));
 ### ✅ Content Loading APIs (Ready Now)
 
 **4.7 Content Access**
+
 ```typescript
 import { loadVariationFile } from '@/utils/variationLoader';
 import { loadL3Variations } from '@/utils/variationLoader';
@@ -348,21 +376,21 @@ import { loadL3Variations } from '@/utils/variationLoader';
 
 ### Priority 0 (Must Fix Before 3D)
 
-| Issue | Description | Impact on 3D | Fix Location | Effort |
-|-------|-------------|--------------|--------------|--------|
-| **1.1-B** | visitNode() timing | 3D can't rely on visit tracking | StoryView.tsx:299, storyStore.ts:1024 | 1h |
-| **1.1-A** | L3 visit recording | Awareness/unlocks broken for L3 | L3AssemblyView.tsx | 2h verify + 4h fix |
+| Issue     | Description        | Impact on 3D                    | Fix Location                          | Effort             |
+| --------- | ------------------ | ------------------------------- | ------------------------------------- | ------------------ |
+| **1.1-B** | visitNode() timing | 3D can't rely on visit tracking | StoryView.tsx:299, storyStore.ts:1024 | 1h                 |
+| **1.1-A** | L3 visit recording | Awareness/unlocks broken for L3 | L3AssemblyView.tsx                    | 2h verify + 4h fix |
 
 **Total P0 Effort:** ~7 hours (1 day)
 
 ### Priority 1 (Recommended Before 3D)
 
-| Issue | Description | Impact on 3D | Fix Location | Effort |
-|-------|-------------|--------------|--------------|--------|
-| **1.2-A** | Add variationId to VisitRecord | Can't deduplicate variations | Store.ts:16, storyStore.ts:846 | 4h |
-| **1.2-B** | Variation deduplication | Repeated content ruins experience | conditionEvaluator.ts:79 | 6h |
-| **2.1** | Replace `any` in variationLoader | Runtime errors possible | variationLoader.ts:58 | 5h |
-| **1.3** | Make journeyTracking required | Cleaner code, fewer bugs | Store.ts:71, storyStore.ts | 3h |
+| Issue     | Description                      | Impact on 3D                      | Fix Location                   | Effort |
+| --------- | -------------------------------- | --------------------------------- | ------------------------------ | ------ |
+| **1.2-A** | Add variationId to VisitRecord   | Can't deduplicate variations      | Store.ts:16, storyStore.ts:846 | 4h     |
+| **1.2-B** | Variation deduplication          | Repeated content ruins experience | conditionEvaluator.ts:79       | 6h     |
+| **2.1**   | Replace `any` in variationLoader | Runtime errors possible           | variationLoader.ts:58          | 5h     |
+| **1.3**   | Make journeyTracking required    | Cleaner code, fewer bugs          | Store.ts:71, storyStore.ts     | 3h     |
 
 **Total P1 Effort:** ~18 hours (2-3 days)
 
@@ -379,6 +407,7 @@ All other Sprint 2-3 tasks can run in parallel with or after 3D implementation.
 **DO NOT MODIFY** these during 3D implementation to avoid breaking integration:
 
 **6.1 Core State Interfaces**
+
 - ❌ Don't change `UserProgress` interface (Store.ts:53-78)
 - ❌ Don't change `VisitRecord` interface (Store.ts:16-22) until Sprint 1.2-A
 - ❌ Don't change `JourneyTracking` interface
@@ -387,22 +416,26 @@ All other Sprint 2-3 tasks can run in parallel with or after 3D implementation.
 **Rationale:** 3D UI will consume these interfaces. Changes mid-implementation will break 3D code.
 
 **Safe Approach:**
+
 - ✅ Sprint 1.2-A (add variationId) is additive - safe to do first
 - ✅ Sprint 1.3 (make journeyTracking required) - do BEFORE 3D starts
 - ❌ Sprint 4 service layer - defer until after 3D
 
 **6.2 Core Action Signatures**
+
 - ❌ Don't change `visitNode(nodeId: string)` signature
 - ❌ Don't change `openStoryView(nodeId: string)` signature
 - ❌ Don't change `getConditionContext(nodeId: string)` signature
 - ✅ Can change internal implementation (move visitNode call location)
 
 **6.3 Variation Selection Logic**
+
 - ✅ Can add deduplication (doesn't break API)
 - ✅ Can add visitCountRange filtering (doesn't break API)
 - ❌ Don't change `findMatchingVariation()` signature
 
 **6.4 Content File Structure**
+
 - ❌ Don't change JSON variation file format
 - ❌ Don't change node metadata structure
 - ❌ Don't rename content files or move directories
@@ -418,6 +451,7 @@ All other Sprint 2-3 tasks can run in parallel with or after 3D implementation.
 **Scenario:** Begin 3D UI implementation without fixing Sprint 1 issues
 
 **Consequences:**
+
 1. **Visit Tracking Race Condition**
    - 3D constellation shows incorrect "visited" states
    - Awareness calculations drift from reality
@@ -444,6 +478,7 @@ All other Sprint 2-3 tasks can run in parallel with or after 3D implementation.
 **Scenario:** Begin 3D UI implementation without fixing Sprint 2 issues
 
 **Consequences:**
+
 1. **Type Safety Gaps**
    - Malformed content files crash 3D renderer
    - No compile-time validation of 3D-specific metadata
@@ -463,6 +498,7 @@ All other Sprint 2-3 tasks can run in parallel with or after 3D implementation.
 **Scenario:** Defer Sprint 3 until after 3D UI launch
 
 **Consequences:**
+
 - No cross-character connection predicates
 - No navigation pattern predicates
 - No visit count range filtering
@@ -477,6 +513,7 @@ All other Sprint 2-3 tasks can run in parallel with or after 3D implementation.
 **Scenario:** Defer Sprint 4 service layer refactoring indefinitely
 
 **Consequences:**
+
 - Code remains tightly coupled
 - Testing harder (but not blocking)
 - Harder to swap implementations (but not needed)
@@ -494,6 +531,7 @@ All other Sprint 2-3 tasks can run in parallel with or after 3D implementation.
 **Verdict:** The architectural plan is **sound and ready to execute** with minor adjustments.
 
 **Conditions:**
+
 1. ✅ Execute Sprint 1 (State Integrity) BEFORE starting 3D UI
 2. ✅ Execute Sprint 2 (Type Safety) BEFORE or in parallel with 3D UI
 3. ✅ Defer Sprint 3 (Unlock Enhancements) until parallel with or after 3D UI
@@ -503,18 +541,21 @@ All other Sprint 2-3 tasks can run in parallel with or after 3D implementation.
 ### 🟡 YELLOW LIGHT ITEMS (Minor Adjustments Needed)
 
 **8.1 Adjust Sprint 1.3 Ticket**
+
 - Current: "Remove 20+ null checks"
 - Reality: ~5 defensive initializations exist
 - Fix: Reframe as "Make journeyTracking required in types + test migration"
 - Impact: Negligible, still valuable ticket
 
 **8.2 Adjust Sprint 2.4 Ticket**
+
 - Current: "Split VariationMetadata (all optional → core required)"
 - Reality: Most fields already required
 - Fix: Reframe as "Split VariationMetadata into Core + Enrichment interfaces for clarity"
 - Impact: Negligible, still valuable for validation
 
 **8.3 Content File Count**
+
 - Plan mentions "292 files", actual count is 298
 - Action: Update plan to reflect current count (or mark as "290+ files")
 - Impact: None, just accuracy
@@ -530,6 +571,7 @@ All other Sprint 2-3 tasks can run in parallel with or after 3D implementation.
 ### Phase 1: Pre-3D Foundation (Week 1-2)
 
 **Sprint 1: State Integrity (MUST DO)**
+
 - ✅ Ticket 1.1-B: Move visitNode() to openStoryView (P0, 1 hour)
 - ✅ Ticket 1.1-A: Verify/fix L3 visit recording (P0, 6 hours)
 - ✅ Ticket 1.2-A: Add variationId to VisitRecord (P1, 4 hours)
@@ -539,6 +581,7 @@ All other Sprint 2-3 tasks can run in parallel with or after 3D implementation.
 **Total:** 20 hours = 2-3 days
 
 **Sprint 2: Type Safety (SHOULD DO)**
+
 - ✅ Ticket 2.1: Replace `any` in variationLoader (P1, 5 hours)
 - ⚪ Ticket 2.2: Split VariationMetadata (P2, 5 hours) - Nice to have
 - ⚪ Ticket 2.3: Fix React Flow type erasure (P2, 4 hours) - Only if integrating with NodeMap
@@ -552,18 +595,21 @@ All other Sprint 2-3 tasks can run in parallel with or after 3D implementation.
 ### Phase 2: 3D UI Implementation (Week 3-6)
 
 **Begin 3D Constellation UI with confidence:**
+
 - State model is stable and reliable
 - Visit tracking has no race conditions
 - Type safety prevents runtime errors
 - APIs are frozen and documented
 
 **Parallel Work (Optional):**
+
 - Sprint 2 remaining tickets (if not done in Phase 1)
 - Sprint 3 tickets (unlock enhancements) can run in parallel
 
 ### Phase 3: Post-3D Polish (Week 7+)
 
 **After 3D UI is stable:**
+
 - Sprint 3: Unlock system enhancements
 - Quick Wins: Logging, performance monitoring, validation
 - Sprint 4: Service layer refactoring (optional, low priority)
@@ -575,6 +621,7 @@ All other Sprint 2-3 tasks can run in parallel with or after 3D implementation.
 ### Minimal Engine Prerequisites for 3D UI
 
 **10.1 State Access (Available Now)**
+
 ```typescript
 // 3D UI MUST have access to:
 interface Required3DStateAccess {
@@ -603,11 +650,12 @@ interface Required3DStateAccess {
 **Status:** ✅ All available after Sprint 1.3 (make journeyTracking required)
 
 **10.2 Visit Tracking (After Sprint 1)**
+
 ```typescript
 // 3D UI MUST be able to:
 interface Required3DVisitTracking {
   // Record node interactions
-  visitNode: (nodeId: string) => void;  // Must be reliable (Sprint 1.1-B)
+  visitNode: (nodeId: string) => void; // Must be reliable (Sprint 1.1-B)
 
   // Query visit history
   getVisitRecord: (nodeId: string) => VisitRecord | undefined;
@@ -620,6 +668,7 @@ interface Required3DVisitTracking {
 **Status:** 🟡 Partial - Needs Sprint 1.1-B fix (move visitNode call)
 
 **10.3 Unlock System (Available Now)**
+
 ```typescript
 // 3D UI MUST be able to:
 interface Required3DUnlockSystem {
@@ -637,6 +686,7 @@ interface Required3DUnlockSystem {
 **Status:** ✅ All available now
 
 **10.4 Content Loading (Available Now)**
+
 ```typescript
 // 3D UI MAY want to:
 interface Optional3DContentAccess {
@@ -659,11 +709,11 @@ These will need to be added for 3D UI:
 ```typescript
 // New types for 3D constellation
 interface ConstellationNode3D extends StoryNode {
-  position3D: { x: number; y: number; z: number };  // 3D coordinates
+  position3D: { x: number; y: number; z: number }; // 3D coordinates
   visualState: {
-    glow: number;          // 0-1, based on awareness
-    pulseRate: number;     // Based on recent visit
-    connectionOpacity: number;  // Based on unlock progress
+    glow: number; // 0-1, based on awareness
+    pulseRate: number; // Based on recent visit
+    connectionOpacity: number; // Based on unlock progress
   };
 }
 
@@ -687,11 +737,13 @@ interface StoryStore3DExtensions {
 **10.6 Event Streaming for 3D**
 
 3D UI will need real-time updates when:
+
 - Node state changes (visited, unlocked, transformed)
 - Awareness level changes (affects glow/visual effects)
 - Connections unlock (affects edge rendering)
 
 **Implementation Approach:**
+
 ```typescript
 // Add Zustand subscriptions in 3D component
 useEffect(() => {
@@ -700,7 +752,7 @@ useEffect(() => {
     (awarenessLevel) => {
       // Update 3D visual effects
       updateConstellationGlow(awarenessLevel);
-    }
+    },
   );
   return unsubscribe;
 }, []);
@@ -801,6 +853,7 @@ useEffect(() => {
 The architectural plan in `docs/architecture/05_plan.md` is **internally consistent, repo-compatible, and ready to execute**. The codebase is **90% ready for 3D UI integration** after completing Sprint 1 (State Integrity).
 
 **Key Findings:**
+
 - ✅ All critical files exist at specified paths
 - ✅ Dependency ordering is sound
 - ✅ State model APIs are stable and accessible
@@ -810,6 +863,7 @@ The architectural plan in `docs/architecture/05_plan.md` is **internally consist
 - 🟢 Sprint 3-4 can be deferred until after 3D UI
 
 **Critical Path to 3D:**
+
 1. Sprint 1 (17 hours) → Reliable state tracking
 2. Sprint 2.1 (5 hours) → Type-safe content loading
 3. Freeze state model → Begin 3D UI development

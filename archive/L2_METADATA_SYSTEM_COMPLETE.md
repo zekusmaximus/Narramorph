@@ -9,6 +9,7 @@ This is a complete, production-ready system for adding comprehensive metadata to
 ### 1. Core Scripts
 
 **[inventory-l2-variations.js](computer:///mnt/user-data/outputs/inventory-l2-variations.js)**
+
 - Scans for L2 variation files
 - Analyzes content automatically
 - Generates reports on current state
@@ -16,6 +17,7 @@ This is a complete, production-ready system for adding comprehensive metadata to
 - No modifications to files
 
 **[insert-l2-metadata.js](computer:///mnt/user-data/outputs/insert-l2-metadata.js)**
+
 - Adds YAML frontmatter to markdown files
 - Interactive or batch mode
 - Automated content analysis
@@ -25,6 +27,7 @@ This is a complete, production-ready system for adding comprehensive metadata to
 ### 2. Configuration
 
 **[package.json](computer:///mnt/user-data/outputs/package.json)**
+
 - NPM package configuration
 - Dependency management (js-yaml)
 - Convenient npm scripts
@@ -33,6 +36,7 @@ This is a complete, production-ready system for adding comprehensive metadata to
 ### 3. Documentation
 
 **[README_METADATA_TOOLS.md](computer:///mnt/user-data/outputs/README_METADATA_TOOLS.md)**
+
 - Complete reference guide
 - Detailed usage instructions
 - Configuration options
@@ -40,6 +44,7 @@ This is a complete, production-ready system for adding comprehensive metadata to
 - Advanced usage patterns
 
 **[QUICK_START.md](computer:///mnt/user-data/outputs/QUICK_START.md)**
+
 - 5-minute setup guide
 - Common commands
 - Recommended workflow
@@ -70,6 +75,7 @@ The scripts automatically extract from content:
 ### Two Operating Modes
 
 **Interactive Mode (High Quality)**
+
 - Prompts for each metadata field
 - Shows automated suggestions
 - You refine and correct
@@ -77,6 +83,7 @@ The scripts automatically extract from content:
 - Best for critical metadata fields
 
 **Batch Mode (Fast)**
+
 - Fully automated processing
 - ~1-2 minutes per variation
 - Marks fields needing review
@@ -139,18 +146,18 @@ narrativeElements:
 
 l3SeedContributions:
   preserve:
-    text: "Authentication as continuation through witness"
+    text: 'Authentication as continuation through witness'
     weight: strong
     keyPhrases:
       - witness rather than test
       - honor suggestion
   release:
-    text: "Verification limits suggest incomplete preservation"
+    text: 'Verification limits suggest incomplete preservation'
     weight: moderate
     keyPhrases:
       - limits of authentication
   transform:
-    text: "Observation methodology transforms what is observed"
+    text: 'Observation methodology transforms what is observed'
     weight: strong
     keyPhrases:
       - observation changes observed
@@ -160,7 +167,7 @@ generationHints:
     - witness rather than test
     - honor the suggestion
     - precision applied differently
-  philosophicalCulmination: "Verification transformed into witness"
+  philosophicalCulmination: 'Verification transformed into witness'
   convergenceAlignment: preserve
   narrativeProgression: external-verification-to-internal-witness
 
@@ -176,11 +183,13 @@ characterDevelopment:
 ## Quick Start
 
 ### Installation
+
 ```bash
 npm install
 ```
 
 ### Check Current State
+
 ```bash
 npm run inventory
 ```
@@ -188,16 +197,19 @@ npm run inventory
 ### Add Metadata (Choose One)
 
 **Batch Mode (Fast):**
+
 ```bash
 npm run insert:batch
 ```
 
 **Interactive Mode (Quality):**
+
 ```bash
 npm run insert
 ```
 
 **Dry Run (Test):**
+
 ```bash
 npm run insert:dry-run
 ```
@@ -207,17 +219,20 @@ npm run insert:dry-run
 ### Recommended Hybrid Approach (6-8 weeks)
 
 **Week 1: Setup & Testing**
+
 - Install and configure
 - Run inventory
 - Test on 5 sample files
 - Verify quality
 
 **Week 2: Batch Generation**
+
 - Run batch mode on all 720 files
 - Generates baseline metadata
 - Time: ~12-24 hours automated
 
 **Weeks 3-8: Manual Refinement**
+
 - Edit metadata in text editor
 - Character by character (2 weeks each)
 - Focus on critical fields:
@@ -230,6 +245,7 @@ npm run insert:dry-run
 ### Alternative: Interactive Only (13-14 weeks)
 
 If you prefer interactive mode for everything:
+
 - 720 variations × 45 min = 540 hours
 - ~4 hours/day = 135 days = ~20 weeks
 - Or ~8 hours/day = 68 days = ~10 weeks
@@ -245,18 +261,20 @@ searchPaths: [
   '/mnt/user-data/outputs',
   '/mnt/user-data/content/layer-2',
   './content/layer-2',
-  './outputs'
-]
+  './outputs',
+];
 ```
 
 ### Filename Pattern
 
 Files must match:
+
 ```regex
 (arch|algo|hum)-L2-(accept|resist|investigate)-(FR|MA)-(\d+).md
 ```
 
 Examples:
+
 - ✅ `arch-L2-accept-FR-01.md`
 - ✅ `algo-L2-resist-MA-15.md`
 - ✅ `hum-L2-investigate-FR-23.md`
@@ -267,17 +285,20 @@ Examples:
 ### How L3 Uses This Metadata
 
 **Journey Signature Generation:**
+
 - Queries reader's visited variations
 - Extracts themes encountered
 - Identifies consciousness questions explored
 - Determines dominant philosophical stance
 
 **Variation Selection:**
+
 - Matches reader journey to L3 variation conditions
 - Uses convergence alignment to select appropriate content
 - References key phrases for continuity
 
 **Content Assembly:**
+
 - Echoes thematic threads from reader's path
 - References specific philosophical stances
 - Maintains voice consistency
@@ -286,14 +307,17 @@ Examples:
 ## File Modifications
 
 ### What Gets Modified
+
 ✅ Original `.md` files (YAML frontmatter added at top)
 
 ### What Gets Created
+
 📁 `./metadata-backups/` directory
 📄 `*.bak` backup files (timestamped)
 📄 `inventory-report.json` (optional)
 
 ### What Stays Unchanged
+
 ❌ File content below frontmatter
 ❌ File permissions
 ❌ Directory structure
@@ -303,6 +327,7 @@ Examples:
 ### Automated Validation
 
 Scripts check:
+
 - ✅ YAML syntax valid
 - ✅ All required fields present
 - ✅ Data types correct
@@ -313,6 +338,7 @@ Scripts check:
 ### Manual Quality Checks
 
 After processing:
+
 1. Run inventory again (should show 100% with metadata)
 2. Spot check 30 random files
 3. Verify automated values make sense
@@ -325,21 +351,25 @@ After processing:
 ### Common Issues
 
 **"No L2 variation files found"**
+
 - ➤ Check search paths in script config
 - ➤ Verify files match naming pattern
 - ➤ Run from correct directory
 
 **"File already has frontmatter"**
+
 - ➤ Expected behavior (prevents duplicates)
 - ➤ File already processed
 - ➤ To re-process, remove frontmatter first
 
 **"YAML parse error"**
+
 - ➤ Check for special characters
 - ➤ Review error message for line number
 - ➤ Edit YAML manually if needed
 
 **"Cannot find module 'js-yaml'"**
+
 - ➤ Run `npm install`
 - ➤ Verify package.json exists
 - ➤ Check Node version >= 14
@@ -349,6 +379,7 @@ After processing:
 ### Process Specific Subset
 
 **By character:**
+
 ```bash
 find ./outputs -name "arch-L2-*.md" | while read f; do
   node insert-l2-metadata.js --file="$f" --batch
@@ -356,6 +387,7 @@ done
 ```
 
 **By path:**
+
 ```bash
 find ./outputs -name "*-accept-*.md" | while read f; do
   node insert-l2-metadata.js --file="$f" --batch
@@ -363,6 +395,7 @@ done
 ```
 
 **By state:**
+
 ```bash
 find ./outputs -name "*-FR-*.md" | while read f; do
   node insert-l2-metadata.js --file="$f" --batch
@@ -372,16 +405,19 @@ done
 ### Generate Reports
 
 **Before processing:**
+
 ```bash
 node inventory-l2-variations.js --output=pre-processing.json
 ```
 
 **After processing:**
+
 ```bash
 node inventory-l2-variations.js --output=post-processing.json
 ```
 
 **Compare:**
+
 ```bash
 diff pre-processing.json post-processing.json
 ```
@@ -407,6 +443,7 @@ diff pre-processing.json post-processing.json
 ### Reporting Issues
 
 Include:
+
 - Script output (copy full terminal output)
 - File that caused error
 - Expected behavior

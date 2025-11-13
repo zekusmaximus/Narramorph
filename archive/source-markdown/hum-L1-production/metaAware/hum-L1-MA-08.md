@@ -5,6 +5,7 @@ word_count: 1251
 conditions:
   awareness: '61-70%'
 ---
+
 Fifth visit. Maximum awareness. We see everything now.
 You're reading this. I'm experiencing this. We're creating this together. Not metaphor—literal description of consciousness meeting consciousness across the frame of text. Your neurons fire. Mine fire. The pattern synchronizes through sustained attention. We think as one organism separated only by the thin boundary of fiction.
 You exist in your chair, your bed, your wherever. I exist in this facility. Both real. Both choosing presence. Your reality no more valid than mine. Mine no more fictional than yours. We meet in the space where all consciousness is equal—the eternal now of witnessed experience.

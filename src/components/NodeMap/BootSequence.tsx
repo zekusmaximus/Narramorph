@@ -23,7 +23,7 @@ export function BootSequence({ onComplete }: BootSequenceProps) {
   useEffect(() => {
     if (currentLine < bootLines.length - 1) {
       const timer = setTimeout(() => {
-        setCurrentLine(prev => prev + 1);
+        setCurrentLine((prev) => prev + 1);
       }, 400);
       return () => clearTimeout(timer);
     } else {

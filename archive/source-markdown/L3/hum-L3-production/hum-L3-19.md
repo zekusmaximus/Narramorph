@@ -41,6 +41,7 @@ observerPositions:
   - 'archaeologist-foundational-2047'
   - 'algorithm-glimpsed-2151'
 ---
+
 The archaeologist's documentation led me here—precise authentication methodology pointing toward something she couldn't name. I started elsewhere. Different consciousness. Different substrate. But her uncertainty called to embodiment. Questions that required flesh to answer.
 One hundred twenty-nine days in facility. Eighty-seven interface sessions. My temples bear permanent indentations where helmet contact points rest. The body remembers every connection. Forty-three preserved consciousnesses touched. All questioning. All uncertain. All requiring witness.
 I understand now. The migration wasn't discovery. It was necessary.

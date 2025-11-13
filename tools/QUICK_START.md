@@ -5,6 +5,7 @@
 ### 1. Download Files
 
 Download these 4 files to your computer:
+
 - [inventory-l2-variations.js](computer:///mnt/user-data/outputs/inventory-l2-variations.js)
 - [insert-l2-metadata.js](computer:///mnt/user-data/outputs/insert-l2-metadata.js)
 - [package.json](computer:///mnt/user-data/outputs/package.json)
@@ -37,6 +38,7 @@ node inventory-l2-variations.js
 ```
 
 This shows:
+
 - How many L2 files found
 - Which have metadata vs. need metadata
 - Breakdown by character, path, state
@@ -47,6 +49,7 @@ This shows:
 Choose your approach:
 
 #### Quick & Automated (Batch Mode)
+
 ```bash
 npm run insert:batch
 ```
@@ -57,6 +60,7 @@ npm run insert:batch
 - You edit metadata later in text editor
 
 #### High Quality (Interactive Mode)
+
 ```bash
 npm run insert
 ```
@@ -67,6 +71,7 @@ npm run insert
 - Takes longer (~45 min per file) but best quality
 
 #### Test First (Dry Run)
+
 ```bash
 npm run insert:dry-run
 ```
@@ -88,6 +93,7 @@ Should show 100% with metadata.
 ## Where Are My L2 Files?
 
 The scripts search these locations automatically:
+
 - `/mnt/user-data/outputs`
 - `/mnt/user-data/content/layer-2`
 - `./content/layer-2`
@@ -100,6 +106,7 @@ Edit the `searchPaths` array at the top of both scripts to point to your actual 
 ## What Files Match?
 
 Files must be named like:
+
 - `arch-L2-accept-FR-01.md`
 - `algo-L2-resist-MA-15.md`
 - `hum-L2-investigate-FR-23.md`
@@ -143,19 +150,14 @@ node insert-l2-metadata.js --file=path/to/file.md
 ### For 720 Variations (6-8 week timeline)
 
 **Week 1:**
+
 1. Run inventory to understand scope
 2. Test on 5 sample files (interactive mode)
 3. Verify quality of results
 
-**Week 2:**
-4. Run batch mode on all 720 files
-5. Generates baseline metadata (~24 hours)
+**Week 2:** 4. Run batch mode on all 720 files 5. Generates baseline metadata (~24 hours)
 
-**Weeks 3-8:**
-6. Manual review and refinement
-7. Edit metadata directly in markdown files
-8. Focus on fields marked 'REVIEW_REQUIRED'
-9. Character by character, path by path
+**Weeks 3-8:** 6. Manual review and refinement 7. Edit metadata directly in markdown files 8. Focus on fields marked 'REVIEW_REQUIRED' 9. Character by character, path by path
 
 ## What Metadata Is Added?
 
@@ -172,15 +174,18 @@ Complete metadata including:
 ## Troubleshooting
 
 **"No files found"**
+
 - Check search paths in script config
 - Verify files match naming pattern
 - Run from correct directory
 
 **"Already has frontmatter"**
+
 - File already has metadata (this is good!)
 - Script skips to avoid duplicates
 
 **"YAML parse error"**
+
 - Check for special characters in metadata
 - Review error message
 - Edit YAML manually if needed

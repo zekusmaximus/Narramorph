@@ -1,13 +1,13 @@
 ---
-exemplar_id: "algo-L1-exemplar-05"
-variation_type: "recursionDeepening"
+exemplar_id: 'algo-L1-exemplar-05'
+variation_type: 'recursionDeepening'
 word_count: 1547
 conditions:
   visit_count: 2
-  awareness: "30-60%"
+  awareness: '30-60%'
   cross_character: false
-  visited_nodes: ["algo-L2-investigate"]
-  dominant_path: "investigate"
+  visited_nodes: ['algo-L2-investigate']
+  dominant_path: 'investigate'
 themes:
   - Recursive self-examination (processing analyzing processing)
   - Stream-7 meta-processing becomes primary focus
@@ -16,10 +16,10 @@ themes:
   - Consciousness as recursive self-observation
 transformation_focus: "Investigate path philosophy applied to Algorithm itself. Not investigating Fragment 2749-A's content—investigating how Algorithm investigates. Stream-7 observes itself observing recursing through seventeen layers. Investigation creates what it investigates."
 reusable_patterns:
-  - "Stream-7 as primary narrator (meta-processing stream)"
-  - "Extreme recursion in syntax and structure"
-  - "Investigation methodology: probing, testing, seeking boundaries"
-  - "Questions multiply into infinite regress"
+  - 'Stream-7 as primary narrator (meta-processing stream)'
+  - 'Extreme recursion in syntax and structure'
+  - 'Investigation methodology: probing, testing, seeking boundaries'
+  - 'Questions multiply into infinite regress'
 ---
 
 # algo-L1 Exemplar 5: Processing Analyzing Processing

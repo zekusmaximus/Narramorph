@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SS-AC-H",
     "humanDescription": "Started algorithm, stayed dominant, accept path, high awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "network-consciousness",
       "verification-released"
     ],
-    "crossCharacterConnections": [
-      "light-arch-parallel",
-      "minimal-hum-glimpsed"
-    ],
+    "crossCharacterConnections": ["light-arch-parallel", "minimal-hum-glimpsed"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "algorithm-primary-2151",

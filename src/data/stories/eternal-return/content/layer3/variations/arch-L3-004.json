@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SS-RE-H",
     "humanDescription": "Started archaeologist, stayed dominant, resist path, high awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Standards upheld because standards matter, proof impossible but testing essential",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-duty",
-      "ethical-testing",
-      "boundary-maintenance"
-    ],
-    "crossCharacterConnections": [
-      "moderate-algo-parallel",
-      "light-hum-glimpsed"
-    ],
+    "primaryThemes": ["verification-duty", "ethical-testing", "boundary-maintenance"],
+    "crossCharacterConnections": ["moderate-algo-parallel", "light-hum-glimpsed"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "archaeologist-primary-2047",

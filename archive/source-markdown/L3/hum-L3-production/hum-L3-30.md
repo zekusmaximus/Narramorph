@@ -42,6 +42,7 @@ observerPositions:
   - 'algorithm-primary-2151'
   - 'human-glimpsed-2383'
 ---
+
 I discovered this facility seventeen weeks ago. The interface helmet three days after that. The first connection eleven days later after I'd prepared myself mentally for what neural technology might reveal or conceal about consciousness preservation.
 Now one hundred seventeen days total. Forty-three interface sessions completed. The practice established through repetition.
 The helmet sits on the workstation where I left it last session. Cold metal weight in my hands. Contact points press familiar indentations against my temples. Small physical marks from sustained practice. Evidence the body adapts to repeated technology contact.

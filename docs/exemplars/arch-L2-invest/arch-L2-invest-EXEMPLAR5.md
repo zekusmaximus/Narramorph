@@ -1,25 +1,26 @@
 ---
-exemplar_id: "arch-L2-invest-exemplar-5"
-variation_type: "recursionDeepening"
+exemplar_id: 'arch-L2-invest-exemplar-5'
+variation_type: 'recursionDeepening'
 word_count: 1461
 conditions:
   visit_count: 2
-  awareness: "FirstRevisit"
+  awareness: 'FirstRevisit'
   cross_character: false
-  visited_nodes: ["arch-L1", "arch-L2-investigate"]
-  dominant_path: "invest"
+  visited_nodes: ['arch-L1', 'arch-L2-investigate']
+  dominant_path: 'invest'
 themes:
   - investigation_trajectory_evolution
   - confidence_degradation_through_recursion
   - documentation_behavior_patterns
-transformation_focus: "Documentation evolution tracked across sessions reveals investigation trajectory accelerating toward infinite regression while confidence systematically erodes through each meta-analytical layer"
+transformation_focus: 'Documentation evolution tracked across sessions reveals investigation trajectory accelerating toward infinite regression while confidence systematically erodes through each meta-analytical layer'
 reusable_patterns:
-  - "Language evolution tracks investigation emergence across documentation sequence"
-  - "Confidence degradation formula: each meta-layer introduces 5.4% uncertainty increase"
-  - "Investigation momentum sustains continuation despite revealing investigation limitations"
+  - 'Language evolution tracks investigation emergence across documentation sequence'
+  - 'Confidence degradation formula: each meta-layer introduces 5.4% uncertainty increase'
+  - 'Investigation momentum sustains continuation despite revealing investigation limitations'
 ---
 
 # ARCHAEOLOGIST L2-INVESTIGATE: EXEMPLAR 5
+
 ## Path Echo from L1-investigate
 
 Returned to consciousness authentication documentation. Third review cycle building on prior investigative patterns documented across previous examination sessions. Timestamp 2157:03:14:16.8924.

@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "BL-RE-L",
     "humanDescription": "Started elsewhere, light archaeologist exploration, resist path, low awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Authentication maintains verification protocols preventing premature consciousness certainty across examination positions",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-rigor",
-      "skeptical-maintenance",
-      "proof-requirement"
-    ],
-    "crossCharacterConnections": [
-      "heavy-algorithm-primary",
-      "moderate-human-parallel"
-    ],
+    "primaryThemes": ["verification-rigor", "skeptical-maintenance", "proof-requirement"],
+    "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-contributory-2047",

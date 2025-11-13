@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useStoryStore } from '@/stores';
 import { useVariationSelection } from '@/hooks/useVariationSelection';
 import { VariationDebugPanel } from './VariationDebugPanel';
-import type { StoryNode, TransformationState, ConnectionType, CharacterType } from '@/types';
+import type { StoryNode, TransformationState, CharacterType } from '@/types';
 
 interface StoryViewProps {
   className?: string;
@@ -12,12 +12,15 @@ interface StoryViewProps {
 /**
  * Character theming configuration for visual consistency
  */
-const characterThemes: Record<CharacterType, {
-  accent: string;
-  border: string;
-  bg: string;
-  text: string;
-}> = {
+const characterThemes: Record<
+  CharacterType,
+  {
+    accent: string;
+    border: string;
+    bg: string;
+    text: string;
+  }
+> = {
   archaeologist: {
     accent: 'from-blue-500 to-blue-600',
     border: 'border-blue-200',
@@ -45,50 +48,19 @@ const characterThemes: Record<CharacterType, {
 };
 
 /**
- * Gets visual icon for transformation states
- * Currently unused but kept for future feature
- */
-// @ts-expect-error - Unused but kept for future feature
-function getStateIcon(state: TransformationState): string {
-  switch (state) {
-    case 'initial': return '🔵';
-    case 'firstRevisit': return '🟡';
-    case 'metaAware': return '🟣';
-    default: return '🔵';
-  }
-}
-
-/**
  * Gets human-readable label for transformation states
  * Currently unused but kept for future feature
  */
-// @ts-ignore - Unused but kept for future feature
 function getStateLabel(state: TransformationState): string {
   switch (state) {
-    case 'initial': return 'First Visit';
-    case 'firstRevisit': return 'Returning';
-    case 'metaAware': return 'Meta-Aware';
-    default: return 'First Visit';
-  }
-}
-
-/**
- * Gets icon for connection types
- * Currently unused but kept for future feature
- */
-// @ts-expect-error - Unused but kept for future feature
-function getConnectionIcon(type: ConnectionType): React.ReactNode {
-  switch (type) {
-    case 'temporal':
-      return <span className="text-blue-500">⏱️</span>;
-    case 'consciousness':
-      return <span className="text-green-500">🧠</span>;
-    case 'recursive':
-      return <span className="text-red-500">🔄</span>;
-    case 'hidden':
-      return <span className="text-purple-500">🔒</span>;
+    case 'initial':
+      return 'First Visit';
+    case 'firstRevisit':
+      return 'Returning';
+    case 'metaAware':
+      return 'Meta-Aware';
     default:
-      return <span className="text-blue-500">⏱️</span>;
+      return 'First Visit';
   }
 }
 
@@ -112,9 +84,9 @@ function formatTime(seconds: number): string {
 function parseMarkdown(content: string): React.ReactNode {
   // Split into paragraphs - L1 nodes use double newlines, L2 nodes use single newlines
   // Try double newlines first, fall back to single newlines if we only get one paragraph
-  let paragraphs = content.split('\n\n').filter(p => p.trim());
+  let paragraphs = content.split('\n\n').filter((p) => p.trim());
   if (paragraphs.length === 1) {
-    paragraphs = content.split('\n').filter(p => p.trim());
+    paragraphs = content.split('\n').filter((p) => p.trim());
   }
 
   return paragraphs.map((paragraph, pIndex) => {
@@ -139,9 +111,7 @@ function parseMarkdown(content: string): React.ReactNode {
       }
 
       // Add bold text
-      processedParts.push(
-        <strong key={`bold-${key++}`}>{match[2]}</strong>
-      );
+      processedParts.push(<strong key={`bold-${key++}`}>{match[2]}</strong>);
 
       lastIndex = (match.index || 0) + match[0].length;
     }
@@ -169,9 +139,7 @@ function parseMarkdown(content: string): React.ReactNode {
             }
 
             // Add italic text
-            finalParts.push(
-              <em key={`italic-${key++}`}>{italicMatch[2]}</em>
-            );
+            finalParts.push(<em key={`italic-${key++}`}>{italicMatch[2]}</em>);
 
             stringLastIndex = matchIndex + italicMatch[0].length;
           });
@@ -190,7 +158,7 @@ function parseMarkdown(content: string): React.ReactNode {
     });
 
     // Filter out empty parts first, then map with index
-    const nonEmptyParts = finalParts.filter(part => part !== '');
+    const nonEmptyParts = finalParts.filter((part) => part !== '');
 
     return (
       <p key={`paragraph-${pIndex}`} className="mb-4 leading-relaxed">
@@ -247,10 +215,7 @@ export default function StoryView({ className = '' }: StoryViewProps) {
     metadata: variationMetadata,
     usedFallback,
     error: variationError,
-  } = useVariationSelection(
-    currentNode?.id || null,
-    fallbackContent
-  );
+  } = useVariationSelection(currentNode?.id || null, fallbackContent);
 
   // Get character theme
   const theme = useMemo(() => {
@@ -339,11 +304,13 @@ export default function StoryView({ className = '' }: StoryViewProps) {
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header with character theming */}
-          <div className={`
+          <div
+            className={`
             p-6 border-b
             ${preferences.theme === 'dark' ? 'border-gray-700' : 'border-gray-200'}
             bg-gradient-to-r ${theme.accent}
-          `}>
+          `}
+          >
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-4">
                 {/* Character indicator */}
@@ -352,23 +319,15 @@ export default function StoryView({ className = '' }: StoryViewProps) {
                 </div>
 
                 <div>
-                  <h2 className="text-2xl font-bold text-white">
-                    {currentNode.title}
-                  </h2>
+                  <h2 className="text-2xl font-bold text-white">{currentNode.title}</h2>
                   <div className="flex items-center space-x-3 text-sm text-white/80 mt-1">
-                    <span className="capitalize font-medium">
-                      {currentNode.character}
-                    </span>
+                    <span className="capitalize font-medium">{currentNode.character}</span>
                     <span>•</span>
-                    <span>
-                      {currentNode.metadata.estimatedReadTime} min read
-                    </span>
+                    <span>{currentNode.metadata.estimatedReadTime} min read</span>
                     {nodeState.visited && (
                       <>
                         <span>•</span>
-                        <span className="font-medium">
-                          Visit #{nodeState.visitCount}
-                        </span>
+                        <span className="font-medium">Visit #{nodeState.visitCount}</span>
                       </>
                     )}
                   </div>
@@ -402,20 +361,26 @@ export default function StoryView({ className = '' }: StoryViewProps) {
             <div className="mt-4 flex items-center justify-between">
               <div className="flex items-center space-x-4">
                 {/* State badge with icon */}
-                <div className={`
+                <div
+                  className={`
                   px-3 py-1.5 rounded-full text-sm font-medium flex items-center space-x-2
                   bg-white/10 backdrop-blur-sm text-white
-                `}>
-                  <span>{nodeState.currentState === 'initial' ? '●' : (nodeState.currentState === 'firstRevisit' ? '◑' : '◎')}</span>
+                `}
+                >
+                  <span>
+                    {nodeState.currentState === 'initial'
+                      ? '●'
+                      : nodeState.currentState === 'firstRevisit'
+                        ? '◑'
+                        : '◎'}
+                  </span>
                   <span>{getStateLabel(nodeState.currentState)}</span>
                 </div>
 
                 {/* Visit counter */}
                 {nodeState.visited && nodeState.visitCount >= 2 && (
                   <div className="text-sm text-white/70">
-                    <span className="text-xs">
-                      (transformed {nodeState.visitCount - 1}x)
-                    </span>
+                    <span className="text-xs">(transformed {nodeState.visitCount - 1}x)</span>
                   </div>
                 )}
 
@@ -434,7 +399,8 @@ export default function StoryView({ className = '' }: StoryViewProps) {
 
               {/* Reading progress */}
               <div className="text-sm text-white/70">
-                Reading: {formatTime(timeSpentOnNode)} / ~{currentNode.metadata.estimatedReadTime} min
+                Reading: {formatTime(timeSpentOnNode)} / ~{currentNode.metadata.estimatedReadTime}{' '}
+                min
               </div>
             </div>
 
@@ -443,7 +409,9 @@ export default function StoryView({ className = '' }: StoryViewProps) {
               <div className="mt-3 text-xs text-white/60 font-mono">
                 Variation: {variationId}
                 {variationMetadata?.awarenessLevel && ` • ${variationMetadata.awarenessLevel}`}
-                {variationMetadata?.journeyPattern && variationMetadata.journeyPattern !== 'unknown' && ` • ${variationMetadata.journeyPattern}`}
+                {variationMetadata?.journeyPattern &&
+                  variationMetadata.journeyPattern !== 'unknown' &&
+                  ` • ${variationMetadata.journeyPattern}`}
               </div>
             )}
 
@@ -466,7 +434,8 @@ export default function StoryView({ className = '' }: StoryViewProps) {
 
           {/* Content area with improved typography */}
           <div className="flex-1 overflow-y-auto">
-            <div className={`
+            <div
+              className={`
               p-8 max-w-3xl mx-auto
               ${preferences.textSize === 'small' ? 'text-sm' : ''}
               ${preferences.textSize === 'medium' ? 'text-base' : ''}
@@ -474,7 +443,8 @@ export default function StoryView({ className = '' }: StoryViewProps) {
               ${preferences.theme === 'sepia' ? 'bg-amber-50 text-amber-900' : ''}
               ${preferences.theme === 'dark' ? 'bg-gray-900 text-gray-100' : ''}
               ${preferences.theme === 'light' ? 'bg-white text-gray-900' : ''}
-            `}>
+            `}
+            >
               {/* Content with markdown rendering and smooth transitions */}
               <AnimatePresence mode="wait">
                 <motion.div
@@ -492,15 +462,19 @@ export default function StoryView({ className = '' }: StoryViewProps) {
           </div>
 
           {/* Enhanced footer */}
-          <div className={`
+          <div
+            className={`
             p-6 border-t
             ${preferences.theme === 'dark' ? 'bg-gray-800 border-gray-700' : 'bg-gray-50 border-gray-200'}
-          `}>
+          `}
+          >
             <div className="flex items-center justify-between">
-              <div className={`
+              <div
+                className={`
                 text-sm
                 ${preferences.theme === 'dark' ? 'text-gray-300' : 'text-gray-600'}
-              `}>
+              `}
+              >
                 Act {currentNode.metadata.narrativeAct}
                 {currentNode.metadata.criticalPath && (
                   <span className="ml-2 px-2 py-1 bg-orange-100 text-orange-800 text-xs font-medium rounded">
@@ -510,19 +484,22 @@ export default function StoryView({ className = '' }: StoryViewProps) {
               </div>
 
               <div className="flex items-center space-x-3">
-                <div className={`
+                <div
+                  className={`
                   text-sm
                   ${preferences.theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}
-                `}>
+                `}
+                >
                   Reading: {formatTime(timeSpentOnNode)}
                 </div>
                 <button
                   type="button"
                   className={`
                     px-4 py-2 rounded-lg transition-colors text-sm font-medium
-                    ${preferences.theme === 'dark'
-                      ? 'bg-gray-700 text-gray-200 hover:bg-gray-600'
-                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                    ${
+                      preferences.theme === 'dark'
+                        ? 'bg-gray-700 text-gray-200 hover:bg-gray-600'
+                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                     }
                   `}
                   onClick={closeStoryView}

@@ -6,17 +6,6 @@
   'awareness': '21-30%'
 ---
 
-
-
-
-
-
-
-
-
-
-
-
 The archaeologist returns to Fragment 2749-A six days after initial authentication.
 
 The decision to revisit is unusual. Standard protocol: authenticate once, move forward. Four thousand fragments await processing. The authentication backlog grows daily. Time spent re-examining authenticated fragments is time not spent serving new clients, not providing closure to families who need certainty about their preserved loved ones.

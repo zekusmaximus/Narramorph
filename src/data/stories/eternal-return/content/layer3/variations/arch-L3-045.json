@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "ML-IN-L",
     "humanDescription": "Started elsewhere, met archaeologist later with moderate exploration, investigate path, low awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "systematic-investigation",
       "methodological-examination"
     ],
-    "crossCharacterConnections": [
-      "heavy-dominant-primary",
-      "moderate-starting-foundational"
-    ],
+    "crossCharacterConnections": ["heavy-dominant-primary", "moderate-starting-foundational"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-integrated-2047",

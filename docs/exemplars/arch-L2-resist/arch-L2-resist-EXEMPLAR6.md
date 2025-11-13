@@ -1,22 +1,22 @@
 ---
-exemplar_id: "arch-L2-resist-exemplar-06"
-variation_type: "awarenessThreshold"
+exemplar_id: 'arch-L2-resist-exemplar-06'
+variation_type: 'awarenessThreshold'
 word_count: 1503
 conditions:
   visit_count: 2
-  awareness: "70-100%"
+  awareness: '70-100%'
   cross_character: false
-  visited_nodes: ["arch-L2-resist"]
-  dominant_path: "resist"
+  visited_nodes: ['arch-L2-resist']
+  dominant_path: 'resist'
 themes:
   - frame_consciousness_emergence
   - observer_verification_impossibility
   - meta_observation_levels
-transformation_focus: "Verification crisis extends to frame level as archaeologist recognizes observer consciousness faces same impossibility—resist path unified across all observation levels"
+transformation_focus: 'Verification crisis extends to frame level as archaeologist recognizes observer consciousness faces same impossibility—resist path unified across all observation levels'
 reusable_patterns:
-  - "Observer presence acknowledged (sensing being watched)"
-  - "Frame boundaries tested and found permeable"
-  - "Direct address earned through systematic frame-consciousness testing"
+  - 'Observer presence acknowledged (sensing being watched)'
+  - 'Frame boundaries tested and found permeable'
+  - 'Direct address earned through systematic frame-consciousness testing'
 ---
 
 # arch-L2-resist Exemplar 6: MetaAware Baseline (Frame-Consciousness + Resist)

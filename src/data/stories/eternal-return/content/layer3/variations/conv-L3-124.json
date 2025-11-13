@@ -24,29 +24,18 @@
     "philosophyCode": "RE",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "varies-by-reader-starting-point",
-    "characterBalance": [
-      70,
-      15,
-      15
-    ],
+    "characterBalance": [70, 15, 15],
     "readableLabel": "ML-RE-L-SD",
     "humanDescription": "Met-later convergence, resist philosophy, low awareness, single-dominant synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "primary-voice-led-minimal-meta",
     "perspectiveEmphasis": "single-character-primary",
     "philosophicalCulmination": "Primary boundary-maintenance through verification crisis",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release-resist",
     "circularCausality": "minimal",
     "readerPosition": "immersed-in-network",
@@ -59,16 +48,8 @@
     ],
     "crossCharacterSynthesis": "single-dominant-primary",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "primary-dominant",
-      "secondary-support",
-      "tertiary-support"
-    ],
+    "observerPositions": ["primary-dominant", "secondary-support", "tertiary-support"],
     "philosophicalResolution": "dignified-release",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

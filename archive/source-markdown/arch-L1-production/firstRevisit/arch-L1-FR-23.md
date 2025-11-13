@@ -6,16 +6,6 @@
   'awareness': '21-40%'
 ---
 
-
-
-
-
-
-
-
-
-
-
 The archaeologist returned to Fragment 2749-A for the third time, and by now the verification crisis was mature.
 The authentication markers displayed constant. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment she had authenticated forty-seven days earlier, re-examined thirty-two days earlier, remained unchanged in archive. Crystalline substrate maintained perfect molecular fidelity. The data architect's consciousness preserved at moment of death in 2041 existed exactly as captured.
 She knew these numbers were accurate. She also knew accuracy measured substrate stability, not subjective awareness.

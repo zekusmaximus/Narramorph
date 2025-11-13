@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "SD-AC-L",
     "humanDescription": "Started elsewhere, shifted to last human dominant, accept path, low awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Physical presence enables what preservation began",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-acceptance",
-      "biological-witness",
-      "connection-practice"
-    ],
-    "crossCharacterConnections": [
-      "light-arch-recognized",
-      "minimal-algo-sensed"
-    ],
+    "primaryThemes": ["embodied-acceptance", "biological-witness", "connection-practice"],
+    "crossCharacterConnections": ["light-arch-recognized", "minimal-algo-sensed"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "human-primary-2383",

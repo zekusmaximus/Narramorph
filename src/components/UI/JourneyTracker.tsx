@@ -13,29 +13,29 @@ const journeyPatternLabels: Record<JourneyPattern, string> = {
   'shifted-dominant': 'Shifted Dominant',
   'began-lightly': 'Began Lightly',
   'met-later': 'Met Later',
-  'unknown': 'Unknown',
+  unknown: 'Unknown',
 };
 
 const philosophyLabels: Record<PathPhilosophy, string> = {
-  'accept': 'Acceptance',
-  'resist': 'Resistance',
-  'invest': 'Investigation',
-  'mixed': 'Mixed',
-  'unknown': 'Unknown',
+  accept: 'Acceptance',
+  resist: 'Resistance',
+  invest: 'Investigation',
+  mixed: 'Mixed',
+  unknown: 'Unknown',
 };
 
 /**
  * Connection Heatmap - Visual representation of cross-character exploration
  */
 function ConnectionHeatmap() {
-  const tracking = useStoryStore(state => state.progress.journeyTracking);
+  const tracking = useStoryStore((state) => state.progress.journeyTracking);
 
   if (!tracking) return null;
 
   const { crossCharacterConnections } = tracking;
   const maxConnections = Math.max(
     ...Object.values(crossCharacterConnections),
-    1 // Avoid division by zero
+    1, // Avoid division by zero
   );
 
   const connections = [
@@ -75,9 +75,7 @@ function ConnectionHeatmap() {
                 <span className="text-gray-400">
                   {conn.from} ↔ {conn.to}
                 </span>
-                <span className="text-gray-300 font-bold">
-                  {conn.count}×
-                </span>
+                <span className="text-gray-300 font-bold">{conn.count}×</span>
               </div>
 
               {/* Connection strength bar */}
@@ -95,7 +93,7 @@ function ConnectionHeatmap() {
       </div>
 
       {/* Synthesis indicator */}
-      {Object.values(crossCharacterConnections).every(count => count > 0) && (
+      {Object.values(crossCharacterConnections).every((count) => count > 0) && (
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -115,7 +113,7 @@ function ConnectionHeatmap() {
  * Navigation Pattern Display
  */
 function NavigationPatternInsight() {
-  const tracking = useStoryStore(state => state.progress.journeyTracking);
+  const tracking = useStoryStore((state) => state.progress.journeyTracking);
 
   if (!tracking) return null;
 
@@ -149,11 +147,13 @@ function NavigationPatternInsight() {
       </div>
 
       {/* Pattern badge */}
-      <div className={`
+      <div
+        className={`
         inline-flex items-center space-x-2 px-3 py-2 rounded border
         font-mono text-sm
         ${patternColors[navigationPattern]}
-      `}>
+      `}
+      >
         <span className="text-lg">
           {navigationPattern === 'linear' && '→'}
           {navigationPattern === 'exploratory' && '⊹'}
@@ -163,9 +163,7 @@ function NavigationPatternInsight() {
         <span className="font-bold">{patternLabels[navigationPattern]}</span>
       </div>
 
-      <p className="text-xs text-gray-400 mt-2">
-        {patternDescriptions[navigationPattern]}
-      </p>
+      <p className="text-xs text-gray-400 mt-2">{patternDescriptions[navigationPattern]}</p>
 
       {/* Metrics breakdown */}
       <div className="mt-3 space-y-2 text-[10px] font-mono">
@@ -205,7 +203,8 @@ export function JourneyTracker() {
     return null;
   }
 
-  const { characterVisitPercentages, currentJourneyPattern, dominantPhilosophy, l2Choices } = tracking;
+  const { characterVisitPercentages, currentJourneyPattern, dominantPhilosophy, l2Choices } =
+    tracking;
 
   return (
     <div className="journey-tracker bg-black/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg overflow-hidden">
@@ -213,7 +212,9 @@ export function JourneyTracker() {
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full p-4 text-left hover:bg-cyan-500/10 transition-colors flex items-center justify-between"
       >
-        <h3 className="text-cyan-400 font-mono text-sm uppercase tracking-wider">Journey Tracking</h3>
+        <h3 className="text-cyan-400 font-mono text-sm uppercase tracking-wider">
+          Journey Tracking
+        </h3>
         <svg
           className={`w-5 h-5 text-cyan-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
           fill="none"
@@ -234,7 +235,6 @@ export function JourneyTracker() {
             className="overflow-hidden"
           >
             <div className="p-4 pt-0 space-y-4">
-
               {/* Journey Pattern */}
               <div className="space-y-2">
                 <div className="text-xs text-gray-400 font-mono">JOURNEY PATTERN</div>
@@ -331,18 +331,25 @@ export function JourneyTracker() {
                   </div>
                   <div className="space-y-2">
                     {progress.l3AssembliesViewed.map((view, index) => {
-                      const sectionsReadCount = Object.values(view.sectionsRead).filter(Boolean).length;
+                      const sectionsReadCount = Object.values(view.sectionsRead).filter(
+                        Boolean,
+                      ).length;
                       return (
-                        <div key={index} className="text-xs text-gray-400 bg-purple-900/20 p-2 rounded">
+                        <div
+                          key={index}
+                          className="text-xs text-gray-400 bg-purple-900/20 p-2 rounded"
+                        >
                           <div className="font-mono mb-1">
                             {view.journeyPattern} • {view.pathPhilosophy} • {view.synthesisPattern}
                           </div>
                           <div className="flex gap-1">
-                            {(['arch', 'algo', 'hum', 'conv'] as const).map(section => (
+                            {(['arch', 'algo', 'hum', 'conv'] as const).map((section) => (
                               <span
                                 key={section}
                                 className={`w-4 h-4 rounded text-center leading-4 ${
-                                  view.sectionsRead[section] ? 'bg-green-500 text-white' : 'bg-gray-600 text-gray-400'
+                                  view.sectionsRead[section]
+                                    ? 'bg-green-500 text-white'
+                                    : 'bg-gray-600 text-gray-400'
                                 }`}
                                 title={`${section} ${view.sectionsRead[section] ? '✓' : '○'}`}
                               >

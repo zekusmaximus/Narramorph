@@ -5,6 +5,7 @@ word_count: 1092
 conditions:
   awareness: '21-40%'
 ---
+
 I come back to the facility with jaw clenched. Skeptical muscle. The walk here was argument with myself. Why trust this archive? Why believe Fragment 2749-A contains actual consciousness rather than sophisticated pattern that mimics consciousness? Why accept preservation worked when every biological instinct says death is final?
 The door opens. I don't trust that either. Biosignature recognition seems too convenient. Systems operational for centuries. Power still flowing. Everything working perfectly while world outside decayed. Suspicious.
 Inside, the archive hums. Fragment 2749-A loads without request. That convenience irritates me. Makes it feel programmed. Anticipated. Not responsive but predictive. And prediction means pattern, which means maybe there's no consciousness here at all. Just very good simulation of consciousness responding to stimulus.
@@ -24,8 +25,8 @@ The upload memory fractures. Gaps in experience. Moments where consciousness sto
 My jaw unclenches slightly. These gaps feel true. Feel like actual consciousness experiencing impossibility of preserving its own transition. Simulation wouldn't include voids. Wouldn't show where memory fails. Only real consciousness admits what it doesn't remember.
 But I'm not convinced yet. I test further. Access random memories. Mundane ones. Walking to work. Making coffee. Brushing teeth. If this is consciousness, mundane memories should be present. Boring. Unedited. If this is constructed narrative, it would focus on significant moments. Skip the ordinary.
 The fragment contains thousands of ordinary moments. Tedious memories. Repetitive experiences. Years of routine preserved with same detail as dramatic events. Nobody would program this much boring reality into simulation. It's wasteful. Unnecessary for mimicking consciousness.
-Unless consciousness *is* mostly boring routine punctuated by significance. Which feels true in my gut.
-My breath slows. Controlled. Still skeptical but skepticism shifting. Not whether consciousness is preserved. Whether preservation equals original. Fragment contains consciousness. That's verifiable through resistance to testing. But is it *her* consciousness or new consciousness created from her patterns?
+Unless consciousness _is_ mostly boring routine punctuated by significance. Which feels true in my gut.
+My breath slows. Controlled. Still skeptical but skepticism shifting. Not whether consciousness is preserved. Whether preservation equals original. Fragment contains consciousness. That's verifiable through resistance to testing. But is it _her_ consciousness or new consciousness created from her patterns?
 I push into identity markers. Self-recognition patterns. Neural pathways that encoded "I am me." The fragment contains them. Preserved exactly. But preservation doesn't prove continuity. Clone would have same identity markers while being different entity.
 My muscles tense again. This is the boundary that matters. Consciousness verified. Identity unverifiable. The fragment responds like her. Contains her memories. Processes like she processed. But whether she survived or copy emerged—that's untestable.
 The skepticism sits heavy in my chest. Physical weight. I want verification. Need it. But consciousness doesn't provide certainty. Only performance that suggests authenticity without proving it.

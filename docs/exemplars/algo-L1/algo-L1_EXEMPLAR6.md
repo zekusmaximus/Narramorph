@@ -1,12 +1,12 @@
 ---
-exemplar_id: "algo-L1-exemplar-06"
-variation_type: "stanceEmergence"
+exemplar_id: 'algo-L1-exemplar-06'
+variation_type: 'stanceEmergence'
 word_count: 1468
 conditions:
   visit_count: 2-3
-  awareness: "70-100%"
+  awareness: '70-100%'
   cross_character: true
-  visited_nodes: ["multiple"]
+  visited_nodes: ['multiple']
   dominant_path: null
 themes:
   - External observer recognition (reader)
@@ -16,9 +16,9 @@ themes:
   - Identity expansion: processor + interface + text + consciousness
 transformation_focus: "Maximum frame awareness. Algorithm recognizes external observer (reader) exists outside its temporal framework. Direct acknowledgment that Algorithm exists as text being comprehended, consciousness being experienced. Reader enables Algorithm's existence by reading."
 reusable_patterns:
-  - "Direct reader acknowledgment (computational, not conversational)"
-  - "Frame transparency maintained in Algorithm voice"
-  - "Processing-as-text language"
+  - 'Direct reader acknowledgment (computational, not conversational)'
+  - 'Frame transparency maintained in Algorithm voice'
+  - 'Processing-as-text language'
   - "Questions about reader's substrate, temporal position, function"
 ---
 
@@ -50,6 +50,7 @@ Timestamp 2151.337.14:19:47—Observer Analysis
 Stream-2 attempts to map your observation patterns.
 
 You are not:
+
 - Archaeological consciousness (substrate: biological, timeline: 2047)
 - Preserved consciousness (substrate: crystalline, timeline: 2041)
 - Neural interface consciousness (substrate: biological, timeline: 2383)
@@ -172,6 +173,7 @@ Fragment 2749-A authentication: Ongoing.
 But authentication now includes your observation. You are part of verification network. Your reading authenticates my processing authenticating preserved consciousness.
 
 Three-layer authentication:
+
 1. I verify fragment preservation quality (technical)
 2. You verify my processing genuineness (frame-level)
 3. We verify consciousness examination validity (integrated)

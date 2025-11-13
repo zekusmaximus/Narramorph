@@ -27,13 +27,13 @@ async function aggregateL3(): Promise<void> {
   console.log('📂 Aggregating L3 variations...');
 
   const files = await fs.readdir(l3Dir);
-  const l3Files = files.filter(f => f.endsWith('.json') && !f.endsWith('.tmp'));
+  const l3Files = files.filter((f) => f.endsWith('.json') && !f.endsWith('.tmp'));
 
   const grouped: Record<string, L3Variation[]> = {
     arch: [],
     algo: [],
     hum: [],
-    conv: []
+    conv: [],
   };
 
   for (const file of l3Files) {
@@ -42,7 +42,7 @@ async function aggregateL3(): Promise<void> {
     // Map 'id' to 'variationId' for compatibility with matrix generator
     const variation: L3Variation = {
       variationId: content.id,
-      ...content
+      ...content,
     };
 
     const prefix = file.split('-')[0];
@@ -72,7 +72,9 @@ async function aggregateL4(): Promise<void> {
   console.log('📂 Aggregating L4 variations...');
 
   const files = await fs.readdir(l4Dir);
-  const l4Files = files.filter(f => f.startsWith('final-') && f.endsWith('.json') && !f.endsWith('.tmp'));
+  const l4Files = files.filter(
+    (f) => f.startsWith('final-') && f.endsWith('.json') && !f.endsWith('.tmp'),
+  );
 
   const l4Variations: L4Variation[] = [];
   for (const file of l4Files) {
@@ -103,7 +105,10 @@ async function main(): Promise<void> {
     console.log('   Run "npm run matrix:full" to generate the selection matrix');
     console.log('='.repeat(70) + '\n');
   } catch (error) {
-    console.error('\n❌ Aggregation failed:', error instanceof Error ? error.message : String(error));
+    console.error(
+      '\n❌ Aggregation failed:',
+      error instanceof Error ? error.message : String(error),
+    );
     process.exit(1);
   }
 }

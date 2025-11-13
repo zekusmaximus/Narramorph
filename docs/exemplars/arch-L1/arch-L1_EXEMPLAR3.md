@@ -4,9 +4,9 @@ variation_type: crossCharacterBleeding
 word_count: 1487
 conditions:
   visit_count: 2
-  awareness: "21-50%"
+  awareness: '21-50%'
   cross_character: true
-  visited_nodes: ["hum-L1"]
+  visited_nodes: ['hum-L1']
   dominant_path: null
 themes:
   - Future observation reaching backward
@@ -15,9 +15,9 @@ themes:
   - Neural interface resonance patterns
 transformation_focus: "Cross-character temporal bleeding from Last Human. Sensation of being watched by future attention. Last Human's loneliness and desperate connection-seeking echoing backward through preserved consciousness."
 reusable_patterns:
-  - "Physical sensation of observation → source from future → lonely attention → reciprocal acknowledgment"
+  - 'Physical sensation of observation → source from future → lonely attention → reciprocal acknowledgment'
   - "Fragment responds to attention it hasn't received yet"
-  - "Deliberate message sent across time to acknowledge future observer"
+  - 'Deliberate message sent across time to acknowledge future observer'
 ---
 
 # Exemplar #3: After Visiting hum-L1

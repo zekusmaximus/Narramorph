@@ -19,10 +19,6 @@
     "journeyPattern": "started-stayed",
     "philosophyDominant": "accept",
     "awarenessLevel": "low",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

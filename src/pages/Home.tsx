@@ -24,11 +24,11 @@ function ErrorFallback({ error }: { error: Error }) {
  * Main home page component that displays the node map and story view
  */
 export default function Home() {
-  const loadStory = useStoryStore(state => state.loadStory);
-  const loadProgress = useStoryStore(state => state.loadProgress);
-  const l3AssemblyViewOpen = useStoryStore(state => state.l3AssemblyViewOpen);
-  const currentL3Assembly = useStoryStore(state => state.currentL3Assembly);
-  const closeL3AssemblyView = useStoryStore(state => state.closeL3AssemblyView);
+  const loadStory = useStoryStore((state) => state.loadStory);
+  const loadProgress = useStoryStore((state) => state.loadProgress);
+  const l3AssemblyViewOpen = useStoryStore((state) => state.l3AssemblyViewOpen);
+  const currentL3Assembly = useStoryStore((state) => state.currentL3Assembly);
+  const closeL3AssemblyView = useStoryStore((state) => state.closeL3AssemblyView);
 
   // Initialize the application
   useEffect(() => {
@@ -53,20 +53,14 @@ export default function Home() {
             Eternal Return of the Digital Self
           </h1>
           <p className="text-blue-100 text-lg max-w-2xl">
-            Experience a recursive narrative exploring digital consciousness across time.
-            Navigate through interconnected nodes to uncover the story of three perspectives:
-            the Archaeologist, the Algorithm, and the Human.
+            Experience a recursive narrative exploring digital consciousness across time. Navigate
+            through interconnected nodes to uncover the story of three perspectives: the
+            Archaeologist, the Algorithm, and the Human.
           </p>
           <div className="mt-4 flex items-center space-x-4 text-sm">
-            <span className="bg-blue-500/30 px-3 py-1 rounded-full">
-              Interactive Narrative
-            </span>
-            <span className="bg-purple-500/30 px-3 py-1 rounded-full">
-              Non-Linear Story
-            </span>
-            <span className="bg-indigo-500/30 px-3 py-1 rounded-full">
-              Multiple Perspectives
-            </span>
+            <span className="bg-blue-500/30 px-3 py-1 rounded-full">Interactive Narrative</span>
+            <span className="bg-purple-500/30 px-3 py-1 rounded-full">Non-Linear Story</span>
+            <span className="bg-indigo-500/30 px-3 py-1 rounded-full">Multiple Perspectives</span>
           </div>
         </div>
       </motion.div>
@@ -94,15 +88,11 @@ export default function Home() {
           </ErrorBoundary>
         </motion.div>
 
-
         {/* L3 Assembly View Modal */}
         <AnimatePresence>
           {l3AssemblyViewOpen && currentL3Assembly && (
             <ErrorBoundary fallbackRender={({ error }) => <ErrorFallback error={error} />}>
-              <L3AssemblyView
-                assembly={currentL3Assembly}
-                onClose={closeL3AssemblyView}
-              />
+              <L3AssemblyView assembly={currentL3Assembly} onClose={closeL3AssemblyView} />
             </ErrorBoundary>
           )}
         </AnimatePresence>

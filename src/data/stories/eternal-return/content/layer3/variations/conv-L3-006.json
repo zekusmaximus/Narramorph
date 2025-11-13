@@ -24,27 +24,16 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
-    "characterBalance": [
-      33,
-      33,
-      34
-    ],
+    "characterBalance": [33, 33, 34],
     "readableLabel": "SS-AC-M-TB",
     "humanDescription": "Started and stayed dominant in primary character (>60%), accept path, medium awareness, triple-balanced voice synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "rotating-equal-weight",
     "philosophicalCulmination": "Authentication, processing, interface as forms of devotional witness across consciousness substrates",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "pattern-visible",
     "readerPosition": "implicit-fourth",
@@ -63,10 +52,6 @@
       "pattern-fourth"
     ],
     "philosophicalResolution": "acceptance-through-sustained-attention",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

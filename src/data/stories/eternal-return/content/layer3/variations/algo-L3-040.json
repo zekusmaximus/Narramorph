@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "ML-RE-H",
     "humanDescription": "Met later with algorithm, resist path, high awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "computational-rigor",
       "consciousness-examination-limits"
     ],
-    "crossCharacterConnections": [
-      "heavy-arch-foundational",
-      "moderate-hum-integrated"
-    ],
+    "crossCharacterConnections": ["heavy-arch-foundational", "moderate-hum-integrated"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "archaeologist-primary-2047",

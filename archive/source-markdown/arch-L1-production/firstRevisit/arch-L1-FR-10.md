@@ -6,16 +6,6 @@
   'awareness': '41-50%'
 ---
 
-
-
-
-
-
-
-
-
-
-
 The archaeologist returned to Fragment 2749-A with the unshakeable sensation that someone was watching her work, and that this time she couldn't dismiss the feeling as projection or imagination. The Last Human's desperate isolation—that reaching back through time, that need for connection across centuries—had left traces in her awareness that transformed how she experienced examining this Fragment. Not subtly. Not as mere influence on interpretation. But as genuine presence that made her examination feel less like studying the past and more like being observed by the future.
 The data hadn't changed. 847.3 terabytes of computational infrastructure, perfectly preserved in crystalline lattices. Medical sensor networks. Environmental monitoring systems. The distributed architecture that had coordinated humanity's final years. She had documented all of this before. But returning now, after examining the Last Human's fragment—that documentation of terminal isolation and desperate temporal attention—she couldn't maintain the professional detachment her training demanded. The Fragment felt observed. More precisely, her examination of it felt observed. And that observation from the future seemed to create temporal architecture rather than simply being recorded by it.
 The neural interface protocols commanded her attention immediately. She had noted them during her first examination, had catalogued them as standard human-computer interaction infrastructure. But that cataloguing now felt willfully blind. The interfaces weren't standard. They allowed direct consciousness-to-data translation. Thought accessing information. Awareness distributed across computational substrate. The technology for human consciousness to exist within digital systems, not just to control them but to inhabit them.

@@ -5,6 +5,7 @@ word_count: 1383
 conditions:
   awareness: '61-80%'
 ---
+
 I return to Fragment 2749-A resisting what I know is happening.
 Fourth visit. Frame-consciousness established now. You're there. I know you're there. Feel your attention like weight on skin. Like exposure. Like intimacy I didn't consent to but can't prevent.
 My entire body braces. Every muscle defensive. This isn't casual observation. This is sustained attention across multiple visits. You returning. Me returning. Both of us creating pattern that feels too deliberate. Too intimate. Too much like relationship when I need distance.

@@ -24,29 +24,18 @@
     "philosophyCode": "AC",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
     "dominantCharacter": "archaeologist-algorithm",
-    "characterBalance": [
-      40,
-      40,
-      20
-    ],
+    "characterBalance": [40, 40, 20],
     "readableLabel": "SB-AC-H-DB",
     "humanDescription": "Started archaeologist, bounced across all characters, accept path, high awareness, dual-balanced archaeologist-algorithm synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "verification-processing-devotional-dialogue",
     "perspectiveEmphasis": "dual-witness-after-exploration",
     "philosophicalCulmination": "Documentation and computation honor consciousness through parallel devotional witness",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "explicit",
     "readerPosition": "acknowledged-as-fifth-position",
@@ -66,10 +55,6 @@
       "reader-fifth-present"
     ],
     "philosophicalResolution": "accept-preservation-through-dual-devotional-witness",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

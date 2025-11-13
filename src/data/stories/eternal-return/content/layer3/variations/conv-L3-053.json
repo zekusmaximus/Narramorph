@@ -24,50 +24,27 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
     "dominantCharacter": "none",
-    "characterBalance": [
-      40,
-      40,
-      20
-    ],
+    "characterBalance": [40, 40, 20],
     "readableLabel": "SB-IN-L-DB",
     "humanDescription": "Started with one character, bounced across all three, investigate path, low awareness, dual-balanced archaeologist-algorithm synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "archaeological-computational-dialogue",
     "perspectiveEmphasis": "methodology-parallel",
     "philosophicalCulmination": "Two investigation approaches discover investigation examining investigation",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "transform",
     "circularCausality": "embedded-parallel",
     "readerPosition": "immersed",
     "thematicContent": null,
-    "primaryThemes": [
-      "parallel-investigation",
-      "methodological-recursion",
-      "substrate-difference"
-    ],
+    "primaryThemes": ["parallel-investigation", "methodological-recursion", "substrate-difference"],
     "crossCharacterSynthesis": "archaeological-computational-parallel",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "arch-primary-2047",
-      "algo-primary-2151",
-      "hum-supporting-2383"
-    ],
+    "observerPositions": ["arch-primary-2047", "algo-primary-2151", "hum-supporting-2383"],
     "philosophicalResolution": "parallel-investigations-converge",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

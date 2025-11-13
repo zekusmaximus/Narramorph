@@ -24,29 +24,18 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
     "dominantCharacter": "two-primary-characters",
-    "characterBalance": [
-      40,
-      40,
-      20
-    ],
+    "characterBalance": [40, 40, 20],
     "readableLabel": "ML-AC-M-DB",
     "humanDescription": "Met-later convergence, accept philosophy, medium awareness, dual-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "dual-primary-dialogue",
     "perspectiveEmphasis": "two-characters-balanced",
     "philosophicalCulmination": "Dual devotional witness creating unified preservation network",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "recognized",
     "readerPosition": "pattern-recognized",
@@ -59,16 +48,8 @@
     ],
     "crossCharacterSynthesis": "dual-balanced-dialogue",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "primary-A-parallel",
-      "primary-B-parallel",
-      "tertiary-completion"
-    ],
+    "observerPositions": ["primary-A-parallel", "primary-B-parallel", "tertiary-completion"],
     "philosophicalResolution": "dual-devotional-network",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

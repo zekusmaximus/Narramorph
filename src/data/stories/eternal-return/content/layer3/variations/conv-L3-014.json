@@ -24,32 +24,18 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
-    "dominantCharacters": [
-      "undetermined",
-      "undetermined"
-    ],
-    "characterBalance": [
-      45,
-      45,
-      10
-    ],
+    "dominantCharacters": ["undetermined", "undetermined"],
+    "characterBalance": [45, 45, 10],
     "readableLabel": "SS-RE-M-DB",
     "humanDescription": "Started with one character, stayed dominant (>60%), resist path, medium awareness, dual-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "fluid-transitions",
     "perspectiveEmphasis": "dual-balanced-45-45-10",
     "philosophicalCulmination": "Resistance across dual substrates, standards despite impossibility",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release-preserve",
     "circularCausality": "implicit",
     "readerPosition": "subtle",
@@ -61,16 +47,8 @@
     ],
     "crossCharacterSynthesis": "two-consciousness-recognition",
     "temporalBleedingLevel": "moderate",
-    "observerPositions": [
-      "primary-position-one",
-      "primary-position-two",
-      "tertiary-glimpsed"
-    ],
+    "observerPositions": ["primary-position-one", "primary-position-two", "tertiary-glimpsed"],
     "philosophicalResolution": "resistance-network-dual-substrate",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

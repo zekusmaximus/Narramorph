@@ -111,12 +111,15 @@ interface CoverageReport {
     actualCombinations: number;
     coveragePercentage: number;
   };
-  byLayer: Record<string, {
-    variations: number;
-    entries: number;
-    expectedVariations?: number;
-    missingVariations?: number;
-  }>;
+  byLayer: Record<
+    string,
+    {
+      variations: number;
+      entries: number;
+      expectedVariations?: number;
+      missingVariations?: number;
+    }
+  >;
   expectedPatterns?: {
     L3?: {
       soloNodes: string[];
@@ -146,7 +149,7 @@ function parseMatrixArgs(): MatrixGeneratorOptions {
   // Parse --layers=L1,L2,L3,L4
   const layersArg = values.layers;
   const layers = layersArg
-    ? layersArg.split(',').map(l => l.trim()) as ('L1' | 'L2' | 'L3' | 'L4')[]
+    ? (layersArg.split(',').map((l) => l.trim()) as ('L1' | 'L2' | 'L3' | 'L4')[])
     : ['L1', 'L2', 'L3', 'L4'];
 
   // Parse strict mode
@@ -156,7 +159,7 @@ function parseMatrixArgs(): MatrixGeneratorOptions {
     layers,
     strictMode,
     outputPath: values.output,
-    reportPath: values.report
+    reportPath: values.report,
   };
 }
 
@@ -201,7 +204,7 @@ async function loadLayerData(layers: ('L1' | 'L2' | 'L3' | 'L4')[]): Promise<Lay
           // Add path field to each variation
           const withPath = variations.map((v: any) => ({
             ...v,
-            pathPhilosophy: pathType
+            pathPhilosophy: pathType,
           }));
           l2Variations.push(...withPath);
         } else {
@@ -284,15 +287,15 @@ function generateL1Entries(variations: L1Variation[]): MatrixEntry[] {
   const entries: MatrixEntry[] = [];
 
   // Group by character
-  const byCharacter = groupBy(variations, v => {
+  const byCharacter = groupBy(variations, (v) => {
     const id = v.variation_id || v.id || '';
     return id.split('-')[0];
   });
 
   for (const [char, charVariations] of Object.entries(byCharacter)) {
     // Initial variations (first visit)
-    const initial = charVariations.filter(v =>
-      (v.variation_type || v.transformationState) === 'Initial'
+    const initial = charVariations.filter(
+      (v) => (v.variation_type || v.transformationState) === 'Initial',
     );
     for (const variation of initial) {
       const varId = variation.variation_id || variation.id || '';
@@ -301,22 +304,23 @@ function generateL1Entries(variations: L1Variation[]): MatrixEntry[] {
         toNode: varId,
         conditions: {
           awarenessLevel: 'Low',
-          isFirstVisit: true
+          isFirstVisit: true,
         },
         metadata: {
           variationId: varId,
           variationType: 'Initial',
           wordCount: variation.word_count || 0,
           layer: 'L1',
-          character: char as 'arch' | 'algo' | 'hum'
-        }
+          character: char as 'arch' | 'algo' | 'hum',
+        },
       });
     }
 
     // FirstRevisit variations (visit 2-3)
-    const firstRevisit = charVariations.filter(v =>
-      (v.variation_type || v.transformationState) === 'FirstRevisit' ||
-      (v.variation_type || v.transformationState) === 'firstRevisit'
+    const firstRevisit = charVariations.filter(
+      (v) =>
+        (v.variation_type || v.transformationState) === 'FirstRevisit' ||
+        (v.variation_type || v.transformationState) === 'firstRevisit',
     );
     for (const variation of firstRevisit) {
       const varId = variation.variation_id || variation.id || '';
@@ -325,22 +329,23 @@ function generateL1Entries(variations: L1Variation[]): MatrixEntry[] {
         toNode: varId,
         conditions: {
           awarenessLevel: mapAwarenessLevel(variation.conditions?.awareness),
-          visitCount: [2, 3]
+          visitCount: [2, 3],
         },
         metadata: {
           variationId: varId,
           variationType: 'FirstRevisit',
           wordCount: variation.word_count || 0,
           layer: 'L1',
-          character: char as 'arch' | 'algo' | 'hum'
-        }
+          character: char as 'arch' | 'algo' | 'hum',
+        },
       });
     }
 
     // MetaAware variations (visit 4+)
-    const metaAware = charVariations.filter(v =>
-      (v.variation_type || v.transformationState) === 'MetaAware' ||
-      (v.variation_type || v.transformationState) === 'metaAware'
+    const metaAware = charVariations.filter(
+      (v) =>
+        (v.variation_type || v.transformationState) === 'MetaAware' ||
+        (v.variation_type || v.transformationState) === 'metaAware',
     );
     for (const variation of metaAware) {
       const varId = variation.variation_id || variation.id || '';
@@ -349,15 +354,15 @@ function generateL1Entries(variations: L1Variation[]): MatrixEntry[] {
         toNode: varId,
         conditions: {
           awarenessLevel: mapAwarenessLevel(variation.conditions?.awareness),
-          visitCount: [4, 100]
+          visitCount: [4, 100],
         },
         metadata: {
           variationId: varId,
           variationType: 'MetaAware',
           wordCount: variation.word_count || 0,
           layer: 'L1',
-          character: char as 'arch' | 'algo' | 'hum'
-        }
+          character: char as 'arch' | 'algo' | 'hum',
+        },
       });
     }
   }
@@ -365,11 +370,14 @@ function generateL1Entries(variations: L1Variation[]): MatrixEntry[] {
   return entries;
 }
 
-function generateL2Entries(l2Variations: L2Variation[], l1Variations: L1Variation[]): MatrixEntry[] {
+function generateL2Entries(
+  l2Variations: L2Variation[],
+  l1Variations: L1Variation[],
+): MatrixEntry[] {
   const entries: MatrixEntry[] = [];
 
   // Group by character and path
-  const byCharAndPath = groupBy(l2Variations, v => {
+  const byCharAndPath = groupBy(l2Variations, (v) => {
     const id = v.variation_id || v.variationId || '';
     const parts = id.split('-');
     return `${parts[0]}-${parts[2]}`; // e.g., "arch-accept"
@@ -379,9 +387,10 @@ function generateL2Entries(l2Variations: L2Variation[], l1Variations: L1Variatio
     const [char, pathType] = key.split('-');
 
     // FirstRevisit variations
-    const firstRevisit = variations.filter(v =>
-      (v.variation_type || v.transformationState) === 'FirstRevisit' ||
-      (v.variation_type || v.transformationState) === 'firstRevisit'
+    const firstRevisit = variations.filter(
+      (v) =>
+        (v.variation_type || v.transformationState) === 'FirstRevisit' ||
+        (v.variation_type || v.transformationState) === 'firstRevisit',
     );
     for (const variation of firstRevisit) {
       const varId = variation.variation_id || variation.variationId || '';
@@ -391,22 +400,23 @@ function generateL2Entries(l2Variations: L2Variation[], l1Variations: L1Variatio
         conditions: {
           pathChosen: pathType as 'accept' | 'resist' | 'invest',
           awarenessLevel: mapAwarenessLevel(variation.conditions?.awareness),
-          visitCount: [1, 3]
+          visitCount: [1, 3],
         },
         metadata: {
           variationId: varId,
           variationType: 'FirstRevisit',
           wordCount: variation.word_count || variation.wordCount || 0,
           layer: 'L2',
-          character: char as 'arch' | 'algo' | 'hum'
-        }
+          character: char as 'arch' | 'algo' | 'hum',
+        },
       });
     }
 
     // MetaAware variations
-    const metaAware = variations.filter(v =>
-      (v.variation_type || v.transformationState) === 'MetaAware' ||
-      (v.variation_type || v.transformationState) === 'metaAware'
+    const metaAware = variations.filter(
+      (v) =>
+        (v.variation_type || v.transformationState) === 'MetaAware' ||
+        (v.variation_type || v.transformationState) === 'metaAware',
     );
     for (const variation of metaAware) {
       const varId = variation.variation_id || variation.variationId || '';
@@ -417,15 +427,15 @@ function generateL2Entries(l2Variations: L2Variation[], l1Variations: L1Variatio
           pathChosen: pathType as 'accept' | 'resist' | 'invest',
           awarenessLevel: mapAwarenessLevel(variation.conditions?.awareness),
           visitCount: [4, 100],
-          previousPaths: variation.conditions?.previous_paths as any
+          previousPaths: variation.conditions?.previous_paths as any,
         },
         metadata: {
           variationId: varId,
           variationType: 'MetaAware',
           wordCount: variation.word_count || variation.wordCount || 0,
           layer: 'L2',
-          character: char as 'arch' | 'algo' | 'hum'
-        }
+          character: char as 'arch' | 'algo' | 'hum',
+        },
       });
     }
   }
@@ -436,15 +446,16 @@ function generateL2Entries(l2Variations: L2Variation[], l1Variations: L1Variatio
 function generateL3Entries(
   l3Variations: L3Variation[],
   l1Variations: L1Variation[],
-  l2Variations: L2Variation[]
+  l2Variations: L2Variation[],
 ): MatrixEntry[] {
   const entries: MatrixEntry[] = [];
 
   // Solo character convergence (arch-L3, algo-L3, hum-L3)
-  const soloVariations = l3Variations.filter(v =>
-    v.variationId.startsWith('arch-L3') ||
-    v.variationId.startsWith('algo-L3') ||
-    v.variationId.startsWith('hum-L3')
+  const soloVariations = l3Variations.filter(
+    (v) =>
+      v.variationId.startsWith('arch-L3') ||
+      v.variationId.startsWith('algo-L3') ||
+      v.variationId.startsWith('hum-L3'),
   );
 
   for (const variation of soloVariations) {
@@ -456,20 +467,20 @@ function generateL3Entries(
       conditions: {
         awarenessLevel: mapAwarenessLevel(variation.awarenessLevel),
         minCharactersExplored: 1,
-        philosophyDominant: variation.philosophyDominant as any
+        philosophyDominant: variation.philosophyDominant as any,
       },
       metadata: {
         variationId: variation.variationId,
         variationType: 'FirstRevisit',
         wordCount: variation.wordCount || variation.word_count || 0,
         layer: 'L3',
-        character: char as 'arch' | 'algo' | 'hum'
-      }
+        character: char as 'arch' | 'algo' | 'hum',
+      },
     });
   }
 
   // Cross-character convergence (conv-L3)
-  const convVariations = l3Variations.filter(v => v.variationId.startsWith('conv-L3'));
+  const convVariations = l3Variations.filter((v) => v.variationId.startsWith('conv-L3'));
 
   for (const variation of convVariations) {
     const characterVoices = variation.characterVoices || [];
@@ -482,21 +493,24 @@ function generateL3Entries(
         awarenessLevel: mapAwarenessLevel(variation.awarenessLevel),
         charactersSeen: characterVoices as any,
         minCharactersExplored: minChars,
-        philosophyDominant: variation.philosophyDominant as any
+        philosophyDominant: variation.philosophyDominant as any,
       },
       metadata: {
         variationId: variation.variationId,
         variationType: 'MetaAware',
         wordCount: variation.wordCount || variation.word_count || 0,
-        layer: 'L3'
-      }
+        layer: 'L3',
+      },
     });
   }
 
   return entries;
 }
 
-function generateL4Entries(l4Variations: L4Variation[], l3Variations: L3Variation[]): MatrixEntry[] {
+function generateL4Entries(
+  l4Variations: L4Variation[],
+  l3Variations: L3Variation[],
+): MatrixEntry[] {
   const entries: MatrixEntry[] = [];
 
   for (const variation of l4Variations) {
@@ -506,14 +520,14 @@ function generateL4Entries(l4Variations: L4Variation[], l3Variations: L3Variatio
       conditions: {
         awarenessLevel: 'VeryHigh',
         philosophyDominant: variation.philosophy as any,
-        charactersSeen: ['arch', 'algo', 'hum']
+        charactersSeen: ['arch', 'algo', 'hum'],
       },
       metadata: {
         variationId: variation.id,
         variationType: 'MetaAware',
         wordCount: variation.wordCount || variation.word_count || 0,
-        layer: 'L4'
-      }
+        layer: 'L4',
+      },
     });
   }
 
@@ -527,7 +541,7 @@ function generateL4Entries(l4Variations: L4Variation[], l3Variations: L3Variatio
 function analyzeCoverage(
   layerData: LayerData,
   matrixEntries: MatrixEntry[],
-  options: MatrixGeneratorOptions
+  options: MatrixGeneratorOptions,
 ): CoverageReport {
   const report: CoverageReport = {
     timestamp: new Date().toISOString(),
@@ -537,17 +551,17 @@ function analyzeCoverage(
       totalEntries: matrixEntries.length,
       expectedCombinations: 0,
       actualCombinations: 0,
-      coveragePercentage: 0
+      coveragePercentage: 0,
     },
     byLayer: {},
     warnings: [],
-    errors: []
+    errors: [],
   };
 
   // Analyze L1 coverage
   if (layerData.L1) {
-    const l1Entries = matrixEntries.filter(e => e.metadata.layer === 'L1');
-    const l1ByCharacter = groupBy(layerData.L1, v => {
+    const l1Entries = matrixEntries.filter((e) => e.metadata.layer === 'L1');
+    const l1ByCharacter = groupBy(layerData.L1, (v) => {
       const id = v.variation_id || v.id || '';
       return id.split('-')[0];
     });
@@ -558,13 +572,13 @@ function analyzeCoverage(
       const actual = variations.length;
 
       if (actual < expected) {
-        const message = `${char}-L1: ${actual}/${expected} variations (${((actual/expected)*100).toFixed(1)}%)`;
+        const message = `${char}-L1: ${actual}/${expected} variations (${((actual / expected) * 100).toFixed(1)}%)`;
         if (options.strictMode) {
           report.errors.push(message);
         } else {
           report.warnings.push(message);
         }
-        missingL1 += (expected - actual);
+        missingL1 += expected - actual;
       }
     }
 
@@ -572,14 +586,14 @@ function analyzeCoverage(
       variations: layerData.L1.length,
       entries: l1Entries.length,
       expectedVariations: 240 * 3,
-      missingVariations: missingL1
+      missingVariations: missingL1,
     };
   }
 
   // Analyze L2 coverage
   if (layerData.L2) {
-    const l2Entries = matrixEntries.filter(e => e.metadata.layer === 'L2');
-    const l2ByCharAndPath = groupBy(layerData.L2, v => {
+    const l2Entries = matrixEntries.filter((e) => e.metadata.layer === 'L2');
+    const l2ByCharAndPath = groupBy(layerData.L2, (v) => {
       const id = v.variation_id || v.variationId || '';
       const parts = id.split('-');
       return `${parts[0]}-${parts[2]}`;
@@ -591,13 +605,13 @@ function analyzeCoverage(
       const actual = variations.length;
 
       if (actual < expected) {
-        const message = `${key}: ${actual}/${expected} variations (${((actual/expected)*100).toFixed(1)}%)`;
+        const message = `${key}: ${actual}/${expected} variations (${((actual / expected) * 100).toFixed(1)}%)`;
         if (options.strictMode) {
           report.errors.push(message);
         } else {
           report.warnings.push(message);
         }
-        missingL2 += (expected - actual);
+        missingL2 += expected - actual;
       }
     }
 
@@ -605,18 +619,18 @@ function analyzeCoverage(
       variations: layerData.L2.length,
       entries: l2Entries.length,
       expectedVariations: 160 * 9,
-      missingVariations: missingL2
+      missingVariations: missingL2,
     };
   }
 
   // Analyze L3 coverage
   if (layerData.L3 && layerData.L1 && layerData.L2) {
-    const l3Entries = matrixEntries.filter(e => e.metadata.layer === 'L3');
+    const l3Entries = matrixEntries.filter((e) => e.metadata.layer === 'L3');
 
     const expectedPatterns = computeExpectedL3Patterns(layerData.L1, layerData.L2);
     const actualPatterns = extractActualL3Patterns(layerData.L3);
 
-    const missingPatterns = expectedPatterns.all.filter(p => !actualPatterns.includes(p));
+    const missingPatterns = expectedPatterns.all.filter((p) => !actualPatterns.includes(p));
 
     if (missingPatterns.length > 0) {
       const message = `Missing ${missingPatterns.length} L3 patterns: ${missingPatterns.slice(0, 5).join(', ')}${missingPatterns.length > 5 ? '...' : ''}`;
@@ -631,15 +645,15 @@ function analyzeCoverage(
       L3: {
         soloNodes: expectedPatterns.solo,
         convergenceNodes: expectedPatterns.convergence,
-        missing: missingPatterns
-      }
+        missing: missingPatterns,
+      },
     };
 
     report.byLayer.L3 = {
       variations: layerData.L3.length,
       entries: l3Entries.length,
       expectedVariations: 270,
-      missingVariations: Math.max(0, 270 - layerData.L3.length)
+      missingVariations: Math.max(0, 270 - layerData.L3.length),
     };
 
     report.summary.expectedCombinations += expectedPatterns.all.length;
@@ -648,7 +662,7 @@ function analyzeCoverage(
 
   // Analyze L4 coverage
   if (layerData.L4) {
-    const l4Entries = matrixEntries.filter(e => e.metadata.layer === 'L4');
+    const l4Entries = matrixEntries.filter((e) => e.metadata.layer === 'L4');
     const expected = 3;
 
     if (layerData.L4.length < expected) {
@@ -664,7 +678,7 @@ function analyzeCoverage(
       variations: layerData.L4.length,
       entries: l4Entries.length,
       expectedVariations: 3,
-      missingVariations: Math.max(0, 3 - layerData.L4.length)
+      missingVariations: Math.max(0, 3 - layerData.L4.length),
     };
   }
 
@@ -677,7 +691,10 @@ function analyzeCoverage(
   return report;
 }
 
-function computeExpectedL3Patterns(l1: L1Variation[], l2: L2Variation[]): {
+function computeExpectedL3Patterns(
+  l1: L1Variation[],
+  l2: L2Variation[],
+): {
   solo: string[];
   convergence: string[];
   all: string[];
@@ -687,11 +704,11 @@ function computeExpectedL3Patterns(l1: L1Variation[], l2: L2Variation[]): {
 
   const chars = ['arch', 'algo', 'hum'];
   for (const char of chars) {
-    const charL1 = l1.filter(v => {
+    const charL1 = l1.filter((v) => {
       const id = v.variation_id || v.id || '';
       return id.startsWith(char);
     });
-    const charL2 = l2.filter(v => {
+    const charL2 = l2.filter((v) => {
       const id = v.variation_id || v.variationId || '';
       return id.startsWith(char);
     });
@@ -704,25 +721,24 @@ function computeExpectedL3Patterns(l1: L1Variation[], l2: L2Variation[]): {
   // Two-character convergence patterns
   for (let i = 0; i < chars.length; i++) {
     for (let j = i + 1; j < chars.length; j++) {
-      const char1L1 = l1.filter(v => {
+      const char1L1 = l1.filter((v) => {
         const id = v.variation_id || v.id || '';
         return id.startsWith(chars[i]);
       });
-      const char1L2 = l2.filter(v => {
+      const char1L2 = l2.filter((v) => {
         const id = v.variation_id || v.variationId || '';
         return id.startsWith(chars[i]);
       });
-      const char2L1 = l1.filter(v => {
+      const char2L1 = l1.filter((v) => {
         const id = v.variation_id || v.id || '';
         return id.startsWith(chars[j]);
       });
-      const char2L2 = l2.filter(v => {
+      const char2L2 = l2.filter((v) => {
         const id = v.variation_id || v.variationId || '';
         return id.startsWith(chars[j]);
       });
 
-      if (char1L1.length > 0 && char1L2.length > 0 &&
-          char2L1.length > 0 && char2L2.length > 0) {
+      if (char1L1.length > 0 && char1L2.length > 0 && char2L1.length > 0 && char2L2.length > 0) {
         const pattern = `conv-L3-${chars[i]}-${chars[j]}`;
         convergence.push(pattern);
       }
@@ -730,12 +746,12 @@ function computeExpectedL3Patterns(l1: L1Variation[], l2: L2Variation[]): {
   }
 
   // Three-character convergence
-  const allCharsPresent = chars.every(char => {
-    const charL1 = l1.filter(v => {
+  const allCharsPresent = chars.every((char) => {
+    const charL1 = l1.filter((v) => {
       const id = v.variation_id || v.id || '';
       return id.startsWith(char);
     });
-    const charL2 = l2.filter(v => {
+    const charL2 = l2.filter((v) => {
       const id = v.variation_id || v.variationId || '';
       return id.startsWith(char);
     });
@@ -749,7 +765,7 @@ function computeExpectedL3Patterns(l1: L1Variation[], l2: L2Variation[]): {
   return {
     solo,
     convergence,
-    all: [...solo, ...convergence]
+    all: [...solo, ...convergence],
   };
 }
 
@@ -797,7 +813,9 @@ function printCoverageReport(report: CoverageReport): void {
   if (report.expectedPatterns?.L3) {
     console.log('\nL3 Pattern Analysis:');
     console.log(`  Solo Nodes: ${report.expectedPatterns.L3.soloNodes.join(', ')}`);
-    console.log(`  Convergence Nodes: ${report.expectedPatterns.L3.convergenceNodes.length} patterns`);
+    console.log(
+      `  Convergence Nodes: ${report.expectedPatterns.L3.convergenceNodes.length} patterns`,
+    );
     if (report.expectedPatterns.L3.missing.length > 0) {
       console.log(`  Missing: ${report.expectedPatterns.L3.missing.join(', ')}`);
     }
@@ -857,29 +875,22 @@ export async function generateMatrix(options: MatrixGeneratorOptions): Promise<v
   }
 
   // Write matrix
-  const outputPath = options.outputPath ||
+  const outputPath =
+    options.outputPath ||
     resolve(process.cwd(), '../../src/data/stories/eternal-return/content/selection-matrix.json');
 
   await fs.mkdir(dirname(outputPath), { recursive: true });
-  await fs.writeFile(
-    outputPath,
-    JSON.stringify(matrixEntries, null, 2),
-    'utf-8'
-  );
+  await fs.writeFile(outputPath, JSON.stringify(matrixEntries, null, 2), 'utf-8');
 
   console.log(`\n✅ Matrix written to: ${outputPath}`);
   console.log(`   Total entries: ${matrixEntries.length}`);
 
   // Write coverage report
-  const reportPath = options.reportPath ||
-    resolve(process.cwd(), 'reports/matrix-coverage-report.json');
+  const reportPath =
+    options.reportPath || resolve(process.cwd(), 'reports/matrix-coverage-report.json');
 
   await fs.mkdir(dirname(reportPath), { recursive: true });
-  await fs.writeFile(
-    reportPath,
-    JSON.stringify(coverage, null, 2),
-    'utf-8'
-  );
+  await fs.writeFile(reportPath, JSON.stringify(coverage, null, 2), 'utf-8');
 
   console.log(`📝 Coverage report written to: ${reportPath}\n`);
 }
@@ -899,12 +910,15 @@ function mapAwarenessLevel(level?: string): 'Low' | 'Medium' | 'High' | 'VeryHig
 }
 
 function groupBy<T>(array: T[], keyFn: (item: T) => string): Record<string, T[]> {
-  return array.reduce((acc, item) => {
-    const key = keyFn(item);
-    if (!acc[key]) acc[key] = [];
-    acc[key].push(item);
-    return acc;
-  }, {} as Record<string, T[]>);
+  return array.reduce(
+    (acc, item) => {
+      const key = keyFn(item);
+      if (!acc[key]) acc[key] = [];
+      acc[key].push(item);
+      return acc;
+    },
+    {} as Record<string, T[]>,
+  );
 }
 
 // ============================================================================
@@ -919,9 +933,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       console.log('✅ Matrix generation complete\n');
       process.exit(0);
     })
-    .catch(error => {
+    .catch((error) => {
       console.error('\n❌ Matrix generation failed:', error.message);
       process.exit(1);
     });
 }
-

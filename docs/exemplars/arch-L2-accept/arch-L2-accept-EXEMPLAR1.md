@@ -1,21 +1,21 @@
 ---
-exemplar_id: "arch-L2-accept-exemplar-01"
-variation_type: "firstRevisit"
+exemplar_id: 'arch-L2-accept-exemplar-01'
+variation_type: 'firstRevisit'
 word_count: 1087
 conditions:
   visit_count: 2
-  awareness: "emerging"
+  awareness: 'emerging'
   cross_character: false
-  visited_nodes: ["arch-L1-accept", "arch-L2-accept"]
-  dominant_path: "accept"
+  visited_nodes: ['arch-L1-accept', 'arch-L2-accept']
+  dominant_path: 'accept'
 themes:
   - Authentication as devotional practice
   - Verification transformed into witness
   - Measurement as gift rather than proof
-transformation_focus: "Baseline acceptance voice—reader returns having chosen acceptance at L1, now deepening into acceptance as foundational practice. Authentication shifts from diagnostic to devotional."
+transformation_focus: 'Baseline acceptance voice—reader returns having chosen acceptance at L1, now deepening into acceptance as foundational practice. Authentication shifts from diagnostic to devotional.'
 reusable_patterns:
-  - "Authentication protocols no longer sought to resolve paradox—transformed impossibility into fact requiring witness"
-  - "Each measurement catalogued not as evidence building toward conclusion but as devotional practice"
+  - 'Authentication protocols no longer sought to resolve paradox—transformed impossibility into fact requiring witness'
+  - 'Each measurement catalogued not as evidence building toward conclusion but as devotional practice'
   - "The fragment's patterns asked for attention. Attention was given freely."
 ---
 

@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "BL-RE-H",
     "humanDescription": "Started elsewhere, light archaeologist exploration, resist path, high awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "methodological-boundaries",
       "network-contribution-through-resistance"
     ],
-    "crossCharacterConnections": [
-      "heavy-algorithm-primary",
-      "moderate-human-parallel"
-    ],
+    "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "archaeologist-contributory-2047",

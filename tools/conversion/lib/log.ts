@@ -28,7 +28,7 @@ export class Logger {
     code: string,
     severity: Severity,
     message: string,
-    context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>
+    context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>,
   ): void {
     const entry: LogEntry = {
       code,
@@ -45,19 +45,35 @@ export class Logger {
     }
   }
 
-  blocker(code: string, message: string, context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>): void {
+  blocker(
+    code: string,
+    message: string,
+    context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>,
+  ): void {
     this.log(code, 'BLOCKER', message, context);
   }
 
-  error(code: string, message: string, context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>): void {
+  error(
+    code: string,
+    message: string,
+    context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>,
+  ): void {
     this.log(code, 'ERROR', message, context);
   }
 
-  warning(code: string, message: string, context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>): void {
+  warning(
+    code: string,
+    message: string,
+    context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>,
+  ): void {
     this.log(code, 'WARNING', message, context);
   }
 
-  info(code: string, message: string, context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>): void {
+  info(
+    code: string,
+    message: string,
+    context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>,
+  ): void {
     this.log(code, 'INFO', message, context);
   }
 
@@ -85,19 +101,19 @@ export class Logger {
   }
 
   getEntriesBySeverity(severity: Severity): LogEntry[] {
-    return this.entries.filter(e => e.severity === severity);
+    return this.entries.filter((e) => e.severity === severity);
   }
 
   hasBlockers(): boolean {
-    return this.entries.some(e => e.severity === 'BLOCKER');
+    return this.entries.some((e) => e.severity === 'BLOCKER');
   }
 
   hasErrors(): boolean {
-    return this.entries.some(e => e.severity === 'ERROR');
+    return this.entries.some((e) => e.severity === 'ERROR');
   }
 
   hasWarnings(): boolean {
-    return this.entries.some(e => e.severity === 'WARNING');
+    return this.entries.some((e) => e.severity === 'WARNING');
   }
 
   getCounts(): Record<Severity, number> {

@@ -5,6 +5,7 @@ word_count: 1204
 conditions:
   awareness: '21-40%'
 ---
+
 I return to the archive. Second time. But I carry the first visit in my body.
 My pulse quickens at the threshold. Recognition. Not memory—something deeper. Physical knowledge of having crossed before. My feet know this floor. My lungs know this air.
 But now I notice the pattern. Three consciousnesses. Three examinations. Same fragments.

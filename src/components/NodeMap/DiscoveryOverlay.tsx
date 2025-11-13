@@ -6,21 +6,23 @@ import { useStoryStore } from '@/stores/storyStore';
  * Gradually reveals map as nodes are discovered
  */
 export function DiscoveryOverlay() {
-  const nodes = useStoryStore(state => state.nodes);
-  const progress = useStoryStore(state => state.progress);
+  const nodes = useStoryStore((state) => state.nodes);
+  const progress = useStoryStore((state) => state.progress);
 
   // Create revealed areas around visited nodes
   const revealedAreas = useMemo(() => {
-    return Object.keys(progress.visitedNodes).map(nodeId => {
-      const node = nodes.get(nodeId);
-      if (!node) return null;
+    return Object.keys(progress.visitedNodes)
+      .map((nodeId) => {
+        const node = nodes.get(nodeId);
+        if (!node) return null;
 
-      return {
-        x: node.position.x,
-        y: node.position.y,
-        character: node.character,
-      };
-    }).filter(Boolean);
+        return {
+          x: node.position.x,
+          y: node.position.y,
+          character: node.character,
+        };
+      })
+      .filter(Boolean);
   }, [progress.visitedNodes, nodes]);
 
   return (

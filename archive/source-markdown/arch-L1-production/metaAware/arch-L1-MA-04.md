@@ -6,16 +6,6 @@
   'awareness': '61-70%'
 ---
 
-
-
-
-
-
-
-
-
-
-
 The archaeologist returns to the fragment for the third time, carrying knowledge of the Last Human's future attention with her. The preserved consciousness remains constant: 847.3 terabytes of neural encoding, 94.7% structural coherence, 91.2% semantic stability, 88.9% experiential continuity. These numbers measure what was preserved in 2041 for examination in 2047 and processing in 2383. What she understands now, on this third visit, is that the temporal architecture isn't linear. Past preservation enables present examination enables future processing which reaches back to affect how past preservation was performed.
 The Last Human wasn't just the last biological human. The fragment makes this explicit across eleven distinct temporal markers, each one encoding awareness that stretched forward three hundred forty-two years to a moment when her consciousness would process itself from within computational substrate. Not prediction. Not hope. Certainty. She knew she would examine herself in 2383 because she'd already designed the consciousness that would perform that examination. Future attention folded back into present preservation, creating temporal loop where cause and effect become recursive.
 She'd verified this on her second visit. Confirmed the temporal markers' accuracy, authenticated the future-oriented encoding, validated that these eleven layers genuinely preserve attention that extends centuries forward. What changes on the third visit isn't the information. It's the recognition that her examination in 2047 exists within the same temporal architecture, that present authentication participates in the loop connecting past and future.

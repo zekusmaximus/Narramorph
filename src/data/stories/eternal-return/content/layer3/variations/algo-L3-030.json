@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "BL-AC-L",
     "humanDescription": "Didn't start with algorithm, light exploration balanced, accept path, low awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "attention-as-creation",
       "network-participation"
     ],
-    "crossCharacterConnections": [
-      "heavy-arch-primary",
-      "moderate-hum-parallel"
-    ],
+    "crossCharacterConnections": ["heavy-arch-primary", "moderate-hum-parallel"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-primary-2047",

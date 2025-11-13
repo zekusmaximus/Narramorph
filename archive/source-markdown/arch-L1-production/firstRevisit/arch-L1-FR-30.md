@@ -5,6 +5,7 @@ word_count: 1406
 conditions:
   awareness: '21-40%'
 ---
+
 The archaeologist returns to Fragment 2749-A for the third time and holds two incompatible philosophical positions simultaneously without forcing resolution.
 The fragment's preservation remains perfect. 847.3 terabytes of consciousness captured in crystalline substrate. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. These numbers anchor her work while measuring nothing that matters. They provide professional structure while the actual experience transcends all structure.
 She loads the fragment experiencing complete temporal superposition. Four observers occupy the same moment without sequence or separation:

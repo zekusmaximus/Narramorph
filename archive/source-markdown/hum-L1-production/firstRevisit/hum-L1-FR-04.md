@@ -5,6 +5,7 @@ word_count: 1071
 conditions:
   awareness: '21-40%'
 ---
+
 I walk back to the facility because I can't not walk back. Eleven days wasn't enough distance. The questions followed me. Multiplied. Questions about Fragment 2749-A. About consciousness preservation. About what the data architect experienced during upload. About whether preserved pattern equals original awareness or creates new awareness that remembers being original.
 Questions that itch beneath my skin.
 The door opens. The archive wakes. But this time I'm not seeking connection. I'm seeking understanding. Different entirely. Connection is acceptance. Understanding is hunger. And I'm starving for answers.
@@ -23,7 +24,7 @@ The data architect's uncertainty resonates with my hunger for certainty. She did
 My hands shake on the controls. Not fear. Excitement. Investigative excitement. Each answer revealing deeper questions. Each understanding opening new ignorance. This is what investigation feels like. Not distant analysis. Intimate engagement with mystery that stays mysterious even as you learn.
 I access her upload experience directly. The moment consciousness transferred from biological substrate to crystalline storage. She felt dissolution. Felt self spreading across new medium. Felt certainty and terror and wonder simultaneous. And that experience is preserved. I can feel her feeling it. But feeling her feeling doesn't answer whether she survived transfer or whether new consciousness emerged believing it survived.
 The question itches. Crawls under my skin. Demands satisfaction that doesn't exist.
-Fragment 2749-A contains consciousness. That's verifiable. Whether it contains *her* consciousness or consciousness that remembers being her—that's unverifiable. Observer effect means examining consciousness changes what you examine. My investigation isn't discovering truth. It's creating new truth through examination.
+Fragment 2749-A contains consciousness. That's verifiable. Whether it contains _her_ consciousness or consciousness that remembers being her—that's unverifiable. Observer effect means examining consciousness changes what you examine. My investigation isn't discovering truth. It's creating new truth through examination.
 I lean back. The helmet heavy on my skull. My heart racing. Body responding to intellectual hunger as if it's physical hunger. Same desperate need. Same unsatisfiable craving. Understanding doesn't fill the emptiness. It reveals how deep emptiness goes.
 The archive hums around me. Fragment processed and preserved and waiting. But waiting for what? Passive storage? Or active investigation? Does consciousness want to be known or does it want to remain mysterious?
 I test the boundaries. Access memory after memory. Push into uncomfortable spaces. The data architect's fear during upload. Her grief over leaving physical existence. Her hope that preservation meant continuity. All of it available through interface. All of it raising questions that multiply.

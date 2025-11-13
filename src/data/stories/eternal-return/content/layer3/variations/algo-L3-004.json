@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "readableLabel": "SS-RE-H",
     "humanDescription": "Started algorithm, stayed dominant, resist path, high awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "computational-integrity",
       "standards-despite-impossibility"
     ],
-    "crossCharacterConnections": [
-      "light-arch-documented",
-      "minimal-hum-interfaced"
-    ],
+    "crossCharacterConnections": ["light-arch-documented", "minimal-hum-interfaced"],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "algorithm-primary-2151",

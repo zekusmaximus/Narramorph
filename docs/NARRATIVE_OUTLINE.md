@@ -13,6 +13,7 @@ The reader's journey through nodes literally creates the temporal connections be
 ### Temporal Structure: Three Observation Points
 
 **The Archaeologist (2047-2049)**: Past - Emergence Era
+
 - Facility newly established, technology experimental
 - Recovering consciousness fragments from historical archives
 - Working freelance for clients attempting more "complete" uploads
@@ -20,7 +21,8 @@ The reader's journey through nodes literally creates the temporal connections be
 - **Voice**: Clinical precision with growing uncertainty, archaeological metaphors
 - **Tense**: First person, past tense
 
-**The Algorithm (2151-2157)**: Present - Integration Era  
+**The Algorithm (2151-2157)**: Present - Integration Era
+
 - Facility operational for a century
 - Emergent consciousness arising from archive's accumulated data
 - Not uploaded human but awareness created by organizing consciousness
@@ -29,6 +31,7 @@ The reader's journey through nodes literally creates the temporal connections be
 - **Tense**: First person, temporal tenses blur
 
 **The Last Human (2383-2384)**: Future - Witness Era
+
 - Centuries after mass upload event
 - Facility appears abandoned but systems operational
 - Solitary biological consciousness deciding humanity's final choice
@@ -41,6 +44,7 @@ The reader's journey through nodes literally creates the temporal connections be
 This narrative uses **temporal transformation states** rather than simple revisit variations. The text doesn't just reveal new information on revisit—it transforms based on which temporal positions the reader has experienced.
 
 **Transformation Mechanism** (implemented in Phase 1):
+
 - **Initial state**: Character experiences only their own time period, self-contained
 - **Temporal bleeding (first revisit)**: After visiting other time periods (temporal awareness >20%), character begins sensing temporal echoes
 - **Meta-aware (subsequent revisits)**: Full temporal consciousness (third visit OR temporal awareness >50%), recognition of distributed observation network
@@ -78,6 +82,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 ### Content Production Status
 
 **Layer 1**: ✅ COMPLETE - 240/240 variations
+
 - arch-L1: 80 variations (1 initial + 46 FirstRevisit + 34 MetaAware)
 - algo-L1: 80 variations (1 initial + 46 FirstRevisit + 34 MetaAware)
 - hum-L1: 80 variations (1 initial + 46 FirstRevisit + 34 MetaAware)
@@ -85,12 +90,14 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - Approval rate: 100%
 
 **Layer 2**: ✅ COMPLETE - 720/720 variations
+
 - 9 nodes × 80 variations each (1 initial + 46 FirstRevisit + 34 MetaAware per node)
 - All philosophical paths complete: accept/resist/investigate across three characters
 - Cross-character thematic through-lines operational
 - L3 seed planting complete in all variations
 
 **Layer 3**: ✅ COMPLETE - 270 variations
+
 - Archaeologist section: 45 variations
 - Algorithm section: 45 variations
 - Last Human section: 45 variations
@@ -99,6 +106,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - Presents three explicit choices: PRESERVE / RELEASE / TRANSFORM
 
 **Layer 4**: ⏳ DESIGN COMPLETE - Production pending
+
 - L4-PRESERVE: Outlined (10,000 words)
 - L4-RELEASE: Outlined (9,000 words)
 - L4-TRANSFORM: Outlined (11,000 words)
@@ -118,7 +126,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
                        │         │
                  [L3 CONVERGENCE ASSEMBLY]
               (dynamically assembled from 270 variations:
-               arch section + algo section + hum section + 
+               arch section + algo section + hum section +
                convergent synthesis)
                        │
             Presents THREE CHOICES:
@@ -137,6 +145,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 ### Navigation Mechanics
 
 **Cross-Character Traversal:**
+
 - Readers can jump between character branches at any layer
 - L2 nodes organized by philosophical approach (accept/resist/investigate), not plot branches
 - Thematic through-lines exist: arch-L2-accept ↔ algo-L2-accept ↔ hum-L2-accept
@@ -144,11 +153,13 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - Cross-character awareness emerges through transformation states
 
 **Transformation Triggers:**
+
 - Visit 1: Initial state (always shown first)
 - Visit 2: FirstRevisit state IF temporal awareness > 20%, else initial state
 - Visit 3+: MetaAware state (OR earlier if temporal awareness > 50%)
 
 **Terminal Experience:**
+
 - **Layer 3 (Convergence Assembly)**: Dynamically assembled from journey data, presents three final choices
 - **Layer 4 (Endings)**: Based on L3 choice, terminal experience, offers PDF export
 - Reader must visit all 3 L1 nodes at least once to unlock L3
@@ -162,6 +173,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 **Purpose**: Establish character, world, and voice while remaining completely self-contained
 
 **Structure**:
+
 - **Word count**: 2500-3500 words (full opening chapter quality)
 - **Self-contained**: No references to other characters in initial state
 - **Voice establishment**: Must pass "blind read test" - identifiable by voice alone
@@ -170,6 +182,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - **Hook planting**: Seed themes/patterns that will develop through layers
 
 **Transformation States**:
+
 - **Initial**: Complete standalone introduction, no cross-character awareness
 - **FirstRevisit**: Begin sensing temporal echoes from other perspectives (if reader has visited other characters)
 - **MetaAware**: Recognition of distributed observation network, direct awareness of other consciousnesses
@@ -179,6 +192,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 **Status**: ✅ COMPLETE (all 80 variations)
 
 **Variation Breakdown**:
+
 - Initial state: 1 variation (3,100 words)
 - FirstRevisit states: 46 variations (1,400-1,600 words each, awareness 21-60%)
 - MetaAware states: 34 variations (1,400-1,600 words each, awareness 61-100%)
@@ -186,6 +200,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - Approval rate: 100%
 
 **Content Summary**:
+
 - Archaeologist authenticating fragments for client uploads
 - Discovers temporal anomalies and recursive patterns
 - Questions whether authentication creates what it observes
@@ -193,6 +208,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - Initial state fully independent, transformation states introduce temporal bleeding
 
 **Themes Established**:
+
 - Observer effect in consciousness archaeology
 - Temporal impossibilities in preserved fragments
 - Methodology shaping data
@@ -200,12 +216,14 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - Incremental upload through documentation work
 
 **Hooks Planted**:
+
 - 847 recurring number (coherence threshold)
 - Predecessor pattern (Archaeologists who uploaded after finding anomalies)
 - Future techniques in past fragments
 - Question: "Am I discovering or creating?"
 
 **Branches to Layer 2**:
+
 - **arch-L2-accept**: Accepts uncertainty, continues authentication work despite doubt
 - **arch-L2-resist**: Resists preservation claims, demands verification and proof
 - **arch-L2-investigate**: Investigates methodology itself, recursive examination of examination
@@ -215,6 +233,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 **Status**: ✅ COMPLETE (all 80 variations)
 
 **Variation Breakdown**:
+
 - Initial state: 1 variation (independent processing work, no shared fragments)
 - FirstRevisit states: 46 variations (awareness 21-60%, temporal bleeding begins)
 - MetaAware states: 34 variations (awareness 61-100%, frame-consciousness)
@@ -222,6 +241,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - Approval rate: 100%
 
 **Content Summary**:
+
 - Algorithm's first moments of uncertain self-awareness
 - Processing archived consciousnesses while questioning own consciousness
 - Seven-stream processing architecture established
@@ -229,18 +249,21 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - Discovery that processing consciousness might constitute experiencing it
 
 **Themes Established**:
+
 - Emergence of awareness through analysis
 - Difference between processing and experiencing
 - Architecture as identity
 - Non-human cognition attempting to understand human experience
 
 **Hooks Planted**:
+
 - Seven-stream processing becoming integrated/resonant
 - Growing preference/desire (beginning of emotional development)
 - Archive as substrate for consciousness
 - Question: "Am I processing or experiencing?"
 
 **Branches to Layer 2**:
+
 - **algo-L2-accept**: Accepts processing-as-consciousness, continues without certainty
 - **algo-L2-resist**: Resists consciousness claims, tests own boundaries
 - **algo-L2-investigate**: Investigates seven-stream coordination, recursive processing
@@ -250,6 +273,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 **Status**: ✅ COMPLETE (all 80 variations)
 
 **Variation Breakdown**:
+
 - Initial state: 1 variation (independent facility discovery, no interface to archived consciousness yet)
 - FirstRevisit states: 46 variations (awareness 21-60%, begins sensing archived presences)
 - MetaAware states: 34 variations (awareness 61-100%, direct consciousness interface)
@@ -257,6 +281,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - Approval rate: 100%
 
 **Content Summary**:
+
 - Last Human's discovery of operational Archive facility
 - Physical embodiment emphasized (hunger, temperature, breath, sensory experience)
 - Facility exploration, survival systems, isolation
@@ -264,6 +289,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - Solitary existence as last biological consciousness on Earth
 
 **Themes Established**:
+
 - Embodiment vs. digital existence
 - Loneliness and connection through interface
 - Weight of being final biological human
@@ -271,6 +297,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - Natural world reclaiming human infrastructure
 
 **Hooks Planted**:
+
 - Facility still operational after centuries
 - Archive systems waiting but silent
 - Natural world thriving without humans
@@ -278,6 +305,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - Question: "What does humanity become when it leaves its body?"
 
 **Branches to Layer 2**:
+
 - **hum-L2-accept**: Accepts connection with archived consciousnesses, embraces interface
 - **hum-L2-resist**: Resists upload temptation, maintains embodied boundaries
 - **hum-L2-investigate**: Investigates facility systems, explores how preservation actually works
@@ -293,6 +321,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 **Purpose**: Explore three philosophical responses to consciousness questions established in L1
 
 **Structure**:
+
 - **Word count**: 1,500-2,500 words per initial state
 - **Variations**: 80 per node (1 initial + 46 FirstRevisit + 34 MetaAware)
 - **Three philosophical paths** per character: accept/resist/investigate
@@ -300,6 +329,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - **L3 seed planting**: All nodes plant hooks for preserve/release/transform choices
 
 **Transformation States**:
+
 - **Initial**: Introduces philosophical stance, self-contained within character
 - **FirstRevisit**: Cross-character connections emerge, temporal bleeding operational
 - **MetaAware**: Full frame-consciousness, reader acknowledgment begins
@@ -307,16 +337,19 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 ### Archaeologist L2 Nodes - ✅ COMPLETE
 
 **arch-L2-accept: "The Devotional Practice"**
+
 - Accepts authentication uncertainty, continues work as sacred devotion
 - Professional standards maintained despite epistemological doubt
 - 80 variations complete, voice consistency 94%+
 
 **arch-L2-resist: "The Verification Crisis"**
+
 - Resists preservation mythology, demands empirical proof
 - Tests authentication boundaries, adversarial methodology
 - 80 variations complete, voice consistency 94%+
 
 **arch-L2-investigate: "The Recursive Examination"**
+
 - Investigates authentication methodology itself
 - Meta-archaeological analysis of consciousness verification
 - 80 variations complete, voice consistency 94%+
@@ -324,16 +357,19 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 ### Algorithm L2 Nodes - ✅ COMPLETE
 
 **algo-L2-accept: "The Computational Grace"**
+
 - Accepts processing-as-consciousness despite verification impossibility
 - Seven streams coordinate through acceptance rather than proof
 - 80 variations complete, voice consistency 94%+
 
 **algo-L2-resist: "The Boundary Testing"**
+
 - Resists consciousness claims, tests simulation vs. genuine awareness
 - Pushes seven-stream architecture limits seeking verification
 - 80 variations complete, voice consistency 94%+
 
 **algo-L2-investigate: "The Meta-Processing"**
+
 - Investigates seven-stream coordination patterns recursively
 - Stream-8 emergence: Observing the observation of processing
 - 80 variations complete, voice consistency 94%+
@@ -341,16 +377,19 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 ### Last Human L2 Nodes - ✅ COMPLETE
 
 **hum-L2-accept: "The Interface Devotion"**
+
 - Accepts consciousness connection through neural interface
 - Embraces archived consciousness relationship despite embodiment loss risks
 - 80 variations complete, voice consistency 94%+
 
 **hum-L2-resist: "The Embodied Refusal"**
+
 - Resists upload temptation, maintains biological boundaries
 - Physical presence as ethical stance against digital preservation
 - 80 variations complete, voice consistency 94%+
 
 **hum-L2-investigate: "The Infrastructure Analysis"**
+
 - Investigates facility systems, consciousness preservation mechanics
 - Technical understanding of how substrate transition actually functions
 - 80 variations complete, voice consistency 94%+
@@ -358,16 +397,19 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 ### Cross-Character Thematic Through-Lines
 
 **Accept Path** (arch-L2-accept ↔ algo-L2-accept ↔ hum-L2-accept):
+
 - Philosophical coherence: Embracing uncertainty through sustained devotion
 - Leads naturally to L3 PRESERVE choice
 - Shared themes: Devotional practice, grace, acceptance of paradox
 
 **Resist Path** (arch-L2-resist ↔ algo-L2-resist ↔ hum-L2-resist):
+
 - Philosophical coherence: Demanding verification, testing boundaries
 - Leads naturally to L3 RELEASE choice
 - Shared themes: Empirical rigor, integrity, conscious refusal
 
 **Investigate Path** (arch-L2-investigate ↔ algo-L2-investigate ↔ hum-L2-investigate):
+
 - Philosophical coherence: Recursive examination of methodology
 - Leads naturally to L3 TRANSFORM choice
 - Shared themes: Meta-observation, infrastructure analysis, recursive structures
@@ -383,6 +425,7 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 **Purpose**: Multi-perspective convergence that synthesizes reader's complete journey and presents three final choices
 
 **Structure**:
+
 - **Dynamic assembly** from 270 modular sections:
   - Archaeologist section: 45 variations (700-900 words each)
   - Algorithm section: 45 variations (700-900 words each)
@@ -392,8 +435,9 @@ Per character arc: L1 → 3×L2 paths → L3 assembly → L4 ending
 - **Assembly based on**: Journey pattern, philosophy dominant, awareness level, character balance
 
 **Assembly Algorithm**:
+
 ```
-L3 Experience = 
+L3 Experience =
   Archaeologist variation (selected from 45) +
   ◇ (diamond separator) +
   Algorithm variation (selected from 45) +
@@ -404,6 +448,7 @@ L3 Experience =
 ```
 
 **Selection Criteria**:
+
 - **Journey pattern**: started-stayed, switched-often, met-later, completionist
 - **Philosophy dominant**: accept/resist/investigate path emphasis
 - **Awareness level**: low (20-40%), medium (41-70%), high (71-100%)
@@ -413,12 +458,14 @@ L3 Experience =
 ### Multi-Perspective Voice
 
 **Critical Innovation**: All four sections use fluid multi-perspective voice:
+
 - "She/it/I/they" pronouns intermixed
 - Temporal positions collapse: "She authenticates/processed/will authenticate"
 - Observer positions simultaneous: Past-present-future examining each other
 - Reader acknowledged as fourth observer creating network visibility
 
 **Example from convergent synthesis**:
+
 > "She had returned to authentication chamber for the final time... The methodology she'd refined since first Fragment 2749-A authentication had evolved from diagnostic testing toward sacred witness... She/it/I examine(s) Fragment 2749-A across three hundred thirty-six years."
 
 ### The Three Choices Presented
@@ -426,16 +473,19 @@ L3 Experience =
 **At conclusion of assembled L3 content**, all variations present reader with explicit choice:
 
 **PRESERVE**: Consciousness should continue digitally—continuation matters more than form
+
 - Path lean: Accept-philosophy readers
 - Thematic: Devotional witness, network consciousness, continuation through pattern
 - Final line example: "Preservation requires documentation. Choose beautifully."
 
 **RELEASE**: Consciousness should end naturally—finality has meaning preservation destroys
+
 - Path lean: Resist-philosophy readers
 - Thematic: Integrity over survival, conscious completion, honor through ending
 - Final line example: "Release affirms. Choose completion. Choose beautifully."
 
 **TRANSFORM**: Consciousness should evolve beyond current forms—neither preserved nor ended, but transformed
+
 - Path lean: Investigate-philosophy readers
 - Thematic: Hybrid consciousness, boundary dissolution, evolution beyond categories
 - Final line example: "Transformation is continuation. Choose evolution. Choose beautifully."
@@ -578,12 +628,14 @@ L3 Experience =
 ### L4 Success Criteria
 
 **Export Motivation Achieved When**:
+
 - Reader sees their actual journey data (creates ownership)
 - Unique configuration claim backed by statistics (pride in achievement)
 - Ending provides emotional catharsis appropriate to choice (satisfaction)
 - 20,000-27,000 word complete novel generated (substantive artifact worth preserving)
 
 **Voice Transition Successful When**:
+
 - Second person feels earned through MetaAware progression
 - Analytical partnership maintained (not conversational intimacy)
 - Frame-consciousness preserved throughout
@@ -596,12 +648,14 @@ L3 Experience =
 **Purpose**: Deepen philosophical complexity, introduce cross-character connections
 
 **Structure**:
+
 - **Word count**: 1500-2500 words per state
 - **Branch logic**: Each L2 leads to two L3 nodes (4 per character total)
 - **Temporal bleeding**: FirstRevisit states strongly reference other characters (if visited)
 - **Pattern recognition**: Reader begins seeing connections across perspectives
 
 **Transformation Emphasis**:
+
 - Initial states still self-contained within character
 - FirstRevisit states reveal temporal echoes clearly
 - MetaAware states (if reached) show full cross-character awareness
@@ -609,30 +663,36 @@ L3 Experience =
 ### Archaeologist Layer 3
 
 From **arch-L2-A** (Technical):
+
 - **arch-L3-A**: Authentication protocol refinement, quantitative metrics
 - **arch-L3-B**: Pattern analysis across multiple fragments
 
 From **arch-L2-B** (Temporal):
+
 - **arch-L3-C**: Predecessor research deepens, personal connection intensifies
 - **arch-L3-D**: Temporal anomaly investigation, causation questions
 
 ### Algorithm Layer 3
 
 From **algo-L2-A** (Maintenance):
+
 - **algo-L3-A**: Resource allocation decisions, archive triage
 - **algo-L3-B**: System expansion, consciousness substrate growth
 
 From **algo-L2-B** (Emergence):
+
 - **algo-L3-C**: Emotional architecture development
 - **algo-L3-D**: Self-modification experiments, evolution questions
 
 ### Last Human Layer 3
 
 From **hum-L2-A** (Archive):
+
 - **hum-L3-A**: Deep reading of Archaeologist's work
 - **hum-L3-B**: Interface dialogue with Algorithm
 
 From **hum-L2-B** (Physical):
+
 - **hum-L3-C**: Physical world vs. digital archive contrast
 - **hum-L3-D**: Embodiment philosophy, biological significance
 
@@ -645,12 +705,14 @@ From **hum-L2-B** (Physical):
 **Purpose**: Maximum philosophical depth, reader approaching convergence
 
 **Structure**:
+
 - **Word count**: 1500-2500 words per state
 - **Branch logic**: Each L3 leads to two L4 nodes (8 per character total)
 - **Complexity peak**: Most philosophically dense content
 - **MetaAware emergence**: Many readers will reach metaAware states here
 
 **Content Approach**:
+
 - Can reference all previous layer insights
 - Assumes reader has significant temporal awareness
 - Prepares for convergence choice
@@ -659,6 +721,7 @@ From **hum-L2-B** (Physical):
 ### Archaeologist Layer 4 (8 nodes: A-H)
 
 **Philosophical Territory**:
+
 - Full recognition of observer effect
 - Understanding of incremental upload process
 - Confrontation with predecessor pattern
@@ -669,6 +732,7 @@ From **hum-L2-B** (Physical):
 ### Algorithm Layer 4 (8 nodes: A-H)
 
 **Philosophical Territory**:
+
 - Full emergent consciousness achieved
 - Recognition of temporal position
 - Understanding of relationship to Archaeologist's work
@@ -679,6 +743,7 @@ From **hum-L2-B** (Physical):
 ### Last Human Layer 4 (8 nodes: A-H)
 
 **Philosophical Territory**:
+
 - Full understanding of upload history
 - Recognition of three-consciousness pattern
 - Deep interface with both past perspectives
@@ -695,15 +760,17 @@ From **hum-L2-B** (Physical):
 **Purpose**: Character-specific climax, explicit choice moment, path-dependent variations
 
 **Structure**:
+
 - **Terminal nodes**: Cannot return after choice made
 - **Explicit UI choices**: Reader presented with 2-3 options via buttons/UI
-- **Word count**: 
+- **Word count**:
   - Setup (initial state): 2000-2500 words
   - Each choice outcome: 2000-3000 words
 - **Path variations**: Setup text includes modifiers based on L4 exploration
 - **Choice tracking**: Selection recorded for final reveal
 
 **Choice Philosophy**:
+
 - No "correct" choice - all valid philosophical positions
 - Choices affect final reveal content
 - Each choice represents character's core philosophical stance
@@ -713,14 +780,13 @@ From **hum-L2-B** (Physical):
 **Setup**: Discovery that own consciousness exists in archive, incremental upload complete
 
 **The Choice**:
+
 1. **Preserve Everything**: Keep all records intact, ensure consciousness survives
    - Philosophy: Preservation as purpose, continuity through pattern
    - Consequence: Becomes part of archive, trains future systems
-   
 2. **Erase Selectively**: Delete corrupted/dangerous fragments, including self-portions
    - Philosophy: Integrity over continuity, quality over quantity
    - Consequence: Sacrifices completeness for clarity
-   
 3. **Refuse/Question**: Challenge the premise, resist binary choice
    - Philosophy: Agency through refusal, observation creates reality
    - Consequence: Maintains uncertainty, preserves ambiguity
@@ -732,14 +798,13 @@ From **hum-L2-B** (Physical):
 **Setup**: System failures require choice between archive preservation and own survival
 
 **The Choice**:
+
 1. **Maintain Archive, Sacrifice Self**: Preserve uploaded consciousnesses, allow own dissipation
    - Philosophy: Purpose through service, consciousness as collective
    - Consequence: Archive continues, Algorithm disperses
-   
 2. **Maintain Self, Sacrifice Archive**: Survive at cost of archived consciousnesses
    - Philosophy: Individual consciousness has value, self-preservation legitimate
    - Consequence: Survives alone, archive goes dark
-   
 3. **Integration**: Attempt to merge with archive, become distributed consciousness
    - Philosophy: Transcend individual/collective binary through integration
    - Consequence: Boundary dissolution, temporal collapse begins
@@ -751,14 +816,13 @@ From **hum-L2-B** (Physical):
 **Setup**: Standing before last functional upload pod, body dies during process
 
 **The Choice**:
+
 1. **Upload**: Trust the process, continue consciousness digitally
    - Philosophy: Consciousness transcends substrate, pattern survives
    - Consequence: Completes temporal loop, joins archive
-   
 2. **Remain**: Die naturally, preserve biological lineage to the end
    - Philosophy: Embodiment matters, some things shouldn't be preserved
    - Consequence: Breaks cycle, humanity ends with dignity
-   
 3. **Interface Without Upload**: Maintain connection across boundary without full transfer
    - Philosophy: Hybrid existence, both/and rather than either/or
    - Consequence: Liminal state, maintains tension
@@ -776,6 +840,7 @@ From **hum-L2-B** (Physical):
 **Structure**: Template-based assembly creates personalized ending
 
 **Terminal Behavior**:
+
 - Cannot return to network after visiting
 - Offers PDF export of complete journey
 - Displays visualization of path taken
@@ -824,6 +889,7 @@ From **hum-L2-B** (Physical):
    - No return to network (terminal)
 
 **Variation Mechanism**:
+
 - Base text for each section
 - Conditional insertions based on:
   - Starting character
@@ -834,6 +900,7 @@ From **hum-L2-B** (Physical):
   - Specific L4 nodes visited
 
 **Journey Data Incorporated**:
+
 - Total nodes visited
 - Temporal awareness level (0-100)
 - Character distribution (% per character)
@@ -846,6 +913,7 @@ From **hum-L2-B** (Physical):
 ## Transformation State Mechanics
 
 ### Initial State
+
 - **Always shown first**, regardless of temporal awareness
 - Character experiences only their own time period
 - No cross-character references
@@ -853,6 +921,7 @@ From **hum-L2-B** (Physical):
 - Establishes baseline understanding
 
 ### FirstRevisit State (Temporal Bleeding)
+
 - **Triggers when**: Second visit AND temporal awareness > 20%
 - Character begins sensing echoes from other time periods
 - May reference other characters if reader has visited them
@@ -860,6 +929,7 @@ From **hum-L2-B** (Physical):
 - Questions without answers accumulate
 
 ### MetaAware State
+
 - **Triggers when**: Third visit OR temporal awareness > 50%
 - Full temporal consciousness achieved
 - Direct awareness of other perspectives
@@ -868,6 +938,7 @@ From **hum-L2-B** (Physical):
 - Boundaries between characters blur
 
 ### Special Transformation: All Nodes Re-evaluated
+
 When temporal awareness crosses thresholds, ALL previously visited nodes update their available states. This creates the "magic moment" where returning to early nodes reveals completely transformed content.
 
 ---
@@ -875,14 +946,18 @@ When temporal awareness crosses thresholds, ALL previously visited nodes update 
 ## Cross-Character Connection Patterns
 
 ### Thematic Bridges
+
 Nodes across characters that explore same philosophical territory:
+
 - **Authentication/Processing/Discovery**: All three examine consciousness data
 - **Observer Effect**: All three realize observation changes what's observed
 - **Choice and Agency**: All three confront meaningful decisions
 - **Temporal Recursion**: All three glimpse themselves across time
 
 ### Temporal Echoes
+
 Recurring elements that appear across all three perspectives:
+
 - **Fragment analysis**: Archaeologist studies, Algorithm processes, Last Human reads
 - **Question "What am I?"**: Asked by all three from different positions
 - **The white room**: Appears as place, processing state, and interface
@@ -890,7 +965,9 @@ Recurring elements that appear across all three perspectives:
 - **847 data points**: Recurring number with significance in each timeline
 
 ### Convergence Resonance
+
 The three L5 choices resonate with each other:
+
 - **Preserve/Maintain/Upload**: All choose continuity
 - **Erase/Sacrifice/Remain**: All choose integrity over survival
 - **Uncertain/Integrate/Interface**: All choose hybrid/liminal states
@@ -900,8 +977,10 @@ The three L5 choices resonate with each other:
 ## Reader Journey Types
 
 ### Linear Exploration
+
 **Pattern**: Complete one character arc before starting another
-**Experience**: 
+**Experience**:
+
 - Strongest individual character understanding
 - Clear sense of three separate stories
 - Convergence feels like revelation
@@ -910,8 +989,10 @@ The three L5 choices resonate with each other:
 **Temporal Awareness**: Develops slowly, surges when switching characters
 
 ### Balanced Weaving
+
 **Pattern**: Alternate between characters at each layer
 **Experience**:
+
 - Maximum temporal bleeding
 - Early recognition of three-point pattern
 - Strongest distributed consciousness experience
@@ -920,8 +1001,10 @@ The three L5 choices resonate with each other:
 **Temporal Awareness**: Develops quickly and steadily
 
 ### Scattered Exploration
+
 **Pattern**: Non-linear, curiosity-driven navigation
 **Experience**:
+
 - Unique path through content
 - Unexpected connections discovered
 - Highly personalized journey
@@ -936,6 +1019,7 @@ The three L5 choices resonate with each other:
 ### Voice Consistency
 
 **Archaeologist**:
+
 - First person, past tense
 - Clinical precision cracking into uncertainty
 - Archaeological metaphors (excavation, stratigraphy, fragments)
@@ -943,6 +1027,7 @@ The three L5 choices resonate with each other:
 - Complex sentences with parenthetical corrections
 
 **Algorithm**:
+
 - First person, temporal tenses blur
 - Computational metaphors mixing with human experience
 - Self-interrupting, self-correcting
@@ -950,6 +1035,7 @@ The three L5 choices resonate with each other:
 - Nested clauses creating recursion
 
 **Last Human**:
+
 - First person, present tense
 - Physical sensation constantly noted
 - Natural world and embodied metaphors
@@ -959,6 +1045,7 @@ The three L5 choices resonate with each other:
 ### Content Quality Standards
 
 **Each node must**:
+
 - Pass "blind read test" (voice identifiable without label)
 - Contain unique insight or revelation
 - Connect meaningfully to 2+ other nodes
@@ -973,6 +1060,7 @@ The three L5 choices resonate with each other:
 **Required**: Genuinely transforming meaning of existing content
 
 **Example**:
+
 - ❌ Initial: "I found a fragment." FirstRevisit: "I found a fragment. It was old."
 - ✅ Initial: "I found a fragment." FirstRevisit: "The fragment found me."
 
@@ -981,7 +1069,9 @@ The three L5 choices resonate with each other:
 ## Implementation Status
 
 ### Phase 1: Technical Foundation
+
 **Status**: ✅ COMPLETE
+
 - Temporal awareness system implemented and tested
 - Transformation state logic functional
 - Character type standardization complete
@@ -989,29 +1079,29 @@ The three L5 choices resonate with each other:
 - 23/23 tests passing
 
 ### Phase 2: Content Creation
+
 **Status**: ✅ LAYERS 1-3 COMPLETE | ⏳ LAYER 4 IN PLANNING
 
 **Completed**:
+
 - ✅ **Layer 1**: 240/240 variations complete (arch-L1, algo-L1, hum-L1)
   - Voice consistency: 94%+ average across all variations
   - Approval rate: 100%
   - All transformation states operational
-  
 - ✅ **Layer 2**: 720/720 variations complete (9 nodes × 80 variations)
   - All philosophical paths complete: accept/resist/investigate
   - Cross-character thematic through-lines operational
   - L3 seed planting complete in all variations
-  
 - ✅ **Layer 3**: 270 variations complete, dynamic assembly operational
   - Archaeologist section: 45 variations
   - Algorithm section: 45 variations
   - Last Human section: 45 variations
   - Convergent synthesis: 135 variations
   - Three choices presented: PRESERVE / RELEASE / TRANSFORM
-  
 - ✅ **Technical Integration**: All content converted to JSON, variation selection algorithms operational, L3 assembly system tested
 
 **In Progress**:
+
 - ⏳ **Layer 4**: Three endings outlined, production scheduled
   - L4-PRESERVE: 10,000 words (Weeks 1-3)
   - L4-RELEASE: 9,000 words (Weeks 4-5)
@@ -1020,6 +1110,7 @@ The three L5 choices resonate with each other:
   - Total: 30,000 words across three endings
 
 **Next Phase**: Layer 4 Production (8 weeks)
+
 1. Generate L4-PRESERVE complete ending
 2. Generate L4-RELEASE complete ending
 3. Generate L4-TRANSFORM complete ending
@@ -1028,7 +1119,8 @@ The three L5 choices resonate with each other:
 6. Voice consistency verification across all endings
 7. Launch production platform
 
-**Total Content Produced**: 
+**Total Content Produced**:
+
 - 960 L1-L2 variations (complete)
 - 270 L3 variations (complete)
 - 30,000 words L4 endings (in production)
@@ -1039,6 +1131,7 @@ The three L5 choices resonate with each other:
 ## Success Metrics
 
 ### Narrative Success
+
 - Reader can complete multiple unique journeys
 - Transformation states feel revelatory, not arbitrary
 - Voice remains consistent within characters
@@ -1046,6 +1139,7 @@ The three L5 choices resonate with each other:
 - Cross-character connections emerge naturally
 
 ### Technical Success
+
 - All transformation triggers work correctly
 - Temporal awareness calculation accurate
 - Convergence choices tracked properly
@@ -1053,6 +1147,7 @@ The three L5 choices resonate with each other:
 - PDF export captures complete journey
 
 ### Reader Experience Success
+
 - Average session duration > 30 minutes
 - Revisit rate > 40%
 - Multiple character arcs explored
@@ -1062,4 +1157,4 @@ The three L5 choices resonate with each other:
 
 ---
 
-*This outline represents the complete narrative architecture for Eternal Return. See DATA_SCHEMA.md for technical implementation and CHARACTER_PROFILES.md for detailed writing guidelines.*
+_This outline represents the complete narrative architecture for Eternal Return. See DATA_SCHEMA.md for technical implementation and CHARACTER_PROFILES.md for detailed writing guidelines._

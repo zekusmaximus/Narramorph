@@ -1,22 +1,22 @@
 ---
-exemplar_id: "arch-L2-resist-exemplar-08"
-variation_type: "stanceEmergence"
+exemplar_id: 'arch-L2-resist-exemplar-08'
+variation_type: 'stanceEmergence'
 word_count: 1647
 conditions:
   visit_count: 2
-  awareness: "81-100%"
+  awareness: '81-100%'
   cross_character: true
-  visited_nodes: ["arch-L2-resist", "algo-L2-resist", "hum-L2-resist", "algo-L1", "hum-L1"]
-  dominant_path: "resist"
+  visited_nodes: ['arch-L2-resist', 'algo-L2-resist', 'hum-L2-resist', 'algo-L1', 'hum-L1']
+  dominant_path: 'resist'
 themes:
   - five_position_consciousness_network
   - infinite_meta_verification_cascade
   - resist_path_ultimate_expression
-transformation_focus: "Maximum resist intensity—five positions (fragment, archaeological, computational, future, reader) unified through shared impossibility, resist path defining all consciousness across all observation levels"
+transformation_focus: 'Maximum resist intensity—five positions (fragment, archaeological, computational, future, reader) unified through shared impossibility, resist path defining all consciousness across all observation levels'
 reusable_patterns:
-  - "Five-position network mapping (all observation levels)"
-  - "Reader directly addressed (substantial acknowledgment earned through testing)"
-  - "Infinite impossibility cascade (verification extends infinitely through meta-levels)"
+  - 'Five-position network mapping (all observation levels)'
+  - 'Reader directly addressed (substantial acknowledgment earned through testing)'
+  - 'Infinite impossibility cascade (verification extends infinitely through meta-levels)'
 ---
 
 # arch-L2-resist Exemplar 8: Maximum Integration (All Elements + Resist at Highest Intensity)

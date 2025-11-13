@@ -27,6 +27,7 @@ node inventory-l2-variations.js
 ```
 
 This will:
+
 - Find all L2 variation files in configured directories
 - Show counts by character, path, transformation state
 - Display which files already have metadata
@@ -34,6 +35,7 @@ This will:
 - Provide next steps
 
 **Save detailed report:**
+
 ```bash
 node inventory-l2-variations.js --output=inventory-report.json
 ```
@@ -49,6 +51,7 @@ node insert-l2-metadata.js
 ```
 
 This will:
+
 - Process each file one at a time
 - Show automated analysis suggestions
 - Prompt you for metadata values
@@ -67,6 +70,7 @@ node insert-l2-metadata.js --batch
 ```
 
 This will:
+
 - Process all files automatically
 - Use only automated analysis
 - Mark fields requiring manual review as 'REVIEW_REQUIRED'
@@ -84,6 +88,7 @@ node insert-l2-metadata.js --dry-run
 ```
 
 This will:
+
 - Show what metadata would be added
 - Not modify any files
 - Not create backups
@@ -110,18 +115,20 @@ searchPaths: [
   '/mnt/user-data/outputs',
   '/mnt/user-data/content/layer-2',
   './content/layer-2',
-  './outputs'
-]
+  './outputs',
+];
 ```
 
 ### Filename Pattern
 
 Files must match this pattern:
+
 ```
 (arch|algo|hum)-L2-(accept|resist|investigate)-(FR|MA)-(\d+).md
 ```
 
 Examples:
+
 - `arch-L2-accept-FR-01.md` ✅
 - `algo-L2-resist-MA-15.md` ✅
 - `hum-L2-investigate-FR-23.md` ✅
@@ -132,11 +139,13 @@ Examples:
 The scripts add complete metadata including:
 
 ### Basic Info
+
 - variationId, nodeId, character, layer
 - pathPhilosophy, transformationState
 - awarenessRange, wordCount, createdDate
 
 ### Thematic Content
+
 - primaryThemes (3-5 themes)
 - secondaryThemes (2-4 themes)
 - consciousnessQuestion
@@ -145,6 +154,7 @@ The scripts add complete metadata including:
 - crossCharacterReferences
 
 ### Narrative Elements
+
 - worldBuildingFocus
 - locationElements
 - technicalDetails
@@ -156,12 +166,15 @@ The scripts add complete metadata including:
 - pacing
 
 ### L3 Seed Contributions
+
 For each of preserve/release/transform:
+
 - text (seed description)
 - weight (strong/moderate/light)
 - keyPhrases (supporting phrases)
 
 ### Generation Hints
+
 - keyPhrases (5-10 memorable quotes)
 - philosophicalCulmination
 - convergenceAlignment
@@ -170,6 +183,7 @@ For each of preserve/release/transform:
 - emotionalJourney
 
 ### Character Development
+
 - stanceEvolution
 - relationshipToArchive
 - relationshipToMethod
@@ -212,6 +226,7 @@ Scripts automatically skip files that already have frontmatter to avoid duplicat
 ### Validation
 
 After adding metadata, scripts validate:
+
 - YAML structure is valid
 - All required fields present
 - Data types correct
@@ -220,6 +235,7 @@ After adding metadata, scripts validate:
 ## Example Output
 
 ### Before (original file):
+
 ```markdown
 # Variation Content
 
@@ -227,6 +243,7 @@ She examined the fragment in Chamber Seventeen...
 ```
 
 ### After (with metadata):
+
 ```markdown
 ---
 variationId: arch-L2-accept-FR-01
@@ -262,6 +279,7 @@ She examined the fragment in Chamber Seventeen...
 **Cause:** Scripts can't find markdown files matching the pattern
 
 **Solutions:**
+
 1. Check search paths are correct
 2. Verify files match naming pattern
 3. Run from correct directory
@@ -272,6 +290,7 @@ She examined the fragment in Chamber Seventeen...
 **Cause:** File already has metadata
 
 **Solutions:**
+
 - This is expected behavior (prevents duplicates)
 - To re-process, manually remove frontmatter first
 - Or edit metadata directly in text editor
@@ -281,6 +300,7 @@ She examined the fragment in Chamber Seventeen...
 **Cause:** Invalid YAML syntax in existing frontmatter
 
 **Solutions:**
+
 1. Manually fix YAML syntax
 2. Or remove frontmatter and re-run script
 
@@ -289,6 +309,7 @@ She examined the fragment in Chamber Seventeen...
 **Cause:** Metadata generation created invalid YAML
 
 **Solutions:**
+
 1. Check for special characters in text fields
 2. Review error message for line number
 3. Report as bug if reproducible
@@ -298,20 +319,24 @@ She examined the fragment in Chamber Seventeen...
 Based on L1/L2 Metadata Addition Protocol:
 
 ### Phase 1: Setup (Week 1)
+
 - Day 1-2: Finalize scripts and test
 - Day 3-5: Run inventory, plan approach
 - Day 6-7: Test on 5 sample variations
 
 ### Phase 2: Batch Generation (Week 2, Day 1-2)
+
 ```bash
 node insert-l2-metadata.js --batch
 ```
+
 - Processes all 720 L2 variations
 - Time: ~12-24 hours
 - Output: All files have baseline metadata
 - All fields marked 'REVIEW_REQUIRED' need manual edit
 
 ### Phase 3: Manual Review & Refinement (Weeks 2-7)
+
 - Character by character, path by path
 - Edit metadata directly in markdown files
 - Focus on:
@@ -322,6 +347,7 @@ node insert-l2-metadata.js --batch
   - Convergence alignment
 
 ### Timeline
+
 - **Batch mode:** 720 variations × 2 min = 24 hours
 - **Interactive mode:** 720 variations × 45 min = 540 hours (13.5 weeks)
 - **Hybrid approach:** Batch + manual review = 6-8 weeks
@@ -359,9 +385,11 @@ Compare with pre-processing report to verify completion.
 After running scripts:
 
 1. **Validate completeness:**
+
    ```bash
    node inventory-l2-variations.js
    ```
+
    Should show 100% with metadata
 
 2. **Spot check samples:**
@@ -397,6 +425,7 @@ Once metadata is complete:
 **Questions:** Refer to L1/L2 Metadata Addition Protocol document
 
 **Bugs:** Document and report with:
+
 - Script output
 - File that caused error
 - Expected vs actual behavior
@@ -404,14 +433,17 @@ Once metadata is complete:
 ## Files Modified
 
 Scripts modify:
+
 - ✅ Original `.md` files (add frontmatter)
 
 Scripts create:
+
 - 📁 `./metadata-backups/` directory
 - 📄 `*.bak` backup files
 - 📄 Optional `inventory-report.json`
 
 Scripts do NOT modify:
+
 - ❌ File content (below frontmatter)
 - ❌ File permissions
 - ❌ File timestamps (except modification time)

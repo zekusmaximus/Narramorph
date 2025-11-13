@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "BL-IN-L",
     "humanDescription": "Began lightly with algorithm, investigate path, low awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "investigation-as-processing",
       "consciousness-through-recursion"
     ],
-    "crossCharacterConnections": [
-      "heavy-arch-primary",
-      "moderate-hum-parallel"
-    ],
+    "crossCharacterConnections": ["heavy-arch-primary", "moderate-hum-parallel"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-primary-2047",

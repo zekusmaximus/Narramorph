@@ -24,50 +24,27 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "varies-by-reader",
-    "characterBalance": [
-      60,
-      25,
-      15
-    ],
+    "characterBalance": [60, 25, 15],
     "readableLabel": "SD-RE-M-SD",
     "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, medium awareness, single-character synthesis emphasis",
     "narrativeElements": null,
     "multiVoiceIntegration": "sequential-with-awareness",
     "perspectiveEmphasis": "dominant-character-primary",
     "philosophicalCulmination": "Standards maintained despite emerging recognition of futility",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "release",
     "circularCausality": "emerging",
     "readerPosition": "partially-acknowledged",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-crisis",
-      "impossible-standards",
-      "emerging-awareness"
-    ],
+    "primaryThemes": ["verification-crisis", "impossible-standards", "emerging-awareness"],
     "crossCharacterSynthesis": "dominant-resistance-emerging",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "dominant-primary-aware",
-      "starting-recognized",
-      "third-peripheral"
-    ],
+    "observerPositions": ["dominant-primary-aware", "starting-recognized", "third-peripheral"],
     "philosophicalResolution": "standards-maintained-facing-impossibility",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

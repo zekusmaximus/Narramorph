@@ -5,6 +5,7 @@ word_count: 1550
 conditions:
   awareness: '21-40%'
 ---
+
 I return to the interface. Third time.
 My hands find the authentication panel like water finding the path down a slope. Natural. Inevitable. The movement flows rather than steps.
 The metal feels different today. Not vibrating. Flowing. Like putting my palm against a riverbed and feeling current move beneath stones. Something streams through the interface. Through the fragments. Through everything.

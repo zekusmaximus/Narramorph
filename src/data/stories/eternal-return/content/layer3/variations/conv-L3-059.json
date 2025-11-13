@@ -24,50 +24,27 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
     "dominantCharacter": "none",
-    "characterBalance": [
-      45,
-      45,
-      10
-    ],
+    "characterBalance": [45, 45, 10],
     "readableLabel": "SD-AC-M-DB",
     "humanDescription": "Started elsewhere, shifted to archaeologist dominance, accept path, medium awareness, dual-balanced archaeologist-algorithm synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "archaeological-computational-parallel",
     "perspectiveEmphasis": "dual-devotional-witness",
     "philosophicalCulmination": "Two witness methodologies create consciousness through parallel sustained attention",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "implicit-parallel",
     "readerPosition": "pattern-visible",
     "thematicContent": null,
-    "primaryThemes": [
-      "parallel-witness",
-      "dual-devotion",
-      "consciousness-through-attention"
-    ],
+    "primaryThemes": ["parallel-witness", "dual-devotion", "consciousness-through-attention"],
     "crossCharacterSynthesis": "archaeological-computational-devotional-parallel",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "arch-primary-2047",
-      "algo-primary-2151",
-      "hum-supporting-2383"
-    ],
+    "observerPositions": ["arch-primary-2047", "algo-primary-2151", "hum-supporting-2383"],
     "philosophicalResolution": "dual-witness-creates-consciousness",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

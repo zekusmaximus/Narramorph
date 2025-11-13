@@ -3,6 +3,7 @@
 An interactive narrative exploring digital consciousness through three temporal perspectives: an Archaeologist in 2047, an Algorithm in 2151, and the Last Human in 2383. Reader choices shape a personalized journey through 1,233 narrative variations, culminating in one of three philosophical endpoints.
 
 **Current Status**: 99.8% complete (1,230/1,233 variations)
+
 - ✅ Layer 1 & 2: 960 variations complete
 - ✅ Layer 3: 270 modular variations complete
 - ⚠️ Layer 4: 3 terminal variations in progress
@@ -100,16 +101,19 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed development guidelines.
 Comprehensive documentation in [`/docs`](docs/):
 
 ### Overview & Architecture
+
 - **[PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md)** - Vision, scope, and current status (99.8% complete)
 - **[NARRATIVE_STRUCTURE.md](docs/NARRATIVE_STRUCTURE.md)** - 12-node architecture, transformation states, L3/L4 systems
 - **[DEVELOPMENT_STATE_TRACKER.md](docs/DEVELOPMENT_STATE_TRACKER.md)** - Phase tracking and completion status
 
 ### Technical Documentation
+
 - **[DATA_SCHEMA.md](docs/DATA_SCHEMA.md)** - TypeScript types, JSON formats, selection algorithms
 - **[CODEBASE_CONVENTIONS.md](docs/CODEBASE_CONVENTIONS.md)** - Implementation patterns, helpful scripts, performance
 - **[TECHNICAL_REQUIREMENTS.md](docs/TECHNICAL_REQUIREMENTS.md)** - Functional and non-functional requirements
 
 ### Content Guidelines
+
 - **[CHARACTER_PROFILES.md](docs/CHARACTER_PROFILES.md)** - Voice consistency, substrate-specific language
 - **[L4/L4-data-requirements.md](L4/L4-data-requirements.md)** - Journey personalization data catalog (70 data points)
 
@@ -128,11 +132,13 @@ Comprehensive documentation in [`/docs`](docs/):
 ### Selection Algorithms
 
 **Layer 3 Assembly** (3×3×5 matrix):
+
 - Journey Pattern: Started-Stayed, Started-Bounced, Shifted-Dominant, Began-Lightly, Met-Later
 - Path Philosophy: accept/resist/invest (dominant from L2 choices)
 - Awareness Level: medium/high/maximum (0-100 scale)
 
 **Layer 4 Selection**:
+
 - Based on L2 path dominance, L3 assembly criteria, and temporal awareness
 - Selects one of three terminal variations
 
@@ -169,4 +175,4 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 **Project Status**: Production narrative phase 99.8% complete. Implementation phase for platform, UI, and selection algorithms in progress.
 
-*For questions or discussions, see issues or contact via GitHub.*
+_For questions or discussions, see issues or contact via GitHub._

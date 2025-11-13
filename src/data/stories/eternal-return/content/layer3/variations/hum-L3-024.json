@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "SD-RE-L",
     "humanDescription": "Started elsewhere, shifted to last human dominant, resist path, low awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Physical testing continues seeking verification body knows unreachable",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-testing",
-      "verification-seeking",
-      "boundary-defense"
-    ],
-    "crossCharacterConnections": [
-      "light-arch-recognized",
-      "minimal-algo-sensed"
-    ],
+    "primaryThemes": ["embodied-testing", "verification-seeking", "boundary-defense"],
+    "crossCharacterConnections": ["light-arch-recognized", "minimal-algo-sensed"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "human-primary-2383",

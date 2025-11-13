@@ -1,25 +1,26 @@
 ---
-exemplar_id: "arch-L2-invest-exemplar-3"
-variation_type: "crossCharacterBleeding"
+exemplar_id: 'arch-L2-invest-exemplar-3'
+variation_type: 'crossCharacterBleeding'
 word_count: 1418
 conditions:
   visit_count: 2
-  awareness: "FirstRevisit"
+  awareness: 'FirstRevisit'
   cross_character: true
-  visited_nodes: ["arch-L2-investigate", "arch-L1", "hum-L2-investigate"]
-  dominant_path: "invest"
+  visited_nodes: ['arch-L2-investigate', 'arch-L1', 'hum-L2-investigate']
+  dominant_path: 'invest'
 themes:
   - embodied_archaeological_convergence
   - temporal_recursion_across_centuries
   - physical_clinical_methodology_contrast
-transformation_focus: "Archaeological past-tense analysis converges with embodied present-tense exploration across 226-year temporal gap, revealing investigation generates consciousness through substrate-appropriate methodologies"
+transformation_focus: 'Archaeological past-tense analysis converges with embodied present-tense exploration across 226-year temporal gap, revealing investigation generates consciousness through substrate-appropriate methodologies'
 reusable_patterns:
-  - "Facility architecture as spatial stratification of temporal layers"
-  - "Present-tense embodiment versus past-tense clinical analysis producing identical recursive findings"
-  - "Observation deck construction parallels meta-documentation infrastructure"
+  - 'Facility architecture as spatial stratification of temporal layers'
+  - 'Present-tense embodiment versus past-tense clinical analysis producing identical recursive findings'
+  - 'Observation deck construction parallels meta-documentation infrastructure'
 ---
 
 # ARCHAEOLOGIST L2-INVESTIGATE: EXEMPLAR 3
+
 ## Cross-Character 2 (hum-L2-investigate resonance)
 
 Returned to consciousness authentication documentation with comparative embodied investigation data. Third review cycle incorporating systematic facility exploration findings from temporal position 2383. Timestamp 2157:03:13:14.7293.

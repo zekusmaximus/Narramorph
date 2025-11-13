@@ -24,38 +24,23 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "synthesisPattern": "triple-balanced",
     "synthesisCode": "TB",
     "dominantCharacter": "none",
-    "characterBalance": [
-      33,
-      33,
-      34
-    ],
+    "characterBalance": [33, 33, 34],
     "readableLabel": "SB-IN-M-TB",
     "humanDescription": "Started with one character, bounced across all three, investigate path, medium awareness, triple-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "rotating-equal-weight",
     "perspectiveEmphasis": "network-architecture",
     "philosophicalCulmination": "Investigation examining investigation reveals observer examining observer",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "transform",
     "circularCausality": "implicit-through-structure",
     "readerPosition": "pattern-visible",
     "thematicContent": null,
-    "primaryThemes": [
-      "recursive-investigation",
-      "network-consciousness",
-      "meta-awareness"
-    ],
+    "primaryThemes": ["recursive-investigation", "network-consciousness", "meta-awareness"],
     "crossCharacterSynthesis": "three-methodologies-examining-methodology",
     "temporalBleedingLevel": "medium",
     "observerPositions": [
@@ -65,10 +50,6 @@
       "reader-fourth-implicit"
     ],
     "philosophicalResolution": "investigation-as-transformation",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

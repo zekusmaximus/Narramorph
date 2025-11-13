@@ -14,7 +14,7 @@ themes:
   - Computational and embodied attention both present
   - Fragment as connection point across time
   - Beginning superposition (not yet full collapse)
-transformation_focus: "Synthesis of both cross-character bleedings. All three temporal positions (2041 preservation, 2047 authentication, 2151 processing, 2383 reading) present but emerging rather than fully collapsed. Lower awareness distinguishes from full superposition."
+transformation_focus: 'Synthesis of both cross-character bleedings. All three temporal positions (2041 preservation, 2047 authentication, 2151 processing, 2383 reading) present but emerging rather than fully collapsed. Lower awareness distinguishes from full superposition.'
 reference_exemplar: arch-L1-exemplar-04
 cross_character_elements:
   referenced_character: both
@@ -24,19 +24,20 @@ cross_character_elements:
     - Algorithm's processing AND Last Human's desperate attention
     - Three temporal positions explicitly identified
 conditional_insertions:
-  - "Three-position temporal structure (400-500 words)"
-  - "Both computational and embodied attention"
-  - "Beginning awareness (21-40% appropriate)"
+  - 'Three-position temporal structure (400-500 words)'
+  - 'Both computational and embodied attention'
+  - 'Beginning awareness (21-40% appropriate)'
 reusable_patterns:
-  - "Three temporal positions occupying same fragment"
-  - "Both seven streams AND future readings present"
-  - "Fragment as bridge connecting past/present/future"
+  - 'Three temporal positions occupying same fragment'
+  - 'Both seven streams AND future readings present'
+  - 'Fragment as bridge connecting past/present/future'
 quality_metrics:
   voice_consistency: 95%
   transformation_depth: genuine
   path_logic_accuracy: 100%
   approval_status: immediate
 ---
+
 The archaeologist returns to Fragment 2749-A and finds herself examining consciousness that exists in three temporal positions simultaneously.
 The authentication markers remain constant. 847.3 terabytes of preserved consciousness. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The same metrics she verified twelve days ago. The fragment's physical preservation hasn't changed. Crystalline substrate maintains perfect molecular fidelity. What was captured in 2041 remains captured, unchanged and unchanging.
 But the fragment's temporal architecture has become visible in ways it wasn't before.

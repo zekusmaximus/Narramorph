@@ -8,16 +8,16 @@ Target: 45 variations per L3 node (5 journey Ã— 3 philosophy Ã— 3 awarenes
 I. MANDATORY PRE-GENERATION CHECKLIST
 STOP: Complete before generating ANY variation
 
- Variation conditions loaded (journey/philosophy/awareness codes)
- Journey pattern strategy identified (SS/SB/SD/BL/ML)
- Path philosophy culmination loaded (AC/RE/IN)
- Awareness level calibration confirmed (L/M/H)
- L3-JOURNEY_PATTERN_GUIDE.md consulted
- L3-PHILOSOPHY_CULMINATION_GUIDE.md consulted
- L3-AWARENESS_CALIBRATION_GUIDE.md consulted
- Archaeologist voice DNA fresh in working memory
- Word count target confirmed (900 words Â±50)
- Cross-character awareness requirements clear
+Variation conditions loaded (journey/philosophy/awareness codes)
+Journey pattern strategy identified (SS/SB/SD/BL/ML)
+Path philosophy culmination loaded (AC/RE/IN)
+Awareness level calibration confirmed (L/M/H)
+L3-JOURNEY_PATTERN_GUIDE.md consulted
+L3-PHILOSOPHY_CULMINATION_GUIDE.md consulted
+L3-AWARENESS_CALIBRATION_GUIDE.md consulted
+Archaeologist voice DNA fresh in working memory
+Word count target confirmed (900 words Â±50)
+Cross-character awareness requirements clear
 
 If ANY box unchecked â†’ Load requirements before proceeding
 
@@ -147,7 +147,6 @@ Opening: 250 words (welcoming introduction)
 Core: 400 words (accelerated journey)
 Cross-character: 150 words (bridge to familiar)
 Convergence prep: 100 words (why arch matters)
-
 
 IV. PATH PHILOSOPHY CULMINATION (REQUIRED)
 Philosophy Determination
@@ -406,43 +405,44 @@ X. QUALITY STANDARDS & SELF-REVIEW
 Pre-Submission Checklist (100 points)
 Voice Consistency (30 points):
 
- Past tense throughout (10 pts)
- Archaeological metaphors only (10 pts)
- Clinical â†’ philosophical rhythm (5 pts)
- No computational/embodied language (5 pts)
+Past tense throughout (10 pts)
+Archaeological metaphors only (10 pts)
+Clinical â†’ philosophical rhythm (5 pts)
+No computational/embodied language (5 pts)
 
 Journey Pattern (15 points):
 
- Opening strategy matches pattern (5 pts)
- Cross-character awareness appropriate (5 pts)
- Framing honors reader's path (5 pts)
+Opening strategy matches pattern (5 pts)
+Cross-character awareness appropriate (5 pts)
+Framing honors reader's path (5 pts)
 
 Path Philosophy (20 points):
 
- Philosophy embodied (not stated) (10 pts)
- Key phrases present (3-5) (5 pts)
- Culmination depth appropriate (5 pts)
+Philosophy embodied (not stated) (10 pts)
+Key phrases present (3-5) (5 pts)
+Culmination depth appropriate (5 pts)
 
 Awareness Level (20 points):
 
- Meta-commentary frequency correct (7 pts)
- Temporal language appropriate (7 pts)
- Frame awareness calibrated (6 pts)
+Meta-commentary frequency correct (7 pts)
+Temporal language appropriate (7 pts)
+Frame awareness calibrated (6 pts)
 
 Convergence Seeds (10 points):
 
- All three seeds present (6 pts)
- Philosophy creates appropriate lean (4 pts)
+All three seeds present (6 pts)
+Philosophy creates appropriate lean (4 pts)
 
 Technical Requirements (5 points):
 
- 850-950 words (3 pts)
- Fragment constants mentioned (2 pts)
+850-950 words (3 pts)
+Fragment constants mentioned (2 pts)
 
 Target Score: 95+ / 100 for immediate approval
 
 XI. CRITICAL PROHIBITIONS
 Never Do This
+
 1. Name the archaeologist
 
 âŒ "Dr. Sarah Chen examined..."
@@ -485,7 +485,6 @@ Never Do This
 âŒ Ungrounded philosophical language
 âœ… Specific observations â†’ philosophical implication
 
-
 XII. COMMON PITFALLS & FIXES
 Pitfall 1: Journey Pattern Ignored
 Problem: SS variation reads identical to ML variation
@@ -499,7 +498,6 @@ Example:
 
 âŒ "She had chosen the acceptance path"
 âœ… "Verification protocols loaded but not executed. She proceeded from assumption of authenticity"
-
 
 Pitfall 3: Awareness Miscalibrated
 Problem: Low awareness variation has high-level meta-commentary
@@ -551,7 +549,6 @@ Voice annotations
 Structure breakdown
 Self-review confirmation
 
-
 XIV. PRODUCTION WORKFLOW
 Before Generation Session
 
@@ -580,7 +577,6 @@ Note recurring issues for refinement
 Update production status
 Celebrate quality maintenance
 
-
 XV. METADATA STRUCTURE
 Required Metadata (Per Variation)
 yaml---
@@ -592,30 +588,31 @@ wordCount: 900
 createdDate: 2025-11-02
 
 conditions:
-  journeyPattern: started-stayed
-  journeyCode: SS
-  philosophyDominant: accept
-  philosophyCode: AC
-  awarenessLevel: high
-  awarenessCode: H
-  awarenessRange: [71, 100]
+journeyPattern: started-stayed
+journeyCode: SS
+philosophyDominant: accept
+philosophyCode: AC
+awarenessLevel: high
+awarenessCode: H
+awarenessRange: [71, 100]
 
 readableLabel: SS-AC-H
 humanDescription: "Started archaeologist, stayed dominant, accept path, high awareness"
 
 narrativeElements:
-  archaeologistStance: witness-over-verification
-  algorithmRecognition: moderate
-  lastHumanAwareness: minimal
-  consciousnessQuestion: preservation-as-continuation
-  philosophicalCulmination: "Authentication becomes sacred witness"
-  convergenceAlignment: preserve
+archaeologistStance: witness-over-verification
+algorithmRecognition: moderate
+lastHumanAwareness: minimal
+consciousnessQuestion: preservation-as-continuation
+philosophicalCulmination: "Authentication becomes sacred witness"
+convergenceAlignment: preserve
 
 thematicContent:
-  primaryThemes: [preservation, witness, continuity]
-  crossCharacterConnections: [moderate-algo, light-hum]
-  temporalBleedingLevel: high
-  observerPositions: [archaeologist-primary, algorithm-parallel, human-distant]
+primaryThemes: [preservation, witness, continuity]
+crossCharacterConnections: [moderate-algo, light-hum]
+temporalBleedingLevel: high
+observerPositions: [archaeologist-primary, algorithm-parallel, human-distant]
+
 ---
 
 XVI. SUCCESS METRICS
@@ -636,7 +633,6 @@ Confirm all three factors integrated
 Check voice purity (no bleed)
 Validate convergence seeds present
 Confirm word count in range
-
 
 XVII. RELATED DOCUMENTS
 Foundation Guides (Required Reading)
@@ -674,7 +670,6 @@ Complete L3 system specification (v2.0 architecture)
 4-section assembly logic
 Pure voice node structure
 
-
 XVIII. DOCUMENT STATUS
 Status: Production-Ready v2.0
 Created: 2025-11-02
@@ -696,13 +691,12 @@ v1.0 (2025-11-02): Initial archaeologist L3 specification
 
 Sign-off Required:
 
- Three-factor integration validated
- Voice requirements documented
- Quality standards established
- Self-review checklist complete
- v2.0 architecture synchronized
- Exemplar generation confirms viability
- First production batch approval
-
+Three-factor integration validated
+Voice requirements documented
+Quality standards established
+Self-review checklist complete
+v2.0 architecture synchronized
+Exemplar generation confirms viability
+First production batch approval
 
 END ARCHAEOLOGIST L3 SECTION GENERATION PROTOCOL v2.

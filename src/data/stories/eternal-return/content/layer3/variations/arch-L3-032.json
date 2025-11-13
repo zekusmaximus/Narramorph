@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "BL-RE-M",
     "humanDescription": "Started elsewhere, light archaeologist exploration, resist path, medium awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "boundary-preservation",
       "methodological-resistance"
     ],
-    "crossCharacterConnections": [
-      "heavy-algorithm-primary",
-      "moderate-human-parallel"
-    ],
+    "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-contributory-2047",

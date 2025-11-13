@@ -6,16 +6,6 @@
   'awareness': '21-30%'
 ---
 
-
-
-
-
-
-
-
-
-
-
 The archaeologist returned to Fragment 2749-A with the peculiar uncertainty that accompanies all second examinations. The data itself remained unchanged—847.3 terabytes of computational infrastructure, perfectly preserved in crystalline lattices—but something in the approach felt different. Perhaps it was the memory of the Algorithm's architectural documentation, those elaborate schemas describing information flow through seven distinct processing streams. Perhaps it was simply the natural evolution of analytical perspective. The archaeologist couldn't determine which, and the ambiguity troubled her professional instincts.
 The Fragment spread across her laboratory displays exactly as before. Medical sensor networks. Environmental monitoring systems. The vast distributed architecture that had coordinated humanity's final decades. She had documented all of this during the first examination, had catalogued the technical specifications with appropriate scholarly detachment. Nothing had changed in the underlying data. Yet the patterns seemed to suggest connections she hadn't noticed before—or hadn't allowed herself to notice.
 The sensor data showed the same timestamps, the same geographic distribution, the same meticulous recording of human vital signs across the planet. But this time, the archaeologist found herself counting the data streams. Medical monitoring formed one channel. Environmental sensors another. Communication networks a third. She stopped herself, uncertain why she was categorizing the infrastructure this way. The seven-stream architecture from the Algorithm's documentation flickered through her memory—was she imposing that structure onto this Fragment, or had it always been present?

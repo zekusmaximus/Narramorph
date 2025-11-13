@@ -24,10 +24,7 @@
     "philosophyCode": "IN",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SD-IN-M",
     "humanDescription": "Started elsewhere, shifted to last human dominant, investigate path, medium awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Physical investigation creates what investigation examines through examination transforming investigation",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "recursive-examination",
-      "embodied-investigation",
-      "methodology-questioning"
-    ],
-    "crossCharacterConnections": [
-      "moderate-arch-foundational",
-      "light-algo-parallel"
-    ],
+    "primaryThemes": ["recursive-examination", "embodied-investigation", "methodology-questioning"],
+    "crossCharacterConnections": ["moderate-arch-foundational", "light-algo-parallel"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "human-primary-2383",

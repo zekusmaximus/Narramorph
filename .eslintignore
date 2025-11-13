@@ -1,0 +1,13 @@
+node_modules/
+dist/
+build/
+coverage/
+.vscode/
+.idea/
+*.config.js
+*.config.cjs
+*.config.mjs
+*.config.ts
+**/*.d.ts
+**/generated/**
+tools/conversion/output/**

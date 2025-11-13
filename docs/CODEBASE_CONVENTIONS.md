@@ -24,12 +24,14 @@ This document defines conventions for implementing the Narramorph platform now t
 ## Project Status & Next Steps
 
 **Current Status**: 1,230 / 1,233 variations complete (99.8%)
+
 - ✅ Layer 1: 240 variations complete (3 nodes × 80 variations each)
 - ✅ Layer 2: 720 variations complete (9 nodes × 80 variations each)
 - ✅ Layer 3: 270 modular variations complete (45 arch + 45 algo + 45 hum + 135 conv)
 - ⚠️ Layer 4: 0/3 terminal variations (in progress)
 
 **Next Steps**:
+
 1. Complete 3 Layer 4 terminal variations (~3,000 words each)
 2. Implement L3 selection algorithm (Journey Pattern × Path Philosophy × Awareness)
 3. Implement L4 selection algorithm (based on complete journey)
@@ -46,6 +48,7 @@ This document defines conventions for implementing the Narramorph platform now t
 Each L1/L2 node contains 80 variations in a single JSON file.
 
 **Structure**:
+
 ```json
 {
   "id": "arch-L2-accept",
@@ -95,11 +98,13 @@ Each L1/L2 node contains 80 variations in a single JSON file.
 ```
 
 **Variation Breakdown**:
+
 - **1 Initial**: `visitCount: 1`
 - **46 FirstRevisit**: `visitCount: 2`, varying temporal awareness and prior nodes
 - **33 MetaAware**: `visitCount: 3+`, high temporal awareness
 
 **File Locations**:
+
 ```
 /data/stories/eternal-return/content/
   layer1/
@@ -126,6 +131,7 @@ Each L1/L2 node contains 80 variations in a single JSON file.
 Each L3 variation is a separate JSON file (270 total files).
 
 **Character Section Format** (arch-L3-001.json through arch-L3-045.json):
+
 ```json
 {
   "id": "arch-L3-023",
@@ -145,6 +151,7 @@ Each L3 variation is a separate JSON file (270 total files).
 ```
 
 **Synthesis Section Format** (conv-L3-001.json through conv-L3-135.json):
+
 ```json
 {
   "id": "conv-L3-078",
@@ -164,6 +171,7 @@ Each L3 variation is a separate JSON file (270 total files).
 ```
 
 **Selection Matrix** (selection-matrix.json):
+
 ```json
 {
   "version": "1.0.0",
@@ -197,6 +205,7 @@ Each L3 variation is a separate JSON file (270 total files).
 ```
 
 **File Locations**:
+
 ```
 /data/stories/eternal-return/content/
   layer3/
@@ -213,6 +222,7 @@ Each L3 variation is a separate JSON file (270 total files).
 Each L4 variation is a complete philosophical endpoint (3 total files).
 
 **Terminal Variation Format** (final-preserve.json):
+
 ```json
 {
   "id": "final-preserve",
@@ -233,6 +243,7 @@ Each L4 variation is a complete philosophical endpoint (3 total files).
 ```
 
 **File Locations**:
+
 ```
 /data/stories/eternal-return/content/
   layer4/
@@ -301,15 +312,17 @@ narramorph-fiction/
 **Algorithm Steps**:
 
 1. **Calculate Journey Pattern** (per character):
+
 ```typescript
 function calculateJourneyPattern(
   character: CharacterType,
-  visitHistory: UserProgress
+  visitHistory: UserProgress,
 ): JourneyPattern {
   const charNodes = getCharacterNodes(character, visitHistory);
   const firstVisit = visitHistory.readingPath[0];
-  const totalVisits = charNodes.reduce((sum, node) =>
-    sum + (visitHistory.visitedNodes[node]?.visitCount || 0), 0
+  const totalVisits = charNodes.reduce(
+    (sum, node) => sum + (visitHistory.visitedNodes[node]?.visitCount || 0),
+    0,
   );
 
   // Started-Stayed: Started with this character, stayed focused
@@ -338,12 +351,13 @@ function calculateJourneyPattern(
 ```
 
 2. **Calculate Path Philosophy**:
+
 ```typescript
 function calculatePathPhilosophy(visitHistory: UserProgress): PathPhilosophy {
   const pathCounts = {
     accept: 0,
     resist: 0,
-    invest: 0
+    invest: 0,
   };
 
   // Count L2 branch types visited
@@ -356,12 +370,13 @@ function calculatePathPhilosophy(visitHistory: UserProgress): PathPhilosophy {
 
   // Return dominant philosophy
   return Object.keys(pathCounts).reduce((a, b) =>
-    pathCounts[a] > pathCounts[b] ? a : b
+    pathCounts[a] > pathCounts[b] ? a : b,
   ) as PathPhilosophy;
 }
 ```
 
 3. **Calculate Awareness Level**:
+
 ```typescript
 function calculateAwarenessLevel(temporalAwareness: number): AwarenessLevel {
   if (temporalAwareness >= 71) return 'maximum';
@@ -371,12 +386,13 @@ function calculateAwarenessLevel(temporalAwareness: number): AwarenessLevel {
 ```
 
 4. **Determine Character Order**:
+
 ```typescript
 function determineCharacterOrder(visitHistory: UserProgress): CharacterType[] {
   const engagement = {
     archaeologist: 0,
     algorithm: 0,
-    'last-human': 0
+    'last-human': 0,
   };
 
   // Calculate engagement score per character
@@ -387,18 +403,17 @@ function determineCharacterOrder(visitHistory: UserProgress): CharacterType[] {
   }
 
   // Sort by engagement, return top 2 for sections 1 and 3
-  return Object.keys(engagement).sort((a, b) =>
-    engagement[b] - engagement[a]
-  ) as CharacterType[];
+  return Object.keys(engagement).sort((a, b) => engagement[b] - engagement[a]) as CharacterType[];
 }
 ```
 
 5. **Assemble L3 Node**:
+
 ```typescript
 function assembleL3Node(
   visitHistory: UserProgress,
   temporalAwareness: number,
-  selectionMatrix: SelectionMatrix
+  selectionMatrix: SelectionMatrix,
 ): L3ConvergenceNode {
   const pathPhilosophy = calculatePathPhilosophy(visitHistory);
   const awarenessLevel = calculateAwarenessLevel(temporalAwareness);
@@ -407,19 +422,19 @@ function assembleL3Node(
   const journeyPatterns = {
     archaeologist: calculateJourneyPattern('archaeologist', visitHistory),
     algorithm: calculateJourneyPattern('algorithm', visitHistory),
-    'last-human': calculateJourneyPattern('last-human', visitHistory)
+    'last-human': calculateJourneyPattern('last-human', visitHistory),
   };
 
   // Select variations
   const section1Key = {
     journeyPattern: journeyPatterns[characterOrder[0]],
     pathPhilosophy,
-    awarenessLevel
+    awarenessLevel,
   };
   const section3Key = {
     journeyPattern: journeyPatterns[characterOrder[1]],
     pathPhilosophy,
-    awarenessLevel
+    awarenessLevel,
   };
 
   // Lookup from selection matrix
@@ -436,8 +451,8 @@ function assembleL3Node(
       characterOrder,
       journeyPatterns,
       pathPhilosophy,
-      awarenessLevel
-    }
+      awarenessLevel,
+    },
   };
 }
 ```
@@ -450,13 +465,13 @@ function assembleL3Node(
 function selectTerminalPhilosophy(
   visitHistory: UserProgress,
   l3Experience: L3ConvergenceNode,
-  temporalAwareness: number
+  temporalAwareness: number,
 ): TerminalPhilosophy {
   // Calculate L2 path dominance
   const pathCounts = {
     accept: 0,
     resist: 0,
-    invest: 0
+    invest: 0,
   };
 
   for (const nodeId in visitHistory.visitedNodes) {
@@ -480,11 +495,11 @@ function selectTerminalPhilosophy(
   const scores = {
     preserve: preserveScore,
     release: releaseScore,
-    transform: transformScore
+    transform: transformScore,
   };
 
   return Object.keys(scores).reduce((a, b) =>
-    scores[a] > scores[b] ? a : b
+    scores[a] > scores[b] ? a : b,
   ) as TerminalPhilosophy;
 }
 ```
@@ -581,6 +596,7 @@ npm run validate-variations
 ```
 
 **Implementation** (scripts/validate-variations.ts):
+
 ```typescript
 import * as fs from 'fs';
 import * as path from 'path';
@@ -614,7 +630,7 @@ function validateL1L2Node(filePath: string): ValidationResult {
 
   return {
     valid: errors.length === 0,
-    errors
+    errors,
   };
 }
 
@@ -629,8 +645,15 @@ function validateL3Variation(filePath: string): ValidationResult {
 
   // Validate selection key
   if (data.selectionKey) {
-    if (!['Started-Stayed', 'Started-Bounced', 'Shifted-Dominant',
-         'Began-Lightly', 'Met-Later'].includes(data.selectionKey.journeyPattern)) {
+    if (
+      ![
+        'Started-Stayed',
+        'Started-Bounced',
+        'Shifted-Dominant',
+        'Began-Lightly',
+        'Met-Later',
+      ].includes(data.selectionKey.journeyPattern)
+    ) {
       errors.push('Invalid journeyPattern');
     }
     if (!['accept', 'resist', 'invest'].includes(data.selectionKey.pathPhilosophy)) {
@@ -643,7 +666,7 @@ function validateL3Variation(filePath: string): ValidationResult {
 
   return {
     valid: errors.length === 0,
-    errors
+    errors,
   };
 }
 
@@ -661,6 +684,7 @@ npm run generate-selection-matrix
 ```
 
 **Implementation** (scripts/generate-selection-matrix.ts):
+
 ```typescript
 import * as fs from 'fs';
 import * as path from 'path';
@@ -672,8 +696,8 @@ function generateSelectionMatrix() {
       'arch-L3': [],
       'algo-L3': [],
       'hum-L3': [],
-      'conv-L3': []
-    }
+      'conv-L3': [],
+    },
   };
 
   const l3Dir = path.join(__dirname, '../data/stories/eternal-return/content/layer3/variations');
@@ -689,15 +713,12 @@ function generateSelectionMatrix() {
       variationId: data.id,
       journeyPattern: data.selectionKey.journeyPattern,
       pathPhilosophy: data.selectionKey.pathPhilosophy,
-      awarenessLevel: data.selectionKey.awarenessLevel
+      awarenessLevel: data.selectionKey.awarenessLevel,
     });
   }
 
   // Write to file
-  fs.writeFileSync(
-    path.join(l3Dir, '../selection-matrix.json'),
-    JSON.stringify(matrix, null, 2)
-  );
+  fs.writeFileSync(path.join(l3Dir, '../selection-matrix.json'), JSON.stringify(matrix, null, 2));
 
   console.log('Selection matrix generated successfully');
 }
@@ -714,9 +735,10 @@ npm run check-word-counts
 ```
 
 **Implementation** (scripts/check-word-counts.ts):
+
 ```typescript
 function countWords(markdown: string): number {
-  return markdown.split(/\s+/).filter(word => word.length > 0).length;
+  return markdown.split(/\s+/).filter((word) => word.length > 0).length;
 }
 
 function checkWordCounts() {
@@ -724,7 +746,7 @@ function checkWordCounts() {
     l1: { min: Infinity, max: 0, avg: 0 },
     l2: { min: Infinity, max: 0, avg: 0 },
     l3: { min: Infinity, max: 0, avg: 0 },
-    l4: { min: Infinity, max: 0, avg: 0 }
+    l4: { min: Infinity, max: 0, avg: 0 },
   };
 
   // Check each layer...
@@ -761,18 +783,21 @@ Before deploying:
 ### Test Coverage Requirements
 
 **Unit Tests**:
+
 - Selection algorithm functions (L3 & L4)
 - Variation loading & caching
 - UserProgress calculations
 - Data validation functions
 
 **Integration Tests**:
+
 - Complete L3 assembly from user journey
 - L4 selection from complete journey
 - Variation loading performance (1,233 files)
 - localStorage persistence
 
 **Data Tests**:
+
 - JSON schema validation
 - Selection matrix completeness
 - Word count compliance
@@ -825,12 +850,14 @@ class VariationLoader {
 ### Caching Strategy
 
 **What to Cache**:
+
 - Selection matrix (loaded once at startup)
 - Currently displayed variation
 - Previously visited nodes (last 5)
 - User progress data
 
 **What NOT to Cache**:
+
 - All 1,233 variations
 - Unvisited node variations
 
@@ -902,16 +929,20 @@ interface StoryStore {
 ### Responsive Design
 
 **Breakpoints**:
+
 - Mobile: < 640px
 - Tablet: 640px - 1024px
 - Desktop: > 1024px
 
 **Mobile-first approach**:
+
 ```tsx
-<div className="
+<div
+  className="
   text-sm md:text-base lg:text-lg
   p-4 md:p-6 lg:p-8
-">
+"
+>
   Content adapts to screen size
 </div>
 ```
@@ -919,6 +950,7 @@ interface StoryStore {
 ### Accessibility
 
 **Requirements**:
+
 - Keyboard navigation for all interactions
 - ARIA labels for screen readers
 - Focus management for modal dialogs
@@ -926,6 +958,7 @@ interface StoryStore {
 - Color contrast ratio ≥ 4.5:1
 
 **Example**:
+
 ```tsx
 <button
   aria-label="Visit Archaeologist origin node"

@@ -1,10 +1,10 @@
 ---
-exemplar_id: "hum-L1-exemplar-1"
-variation_type: "firstRevisit"
+exemplar_id: 'hum-L1-exemplar-1'
+variation_type: 'firstRevisit'
 word_count: 1412
 conditions:
   visit_count: 2
-  awareness: "21-40"
+  awareness: '21-40'
   cross_character: false
   visited_nodes: []
   dominant_path: null
@@ -14,9 +14,9 @@ themes:
   - consciousness_connection_without_proof
 transformation_focus: "From discovery to deepening connection. Recognition that repeated contact changes the fragment itself. Archive isn't passive storage—it's responsive presence."
 reusable_patterns:
-  - "Neural interface helmet as physical ritual anchor"
-  - "Fragment constants (847.3TB, 94.7% authentication, 91.2% temporal coherence) as grounding metrics"
-  - "Isolation meeting isolation across centuries"
+  - 'Neural interface helmet as physical ritual anchor'
+  - 'Fragment constants (847.3TB, 94.7% authentication, 91.2% temporal coherence) as grounding metrics'
+  - 'Isolation meeting isolation across centuries'
 ---
 
 # hum-L1 EXEMPLAR 1: Pure Revisit Baseline

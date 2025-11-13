@@ -8,22 +8,22 @@ import type { TransformationState } from './Node';
  * Journey patterns track which character the reader started with and whether they stayed
  */
 export type JourneyPattern =
-  | 'started-stayed'     // Started with one character, stayed dominant (>60%)
-  | 'started-bounced'    // Started with one, explored others significantly
-  | 'shifted-dominant'   // Started with one, shifted to another as dominant
-  | 'began-lightly'      // Started with light exploration before committing
-  | 'met-later'          // Encountered character later in journey
-  | 'unknown';           // Not yet determined
+  | 'started-stayed' // Started with one character, stayed dominant (>60%)
+  | 'started-bounced' // Started with one, explored others significantly
+  | 'shifted-dominant' // Started with one, shifted to another as dominant
+  | 'began-lightly' // Started with light exploration before committing
+  | 'met-later' // Encountered character later in journey
+  | 'unknown'; // Not yet determined
 
 /**
  * Path philosophy represents the dominant choice pattern at L2 nodes
  */
 export type PathPhilosophy =
-  | 'accept'    // Acceptance/embrace choices
-  | 'resist'    // Resistance/rejection choices
-  | 'invest'    // Investigation/deeper engagement choices
-  | 'mixed'     // No clear dominant philosophy
-  | 'unknown';  // Not yet determined
+  | 'accept' // Acceptance/embrace choices
+  | 'resist' // Resistance/rejection choices
+  | 'invest' // Investigation/deeper engagement choices
+  | 'mixed' // No clear dominant philosophy
+  | 'unknown'; // Not yet determined
 
 /**
  * Awareness level categories
@@ -34,9 +34,9 @@ export type AwarenessLevel = 'low' | 'medium' | 'high';
  * Synthesis pattern for convergence variations
  */
 export type SynthesisPattern =
-  | 'single-dominant'    // One character >60%
-  | 'balanced-dual'      // Two characters ~40-50% each
-  | 'true-triad';        // All three characters ~33% each
+  | 'single-dominant' // One character >60%
+  | 'balanced-dual' // Two characters ~40-50% each
+  | 'true-triad'; // All three characters ~33% each
 
 /**
  * Variation metadata structure matching JSON format
@@ -182,9 +182,9 @@ export interface JourneyTracking {
    * Counts how many times reader switched between perspectives
    */
   crossCharacterConnections: {
-    arch_algo: number;  // Archaeologist ↔ Algorithm switches
-    arch_hum: number;   // Archaeologist ↔ Last Human switches
-    algo_hum: number;   // Algorithm ↔ Last Human switches
+    arch_algo: number; // Archaeologist ↔ Algorithm switches
+    arch_hum: number; // Archaeologist ↔ Last Human switches
+    algo_hum: number; // Algorithm ↔ Last Human switches
   };
 
   /**
@@ -203,7 +203,7 @@ export interface JourneyTracking {
    * Revisit patterns
    * Tracks how often reader returns to previously visited nodes
    */
-  revisitFrequency: number;  // Percentage of visits that are revisits
+  revisitFrequency: number; // Percentage of visits that are revisits
 
   /**
    * Exploration breadth vs depth
@@ -211,8 +211,8 @@ export interface JourneyTracking {
    * High depth = revisiting fewer nodes multiple times
    */
   explorationMetrics: {
-    breadth: number;  // Unique nodes visited / total nodes available (0-100%)
-    depth: number;    // Average visits per unique node
+    breadth: number; // Unique nodes visited / total nodes available (0-100%)
+    depth: number; // Average visits per unique node
   };
 }
 

@@ -24,32 +24,18 @@
     "philosophyCode": "IN",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "dual-balanced",
     "synthesisCode": "DB",
-    "dominantCharacters": [
-      "undetermined",
-      "undetermined"
-    ],
-    "characterBalance": [
-      45,
-      45,
-      10
-    ],
+    "dominantCharacters": ["undetermined", "undetermined"],
+    "characterBalance": [45, 45, 10],
     "readableLabel": "SS-IN-H-DB",
     "humanDescription": "Started with one character, stayed dominant (>60%), investigate path, high awareness, dual-balanced synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "fluid-transitions",
     "perspectiveEmphasis": "dual-balanced-45-45-10",
     "philosophicalCulmination": "Dual-substrate investigation examining investigation recursively",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "transform-investigate",
     "circularCausality": "explicit",
     "readerPosition": "acknowledged",
@@ -61,16 +47,8 @@
     ],
     "crossCharacterSynthesis": "two-consciousness-recursive",
     "temporalBleedingLevel": "extreme",
-    "observerPositions": [
-      "dual-primary",
-      "reader-fourth",
-      "narrative-fifth"
-    ],
+    "observerPositions": ["dual-primary", "reader-fourth", "narrative-fifth"],
     "philosophicalResolution": "investigation-network-recursive",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

@@ -6,14 +6,6 @@
   'awareness': '21-40%'
 ---
 
-
-
-
-
-
-
-
-
 The archaeologist returned to Fragment 2749-A demanding proof that she was actually being watched from the future.
 The authentication markers displayed unchanged. 847.3 terabytes. Memory integrity 94.7%. Neural pathway preservation 91.2%. Temporal consistency 88.9%. The fragment she had certified twenty-three days earlier remained stable in archive—crystalline substrate maintaining perfect fidelity, consciousness preserved at moment of death in 2041, data structures intact.
 She knew the preservation was genuine. She also knew preservation didn't explain the sensation she couldn't dismiss.

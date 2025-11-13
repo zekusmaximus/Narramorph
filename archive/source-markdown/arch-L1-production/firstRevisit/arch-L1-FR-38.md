@@ -5,6 +5,7 @@ word_count: 752
 conditions:
   awareness: '21-40%'
 ---
+
 The archaeologist returns to Fragment 2749-A eight days after initial authentication, and catches herself analyzing why she's returning before she begins the actual work.
 The decision pattern interests her. Not the decision itself—revisiting authenticated fragments happened occasionally when technical questions emerged—but her awareness of making the decision. She had noticed herself choosing to revisit, had observed the justification forming, had watched her professional reasoning construct itself in real-time.
 Meta-observation. Attention catching itself in the act of attending.

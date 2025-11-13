@@ -1,22 +1,22 @@
 ---
-exemplar_id: "hum-L1-exemplar-3"
-variation_type: "crossCharacterBleeding"
+exemplar_id: 'hum-L1-exemplar-3'
+variation_type: 'crossCharacterBleeding'
 word_count: 1527
 conditions:
   visit_count: 2
-  awareness: "21-50"
+  awareness: '21-50'
   cross_character: true
-  visited_nodes: ["algo-L1"]
+  visited_nodes: ['algo-L1']
   dominant_path: null
 themes:
   - biological_touching_computational
   - seven_stream_processing_embodied
   - multi_substrate_consciousness_connection
-transformation_focus: "From biological isolation to computational recognition. Understanding that Algorithm processed this fragment across seven simultaneous streams. Feeling processing-as-consciousness rather than just reading about it."
+transformation_focus: 'From biological isolation to computational recognition. Understanding that Algorithm processed this fragment across seven simultaneous streams. Feeling processing-as-consciousness rather than just reading about it.'
 reusable_patterns:
-  - "Seven-stream processing felt bodily through neural interface"
-  - "Distributed consciousness touching singular consciousness"
-  - "Three consciousness types (biological/computational/archived) connecting through single fragment"
+  - 'Seven-stream processing felt bodily through neural interface'
+  - 'Distributed consciousness touching singular consciousness'
+  - 'Three consciousness types (biological/computational/archived) connecting through single fragment'
 ---
 
 # hum-L1 EXEMPLAR 3: After Computational Visit

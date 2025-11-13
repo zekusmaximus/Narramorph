@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "ML-RE-M",
     "humanDescription": "Started elsewhere, substantial last human exploration, resist path, medium awareness",
     "narrativeElements": null,
@@ -43,10 +40,7 @@
       "verification-through-sensation",
       "boundary-maintenance"
     ],
-    "crossCharacterConnections": [
-      "heavy-algo-primary",
-      "significant-arch-foundational"
-    ],
+    "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "algorithm-primary-2151",

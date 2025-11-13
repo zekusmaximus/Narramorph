@@ -11,7 +11,7 @@ import type { UnlockConfigFile, NodeUnlockConfig } from '@/types/Unlock';
  */
 const unlockConfigFiles = import.meta.glob<UnlockConfigFile>(
   '/src/data/stories/*/unlock-config.json',
-  { eager: true, import: 'default' }
+  { eager: true, import: 'default' },
 );
 
 /**

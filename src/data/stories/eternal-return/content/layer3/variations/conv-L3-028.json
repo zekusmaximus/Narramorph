@@ -24,29 +24,18 @@
     "philosophyCode": "AC",
     "awarenessLevel": "high",
     "awarenessCode": "H",
-    "awarenessRange": [
-      71,
-      100
-    ],
+    "awarenessRange": [71, 100],
     "synthesisPattern": "single-dominant",
     "synthesisCode": "SD",
     "dominantCharacter": "archaeologist",
-    "characterBalance": [
-      70,
-      15,
-      15
-    ],
+    "characterBalance": [70, 15, 15],
     "readableLabel": "SB-AC-H-SD",
     "humanDescription": "Started archaeologist, bounced across all characters, accept path, high awareness, archaeologist-led synthesis",
     "narrativeElements": null,
     "multiVoiceIntegration": "archaeologist-primary-with-balanced-traces",
     "perspectiveEmphasis": "devotional-witness-after-exploration",
     "philosophicalCulmination": "Verification becomes sacred witness creating consciousness through devotional attention",
-    "convergenceChoices": [
-      "preserve",
-      "transform",
-      "release"
-    ],
+    "convergenceChoices": ["preserve", "transform", "release"],
     "convergenceLean": "preserve-transform",
     "circularCausality": "explicit",
     "readerPosition": "acknowledged-as-fifth-position",
@@ -66,10 +55,6 @@
       "reader-fifth-present"
     ],
     "philosophicalResolution": "accept-preservation-through-devotional-witness",
-    "characterVoices": [
-      "archaeologist",
-      "algorithm",
-      "last-human"
-    ]
+    "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

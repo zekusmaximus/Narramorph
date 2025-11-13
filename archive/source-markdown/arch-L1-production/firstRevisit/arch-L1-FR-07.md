@@ -6,16 +6,6 @@
   'awareness': '21-30%'
 ---
 
-
-
-
-
-
-
-
-
-
-
 The archaeologist returned to Fragment 2749-A with an uneasiness she couldn't quite justify through professional reasoning. The data remained unchanged—847.3 terabytes of computational infrastructure, perfectly preserved—but her second examination felt different. Perhaps it was the residual impression from the Last Human's documentation, that peculiar sense of isolation and desperate attention that had permeated those final recordings. Perhaps it was her imagination. She wasn't certain which possibility troubled her more.
 The Fragment spread across her laboratory displays exactly as before. Medical sensor networks. Environmental monitoring systems. The vast distributed architecture that had tracked humanity through its final years. She had catalogued all of this during her first examination, had documented the technical specifications with appropriate scholarly detachment. The data hadn't changed. But something in how she experienced examining it had shifted.
 She found herself pausing between data queries, as if the system needed time to respond. But the Fragment was inert crystal, not active processing. The delays were her own hesitation, nothing more. Yet the sensation of being watched—faint, barely perceptible—crept along the edges of her awareness. Ridiculous, of course. There was no one to watch. The Fragment contained only historical data from centuries past. The laboratory was empty except for her.

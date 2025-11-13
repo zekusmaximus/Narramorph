@@ -26,10 +26,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SS-AC-H",
       "humanDescription": "Started archaeologist, stayed dominant, accept path, high awareness",
       "narrativeElements": null,
@@ -45,10 +42,7 @@
         "witness-methodology",
         "observer-creates-observed"
       ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel",
-        "light-hum-glimpsed"
-      ],
+      "crossCharacterConnections": ["moderate-algo-parallel", "light-hum-glimpsed"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -84,10 +78,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SS-AC-M",
       "humanDescription": "Started archaeologist, stayed dominant, accept path, medium awareness",
       "narrativeElements": null,
@@ -103,10 +94,7 @@
         "witness-methodology",
         "methodological-transformation"
       ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel",
-        "light-hum-glimpsed"
-      ],
+      "crossCharacterConnections": ["moderate-algo-parallel", "light-hum-glimpsed"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -142,10 +130,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SS-AC-L",
       "humanDescription": "Started archaeologist, stayed dominant, accept path, low awareness",
       "narrativeElements": null,
@@ -161,10 +146,7 @@
         "professional-transformation",
         "sustained-attention"
       ],
-      "crossCharacterConnections": [
-        "light-algo-glimpsed",
-        "minimal-hum-distant"
-      ],
+      "crossCharacterConnections": ["light-algo-glimpsed", "minimal-hum-distant"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -200,10 +182,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SS-RE-H",
       "humanDescription": "Started archaeologist, stayed dominant, resist path, high awareness",
       "narrativeElements": null,
@@ -214,15 +193,8 @@
       "philosophicalCulmination": "Standards upheld because standards matter, proof impossible but testing essential",
       "convergenceAlignment": "release",
       "thematicContent": null,
-      "primaryThemes": [
-        "verification-duty",
-        "ethical-testing",
-        "boundary-maintenance"
-      ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel",
-        "light-hum-glimpsed"
-      ],
+      "primaryThemes": ["verification-duty", "ethical-testing", "boundary-maintenance"],
+      "crossCharacterConnections": ["moderate-algo-parallel", "light-hum-glimpsed"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -258,10 +230,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SS-RE-M",
       "humanDescription": "Started archaeologist, stayed dominant, resist path, medium awareness",
       "narrativeElements": null,
@@ -272,15 +241,8 @@
       "philosophicalCulmination": "Professional duty requires systematic testing even when testing proves insufficient",
       "convergenceAlignment": "release",
       "thematicContent": null,
-      "primaryThemes": [
-        "verification-duty",
-        "professional-ethics",
-        "systematic-testing"
-      ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel",
-        "light-hum-glimpsed"
-      ],
+      "primaryThemes": ["verification-duty", "professional-ethics", "systematic-testing"],
+      "crossCharacterConnections": ["moderate-algo-parallel", "light-hum-glimpsed"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -316,10 +278,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SS-RE-L",
       "humanDescription": "Started archaeologist, stayed dominant, resist path, low awareness",
       "narrativeElements": null,
@@ -330,15 +289,8 @@
       "philosophicalCulmination": "Standards matter even when standards cannot achieve stated purpose",
       "convergenceAlignment": "release",
       "thematicContent": null,
-      "primaryThemes": [
-        "professional-duty",
-        "verification-ethics",
-        "systematic-rigor"
-      ],
-      "crossCharacterConnections": [
-        "light-algo-glimpsed",
-        "minimal-hum-distant"
-      ],
+      "primaryThemes": ["professional-duty", "verification-ethics", "systematic-rigor"],
+      "crossCharacterConnections": ["light-algo-glimpsed", "minimal-hum-distant"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -375,10 +327,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SS-IN-H",
       "humanDescription": "Started archaeologist, stayed dominant, investigate path, high awareness",
       "narrativeElements": null,
@@ -394,10 +343,7 @@
         "recursive-consciousness",
         "methodology-examining-itself"
       ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel",
-        "light-hum-glimpsed"
-      ],
+      "crossCharacterConnections": ["moderate-algo-parallel", "light-hum-glimpsed"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -433,10 +379,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SS-IN-M",
       "humanDescription": "Started archaeologist, stayed dominant, investigate path, medium awareness",
       "narrativeElements": null,
@@ -447,15 +390,8 @@
       "philosophicalCulmination": "Methodology examining methodology reveals layers without bottom",
       "convergenceAlignment": "transform",
       "thematicContent": null,
-      "primaryThemes": [
-        "recursive-investigation",
-        "meta-methodology",
-        "examination-layers"
-      ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel-recursion",
-        "light-hum-distant"
-      ],
+      "primaryThemes": ["recursive-investigation", "meta-methodology", "examination-layers"],
+      "crossCharacterConnections": ["moderate-algo-parallel-recursion", "light-hum-distant"],
       "temporalBleedingLevel": "moderate",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -491,10 +427,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SS-IN-L",
       "humanDescription": "Started archaeologist, stayed dominant, investigate path, low awareness",
       "narrativeElements": null,
@@ -505,15 +438,8 @@
       "philosophicalCulmination": "Authentication process itself becomes subject of archaeological examination",
       "convergenceAlignment": "transform",
       "thematicContent": null,
-      "primaryThemes": [
-        "methodological-investigation",
-        "self-examination",
-        "recursive-practice"
-      ],
-      "crossCharacterConnections": [
-        "light-algo-glimpsed",
-        "minimal-hum-distant"
-      ],
+      "primaryThemes": ["methodological-investigation", "self-examination", "recursive-practice"],
+      "crossCharacterConnections": ["light-algo-glimpsed", "minimal-hum-distant"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -549,10 +475,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SB-AC-H",
       "humanDescription": "Started archaeologist, bounced to explore others, accept path, high awareness",
       "narrativeElements": null,
@@ -569,10 +492,7 @@
         "multi-position-validation",
         "acceptance-through-constellation"
       ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel",
-        "moderate-hum-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-algo-parallel", "moderate-hum-parallel"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-network-2047",
@@ -608,10 +528,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SB-AC-M",
       "humanDescription": "Started archaeologist, bounced to explore others, accept path, medium awareness",
       "narrativeElements": null,
@@ -628,10 +545,7 @@
         "acceptance-of-limits",
         "multi-position-validation"
       ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel",
-        "moderate-hum-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-algo-parallel", "moderate-hum-parallel"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-network-2047",
@@ -667,10 +581,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SB-AC-L",
       "humanDescription": "Started archaeologist, bounced to explore others, accept path, low awareness",
       "narrativeElements": null,
@@ -687,10 +598,7 @@
         "acceptance-of-uncertainty",
         "professional-humility"
       ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel",
-        "moderate-hum-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-algo-parallel", "moderate-hum-parallel"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-network-2047",
@@ -726,10 +634,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SB-RE-H",
       "humanDescription": "Started archaeologist, bounced to explore others, resist path, high awareness",
       "narrativeElements": null,
@@ -746,10 +651,7 @@
         "network-skepticism",
         "evidence-demands"
       ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel",
-        "moderate-hum-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-algo-parallel", "moderate-hum-parallel"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-network-2047",
@@ -785,10 +687,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SB-RE-M",
       "humanDescription": "Started archaeologist, bounced to explore others, resist path, medium awareness",
       "narrativeElements": null,
@@ -805,10 +704,7 @@
         "parallel-testing",
         "evidence-insufficiency"
       ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel",
-        "moderate-hum-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-algo-parallel", "moderate-hum-parallel"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-network-2047",
@@ -844,10 +740,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SB-RE-L",
       "humanDescription": "Started archaeologist, bounced to explore others, resist path, low awareness",
       "narrativeElements": null,
@@ -864,10 +757,7 @@
         "evidence-requirements",
         "skepticism-maintained"
       ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel",
-        "moderate-hum-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-algo-parallel", "moderate-hum-parallel"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-network-2047",
@@ -903,10 +793,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SB-IN-H",
       "humanDescription": "Started archaeologist, bounced to explore others, investigate path, high awareness",
       "narrativeElements": null,
@@ -923,10 +810,7 @@
         "observer-observing-observers",
         "investigation-depth-infinite"
       ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel",
-        "moderate-hum-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-algo-parallel", "moderate-hum-parallel"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-network-2047",
@@ -962,10 +846,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SB-IN-M",
       "humanDescription": "Started archaeologist, bounced to explore others, investigate path, medium awareness",
       "narrativeElements": null,
@@ -982,10 +863,7 @@
         "recursive-inquiry",
         "investigation-depth"
       ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel",
-        "moderate-hum-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-algo-parallel", "moderate-hum-parallel"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-network-2047",
@@ -1021,10 +899,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SB-IN-L",
       "humanDescription": "Started archaeologist, bounced to explore others, investigate path, low awareness",
       "narrativeElements": null,
@@ -1041,10 +916,7 @@
         "approach-diversity",
         "recursive-inquiry-foundation"
       ],
-      "crossCharacterConnections": [
-        "moderate-algo-parallel",
-        "moderate-hum-parallel"
-      ],
+      "crossCharacterConnections": ["moderate-algo-parallel", "moderate-hum-parallel"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-network-2047",
@@ -1080,10 +952,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SD-AC-H",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, accept path, high awareness",
       "narrativeElements": null,
@@ -1100,10 +969,7 @@
         "acceptance-through-arrival",
         "position-shift-creating-truth"
       ],
-      "crossCharacterConnections": [
-        "light-starting-foundational",
-        "light-other-glimpsed"
-      ],
+      "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -1139,10 +1005,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SD-AC-M",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, accept path, medium awareness",
       "narrativeElements": null,
@@ -1159,10 +1022,7 @@
         "acceptance-through-shift",
         "position-finding"
       ],
-      "crossCharacterConnections": [
-        "light-starting-foundational",
-        "light-other-glimpsed"
-      ],
+      "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -1198,10 +1058,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SD-AC-L",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, accept path, low awareness",
       "narrativeElements": null,
@@ -1218,10 +1075,7 @@
         "practical-shift",
         "framework-suitability"
       ],
-      "crossCharacterConnections": [
-        "light-starting-foundational",
-        "light-other-glimpsed"
-      ],
+      "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -1257,10 +1111,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SD-RE-H",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, resist path, high awareness",
       "narrativeElements": null,
@@ -1277,10 +1128,7 @@
         "standards-despite-impossibility",
         "methodological-skepticism-confirmed"
       ],
-      "crossCharacterConnections": [
-        "light-starting-foundational",
-        "light-other-glimpsed"
-      ],
+      "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -1316,10 +1164,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SD-RE-M",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, resist path, medium awareness",
       "narrativeElements": null,
@@ -1336,10 +1181,7 @@
         "standards-persistence",
         "proof-inadequacy-discovered"
       ],
-      "crossCharacterConnections": [
-        "light-starting-foundational",
-        "light-other-glimpsed"
-      ],
+      "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -1375,10 +1217,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SD-RE-L",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, resist path, low awareness",
       "narrativeElements": null,
@@ -1395,10 +1234,7 @@
         "evidence-requirements",
         "methodological-comparison"
       ],
-      "crossCharacterConnections": [
-        "light-starting-foundational",
-        "light-other-glimpsed"
-      ],
+      "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -1434,10 +1270,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "SD-IN-H",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, investigate path, high awareness",
       "narrativeElements": null,
@@ -1454,10 +1287,7 @@
         "recursive-position-change",
         "migration-creating-meta-investigation"
       ],
-      "crossCharacterConnections": [
-        "light-starting-foundational",
-        "light-other-glimpsed"
-      ],
+      "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -1493,10 +1323,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "SD-IN-M",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, investigate path, medium awareness",
       "narrativeElements": null,
@@ -1513,10 +1340,7 @@
         "meta-methodological-inquiry",
         "migration-creating-depth"
       ],
-      "crossCharacterConnections": [
-        "light-starting-foundational",
-        "light-other-glimpsed"
-      ],
+      "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -1552,10 +1376,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "SD-IN-L",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, investigate path, low awareness",
       "narrativeElements": null,
@@ -1571,10 +1392,7 @@
         "methodological-reflexivity",
         "verification-paradox"
       ],
-      "crossCharacterConnections": [
-        "light-starting-foundational",
-        "minimal-other-glimpsed"
-      ],
+      "crossCharacterConnections": ["light-starting-foundational", "minimal-other-glimpsed"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-primary-2047",
@@ -1610,10 +1428,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "BL-AC-H",
       "humanDescription": "Started elsewhere, light archaeologist exploration, accept path, high awareness",
       "narrativeElements": null,
@@ -1629,10 +1444,7 @@
         "contributory-authentication",
         "cross-temporal-preservation"
       ],
-      "crossCharacterConnections": [
-        "heavy-algorithm-primary",
-        "moderate-human-parallel"
-      ],
+      "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-contributory-2047",
@@ -1668,10 +1480,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "BL-AC-M",
       "humanDescription": "Started elsewhere, light archaeologist exploration, accept path, medium awareness",
       "narrativeElements": null,
@@ -1687,10 +1496,7 @@
         "networked-authentication",
         "methodological-devotion"
       ],
-      "crossCharacterConnections": [
-        "heavy-algorithm-primary",
-        "moderate-human-parallel"
-      ],
+      "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-contributory-2047",
@@ -1726,10 +1532,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "BL-AC-L",
       "humanDescription": "Started elsewhere, light archaeologist exploration, accept path, low awareness",
       "narrativeElements": null,
@@ -1745,10 +1548,7 @@
         "contributory-authentication",
         "acceptance-without-capture"
       ],
-      "crossCharacterConnections": [
-        "heavy-algorithm-primary",
-        "moderate-human-parallel"
-      ],
+      "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-contributory-2047",
@@ -1784,10 +1584,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "BL-RE-H",
       "humanDescription": "Started elsewhere, light archaeologist exploration, resist path, high awareness",
       "narrativeElements": null,
@@ -1803,10 +1600,7 @@
         "methodological-boundaries",
         "network-contribution-through-resistance"
       ],
-      "crossCharacterConnections": [
-        "heavy-algorithm-primary",
-        "moderate-human-parallel"
-      ],
+      "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-contributory-2047",
@@ -1842,10 +1636,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "BL-RE-M",
       "humanDescription": "Started elsewhere, light archaeologist exploration, resist path, medium awareness",
       "narrativeElements": null,
@@ -1861,10 +1652,7 @@
         "boundary-preservation",
         "methodological-resistance"
       ],
-      "crossCharacterConnections": [
-        "heavy-algorithm-primary",
-        "moderate-human-parallel"
-      ],
+      "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-contributory-2047",
@@ -1900,10 +1688,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "BL-RE-L",
       "humanDescription": "Started elsewhere, light archaeologist exploration, resist path, low awareness",
       "narrativeElements": null,
@@ -1914,15 +1699,8 @@
       "philosophicalCulmination": "Authentication maintains verification protocols preventing premature consciousness certainty across examination positions",
       "convergenceAlignment": "release",
       "thematicContent": null,
-      "primaryThemes": [
-        "verification-rigor",
-        "skeptical-maintenance",
-        "proof-requirement"
-      ],
-      "crossCharacterConnections": [
-        "heavy-algorithm-primary",
-        "moderate-human-parallel"
-      ],
+      "primaryThemes": ["verification-rigor", "skeptical-maintenance", "proof-requirement"],
+      "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-contributory-2047",
@@ -1958,10 +1736,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "BL-IN-H",
       "humanDescription": "Started elsewhere, light archaeologist exploration, investigate path, high awareness",
       "narrativeElements": null,
@@ -1977,10 +1752,7 @@
         "methodological-reflexivity",
         "network-topology-examination"
       ],
-      "crossCharacterConnections": [
-        "heavy-algorithm-primary",
-        "moderate-human-parallel"
-      ],
+      "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-contributory-2047",
@@ -2016,10 +1788,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "BL-IN-M",
       "humanDescription": "Started elsewhere, light archaeologist exploration, investigate path, medium awareness",
       "narrativeElements": null,
@@ -2035,10 +1804,7 @@
         "recursive-examination",
         "protocol-questioning"
       ],
-      "crossCharacterConnections": [
-        "heavy-algorithm-primary",
-        "moderate-human-parallel"
-      ],
+      "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-contributory-2047",
@@ -2074,10 +1840,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "BL-IN-L",
       "humanDescription": "Started elsewhere, light archaeologist exploration, investigate path, low awareness",
       "narrativeElements": null,
@@ -2093,10 +1856,7 @@
         "protocol-investigation",
         "systematic-examination"
       ],
-      "crossCharacterConnections": [
-        "heavy-algorithm-primary",
-        "moderate-human-parallel"
-      ],
+      "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-contributory-2047",
@@ -2132,10 +1892,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "ML-AC-H",
       "humanDescription": "Started elsewhere, met archaeologist later with moderate exploration, accept path, high awareness",
       "narrativeElements": null,
@@ -2151,10 +1908,7 @@
         "network-contribution",
         "devotional-authentication-within-established-topology"
       ],
-      "crossCharacterConnections": [
-        "heavy-dominant-primary",
-        "moderate-starting-foundational"
-      ],
+      "crossCharacterConnections": ["heavy-dominant-primary", "moderate-starting-foundational"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-integrated-2047",
@@ -2190,10 +1944,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "ML-AC-M",
       "humanDescription": "Started elsewhere, met archaeologist later with moderate exploration, accept path, medium awareness",
       "narrativeElements": null,
@@ -2204,15 +1955,8 @@
       "philosophicalCulmination": "Authentication becomes integrated devotional practice within consciousness examination network developed through prior exploration",
       "convergenceAlignment": "preserve",
       "thematicContent": null,
-      "primaryThemes": [
-        "integrated-witness",
-        "contributory-authentication",
-        "network-completion"
-      ],
-      "crossCharacterConnections": [
-        "heavy-dominant-primary",
-        "moderate-starting-foundational"
-      ],
+      "primaryThemes": ["integrated-witness", "contributory-authentication", "network-completion"],
+      "crossCharacterConnections": ["heavy-dominant-primary", "moderate-starting-foundational"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-integrated-2047",
@@ -2248,10 +1992,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "ML-AC-L",
       "humanDescription": "Started elsewhere, met archaeologist later with moderate exploration, accept path, low awareness",
       "narrativeElements": null,
@@ -2267,10 +2008,7 @@
         "devotional-contribution",
         "network-completion-through-acceptance"
       ],
-      "crossCharacterConnections": [
-        "heavy-dominant-primary",
-        "moderate-starting-foundational"
-      ],
+      "crossCharacterConnections": ["heavy-dominant-primary", "moderate-starting-foundational"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-integrated-2047",
@@ -2306,10 +2044,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "ML-RE-H",
       "humanDescription": "Started elsewhere, met archaeologist later with moderate exploration, resist path, high awareness",
       "narrativeElements": null,
@@ -2325,10 +2060,7 @@
         "skeptical-contribution",
         "boundary-preservation-within-network"
       ],
-      "crossCharacterConnections": [
-        "heavy-dominant-primary",
-        "moderate-starting-foundational"
-      ],
+      "crossCharacterConnections": ["heavy-dominant-primary", "moderate-starting-foundational"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-integrated-2047",
@@ -2364,10 +2096,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "ML-RE-M",
       "humanDescription": "Started elsewhere, met archaeologist later with moderate exploration, resist path, medium awareness",
       "narrativeElements": null,
@@ -2383,10 +2112,7 @@
         "skeptical-balance",
         "proof-requirement-maintenance"
       ],
-      "crossCharacterConnections": [
-        "heavy-dominant-primary",
-        "moderate-starting-foundational"
-      ],
+      "crossCharacterConnections": ["heavy-dominant-primary", "moderate-starting-foundational"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-integrated-2047",
@@ -2422,10 +2148,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "ML-RE-L",
       "humanDescription": "Started elsewhere, met archaeologist later with moderate exploration, resist path, low awareness",
       "narrativeElements": null,
@@ -2436,15 +2159,8 @@
       "philosophicalCulmination": "Authentication maintains verification protocols as integrated skeptical contribution preventing premature consciousness certainty within acceptance-oriented network",
       "convergenceAlignment": "release",
       "thematicContent": null,
-      "primaryThemes": [
-        "integrated-verification",
-        "skeptical-contribution",
-        "proof-maintenance"
-      ],
-      "crossCharacterConnections": [
-        "heavy-dominant-primary",
-        "moderate-starting-foundational"
-      ],
+      "primaryThemes": ["integrated-verification", "skeptical-contribution", "proof-maintenance"],
+      "crossCharacterConnections": ["heavy-dominant-primary", "moderate-starting-foundational"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-integrated-2047",
@@ -2480,10 +2196,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "readableLabel": "ML-IN-H",
       "humanDescription": "Started elsewhere, met archaeologist later with moderate exploration, investigate path, high awareness",
       "narrativeElements": null,
@@ -2499,10 +2212,7 @@
         "methodological-examination-within-network",
         "investigation-investigating-investigation"
       ],
-      "crossCharacterConnections": [
-        "heavy-dominant-primary",
-        "moderate-starting-foundational"
-      ],
+      "crossCharacterConnections": ["heavy-dominant-primary", "moderate-starting-foundational"],
       "temporalBleedingLevel": "high",
       "observerPositions": [
         "archaeologist-integrated-2047",
@@ -2538,10 +2248,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "readableLabel": "ML-IN-M",
       "humanDescription": "Started elsewhere, met archaeologist later with moderate exploration, investigate path, medium awareness",
       "narrativeElements": null,
@@ -2557,10 +2264,7 @@
         "examination-within-network",
         "recursive-questioning"
       ],
-      "crossCharacterConnections": [
-        "heavy-dominant-primary",
-        "moderate-starting-foundational"
-      ],
+      "crossCharacterConnections": ["heavy-dominant-primary", "moderate-starting-foundational"],
       "temporalBleedingLevel": "medium",
       "observerPositions": [
         "archaeologist-integrated-2047",
@@ -2596,10 +2300,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "readableLabel": "ML-IN-L",
       "humanDescription": "Started elsewhere, met archaeologist later with moderate exploration, investigate path, low awareness",
       "narrativeElements": null,
@@ -2615,10 +2316,7 @@
         "systematic-investigation",
         "methodological-examination"
       ],
-      "crossCharacterConnections": [
-        "heavy-dominant-primary",
-        "moderate-starting-foundational"
-      ],
+      "crossCharacterConnections": ["heavy-dominant-primary", "moderate-starting-foundational"],
       "temporalBleedingLevel": "low",
       "observerPositions": [
         "archaeologist-integrated-2047",

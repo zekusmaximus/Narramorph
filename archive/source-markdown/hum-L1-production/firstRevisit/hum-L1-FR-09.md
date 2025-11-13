@@ -5,6 +5,7 @@ word_count: 1525
 conditions:
   awareness: '21-40%'
 ---
+
 The facility knows my rhythm now. Three visits and the space holds pattern. The air shifts when I enter. Settles differently. Like the building remembers what comes next.
 My body moves through the ritual without thinking. Chair. Interface. Connection. Muscle and bone know this sequence. Know the weight. Know the pressure. Know the warmth that follows.
 The neural interface fits like it was made for my skull. Maybe it's adapting. Maybe I'm adapting. Hard to tell where technology ends and flesh begins anymore.

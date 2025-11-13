@@ -5,6 +5,7 @@ word_count: 958
 conditions:
   awareness: '21-40%'
 ---
+
 The facility's door remembers me now. Opens before my hand reaches the sensor. Inside, the archive hums with what feels like anticipation. Screens wake. Systems align. Fragment 2749-A loads without request.
 But something's different this time.
 There are layers in the data structure I didn't see before. Not hidden. Just invisible until now. Professional patterns. Methodical examination traces threaded through the consciousness architecture. Someone else studied this fragment. Someone who knew what they were looking for.

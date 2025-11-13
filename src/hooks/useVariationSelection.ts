@@ -8,6 +8,19 @@ import { loadVariationFile } from '@/utils/variationLoader';
 import { findMatchingVariation } from '@/utils/conditionEvaluator';
 import type { VariationMetadata } from '@/types';
 
+const isDevEnv = process.env.NODE_ENV !== 'production';
+const devLog = (...args: unknown[]): void => {
+  if (!isDevEnv) return;
+  console.warn('[VariationSelection]', ...args);
+};
+const devWarn = (...args: unknown[]): void => {
+  if (!isDevEnv) return;
+  console.warn('[VariationSelection:warn]', ...args);
+};
+const devError = (...args: unknown[]): void => {
+  if (!isDevEnv) return;
+  console.error('[VariationSelection:error]', ...args);
+};
 /**
  * Result of variation selection
  */
@@ -42,17 +55,44 @@ export interface UseVariationSelectionResult {
  */
 export function useVariationSelection(
   nodeId: string | null,
-  fallbackContent?: string
+  fallbackContent?: string,
 ): UseVariationSelectionResult {
-  const storyData = useStoryStore(state => state.storyData);
-  const getConditionContext = useStoryStore(state => state.getConditionContext);
+  const storyData = useStoryStore((state) => state.storyData);
+  const getConditionContext = useStoryStore((state) => state.getConditionContext);
 
   // Extract reactive values that affect variation selection
-  const temporalAwareness = useStoryStore(state => state.progress.temporalAwarenessLevel);
-  const visitRecord = useStoryStore(state => nodeId ? state.progress.visitedNodes[nodeId] : undefined);
-  const journeyTracking = useStoryStore(state => state.progress.journeyTracking);
+  const temporalAwareness = useStoryStore((state) => state.progress.temporalAwarenessLevel);
+  const visitRecord = useStoryStore((state) =>
+    nodeId ? state.progress.visitedNodes[nodeId] : undefined,
+  );
+  const journeyTracking = useStoryStore((state) => state.progress.journeyTracking);
+
+  const variationTriggers = useMemo(
+    () => ({
+      temporalAwareness,
+      visitCount: visitRecord?.visitCount ?? 0,
+      currentState: visitRecord?.currentState ?? 'initial',
+      journeyPattern: journeyTracking?.currentJourneyPattern ?? 'unknown',
+      philosophy: journeyTracking?.dominantPhilosophy ?? 'unknown',
+    }),
+    [
+      temporalAwareness,
+      visitRecord?.visitCount,
+      visitRecord?.currentState,
+      journeyTracking?.currentJourneyPattern,
+      journeyTracking?.dominantPhilosophy,
+    ],
+  );
 
   return useMemo(() => {
+    const triggerSummary = [
+      variationTriggers.temporalAwareness,
+      variationTriggers.visitCount,
+      variationTriggers.currentState,
+      variationTriggers.journeyPattern,
+      variationTriggers.philosophy,
+    ].join('|');
+
     // Early return if no node
     if (!nodeId) {
       return {
@@ -76,7 +116,11 @@ export function useVariationSelection(
       if (!variationFile || !variationFile.variations || variationFile.variations.length === 0) {
         // No variations available - use fallback
         if (fallbackContent) {
-          console.warn(`[VariationSelection] No variations found for ${nodeId}, using fallback`);
+          devWarn(
+            'No variations found for %s, using fallback (triggers: %s)',
+            nodeId,
+            triggerSummary,
+          );
           return {
             content: fallbackContent,
             variationId: null,
@@ -95,9 +139,17 @@ export function useVariationSelection(
 
       if (!matchedVariation) {
         // No match found - use first variation as fallback
-        console.warn(`[VariationSelection] No matching variation for ${nodeId}, using first available`);
+        devWarn(
+          'No matching variation for %s, using first available (triggers: %s)',
+          nodeId,
+          triggerSummary,
+        );
         const firstVariation = variationFile.variations[0];
-        const firstVarId = firstVariation.variationId || firstVariation.id || firstVariation.metadata?.variationId || 'unknown';
+        const firstVarId =
+          firstVariation.variationId ||
+          firstVariation.id ||
+          firstVariation.metadata?.variationId ||
+          'unknown';
 
         return {
           content: firstVariation.content,
@@ -110,8 +162,12 @@ export function useVariationSelection(
       }
 
       // Step 4: Return matched variation
-      const varId = matchedVariation.variationId || matchedVariation.id || matchedVariation.metadata?.variationId || 'unknown';
-      console.log(`[VariationSelection] Selected ${varId} for ${nodeId}`);
+      const varId =
+        matchedVariation.variationId ||
+        matchedVariation.id ||
+        matchedVariation.metadata?.variationId ||
+        'unknown';
+      devLog('Selected %s for %s (triggers: %s)', varId, nodeId, triggerSummary);
       return {
         content: matchedVariation.content,
         variationId: varId,
@@ -120,9 +176,13 @@ export function useVariationSelection(
         error: null,
         usedFallback: false,
       };
-
     } catch (error) {
-      console.error('[VariationSelection] Error selecting variation:', error);
+      devError(
+        'Error selecting variation (node %s, triggers: %s): %o',
+        nodeId,
+        triggerSummary,
+        error,
+      );
 
       return {
         content: fallbackContent || '',
@@ -133,5 +193,5 @@ export function useVariationSelection(
         usedFallback: true,
       };
     }
-  }, [nodeId, storyData?.metadata?.id, getConditionContext, fallbackContent, temporalAwareness, visitRecord?.visitCount, visitRecord?.currentState, journeyTracking?.currentJourneyPattern, journeyTracking?.dominantPhilosophy]);
+  }, [nodeId, storyData?.metadata?.id, getConditionContext, fallbackContent, variationTriggers]);
 }

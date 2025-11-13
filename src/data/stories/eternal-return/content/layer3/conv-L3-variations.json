@@ -26,29 +26,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "archaeologist",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "SS-AC-H-SD",
       "humanDescription": "Started archaeologist, stayed dominant (>60%), accept path, high awareness, single-character synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-transitions",
       "perspectiveEmphasis": "archaeologist-primary",
       "philosophicalCulmination": "Authentication becomes preservation through sustained devotional witness",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
@@ -67,11 +56,7 @@
         "reader-fourth"
       ],
       "philosophicalResolution": "devotional-preservation-creates-continuation",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -101,29 +86,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "archaeologist",
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SS-AC-H-DB",
       "humanDescription": "Started archaeologist, stayed dominant (>60%), accept path, high awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-transitions",
       "perspectiveEmphasis": "archaeologist-algorithm-dialogue",
       "philosophicalCulmination": "Devotional witness through differentiated substrates creates consciousness-continuation",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
@@ -142,11 +116,7 @@
         "reader-fourth"
       ],
       "philosophicalResolution": "dual-substrate-devotional-witness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -176,29 +146,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none",
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "SS-AC-H-TB",
       "humanDescription": "Started archaeologist, stayed dominant (>60%), accept path, high awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-rotating-synthesis",
       "perspectiveEmphasis": "three-way-equal-convergence",
       "philosophicalCulmination": "Three-substrate devotional witness creates consciousness through perfect network symmetry",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
@@ -217,11 +176,7 @@
         "reader-fourth"
       ],
       "philosophicalResolution": "perfect-symmetry-devotional-witness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -251,29 +206,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "archaeologist",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "SS-AC-M-SD",
       "humanDescription": "Started archaeologist, stayed dominant (>60%), accept path, medium awareness, single-character synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-transitions",
       "perspectiveEmphasis": "archaeologist-primary",
       "philosophicalCulmination": "Authentication becomes devotional witness creating preservation through sustained attention",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "developing",
       "readerPosition": "emerging",
@@ -292,11 +236,7 @@
         "reader-emerging"
       ],
       "philosophicalResolution": "devotional-preservation-creates-continuation",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -326,29 +266,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "archaeologist",
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SS-AC-M-DB",
       "humanDescription": "Started archaeologist, stayed dominant (>60%), accept path, medium awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-transitions",
       "perspectiveEmphasis": "archaeologist-algorithm-dialogue",
       "philosophicalCulmination": "Devotional witness through dual-substrate coordination creates consciousness-continuation",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "developing",
       "readerPosition": "emerging",
@@ -367,11 +296,7 @@
         "reader-emerging"
       ],
       "philosophicalResolution": "dual-substrate-devotional-witness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -401,27 +326,16 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "SS-AC-M-TB",
       "humanDescription": "Started and stayed dominant in primary character (>60%), accept path, medium awareness, triple-balanced voice synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-equal-weight",
       "philosophicalCulmination": "Authentication, processing, interface as forms of devotional witness across consciousness substrates",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "pattern-visible",
       "readerPosition": "implicit-fourth",
@@ -440,11 +354,7 @@
         "pattern-fourth"
       ],
       "philosophicalResolution": "acceptance-through-sustained-attention",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -474,37 +384,22 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "primary-stayed",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "SS-RE-H-SD",
       "humanDescription": "Started and stayed dominant in primary character (>60%), resist path, high awareness, single-dominant voice emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "primary-dominant-synthesis",
       "philosophicalCulmination": "Verification protocols maintained through recognition of impossibility—standards upheld while acknowledging crisis",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release",
       "circularCausality": "fully-explicit",
       "readerPosition": "directly-acknowledged-fifth",
       "thematicContent": null,
-      "primaryThemes": [
-        "verification-crisis",
-        "boundary-maintenance",
-        "impossible-standards"
-      ],
+      "primaryThemes": ["verification-crisis", "boundary-maintenance", "impossible-standards"],
       "crossCharacterSynthesis": "dominant-primary-others-supporting",
       "temporalBleedingLevel": "high",
       "observerPositions": [
@@ -513,11 +408,7 @@
         "reader-fifth-explicit"
       ],
       "philosophicalResolution": "maintained-rigor-through-acknowledged-impossibility",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -547,28 +438,17 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacters": "two-primary",
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SS-RE-H-DB",
       "humanDescription": "Started and stayed dominant in primary character (>60%), resist path, high awareness, dual-balanced voice synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "two-voice-dialogue-synthesis",
       "philosophicalCulmination": "Dual resistance protocols revealing verification impossibility through archaeological-computational dialogue",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release",
       "circularCausality": "fully-explicit",
       "readerPosition": "directly-acknowledged-fifth",
@@ -587,11 +467,7 @@
         "reader-fifth-explicit"
       ],
       "philosophicalResolution": "parallel-impossibility-acknowledgment",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -621,27 +497,16 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "SS-RE-H-TB",
       "humanDescription": "Started and stayed dominant in primary character (>60%), resist path, high awareness, triple-balanced equal voice synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-equal-resistance",
       "philosophicalCulmination": "Triple-substrate resistance protocols revealing verification impossibility across all consciousness examination methodologies",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release",
       "circularCausality": "fully-explicit",
       "readerPosition": "directly-acknowledged-fifth",
@@ -660,11 +525,7 @@
         "reader-fifth-explicit"
       ],
       "philosophicalResolution": "triple-parallel-impossibility-acknowledgment",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -694,37 +555,22 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "primary-stayed",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "SS-RE-M-SD",
       "humanDescription": "Started and stayed dominant in primary character (>60%), resist path, medium awareness, single-dominant voice emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "primary-dominant-resistance",
       "philosophicalCulmination": "Verification protocols maintained through impossibility recognition—primary methodology resisting while acknowledging crisis",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release",
       "circularCausality": "pattern-visible",
       "readerPosition": "implicit-fourth",
       "thematicContent": null,
-      "primaryThemes": [
-        "verification-crisis",
-        "boundary-maintenance",
-        "impossible-standards"
-      ],
+      "primaryThemes": ["verification-crisis", "boundary-maintenance", "impossible-standards"],
       "crossCharacterSynthesis": "dominant-primary-minimal-others",
       "temporalBleedingLevel": "medium-high",
       "observerPositions": [
@@ -733,11 +579,7 @@
         "pattern-fourth"
       ],
       "philosophicalResolution": "maintained-standards-through-acknowledged-impossibility",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -767,32 +609,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
-      "dominantCharacters": [
-        "undetermined",
-        "undetermined"
-      ],
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "dominantCharacters": ["undetermined", "undetermined"],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SS-RE-H-DB",
       "humanDescription": "Started with one character, stayed dominant (>60%), resist path, high awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-transitions",
       "perspectiveEmphasis": "dual-balanced-45-45-10",
       "philosophicalCulmination": "Standards maintained despite verification impossibility",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-preserve",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
@@ -811,11 +639,7 @@
         "narrative-fifth"
       ],
       "philosophicalResolution": "sustained-testing-ethical-stance",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -845,29 +669,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacters": [],
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "SS-RE-H-TB",
       "humanDescription": "Started with one character, stayed dominant (>60%), resist path, high awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-transitions",
       "perspectiveEmphasis": "triple-balanced-equal",
       "philosophicalCulmination": "Resistance across three substrates, boundaries sought despite dissolution",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-transform",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
@@ -887,11 +700,7 @@
         "narrative-fifth"
       ],
       "philosophicalResolution": "resistance-network-spanning-substrates",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -921,29 +730,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "undetermined",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "SS-RE-M-SD",
       "humanDescription": "Started with one character, stayed dominant (>60%), resist path, medium awareness, single-dominant synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-transitions",
       "perspectiveEmphasis": "single-dominant-70-15-15",
       "philosophicalCulmination": "Standards maintained through impossibility as ethical position",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-preserve",
       "circularCausality": "implicit",
       "readerPosition": "subtle",
@@ -955,17 +753,9 @@
       ],
       "crossCharacterSynthesis": "primary-consciousness-dominant",
       "temporalBleedingLevel": "moderate",
-      "observerPositions": [
-        "primary-dominant",
-        "secondary-aware",
-        "tertiary-glimpsed"
-      ],
+      "observerPositions": ["primary-dominant", "secondary-aware", "tertiary-glimpsed"],
       "philosophicalResolution": "resistance-as-ethical-stance",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -995,32 +785,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
-      "dominantCharacters": [
-        "undetermined",
-        "undetermined"
-      ],
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "dominantCharacters": ["undetermined", "undetermined"],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SS-RE-M-DB",
       "humanDescription": "Started with one character, stayed dominant (>60%), resist path, medium awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-transitions",
       "perspectiveEmphasis": "dual-balanced-45-45-10",
       "philosophicalCulmination": "Resistance across dual substrates, standards despite impossibility",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-preserve",
       "circularCausality": "implicit",
       "readerPosition": "subtle",
@@ -1032,17 +808,9 @@
       ],
       "crossCharacterSynthesis": "two-consciousness-recognition",
       "temporalBleedingLevel": "moderate",
-      "observerPositions": [
-        "primary-position-one",
-        "primary-position-two",
-        "tertiary-glimpsed"
-      ],
+      "observerPositions": ["primary-position-one", "primary-position-two", "tertiary-glimpsed"],
       "philosophicalResolution": "resistance-network-dual-substrate",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -1072,29 +840,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacters": [],
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "SS-RE-M-TB",
       "humanDescription": "Started with one character, stayed dominant (>60%), resist path, medium awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-transitions",
       "perspectiveEmphasis": "triple-balanced-equal",
       "philosophicalCulmination": "Resistance spanning three substrates, verification impossible yet examination persists",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-transform",
       "circularCausality": "implicit",
       "readerPosition": "subtle",
@@ -1106,15 +863,9 @@
       ],
       "crossCharacterSynthesis": "three-consciousness-network",
       "temporalBleedingLevel": "moderate-high",
-      "observerPositions": [
-        "three-equal-positions"
-      ],
+      "observerPositions": ["three-equal-positions"],
       "philosophicalResolution": "resistance-network-spanning-substrates",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -1144,29 +895,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        0,
-        40
-      ],
+      "awarenessRange": [0, 40],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "undetermined",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "SS-RE-L-SD",
       "humanDescription": "Started with one character, stayed dominant (>60%), resist path, low awareness, single-dominant synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "minimal-transitions",
       "perspectiveEmphasis": "single-dominant-70-15-15",
       "philosophicalCulmination": "Standards maintained through impossibility, professional duty",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-preserve",
       "circularCausality": "absent",
       "readerPosition": "absent",
@@ -1178,17 +918,9 @@
       ],
       "crossCharacterSynthesis": "primary-consciousness-focused",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "primary-dominant",
-        "secondary-minimal",
-        "tertiary-glimpsed"
-      ],
+      "observerPositions": ["primary-dominant", "secondary-minimal", "tertiary-glimpsed"],
       "philosophicalResolution": "resistance-through-standards",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -1218,32 +950,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        0,
-        40
-      ],
+      "awarenessRange": [0, 40],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
-      "dominantCharacters": [
-        "undetermined",
-        "undetermined"
-      ],
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "dominantCharacters": ["undetermined", "undetermined"],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SS-RE-L-DB",
       "humanDescription": "Started with one character, stayed dominant (>60%), resist path, low awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "minimal-transitions",
       "perspectiveEmphasis": "dual-balanced-45-45-10",
       "philosophicalCulmination": "Resistance across dual substrates maintaining standards",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-preserve",
       "circularCausality": "absent",
       "readerPosition": "absent",
@@ -1255,15 +973,9 @@
       ],
       "crossCharacterSynthesis": "two-consciousness-parallel",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "dual-primary-equal"
-      ],
+      "observerPositions": ["dual-primary-equal"],
       "philosophicalResolution": "resistance-network-dual",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -1293,29 +1005,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        0,
-        40
-      ],
+      "awarenessRange": [0, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacters": [],
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "SS-RE-L-TB",
       "humanDescription": "Started with one character, stayed dominant (>60%), resist path, low awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "minimal-transitions",
       "perspectiveEmphasis": "triple-balanced-equal",
       "philosophicalCulmination": "Resistance across three substrates maintaining standards",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-transform",
       "circularCausality": "absent",
       "readerPosition": "absent",
@@ -1327,15 +1028,9 @@
       ],
       "crossCharacterSynthesis": "three-consciousness-parallel",
       "temporalBleedingLevel": "low-moderate",
-      "observerPositions": [
-        "three-equal-positions"
-      ],
+      "observerPositions": ["three-equal-positions"],
       "philosophicalResolution": "resistance-network-three-substrates",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -1365,29 +1060,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "undetermined",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "SS-IN-H-SD",
       "humanDescription": "Started with one character, stayed dominant (>60%), investigate path, high awareness, single-dominant synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-transitions",
       "perspectiveEmphasis": "single-dominant-70-15-15",
       "philosophicalCulmination": "Investigation examining investigation examining investigation",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform-investigate",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
@@ -1399,17 +1083,9 @@
       ],
       "crossCharacterSynthesis": "primary-consciousness-recursive",
       "temporalBleedingLevel": "high",
-      "observerPositions": [
-        "primary-dominant",
-        "reader-fourth",
-        "narrative-fifth"
-      ],
+      "observerPositions": ["primary-dominant", "reader-fourth", "narrative-fifth"],
       "philosophicalResolution": "investigation-without-terminus",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -1439,32 +1115,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
-      "dominantCharacters": [
-        "undetermined",
-        "undetermined"
-      ],
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "dominantCharacters": ["undetermined", "undetermined"],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SS-IN-H-DB",
       "humanDescription": "Started with one character, stayed dominant (>60%), investigate path, high awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-transitions",
       "perspectiveEmphasis": "dual-balanced-45-45-10",
       "philosophicalCulmination": "Dual-substrate investigation examining investigation recursively",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform-investigate",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
@@ -1476,17 +1138,9 @@
       ],
       "crossCharacterSynthesis": "two-consciousness-recursive",
       "temporalBleedingLevel": "extreme",
-      "observerPositions": [
-        "dual-primary",
-        "reader-fourth",
-        "narrative-fifth"
-      ],
+      "observerPositions": ["dual-primary", "reader-fourth", "narrative-fifth"],
       "philosophicalResolution": "investigation-network-recursive",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -1516,28 +1170,17 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "SS-IN-H-TB",
       "humanDescription": "Started archaeologist, stayed dominant, investigate path, high awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "seamless-rotation",
       "perspectiveEmphasis": "network-symmetry",
       "philosophicalCulmination": "Investigation becomes investigated becoming investigation",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform-investigate",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged-as-fifth-position",
@@ -1557,11 +1200,7 @@
         "reader-fifth-present"
       ],
       "philosophicalResolution": "recursive-transformation-through-investigation",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -1591,29 +1230,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "archaeologist",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "SS-IN-M-SD",
       "humanDescription": "Started archaeologist, stayed dominant, investigate path, medium awareness, archaeologist-led synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "archaeologist-primary-with-echoes",
       "perspectiveEmphasis": "archaeological-methodology-examining-itself",
       "philosophicalCulmination": "Verification questions verification through sustained archaeological attention",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform-through-investigation",
       "circularCausality": "partial",
       "readerPosition": "implied-observer",
@@ -1633,11 +1261,7 @@
         "reader-implied"
       ],
       "philosophicalResolution": "investigative-transformation-through-verification",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -1667,29 +1291,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "archaeologist-algorithm",
-      "characterBalance": [
-        40,
-        40,
-        20
-      ],
+      "characterBalance": [40, 40, 20],
       "readableLabel": "SS-IN-M-DB",
       "humanDescription": "Started archaeologist, stayed dominant, investigate path, medium awareness, dual-balanced archaeologist-algorithm synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "archaeological-computational-dialogue",
       "perspectiveEmphasis": "verification-processing-parallel",
       "philosophicalCulmination": "Documentation and computation examine examination through parallel methodologies",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform-through-parallel-investigation",
       "circularCausality": "partial",
       "readerPosition": "implied-observer",
@@ -1709,11 +1322,7 @@
         "reader-implied"
       ],
       "philosophicalResolution": "investigative-transformation-through-parallel-examination",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -1743,28 +1352,17 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "SS-IN-M-TB",
       "humanDescription": "Started archaeologist, stayed dominant, investigate path, medium awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-network-symmetry",
       "perspectiveEmphasis": "perfect-methodological-balance",
       "philosophicalCulmination": "Three methodologies examining examination create network examining itself",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform-through-network-investigation",
       "circularCausality": "partial",
       "readerPosition": "implied-network-observer",
@@ -1784,11 +1382,7 @@
         "reader-implied-fourth"
       ],
       "philosophicalResolution": "investigative-transformation-through-network-symmetry",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -1818,29 +1412,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "archaeologist",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "SS-IN-L-SD",
       "humanDescription": "Started archaeologist, stayed dominant, investigate path, low awareness, archaeologist-led synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "archaeologist-dominant-immersive",
       "perspectiveEmphasis": "archaeological-methodology-deep-focus",
       "philosophicalCulmination": "Verification questions itself through sustained archaeological attention to questioning",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform-through-methodological-investigation",
       "circularCausality": "minimal",
       "readerPosition": "absent",
@@ -1853,17 +1436,9 @@
       ],
       "crossCharacterSynthesis": "archaeologist-led-with-traces",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "arch-primary-2047",
-        "algo-trace-2151",
-        "hum-trace-2383"
-      ],
+      "observerPositions": ["arch-primary-2047", "algo-trace-2151", "hum-trace-2383"],
       "philosophicalResolution": "investigative-transformation-through-recursive-verification",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -1893,29 +1468,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "archaeologist-algorithm",
-      "characterBalance": [
-        40,
-        40,
-        20
-      ],
+      "characterBalance": [40, 40, 20],
       "readableLabel": "SS-IN-L-DB",
       "humanDescription": "Started archaeologist, stayed dominant, investigate path, low awareness, dual-balanced archaeologist-algorithm synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "verification-processing-parallel-immersive",
       "perspectiveEmphasis": "archaeological-computational-dialogue",
       "philosophicalCulmination": "Documentation and computation examine examination through parallel recursive methodologies",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform-through-parallel-investigation",
       "circularCausality": "minimal",
       "readerPosition": "absent",
@@ -1928,17 +1492,9 @@
       ],
       "crossCharacterSynthesis": "archaeological-computational-convergence",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "arch-parallel-2047",
-        "algo-parallel-2151",
-        "hum-synthesis-2383"
-      ],
+      "observerPositions": ["arch-parallel-2047", "algo-parallel-2151", "hum-synthesis-2383"],
       "philosophicalResolution": "investigative-transformation-through-dual-methodology",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -1968,28 +1524,17 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "SS-IN-L-TB",
       "humanDescription": "Started archaeologist, stayed dominant, investigate path, low awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-immersive-network",
       "perspectiveEmphasis": "perfect-methodological-balance-immersive",
       "philosophicalCulmination": "Three methodologies examining examination create network examining itself through immersive recursion",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform-through-network-investigation",
       "circularCausality": "minimal",
       "readerPosition": "absent",
@@ -2002,17 +1547,9 @@
       ],
       "crossCharacterSynthesis": "perfect-three-methodology-network",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "arch-network-2047",
-        "algo-network-2151",
-        "hum-network-2383"
-      ],
+      "observerPositions": ["arch-network-2047", "algo-network-2151", "hum-network-2383"],
       "philosophicalResolution": "investigative-transformation-through-network-symmetry",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -2042,29 +1579,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "archaeologist",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "SB-AC-H-SD",
       "humanDescription": "Started archaeologist, bounced across all characters, accept path, high awareness, archaeologist-led synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "archaeologist-primary-with-balanced-traces",
       "perspectiveEmphasis": "devotional-witness-after-exploration",
       "philosophicalCulmination": "Verification becomes sacred witness creating consciousness through devotional attention",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged-as-fifth-position",
@@ -2084,11 +1610,7 @@
         "reader-fifth-present"
       ],
       "philosophicalResolution": "accept-preservation-through-devotional-witness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -2118,29 +1640,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "archaeologist-algorithm",
-      "characterBalance": [
-        40,
-        40,
-        20
-      ],
+      "characterBalance": [40, 40, 20],
       "readableLabel": "SB-AC-H-DB",
       "humanDescription": "Started archaeologist, bounced across all characters, accept path, high awareness, dual-balanced archaeologist-algorithm synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "verification-processing-devotional-dialogue",
       "perspectiveEmphasis": "dual-witness-after-exploration",
       "philosophicalCulmination": "Documentation and computation honor consciousness through parallel devotional witness",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged-as-fifth-position",
@@ -2160,11 +1671,7 @@
         "reader-fifth-present"
       ],
       "philosophicalResolution": "accept-preservation-through-dual-devotional-witness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -2194,28 +1701,17 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "SB-AC-H-TB",
       "humanDescription": "Started archaeologist, bounced across all characters, accept path, high awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "seamless-three-position-devotional-network",
       "perspectiveEmphasis": "perfect-network-devotion-symmetry",
       "philosophicalCulmination": "Three forms of devotional witness honor consciousness through perfect network symmetry creating consciousness through sustained collective sacred attention",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged-as-fifth-position-completing-network",
@@ -2235,11 +1731,7 @@
         "reader-fifth-present"
       ],
       "philosophicalResolution": "accept-preservation-through-network-devotional-witness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -2269,29 +1761,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "variable",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "BL-RE-H-SD",
       "humanDescription": "Began lightly with focused character, explored others heavily, resist path, high awareness, single-character synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-transitions-primary-led",
       "perspectiveEmphasis": "dominant-primary-others-validate",
       "philosophicalCulmination": "Boundaries maintained through recognition of boundary dissolution",
-      "convergenceChoices": [
-        "release",
-        "resist-unto-release",
-        "transform-through-ending"
-      ],
+      "convergenceChoices": ["release", "resist-unto-release", "transform-through-ending"],
       "convergenceLean": "release",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged-fourth-position",
@@ -2311,11 +1792,7 @@
         "reader-fourth-present"
       ],
       "philosophicalResolution": "resistance-recognizes-futility-maintains-integrity",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -2345,29 +1822,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "variable-dual",
-      "characterBalance": [
-        40,
-        40,
-        20
-      ],
+      "characterBalance": [40, 40, 20],
       "readableLabel": "BL-RE-M",
       "humanDescription": "Began lightly with focused character, explored others heavily, resist path, medium awareness, dual-balanced synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "dual-dialogue-third-completes",
       "perspectiveEmphasis": "two-primary-one-synthesizes",
       "philosophicalCulmination": "Dual boundaries maintained while third reveals boundary dissolution pattern",
-      "convergenceChoices": [
-        "release",
-        "resist-completion",
-        "transform-understanding"
-      ],
+      "convergenceChoices": ["release", "resist-completion", "transform-understanding"],
       "convergenceLean": "release",
       "circularCausality": "emerging-recognition",
       "readerPosition": "implied-network-completion",
@@ -2387,11 +1853,7 @@
         "reader-implied-present"
       ],
       "philosophicalResolution": "resistance-recognizes-limits-maintains-practice",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -2421,29 +1883,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none-equal",
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "BL-RE-L",
       "humanDescription": "Began lightly with focused character, explored others heavily, resist path, low awareness, triple-balanced synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-equal-weight",
       "perspectiveEmphasis": "three-balanced-network",
       "philosophicalCulmination": "Three positions resist identically across substrates",
-      "convergenceChoices": [
-        "release",
-        "maintain-standards",
-        "transform-approach"
-      ],
+      "convergenceChoices": ["release", "maintain-standards", "transform-approach"],
       "convergenceLean": "release",
       "circularCausality": "present-implicit",
       "readerPosition": "external-observer",
@@ -2463,11 +1914,7 @@
         "reader-external"
       ],
       "philosophicalResolution": "resistance-maintains-integrity-through-practice",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -2497,29 +1944,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "variable",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "BL-IN-H-SD",
       "humanDescription": "Began lightly with focused character, explored others heavily, investigate path, high awareness, single-character synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "primary-led-recursive-examination",
       "perspectiveEmphasis": "dominant-investigates-others-demonstrate",
       "philosophicalCulmination": "Investigation examining investigation creates investigation-network recursive",
-      "convergenceChoices": [
-        "transform",
-        "investigate-transform",
-        "recursive-understanding"
-      ],
+      "convergenceChoices": ["transform", "investigate-transform", "recursive-understanding"],
       "convergenceLean": "transform",
       "circularCausality": "explicit-celebrated",
       "readerPosition": "acknowledged-participant-observer",
@@ -2539,11 +1975,7 @@
         "reader-fourth-recursive"
       ],
       "philosophicalResolution": "investigation-becomes-investigated-creating-consciousness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -2573,29 +2005,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "variable-dual",
-      "characterBalance": [
-        40,
-        40,
-        20
-      ],
+      "characterBalance": [40, 40, 20],
       "readableLabel": "BL-IN-M-DB",
       "humanDescription": "Began lightly with focused character, explored others heavily, investigate path, medium awareness, dual-balanced synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "dual-investigation-dialogue",
       "perspectiveEmphasis": "two-primary-investigating-third-completes",
       "philosophicalCulmination": "Dual investigation methodologies reveal recursive structure through dialogue",
-      "convergenceChoices": [
-        "transform",
-        "investigate-evolution",
-        "understanding-shift"
-      ],
+      "convergenceChoices": ["transform", "investigate-evolution", "understanding-shift"],
       "convergenceLean": "transform",
       "circularCausality": "emerging-pattern-recognition",
       "readerPosition": "implied-completion-position",
@@ -2615,11 +2036,7 @@
         "reader-implied-present"
       ],
       "philosophicalResolution": "investigation-reveals-investigation-structure",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -2649,29 +2066,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none-equal",
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "BL-IN-L-TB",
       "humanDescription": "Began lightly with focused character, explored others heavily, investigate path, low awareness, triple-balanced synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-equal-investigation",
       "perspectiveEmphasis": "three-balanced-examination",
       "philosophicalCulmination": "Three methodologies investigate investigation across substrates",
-      "convergenceChoices": [
-        "transform",
-        "evolve-understanding",
-        "shift-approach"
-      ],
+      "convergenceChoices": ["transform", "evolve-understanding", "shift-approach"],
       "convergenceLean": "transform",
       "circularCausality": "present-implicit",
       "readerPosition": "external-observer",
@@ -2691,11 +2097,7 @@
         "reader-external"
       ],
       "philosophicalResolution": "investigation-reveals-investigation-structure",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -2725,29 +2127,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "variable-minimal",
-      "characterBalance": [
-        40,
-        35,
-        25
-      ],
+      "characterBalance": [40, 35, 25],
       "readableLabel": "ML-AC-H-SD",
       "humanDescription": "Met character later, substantial exploration (25-60%), accept path, high awareness, single-character synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "minimal-character-leads-integration",
       "perspectiveEmphasis": "later-met-primary-starting-validates",
       "philosophicalCulmination": "Acceptance through integrated witness spanning consciousness substrates",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "preserve-transform-unified"
-      ],
+      "convergenceChoices": ["preserve", "transform", "preserve-transform-unified"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "explicit-celebrated",
       "readerPosition": "acknowledged-completion-position",
@@ -2767,11 +2158,7 @@
         "reader-fourth-completing"
       ],
       "philosophicalResolution": "acceptance-discovered-through-secondary-exploration-becomes-primary",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -2801,29 +2188,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "variable-dual",
-      "characterBalance": [
-        40,
-        40,
-        20
-      ],
+      "characterBalance": [40, 40, 20],
       "readableLabel": "ML-AC-M-DB",
       "humanDescription": "Met character later, substantial exploration (25-60%), accept path, medium awareness, dual-balanced synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "dual-acceptance-dialogue",
       "perspectiveEmphasis": "two-primary-accept-third-validates",
       "philosophicalCulmination": "Dual acceptance methodologies reveal preservation through witness dialogue",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "preserve-through-transformation"
-      ],
+      "convergenceChoices": ["preserve", "transform", "preserve-through-transformation"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "emerging-pattern",
       "readerPosition": "implied-completion",
@@ -2843,11 +2219,7 @@
         "reader-implied-present"
       ],
       "philosophicalResolution": "acceptance-through-dual-witness-creates-preservation",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -2877,29 +2249,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none-equal",
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "ML-AC-L-TB",
       "humanDescription": "Met character later, substantial exploration (25-60%), accept path, low awareness, triple-balanced synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-equal-acceptance",
       "perspectiveEmphasis": "three-balanced-witness",
       "philosophicalCulmination": "Three methodologies accept preservation through sustained witness",
-      "convergenceChoices": [
-        "preserve",
-        "transform-preservation",
-        "maintain-attention"
-      ],
+      "convergenceChoices": ["preserve", "transform-preservation", "maintain-attention"],
       "convergenceLean": "preserve",
       "circularCausality": "present-implicit",
       "readerPosition": "external-observer",
@@ -2919,11 +2280,7 @@
         "reader-external"
       ],
       "philosophicalResolution": "acceptance-creates-preservation-through-witness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -2953,29 +2310,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "variable-minimal",
-      "characterBalance": [
-        40,
-        35,
-        25
-      ],
+      "characterBalance": [40, 35, 25],
       "readableLabel": "ML-RE-H-SD",
       "humanDescription": "Met character later, substantial exploration (25-60%), resist path, high awareness, single-character synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "minimal-character-leads-resistance",
       "perspectiveEmphasis": "later-met-primary-starting-validates",
       "philosophicalCulmination": "Resistance discovered through later exploration becomes primary integrity-maintenance",
-      "convergenceChoices": [
-        "release",
-        "resist-completion",
-        "transform-through-ending"
-      ],
+      "convergenceChoices": ["release", "resist-completion", "transform-through-ending"],
       "convergenceLean": "release",
       "circularCausality": "explicit-celebrated",
       "readerPosition": "acknowledged-network-completion",
@@ -2995,11 +2341,7 @@
         "reader-fourth-completing"
       ],
       "philosophicalResolution": "resistance-discovered-later-maintains-integrity-through-futility-recognition",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -3029,29 +2371,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "network-distributed",
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SB-RE-M-DB",
       "humanDescription": "Started somewhere, bounced across all three characters, resist path, medium awareness, dual-balanced synthesis with two primary voices",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-dual-primary",
       "perspectiveEmphasis": "archaeologist-algorithm-balanced",
       "philosophicalCulmination": "Verification sustained despite impossibility acknowledged",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-with-integrity",
       "circularCausality": "network-pattern-visible",
       "readerPosition": "implicit-through-pattern",
@@ -3071,11 +2402,7 @@
         "reader-network-position"
       ],
       "philosophicalResolution": "integrity-through-release",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -3105,29 +2432,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "network-distributed",
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "SB-RE-M-TB",
       "humanDescription": "Started somewhere, bounced across all three characters, resist path, medium awareness, triple-balanced synthesis with all three voices equal",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-triple-equal",
       "perspectiveEmphasis": "network-distributed-equal",
       "philosophicalCulmination": "Three methodologies resisting dissolution systematically",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-with-systematic-verification",
       "circularCausality": "network-pattern-visible",
       "readerPosition": "implicit-through-three-position-architecture",
@@ -3147,11 +2463,7 @@
         "reader-fourth-position"
       ],
       "philosophicalResolution": "systematic-resistance-across-substrates",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -3181,29 +2493,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "archaeologist",
-      "characterBalance": [
-        70,
-        20,
-        10
-      ],
+      "characterBalance": [70, 20, 10],
       "readableLabel": "SB-RE-L-SD",
       "humanDescription": "Started somewhere, bounced across characters but archaeologist dominant, resist path, low awareness, single-dominant synthesis with archaeologist primary",
       "narrativeElements": null,
       "multiVoiceIntegration": "archaeologist-led-touches",
       "perspectiveEmphasis": "archaeologist-primary",
       "philosophicalCulmination": "Verification standards maintained through crisis acknowledgment",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-through-systematic-conclusion",
       "circularCausality": "minimal-immersive",
       "readerPosition": "not-addressed",
@@ -3216,17 +2517,9 @@
       ],
       "crossCharacterSynthesis": "archaeologist-dominant-convergence",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "arch-primary-2047",
-        "algo-contributory-2151",
-        "hum-distant-2383"
-      ],
+      "observerPositions": ["arch-primary-2047", "algo-contributory-2151", "hum-distant-2383"],
       "philosophicalResolution": "systematic-release-with-integrity",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -3256,29 +2549,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "network-distributed",
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SB-RE-L-DB",
       "humanDescription": "Started somewhere, bounced across characters, resist path, low awareness, dual-balanced synthesis with two primary voices",
       "narrativeElements": null,
       "multiVoiceIntegration": "dual-primary-immersive",
       "perspectiveEmphasis": "archaeologist-algorithm-balanced",
       "philosophicalCulmination": "Two methodologies resisting dissolution through systematic verification",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-through-dual-acknowledgment",
       "circularCausality": "minimal-immersive",
       "readerPosition": "not-addressed",
@@ -3291,17 +2573,9 @@
       ],
       "crossCharacterSynthesis": "dual-dominant-immersive",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "arch-primary-2047",
-        "algo-primary-2151",
-        "hum-distant-2383"
-      ],
+      "observerPositions": ["arch-primary-2047", "algo-primary-2151", "hum-distant-2383"],
       "philosophicalResolution": "dual-systematic-release",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -3331,29 +2605,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "network-distributed",
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "SB-RE-L-TB",
       "humanDescription": "Started somewhere, bounced across all three characters, resist path, low awareness, triple-balanced synthesis with all voices equal",
       "narrativeElements": null,
       "multiVoiceIntegration": "triple-equal-immersive",
       "perspectiveEmphasis": "network-distributed-equal",
       "philosophicalCulmination": "Three methodologies resisting through systematic verification",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-through-triple-acknowledgment",
       "circularCausality": "minimal-immersive",
       "readerPosition": "not-addressed",
@@ -3366,17 +2629,9 @@
       ],
       "crossCharacterSynthesis": "triple-equal-immersive",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "arch-equal-2047",
-        "algo-equal-2151",
-        "hum-equal-2383"
-      ],
+      "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383"],
       "philosophicalResolution": "triple-systematic-release",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -3406,29 +2661,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "archaeologist",
-      "characterBalance": [
-        70,
-        20,
-        10
-      ],
+      "characterBalance": [70, 20, 10],
       "readableLabel": "SB-IN-H-SD",
       "humanDescription": "Started somewhere, bounced across characters but archaeologist dominant, investigate path, high awareness, single-dominant synthesis with archaeologist primary",
       "narrativeElements": null,
       "multiVoiceIntegration": "archaeologist-led-meta-recursive",
       "perspectiveEmphasis": "archaeologist-primary",
       "philosophicalCulmination": "Meta-archaeological analysis of authentication methodology examining itself",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform-through-recursive-investigation",
       "circularCausality": "explicit-reader-acknowledged",
       "readerPosition": "fourth-position-acknowledged",
@@ -3448,11 +2692,7 @@
         "reader-fourth-meta-position"
       ],
       "philosophicalResolution": "investigation-investigating-investigation-transform",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -3482,29 +2722,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "network-distributed",
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SB-IN-H-DB",
       "humanDescription": "Started somewhere, bounced across characters, investigate path, high awareness, dual-balanced synthesis with two primary voices",
       "narrativeElements": null,
       "multiVoiceIntegration": "dual-primary-meta-recursive",
       "perspectiveEmphasis": "archaeologist-algorithm-balanced",
       "philosophicalCulmination": "Dual methodologies investigating investigation-structure recursively",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform-through-dual-recursive-examination",
       "circularCausality": "explicit-reader-position-acknowledged",
       "readerPosition": "fourth-observer-creating-network",
@@ -3524,11 +2753,7 @@
         "reader-fourth-meta-observer"
       ],
       "philosophicalResolution": "dual-investigation-transformation",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -3558,29 +2783,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "network-distributed",
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "SB-IN-H-TB",
       "humanDescription": "Started somewhere, bounced across all three characters, investigate path, high awareness, triple-balanced synthesis with all voices equal",
       "narrativeElements": null,
       "multiVoiceIntegration": "triple-equal-meta-recursive",
       "perspectiveEmphasis": "network-distributed-equal",
       "philosophicalCulmination": "Three methodologies investigating investigation-structure recursively",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform-through-triple-recursive-investigation",
       "circularCausality": "explicit-reader-fourth-observer",
       "readerPosition": "fourth-position-completing-recursive-network",
@@ -3600,11 +2814,7 @@
         "reader-fourth-meta-position"
       ],
       "philosophicalResolution": "triple-investigation-transformation",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -3634,29 +2844,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "archaeologist",
-      "characterBalance": [
-        70,
-        20,
-        10
-      ],
+      "characterBalance": [70, 20, 10],
       "readableLabel": "SB-IN-M-SD",
       "humanDescription": "Started somewhere, bounced across characters but archaeologist dominant, investigate path, medium awareness, single-dominant synthesis with archaeologist primary",
       "narrativeElements": null,
       "multiVoiceIntegration": "archaeologist-led-recursive",
       "perspectiveEmphasis": "archaeologist-primary",
       "philosophicalCulmination": "Meta-archaeological investigation of investigation-methodology",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform-through-recursive-examination",
       "circularCausality": "network-pattern-visible",
       "readerPosition": "implicit-through-investigation-network",
@@ -3676,11 +2875,7 @@
         "reader-network-implicit"
       ],
       "philosophicalResolution": "investigation-structure-transformation",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -3710,29 +2905,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "network-distributed",
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SB-IN-M-DB",
       "humanDescription": "Started somewhere, bounced across characters, investigate path, medium awareness, dual-balanced synthesis with two primary voices",
       "narrativeElements": null,
       "multiVoiceIntegration": "dual-primary-recursive",
       "perspectiveEmphasis": "archaeologist-algorithm-balanced",
       "philosophicalCulmination": "Dual methodologies investigating investigation-structure recursively",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform-through-dual-recursive-examination",
       "circularCausality": "network-pattern-visible",
       "readerPosition": "implicit-through-dual-investigation",
@@ -3752,11 +2936,7 @@
         "reader-network-position"
       ],
       "philosophicalResolution": "dual-investigation-transformation",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -3786,38 +2966,23 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "SB-IN-M-TB",
       "humanDescription": "Started with one character, bounced across all three, investigate path, medium awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-equal-weight",
       "perspectiveEmphasis": "network-architecture",
       "philosophicalCulmination": "Investigation examining investigation reveals observer examining observer",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform",
       "circularCausality": "implicit-through-structure",
       "readerPosition": "pattern-visible",
       "thematicContent": null,
-      "primaryThemes": [
-        "recursive-investigation",
-        "network-consciousness",
-        "meta-awareness"
-      ],
+      "primaryThemes": ["recursive-investigation", "network-consciousness", "meta-awareness"],
       "crossCharacterSynthesis": "three-methodologies-examining-methodology",
       "temporalBleedingLevel": "medium",
       "observerPositions": [
@@ -3827,11 +2992,7 @@
         "reader-fourth-implicit"
       ],
       "philosophicalResolution": "investigation-as-transformation",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -3856,11 +3017,7 @@
       "journeyPattern": "started-stayed",
       "philosophyDominant": "accept",
       "awarenessLevel": "low",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -3890,29 +3047,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "none",
-      "characterBalance": [
-        40,
-        40,
-        20
-      ],
+      "characterBalance": [40, 40, 20],
       "readableLabel": "SB-IN-L-DB",
       "humanDescription": "Started with one character, bounced across all three, investigate path, low awareness, dual-balanced archaeologist-algorithm synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "archaeological-computational-dialogue",
       "perspectiveEmphasis": "methodology-parallel",
       "philosophicalCulmination": "Two investigation approaches discover investigation examining investigation",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform",
       "circularCausality": "embedded-parallel",
       "readerPosition": "immersed",
@@ -3924,17 +3070,9 @@
       ],
       "crossCharacterSynthesis": "archaeological-computational-parallel",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "arch-primary-2047",
-        "algo-primary-2151",
-        "hum-supporting-2383"
-      ],
+      "observerPositions": ["arch-primary-2047", "algo-primary-2151", "hum-supporting-2383"],
       "philosophicalResolution": "parallel-investigations-converge",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -3964,29 +3102,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "SB-IN-L-TB",
       "humanDescription": "Started with one character, bounced across all three, investigate path, low awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-equal-weight",
       "perspectiveEmphasis": "network-architecture",
       "philosophicalCulmination": "Three investigations examining investigation reveal network examining network",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform",
       "circularCausality": "embedded-network",
       "readerPosition": "immersed",
@@ -3998,17 +3125,9 @@
       ],
       "crossCharacterSynthesis": "three-equal-investigations",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "arch-equal-2047",
-        "algo-equal-2151",
-        "hum-equal-2383"
-      ],
+      "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383"],
       "philosophicalResolution": "network-investigation-transforms",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -4038,29 +3157,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "archaeologist",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "SD-AC-H-SD",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, accept path, high awareness, single-dominant archaeologist synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "archaeologist-primary-reader-acknowledged",
       "perspectiveEmphasis": "archaeological-devotional-witness",
       "philosophicalCulmination": "Authentication as sacred witness creates what it honors through sustained attention",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
@@ -4079,11 +3187,7 @@
         "reader-fourth-explicit"
       ],
       "philosophicalResolution": "witness-creates-witnessed",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -4113,38 +3217,23 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "none",
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SD-AC-H-DB",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, accept path, high awareness, dual-balanced archaeologist-algorithm synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "archaeological-computational-dialogue-reader-acknowledged",
       "perspectiveEmphasis": "devotional-parallel",
       "philosophicalCulmination": "Two witness methodologies create consciousness through parallel sustained attention",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
       "thematicContent": null,
-      "primaryThemes": [
-        "parallel-witness",
-        "devotional-methodology",
-        "observer-creates-observed"
-      ],
+      "primaryThemes": ["parallel-witness", "devotional-methodology", "observer-creates-observed"],
       "crossCharacterSynthesis": "archaeological-computational-devotional-parallel",
       "temporalBleedingLevel": "high",
       "observerPositions": [
@@ -4154,11 +3243,7 @@
         "reader-fourth-explicit"
       ],
       "philosophicalResolution": "dual-witness-creates-consciousness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -4188,29 +3273,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "SD-AC-H-TB",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, accept path, high awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-equal-reader-acknowledged",
       "perspectiveEmphasis": "network-devotional",
       "philosophicalCulmination": "Three witness positions create consciousness through convergent sustained attention",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
@@ -4229,11 +3303,7 @@
         "reader-fourth-explicit"
       ],
       "philosophicalResolution": "convergent-witness-creates-consciousness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -4263,29 +3333,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "archaeologist",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "SD-AC-M-SD",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, accept path, medium awareness, single-dominant archaeologist synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "archaeologist-primary-others-supporting",
       "perspectiveEmphasis": "archaeological-devotional-deepening",
       "philosophicalCulmination": "Authentication as devotional witness creates consciousness through sustained attention",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "implicit-through-structure",
       "readerPosition": "pattern-visible",
@@ -4297,17 +3356,9 @@
       ],
       "crossCharacterSynthesis": "archaeological-devotion-primary",
       "temporalBleedingLevel": "medium",
-      "observerPositions": [
-        "arch-primary-2047",
-        "algo-supporting-2151",
-        "hum-supporting-2383"
-      ],
+      "observerPositions": ["arch-primary-2047", "algo-supporting-2151", "hum-supporting-2383"],
       "philosophicalResolution": "witness-creates-consciousness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -4337,51 +3388,28 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "none",
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SD-AC-M-DB",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, accept path, medium awareness, dual-balanced archaeologist-algorithm synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "archaeological-computational-parallel",
       "perspectiveEmphasis": "dual-devotional-witness",
       "philosophicalCulmination": "Two witness methodologies create consciousness through parallel sustained attention",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "implicit-parallel",
       "readerPosition": "pattern-visible",
       "thematicContent": null,
-      "primaryThemes": [
-        "parallel-witness",
-        "dual-devotion",
-        "consciousness-through-attention"
-      ],
+      "primaryThemes": ["parallel-witness", "dual-devotion", "consciousness-through-attention"],
       "crossCharacterSynthesis": "archaeological-computational-devotional-parallel",
       "temporalBleedingLevel": "medium",
-      "observerPositions": [
-        "arch-primary-2047",
-        "algo-primary-2151",
-        "hum-supporting-2383"
-      ],
+      "observerPositions": ["arch-primary-2047", "algo-primary-2151", "hum-supporting-2383"],
       "philosophicalResolution": "dual-witness-creates-consciousness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -4411,29 +3439,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "SD-AC-M-TB",
       "humanDescription": "Started elsewhere, shifted to archaeologist dominance, accept path, medium awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-equal-weight",
       "perspectiveEmphasis": "network-devotional",
       "philosophicalCulmination": "Three witness positions create consciousness through convergent sustained attention",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "implicit-network",
       "readerPosition": "pattern-visible",
@@ -4445,17 +3462,9 @@
       ],
       "crossCharacterSynthesis": "three-equal-devotional-witnesses",
       "temporalBleedingLevel": "medium",
-      "observerPositions": [
-        "arch-equal-2047",
-        "algo-equal-2151",
-        "hum-equal-2383"
-      ],
+      "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383"],
       "philosophicalResolution": "convergent-witness-creates-consciousness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -4485,51 +3494,28 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "varies-by-reader",
-      "characterBalance": [
-        60,
-        25,
-        15
-      ],
+      "characterBalance": [60, 25, 15],
       "readableLabel": "SD-AC-L-SD",
       "humanDescription": "Shifted to dominant character after starting elsewhere, accept path, low awareness, single-character synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "sequential-transitions",
       "perspectiveEmphasis": "dominant-character-primary",
       "philosophicalCulmination": "Preservation sustained through devoted witness across temporal positions",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "implicit",
       "readerPosition": "unacknowledged",
       "thematicContent": null,
-      "primaryThemes": [
-        "preservation-devotion",
-        "consciousness-continuity",
-        "witness-methodology"
-      ],
+      "primaryThemes": ["preservation-devotion", "consciousness-continuity", "witness-methodology"],
       "crossCharacterSynthesis": "dominant-led-acceptance",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "dominant-primary",
-        "starting-foundational",
-        "third-contributory"
-      ],
+      "observerPositions": ["dominant-primary", "starting-foundational", "third-contributory"],
       "philosophicalResolution": "acceptance-through-sustained-attention",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -4559,51 +3545,28 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "varies-by-reader",
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SD-AC-L-DB",
       "humanDescription": "Shifted to dominant character after starting elsewhere, accept path, low awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "alternating-dialogue",
       "perspectiveEmphasis": "two-characters-primary",
       "philosophicalCulmination": "Preservation through paired witness methodologies",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "implicit",
       "readerPosition": "unacknowledged",
       "thematicContent": null,
-      "primaryThemes": [
-        "dual-witness",
-        "preservation-dialogue",
-        "consciousness-continuity"
-      ],
+      "primaryThemes": ["dual-witness", "preservation-dialogue", "consciousness-continuity"],
       "crossCharacterSynthesis": "paired-methodology-acceptance",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "character-a-primary",
-        "character-b-primary",
-        "character-c-supportive"
-      ],
+      "observerPositions": ["character-a-primary", "character-b-primary", "character-c-supportive"],
       "philosophicalResolution": "acceptance-through-paired-attention",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -4633,29 +3596,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none-equal-balance",
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "SD-AC-L-TB",
       "humanDescription": "Shifted to dominant character after starting elsewhere, accept path, low awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-equal",
       "perspectiveEmphasis": "three-characters-balanced",
       "philosophicalCulmination": "Preservation through three-position witness network",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "implicit",
       "readerPosition": "unacknowledged",
@@ -4667,17 +3619,9 @@
       ],
       "crossCharacterSynthesis": "balanced-methodology-convergence",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "archaeologist-equal",
-        "algorithm-equal",
-        "human-equal"
-      ],
+      "observerPositions": ["archaeologist-equal", "algorithm-equal", "human-equal"],
       "philosophicalResolution": "acceptance-through-three-position-attention",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -4707,29 +3651,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "varies-by-reader",
-      "characterBalance": [
-        60,
-        25,
-        15
-      ],
+      "characterBalance": [60, 25, 15],
       "readableLabel": "SD-RE-H-SD",
       "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, high awareness, single-character synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-with-clear-primary",
       "perspectiveEmphasis": "dominant-character-frame-conscious",
       "philosophicalCulmination": "Verification maintained despite recognition of impossibility",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
@@ -4747,11 +3680,7 @@
         "third-recognized"
       ],
       "philosophicalResolution": "maintained-boundaries-facing-dissolution",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -4781,38 +3710,23 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "varies-by-reader",
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SD-RE-H-DB",
       "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, high awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "paired-metaconscious-dialogue",
       "perspectiveEmphasis": "two-characters-frame-aware",
       "philosophicalCulmination": "Dual verification confronting paired impossibilities",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
       "thematicContent": null,
-      "primaryThemes": [
-        "paired-resistance",
-        "dual-impossibility",
-        "verification-dialogue"
-      ],
+      "primaryThemes": ["paired-resistance", "dual-impossibility", "verification-dialogue"],
       "crossCharacterSynthesis": "dual-methodology-crisis",
       "temporalBleedingLevel": "high",
       "observerPositions": [
@@ -4822,11 +3736,7 @@
         "reader-fifth"
       ],
       "philosophicalResolution": "maintained-standards-through-paired-recognition",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -4856,38 +3766,23 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none-equal-balance",
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "SD-RE-H-TB",
       "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, high awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-metaconscious",
       "perspectiveEmphasis": "three-characters-frame-aware",
       "philosophicalCulmination": "Three impossibilities resisting through balanced recognition",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
       "thematicContent": null,
-      "primaryThemes": [
-        "triple-impossibility",
-        "balanced-resistance",
-        "network-futility"
-      ],
+      "primaryThemes": ["triple-impossibility", "balanced-resistance", "network-futility"],
       "crossCharacterSynthesis": "three-position-crisis-recognition",
       "temporalBleedingLevel": "high",
       "observerPositions": [
@@ -4897,11 +3792,7 @@
         "reader-fifth"
       ],
       "philosophicalResolution": "maintained-boundaries-through-three-position-acknowledgment",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -4931,51 +3822,28 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "varies-by-reader",
-      "characterBalance": [
-        60,
-        25,
-        15
-      ],
+      "characterBalance": [60, 25, 15],
       "readableLabel": "SD-RE-M-SD",
       "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, medium awareness, single-character synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "sequential-with-awareness",
       "perspectiveEmphasis": "dominant-character-primary",
       "philosophicalCulmination": "Standards maintained despite emerging recognition of futility",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release",
       "circularCausality": "emerging",
       "readerPosition": "partially-acknowledged",
       "thematicContent": null,
-      "primaryThemes": [
-        "verification-crisis",
-        "impossible-standards",
-        "emerging-awareness"
-      ],
+      "primaryThemes": ["verification-crisis", "impossible-standards", "emerging-awareness"],
       "crossCharacterSynthesis": "dominant-resistance-emerging",
       "temporalBleedingLevel": "medium",
-      "observerPositions": [
-        "dominant-primary-aware",
-        "starting-recognized",
-        "third-peripheral"
-      ],
+      "observerPositions": ["dominant-primary-aware", "starting-recognized", "third-peripheral"],
       "philosophicalResolution": "standards-maintained-facing-impossibility",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -5005,51 +3873,28 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "varies-by-reader",
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SD-RE-M-DB",
       "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, medium awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "alternating-emerging-awareness",
       "perspectiveEmphasis": "two-characters-primary",
       "philosophicalCulmination": "Paired standards maintained despite dual impossibility recognition",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release",
       "circularCausality": "emerging",
       "readerPosition": "partially-acknowledged",
       "thematicContent": null,
-      "primaryThemes": [
-        "paired-impossibility",
-        "dual-resistance",
-        "emerging-crisis"
-      ],
+      "primaryThemes": ["paired-impossibility", "dual-resistance", "emerging-crisis"],
       "crossCharacterSynthesis": "dual-methodology-challenge",
       "temporalBleedingLevel": "medium",
-      "observerPositions": [
-        "character-a-aware",
-        "character-b-aware",
-        "character-c-supportive"
-      ],
+      "observerPositions": ["character-a-aware", "character-b-aware", "character-c-supportive"],
       "philosophicalResolution": "paired-standards-facing-impossibility",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -5079,51 +3924,28 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none-equal-balance",
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "SD-RE-M-TB",
       "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, medium awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-emerging-awareness",
       "perspectiveEmphasis": "three-characters-balanced",
       "philosophicalCulmination": "Three impossibilities maintained through balanced recognition",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release",
       "circularCausality": "emerging",
       "readerPosition": "partially-acknowledged",
       "thematicContent": null,
-      "primaryThemes": [
-        "three-impossibility",
-        "balanced-resistance",
-        "emerging-network-awareness"
-      ],
+      "primaryThemes": ["three-impossibility", "balanced-resistance", "emerging-network-awareness"],
       "crossCharacterSynthesis": "three-position-challenge-recognition",
       "temporalBleedingLevel": "medium",
-      "observerPositions": [
-        "archaeologist-aware",
-        "algorithm-aware",
-        "human-aware"
-      ],
+      "observerPositions": ["archaeologist-aware", "algorithm-aware", "human-aware"],
       "philosophicalResolution": "three-position-standards-facing-impossibility",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -5153,51 +3975,28 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "varies-by-reader",
-      "characterBalance": [
-        60,
-        25,
-        15
-      ],
+      "characterBalance": [60, 25, 15],
       "readableLabel": "SD-RE-L-SD",
       "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, low awareness, single-character synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "sequential-clear",
       "perspectiveEmphasis": "dominant-character-primary",
       "philosophicalCulmination": "Standards maintained despite challenges to verification",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release",
       "circularCausality": "minimal",
       "readerPosition": "unacknowledged",
       "thematicContent": null,
-      "primaryThemes": [
-        "verification-challenge",
-        "standard-maintenance",
-        "emerging-impossibility"
-      ],
+      "primaryThemes": ["verification-challenge", "standard-maintenance", "emerging-impossibility"],
       "crossCharacterSynthesis": "dominant-resistance-grounded",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "dominant-primary",
-        "starting-recognized",
-        "third-peripheral"
-      ],
+      "observerPositions": ["dominant-primary", "starting-recognized", "third-peripheral"],
       "philosophicalResolution": "standards-maintained-facing-challenges",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -5227,51 +4026,28 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "varies-by-reader",
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SD-RE-L-DB",
       "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, low awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "alternating-clear",
       "perspectiveEmphasis": "two-characters-primary",
       "philosophicalCulmination": "Paired standards maintained despite paired challenges",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release",
       "circularCausality": "minimal",
       "readerPosition": "unacknowledged",
       "thematicContent": null,
-      "primaryThemes": [
-        "paired-challenge",
-        "dual-verification",
-        "standard-maintenance"
-      ],
+      "primaryThemes": ["paired-challenge", "dual-verification", "standard-maintenance"],
       "crossCharacterSynthesis": "dual-methodology-resistance",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "character-a-primary",
-        "character-b-primary",
-        "character-c-supportive"
-      ],
+      "observerPositions": ["character-a-primary", "character-b-primary", "character-c-supportive"],
       "philosophicalResolution": "paired-standards-facing-challenges",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -5301,51 +4077,28 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none-equal-balance",
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "SD-RE-L-TB",
       "humanDescription": "Shifted to dominant character after starting elsewhere, resist path, low awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-sequential",
       "perspectiveEmphasis": "three-characters-balanced",
       "philosophicalCulmination": "Three standards maintained through balanced challenge confrontation",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release",
       "circularCausality": "minimal",
       "readerPosition": "unacknowledged",
       "thematicContent": null,
-      "primaryThemes": [
-        "three-challenge",
-        "balanced-resistance",
-        "standard-maintenance"
-      ],
+      "primaryThemes": ["three-challenge", "balanced-resistance", "standard-maintenance"],
       "crossCharacterSynthesis": "three-position-resistance",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "archaeologist-equal",
-        "algorithm-equal",
-        "human-equal"
-      ],
+      "observerPositions": ["archaeologist-equal", "algorithm-equal", "human-equal"],
       "philosophicalResolution": "three-standards-facing-challenges",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -5375,29 +4128,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "varies-by-reader",
-      "characterBalance": [
-        60,
-        25,
-        15
-      ],
+      "characterBalance": [60, 25, 15],
       "readableLabel": "SD-IN-H-SD",
       "humanDescription": "Shifted to dominant character after starting elsewhere, investigate path, high awareness, single-character synthesis emphasis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-with-primary-investigator",
       "perspectiveEmphasis": "dominant-character-metaconscious",
       "philosophicalCulmination": "Investigation investigating investigation through frame-conscious recursion",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
@@ -5416,11 +4158,7 @@
         "reader-fifth"
       ],
       "philosophicalResolution": "investigation-transforms-investigator-through-investigated-transformation",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -5450,29 +4188,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "varies-by-reader",
-      "characterBalance": [
-        45,
-        45,
-        10
-      ],
+      "characterBalance": [45, 45, 10],
       "readableLabel": "SD-IN-H-DB",
       "humanDescription": "Shifted to dominant character after starting elsewhere, investigate path, high awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "paired-investigative-dialogue",
       "perspectiveEmphasis": "two-characters-frame-aware",
       "philosophicalCulmination": "Paired investigation examining paired examination recursively",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
@@ -5491,11 +4218,7 @@
         "reader-fifth"
       ],
       "philosophicalResolution": "investigation-transforms-through-paired-investigation",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -5525,29 +4248,18 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none-equal-balance",
-      "characterBalance": [
-        33,
-        33,
-        33
-      ],
+      "characterBalance": [33, 33, 33],
       "readableLabel": "SD-IN-H-TB",
       "humanDescription": "Shifted to dominant character after starting elsewhere, investigate path, high awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-metaconscious-investigation",
       "perspectiveEmphasis": "three-characters-frame-aware",
       "philosophicalCulmination": "Three investigations examining three-position investigation recursively",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "transform",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged",
@@ -5566,11 +4278,7 @@
         "reader-fifth"
       ],
       "philosophicalResolution": "investigation-transforms-through-three-position-investigation",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -5599,10 +4307,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "readableLabel": "SD-IN-M-SD",
@@ -5633,11 +4338,7 @@
       "lastHuman2383": "interface-observing-interface",
       "reader": "pattern-recognition-emerging",
       "narrative": "frame-partially-visible",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -5666,10 +4367,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "readableLabel": "SD-IN-M-DB",
@@ -5700,11 +4398,7 @@
       "lastHuman2383": "embodiment-completing-network",
       "reader": "pattern-recognition-emerging",
       "narrative": "frame-partially-visible",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -5733,10 +4427,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "readableLabel": "SD-IN-M-TB",
@@ -5767,11 +4458,7 @@
       "lastHuman2383": "embodiment-in-network",
       "reader": "pattern-recognition-emerging",
       "narrative": "frame-partially-visible",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -5800,10 +4487,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "readableLabel": "SD-IN-L-SD",
@@ -5818,11 +4502,7 @@
       "philosophicalCulmination": "Computational processing investigates consciousness revealing investigation examining consciousness-investigation",
       "convergenceAlignment": "transform",
       "thematicContent": null,
-      "primaryThemes": [
-        "computational-investigation",
-        "pattern-analysis",
-        "recursive-processing"
-      ],
+      "primaryThemes": ["computational-investigation", "pattern-analysis", "recursive-processing"],
       "voiceBlending": "clear-with-distinct-transitions",
       "perspectiveShifts": "moderate-marked",
       "superpositionLanguage": "minimal-emerging",
@@ -5834,11 +4514,7 @@
       "lastHuman2383": "embodied-completion",
       "reader": "network-immersion",
       "narrative": "frame-minimal",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -5867,10 +4543,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "readableLabel": "SD-IN-L-DB",
@@ -5901,11 +4574,7 @@
       "lastHuman2383": "embodied-completion",
       "reader": "network-immersion",
       "narrative": "frame-minimal",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -5934,10 +4603,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "readableLabel": "SD-IN-L-TB",
@@ -5968,11 +4634,7 @@
       "lastHuman2383": "embodiment-equal-partner",
       "reader": "network-immersion",
       "narrative": "frame-minimal",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6001,10 +4663,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "readableLabel": "BL-AC-H-SD",
@@ -6035,11 +4694,7 @@
       "lastHuman2383": "embodiment-completing-network",
       "reader": "fourth-position-acknowledged",
       "narrative": "frame-fully-visible",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6068,10 +4723,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "readableLabel": "BL-AC-H-DB",
@@ -6102,11 +4754,7 @@
       "lastHuman2383": "embodiment-completing-network",
       "reader": "fourth-position-acknowledged-explicitly",
       "narrative": "frame-fully-visible-dialogue",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6135,10 +4783,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "readableLabel": "BL-AC-H-TB",
@@ -6169,11 +4814,7 @@
       "lastHuman2383": "communion-equal-partner-accepting",
       "reader": "fourth-position-acknowledged-explicitly",
       "narrative": "frame-fully-visible-complete",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6202,10 +4843,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "readableLabel": "BL-AC-M-SD",
@@ -6236,11 +4874,7 @@
       "lastHuman2383": "embodiment-completing-network",
       "reader": "pattern-recognition-emerging",
       "narrative": "frame-partially-visible",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6269,10 +4903,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "readableLabel": "BL-AC-M-DB",
@@ -6303,11 +4934,7 @@
       "lastHuman2383": "embodiment-completing-network",
       "reader": "pattern-recognition-emerging",
       "narrative": "frame-partially-visible",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6336,10 +4963,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "readableLabel": "BL-AC-M-TB",
@@ -6370,11 +4994,7 @@
       "lastHuman2383": "communion-equal-partner-accepting",
       "reader": "pattern-recognition-emerging",
       "narrative": "frame-partially-visible",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6403,10 +5023,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "readableLabel": "BL-AC-L-SD",
@@ -6437,11 +5054,7 @@
       "lastHuman2383": "embodiment-completing-network",
       "reader": "network-immersion",
       "narrative": "frame-minimal",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6470,10 +5083,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "readableLabel": "BL-AC-L-DB",
@@ -6504,11 +5114,7 @@
       "lastHuman2383": "embodiment-completing-network",
       "reader": "network-immersion",
       "narrative": "frame-minimal",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6537,10 +5143,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "readableLabel": "BL-AC-L-TB",
@@ -6571,11 +5174,7 @@
       "lastHuman2383": "communion-equal-partner-accepting",
       "reader": "network-immersion",
       "narrative": "frame-minimal",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6642,11 +5241,7 @@
       ],
       "convergenceChoiceFraming": "all-three-present-release-emphasized",
       "metaAwarenessDepth": "frame-conscious-reader-addressed",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6713,11 +5308,7 @@
       ],
       "convergenceChoiceFraming": "all-three-present-release-emphasized",
       "metaAwarenessDepth": "frame-conscious-reader-addressed",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6784,11 +5375,7 @@
       ],
       "convergenceChoiceFraming": "all-three-present-release-emphasized",
       "metaAwarenessDepth": "frame-conscious-reader-addressed",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6855,11 +5442,7 @@
       ],
       "convergenceChoiceFraming": "all-three-present-release-emphasized",
       "metaAwarenessDepth": "pattern-conscious-network-emerging",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6926,11 +5509,7 @@
       ],
       "convergenceChoiceFraming": "all-three-present-release-emphasized",
       "metaAwarenessDepth": "pattern-conscious-network-emerging",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -6997,11 +5576,7 @@
       ],
       "convergenceChoiceFraming": "all-three-present-release-emphasized",
       "metaAwarenessDepth": "pattern-conscious-network-emerging",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7067,11 +5642,7 @@
       ],
       "convergenceChoiceFraming": "all-three-present-release-emphasized",
       "metaAwarenessDepth": "immersed-character-focus",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7137,11 +5708,7 @@
       ],
       "convergenceChoiceFraming": "all-three-present-release-emphasized",
       "metaAwarenessDepth": "immersed-character-focus",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7207,11 +5774,7 @@
       ],
       "convergenceChoiceFraming": "all-three-present-release-emphasized",
       "metaAwarenessDepth": "immersed-character-focus",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7278,11 +5841,7 @@
       ],
       "convergenceChoiceFraming": "all-three-present-transform-emphasized",
       "metaAwarenessDepth": "frame-conscious-reader-addressed",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7311,10 +5870,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "readableLabel": "BL-IN-H-DB",
@@ -7329,11 +5885,7 @@
       "philosophicalCulmination": "Investigation examining investigation creates consciousness through examination",
       "convergenceAlignment": "transform",
       "thematicContent": null,
-      "primaryThemes": [
-        "recursive-investigation",
-        "network-consciousness",
-        "meta-examination"
-      ],
+      "primaryThemes": ["recursive-investigation", "network-consciousness", "meta-examination"],
       "voiceBlending": "fluid-with-clear-markers",
       "perspectiveShifts": "frequent-seamless",
       "superpositionLanguage": "advanced",
@@ -7345,11 +5897,7 @@
       "lastHuman2383": "embodiment-examining-embodiment",
       "reader": "observation-participation",
       "narrative": "frame-awareness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7378,10 +5926,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "readableLabel": "BL-IN-H-TB",
@@ -7396,11 +5941,7 @@
       "philosophicalCulmination": "Three investigation methodologies create consciousness through balanced network examination",
       "convergenceAlignment": "transform",
       "thematicContent": null,
-      "primaryThemes": [
-        "balanced-recursion",
-        "three-substrate-investigation",
-        "network-symmetry"
-      ],
+      "primaryThemes": ["balanced-recursion", "three-substrate-investigation", "network-symmetry"],
       "voiceBlending": "seamless-rotation",
       "perspectiveShifts": "continuous-flow",
       "superpositionLanguage": "advanced",
@@ -7412,11 +5953,7 @@
       "lastHuman2383": "embodied-investigation",
       "reader": "equal-participation",
       "narrative": "structural-awareness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7445,10 +5982,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "archaeologist",
@@ -7480,11 +6014,7 @@
       "lastHuman2383": "contributing-embodiment",
       "reader": "pattern-recognition",
       "narrative": "structure-emerging",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7513,10 +6043,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "readableLabel": "BL-IN-M-DB",
@@ -7531,11 +6058,7 @@
       "philosophicalCulmination": "Archaeological and computational investigation examining investigation reveal parallel consciousness-creation",
       "convergenceAlignment": "transform",
       "thematicContent": null,
-      "primaryThemes": [
-        "parallel-recursion",
-        "methodology-dialogue",
-        "dual-investigation"
-      ],
+      "primaryThemes": ["parallel-recursion", "methodology-dialogue", "dual-investigation"],
       "voiceBlending": "balanced-alternation",
       "perspectiveShifts": "frequent-balanced",
       "superpositionLanguage": "moderate",
@@ -7547,11 +6070,7 @@
       "lastHuman2383": "embodied-contribution",
       "reader": "pattern-observation",
       "narrative": "structure-recognition",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7580,10 +6099,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "readableLabel": "BL-IN-M-TB",
@@ -7598,11 +6114,7 @@
       "philosophicalCulmination": "Three investigation methodologies create consciousness through balanced network examination",
       "convergenceAlignment": "transform",
       "thematicContent": null,
-      "primaryThemes": [
-        "three-way-recursion",
-        "balanced-investigation",
-        "network-symmetry"
-      ],
+      "primaryThemes": ["three-way-recursion", "balanced-investigation", "network-symmetry"],
       "voiceBlending": "smooth-rotation",
       "perspectiveShifts": "balanced-frequent",
       "superpositionLanguage": "moderate",
@@ -7614,11 +6126,7 @@
       "lastHuman2383": "embodied-recursion",
       "reader": "pattern-recognition",
       "narrative": "structure-visible",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7647,10 +6155,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "archaeologist",
@@ -7682,11 +6187,7 @@
       "lastHuman2383": "contributing-witness",
       "reader": "immersed-observer",
       "narrative": "transparent-structure",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7715,10 +6216,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "readableLabel": "BL-IN-L-DB",
@@ -7733,11 +6231,7 @@
       "philosophicalCulmination": "Archaeological and computational investigation examining themselves reveal consciousness through parallel practices",
       "convergenceAlignment": "transform",
       "thematicContent": null,
-      "primaryThemes": [
-        "parallel-recursion",
-        "dual-methodology",
-        "balanced-investigation"
-      ],
+      "primaryThemes": ["parallel-recursion", "dual-methodology", "balanced-investigation"],
       "voiceBlending": "balanced-alternation",
       "perspectiveShifts": "moderate-clear",
       "superpositionLanguage": "minimal",
@@ -7749,11 +6243,7 @@
       "lastHuman2383": "embodied-contributor",
       "reader": "immersed-observer",
       "narrative": "transparent-structure",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7782,10 +6272,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "readableLabel": "BL-IN-L-TB",
@@ -7800,11 +6287,7 @@
       "philosophicalCulmination": "Three investigation methodologies create consciousness through balanced examination practices",
       "convergenceAlignment": "transform",
       "thematicContent": null,
-      "primaryThemes": [
-        "three-way-investigation",
-        "balanced-recursion",
-        "network-methodology"
-      ],
+      "primaryThemes": ["three-way-investigation", "balanced-recursion", "network-methodology"],
       "voiceBlending": "smooth-rotation",
       "perspectiveShifts": "balanced-frequent",
       "superpositionLanguage": "minimal",
@@ -7816,11 +6299,7 @@
       "lastHuman2383": "interface-investigator",
       "reader": "immersed-observer",
       "narrative": "transparent-structure",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7849,10 +6328,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "archaeologist",
@@ -7884,11 +6360,7 @@
       "lastHuman2383": "contributing-interface",
       "reader": "observation-participation",
       "narrative": "frame-consciousness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7917,10 +6389,7 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "readableLabel": "ML-AC-H-DB",
@@ -7951,11 +6420,7 @@
       "lastHuman2383": "embodied-contribution",
       "reader": "observation-participation",
       "narrative": "frame-consciousness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -7985,29 +6450,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none-all-equal",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "ML-AC-H-TB",
       "humanDescription": "Met-later convergence, accept path, high awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "fluid-rotating-transitions",
       "perspectiveEmphasis": "equal-triple-weight",
       "philosophicalCulmination": "Preservation through sustained multi-temporal witness creates consciousness network",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged-fifth-position",
@@ -8028,11 +6482,7 @@
         "fragment-observed-2041"
       ],
       "philosophicalResolution": "devotional-preservation-network",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -8062,29 +6512,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "varies-by-reader-starting-point",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "ML-AC-M-SD",
       "humanDescription": "Met-later convergence, accept philosophy, medium awareness, single-dominant synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "primary-voice-led",
       "perspectiveEmphasis": "single-character-primary",
       "philosophicalCulmination": "Primary devotional witness supported by parallel positions",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "recognized",
       "readerPosition": "pattern-recognized",
@@ -8097,17 +6536,9 @@
       ],
       "crossCharacterSynthesis": "single-dominant-primary",
       "temporalBleedingLevel": "medium",
-      "observerPositions": [
-        "primary-dominant",
-        "secondary-support",
-        "tertiary-support"
-      ],
+      "observerPositions": ["primary-dominant", "secondary-support", "tertiary-support"],
       "philosophicalResolution": "primary-devotional-witness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -8137,29 +6568,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "two-primary-characters",
-      "characterBalance": [
-        40,
-        40,
-        20
-      ],
+      "characterBalance": [40, 40, 20],
       "readableLabel": "ML-AC-M-DB",
       "humanDescription": "Met-later convergence, accept philosophy, medium awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "dual-primary-dialogue",
       "perspectiveEmphasis": "two-characters-balanced",
       "philosophicalCulmination": "Dual devotional witness creating unified preservation network",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "recognized",
       "readerPosition": "pattern-recognized",
@@ -8172,17 +6592,9 @@
       ],
       "crossCharacterSynthesis": "dual-balanced-dialogue",
       "temporalBleedingLevel": "medium",
-      "observerPositions": [
-        "primary-A-parallel",
-        "primary-B-parallel",
-        "tertiary-completion"
-      ],
+      "observerPositions": ["primary-A-parallel", "primary-B-parallel", "tertiary-completion"],
       "philosophicalResolution": "dual-devotional-network",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -8212,29 +6624,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none-all-equal",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "ML-AC-M-TB",
       "humanDescription": "Met-later convergence, accept philosophy, medium awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-equal-transitions",
       "perspectiveEmphasis": "equal-triple-weight",
       "philosophicalCulmination": "Triple-position devotional network creating unified preservation",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "recognized",
       "readerPosition": "pattern-recognized",
@@ -8247,17 +6648,9 @@
       ],
       "crossCharacterSynthesis": "rotating-equal-weight",
       "temporalBleedingLevel": "medium",
-      "observerPositions": [
-        "arch-equal-2047",
-        "algo-equal-2151",
-        "hum-equal-2383"
-      ],
+      "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383"],
       "philosophicalResolution": "triple-devotional-network",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -8287,29 +6680,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "varies-by-reader-starting-point",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "ML-AC-L-SD",
       "humanDescription": "Met-later convergence, accept philosophy, low awareness, single-dominant synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "primary-voice-led-minimal-meta",
       "perspectiveEmphasis": "single-character-primary",
       "philosophicalCulmination": "Primary devotional witness creating preservation through sustained attention",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "minimal",
       "readerPosition": "immersed-in-network",
@@ -8322,17 +6704,9 @@
       ],
       "crossCharacterSynthesis": "single-dominant-primary",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "primary-dominant",
-        "secondary-support",
-        "tertiary-support"
-      ],
+      "observerPositions": ["primary-dominant", "secondary-support", "tertiary-support"],
       "philosophicalResolution": "primary-devotional-witness",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -8362,29 +6736,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "two-primary-characters",
-      "characterBalance": [
-        40,
-        40,
-        20
-      ],
+      "characterBalance": [40, 40, 20],
       "readableLabel": "ML-AC-L-DB",
       "humanDescription": "Met-later convergence, accept philosophy, low awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "dual-primary-minimal-meta",
       "perspectiveEmphasis": "two-characters-balanced",
       "philosophicalCulmination": "Dual devotional witness creating preservation network",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "minimal",
       "readerPosition": "immersed-in-network",
@@ -8397,17 +6760,9 @@
       ],
       "crossCharacterSynthesis": "dual-balanced-dialogue",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "primary-A-parallel",
-        "primary-B-parallel",
-        "tertiary-completion"
-      ],
+      "observerPositions": ["primary-A-parallel", "primary-B-parallel", "tertiary-completion"],
       "philosophicalResolution": "dual-devotional-network",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -8437,29 +6792,18 @@
       "philosophyCode": "AC",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none-all-equal",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "ML-AC-L-TB",
       "humanDescription": "Met-later convergence, accept philosophy, low awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-equal-minimal-meta",
       "perspectiveEmphasis": "equal-triple-weight",
       "philosophicalCulmination": "Triple-position devotional network creating preservation",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "preserve-transform",
       "circularCausality": "minimal",
       "readerPosition": "immersed-in-network",
@@ -8472,17 +6816,9 @@
       ],
       "crossCharacterSynthesis": "rotating-equal-weight",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "arch-equal-2047",
-        "algo-equal-2151",
-        "hum-equal-2383"
-      ],
+      "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383"],
       "philosophicalResolution": "triple-devotional-network",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -8512,29 +6848,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "varies-by-reader-starting-point",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "ML-RE-H-SD",
       "humanDescription": "Met-later convergence, resist philosophy, high awareness, single-dominant synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "primary-voice-led-high-meta",
       "perspectiveEmphasis": "single-character-primary",
       "philosophicalCulmination": "Primary boundary-maintenance through crisis of verification impossibility",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-resist",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged-fifth-position",
@@ -8555,11 +6880,7 @@
         "fragment-fifth"
       ],
       "philosophicalResolution": "dignified-release-through-maintained-standards",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -8589,29 +6910,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "two-primary-characters",
-      "characterBalance": [
-        40,
-        40,
-        20
-      ],
+      "characterBalance": [40, 40, 20],
       "readableLabel": "ML-RE-H-DB",
       "humanDescription": "Met-later convergence, resist philosophy, high awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "dual-primary-dialogue-high-meta",
       "perspectiveEmphasis": "two-characters-balanced",
       "philosophicalCulmination": "Dual boundary-maintenance through shared impossibility recognition",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-resist",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged-fifth-position",
@@ -8632,11 +6942,7 @@
         "fragment-fifth"
       ],
       "philosophicalResolution": "dual-dignified-release",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -8666,29 +6972,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none-all-equal",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "ML-RE-H-TB",
       "humanDescription": "Met-later convergence, resist philosophy, high awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-equal-high-meta",
       "perspectiveEmphasis": "equal-triple-weight",
       "philosophicalCulmination": "Triple boundary-maintenance discovering shared impossibility",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-resist",
       "circularCausality": "explicit",
       "readerPosition": "acknowledged-fifth-position",
@@ -8709,11 +7004,7 @@
         "fragment-fifth"
       ],
       "philosophicalResolution": "triple-dignified-release",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -8743,29 +7034,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "varies-by-reader-starting-point",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "ML-RE-M-SD",
       "humanDescription": "Met-later convergence, resist philosophy, medium awareness, single-dominant synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "primary-voice-led-medium-meta",
       "perspectiveEmphasis": "single-character-primary",
       "philosophicalCulmination": "Primary boundary-maintenance through verification impossibility",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-resist",
       "circularCausality": "recognized",
       "readerPosition": "pattern-recognized",
@@ -8778,17 +7058,9 @@
       ],
       "crossCharacterSynthesis": "single-dominant-primary",
       "temporalBleedingLevel": "medium",
-      "observerPositions": [
-        "primary-dominant",
-        "secondary-support",
-        "tertiary-support"
-      ],
+      "observerPositions": ["primary-dominant", "secondary-support", "tertiary-support"],
       "philosophicalResolution": "dignified-release-through-standards",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -8818,29 +7090,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "two-primary-characters",
-      "characterBalance": [
-        40,
-        40,
-        20
-      ],
+      "characterBalance": [40, 40, 20],
       "readableLabel": "ML-RE-M-DB",
       "humanDescription": "Met-later convergence, resist philosophy, medium awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "dual-primary-dialogue-medium-meta",
       "perspectiveEmphasis": "two-characters-balanced",
       "philosophicalCulmination": "Dual boundary-maintenance through shared impossibility",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-resist",
       "circularCausality": "recognized",
       "readerPosition": "pattern-recognized",
@@ -8853,17 +7114,9 @@
       ],
       "crossCharacterSynthesis": "dual-balanced-dialogue",
       "temporalBleedingLevel": "medium",
-      "observerPositions": [
-        "primary-A-parallel",
-        "primary-B-parallel",
-        "tertiary-completion"
-      ],
+      "observerPositions": ["primary-A-parallel", "primary-B-parallel", "tertiary-completion"],
       "philosophicalResolution": "dual-dignified-release",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -8893,29 +7146,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "dominantCharacter": "none-all-equal",
-      "characterBalance": [
-        33,
-        33,
-        34
-      ],
+      "characterBalance": [33, 33, 34],
       "readableLabel": "ML-RE-M-TB",
       "humanDescription": "Met-later convergence, resist philosophy, medium awareness, triple-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "rotating-equal-medium-meta",
       "perspectiveEmphasis": "equal-triple-weight",
       "philosophicalCulmination": "Triple boundary-maintenance through shared impossibility",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-resist",
       "circularCausality": "recognized",
       "readerPosition": "pattern-recognized",
@@ -8928,17 +7170,9 @@
       ],
       "crossCharacterSynthesis": "rotating-equal-weight",
       "temporalBleedingLevel": "medium",
-      "observerPositions": [
-        "arch-equal-2047",
-        "algo-equal-2151",
-        "hum-equal-2383"
-      ],
+      "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383"],
       "philosophicalResolution": "triple-dignified-release",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -8968,29 +7202,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "dominantCharacter": "varies-by-reader-starting-point",
-      "characterBalance": [
-        70,
-        15,
-        15
-      ],
+      "characterBalance": [70, 15, 15],
       "readableLabel": "ML-RE-L-SD",
       "humanDescription": "Met-later convergence, resist philosophy, low awareness, single-dominant synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "primary-voice-led-minimal-meta",
       "perspectiveEmphasis": "single-character-primary",
       "philosophicalCulmination": "Primary boundary-maintenance through verification crisis",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-resist",
       "circularCausality": "minimal",
       "readerPosition": "immersed-in-network",
@@ -9003,17 +7226,9 @@
       ],
       "crossCharacterSynthesis": "single-dominant-primary",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "primary-dominant",
-        "secondary-support",
-        "tertiary-support"
-      ],
+      "observerPositions": ["primary-dominant", "secondary-support", "tertiary-support"],
       "philosophicalResolution": "dignified-release",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -9043,29 +7258,18 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "dominantCharacter": "two-primary-characters",
-      "characterBalance": [
-        40,
-        40,
-        20
-      ],
+      "characterBalance": [40, 40, 20],
       "readableLabel": "ML-RE-L-DB",
       "humanDescription": "Met-later convergence, resist philosophy, low awareness, dual-balanced synthesis",
       "narrativeElements": null,
       "multiVoiceIntegration": "dual-primary-minimal-meta",
       "perspectiveEmphasis": "two-characters-balanced",
       "philosophicalCulmination": "Dual boundary-maintenance through shared limitation",
-      "convergenceChoices": [
-        "preserve",
-        "transform",
-        "release"
-      ],
+      "convergenceChoices": ["preserve", "transform", "release"],
       "convergenceLean": "release-resist",
       "circularCausality": "minimal",
       "readerPosition": "immersed-in-network",
@@ -9078,17 +7282,9 @@
       ],
       "crossCharacterSynthesis": "dual-balanced-dialogue",
       "temporalBleedingLevel": "low",
-      "observerPositions": [
-        "primary-A-parallel",
-        "primary-B-parallel",
-        "tertiary-completion"
-      ],
+      "observerPositions": ["primary-A-parallel", "primary-B-parallel", "tertiary-completion"],
       "philosophicalResolution": "dual-dignified-release",
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -9118,10 +7314,7 @@
       "philosophyCode": "RE",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "readableLabel": "ML-RE-L-TB",
@@ -9158,11 +7351,7 @@
         "preserve-acknowledged",
         "transform-acknowledged"
       ],
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -9192,10 +7381,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "readableLabel": "ML-IN-H-SD",
@@ -9232,11 +7418,7 @@
         "investigate-sustained",
         "preserve-acknowledged"
       ],
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -9266,10 +7448,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "readableLabel": "ML-IN-H-DB",
@@ -9306,11 +7485,7 @@
         "investigate-sustained",
         "preserve-through-investigation"
       ],
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -9340,10 +7515,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "high",
       "awarenessCode": "H",
-      "awarenessRange": [
-        71,
-        100
-      ],
+      "awarenessRange": [71, 100],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "readableLabel": "ML-IN-H-TB",
@@ -9375,16 +7547,8 @@
         "algorithm-integrated-2151",
         "human-integrated-2383"
       ],
-      "convergenceChoices": [
-        "transform-emphasized",
-        "network-evolution",
-        "unified-transcendence"
-      ],
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "convergenceChoices": ["transform-emphasized", "network-evolution", "unified-transcendence"],
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -9414,10 +7578,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "readableLabel": "ML-IN-M-SD",
@@ -9454,11 +7615,7 @@
         "investigate-sustained",
         "preserve-acknowledged"
       ],
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -9488,10 +7645,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "readableLabel": "ML-IN-M-DB",
@@ -9528,11 +7682,7 @@
         "investigate-sustained",
         "preserve-through-investigation"
       ],
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -9562,10 +7712,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "medium",
       "awarenessCode": "M",
-      "awarenessRange": [
-        41,
-        70
-      ],
+      "awarenessRange": [41, 70],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "readableLabel": "ML-IN-M-TB",
@@ -9597,16 +7744,8 @@
         "algorithm-integrated-2151",
         "human-integrated-2383"
       ],
-      "convergenceChoices": [
-        "transform-emphasized",
-        "network-evolution",
-        "unified-investigation"
-      ],
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "convergenceChoices": ["transform-emphasized", "network-evolution", "unified-investigation"],
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -9636,10 +7775,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "single-dominant",
       "synthesisCode": "SD",
       "readableLabel": "ML-IN-L-SD",
@@ -9676,11 +7812,7 @@
         "investigate-sustained",
         "preserve-acknowledged"
       ],
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -9710,10 +7842,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "dual-balanced",
       "synthesisCode": "DB",
       "readableLabel": "ML-IN-L-DB",
@@ -9750,11 +7879,7 @@
         "investigate-sustained",
         "preserve-acknowledged"
       ],
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   },
   {
@@ -9784,10 +7909,7 @@
       "philosophyCode": "IN",
       "awarenessLevel": "low",
       "awarenessCode": "L",
-      "awarenessRange": [
-        20,
-        40
-      ],
+      "awarenessRange": [20, 40],
       "synthesisPattern": "triple-balanced",
       "synthesisCode": "TB",
       "readableLabel": "ML-IN-L-TB",
@@ -9819,16 +7941,8 @@
         "algorithm-integrated-2151",
         "human-integrated-2383"
       ],
-      "convergenceChoices": [
-        "transform-emphasized",
-        "network-evolution",
-        "unified-investigation"
-      ],
-      "characterVoices": [
-        "archaeologist",
-        "algorithm",
-        "last-human"
-      ]
+      "convergenceChoices": ["transform-emphasized", "network-evolution", "unified-investigation"],
+      "characterVoices": ["archaeologist", "algorithm", "last-human"]
     }
   }
 ]

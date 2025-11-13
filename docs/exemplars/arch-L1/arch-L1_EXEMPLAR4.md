@@ -4,26 +4,25 @@ variation_type: crossCharacterBleeding
 word_count: 1461
 conditions:
   visit_count: 2
-  awareness: "40-60%"
+  awareness: '40-60%'
   cross_character: true
-  visited_nodes: ["algo-L1", "hum-L1"]
+  visited_nodes: ['algo-L1', 'hum-L1']
   dominant_path: null
 themes:
   - Full temporal superposition
   - Four observers simultaneous
   - Distributed consciousness network
   - Mutual observation across time
-transformation_focus: "Synthesis of both cross-character bleedings. All four temporal positions (2041 preservation, 2047 authentication, 2151 Algorithm processing, 2383 Last Human reading) present simultaneously. Fragment as shared consciousness across time."
+transformation_focus: 'Synthesis of both cross-character bleedings. All four temporal positions (2041 preservation, 2047 authentication, 2151 Algorithm processing, 2383 Last Human reading) present simultaneously. Fragment as shared consciousness across time.'
 reusable_patterns:
-  - "Past + Present + Future-1 + Future-2 = simultaneous observation"
-  - "Not sequential examination but superimposed awareness"
-  - "All observers mutually creating each other through examination"
+  - 'Past + Present + Future-1 + Future-2 = simultaneous observation'
+  - 'Not sequential examination but superimposed awareness'
+  - 'All observers mutually creating each other through examination'
 ---
 
 # Exemplar #4: After Visiting Both algo-L1 AND hum-L1
 
 **Condition:** Second visit, awareness 40-60%, visited both other L1 nodes
-
 
 The archaeologist returns to Fragment 2749-A and experiences all four temporal positions simultaneously.
 Past: The preserved consciousness from 2041, captured at moment of death, crystallized in substrate that maintains perfect molecular fidelity.

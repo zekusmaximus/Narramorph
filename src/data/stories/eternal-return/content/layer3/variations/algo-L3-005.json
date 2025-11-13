@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SS-RE-M",
     "humanDescription": "Started algorithm, stayed dominant, resist path, medium awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "computational-standards",
       "testing-despite-futility"
     ],
-    "crossCharacterConnections": [
-      "light-arch-parallel",
-      "minimal-hum-glimpsed"
-    ],
+    "crossCharacterConnections": ["light-arch-parallel", "minimal-hum-glimpsed"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "algorithm-primary-2151",

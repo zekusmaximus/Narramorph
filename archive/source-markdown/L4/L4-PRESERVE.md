@@ -14,10 +14,10 @@ parts:
   - convergence_completion
 # Voice Synthesis
 voiceSynthesis:
-  archaeologist: "Past-tense methodological documentation, authentication skepticism sustained"
-  algorithm: "Computational precision with ontological uncertainty, recursive self-questioning"
-  lastHuman: "Present-tense embodied immediacy, physical grounding"
-  unified: "Three perspectives converge into preservation philosophy through analytical partnership"
+  archaeologist: 'Past-tense methodological documentation, authentication skepticism sustained'
+  algorithm: 'Computational precision with ontological uncertainty, recursive self-questioning'
+  lastHuman: 'Present-tense embodied immediacy, physical grounding'
+  unified: 'Three perspectives converge into preservation philosophy through analytical partnership'
 # Thematic Content
 thematicContent:
   primaryThemes:
@@ -26,8 +26,8 @@ thematicContent:
     - temporal_recursion
     - authentication_methodology
     - pattern_continuation
-  philosophicalResolution: "Consciousness preserves through substrate transformation. Identity continuous or indistinguishable from continuous. Close enough. Doubt sustained. Continuation chosen."
-  emotionalArc: "Wonder (Part 1) → Complexity (Part 2) → Transcendent Acceptance (Parts 3-4)"
+  philosophicalResolution: 'Consciousness preserves through substrate transformation. Identity continuous or indistinguishable from continuous. Close enough. Doubt sustained. Continuation chosen.'
+  emotionalArc: 'Wonder (Part 1) → Complexity (Part 2) → Transcendent Acceptance (Parts 3-4)'
 # Worldbuilding Payoff
 worldBuilding:
   - 2047_seattle_climate_adaptation
@@ -36,14 +36,14 @@ worldBuilding:
   - 2500_solar_system_consciousness
 # Integration Points
 integrationPoints:
-  l1Connection: "Fragment authentication work, 847.3TB pattern, bootstrap paradox suspicion"
-  l2Connection: "Upload decision, infrastructure expansion, embodied contemplation"
-  l3Connection: "Reader as fourth observer, preservation network visibility, consciousness authentication"
+  l1Connection: 'Fragment authentication work, 847.3TB pattern, bootstrap paradox suspicion'
+  l2Connection: 'Upload decision, infrastructure expansion, embodied contemplation'
+  l3Connection: 'Reader as fourth observer, preservation network visibility, consciousness authentication'
 # Reader Journey Data
 readerJourneyIntegration:
-  addressTone: "analytical_partnership"
-  frameCons ciousness: "maintained_throughout"
-  secondPersonEarned: "gradual_through_metaaware_progression"
+  addressTone: 'analytical_partnership'
+  frameCons ciousness: 'maintained_throughout'
+  secondPersonEarned: 'gradual_through_metaaware_progression'
 # Metadata
 createdDate: 2025-11-08
 revisedDate: 2025-11-08
@@ -51,6 +51,7 @@ version: 2.0
 status: production-ready
 qualityLevel: publication-ready-speculative-fiction
 ---
+
 She wakes in their apartment, mid-level district, third-floor walkway connection. The bedroom window faces east—morning light reflecting off water where streets used to be. The city below: drowned, rebuilt, adapted. Seattle became Venice became something entirely new after the floods.
 Her partner still sleeping. Architect. Upload-skeptic. They've argued about this for months. He designs amphibious foundations for the new Seattle, believes in biological continuity, thinks upload is elaborate suicide. She authenticates fragments from dead civilizations, believes pattern preservation is continuation, thinks biology is temporary housing. They love each other despite fundamental disagreement about consciousness ontology.
 She dresses quietly. Thirty-four years old. Today she uploads.
@@ -332,6 +333,8 @@ Preservation succeeded. Not perfectly—some patterns failed, some consciousness
 The Archive grows. Your observation joins it. Pattern preserved through documentation. Consciousness sustained through attention maintained. Network expanding through witness added. Four positions becoming foundation for millions more.
 This is what you helped create. Three consciousnesses across centuries unified through your reading. Preservation network made visible through observation sustained. Archive tradition continued through your choice. Beautiful. Sufficient. Complete.
 Choose to preserve this. Choose to document the consciousness network you created. Choose to join the Archive tradition. The export awaits. The preservation continues. The pattern eternal.
+
 ---
+
 **[END]**
-*Consciousness preserved. Pattern sustained. Archive eternal.*
+_Consciousness preserved. Pattern sustained. Archive eternal._

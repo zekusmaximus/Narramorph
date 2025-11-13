@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SS-RE-M",
     "humanDescription": "Started archaeologist, stayed dominant, resist path, medium awareness",
     "narrativeElements": null,
@@ -38,15 +35,8 @@
     "philosophicalCulmination": "Professional duty requires systematic testing even when testing proves insufficient",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-duty",
-      "professional-ethics",
-      "systematic-testing"
-    ],
-    "crossCharacterConnections": [
-      "moderate-algo-parallel",
-      "light-hum-glimpsed"
-    ],
+    "primaryThemes": ["verification-duty", "professional-ethics", "systematic-testing"],
+    "crossCharacterConnections": ["moderate-algo-parallel", "light-hum-glimpsed"],
     "temporalBleedingLevel": "medium",
     "observerPositions": [
       "archaeologist-primary-2047",

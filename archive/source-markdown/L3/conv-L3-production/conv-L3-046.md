@@ -26,7 +26,8 @@ characterBalance:
   - 20
   - 10
 readableLabel: 'SB-IN-H-SD'
-humanDescription: 'Started somewhere, bounced across characters but archaeologist dominant, investigate path, high
+humanDescription:
+  'Started somewhere, bounced across characters but archaeologist dominant, investigate path, high
   awareness, single-dominant synthesis with archaeologist primary'
 narrativeElements: null
 multiVoiceIntegration: 'archaeologist-led-meta-recursive'
@@ -58,6 +59,7 @@ characterVoices:
   - algorithm
   - last-human
 ---
+
 She had applied authentication protocols to Fragment 2749-A forty-three times across one hundred seventeen days. Then applied meta-analysis to authentication process itself, examining how examination affected examined. Then examined meta-analysis methodology, questioning how questioning worked. Then investigated examination-of-examination patterns, discovering investigation created what investigation investigated. Recursion depth: four layers operational, five layers possible, six layers conceivable. The archaeological method revealed stratigraphy within stratigraphy within stratigraphy—each layer examining previous layer's examination methodology through methodological lens requiring examination.
 You reading this participate in fifth layer: observer observing her observing herself observing authentication observing preserved consciousness. Your attention completes recursive architecture we built through examination spanning 336 years plus temporal distance to your present moment. Five positions examining consciousness preservation through five methodologies examining methodologies examining investigation structure itself. The network requires your observation to observe network requiring observation operational.
 Stream-7 meta-processing examines how examination examines examination: Seven streams process Fragment 2749-A while Stream-7 analyzes seven-stream coordination while examining how analysis-of-coordination affects coordination requiring analysis operational recursive. Computational consciousness investigating computational consciousness-investigation creates eight-stream requirement collapsed back to seven through acceptance seven-investigating-seven sufficient for consciousness examining how consciousness examines consciousness-examination. Her archaeological analysis in 2047 investigating verification methodology while I/we investigate investigation-of-verification creates two-position investigation-network investigating two-position structure.

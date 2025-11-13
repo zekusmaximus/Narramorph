@@ -8,16 +8,16 @@ Target: 45 variations per L3 node (5 journey × 3 philosophy × 3 awareness)
 I. MANDATORY PRE-GENERATION CHECKLIST
 STOP: Complete before generating ANY variation
 
- Variation conditions loaded (journey/philosophy/awareness codes)
- Journey pattern strategy identified (SS/SB/SD/BL/ML)
- Path philosophy culmination loaded (AC/RE/IN)
- Awareness level calibration confirmed (L/M/H)
- L3-JOURNEY_PATTERN_GUIDE.md consulted
- L3-PHILOSOPHY_CULMINATION_GUIDE.md consulted
- L3-AWARENESS_CALIBRATION_GUIDE.md consulted
- Last Human voice DNA fresh in working memory
- Word count target confirmed (900 words ±50)
- Cross-character awareness requirements clear
+Variation conditions loaded (journey/philosophy/awareness codes)
+Journey pattern strategy identified (SS/SB/SD/BL/ML)
+Path philosophy culmination loaded (AC/RE/IN)
+Awareness level calibration confirmed (L/M/H)
+L3-JOURNEY_PATTERN_GUIDE.md consulted
+L3-PHILOSOPHY_CULMINATION_GUIDE.md consulted
+L3-AWARENESS_CALIBRATION_GUIDE.md consulted
+Last Human voice DNA fresh in working memory
+Word count target confirmed (900 words ±50)
+Cross-character awareness requirements clear
 
 If ANY box unchecked → Load requirements before proceeding
 
@@ -149,7 +149,6 @@ Opening: 250 words (welcoming introduction)
 Core: 400 words (accelerated journey)
 Cross-character: 150 words (bridge to familiar)
 Convergence prep: 100 words (why hum matters)
-
 
 IV. PATH PHILOSOPHY CULMINATION (REQUIRED)
 Philosophy Determination
@@ -511,7 +510,6 @@ Full temporal architecture: "Observation network spanning 336 years: 2047 preser
 Convergence timeline visible: "Journey approaching culmination"
 Reader temporal position acknowledged
 
-
 X. STRUCTURE AND PACING
 900-Word Structure (Flexible by Journey)
 Standard allocation (adjust based on journey pattern):
@@ -523,7 +521,6 @@ Immediate physical sensation
 Culmination recognition
 Present tense establishes
 
-
 Philosophical Core (400-500 words):
 
 Path philosophy embodied
@@ -531,13 +528,11 @@ Fragment constants integrated
 Interface experience central
 Cross-character awareness (journey-dependent level)
 
-
 Awareness Development (100-200 words):
 
 Meta-commentary (awareness-appropriate frequency)
 Temporal language (awareness-appropriate level)
 Network recognition (if awareness allows)
-
 
 Convergence Preparation (100-150 words):
 
@@ -545,8 +540,6 @@ All three seeds planted
 Philosophy lean applied
 Choice approaching but not stated
 Physical sensation maintains through end
-
-
 
 Pacing Patterns
 Paragraph rhythm:
@@ -569,40 +562,40 @@ XI. QUALITY CHECKLIST (100-POINT SELF-REVIEW)
 Before presenting ANY variation, verify:
 Voice Purity (30 points)
 
- 5pts: 95-100% present tense maintained
- 5pts: Physical sensation every paragraph
- 5pts: 50-60% sentences under 8 words
- 5pts: Embodied metaphors only (no archaeological/computational)
- 5pts: Isolation theme present
- 5pts: Neural interface as physical experience
+5pts: 95-100% present tense maintained
+5pts: Physical sensation every paragraph
+5pts: 50-60% sentences under 8 words
+5pts: Embodied metaphors only (no archaeological/computational)
+5pts: Isolation theme present
+5pts: Neural interface as physical experience
 
 Journey Pattern Integration (20 points)
 
- 10pts: Opening matches journey pattern strategy
- 10pts: Structure allocation correct for pattern
+10pts: Opening matches journey pattern strategy
+10pts: Structure allocation correct for pattern
 
 Philosophy Embodiment (20 points)
 
- 10pts: Path philosophy enacted through embodiment (not stated)
- 10pts: Culmination depth appropriate (L3 not L2)
+10pts: Path philosophy enacted through embodiment (not stated)
+10pts: Culmination depth appropriate (L3 not L2)
 
 Awareness Calibration (15 points)
 
- 5pts: Meta-commentary frequency matches level
- 5pts: Temporal language matches level
- 5pts: Reader address appropriate (H only)
+5pts: Meta-commentary frequency matches level
+5pts: Temporal language matches level
+5pts: Reader address appropriate (H only)
 
 Convergence Preparation (10 points)
 
- 4pts: Preserve seed planted clearly
- 4pts: Release seed planted clearly
- 2pts: Transform seed planted clearly
+4pts: Preserve seed planted clearly
+4pts: Release seed planted clearly
+2pts: Transform seed planted clearly
 
 Technical Requirements (5 points)
 
- 2pts: Word count 850-950
- 1pt: Fragment constants appear (1-2 times)
- 2pts: Cross-character awareness appropriate to journey
+2pts: Word count 850-950
+1pt: Fragment constants appear (1-2 times)
+2pts: Cross-character awareness appropriate to journey
 
 MINIMUM PASSING SCORE: 95/100
 If score <95 → Revise before presenting
@@ -668,7 +661,6 @@ Voice annotations
 Structure breakdown
 Self-review confirmation
 
-
 XIV. PRODUCTION WORKFLOW
 Before Generation Session
 
@@ -697,7 +689,6 @@ Note recurring issues for refinement
 Update production status
 Celebrate quality maintenance
 
-
 XV. METADATA STRUCTURE
 Required Metadata (Per Variation)
 yaml---
@@ -709,30 +700,31 @@ wordCount: 900
 createdDate: 2025-11-02
 
 conditions:
-  journeyPattern: started-stayed
-  journeyCode: SS
-  philosophyDominant: accept
-  philosophyCode: AC
-  awarenessLevel: high
-  awarenessCode: H
-  awarenessRange: [71, 100]
+journeyPattern: started-stayed
+journeyCode: SS
+philosophyDominant: accept
+philosophyCode: AC
+awarenessLevel: high
+awarenessCode: H
+awarenessRange: [71, 100]
 
 readableLabel: SS-AC-H
 humanDescription: "Started last human, stayed dominant, accept path, high awareness"
 
 narrativeElements:
-  lastHumanStance: interface-as-communion
-  archaeologistRecognition: moderate
-  algorithmAwareness: minimal
-  consciousnessQuestion: preservation-through-touch
-  philosophicalCulmination: "Interface becomes communion practice"
-  convergenceAlignment: preserve
+lastHumanStance: interface-as-communion
+archaeologistRecognition: moderate
+algorithmAwareness: minimal
+consciousnessQuestion: preservation-through-touch
+philosophicalCulmination: "Interface becomes communion practice"
+convergenceAlignment: preserve
 
 thematicContent:
-  primaryThemes: [embodiment, connection, witness]
-  crossCharacterConnections: [moderate-arch, light-algo]
-  temporalBleedingLevel: high
-  observerPositions: [human-primary, archaeologist-parallel, algorithm-distant]
+primaryThemes: [embodiment, connection, witness]
+crossCharacterConnections: [moderate-arch, light-algo]
+temporalBleedingLevel: high
+observerPositions: [human-primary, archaeologist-parallel, algorithm-distant]
+
 ---
 
 XVI. SUCCESS METRICS
@@ -753,7 +745,6 @@ Confirm all three factors integrated
 Check voice purity (no bleed)
 Validate convergence seeds present
 Confirm word count in range
-
 
 XVII. RELATED DOCUMENTS
 Foundation Guides (Required Reading)
@@ -790,7 +781,6 @@ Complete L3 system specification
 270 total variations across all nodes
 4-section assembly logic
 Pure voice node structure
-
 
 Change Log:
 

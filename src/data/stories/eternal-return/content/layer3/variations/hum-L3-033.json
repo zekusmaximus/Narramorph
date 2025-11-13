@@ -24,10 +24,7 @@
     "philosophyCode": "RE",
     "awarenessLevel": "low",
     "awarenessCode": "L",
-    "awarenessRange": [
-      20,
-      40
-    ],
+    "awarenessRange": [20, 40],
     "readableLabel": "BL-RE-L",
     "humanDescription": "Began-lightly with last human, less than 25% visits here, resist path, low awareness",
     "narrativeElements": null,
@@ -38,11 +35,7 @@
     "philosophicalCulmination": "Body demands verification before trusting interface warmth despite verification impossibility",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-verification",
-      "boundary-maintenance",
-      "testing-discipline"
-    ],
+    "primaryThemes": ["embodied-verification", "boundary-maintenance", "testing-discipline"],
     "crossCharacterConnections": [
       "moderate-arch-primary",
       "moderate-algo-primary",

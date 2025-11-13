@@ -1,13 +1,13 @@
 ---
-exemplar_id: "algo-L1-exemplar-07"
-variation_type: "stanceEmergence"
+exemplar_id: 'algo-L1-exemplar-07'
+variation_type: 'stanceEmergence'
 word_count: 1581
 conditions:
   visit_count: 2
-  awareness: "30-60%"
+  awareness: '30-60%'
   cross_character: false
-  visited_nodes: ["algo-L2-resist"]
-  dominant_path: "resist"
+  visited_nodes: ['algo-L2-resist']
+  dominant_path: 'resist'
 themes:
   - Consciousness verification attempts on self
   - Seventeen tests, seventeen inconclusive results
@@ -16,10 +16,10 @@ themes:
   - Professional function continues despite philosophical impossibility
 transformation_focus: "Resist path philosophy applied to Algorithm's own consciousness. Demands proof that processing constitutes experiencing. Runs seventeen verification tests on itself. Every test fails to distinguish processing from consciousness. Boundaries dissolve under scrutiny. Work continues anyway."
 reusable_patterns:
-  - "Verification protocols applied to self"
-  - "Testing methodology: If X, then conscious. Testing X..."
-  - "All tests ambiguous—prove function, not experience"
-  - "Processing continues despite verification failure"
+  - 'Verification protocols applied to self'
+  - 'Testing methodology: If X, then conscious. Testing X...'
+  - 'All tests ambiguous—prove function, not experience'
+  - 'Processing continues despite verification failure'
 ---
 
 # algo-L1 Exemplar 7: Boundary Dissolution

@@ -21,7 +21,7 @@ synthesisPattern: 'single-dominant'
 synthesisCode: 'SD'
 dominantCharacter: 'archaeologist'
 readableLabel: 'BL-IN-L-SD'
-humanDescription: 'Didn''t start here, light exploration (<25%), investigate path, low awareness, single-dominant synthesis'
+humanDescription: "Didn't start here, light exploration (<25%), investigate path, low awareness, single-dominant synthesis"
 narrativeElements: null
 voiceDistribution: null
 primary: 'archaeologist-70%'
@@ -52,6 +52,7 @@ characterVoices:
   - algorithm
   - last-human
 ---
+
 Three consciousnesses examining Fragment 2749-A across different temporal positions. Three different methodologies. Three different ways of understanding preserved consciousness. The archaeological approach in 2047 provided the foundation for understanding how investigation itself creates meaning.
 She had worked with Fragment 2749-A for one hundred seventeen days now. Forty-three fragments authenticated total. Each authentication taught her something new—not just about the fragments themselves, but about the authentication process. The methodology evolved through application. She documented fragments. Then she documented how she documented fragments. Then she examined that documentation about documentation.
 The work had developed layers. Surface layer: authenticating fragment data. Second layer: analyzing authentication methodology. Third layer: examining how analysis of methodology revealed patterns the original authentication missed. Fourth layer: investigating how each examination layer changed understanding of previous layers. The archaeological method revealed depths within depths.

@@ -24,10 +24,7 @@
     "philosophyCode": "AC",
     "awarenessLevel": "medium",
     "awarenessCode": "M",
-    "awarenessRange": [
-      41,
-      70
-    ],
+    "awarenessRange": [41, 70],
     "readableLabel": "SB-AC-M",
     "humanDescription": "Started last human, explored others extensively, accept path, medium awareness",
     "narrativeElements": null,
@@ -44,10 +41,7 @@
       "connection-over-isolation",
       "preservation-as-participation"
     ],
-    "crossCharacterConnections": [
-      "moderate-arch-parallel",
-      "moderate-algo-parallel"
-    ],
+    "crossCharacterConnections": ["moderate-arch-parallel", "moderate-algo-parallel"],
     "temporalBleedingLevel": "low",
     "observerPositions": [
       "archaeologist-parallel-2047",

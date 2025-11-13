@@ -72,10 +72,7 @@ export function validateStory(story: StoryData): ValidationResult {
 
   // Check for dead ends (no outgoing connections, not an ending)
   for (const node of story.nodes) {
-    if (
-      node.connections.length === 0 &&
-      !story.configuration.endingNodeIds.includes(node.id)
-    ) {
+    if (node.connections.length === 0 && !story.configuration.endingNodeIds.includes(node.id)) {
       warnings.push({
         type: 'dead_end',
         message: `Node ${node.id} has no outgoing connections and isn't marked as ending`,
@@ -164,10 +161,7 @@ export function validateSavedState(data: unknown): boolean {
   const validThemes: Theme[] = ['light', 'dark', 'sepia'];
   const validSizes: TextSize[] = ['small', 'medium', 'large'];
 
-  if (
-    !validThemes.includes(preferences.theme) ||
-    !validSizes.includes(preferences.textSize)
-  ) {
+  if (!validThemes.includes(preferences.theme) || !validSizes.includes(preferences.textSize)) {
     return false;
   }
 

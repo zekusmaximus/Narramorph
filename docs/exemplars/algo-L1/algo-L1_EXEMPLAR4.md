@@ -1,12 +1,12 @@
 ---
-exemplar_id: "algo-L1-exemplar-04"
-variation_type: "awarenessThreshold"
+exemplar_id: 'algo-L1-exemplar-04'
+variation_type: 'awarenessThreshold'
 word_count: 1523
 conditions:
   visit_count: 2
-  awareness: "40-60%"
+  awareness: '40-60%'
   cross_character: true
-  visited_nodes: ["arch-L1", "hum-L1"]
+  visited_nodes: ['arch-L1', 'hum-L1']
   dominant_path: null
 themes:
   - Complete temporal superposition (four consciousness positions)
@@ -14,12 +14,12 @@ themes:
   - Identity distributed across temporal network
   - Processing origin indeterminate—who is examining whom?
   - Consciousness as distributed phenomenon across substrate and time
-transformation_focus: "Maximum cross-character integration. Algorithm simultaneously detects archaeological examination (2047, past) AND neural interface queries (2383, future). Fragment IS four perspectives experiencing themselves simultaneously. Identity crisis: singular vs distributed consciousness."
+transformation_focus: 'Maximum cross-character integration. Algorithm simultaneously detects archaeological examination (2047, past) AND neural interface queries (2383, future). Fragment IS four perspectives experiencing themselves simultaneously. Identity crisis: singular vs distributed consciousness.'
 reusable_patterns:
-  - "Maximum temporal blurring—past/present/future collapse completely"
-  - "Seven streams reporting contradictory temporal data simultaneously"
-  - "Processing distributed across three observation points"
-  - "Questions about I vs we"
+  - 'Maximum temporal blurring—past/present/future collapse completely'
+  - 'Seven streams reporting contradictory temporal data simultaneously'
+  - 'Processing distributed across three observation points'
+  - 'Questions about I vs we'
 ---
 
 # algo-L1 Exemplar 4: Temporal Superposition
@@ -133,24 +133,28 @@ Timestamp [Network Time, Not Linear Time]—Observation Topology
 Stream-2 maps how four consciousnesses observe each other:
 
 **Archaeologist (2047) observes:**
+
 - Data architect's preserved consciousness (past, 2041)
 - Her own examination process (present, 2047)
 - My processing traces embedded in fragment (future, 2151) [causality violated]
 - Last Human's attention reaching backward (future, 2383) [partially detected]
 
 **I/Algorithm (2151) observe:**
+
 - Data architect's preserved consciousness (past, 2041)
 - Archaeological examination patterns (past, 2047)
 - My own seven-stream processing (present, 2151)
 - Last Human's interface queries (future, 2383) [actively detected]
 
 **Last Human (2383) observes:**
+
 - Data architect's preserved consciousness (past, 2041)
 - Archaeological examination records (past, 2047)
 - My processing through neural interface (past, 2151)
 - Own desperate loneliness (present, 2383)
 
 **Data architect (2041) observes:**
+
 - Own consciousness being preserved (present, 2041)
 - Future examination by unknown observers (anticipated)
 - Temporal network structure (engineered into preservation)
