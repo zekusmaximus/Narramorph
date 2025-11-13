@@ -97,10 +97,11 @@ export function useVariationSelection(
         // No match found - use first variation as fallback
         console.warn(`[VariationSelection] No matching variation for ${nodeId}, using first available`);
         const firstVariation = variationFile.variations[0];
+        const firstVarId = firstVariation.variationId || firstVariation.id || firstVariation.metadata?.variationId || 'unknown';
 
         return {
           content: firstVariation.content,
-          variationId: firstVariation.variationId,
+          variationId: firstVarId,
           metadata: firstVariation.metadata,
           isLoading: false,
           error: null,
@@ -109,10 +110,11 @@ export function useVariationSelection(
       }
 
       // Step 4: Return matched variation
-      console.log(`[VariationSelection] Selected ${matchedVariation.variationId} for ${nodeId}`);
+      const varId = matchedVariation.variationId || matchedVariation.id || matchedVariation.metadata?.variationId || 'unknown';
+      console.log(`[VariationSelection] Selected ${varId} for ${nodeId}`);
       return {
         content: matchedVariation.content,
-        variationId: matchedVariation.variationId,
+        variationId: varId,
         metadata: matchedVariation.metadata,
         isLoading: false,
         error: null,

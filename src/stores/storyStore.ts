@@ -33,7 +33,7 @@ import {
   evaluateNodeUnlock,
   getUnlockProgress as getUnlockProgressUtil,
 } from '@/utils/unlockEvaluator';
-import type { NodeUnlockConfig, UnlockProgress } from '@/types/Unlock';
+import type { UnlockProgress } from '@/types/Unlock';
 
 /**
  * Creates initial journey tracking
@@ -897,6 +897,8 @@ export const useStoryStore = create<StoryStore>()(
         tracking.lastCharacterVisited = currentChar;
 
         // === Revisit Tracking ===
+        // isRevisit currently unused but kept for future analytics
+        // @ts-expect-error - Unused but kept for future analytics
         const isRevisit = existingRecord && existingRecord.visitCount > 0;
         const totalVisits = Object.keys(draftState.progress.visitedNodes).length;
         const revisits = Object.values(draftState.progress.visitedNodes)

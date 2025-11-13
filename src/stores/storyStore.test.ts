@@ -21,6 +21,7 @@ describe('Visit Tracking System', () => {
           algorithm: 0,
           lastHuman: 0,
         },
+        unlockedL2Characters: [],
       },
     });
   });
@@ -242,6 +243,7 @@ describe('Temporal Awareness System', () => {
           algorithm: 0,
           lastHuman: 0,
         },
+        unlockedL2Characters: [],
       },
     });
   });
@@ -761,7 +763,8 @@ describe('Temporal Awareness System', () => {
 
       // Mock localStorage with old save - override the global mock for this test
       const storageModule = await vi.importMock<typeof import('@/utils/storage')>('@/utils/storage');
-      storageModule.loadFromStorage = vi.fn(() => oldSave);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      storageModule.loadFromStorage = vi.fn(() => oldSave) as any;
 
       // Load progress (should trigger migration)
       store.loadProgress();

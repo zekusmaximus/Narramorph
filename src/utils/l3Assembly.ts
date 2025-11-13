@@ -129,8 +129,8 @@ export function buildL3Assembly(
       journeyPattern: context.journeyPattern,
       pathPhilosophy: context.pathPhilosophy,
       awarenessLevel:
-        context.awareness < 35 ? 'low' :
-        context.awareness < 70 ? 'medium' : 'high',
+        context.awareness < 35 ? ('low' as const) :
+        context.awareness < 70 ? ('medium' as const) : ('high' as const),
       synthesisPattern,
       convergenceAlignment: convSection.metadata.convergenceAlignment,
     },

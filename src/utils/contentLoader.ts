@@ -18,6 +18,8 @@ interface NodeDefinition {
 }
 interface CharacterNodeDefinitionFile { character: string; nodes: NodeDefinition[]; }
 
+// ContentFile currently unused but kept for legacy content format support
+// @ts-expect-error - Unused but kept for legacy content format support
 interface ContentFile { transformationStates: { initial: string; firstRevisit: string; metaAware: string; }; }
 
 // External variations file (Pattern B)
