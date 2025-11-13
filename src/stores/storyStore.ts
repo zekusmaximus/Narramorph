@@ -64,11 +64,13 @@ const devError = (...args: unknown[]): void => {
  */
 function createInitialJourneyTracking(): JourneyTracking {
   return {
+    startingCharacter: null,
     characterVisitPercentages: {
       archaeologist: 0,
       algorithm: 0,
       lastHuman: 0,
     },
+    dominantCharacter: null,
     currentJourneyPattern: 'unknown',
     l2Choices: {
       accept: 0,
@@ -82,7 +84,7 @@ function createInitialJourneyTracking(): JourneyTracking {
       algo_hum: 0,
     },
     navigationPattern: 'undetermined',
-    lastCharacterVisited: undefined,
+    lastCharacterVisited: null,
     revisitFrequency: 0,
     explorationMetrics: {
       breadth: 0,
@@ -379,6 +381,7 @@ export const useStoryStore = create<StoryStore>()(
     nodes: new Map(),
     connections: new Map(),
     progress: createInitialProgress(),
+    activeVisit: null,
     viewport: {
       center: { x: 0, y: 0 },
       zoom: 1,
@@ -536,16 +539,11 @@ export const useStoryStore = create<StoryStore>()(
           lastHuman: (lastHuman / total) * 100,
         };
 
-        // Determine starting character if not set
-        if (!draftState.progress.journeyTracking) {
-          draftState.progress.journeyTracking = createInitialJourneyTracking();
-        }
-
         const tracking = draftState.progress.journeyTracking;
         tracking.characterVisitPercentages = percentages;
 
         // Set starting character based on first visit in reading path
-        if (!tracking.startingCharacter && draftState.progress.readingPath.length > 0) {
+        if (tracking.startingCharacter === null && draftState.progress.readingPath.length > 0) {
           const firstNodeId = draftState.progress.readingPath[0];
           const firstNode = draftState.nodes.get(firstNodeId);
           if (firstNode) {
@@ -589,9 +587,6 @@ export const useStoryStore = create<StoryStore>()(
      */
     recordL2Choice: (choice: 'accept' | 'resist' | 'invest') => {
       set((draftState) => {
-        if (!draftState.progress.journeyTracking) {
-          draftState.progress.journeyTracking = createInitialJourneyTracking();
-        }
         draftState.progress.journeyTracking.l2Choices[choice]++;
       });
       get().updateJourneyTracking();
@@ -601,14 +596,15 @@ export const useStoryStore = create<StoryStore>()(
      * Gets the current condition context for variation selection
      *
      * @param nodeId - Optional node ID to get condition context for. If provided, includes node-specific visit count.
+     * @param opts - Optional configuration for context building
      * @returns Condition context including node-specific visit count (if nodeId provided)
      */
-    getConditionContext: (nodeId?: string): ConditionContext => {
+    getConditionContext: (nodeId?: string, opts?: { includeRecentVariations?: boolean }): ConditionContext => {
       const state = get();
-      const tracking = state.progress.journeyTracking || createInitialJourneyTracking();
+      const tracking = state.progress.journeyTracking;
       const visitRecord = nodeId ? state.progress.visitedNodes[nodeId] : undefined;
 
-      return {
+      const context: ConditionContext = {
         nodeId: nodeId || '',
         awareness: state.progress.temporalAwarenessLevel,
         journeyPattern: tracking.currentJourneyPattern,
@@ -617,6 +613,86 @@ export const useStoryStore = create<StoryStore>()(
         transformationState: visitRecord?.currentState || 'initial',
         characterVisitPercentages: tracking.characterVisitPercentages,
       };
+
+      // Optionally include recent variation IDs for de-duplication
+      if (opts?.includeRecentVariations && visitRecord?.recentVariationIds) {
+        context.recentVariationIds = visitRecord.recentVariationIds;
+      }
+
+      return context;
+    },
+
+    /**
+     * Update the active visit with a variationId after it's been determined
+     */
+    updateActiveVisitVariation: (variationId: string) => {
+      set((state) => {
+        const { activeVisit } = state;
+        if (!activeVisit) {
+          devWarn('[Visit] updateActiveVisitVariation called with no active visit');
+          return;
+        }
+
+        const visitRecord = state.progress.visitedNodes[activeVisit.nodeId];
+        if (!visitRecord) {
+          devWarn('[Visit] No visit record found for active visit:', activeVisit.nodeId);
+          return;
+        }
+
+        // Update the visit record with the variationId
+        visitRecord.variationId = variationId;
+
+        // Maintain sliding window of recent variationIds (max 5 entries)
+        if (!visitRecord.recentVariationIds) {
+          visitRecord.recentVariationIds = [];
+        }
+        visitRecord.recentVariationIds.push(variationId);
+        if (visitRecord.recentVariationIds.length > 5) {
+          visitRecord.recentVariationIds.shift(); // Remove oldest
+        }
+
+        devLog(`[Visit] Updated ${activeVisit.nodeId} with variationId: ${variationId}`);
+      });
+
+      get().saveProgress();
+    },
+
+    /**
+     * Finalize the active visit by calculating and recording duration
+     * Called when the reader closes/leaves a node
+     */
+    finalizeActiveVisit: () => {
+      set((state) => {
+        const { activeVisit } = state;
+        if (!activeVisit) {
+          return; // No active visit to finalize
+        }
+
+        const visitRecord = state.progress.visitedNodes[activeVisit.nodeId];
+        if (!visitRecord) {
+          devWarn('[Visit] No visit record found for active visit:', activeVisit.nodeId);
+          state.activeVisit = null;
+          return;
+        }
+
+        // Calculate duration in seconds
+        const durationMs = Date.now() - activeVisit.startTime;
+        const durationSeconds = Math.floor(durationMs / 1000);
+
+        // Update visit record
+        visitRecord.duration = durationSeconds;
+        visitRecord.timeSpent += durationSeconds;
+
+        // Update total time spent
+        state.progress.totalTimeSpent += durationSeconds;
+
+        devLog(`[Visit] Finalized ${activeVisit.nodeId}: ${durationSeconds}s (total: ${visitRecord.timeSpent}s)`);
+
+        // Clear active visit
+        state.activeVisit = null;
+      });
+
+      get().saveProgress();
     },
 
     /**
@@ -644,11 +720,6 @@ export const useStoryStore = create<StoryStore>()(
       }
 
       const tracking = state.progress.journeyTracking;
-      if (!tracking) {
-        devError('[L3Assembly] Journey tracking not initialized');
-        return null;
-      }
-
       const context = state.getConditionContext();
 
       // Calculate synthesis pattern
@@ -703,8 +774,41 @@ export const useStoryStore = create<StoryStore>()(
     /**
      * Open L3 assembly view
      */
-    openL3AssemblyView: () => {
+    openL3AssemblyView: (nodeId?: string) => {
       const state = get();
+
+      // Finalize any existing active visit before starting a new one
+      if (state.activeVisit) {
+        state.finalizeActiveVisit();
+      }
+
+      // If nodeId provided, record visit for L3 node
+      if (nodeId) {
+        // Idempotency check
+        if (state.activeVisit && state.activeVisit.nodeId === nodeId) {
+          devLog('[L3Assembly] Already viewing', nodeId, '- skipping visit recording');
+        } else {
+          // Record visit for L3 node
+          state.visitNode(nodeId);
+
+          // Set active visit for duration tracking
+          set((state) => {
+            state.activeVisit = {
+              nodeId,
+              startTime: Date.now(),
+            };
+
+            // Initialize duration to 0, variationId to null for L3 nodes
+            const visitRecord = state.progress.visitedNodes[nodeId];
+            if (visitRecord) {
+              visitRecord.duration = 0;
+              visitRecord.variationId = null; // L3 nodes don't have variations
+            }
+          });
+
+          devLog('[L3Assembly] L3 node visit recorded:', nodeId);
+        }
+      }
 
       // Build or get cached assembly
       const assembly = state.getOrBuildL3Assembly();
@@ -733,6 +837,12 @@ export const useStoryStore = create<StoryStore>()(
      * Close L3 assembly view
      */
     closeL3AssemblyView: () => {
+      // Finalize active visit before closing
+      const state = get();
+      if (state.activeVisit) {
+        state.finalizeActiveVisit();
+      }
+
       set((state) => {
         state.l3AssemblyViewOpen = false;
         // Keep currentL3Assembly for reference, don't clear
@@ -898,10 +1008,6 @@ export const useStoryStore = create<StoryStore>()(
         // multi-perspective nodes don't increment character counters
 
         // === Cross-Character Connection Tracking ===
-        if (!draftState.progress.journeyTracking) {
-          draftState.progress.journeyTracking = createInitialJourneyTracking();
-        }
-
         const tracking = draftState.progress.journeyTracking;
         const currentChar = normalizeCharacter(node.character);
         const lastChar = tracking.lastCharacterVisited;
@@ -964,7 +1070,7 @@ export const useStoryStore = create<StoryStore>()(
 
         // Track L2 philosophy choice
         const nodePhilosophy = getNodePhilosophy(nodeId);
-        if (nodePhilosophy && draftState.progress.journeyTracking) {
+        if (nodePhilosophy) {
           // Only track if it's one of the three core philosophies
           if (
             nodePhilosophy === 'accept' ||
@@ -1051,13 +1157,13 @@ export const useStoryStore = create<StoryStore>()(
       });
     },
 
-    openStoryView: (nodeId: string) => {
+    openStoryView: (nodeId: string, opts?: { variationId?: string }) => {
       const state = get();
 
       // Check if this is an L3 node
       if (isL3Node(nodeId)) {
         devLog('[Navigation] L3 node detected, opening assembly view');
-        state.openL3AssemblyView();
+        state.openL3AssemblyView(nodeId);
         return;
       }
 
@@ -1067,6 +1173,37 @@ export const useStoryStore = create<StoryStore>()(
         // Future: Route to terminal view
         // For now, proceed with normal StoryView
       }
+
+      // Idempotency check: if already viewing this node, don't re-record
+      if (state.activeVisit && state.activeVisit.nodeId === nodeId) {
+        devLog('[Navigation] Already viewing', nodeId, '- skipping visit recording');
+        return;
+      }
+
+      // Finalize any existing active visit before starting a new one
+      if (state.activeVisit) {
+        state.finalizeActiveVisit();
+      }
+
+      // Record visit at navigation boundary
+      state.visitNode(nodeId);
+
+      // Set active visit for duration tracking
+      set((state) => {
+        state.activeVisit = {
+          nodeId,
+          startTime: Date.now(),
+        };
+
+        // Initialize duration to 0 (will be finalized on close)
+        const visitRecord = state.progress.visitedNodes[nodeId];
+        if (visitRecord) {
+          visitRecord.duration = 0;
+          if (opts?.variationId) {
+            visitRecord.variationId = opts.variationId;
+          }
+        }
+      });
 
       // Normal node: open StoryView
       set((state) => {

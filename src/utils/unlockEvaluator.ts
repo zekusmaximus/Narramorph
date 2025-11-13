@@ -122,7 +122,6 @@ function evaluatePhilosophyCondition(
   progress: UserProgress,
 ): boolean {
   const tracking = progress.journeyTracking;
-  if (!tracking) return false;
 
   // Required philosophy check
   if (params.requiredPhilosophy) {
@@ -165,7 +164,6 @@ function evaluateCharacterCondition(
   progress: UserProgress,
 ): boolean {
   const tracking = progress.journeyTracking;
-  if (!tracking) return false;
 
   // Required characters check
   if (params.requiredCharacters) {

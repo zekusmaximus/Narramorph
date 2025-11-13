@@ -19,6 +19,9 @@ export interface VisitRecord {
   currentState: TransformationState; // Current transformation state
   timeSpent: number; // Total seconds spent on this node
   lastVisited: string; // ISO-8601 timestamp of last visit
+  variationId?: string | null; // ID of the variation shown (null for L3 nodes)
+  duration?: number; // Duration of current/last visit in seconds (0 until finalized)
+  recentVariationIds?: string[]; // Sliding window of recent variationIds (max 5, uses last 3)
 }
 
 /**
@@ -68,7 +71,7 @@ export interface UserProgress {
   };
 
   // Journey and philosophy tracking for variation selection
-  journeyTracking?: JourneyTracking;
+  journeyTracking: JourneyTracking;
 
   // L2 node unlocking - tracks which characters have had their L1 initial_state read
   unlockedL2Characters: string[]; // character IDs like 'archaeologist', 'algorithm', 'last-human'
@@ -151,6 +154,12 @@ export interface StoryStore {
   // User progress
   progress: UserProgress;
 
+  // Active visit tracking (for duration calculation)
+  activeVisit: {
+    nodeId: string;
+    startTime: number; // milliseconds since epoch
+  } | null;
+
   // UI state
   viewport: MapViewport;
   selectedNode: string | null;
@@ -175,11 +184,13 @@ export interface StoryStore {
   updateTemporalAwareness: () => void;
   updateJourneyTracking: () => void;
   recordL2Choice: (choice: 'accept' | 'resist' | 'invest') => void;
-  getConditionContext: (nodeId?: string) => ConditionContext;
+  getConditionContext: (nodeId?: string, opts?: { includeRecentVariations?: boolean }) => ConditionContext;
+  updateActiveVisitVariation: (variationId: string) => void;
+  finalizeActiveVisit: () => void;
   buildL3Assembly: () => L3Assembly | null;
   getOrBuildL3Assembly: () => L3Assembly | null;
   clearL3AssemblyCache: () => void;
-  openL3AssemblyView: () => void;
+  openL3AssemblyView: (nodeId?: string) => void;
   closeL3AssemblyView: () => void;
   trackL3AssemblyView: (assembly: L3Assembly) => void;
   markL3SectionRead: (section: 'arch' | 'algo' | 'hum' | 'conv') => void;
@@ -189,7 +200,7 @@ export interface StoryStore {
   updateViewport: (viewport: Partial<MapViewport>) => void;
   selectNode: (nodeId: string | null) => void;
   setHoveredNode: (nodeId: string | null) => void;
-  openStoryView: (nodeId: string) => void;
+  openStoryView: (nodeId: string, opts?: { variationId?: string }) => void;
   closeStoryView: () => void;
   saveProgress: () => void;
   loadProgress: () => void;
