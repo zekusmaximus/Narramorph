@@ -1,9 +1,10 @@
 import { Handle, Position, type NodeProps } from '@xyflow/react';
 import { motion } from 'framer-motion';
 import { Lock } from 'lucide-react';
-import { memo, useState, useMemo } from 'react';
+import { memo, useState, useMemo, type ReactNode } from 'react';
 
-import { useStoryStore } from '@/stores/storyStore';
+import { useStoryStore } from '../../stores/storyStore';
+
 import type { StoryNode, NodeUIState, CharacterType, TransformationState } from '@/types';
 
 /**
@@ -123,8 +124,7 @@ const CHARACTER_THEMES = {
  * Get character icon/emoji for node
  * Currently unused but kept for future feature
  */
-// Function kept for future feature - exported to prevent unused warning
-export function getCharacterIcon(character: CharacterType): string {
+function getCharacterIcon(character: CharacterType): string {
   switch (character) {
     case 'archaeologist':
       return '🔍';
@@ -142,7 +142,7 @@ export function getCharacterIcon(character: CharacterType): string {
 /**
  * Get transformation state badge
  */
-function getTransformationBadge(state: TransformationState): React.ReactNode {
+function getTransformationBadge(state: TransformationState): ReactNode {
   if (state === 'firstRevisit') {
     return '◇';
   }
@@ -200,6 +200,7 @@ function CustomStoryNode({ data, selected }: NodeProps) {
   // Determine visual intensity based on transformation state
   const isMetaAware = nodeState.currentState === 'metaAware';
   const isVisited = nodeState.visited;
+  const transformationBadge = getTransformationBadge(nodeState.currentState);
 
   return (
     <>
@@ -493,25 +494,22 @@ function CustomStoryNode({ data, selected }: NodeProps) {
           )}
 
           {/* Transformation state indicator */}
-          {nodeState.currentState !== 'initial' &&
-            getTransformationBadge(nodeState.currentState) && (
-              <motion.div
-                className="absolute -bottom-2 -right-2 rounded-full border-2 w-6 h-6 flex items-center justify-center font-mono text-xs"
-                style={{
-                  backgroundColor: '#0a0e12',
-                  borderColor: nodeState.currentState === 'metaAware' ? '#7c4dff' : '#ffa726',
-                  color: nodeState.currentState === 'metaAware' ? '#7c4dff' : '#ffa726',
-                  boxShadow:
-                    nodeState.currentState === 'metaAware'
-                      ? '0 0 10px #7c4dff'
-                      : '0 0 10px #ffa726',
-                }}
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-              >
-                {getTransformationBadge(nodeState.currentState) as React.ReactNode}
-              </motion.div>
-            )}
+          {nodeState.currentState !== 'initial' && transformationBadge && (
+            <motion.div
+              className="absolute -bottom-2 -right-2 rounded-full border-2 w-6 h-6 flex items-center justify-center font-mono text-xs"
+              style={{
+                backgroundColor: '#0a0e12',
+                borderColor: nodeState.currentState === 'metaAware' ? '#7c4dff' : '#ffa726',
+                color: nodeState.currentState === 'metaAware' ? '#7c4dff' : '#ffa726',
+                boxShadow:
+                  nodeState.currentState === 'metaAware' ? '0 0 10px #7c4dff' : '0 0 10px #ffa726',
+              }}
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+            >
+              {transformationBadge}
+            </motion.div>
+          )}
 
           {/* Critical path indicator */}
           {node.metadata.criticalPath && (

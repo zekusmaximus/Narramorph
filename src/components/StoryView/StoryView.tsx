@@ -2,10 +2,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 
 import { VariationDebugPanel } from './VariationDebugPanel';
-
-import { useVariationSelection } from '@/hooks/useVariationSelection';
-import { useStoryStore } from '@/stores';
-import type { StoryNode, TransformationState, CharacterType, ConnectionType } from '@/types';
+import { useVariationSelection } from '../../hooks/useVariationSelection';
+import { useStoryStore } from '../../stores';
+import type { StoryNode, TransformationState, CharacterType, ConnectionType } from '../../types';
 
 interface StoryViewProps {
   className?: string;
@@ -53,8 +52,9 @@ const characterThemes: Record<
  * Gets visual icon for transformation states
  * Currently unused but kept for future feature
  */
-// Function kept for future feature - exported to prevent unused warning
-export function getStateIcon(state: TransformationState): string {
+// Function kept for future feature
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, unused-imports/no-unused-vars
+function getStateIcon(state: TransformationState): string {
   switch (state) {
     case 'initial':
       return '🔵';
@@ -71,8 +71,8 @@ export function getStateIcon(state: TransformationState): string {
  * Gets human-readable label for transformation states
  * Currently unused but kept for future feature
  */
-// Function kept for future feature - exported to prevent unused warning
-export function getStateLabel(state: TransformationState): string {
+// Function kept for future feature
+function getStateLabel(state: TransformationState): string {
   switch (state) {
     case 'initial':
       return 'First Visit';
@@ -89,8 +89,9 @@ export function getStateLabel(state: TransformationState): string {
  * Gets icon for connection types
  * Currently unused but kept for future feature
  */
-// Function kept for future feature - exported to prevent unused warning
-export function getConnectionIcon(type: ConnectionType): ReactNode {
+// Function kept for future feature
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, unused-imports/no-unused-vars
+function getConnectionIcon(type: ConnectionType): ReactNode {
   switch (type) {
     case 'temporal':
       return <span className="text-blue-500">⏱️</span>;
@@ -103,6 +104,15 @@ export function getConnectionIcon(type: ConnectionType): ReactNode {
     default:
       return <span className="text-blue-500">⏱️</span>;
   }
+}
+
+const storyViewHelperRegistry = {
+  getStateIcon,
+  getConnectionIcon,
+};
+
+if (import.meta.env.DEV) {
+  void storyViewHelperRegistry;
 }
 
 /**

@@ -5,7 +5,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
-import { useStoryStore } from '@/stores/storyStore';
+import { useStoryStore } from '../../stores';
+
 import type { JourneyPattern, PathPhilosophy } from '@/types';
 
 const journeyPatternLabels: Record<JourneyPattern, string> = {

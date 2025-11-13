@@ -103,14 +103,17 @@ export async function processBatchConcurrent<T, R>(
       results.push(result);
     });
 
-    executing.push(promise);
+    const trackedPromise = promise.finally(() => {
+      const index = executing.indexOf(trackedPromise);
+      if (index >= 0) {
+        executing.splice(index, 1);
+      }
+    });
+
+    executing.push(trackedPromise);
 
     if (executing.length >= concurrency) {
       await Promise.race(executing);
-      executing.splice(
-        executing.findIndex((p) => p === promise),
-        1,
-      );
     }
   }
 

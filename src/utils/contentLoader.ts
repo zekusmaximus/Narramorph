@@ -51,11 +51,11 @@ interface CharacterNodeDefinitionFile {
   nodes: NodeDefinition[];
 }
 
-// ContentFile currently unused but kept for legacy content format support
-// @ts-expect-error - Unused but kept for legacy content format support
-interface ContentFile {
+// Legacy content file format kept for reference
+interface LegacyContentFile {
   transformationStates: { initial: string; firstRevisit: string; metaAware: string };
 }
+type LegacyContentStates = LegacyContentFile['transformationStates'];
 
 // External variations file (Pattern B)
 interface VariationFile {
@@ -140,23 +140,32 @@ function getNodePosition(
 export async function loadStoryContent(storyId: string): Promise<StoryData> {
   try {
     // Build glob maps
-    const metaMap = import.meta.glob('/src/data/stories/*/story.json', {
+    const metaMap = import.meta.glob<StoryMetadataFile>('/src/data/stories/*/story.json', {
       eager: true,
       import: 'default',
     });
-    const charMap = import.meta.glob('/src/data/stories/*/*.json', {
-      eager: true,
-      import: 'default',
-    });
-    const l1VarMap = import.meta.glob('/src/data/stories/*/content/layer1/*-variations.json', {
-      eager: true,
-      import: 'default',
-    });
-    const l2VarMap = import.meta.glob('/src/data/stories/*/content/layer2/*-variations.json', {
-      eager: true,
-      import: 'default',
-    });
-    const layoutMap = import.meta.glob('/src/data/stories/*/layout.json', {
+    const charMap = import.meta.glob<CharacterNodeDefinitionFile | CharacterNodeFile>(
+      '/src/data/stories/*/*.json',
+      {
+        eager: true,
+        import: 'default',
+      },
+    );
+    const l1VarMap = import.meta.glob<VariationFile>(
+      '/src/data/stories/*/content/layer1/*-variations.json',
+      {
+        eager: true,
+        import: 'default',
+      },
+    );
+    const l2VarMap = import.meta.glob<VariationFile>(
+      '/src/data/stories/*/content/layer2/*-variations.json',
+      {
+        eager: true,
+        import: 'default',
+      },
+    );
+    const layoutMap = import.meta.glob<LayoutFile>('/src/data/stories/*/layout.json', {
       eager: true,
       import: 'default',
     });
@@ -187,14 +196,17 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
     const allNodes: StoryNode[] = [];
     const allConnections: Connection[] = [];
 
-    for (const charData of charFiles) {
-      const isDef = (d: any): d is CharacterNodeDefinitionFile =>
-        Array.isArray(d.nodes) && d.nodes.length > 0 && 'contentFile' in d.nodes[0];
+    const isDefinitionFile = (
+      data: CharacterNodeDefinitionFile | CharacterNodeFile,
+    ): data is CharacterNodeDefinitionFile => {
+      return Array.isArray(data.nodes) && data.nodes.length > 0 && 'contentFile' in data.nodes[0];
+    };
 
+    for (const charData of charFiles) {
       // Debug logging
       // Development log: Processing character file for ${storyId}
 
-      if (isDef(charData)) {
+      if (isDefinitionFile(charData)) {
         const characterRaw = charData.character;
         for (const def of charData.nodes) {
           // Map old content file paths to actual variation file locations
@@ -228,14 +240,12 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
           }
 
           const varData = actualContentPath
-            ? ((l1VarMap[actualContentPath] || l2VarMap[actualContentPath]) as
-                | VariationFile
-                | undefined)
+            ? l1VarMap[actualContentPath] || l2VarMap[actualContentPath]
             : undefined;
 
           // Development log: Content loading for node ${def.id}
 
-          let content: StoryNode['content'] | undefined;
+          let content: StoryNode['content'];
 
           if (varData && varData.variations?.length) {
             // Materialize one representative per state for now (selector will refine later)
@@ -252,11 +262,12 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
           } else {
             // Attempt legacy content file with transformationStates via glob (not mapped here); leave empty if missing
             // Development warning: No content found for node ${def.id} at path ${actualContentPath}
-            content = {
+            const fallbackContent: LegacyContentStates = {
               initial: 'Content not found. This node is under development.',
               firstRevisit: '',
               metaAware: '',
             };
+            content = fallbackContent;
           }
 
           // Build node
@@ -306,7 +317,7 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
         }
       } else {
         // Inline format — normalize and accept as-is
-        const cf = charData as CharacterNodeFile;
+        const cf: CharacterNodeFile = charData;
 
         // Safety check: ensure nodes is actually an array
         if (!cf.nodes || !Array.isArray(cf.nodes)) {
@@ -315,10 +326,11 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
         }
 
         for (const n of cf.nodes) {
+          const inlineCharacter = (n.character ?? cf.character) as string;
           const node: StoryNode = {
             ...n,
-            character: normalizeCharacter((n as any).character as string),
-            position: (n as any).position || getNodePosition(n.id, layout),
+            character: normalizeCharacter(inlineCharacter),
+            position: n.position ?? getNodePosition(n.id, layout),
           };
           allNodes.push(node);
           for (const c of node.connections || []) {

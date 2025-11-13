@@ -6,8 +6,6 @@ import type {
   SavedState,
   StoryNode,
   VisitRecord,
-  UserProgress,
-  UserPreferences,
   Theme,
   TextSize,
 } from '@/types';
