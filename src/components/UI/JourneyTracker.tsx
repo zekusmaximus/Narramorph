@@ -180,12 +180,70 @@ function NavigationPatternInsight() {
 
 /**
  * Next Unlock Preview
- * Note: This requires unlock system from Sprint 3
+ * Shows the closest locked nodes and their unlock progress
  */
 function NextUnlockPreview() {
-  // TODO: Implement when unlock system is available
-  // For now, return null as unlock configs might not be in the store yet
-  return null;
+  const unlockConfigs = useStoryStore((state) => state.unlockConfigs);
+  const progress = useStoryStore((state) => state.progress);
+  const getUnlockProgress = useStoryStore((state) => state.getUnlockProgress);
+  const nodes = useStoryStore((state) => state.nodes);
+
+  // Get all locked nodes with their progress
+  const lockedNodesWithProgress = Array.from(unlockConfigs.values())
+    .map((config) => {
+      const unlockProg = getUnlockProgress(config.nodeId);
+      const node = nodes.get(config.nodeId);
+      return {
+        config,
+        progress: unlockProg,
+        node,
+      };
+    })
+    .filter((item) => item.progress?.locked && item.node) // Only locked nodes
+    .sort((a, b) => (b.progress?.progress || 0) - (a.progress?.progress || 0)); // Sort by progress desc
+
+  // Show top 3 closest to unlocking
+  const topThree = lockedNodesWithProgress.slice(0, 3);
+
+  if (topThree.length === 0) {
+    return null; // No locked nodes to display
+  }
+
+  return (
+    <div className="space-y-2">
+      <h4 className="text-cyan-400 font-mono text-xs uppercase tracking-wider">
+        Next Unlocks
+      </h4>
+      <div className="space-y-2">
+        {topThree.map(({ config, progress, node }) => (
+          <div
+            key={config.nodeId}
+            className="bg-black/40 border border-cyan-500/20 rounded p-2 space-y-1"
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-white text-xs font-medium truncate">
+                {node?.metadata?.chapterTitle || config.nodeId}
+              </span>
+              <span className="text-cyan-400 text-xs font-mono">
+                {Math.round(progress?.progress || 0)}%
+              </span>
+            </div>
+            <div className="w-full bg-gray-800 rounded-full h-1.5">
+              <div
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 h-1.5 rounded-full transition-all duration-300"
+                style={{ width: `${progress?.progress || 0}%` }}
+              />
+            </div>
+            {progress?.nextConditionHint && (
+              <p className="text-gray-400 text-xs italic">
+                {progress.nextConditionHint}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export function JourneyTracker() {
