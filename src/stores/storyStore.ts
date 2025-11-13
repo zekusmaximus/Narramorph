@@ -920,6 +920,9 @@ export const useStoryStore = create<StoryStore>()(
         tracking.lastCharacterVisited = currentChar;
 
         // === Revisit Tracking ===
+        // isRevisit currently unused but kept for future analytics
+        // @ts-expect-error - Unused but kept for future analytics
+        const isRevisit = existingRecord && existingRecord.visitCount > 0;
         const totalVisits = Object.keys(draftState.progress.visitedNodes).length;
         const revisits = Object.values(draftState.progress.visitedNodes).filter(
           (record) => record.visitCount > 1,

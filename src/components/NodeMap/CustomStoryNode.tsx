@@ -122,6 +122,7 @@ const CHARACTER_THEMES = {
  * Get character icon/emoji for node
  * Currently unused but kept for future feature
  */
+// @ts-expect-error - Unused but kept for future feature
 function getCharacterIcon(character: CharacterType): string {
   switch (character) {
     case 'archaeologist':

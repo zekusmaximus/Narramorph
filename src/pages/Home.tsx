@@ -92,7 +92,10 @@ export default function Home() {
         <AnimatePresence>
           {l3AssemblyViewOpen && currentL3Assembly && (
             <ErrorBoundary fallbackRender={({ error }) => <ErrorFallback error={error} />}>
-              <L3AssemblyView assembly={currentL3Assembly} onClose={closeL3AssemblyView} />
+              <L3AssemblyView
+                assembly={currentL3Assembly}
+                onClose={closeL3AssemblyView}
+              />
             </ErrorBoundary>
           )}
         </AnimatePresence>

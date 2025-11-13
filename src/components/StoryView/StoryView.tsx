@@ -1,9 +1,14 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useStoryStore } from '@/stores';
 import { useVariationSelection } from '@/hooks/useVariationSelection';
 import { VariationDebugPanel } from './VariationDebugPanel';
-import type { StoryNode, TransformationState, CharacterType } from '@/types';
+import type {
+  StoryNode,
+  TransformationState,
+  CharacterType,
+  ConnectionType,
+} from '@/types';
 
 interface StoryViewProps {
   className?: string;
@@ -48,9 +53,28 @@ const characterThemes: Record<
 };
 
 /**
+ * Gets visual icon for transformation states
+ * Currently unused but kept for future feature
+ */
+// @ts-expect-error - Unused but kept for future feature
+function getStateIcon(state: TransformationState): string {
+  switch (state) {
+    case 'initial':
+      return '🔵';
+    case 'firstRevisit':
+      return '🟡';
+    case 'metaAware':
+      return '🟣';
+    default:
+      return '🔵';
+  }
+}
+
+/**
  * Gets human-readable label for transformation states
  * Currently unused but kept for future feature
  */
+// @ts-expect-error - Unused but kept for future feature
 function getStateLabel(state: TransformationState): string {
   switch (state) {
     case 'initial':
@@ -61,6 +85,26 @@ function getStateLabel(state: TransformationState): string {
       return 'Meta-Aware';
     default:
       return 'First Visit';
+  }
+}
+
+/**
+ * Gets icon for connection types
+ * Currently unused but kept for future feature
+ */
+// @ts-expect-error - Unused but kept for future feature
+function getConnectionIcon(type: ConnectionType): ReactNode {
+  switch (type) {
+    case 'temporal':
+      return <span className="text-blue-500">⏱️</span>;
+    case 'consciousness':
+      return <span className="text-green-500">🧠</span>;
+    case 'recursive':
+      return <span className="text-red-500">🔄</span>;
+    case 'hidden':
+      return <span className="text-purple-500">🔒</span>;
+    default:
+      return <span className="text-blue-500">⏱️</span>;
   }
 }
 
@@ -81,7 +125,7 @@ function formatTime(seconds: number): string {
  * Parses markdown content for story display
  * Supports bold, italic, and paragraph formatting
  */
-function parseMarkdown(content: string): React.ReactNode {
+function parseMarkdown(content: string): ReactNode {
   // Split into paragraphs - L1 nodes use double newlines, L2 nodes use single newlines
   // Try double newlines first, fall back to single newlines if we only get one paragraph
   let paragraphs = content.split('\n\n').filter((p) => p.trim());
@@ -94,7 +138,7 @@ function parseMarkdown(content: string): React.ReactNode {
     let key = 0;
 
     // Process text with bold and italic formatting
-    const processedParts: React.ReactNode[] = [];
+    const processedParts: ReactNode[] = [];
 
     // Regex patterns for markdown formatting
     const boldPattern = /(\*\*|__)(.*?)\1/g;
@@ -122,7 +166,7 @@ function parseMarkdown(content: string): React.ReactNode {
     }
 
     // Second pass: handle italic text within the processed parts
-    const finalParts: React.ReactNode[] = [];
+    const finalParts: ReactNode[] = [];
 
     processedParts.forEach((part) => {
       if (typeof part === 'string') {
