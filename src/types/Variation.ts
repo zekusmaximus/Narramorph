@@ -158,13 +158,13 @@ export interface L3Assembly {
  */
 export interface JourneyTracking {
   // Character visit patterns
-  startingCharacter?: 'archaeologist' | 'algorithm' | 'lastHuman';
+  startingCharacter: 'archaeologist' | 'algorithm' | 'lastHuman' | null;
   characterVisitPercentages: {
     archaeologist: number;
     algorithm: number;
     lastHuman: number;
   };
-  dominantCharacter?: 'archaeologist' | 'algorithm' | 'lastHuman';
+  dominantCharacter: 'archaeologist' | 'algorithm' | 'lastHuman' | null;
 
   // Pattern determination
   currentJourneyPattern: JourneyPattern;
@@ -197,7 +197,7 @@ export interface JourneyTracking {
    * Last character visited
    * Used to detect character switches
    */
-  lastCharacterVisited?: 'archaeologist' | 'algorithm' | 'lastHuman';
+  lastCharacterVisited: 'archaeologist' | 'algorithm' | 'lastHuman' | null;
 
   /**
    * Revisit patterns
@@ -231,4 +231,5 @@ export interface ConditionContext {
     algorithm: number;
     lastHuman: number;
   };
+  recentVariationIds?: string[]; // Last N variation IDs for de-duplication
 }

@@ -106,8 +106,8 @@ export function useVariationSelection(
     }
 
     try {
-      // Step 1: Get current reader state
-      const context = getConditionContext(nodeId);
+      // Step 1: Get current reader state (with recent variations for de-duplication)
+      const context = getConditionContext(nodeId, { includeRecentVariations: true });
 
       // Step 2: Load variation file
       const storyId = storyData?.metadata?.id || 'eternal-return';

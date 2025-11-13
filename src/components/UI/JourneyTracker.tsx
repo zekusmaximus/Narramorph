@@ -29,9 +29,6 @@ const philosophyLabels: Record<PathPhilosophy, string> = {
  */
 function ConnectionHeatmap() {
   const tracking = useStoryStore((state) => state.progress.journeyTracking);
-
-  if (!tracking) return null;
-
   const { crossCharacterConnections } = tracking;
   const maxConnections = Math.max(
     ...Object.values(crossCharacterConnections),
@@ -114,9 +111,6 @@ function ConnectionHeatmap() {
  */
 function NavigationPatternInsight() {
   const tracking = useStoryStore((state) => state.progress.journeyTracking);
-
-  if (!tracking) return null;
-
   const { navigationPattern, explorationMetrics, revisitFrequency } = tracking;
 
   const patternLabels = {
@@ -198,10 +192,6 @@ export function JourneyTracker() {
   const progress = useStoryStore((state) => state.progress);
   const tracking = progress.journeyTracking;
   const [isExpanded, setIsExpanded] = useState(false);
-
-  if (!tracking) {
-    return null;
-  }
 
   const { characterVisitPercentages, currentJourneyPattern, dominantPhilosophy, l2Choices } =
     tracking;

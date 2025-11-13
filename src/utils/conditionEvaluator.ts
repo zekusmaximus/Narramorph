@@ -22,6 +22,75 @@ const debugLog = (...args: unknown[]): void => {
 };
 
 /**
+ * Pick a non-repeating variation from candidates using sliding window de-duplication
+ *
+ * Algorithm:
+ * 1. If no recent history → return first candidate
+ * 2. Get last N (windowSize) variationIds from recent history
+ * 3. Filter candidates to exclude those in window
+ * 4. If any unused → return first unused
+ * 5. Else (all recently used) → return LRU (earliest in window)
+ * 6. Fallback → first candidate
+ *
+ * @param candidates - Array of variations to choose from
+ * @param recentIds - Recent variation IDs (sliding window)
+ * @param windowSize - Size of deduplication window (default: 3)
+ * @returns Selected variation
+ */
+export function pickNonRepeatingVariation<T extends { variationId?: string; id?: string }>(
+  candidates: T[],
+  recentIds?: string[],
+  windowSize: number = 3,
+): T | null {
+  if (candidates.length === 0) {
+    return null;
+  }
+
+  // If no recent history, return first candidate
+  if (!recentIds || recentIds.length === 0) {
+    return candidates[0];
+  }
+
+  // Get last N variation IDs from window
+  const recentWindow = recentIds.slice(-windowSize);
+
+  debugLog('[Dedupe] Recent window:', recentWindow);
+  debugLog('[Dedupe] Candidates:', candidates.map((c) => c.variationId || c.id));
+
+  // Filter out candidates that were recently used
+  const unused = candidates.filter((candidate) => {
+    const candidateId = candidate.variationId || candidate.id;
+    return !recentWindow.includes(candidateId || '');
+  });
+
+  debugLog('[Dedupe] Unused candidates:', unused.length);
+
+  // If we have unused candidates, return the first one
+  if (unused.length > 0) {
+    return unused[0];
+  }
+
+  // All candidates were recently used - use LRU (Least Recently Used)
+  // Find the candidate that appears earliest in the recent window
+  let lruCandidate = candidates[0];
+  let earliestIndex = recentWindow.length;
+
+  for (const candidate of candidates) {
+    const candidateId = candidate.variationId || candidate.id;
+    const index = recentWindow.indexOf(candidateId || '');
+
+    if (index !== -1 && index < earliestIndex) {
+      earliestIndex = index;
+      lruCandidate = candidate;
+    }
+  }
+
+  debugLog('[Dedupe] All candidates recently used, selecting LRU:', lruCandidate.variationId || lruCandidate.id);
+
+  return lruCandidate;
+}
+
+/**
  * Convert numeric awareness to level category
  */
 export function getAwarenessLevel(awareness: number): AwarenessLevel {
@@ -169,6 +238,9 @@ export function findMatchingVariation(
 
   // If multiple matches, prefer exact matches over broader ones
   // Priority: exact journey + exact philosophy > exact journey > exact philosophy > any
+  // Apply de-duplication at each tier using sliding window
+  const recentIds = context.recentVariationIds;
+
   const exactMatches = matches.filter(
     (v) =>
       v.metadata.journeyPattern === context.journeyPattern &&
@@ -176,15 +248,17 @@ export function findMatchingVariation(
   );
 
   if (exactMatches.length > 0) {
-    const selected = exactMatches[0];
-    debugLog(`[VariationSelection] Selected exact match: ${selected.variationId}`);
-    endTimer({
-      nodeId: context.nodeId,
-      variationCount: variations.length,
-      matchFound: true,
-      variationId: selected.variationId,
-    });
-    return selected;
+    const selected = pickNonRepeatingVariation(exactMatches, recentIds);
+    if (selected) {
+      debugLog(`[VariationSelection] Selected exact match with dedupe: ${selected.variationId}`);
+      endTimer({
+        nodeId: context.nodeId,
+        variationCount: variations.length,
+        matchFound: true,
+        variationId: selected.variationId,
+      });
+      return selected;
+    }
   }
 
   const journeyMatches = matches.filter(
@@ -192,15 +266,17 @@ export function findMatchingVariation(
   );
 
   if (journeyMatches.length > 0) {
-    const selected = journeyMatches[0];
-    debugLog(`[VariationSelection] Selected journey match: ${selected.variationId}`);
-    endTimer({
-      nodeId: context.nodeId,
-      variationCount: variations.length,
-      matchFound: true,
-      variationId: selected.variationId,
-    });
-    return selected;
+    const selected = pickNonRepeatingVariation(journeyMatches, recentIds);
+    if (selected) {
+      debugLog(`[VariationSelection] Selected journey match with dedupe: ${selected.variationId}`);
+      endTimer({
+        nodeId: context.nodeId,
+        variationCount: variations.length,
+        matchFound: true,
+        variationId: selected.variationId,
+      });
+      return selected;
+    }
   }
 
   const philosophyMatches = matches.filter(
@@ -208,8 +284,23 @@ export function findMatchingVariation(
   );
 
   if (philosophyMatches.length > 0) {
-    const selected = philosophyMatches[0];
-    debugLog(`[VariationSelection] Selected philosophy match: ${selected.variationId}`);
+    const selected = pickNonRepeatingVariation(philosophyMatches, recentIds);
+    if (selected) {
+      debugLog(`[VariationSelection] Selected philosophy match with dedupe: ${selected.variationId}`);
+      endTimer({
+        nodeId: context.nodeId,
+        variationCount: variations.length,
+        matchFound: true,
+        variationId: selected.variationId,
+      });
+      return selected;
+    }
+  }
+
+  // Fallback: apply de-duplication to all matches
+  const selected = pickNonRepeatingVariation(matches, recentIds);
+  if (selected) {
+    debugLog(`[VariationSelection] Selected any match with dedupe: ${selected.variationId}`);
     endTimer({
       nodeId: context.nodeId,
       variationCount: variations.length,
@@ -219,15 +310,8 @@ export function findMatchingVariation(
     return selected;
   }
 
-  const selected = matches[0];
-  debugLog(`[VariationSelection] Selected first match: ${selected.variationId}`);
-  endTimer({
-    nodeId: context.nodeId,
-    variationCount: variations.length,
-    matchFound: true,
-    variationId: selected.variationId,
-  });
-  return selected;
+  // Should never reach here, but return first match as ultimate fallback
+  return matches[0];
 }
 
 /**
@@ -270,10 +354,10 @@ export function selectTargetNode(
  * Calculate journey pattern based on character visit percentages
  */
 export function calculateJourneyPattern(
-  startingCharacter: 'archaeologist' | 'algorithm' | 'lastHuman' | undefined,
+  startingCharacter: 'archaeologist' | 'algorithm' | 'lastHuman' | null,
   percentages: { archaeologist: number; algorithm: number; lastHuman: number },
 ): JourneyPattern {
-  if (!startingCharacter) {
+  if (startingCharacter === null) {
     return 'unknown';
   }
 

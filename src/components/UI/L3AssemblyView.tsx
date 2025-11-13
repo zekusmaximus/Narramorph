@@ -80,6 +80,7 @@ const characterTextColors = {
 export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   const markL3SectionRead = useStoryStore((state) => state.markL3SectionRead);
+  const finalizeActiveVisit = useStoryStore((state) => state.finalizeActiveVisit);
   const l3Progress = useStoryStore(
     (state) => state.progress.l3AssembliesViewed?.[state.progress.l3AssembliesViewed.length - 1],
   );
@@ -167,6 +168,14 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [goToSection, handleNext, handlePrevious, onClose]);
+
+  // Finalize active visit on unmount
+  useEffect(() => {
+    return () => {
+      // Cleanup: finalize active visit when L3 assembly view unmounts
+      finalizeActiveVisit();
+    };
+  }, [finalizeActiveVisit]);
 
   return (
     <motion.div

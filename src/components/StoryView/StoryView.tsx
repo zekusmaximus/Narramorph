@@ -229,8 +229,9 @@ export default function StoryView({ className = '' }: StoryViewProps) {
     storyViewOpen,
     preferences,
     closeStoryView,
-    visitNode,
     getNodeState,
+    updateActiveVisitVariation,
+    finalizeActiveVisit,
   } = useStoryStore();
 
   // Reading time tracking
@@ -303,19 +304,20 @@ export default function StoryView({ className = '' }: StoryViewProps) {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [storyViewOpen, closeStoryView]);
 
-  // Handle visit tracking when opening
-  const handleVisit = useCallback(() => {
-    if (selectedNode) {
-      visitNode(selectedNode);
-    }
-  }, [selectedNode, visitNode]);
-
-  // Auto-visit when story view opens
+  // Update active visit with variationId once it's determined
   useEffect(() => {
-    if (storyViewOpen && selectedNode) {
-      handleVisit();
+    if (storyViewOpen && selectedNode && variationId && !usedFallback) {
+      updateActiveVisitVariation(variationId);
     }
-  }, [storyViewOpen, selectedNode, handleVisit]);
+  }, [storyViewOpen, selectedNode, variationId, usedFallback, updateActiveVisitVariation]);
+
+  // Finalize active visit on unmount
+  useEffect(() => {
+    return () => {
+      // Cleanup: finalize active visit when component unmounts
+      finalizeActiveVisit();
+    };
+  }, [finalizeActiveVisit]);
 
   if (!storyViewOpen || !currentNode || !nodeState) {
     return null;
