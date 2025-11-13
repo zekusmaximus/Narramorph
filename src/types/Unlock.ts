@@ -10,8 +10,8 @@
  * - Compound conditions (AND/OR/NOT logic)
  */
 
-import type { PathPhilosophy } from './Variation';
 import type { TransformationState } from './Node';
+import type { PathPhilosophy } from './Variation';
 
 /**
  * Types of unlock conditions supported by the system

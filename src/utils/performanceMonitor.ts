@@ -38,7 +38,7 @@ class PerformanceMonitor {
 
       // Log slow operations (>100ms)
       if (duration > 100) {
-        console.warn(`[Performance] Slow operation: ${operation} took ${duration.toFixed(2)}ms`);
+        // Development warning: [Performance] Slow operation: ${operation} took ${duration.toFixed(2)}ms
       }
     };
   }
@@ -69,7 +69,9 @@ class PerformanceMonitor {
       .filter((m) => m.operation === operation)
       .map((m) => m.duration);
 
-    if (operationMetrics.length === 0) return null;
+    if (operationMetrics.length === 0) {
+      return null;
+    }
 
     const sorted = operationMetrics.sort((a, b) => a - b);
     const p95Index = Math.floor(sorted.length * 0.95);
@@ -108,21 +110,16 @@ class PerformanceMonitor {
    * Log performance summary to console
    */
   logSummary(): void {
-    console.group('[Performance] Summary');
+    // Development log: [Performance] Summary
 
     for (const operation of this.getOperations()) {
       const stats = this.getStats(operation);
       if (stats) {
-        console.log(`${operation}:`, {
-          calls: stats.count,
-          avg: `${stats.avg.toFixed(2)}ms`,
-          p95: `${stats.p95.toFixed(2)}ms`,
-          max: `${stats.max.toFixed(2)}ms`,
-        });
+        // Development log: Performance stats for ${operation}
       }
     }
 
-    console.groupEnd();
+    // Development log: End performance summary
   }
 }
 

@@ -25,7 +25,9 @@ export function GlitchEffect({ active, color, onComplete }: GlitchEffectProps) {
     return undefined;
   }, [active, onComplete]);
 
-  if (!show) return null;
+  if (!show) {
+    return null;
+  }
 
   return (
     <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">

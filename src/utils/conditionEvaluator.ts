@@ -2,6 +2,8 @@
  * Condition evaluator - evaluates selection matrix conditions against user state
  */
 
+import { performanceMonitor } from './performanceMonitor';
+
 import type {
   SelectionMatrixEntry,
   Variation,
@@ -10,7 +12,6 @@ import type {
   JourneyPattern,
   PathPhilosophy,
 } from '@/types';
-import { performanceMonitor } from './performanceMonitor';
 
 const isDebugEnv = process.env.NODE_ENV !== 'production';
 const debugLog = (...args: unknown[]): void => {
@@ -55,7 +56,10 @@ export function pickNonRepeatingVariation<T extends { variationId?: string; id?:
   const recentWindow = recentIds.slice(-windowSize);
 
   debugLog('[Dedupe] Recent window:', recentWindow);
-  debugLog('[Dedupe] Candidates:', candidates.map((c) => c.variationId || c.id));
+  debugLog(
+    '[Dedupe] Candidates:',
+    candidates.map((c) => c.variationId || c.id),
+  );
 
   // Filter out candidates that were recently used
   const unused = candidates.filter((candidate) => {
@@ -85,7 +89,10 @@ export function pickNonRepeatingVariation<T extends { variationId?: string; id?:
     }
   }
 
-  debugLog('[Dedupe] All candidates recently used, selecting LRU:', lruCandidate.variationId || lruCandidate.id);
+  debugLog(
+    '[Dedupe] All candidates recently used, selecting LRU:',
+    lruCandidate.variationId || lruCandidate.id,
+  );
 
   return lruCandidate;
 }
@@ -94,8 +101,12 @@ export function pickNonRepeatingVariation<T extends { variationId?: string; id?:
  * Convert numeric awareness to level category
  */
 export function getAwarenessLevel(awareness: number): AwarenessLevel {
-  if (awareness < 35) return 'low';
-  if (awareness < 70) return 'medium';
+  if (awareness < 35) {
+    return 'low';
+  }
+  if (awareness < 70) {
+    return 'medium';
+  }
   return 'high';
 }
 
@@ -286,7 +297,9 @@ export function findMatchingVariation(
   if (philosophyMatches.length > 0) {
     const selected = pickNonRepeatingVariation(philosophyMatches, recentIds);
     if (selected) {
-      debugLog(`[VariationSelection] Selected philosophy match with dedupe: ${selected.variationId}`);
+      debugLog(
+        `[VariationSelection] Selected philosophy match with dedupe: ${selected.variationId}`,
+      );
       endTimer({
         nodeId: context.nodeId,
         variationCount: variations.length,
@@ -421,9 +434,15 @@ export function calculatePathPhilosophy(choices: {
   const investPercent = (choices.invest / total) * 100;
 
   // Dominant if >50%
-  if (acceptPercent > 50) return 'accept';
-  if (resistPercent > 50) return 'resist';
-  if (investPercent > 50) return 'invest';
+  if (acceptPercent > 50) {
+    return 'accept';
+  }
+  if (resistPercent > 50) {
+    return 'resist';
+  }
+  if (investPercent > 50) {
+    return 'invest';
+  }
 
   // If no clear dominant (all within 20% of each other)
   const max = Math.max(acceptPercent, resistPercent, investPercent);
@@ -434,7 +453,11 @@ export function calculatePathPhilosophy(choices: {
   }
 
   // Return the highest
-  if (acceptPercent === max) return 'accept';
-  if (resistPercent === max) return 'resist';
+  if (acceptPercent === max) {
+    return 'accept';
+  }
+  if (resistPercent === max) {
+    return 'resist';
+  }
   return 'invest';
 }

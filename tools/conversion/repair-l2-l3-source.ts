@@ -32,14 +32,19 @@ async function walk(dir: string, out: string[] = []): Promise<string[]> {
   }
   for (const e of entries) {
     const p = join(dir, e.name);
-    if (e.isDirectory()) await walk(p, out);
-    else if (e.isFile() && p.endsWith('.md')) out.push(p);
+    if (e.isDirectory()) {
+      await walk(p, out);
+    } else if (e.isFile() && p.endsWith('.md')) {
+      out.push(p);
+    }
   }
   return out;
 }
 
 function splitFrontmatter(raw: string): { fm: string | null; body: string } {
-  if (!raw.startsWith('---')) return { fm: null, body: raw };
+  if (!raw.startsWith('---')) {
+    return { fm: null, body: raw };
+  }
   const lines = raw.split(/\r?\n/);
   // find closing fence
   for (let i = 1; i < lines.length; i++) {
@@ -76,7 +81,9 @@ function deriveL2FrontmatterFromName(fileName: string): {
   conditions: { awareness: string };
 } {
   const m = fileName.match(/^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)/);
-  if (!m) throw new Error(`Cannot derive L2 id from ${fileName}`);
+  if (!m) {
+    throw new Error(`Cannot derive L2 id from ${fileName}`);
+  }
   const [, ch, path, phase, num] = m;
   const variation_id = `${ch}-L2-${path}-${phase}-${num.padStart(3, '0')}`;
   const variation_type = phase === 'FR' ? 'firstRevisit' : 'metaAware';
@@ -100,8 +107,12 @@ function sanitizeFrontmatterTextBlock(fm: string): string {
     if (/^\s*text:\s*>-\s*$/.test(lines[i])) {
       for (let j = i + 1; j < lines.length; j++) {
         const l = lines[j];
-        if (/^---\s*$/.test(l)) break;
-        if (/^[A-Za-z0-9_\-]+\s*:/.test(l)) break;
+        if (/^---\s*$/.test(l)) {
+          break;
+        }
+        if (/^[A-Za-z0-9_\-]+\s*:/.test(l)) {
+          break;
+        }
         lines[j] = l.startsWith('  ') ? l : '  ' + l;
       }
     }
@@ -130,7 +141,9 @@ async function repairL2(docRoot: string): Promise<{ files: number; modified: num
       for (const p of paths) {
         files++;
         const raw = await readFile(p);
-        if (!raw) continue;
+        if (!raw) {
+          continue;
+        }
         const { fm, body } = splitFrontmatter(raw);
         const name = basename(p);
         // Try sanitizing existing fm; if none or unusable, derive minimal
@@ -156,12 +169,18 @@ async function repairL3Conv(docRoot: string): Promise<{ files: number; modified:
   let files = 0;
   let modified = 0;
   for (const p of paths) {
-    if (!/conv-L3-\d+\.md$/.test(p)) continue;
+    if (!/conv-L3-\d+\.md$/.test(p)) {
+      continue;
+    }
     files++;
     const raw = await readFile(p);
-    if (!raw) continue;
+    if (!raw) {
+      continue;
+    }
     let { fm, body } = splitFrontmatter(raw);
-    if (!fm) continue;
+    if (!fm) {
+      continue;
+    }
     let changed = false;
     if (!/^characterVoices\s*:/m.test(fm)) {
       fm += `\ncharacterVoices:\n  - archaeologist\n  - algorithm\n  - last-human`;

@@ -2,6 +2,10 @@
  * L3 Assembly Builder - constructs 4-section convergence assemblies
  */
 
+import { findMatchingVariation } from './conditionEvaluator';
+import { performanceMonitor } from './performanceMonitor';
+import { loadL3Variations } from './variationLoader';
+
 import type {
   L3Assembly,
   L3AssemblySection,
@@ -9,9 +13,6 @@ import type {
   SynthesisPattern,
   VariationFile,
 } from '@/types';
-import { loadL3Variations } from './variationLoader';
-import { findMatchingVariation } from './conditionEvaluator';
-import { performanceMonitor } from './performanceMonitor';
 
 /**
  * Calculate synthesis pattern based on character visit percentages
@@ -206,10 +207,18 @@ export function validateL3Assembly(assembly: L3Assembly): {
   const warnings: string[] = [];
 
   // Check section presence
-  if (!assembly.arch) errors.push('Missing archaeologist section');
-  if (!assembly.algo) errors.push('Missing algorithm section');
-  if (!assembly.hum) errors.push('Missing human section');
-  if (!assembly.conv) errors.push('Missing convergence section');
+  if (!assembly.arch) {
+    errors.push('Missing archaeologist section');
+  }
+  if (!assembly.algo) {
+    errors.push('Missing algorithm section');
+  }
+  if (!assembly.hum) {
+    errors.push('Missing human section');
+  }
+  if (!assembly.conv) {
+    errors.push('Missing convergence section');
+  }
 
   // Check word counts (approximate expected ranges)
   const checkWordCount = (
@@ -230,10 +239,18 @@ export function validateL3Assembly(assembly: L3Assembly): {
     }
   };
 
-  if (assembly.arch) checkWordCount(assembly.arch, 'Archaeologist', 800, 1000);
-  if (assembly.algo) checkWordCount(assembly.algo, 'Algorithm', 800, 1000);
-  if (assembly.hum) checkWordCount(assembly.hum, 'Human', 800, 1000);
-  if (assembly.conv) checkWordCount(assembly.conv, 'Convergence', 1600, 2000);
+  if (assembly.arch) {
+    checkWordCount(assembly.arch, 'Archaeologist', 800, 1000);
+  }
+  if (assembly.algo) {
+    checkWordCount(assembly.algo, 'Algorithm', 800, 1000);
+  }
+  if (assembly.hum) {
+    checkWordCount(assembly.hum, 'Human', 800, 1000);
+  }
+  if (assembly.conv) {
+    checkWordCount(assembly.conv, 'Convergence', 1600, 2000);
+  }
 
   // Check total word count
   const expectedTotal = 4200; // Approximate expected total

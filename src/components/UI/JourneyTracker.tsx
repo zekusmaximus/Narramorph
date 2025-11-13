@@ -2,8 +2,9 @@
  * Journey Tracker Component - displays current journey pattern and path philosophy
  */
 
-import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+
 import { useStoryStore } from '@/stores/storyStore';
 import type { JourneyPattern, PathPhilosophy } from '@/types';
 
@@ -184,7 +185,6 @@ function NavigationPatternInsight() {
  */
 function NextUnlockPreview() {
   const unlockConfigs = useStoryStore((state) => state.unlockConfigs);
-  const progress = useStoryStore((state) => state.progress);
   const getUnlockProgress = useStoryStore((state) => state.getUnlockProgress);
   const nodes = useStoryStore((state) => state.nodes);
 
@@ -211,9 +211,7 @@ function NextUnlockPreview() {
 
   return (
     <div className="space-y-2">
-      <h4 className="text-cyan-400 font-mono text-xs uppercase tracking-wider">
-        Next Unlocks
-      </h4>
+      <h4 className="text-cyan-400 font-mono text-xs uppercase tracking-wider">Next Unlocks</h4>
       <div className="space-y-2">
         {topThree.map(({ config, progress, node }) => (
           <div
@@ -235,9 +233,7 @@ function NextUnlockPreview() {
               />
             </div>
             {progress?.nextConditionHint && (
-              <p className="text-gray-400 text-xs italic">
-                {progress.nextConditionHint}
-              </p>
+              <p className="text-gray-400 text-xs italic">{progress.nextConditionHint}</p>
             )}
           </div>
         ))}

@@ -1,9 +1,10 @@
-import { memo, useState, useMemo } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
 import { motion } from 'framer-motion';
 import { Lock } from 'lucide-react';
-import type { StoryNode, NodeUIState, CharacterType, TransformationState } from '@/types';
+import { memo, useState, useMemo } from 'react';
+
 import { useStoryStore } from '@/stores/storyStore';
+import type { StoryNode, NodeUIState, CharacterType, TransformationState } from '@/types';
 
 /**
  * Props passed to custom node via React Flow
@@ -122,8 +123,8 @@ const CHARACTER_THEMES = {
  * Get character icon/emoji for node
  * Currently unused but kept for future feature
  */
-// @ts-expect-error - Unused but kept for future feature
-function getCharacterIcon(character: CharacterType): string {
+// Function kept for future feature - exported to prevent unused warning
+export function getCharacterIcon(character: CharacterType): string {
   switch (character) {
     case 'archaeologist':
       return '🔍';
@@ -183,9 +184,13 @@ function CustomStoryNode({ data, selected }: NodeProps) {
 
   // Check if this node is connected to selected node
   const isConnectionTarget = useMemo(() => {
-    if (!selectedNode) return false;
+    if (!selectedNode) {
+      return false;
+    }
     const selected = nodes.get(selectedNode);
-    if (!selected || !selected.connections) return false;
+    if (!selected || !selected.connections) {
+      return false;
+    }
     return selected.connections.some((conn) => conn.targetId === node.id);
   }, [selectedNode, nodes, node.id]);
 

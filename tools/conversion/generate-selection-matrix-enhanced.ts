@@ -6,9 +6,9 @@
  */
 
 import { promises as fs } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
 import { parseArgs } from 'node:util';
-import { existsSync } from 'node:fs';
 
 // ============================================================================
 // TYPES & INTERFACES
@@ -900,12 +900,20 @@ export async function generateMatrix(options: MatrixGeneratorOptions): Promise<v
 // ============================================================================
 
 function mapAwarenessLevel(level?: string): 'Low' | 'Medium' | 'High' | 'VeryHigh' {
-  if (!level) return 'Low';
+  if (!level) {
+    return 'Low';
+  }
 
   const normalized = level.toLowerCase();
-  if (normalized.includes('very') || normalized.includes('veryhigh')) return 'VeryHigh';
-  if (normalized.includes('high')) return 'High';
-  if (normalized.includes('medium')) return 'Medium';
+  if (normalized.includes('very') || normalized.includes('veryhigh')) {
+    return 'VeryHigh';
+  }
+  if (normalized.includes('high')) {
+    return 'High';
+  }
+  if (normalized.includes('medium')) {
+    return 'Medium';
+  }
   return 'Low';
 }
 
@@ -913,7 +921,9 @@ function groupBy<T>(array: T[], keyFn: (item: T) => string): Record<string, T[]>
   return array.reduce(
     (acc, item) => {
       const key = keyFn(item);
-      if (!acc[key]) acc[key] = [];
+      if (!acc[key]) {
+        acc[key] = [];
+      }
       acc[key].push(item);
       return acc;
     },

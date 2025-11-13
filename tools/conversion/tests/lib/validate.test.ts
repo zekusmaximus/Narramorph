@@ -1,11 +1,12 @@
 import { describe, it, expect } from 'vitest';
+
+import { Logger } from '../../lib/log.js';
 import {
   validateL1L2Frontmatter,
   validateL3Frontmatter,
   validateVariationCount,
   checkDuplicateIds,
 } from '../../lib/validate.js';
-import { Logger } from '../../lib/log.js';
 
 describe('validateL1L2Frontmatter', () => {
   it('should accept valid L1 frontmatter', () => {

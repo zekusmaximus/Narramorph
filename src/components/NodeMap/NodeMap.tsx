@@ -1,4 +1,3 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ReactFlow,
   Background,
@@ -11,23 +10,26 @@ import {
   type OnNodesChange,
   type OnEdgesChange,
 } from '@xyflow/react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import '@xyflow/react/dist/style.css';
 import { motion } from 'framer-motion';
-import { useStoryStore } from '@/stores';
-import type { StoryNode, NodeUIState } from '@/types';
+
+import { BootSequence } from './BootSequence';
+import { CorruptionMeter } from './CorruptionMeter';
 import CustomStoryNode, { type CustomStoryNodeData } from './CustomStoryNode';
+import { DataStreams } from './DataStreams';
+import { DiscoveryOverlay } from './DiscoveryOverlay';
 import { convertToReactFlowEdges } from './edgeUtils';
 import { GlitchEffect } from './GlitchEffect';
 import { MemoryFragments } from './MemoryFragments';
-import { CorruptionMeter } from './CorruptionMeter';
-import { ReadingPathTrail } from './ReadingPathTrail';
-import { ParallaxBackground } from './ParallaxBackground';
 import { NeuralNetwork } from './NeuralNetwork';
-import { TemporalDistortion } from './TemporalDistortion';
-import { DataStreams } from './DataStreams';
 import { NodeTooltip } from './NodeTooltip';
-import { BootSequence } from './BootSequence';
-import { DiscoveryOverlay } from './DiscoveryOverlay';
+import { ParallaxBackground } from './ParallaxBackground';
+import { ReadingPathTrail } from './ReadingPathTrail';
+import { TemporalDistortion } from './TemporalDistortion';
+
+import { useStoryStore } from '@/stores';
+import type { StoryNode, NodeUIState } from '@/types';
 
 interface NodeMapProps {
   className?: string;

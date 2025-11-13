@@ -91,10 +91,18 @@ function normalizeCharacter(
   char: string,
 ): 'archaeologist' | 'algorithm' | 'last-human' | 'multi-perspective' {
   const n = (char || '').toLowerCase().replace(/[-_]/g, '');
-  if (n === 'human' || n === 'lasthuman' || n === 'hum') return 'last-human';
-  if (n === 'archaeologist' || n === 'arch' || n === 'arc') return 'archaeologist';
-  if (n === 'algorithm' || n === 'algo') return 'algorithm';
-  if (n === 'multiperspective') return 'multi-perspective';
+  if (n === 'human' || n === 'lasthuman' || n === 'hum') {
+    return 'last-human';
+  }
+  if (n === 'archaeologist' || n === 'arch' || n === 'arc') {
+    return 'archaeologist';
+  }
+  if (n === 'algorithm' || n === 'algo') {
+    return 'algorithm';
+  }
+  if (n === 'multiperspective') {
+    return 'multi-perspective';
+  }
   return 'archaeologist';
 }
 
@@ -104,13 +112,15 @@ function getNodePosition(
 ): { x: number; y: number } {
   // Default position if nodeId is invalid
   if (!nodeId) {
-    console.warn('getNodePosition called with undefined nodeId, using default position');
+    // Development warning: getNodePosition called with undefined nodeId, using default position
     return { x: 150, y: 150 };
   }
 
   if (layout) {
     for (const layer of Object.values(layout.layers)) {
-      if (layer.nodes[nodeId]) return layer.nodes[nodeId];
+      if (layer.nodes[nodeId]) {
+        return layer.nodes[nodeId];
+      }
     }
   }
   const match = nodeId.match(/^(arch|arc|algo|hum|algorithm|human)-L?(\d).*$/);
@@ -133,26 +143,28 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
     const metaMap = import.meta.glob('/src/data/stories/*/story.json', {
       eager: true,
       import: 'default',
-    }) as Record<string, StoryMetadataFile>;
+    });
     const charMap = import.meta.glob('/src/data/stories/*/*.json', {
       eager: true,
       import: 'default',
-    }) as Record<string, CharacterNodeFile | CharacterNodeDefinitionFile | StoryMetadataFile>;
+    });
     const l1VarMap = import.meta.glob('/src/data/stories/*/content/layer1/*-variations.json', {
       eager: true,
       import: 'default',
-    }) as Record<string, VariationFile>;
+    });
     const l2VarMap = import.meta.glob('/src/data/stories/*/content/layer2/*-variations.json', {
       eager: true,
       import: 'default',
-    }) as Record<string, VariationFile>;
+    });
     const layoutMap = import.meta.glob('/src/data/stories/*/layout.json', {
       eager: true,
       import: 'default',
-    }) as Record<string, LayoutFile>;
+    });
 
     const metaEntry = Object.entries(metaMap).find(([p]) => p.includes(`/${storyId}/story.json`));
-    if (!metaEntry) throw new ContentLoadError(`Story metadata not found for ${storyId}`);
+    if (!metaEntry) {
+      throw new ContentLoadError(`Story metadata not found for ${storyId}`);
+    }
     const [, metadata] = metaEntry;
 
     const layoutEntry = Object.entries(layoutMap).find(([p]) => p.includes(`/${storyId}/`));
@@ -170,42 +182,20 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
       )
       .map(([, data]) => data);
 
-    console.log(
-      'Loaded character files:',
-      Object.keys(charMap).filter(
-        (p) =>
-          p.includes(`/stories/${storyId}/`) &&
-          !p.endsWith('/story.json') &&
-          !p.endsWith('/layout.json') &&
-          !p.endsWith('/unlock-config.json') &&
-          !p.includes('/content/'),
-      ),
-    );
+    // Development log: Loaded character files for ${storyId}
 
     const allNodes: StoryNode[] = [];
     const allConnections: Connection[] = [];
 
     for (const charData of charFiles) {
       const isDef = (d: any): d is CharacterNodeDefinitionFile =>
-        Array.isArray((d as any).nodes) &&
-        (d as any).nodes.length > 0 &&
-        'contentFile' in (d as any).nodes[0];
+        Array.isArray(d.nodes) && d.nodes.length > 0 && 'contentFile' in d.nodes[0];
 
       // Debug logging
-      console.log('Processing character file:', {
-        hasNodes: !!(charData as any).nodes,
-        nodesIsArray: Array.isArray((charData as any).nodes),
-        nodesLength: Array.isArray((charData as any).nodes) ? (charData as any).nodes.length : 0,
-        hasContentFile:
-          Array.isArray((charData as any).nodes) && (charData as any).nodes.length > 0
-            ? 'contentFile' in (charData as any).nodes[0]
-            : false,
-        character: (charData as any).character,
-        isDef: isDef(charData),
-      });
+      // Development log: Processing character file for ${storyId}
 
       if (isDef(charData)) {
-        const characterRaw = charData.character as string;
+        const characterRaw = charData.character;
         for (const def of charData.nodes) {
           // Map old content file paths to actual variation file locations
           // Old: content/archaeologist/arc-L1.json -> New: content/layer1/arch-L1-variations.json
@@ -243,14 +233,7 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
                 | undefined)
             : undefined;
 
-          console.log('Content loading for node:', {
-            nodeId: def.id,
-            layer: def.layer,
-            character: characterRaw,
-            actualContentPath,
-            foundData: !!varData,
-            variationCount: varData?.variations?.length || 0,
-          });
+          // Development log: Content loading for node ${def.id}
 
           let content: StoryNode['content'] | undefined;
 
@@ -268,7 +251,7 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
             };
           } else {
             // Attempt legacy content file with transformationStates via glob (not mapped here); leave empty if missing
-            console.warn(`No content found for node ${def.id} at path ${actualContentPath}`);
+            // Development warning: No content found for node ${def.id} at path ${actualContentPath}
             content = {
               initial: 'Content not found. This node is under development.',
               firstRevisit: '',
@@ -282,7 +265,7 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
             character: normalizeCharacter(characterRaw),
             title: def.chapterTitle,
             position: def.position || getNodePosition(def.id, layout),
-            content: content!,
+            content: content,
             connections: (def.connections || []).map((t) => ({
               targetId: t,
               type: 'temporal' as const,
@@ -327,7 +310,7 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
 
         // Safety check: ensure nodes is actually an array
         if (!cf.nodes || !Array.isArray(cf.nodes)) {
-          console.warn('Skipping character file with invalid nodes array:', cf);
+          // Development warning: Skipping character file with invalid nodes array
           continue;
         }
 
@@ -376,51 +359,68 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
     try {
       validateStoryData(storyData);
     } catch (err) {
-      console.warn('[contentLoader] Validation warning:', (err as Error).message);
+      // Development warning: [contentLoader] Validation warning: ${(err as Error).message}
     }
 
     return storyData;
   } catch (error) {
-    if (error instanceof ContentLoadError) throw error;
+    if (error instanceof ContentLoadError) {
+      throw error;
+    }
     throw new ContentLoadError(`Failed to load story content for ${storyId}`, error as Error);
   }
 }
 
 function validateStoryData(storyData: StoryData): void {
-  if (!storyData.metadata?.id)
+  if (!storyData.metadata?.id) {
     throw new ContentLoadError('Story metadata missing required id field');
-  if (!storyData.nodes || storyData.nodes.length === 0)
+  }
+  if (!storyData.nodes || storyData.nodes.length === 0) {
     throw new ContentLoadError('Story must contain at least one node');
+  }
   const startNodeExists = storyData.nodes.some((n) => n.id === storyData.configuration.startNodeId);
-  if (!startNodeExists)
+  if (!startNodeExists) {
     throw new ContentLoadError(
       `Start node ${storyData.configuration.startNodeId} not found in story nodes`,
     );
+  }
   const nodeIds = new Set(storyData.nodes.map((n) => n.id));
   for (const node of storyData.nodes) {
-    if (!node.id) throw new ContentLoadError('Node missing id');
-    if (!node.content?.initial)
+    if (!node.id) {
+      throw new ContentLoadError('Node missing id');
+    }
+    if (!node.content?.initial) {
       throw new ContentLoadError(`Node ${node.id} missing initial content`);
-    if (!node.character) throw new ContentLoadError(`Node ${node.id} missing character`);
+    }
+    if (!node.character) {
+      throw new ContentLoadError(`Node ${node.id} missing character`);
+    }
     if (
       !node.position ||
       typeof node.position.x !== 'number' ||
       typeof node.position.y !== 'number'
-    )
+    ) {
       throw new ContentLoadError(`Node ${node.id} missing position`);
+    }
   }
   for (const c of storyData.connections || []) {
-    if (!nodeIds.has(c.sourceId))
+    if (!nodeIds.has(c.sourceId)) {
       throw new ContentLoadError(`Connection ${c.id} has missing source ${c.sourceId}`);
-    if (!nodeIds.has(c.targetId))
+    }
+    if (!nodeIds.has(c.targetId)) {
       throw new ContentLoadError(`Connection ${c.id} has missing target ${c.targetId}`);
+    }
   }
-  for (const nid of storyData.configuration.requiredNodesForCompletion)
-    if (!nodeIds.has(nid))
+  for (const nid of storyData.configuration.requiredNodesForCompletion) {
+    if (!nodeIds.has(nid)) {
       throw new ContentLoadError(`Critical path references non-existent node ${nid}`);
-  for (const nid of storyData.configuration.endingNodeIds)
-    if (!nodeIds.has(nid))
+    }
+  }
+  for (const nid of storyData.configuration.endingNodeIds) {
+    if (!nodeIds.has(nid)) {
       throw new ContentLoadError(`Ending node references non-existent node ${nid}`);
+    }
+  }
 }
 
 export function getAvailableStories(): string[] {

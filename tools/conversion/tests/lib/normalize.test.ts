@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { normalizeText, validateEncoding } from '../../lib/normalize.js';
+
 import { Logger } from '../../lib/log.js';
+import { normalizeText, validateEncoding } from '../../lib/normalize.js';
 
 describe('normalizeText', () => {
   it('should strip BOM from start of file', () => {

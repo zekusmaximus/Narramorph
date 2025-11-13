@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
+
 import { useStoryStore } from '@/stores/storyStore';
 
 /**
@@ -15,8 +16,12 @@ export function CorruptionMeter() {
   }, [stats]);
 
   const corruptionColor = useMemo(() => {
-    if (corruptionLevel < 30) return '#00e5ff'; // Low - cyan
-    if (corruptionLevel < 70) return '#ffa726'; // Medium - amber
+    if (corruptionLevel < 30) {
+      return '#00e5ff';
+    } // Low - cyan
+    if (corruptionLevel < 70) {
+      return '#ffa726';
+    } // Medium - amber
     return '#d32f2f'; // High - red
   }, [corruptionLevel]);
 

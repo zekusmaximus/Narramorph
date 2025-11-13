@@ -10,8 +10,9 @@
 
 import { promises as fs } from 'node:fs';
 import { join, resolve, basename, dirname, relative } from 'node:path';
-import YAML from 'yaml';
 import { parseArgs } from 'node:util';
+
+import YAML from 'yaml';
 
 // ============================================================================
 // TYPES & INTERFACES
@@ -99,7 +100,9 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
     ]),
     idNormalizer: (filename, frontmatter) => {
       const match = filename.match(/^(\w+)-L1-(FR|MA)-(\d+)/);
-      if (!match) throw new Error(`Invalid L1 filename: ${filename}`);
+      if (!match) {
+        throw new Error(`Invalid L1 filename: ${filename}`);
+      }
       const [, char, phase, num] = match;
       // Use 5-digit padding to match current convention (arch-L1-FR-00004)
       return `${char}-L1-${phase}-${num.padStart(5, '0')}`;
@@ -129,7 +132,9 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
     ]),
     idNormalizer: (filename, frontmatter) => {
       const match = filename.match(/^(\w+)-L2-(\w+)-(FR|MA)-(\d+)/);
-      if (!match) throw new Error(`Invalid L2 filename: ${filename}`);
+      if (!match) {
+        throw new Error(`Invalid L2 filename: ${filename}`);
+      }
       const [, char, path, phase, num] = match;
       // L2 uses 2-digit padding in current convention
       return `${char}-L2-${path}-${phase}-${num.padStart(2, '0')}`;
@@ -153,7 +158,9 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
     ]),
     idNormalizer: (filename, frontmatter) => {
       const match = filename.match(/^(\w+)-L3-(\d+)/);
-      if (!match) throw new Error(`Invalid L3 filename: ${filename}`);
+      if (!match) {
+        throw new Error(`Invalid L3 filename: ${filename}`);
+      }
       const [, sectionType, num] = match;
       // L3 uses 3-digit padding
       return `${sectionType}-L3-${num.padStart(3, '0')}`;
@@ -168,9 +175,13 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
     conditionalFields: new Map(),
     idNormalizer: (filename, frontmatter) => {
       let m = filename.match(/^final-(preserve|release|transform)/i);
-      if (m && m[1]) return `final-${m[1].toLowerCase()}`;
+      if (m && m[1]) {
+        return `final-${m[1].toLowerCase()}`;
+      }
       m = filename.match(/^L4-(PRESERVE|RELEASE|TRANSFORM)/i);
-      if (m && m[1]) return `final-${m[1].toLowerCase()}`;
+      if (m && m[1]) {
+        return `final-${m[1].toLowerCase()}`;
+      }
       throw new Error(`Invalid L4 filename: ${filename}`);
     },
     allowedDirectories: [/(^|\/)L4(\/|\\)(terminal(\/|\\))?/],
@@ -300,7 +311,9 @@ function parseFrontmatter(raw: string): { frontmatter: any; content: string } {
 
 // Best-effort removal of malformed frontmatter when closing fence is missing
 function stripMalformedFrontmatter(raw: string): string {
-  if (!raw.startsWith('---')) return raw;
+  if (!raw.startsWith('---')) {
+    return raw;
+  }
   const lines = raw.split(/\r?\n/);
   // remove initial '---'
   let i = 1;
@@ -363,7 +376,9 @@ function has(obj: any, path: string): boolean {
   const keys = path.split('.');
   let current = obj;
   for (const key of keys) {
-    if (current?.[key] === undefined) return false;
+    if (current?.[key] === undefined) {
+      return false;
+    }
     current = current[key];
   }
   return current !== undefined;
@@ -373,7 +388,9 @@ function get(obj: any, path: string): any {
   const keys = path.split('.');
   let current = obj;
   for (const key of keys) {
-    if (current?.[key] === undefined) return undefined;
+    if (current?.[key] === undefined) {
+      return undefined;
+    }
     current = current[key];
   }
   return current;
@@ -383,7 +400,9 @@ function set(obj: any, path: string, value: any): void {
   const keys = path.split('.');
   let current = obj;
   for (let i = 0; i < keys.length - 1; i++) {
-    if (!current[keys[i]]) current[keys[i]] = {};
+    if (!current[keys[i]]) {
+      current[keys[i]] = {};
+    }
     current = current[keys[i]];
   }
   current[keys[keys.length - 1]] = value;
@@ -573,7 +592,9 @@ export async function fixContent(options: FixerOptions): Promise<FixerReport> {
   const { layer, contentRoot, dryRun = false, verbose = false } = options;
 
   console.log(`🔧 Fixing content for layer(s): ${layer}`);
-  if (dryRun) console.log('   (DRY RUN - no files will be modified)');
+  if (dryRun) {
+    console.log('   (DRY RUN - no files will be modified)');
+  }
   console.log('');
 
   // Discover files

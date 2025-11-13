@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
+
 import { useStoryStore } from '@/stores/storyStore';
 
 interface NodeTooltipProps {
@@ -13,10 +14,14 @@ export function NodeTooltip({ nodeId, position }: NodeTooltipProps) {
   const nodes = useStoryStore((state) => state.nodes);
   const getNodeState = useStoryStore((state) => state.getNodeState);
 
-  if (!nodeId) return null;
+  if (!nodeId) {
+    return null;
+  }
 
   const node = nodes.get(nodeId);
-  if (!node) return null;
+  if (!node) {
+    return null;
+  }
 
   const state = getNodeState(nodeId);
 

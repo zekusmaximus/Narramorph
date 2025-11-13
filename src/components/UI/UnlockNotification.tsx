@@ -5,8 +5,9 @@
  */
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect } from 'react';
 import { Sparkles } from 'lucide-react';
+import { useEffect } from 'react';
+
 import { useStoryStore } from '@/stores/storyStore';
 
 /**
@@ -50,7 +51,9 @@ export function UnlockNotificationSystem() {
           const node = nodes.get(nodeId);
           const config = unlockConfigs.get(nodeId);
 
-          if (!node || !config) return null;
+          if (!node || !config) {
+            return null;
+          }
 
           const color = CHARACTER_COLORS[node.character] || '#999999';
 

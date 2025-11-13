@@ -3,10 +3,11 @@
  * Uses fixtures to test end-to-end conversion
  */
 
-import { describe, it, expect, beforeAll, afterAll } from 'vitest';
+import { execSync } from 'node:child_process';
 import { readFile, mkdir, rm } from 'node:fs/promises';
 import { join } from 'node:path';
-import { execSync } from 'node:child_process';
+
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 
 const FIXTURES_DIR = join(process.cwd(), 'tests/fixtures/L3');
 const OUTPUT_DIR = join(process.cwd(), 'tests/output/l3');

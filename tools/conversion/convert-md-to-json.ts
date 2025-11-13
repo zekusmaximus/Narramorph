@@ -4,13 +4,12 @@
  * Converts L1/L2/L3/L4 markdown files to JSON format
  */
 
+import { existsSync } from 'node:fs';
+import { watch } from 'node:fs';
 import { resolve, join, relative } from 'node:path';
 import { basename } from 'node:path';
-import { existsSync } from 'node:fs';
 import { parseArgs } from 'node:util';
-import { watch } from 'node:fs';
-import { Logger } from './lib/log.js';
-import { normalizeText } from './lib/normalize.js';
+
 import { parseFrontmatter, countWords } from './lib/frontmatter.js';
 import {
   readFileWithLogging,
@@ -23,6 +22,10 @@ import {
   createBackup,
   type Manifest,
 } from './lib/fs.js';
+import { generateAggregatedId, generateL3Id, parseVariationId } from './lib/ids.js';
+import { Logger } from './lib/log.js';
+import { normalizeText } from './lib/normalize.js';
+import { detectSimilarVariations, type VariationText } from './lib/similarity.js';
 import {
   validateL1L2Frontmatter,
   validateL3Frontmatter,
@@ -33,8 +36,6 @@ import {
   validateSchemaVersion,
   type ValidationOptions,
 } from './lib/validate.js';
-import { generateAggregatedId, generateL3Id, parseVariationId } from './lib/ids.js';
-import { detectSimilarVariations, type VariationText } from './lib/similarity.js';
 
 const SCHEMA_VERSION = '1.0.0';
 const GENERATOR_VERSION = '1.0.0';
@@ -216,13 +217,17 @@ async function startWatchMode(
   let debounceTimer: NodeJS.Timeout | null = null;
 
   watch(docsRoot, { recursive: true }, (_eventType, filename) => {
-    if (!filename || !filename.endsWith('.md')) return;
+    if (!filename || !filename.endsWith('.md')) {
+      return;
+    }
 
     const fullPath = join(docsRoot, filename);
     pendingChanges.add(fullPath);
 
     // Debounce: reset timer on each change
-    if (debounceTimer) clearTimeout(debounceTimer);
+    if (debounceTimer) {
+      clearTimeout(debounceTimer);
+    }
 
     debounceTimer = setTimeout(async () => {
       const changedFiles = Array.from(pendingChanges);
@@ -293,10 +298,18 @@ async function startWatchMode(
  * Detect which layer a file belongs to based on its path
  */
 function detectLayer(relativePath: string): string | null {
-  if (relativePath.includes('-L1-production')) return '1';
-  if (relativePath.includes('-L2-') && relativePath.includes('-production')) return '2';
-  if (relativePath.includes('/L3/')) return '3';
-  if (relativePath.includes('/L4/')) return '4';
+  if (relativePath.includes('-L1-production')) {
+    return '1';
+  }
+  if (relativePath.includes('-L2-') && relativePath.includes('-production')) {
+    return '2';
+  }
+  if (relativePath.includes('/L3/')) {
+    return '3';
+  }
+  if (relativePath.includes('/L4/')) {
+    return '4';
+  }
   return null;
 }
 
@@ -349,7 +362,9 @@ async function convertL1(
       files,
       async (file) => {
         const content = await readFileWithLogging(file, logger);
-        if (!content) return { variation: null, variationText: null };
+        if (!content) {
+          return { variation: null, variationText: null };
+        }
 
         const { text: normalized } = normalizeText(content, logger, file);
         const isInitialState = /INITIAL_STATE\.md$/.test(file);
@@ -402,7 +417,9 @@ async function convertL1(
           parsed = { frontmatter, content: body, raw: normalized };
         } else {
           parsed = parseFrontmatter(normalized, logger, file);
-          if (!parsed) return { variation: null, variationText: null };
+          if (!parsed) {
+            return { variation: null, variationText: null };
+          }
           frontmatter = parsed.frontmatter;
           body = parsed.content;
 
@@ -412,26 +429,30 @@ async function convertL1(
             let num: string | undefined;
             if (base) {
               const m = base.match(/^(FR|MA)[-_]?(\d{1,3})$/i);
-              if (m && m[2]) num = m[2];
+              if (m && m[2]) {
+                num = m[2];
+              }
             }
             // Fallback to filename extraction
             if (!num) {
               const fname = file.split(/[/\\]/).pop() || '';
               const m2 = fname.match(/-(FR|MA)-(\d{1,3})\.md$/i);
-              if (m2 && m2[2]) num = m2[2];
+              if (m2 && m2[2]) {
+                num = m2[2];
+              }
             }
             const dirIsFR = /firstRevisit/.test(file);
             const phase = dirIsFR ? 'FR' : 'MA';
             if (num) {
               const padded = num.padStart(3, '0');
-              (frontmatter as any).variation_id = `arch-L1-${phase}-${padded}`;
+              frontmatter.variation_id = `arch-L1-${phase}-${padded}`;
             }
           }
 
           // Normalize awareness into conditions.awareness if present as awareness_range
           if (!('conditions' in frontmatter) && 'awareness_range' in frontmatter) {
-            const ar = (frontmatter as any).awareness_range as string;
-            (frontmatter as any).conditions = { awareness: ar.endsWith('%') ? ar : `${ar}%` };
+            const ar = frontmatter.awareness_range as string;
+            frontmatter.conditions = { awareness: ar.endsWith('%') ? ar : `${ar}%` };
           }
         }
 
@@ -444,9 +465,13 @@ async function convertL1(
         const wordCount = frontmatter.word_count as number;
 
         let transformationState: string = variationType;
-        if (variationType === 'initial') transformationState = 'initial';
-        else if (variationType === 'firstRevisit') transformationState = 'firstRevisit';
-        else if (variationType === 'metaAware') transformationState = 'metaAware';
+        if (variationType === 'initial') {
+          transformationState = 'initial';
+        } else if (variationType === 'firstRevisit') {
+          transformationState = 'firstRevisit';
+        } else if (variationType === 'metaAware') {
+          transformationState = 'metaAware';
+        }
 
         let awarenessRange: [number, number] | undefined;
         if ('conditions' in frontmatter && frontmatter.conditions) {
@@ -483,7 +508,9 @@ async function convertL1(
     );
 
     for (const r of results) {
-      if (!r.variation || !r.variationText) continue;
+      if (!r.variation || !r.variationText) {
+        continue;
+      }
       variations.push(r.variation);
       ids.push(r.variation.id);
       variationTexts.push(r.variationText);
@@ -611,7 +638,9 @@ async function convertL2(
         files,
         async (file) => {
           const content = await readFileWithLogging(file, logger);
-          if (!content) return { variation: null, variationText: null };
+          if (!content) {
+            return { variation: null, variationText: null };
+          }
 
           const { text: normalized } = normalizeText(content, logger, file);
           const isInitialState = /INITIAL_STATE\.md$/.test(file);
@@ -689,9 +718,13 @@ async function convertL2(
           const wordCount = frontmatter.word_count as number;
 
           let transformationState: string = variationType;
-          if (variationType === 'initial') transformationState = 'initial';
-          else if (variationType === 'firstRevisit') transformationState = 'firstRevisit';
-          else if (variationType === 'metaAware') transformationState = 'metaAware';
+          if (variationType === 'initial') {
+            transformationState = 'initial';
+          } else if (variationType === 'firstRevisit') {
+            transformationState = 'firstRevisit';
+          } else if (variationType === 'metaAware') {
+            transformationState = 'metaAware';
+          }
 
           let awarenessRange: [number, number] | undefined;
           if ('conditions' in frontmatter && frontmatter.conditions) {
@@ -728,7 +761,9 @@ async function convertL2(
       );
 
       for (const r of results) {
-        if (!r.variation || !r.variationText) continue;
+        if (!r.variation || !r.variationText) {
+          continue;
+        }
         variations.push(r.variation);
         ids.push(r.variation.id);
         variationTexts.push(r.variationText);
@@ -845,10 +880,14 @@ async function convertL3(
       files,
       async (file) => {
         const content = await readFileWithLogging(file, logger);
-        if (!content) return {};
+        if (!content) {
+          return {};
+        }
         const { text: normalized } = normalizeText(content, logger, file);
         const parsed = parseFrontmatter(normalized, logger, file);
-        if (!parsed) return {};
+        if (!parsed) {
+          return {};
+        }
 
         const { frontmatter, content: body } = parsed;
 
@@ -885,7 +924,9 @@ async function convertL3(
           }
         }
 
-        if (!validateL3Frontmatter(frontmatter, logger, file)) return {};
+        if (!validateL3Frontmatter(frontmatter, logger, file)) {
+          return {};
+        }
 
         const rawVariationId = frontmatter.variationId as string;
         const journeyPattern = frontmatter.journeyPattern as string;
@@ -940,8 +981,9 @@ async function convertL3(
     );
 
     for (const r of results) {
-      if (!r.id || !r.outputJson || !r.file || !r.selectionKey || !r.sectionType || !r.sourceHash)
+      if (!r.id || !r.outputJson || !r.file || !r.selectionKey || !r.sectionType || !r.sourceHash) {
         continue;
+      }
       const variationId = r.id;
       const selectionKey = r.selectionKey;
       allIds.push(variationId);
@@ -1022,7 +1064,7 @@ async function convertL4(
     const { text: normalized } = normalizeText(content, logger, filePath);
 
     // Parse frontmatter (tolerant). If unavailable, salvage from filename and strip malformed header.
-    let parsed = parseFrontmatter(normalized, logger, filePath);
+    const parsed = parseFrontmatter(normalized, logger, filePath);
     let frontmatter: any;
     let body: string;
     if (!parsed) {
@@ -1060,7 +1102,9 @@ async function convertL4(
     }
 
     // Validate frontmatter
-    if (!validateL4Frontmatter(frontmatter, logger, filePath)) continue;
+    if (!validateL4Frontmatter(frontmatter, logger, filePath)) {
+      continue;
+    }
 
     // Extract fields
     const id = frontmatter.id as string;

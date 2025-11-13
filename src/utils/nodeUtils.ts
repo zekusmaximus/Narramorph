@@ -52,10 +52,18 @@ export function isL4Node(nodeId: string): boolean {
  * @returns Character name, or null if not found
  */
 export function getNodeCharacter(nodeId: string): string | null {
-  if (nodeId.startsWith('arch')) return 'archaeologist';
-  if (nodeId.startsWith('algo')) return 'algorithm';
-  if (nodeId.startsWith('hum')) return 'lastHuman';
-  if (nodeId.startsWith('conv')) return 'convergence';
+  if (nodeId.startsWith('arch')) {
+    return 'archaeologist';
+  }
+  if (nodeId.startsWith('algo')) {
+    return 'algorithm';
+  }
+  if (nodeId.startsWith('hum')) {
+    return 'lastHuman';
+  }
+  if (nodeId.startsWith('conv')) {
+    return 'convergence';
+  }
   return null;
 }
 

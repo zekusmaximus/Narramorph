@@ -4,9 +4,10 @@
  */
 
 import { useEffect, useState } from 'react';
+
 import { useStoryStore } from '@/stores/storyStore';
-import { getAwarenessLevel } from '@/utils/conditionEvaluator';
 import type { VariationMetadata } from '@/types';
+import { getAwarenessLevel } from '@/utils/conditionEvaluator';
 
 interface VariationDebugPanelProps {
   nodeId: string | null;
@@ -40,7 +41,9 @@ export function VariationDebugPanel({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  if (!isVisible || !nodeId) return null;
+  if (!isVisible || !nodeId) {
+    return null;
+  }
 
   const context = getConditionContext(nodeId);
   const awarenessLevel = getAwarenessLevel(context.awareness);

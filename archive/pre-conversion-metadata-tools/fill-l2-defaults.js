@@ -15,14 +15,13 @@
  *   node tools/fill-l2-defaults.js --root=docs [--dry-run] [--path=accept|resist|invest] [--character=arch|algo|hum]
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-const yaml = require('js-yaml');
+import yaml from 'js-yaml';
 
 // Reuse analyzer from insert script
-const insertMod = require('./insert-l2-metadata.js');
-const analyzeContent = insertMod.analyzeContent;
+import { analyzeContent } from './insert-l2-metadata.js';
 
 const CONFIG = {
   root: 'docs',
@@ -163,7 +162,7 @@ function ensureArray(arr) {
   return Array.isArray(arr) ? arr : [];
 }
 
-function topUpKeyPhrases(meta, bodyText, pathPhilosophy, character) {
+function topUpKeyPhrases(meta, bodyText, pathPhilosophy, _character) {
   meta.generationHints = meta.generationHints || {};
   let kp = ensureArray(meta.generationHints.keyPhrases);
   if (kp.length >= 5) {
@@ -534,13 +533,17 @@ function main() {
     changed = 0,
     skipped = 0;
 
+  // eslint-disable-next-line no-console
   console.log(`Autofilling L2 defaults under: ${root}`);
   if (scope.path) {
+    // eslint-disable-next-line no-console
     console.log(`  Scope path: ${scope.path}`);
   }
   if (scope.character) {
+    // eslint-disable-next-line no-console
     console.log(`  Scope character: ${scope.character}`);
   }
+  // eslint-disable-next-line no-console
   console.log(`Found ${files.length} L2 file(s)\n`);
 
   for (const file of files) {
@@ -563,6 +566,7 @@ function main() {
     }
 
     if (dryRun) {
+      // eslint-disable-next-line no-console
       console.log(`DRY: ${file}`);
       changed++;
       continue;
@@ -570,18 +574,21 @@ function main() {
     const b = backup(file);
     const newText = replaceFrontmatter(text, meta);
     fs.writeFileSync(file, newText, 'utf-8');
+    // eslint-disable-next-line no-console
     console.log(`UPDATED: ${file}  (backup: ${b})`);
     changed++;
   }
 
+  // eslint-disable-next-line no-console
   console.log(`\nSummary: processed=${processed} changed=${changed} skipped=${skipped}`);
   if (dryRun) {
+    // eslint-disable-next-line no-console
     console.log('Note: dry-run only, no files written.');
   }
 }
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
 
-module.exports = { main };
+export { main };

@@ -2,11 +2,12 @@
  * L3 Assembly View Component - displays the 4-section convergence assembly
  */
 
-import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+
+import { useStoryStore } from '@/stores/storyStore';
 import type { L3Assembly } from '@/types';
 import { getL3AssemblySections } from '@/utils/l3Assembly';
-import { useStoryStore } from '@/stores/storyStore';
 
 /**
  * Simple markdown parser for story content
@@ -108,7 +109,9 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
             }, 3000); // Mark as read after 3 seconds
           } else {
             // Section not visible - clear timer
-            if (timer) clearTimeout(timer);
+            if (timer) {
+              clearTimeout(timer);
+            }
           }
         });
       },
@@ -119,7 +122,9 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
 
     return () => {
       observer.disconnect();
-      if (timer) clearTimeout(timer);
+      if (timer) {
+        clearTimeout(timer);
+      }
     };
   }, [currentSection.character, markL3SectionRead]);
 

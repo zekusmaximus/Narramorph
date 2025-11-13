@@ -13,8 +13,8 @@
  * Usage: node inventory-l2-variations.js [--output=report.json]
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 // ============================================================================
 // CONFIGURATION
@@ -512,12 +512,8 @@ function main() {
   }
 }
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
 
-module.exports = {
-  inventoryFiles,
-  printReport,
-  saveReport,
-};
+export { inventoryFiles, printReport, saveReport };

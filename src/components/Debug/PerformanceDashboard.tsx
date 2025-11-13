@@ -6,6 +6,7 @@
  */
 
 import { useState, useEffect } from 'react';
+
 import { performanceMonitor } from '@/utils/performanceMonitor';
 
 type OperationStats = {
@@ -52,7 +53,9 @@ export function PerformanceDashboard() {
     return () => clearInterval(interval);
   }, [isVisible]);
 
-  if (!isVisible) return null;
+  if (!isVisible) {
+    return null;
+  }
 
   return (
     <div className="fixed top-4 right-4 w-96 bg-black/95 border border-cyan-500/30 rounded p-4 font-mono text-xs z-50 max-h-[90vh] overflow-y-auto">

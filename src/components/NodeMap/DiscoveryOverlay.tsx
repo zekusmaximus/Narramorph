@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
+
 import { useStoryStore } from '@/stores/storyStore';
 
 /**
@@ -14,7 +15,9 @@ export function DiscoveryOverlay() {
     return Object.keys(progress.visitedNodes)
       .map((nodeId) => {
         const node = nodes.get(nodeId);
-        if (!node) return null;
+        if (!node) {
+          return null;
+        }
 
         return {
           x: node.position.x,
@@ -41,7 +44,9 @@ export function DiscoveryOverlay() {
           <mask id="revealMask">
             <rect width="100%" height="100%" fill="white" />
             {revealedAreas.map((area, i) => {
-              if (!area) return null;
+              if (!area) {
+                return null;
+              }
               return (
                 <motion.circle
                   key={i}

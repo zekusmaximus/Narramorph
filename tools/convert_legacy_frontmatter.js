@@ -18,10 +18,10 @@
  *   node tools/convert_legacy_frontmatter.js --root=docs/arch-L2-accept-production/firstRevisit
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-const yaml = require('js-yaml');
+import yaml from 'js-yaml';
 
 const FILE_RE = /^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)\.md$/;
 
@@ -364,12 +364,14 @@ function main() {
     const b = backup(fp);
     const next = replaceFront(text, meta);
     fs.writeFileSync(fp, next, 'utf-8');
+    // eslint-disable-next-line no-console
     console.log(`CONVERTED: ${fp} (backup: ${b})`);
     converted++;
   }
+  // eslint-disable-next-line no-console
   console.log(`\nSummary: converted=${converted} skipped=${skipped}`);
 }
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }

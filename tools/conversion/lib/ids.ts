@@ -59,7 +59,9 @@ function parseL1L2VariationId(id: string, layer: 1 | 2): L1L2VariationId | null 
       : /^(arch|algo|hum)-L2-(accept|resist|invest)-(initial|FR|MA)(?:-(\d+))?$/;
 
   const match = id.match(pattern);
-  if (!match) return null;
+  if (!match) {
+    return null;
+  }
 
   const character = match[1] as Character;
   const stateCode = layer === 1 ? match[2] : match[3];
@@ -97,7 +99,9 @@ function parseL3VariationId(id: string): L3VariationId | null {
   const pattern = /^(arch|algo|hum|conv)-L3-(\d{3})$/;
   const match = id.match(pattern);
 
-  if (!match || !match[1] || !match[2]) return null;
+  if (!match || !match[1] || !match[2]) {
+    return null;
+  }
 
   const sectionType = `${match[1]}-L3` as 'arch-L3' | 'algo-L3' | 'hum-L3' | 'conv-L3';
   const number = parseInt(match[2], 10);
@@ -118,7 +122,9 @@ function parseL4VariationId(id: string): L4VariationId | null {
   const pattern = /^final-(preserve|release|transform)$/;
   const match = id.match(pattern);
 
-  if (!match) return null;
+  if (!match) {
+    return null;
+  }
 
   return {
     layer: 4,

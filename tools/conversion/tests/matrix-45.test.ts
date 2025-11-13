@@ -3,9 +3,10 @@
  * Enforces exactly one section per type per combination when fixtures are complete
  */
 
-import { describe, it, expect } from 'vitest';
 import { readFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
+
+import { describe, it, expect } from 'vitest';
 
 describe('Selection Matrix 45-combo property', () => {
   it('has exactly 45 combos with full coverage when fixture set is complete', async () => {
@@ -25,7 +26,9 @@ describe('Selection Matrix 45-combo property', () => {
     }
 
     // Only enforce when matrix claims to be complete (45 combos)
-    if (matrix.totalCombinations !== 45) return;
+    if (matrix.totalCombinations !== 45) {
+      return;
+    }
 
     expect(Array.isArray(matrix.selections)).toBe(true);
     expect(matrix.selections.length).toBe(45);

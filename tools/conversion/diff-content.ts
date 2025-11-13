@@ -4,9 +4,10 @@
  * Compares two manifests or content directories
  */
 
+import { readFile, readdir, stat } from 'node:fs/promises';
 import { resolve, join, relative } from 'node:path';
 import { parseArgs } from 'node:util';
-import { readFile, readdir, stat } from 'node:fs/promises';
+
 import { Logger } from './lib/log.js';
 
 interface CliArgs {
@@ -278,8 +279,12 @@ async function diffManifests(
 }
 
 function formatDiff(diff: number): string {
-  if (diff === 0) return '0 (unchanged)';
-  if (diff > 0) return `+${diff}`;
+  if (diff === 0) {
+    return '0 (unchanged)';
+  }
+  if (diff > 0) {
+    return `+${diff}`;
+  }
   return `${diff}`;
 }
 
@@ -312,12 +317,16 @@ async function listJsonFiles(root: string, base?: string): Promise<string[]> {
 }
 
 function canonicalize(value: unknown): unknown {
-  if (Array.isArray(value)) return value.map(canonicalize);
+  if (Array.isArray(value)) {
+    return value.map(canonicalize);
+  }
   if (value && typeof value === 'object') {
     const obj = value as Record<string, unknown>;
     const keys = Object.keys(obj).sort();
     const out: Record<string, unknown> = {};
-    for (const k of keys) out[k] = canonicalize(obj[k]);
+    for (const k of keys) {
+      out[k] = canonicalize(obj[k]);
+    }
     return out;
   }
   return value;
@@ -415,11 +424,15 @@ async function diffDirectories(
   if (!summaryOnly) {
     if (added.length) {
       console.log('\n=== Added ===');
-      for (const f of added) console.log(`  + ${f}`);
+      for (const f of added) {
+        console.log(`  + ${f}`);
+      }
     }
     if (removed.length) {
       console.log('\n=== Removed ===');
-      for (const f of removed) console.log(`  - ${f}`);
+      for (const f of removed) {
+        console.log(`  - ${f}`);
+      }
     }
     if (modified.length) {
       console.log('\n=== Modified (field-level) ===');

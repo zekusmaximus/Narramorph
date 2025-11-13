@@ -7,8 +7,9 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
-import { Logger, type LogEntry, type Severity } from './lib/log.js';
+
 import { writeFileAtomic } from './lib/fs.js';
+import { Logger, type LogEntry, type Severity } from './lib/log.js';
 
 interface CliArgs {
   strict?: boolean;
@@ -60,7 +61,9 @@ async function main() {
   await validateLayer(l1Dir, logger, 'L1', (file) => {
     totalFiles++;
     const isValid = validateL1L2File(file, logger, 80);
-    if (isValid) validFiles++;
+    if (isValid) {
+      validFiles++;
+    }
     return isValid;
   });
 
@@ -69,7 +72,9 @@ async function main() {
   await validateLayer(l2Dir, logger, 'L2', (file) => {
     totalFiles++;
     const isValid = validateL1L2File(file, logger, 80);
-    if (isValid) validFiles++;
+    if (isValid) {
+      validFiles++;
+    }
     return isValid;
   });
 
@@ -78,7 +83,9 @@ async function main() {
   await validateLayer(l3Dir, logger, 'L3', (file) => {
     totalFiles++;
     const isValid = validateL3File(file, logger);
-    if (isValid) validFiles++;
+    if (isValid) {
+      validFiles++;
+    }
     return isValid;
   });
 
@@ -87,7 +94,9 @@ async function main() {
   try {
     const matrixValid = await validateL3Matrix(matrixPath, logger, values.strict || false);
     totalFiles++;
-    if (matrixValid) validFiles++;
+    if (matrixValid) {
+      validFiles++;
+    }
   } catch {
     // Matrix file doesn't exist yet
   }
@@ -97,7 +106,9 @@ async function main() {
   await validateLayer(l4Dir, logger, 'L4', (file) => {
     totalFiles++;
     const isValid = validateL4File(file, logger);
-    if (isValid) validFiles++;
+    if (isValid) {
+      validFiles++;
+    }
     return isValid;
   });
 
@@ -106,7 +117,9 @@ async function main() {
   try {
     const manifestValid = await validateManifest(manifestPath, logger);
     totalFiles++;
-    if (manifestValid) validFiles++;
+    if (manifestValid) {
+      validFiles++;
+    }
   } catch {
     // Manifest doesn't exist yet
   }
@@ -207,7 +220,9 @@ async function validateLayer(
     );
 
     for (const file of files) {
-      if (!file.endsWith('.json')) continue;
+      if (!file.endsWith('.json')) {
+        continue;
+      }
       const filePath = join(dirPath, file);
       const content = await readFile(filePath, 'utf-8');
       validator(content);

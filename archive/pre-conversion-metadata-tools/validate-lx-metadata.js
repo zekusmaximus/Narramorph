@@ -9,10 +9,10 @@
  *   node tools/validate-lx-metadata.js --root=docs [--strict]
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
-const yaml = require('js-yaml');
+import yaml from 'js-yaml';
 
 const CONFIG = {
   filenamePatternL2: /^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)\.md$/,
@@ -61,7 +61,7 @@ function warn(arr, msg) {
   arr.push(msg);
 }
 
-function validateL2(meta, filename) {
+function validateL2(meta, _filename) {
   const errors = [];
   const warnings = [];
 
@@ -209,8 +209,8 @@ function main() {
   }
 }
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
 
-module.exports = { main };
+export { main };

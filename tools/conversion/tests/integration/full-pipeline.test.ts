@@ -4,6 +4,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
+
 import { MAX_CONCURRENT_READS, STREAM_THRESHOLD_KB } from '../../lib/fs.js';
 
 describe('Full Pipeline Integration', () => {

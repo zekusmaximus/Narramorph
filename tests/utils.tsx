@@ -1,5 +1,6 @@
-import { ReactElement } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
+import { ReactElement } from 'react';
+
 import type { StoryNode, VisitRecord } from '@/types';
 
 // Custom render function for testing components

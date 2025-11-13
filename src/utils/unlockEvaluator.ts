@@ -5,14 +5,15 @@
  * based on user progress. All functions are pure (no side effects) and highly testable.
  */
 
+import { getNodeLayer } from './nodeUtils';
+
+import type { UserProgress } from '@/types/Store';
 import type {
   UnlockCondition,
   UnlockConditionParams,
   NodeUnlockConfig,
   UnlockProgress,
 } from '@/types/Unlock';
-import type { UserProgress } from '@/types/Store';
-import { getNodeLayer } from './nodeUtils';
 
 /**
  * Evaluate a single unlock condition
@@ -56,7 +57,9 @@ function evaluateVisitCountCondition(
   // Total visits check
   if (params.totalVisits !== undefined) {
     const totalVisits = Object.keys(progress.visitedNodes).length;
-    if (totalVisits < params.totalVisits) return false;
+    if (totalVisits < params.totalVisits) {
+      return false;
+    }
   }
 
   // Specific node visits
@@ -75,7 +78,9 @@ function evaluateVisitCountCondition(
       const charVisits =
         progress.characterNodesVisited[character as keyof typeof progress.characterNodesVisited] ||
         0;
-      if (charVisits < minCount) return false;
+      if (charVisits < minCount) {
+        return false;
+      }
     }
   }
 
@@ -87,7 +92,9 @@ function evaluateVisitCountCondition(
         return getNodeLayer(nodeId) === layer;
       }).length;
 
-      if (layerVisits < minCount) return false;
+      if (layerVisits < minCount) {
+        return false;
+      }
     }
   }
 
@@ -140,7 +147,9 @@ function evaluatePhilosophyCondition(
       ? Object.values(tracking.l2Choices).reduce((a, b) => a + b, 0)
       : 0;
 
-    if (totalChoices < params.minPhilosophyCount) return false;
+    if (totalChoices < params.minPhilosophyCount) {
+      return false;
+    }
   }
 
   // Philosophy distribution
@@ -148,9 +157,15 @@ function evaluatePhilosophyCondition(
     const { accept, resist, invest } = params.philosophyDistribution;
     const counts = tracking.l2Choices;
 
-    if (accept !== undefined && (counts.accept || 0) < accept) return false;
-    if (resist !== undefined && (counts.resist || 0) < resist) return false;
-    if (invest !== undefined && (counts.invest || 0) < invest) return false;
+    if (accept !== undefined && (counts.accept || 0) < accept) {
+      return false;
+    }
+    if (resist !== undefined && (counts.resist || 0) < resist) {
+      return false;
+    }
+    if (invest !== undefined && (counts.invest || 0) < invest) {
+      return false;
+    }
   }
 
   return true;
@@ -184,7 +199,9 @@ function evaluateCharacterCondition(
       (percentage) => percentage > 0,
     ).length;
 
-    if (uniqueChars < params.minCharacterCount) return false;
+    if (uniqueChars < params.minCharacterCount) {
+      return false;
+    }
   }
 
   // Character percentage requirements
@@ -194,7 +211,9 @@ function evaluateCharacterCondition(
         tracking.characterVisitPercentages[
           character as keyof typeof tracking.characterVisitPercentages
         ] || 0;
-      if (actualPercent < minPercent) return false;
+      if (actualPercent < minPercent) {
+        return false;
+      }
     }
   }
 
@@ -227,7 +246,9 @@ function evaluateTransformationCondition(
       (record) => record.currentState === 'metaAware',
     ).length;
 
-    if (metaAwareCount < params.minMetaAwareNodes) return false;
+    if (metaAwareCount < params.minMetaAwareNodes) {
+      return false;
+    }
   }
 
   return true;
@@ -244,7 +265,9 @@ function evaluateL3AssemblyCondition(
 
   // Minimum L3 assemblies viewed
   if (params.minL3Assemblies !== undefined) {
-    if (assemblies.length < params.minL3Assemblies) return false;
+    if (assemblies.length < params.minL3Assemblies) {
+      return false;
+    }
   }
 
   // Required L3 completion (all 4 sections read)
@@ -252,7 +275,9 @@ function evaluateL3AssemblyCondition(
     const latestAssembly = assemblies[assemblies.length - 1];
     const allSectionsRead = Object.values(latestAssembly.sectionsRead).every((read) => read);
 
-    if (!allSectionsRead) return false;
+    if (!allSectionsRead) {
+      return false;
+    }
   }
 
   return true;
@@ -294,7 +319,9 @@ function evaluateCompoundCondition(params: UnlockConditionParams, progress: User
  */
 export function evaluateNodeUnlock(config: NodeUnlockConfig, progress: UserProgress): boolean {
   // If not locked by default, always accessible
-  if (!config.defaultLocked) return true;
+  if (!config.defaultLocked) {
+    return true;
+  }
 
   // All conditions must be met (implicit AND)
   return config.unlockConditions.every((condition) => evaluateUnlockCondition(condition, progress));

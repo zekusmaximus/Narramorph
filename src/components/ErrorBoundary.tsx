@@ -5,6 +5,7 @@
  */
 
 import { Component, ReactNode, type ErrorInfo } from 'react';
+
 import { handleError } from '@/utils/errorHandler';
 
 interface Props {

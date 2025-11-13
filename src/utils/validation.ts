@@ -105,7 +105,9 @@ export function validateStory(story: StoryData): ValidationResult {
  * Type guard for StoryNode
  */
 export function isStoryNode(data: unknown): data is StoryNode {
-  if (!data || typeof data !== 'object') return false;
+  if (!data || typeof data !== 'object') {
+    return false;
+  }
   const node = data as Record<string, unknown>;
 
   return (
@@ -124,7 +126,9 @@ export function isStoryNode(data: unknown): data is StoryNode {
  * Type guard for SavedState
  */
 export function isSavedState(data: unknown): data is SavedState {
-  if (!data || typeof data !== 'object') return false;
+  if (!data || typeof data !== 'object') {
+    return false;
+  }
   const state = data as Record<string, unknown>;
 
   return !!(
@@ -143,10 +147,12 @@ export function isSavedState(data: unknown): data is SavedState {
  * @returns true if valid SavedState
  */
 export function validateSavedState(data: unknown): boolean {
-  if (!isSavedState(data)) return false;
+  if (!isSavedState(data)) {
+    return false;
+  }
 
   // Check required progress fields
-  const progress = data.progress as UserProgress;
+  const progress = data.progress;
   if (
     !progress.visitedNodes ||
     !Array.isArray(progress.readingPath) ||
@@ -157,7 +163,7 @@ export function validateSavedState(data: unknown): boolean {
   }
 
   // Check preferences
-  const preferences = data.preferences as UserPreferences;
+  const preferences = data.preferences;
   const validThemes: Theme[] = ['light', 'dark', 'sepia'];
   const validSizes: TextSize[] = ['small', 'medium', 'large'];
 
@@ -174,7 +180,9 @@ export function validateSavedState(data: unknown): boolean {
  * @returns true if valid VisitRecord
  */
 export function isValidVisitRecord(data: unknown): data is VisitRecord {
-  if (!data || typeof data !== 'object') return false;
+  if (!data || typeof data !== 'object') {
+    return false;
+  }
   const record = data as Record<string, unknown>;
 
   return (

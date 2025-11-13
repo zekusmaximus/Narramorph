@@ -100,5 +100,11 @@ module.exports = {
         'no-console': 'off',
       },
     },
+    {
+      files: ['tools/**/*.js', 'tools/**/*.ts', 'archive/**/*.js'],
+      rules: {
+        'no-console': 'off',
+      },
+    },
   ],
 };

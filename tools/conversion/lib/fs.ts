@@ -2,10 +2,11 @@
  * File system utilities with atomic writes, backups, and manifest generation
  */
 
-import { readFile, writeFile, mkdir, readdir, copyFile, stat } from 'node:fs/promises';
-import { createReadStream } from 'node:fs';
-import { join, dirname, relative, resolve } from 'node:path';
 import { createHash } from 'node:crypto';
+import { createReadStream } from 'node:fs';
+import { readFile, writeFile, mkdir, readdir, copyFile, stat } from 'node:fs/promises';
+import { join, dirname, relative, resolve } from 'node:path';
+
 import { Logger } from './log.js';
 
 // Performance limits
@@ -199,7 +200,9 @@ async function copyDirectoryRecursive(
 
   for (const entry of entries) {
     const entryName = entry.name;
-    if (!entryName) continue;
+    if (!entryName) {
+      continue;
+    }
 
     const srcPath = join(src, entryName);
     const destPath = join(dest, entryName);

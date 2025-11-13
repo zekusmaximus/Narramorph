@@ -31,11 +31,11 @@ export function loadUnlockConfig(storyId: string): Map<string, NodeUnlockConfig>
         configMap.set(nodeConfig.nodeId, nodeConfig);
       }
 
-      console.log(`[UnlockLoader] Loaded ${configFile.nodes.length} unlock configs for ${storyId}`);
+      // Development logging: Loaded ${configFile.nodes.length} unlock configs for ${storyId}
       return configMap;
     }
   }
 
-  console.warn(`[UnlockLoader] No unlock config found for story: ${storyId}`);
+  // Development warning: No unlock config found for story: ${storyId}
   return configMap;
 }

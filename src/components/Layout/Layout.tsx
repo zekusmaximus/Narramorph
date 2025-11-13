@@ -1,5 +1,6 @@
-import { ReactNode, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ReactNode, useState } from 'react';
+
 import { useStoryStore } from '@/stores/storyStore';
 
 interface LayoutProps {

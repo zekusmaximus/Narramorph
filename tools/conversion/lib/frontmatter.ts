@@ -3,6 +3,7 @@
  */
 
 import YAML from 'yaml';
+
 import { Logger } from './log.js';
 
 export interface FrontmatterResult<T = Record<string, unknown>> {

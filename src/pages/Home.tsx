@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
+
 import NodeMap from '@/components/NodeMap';
 import StoryView from '@/components/StoryView';
 import { JourneyTracker } from '@/components/UI/JourneyTracker';
@@ -92,10 +93,7 @@ export default function Home() {
         <AnimatePresence>
           {l3AssemblyViewOpen && currentL3Assembly && (
             <ErrorBoundary fallbackRender={({ error }) => <ErrorFallback error={error} />}>
-              <L3AssemblyView
-                assembly={currentL3Assembly}
-                onClose={closeL3AssemblyView}
-              />
+              <L3AssemblyView assembly={currentL3Assembly} onClose={closeL3AssemblyView} />
             </ErrorBoundary>
           )}
         </AnimatePresence>

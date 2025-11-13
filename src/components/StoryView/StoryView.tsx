@@ -1,14 +1,11 @@
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useStoryStore } from '@/stores';
-import { useVariationSelection } from '@/hooks/useVariationSelection';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
+
 import { VariationDebugPanel } from './VariationDebugPanel';
-import type {
-  StoryNode,
-  TransformationState,
-  CharacterType,
-  ConnectionType,
-} from '@/types';
+
+import { useVariationSelection } from '@/hooks/useVariationSelection';
+import { useStoryStore } from '@/stores';
+import type { StoryNode, TransformationState, CharacterType, ConnectionType } from '@/types';
 
 interface StoryViewProps {
   className?: string;
@@ -56,8 +53,8 @@ const characterThemes: Record<
  * Gets visual icon for transformation states
  * Currently unused but kept for future feature
  */
-// @ts-expect-error - Unused but kept for future feature
-function getStateIcon(state: TransformationState): string {
+// Function kept for future feature - exported to prevent unused warning
+export function getStateIcon(state: TransformationState): string {
   switch (state) {
     case 'initial':
       return '🔵';
@@ -74,8 +71,8 @@ function getStateIcon(state: TransformationState): string {
  * Gets human-readable label for transformation states
  * Currently unused but kept for future feature
  */
-// @ts-expect-error - Unused but kept for future feature
-function getStateLabel(state: TransformationState): string {
+// Function kept for future feature - exported to prevent unused warning
+export function getStateLabel(state: TransformationState): string {
   switch (state) {
     case 'initial':
       return 'First Visit';
@@ -92,8 +89,8 @@ function getStateLabel(state: TransformationState): string {
  * Gets icon for connection types
  * Currently unused but kept for future feature
  */
-// @ts-expect-error - Unused but kept for future feature
-function getConnectionIcon(type: ConnectionType): ReactNode {
+// Function kept for future feature - exported to prevent unused warning
+export function getConnectionIcon(type: ConnectionType): ReactNode {
   switch (type) {
     case 'temporal':
       return <span className="text-blue-500">⏱️</span>;
@@ -238,18 +235,24 @@ export default function StoryView({ className = '' }: StoryViewProps) {
   const [timeSpentOnNode, setTimeSpentOnNode] = useState(0);
 
   const currentNode: StoryNode | null = useMemo(() => {
-    if (!selectedNode) return null;
+    if (!selectedNode) {
+      return null;
+    }
     return nodes.get(selectedNode) || null;
   }, [nodes, selectedNode]);
 
   const nodeState = useMemo(() => {
-    if (!selectedNode) return null;
+    if (!selectedNode) {
+      return null;
+    }
     return getNodeState(selectedNode);
   }, [selectedNode, getNodeState]);
 
   // Get static fallback content based on transformation state
   const fallbackContent = useMemo(() => {
-    if (!currentNode || !nodeState) return '';
+    if (!currentNode || !nodeState) {
+      return '';
+    }
     return currentNode.content[nodeState.currentState];
   }, [currentNode, nodeState]);
 
@@ -264,7 +267,9 @@ export default function StoryView({ className = '' }: StoryViewProps) {
 
   // Get character theme
   const theme = useMemo(() => {
-    if (!currentNode) return characterThemes.archaeologist;
+    if (!currentNode) {
+      return characterThemes.archaeologist;
+    }
     return characterThemes[currentNode.character];
   }, [currentNode]);
 

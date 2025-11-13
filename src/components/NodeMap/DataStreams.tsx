@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
+
 import { useStoryStore } from '@/stores/storyStore';
 
 /**
@@ -11,15 +12,21 @@ export function DataStreams() {
 
   // Get connections from selected node
   const activeConnections = useMemo(() => {
-    if (!selectedNode) return [];
+    if (!selectedNode) {
+      return [];
+    }
 
     const node = nodes.get(selectedNode);
-    if (!node || !node.connections) return [];
+    if (!node || !node.connections) {
+      return [];
+    }
 
     return node.connections
       .map((conn) => {
         const targetNode = nodes.get(conn.targetId);
-        if (!targetNode) return null;
+        if (!targetNode) {
+          return null;
+        }
 
         return {
           from: node.position,
@@ -30,7 +37,9 @@ export function DataStreams() {
       .filter(Boolean);
   }, [selectedNode, nodes]);
 
-  if (activeConnections.length === 0) return null;
+  if (activeConnections.length === 0) {
+    return null;
+  }
 
   return (
     <svg className="absolute inset-0 pointer-events-none">
@@ -45,7 +54,9 @@ export function DataStreams() {
       </defs>
 
       {activeConnections.map((conn, i) => {
-        if (!conn) return null;
+        if (!conn) {
+          return null;
+        }
 
         const colors = {
           temporal: '#00e5ff',

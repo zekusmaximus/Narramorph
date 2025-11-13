@@ -1,5 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
+
 import { useStoryStore } from './storyStore';
+
 import type { StoryNode } from '@/types';
 
 describe('Visit Tracking System', () => {
@@ -22,6 +24,34 @@ describe('Visit Tracking System', () => {
           lastHuman: 0,
         },
         unlockedL2Characters: [],
+        journeyTracking: {
+          startingCharacter: null,
+          characterVisitPercentages: {
+            archaeologist: 0,
+            algorithm: 0,
+            lastHuman: 0,
+          },
+          dominantCharacter: null,
+          currentJourneyPattern: 'unknown',
+          l2Choices: {
+            accept: 0,
+            resist: 0,
+            invest: 0,
+          },
+          dominantPhilosophy: 'unknown',
+          crossCharacterConnections: {
+            arch_algo: 0,
+            arch_hum: 0,
+            algo_hum: 0,
+          },
+          navigationPattern: 'undetermined',
+          lastCharacterVisited: null,
+          revisitFrequency: 0,
+          explorationMetrics: {
+            breadth: 0,
+            depth: 0,
+          },
+        },
       },
     });
   });
@@ -244,6 +274,34 @@ describe('Temporal Awareness System', () => {
           lastHuman: 0,
         },
         unlockedL2Characters: [],
+        journeyTracking: {
+          startingCharacter: null,
+          characterVisitPercentages: {
+            archaeologist: 0,
+            algorithm: 0,
+            lastHuman: 0,
+          },
+          dominantCharacter: null,
+          currentJourneyPattern: 'unknown',
+          l2Choices: {
+            accept: 0,
+            resist: 0,
+            invest: 0,
+          },
+          dominantPhilosophy: 'unknown',
+          crossCharacterConnections: {
+            arch_algo: 0,
+            arch_hum: 0,
+            algo_hum: 0,
+          },
+          navigationPattern: 'undetermined',
+          lastCharacterVisited: null,
+          revisitFrequency: 0,
+          explorationMetrics: {
+            breadth: 0,
+            depth: 0,
+          },
+        },
       },
     });
   });

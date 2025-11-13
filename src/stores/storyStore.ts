@@ -5,6 +5,11 @@ enableMapSet();
 
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
+
+import {
+  getNodePhilosophy,
+  validateL2PhilosophyMappings,
+} from '@/data/stories/eternal-return/nodePhilosophyMapping';
 import type {
   StoryStore,
   UserProgress,
@@ -20,10 +25,6 @@ import type {
   StoryNode,
   Connection,
 } from '@/types';
-import { saveToStorage, loadFromStorage, STORAGE_KEYS } from '@/utils/storage';
-import { validateSavedState } from '@/utils/validation';
-import { loadStoryContent, ContentLoadError } from '@/utils/contentLoader';
-import { calculateJourneyPattern, calculatePathPhilosophy } from '@/utils/conditionEvaluator';
 import type {
   JourneyTracking,
   ConditionContext,
@@ -32,30 +33,36 @@ import type {
   PathPhilosophy,
   SynthesisPattern,
 } from '@/types';
+import type { UnlockProgress } from '@/types/Unlock';
+import { calculateJourneyPattern, calculatePathPhilosophy } from '@/utils/conditionEvaluator';
+import { loadStoryContent, ContentLoadError } from '@/utils/contentLoader';
 import { buildL3Assembly, calculateSynthesisPattern } from '@/utils/l3Assembly';
-import {
-  getNodePhilosophy,
-  validateL2PhilosophyMappings,
-} from '@/data/stories/eternal-return/nodePhilosophyMapping';
 import { isL3Node, isL4Node } from '@/utils/nodeUtils';
-import { loadUnlockConfig } from '@/utils/unlockLoader';
+import { saveToStorage, loadFromStorage, STORAGE_KEYS } from '@/utils/storage';
 import {
   evaluateNodeUnlock,
   getUnlockProgress as getUnlockProgressUtil,
 } from '@/utils/unlockEvaluator';
-import type { UnlockProgress } from '@/types/Unlock';
+import { loadUnlockConfig } from '@/utils/unlockLoader';
+import { validateSavedState } from '@/utils/validation';
 
 const isDevEnv = process.env.NODE_ENV !== 'production';
 const devLog = (...args: unknown[]): void => {
-  if (!isDevEnv) return;
+  if (!isDevEnv) {
+    return;
+  }
   console.warn('[StoryStore]', ...args);
 };
 const devWarn = (...args: unknown[]): void => {
-  if (!isDevEnv) return;
+  if (!isDevEnv) {
+    return;
+  }
   console.warn('[StoryStore:warn]', ...args);
 };
 const devError = (...args: unknown[]): void => {
-  if (!isDevEnv) return;
+  if (!isDevEnv) {
+    return;
+  }
   console.error('[StoryStore:error]', ...args);
 };
 
@@ -233,7 +240,9 @@ function checkSpecialTransformations(
   const newlyUnlocked: UnlockedTransformation[] = [];
 
   for (const node of nodes) {
-    if (!node.unlockConditions?.specialTransforms) continue;
+    if (!node.unlockConditions?.specialTransforms) {
+      continue;
+    }
 
     for (const transform of node.unlockConditions.specialTransforms) {
       // Check if already unlocked
@@ -241,20 +250,26 @@ function checkSpecialTransformations(
         (t) => t.nodeId === node.id && t.transformationId === transform.id,
       );
 
-      if (alreadyUnlocked) continue;
+      if (alreadyUnlocked) {
+        continue;
+      }
 
       // Check required prior nodes (any order)
       const hasRequiredNodes = transform.requiredPriorNodes.every(
         (nodeId) => progress.visitedNodes[nodeId],
       );
 
-      if (!hasRequiredNodes) continue;
+      if (!hasRequiredNodes) {
+        continue;
+      }
 
       // Check required sequence (if specified)
       if (transform.requiredSequence) {
         const pathString = progress.readingPath.join(',');
         const sequenceString = transform.requiredSequence.join(',');
-        if (!pathString.includes(sequenceString)) continue;
+        if (!pathString.includes(sequenceString)) {
+          continue;
+        }
       }
 
       // All conditions met - unlock!
@@ -311,9 +326,15 @@ function shouldRevealConnection(connection: Connection, progress: UserProgress):
  */
 function normalizeCharacter(character: string): 'archaeologist' | 'algorithm' | 'lastHuman' {
   const charLower = character.toLowerCase();
-  if (charLower.includes('arch')) return 'archaeologist';
-  if (charLower.includes('algo')) return 'algorithm';
-  if (charLower.includes('hum') || charLower.includes('last')) return 'lastHuman';
+  if (charLower.includes('arch')) {
+    return 'archaeologist';
+  }
+  if (charLower.includes('algo')) {
+    return 'algorithm';
+  }
+  if (charLower.includes('hum') || charLower.includes('last')) {
+    return 'lastHuman';
+  }
   return 'archaeologist'; // fallback
 }
 
@@ -324,14 +345,22 @@ function getConnectionKey(
   from: 'archaeologist' | 'algorithm' | 'lastHuman',
   to: 'archaeologist' | 'algorithm' | 'lastHuman',
 ): keyof JourneyTracking['crossCharacterConnections'] | null {
-  if (from === to) return null;
+  if (from === to) {
+    return null;
+  }
 
   // Sort to ensure bidirectional tracking (arch→algo same as algo→arch)
   const [first, second] = [from, to].sort();
 
-  if (first === 'algorithm' && second === 'archaeologist') return 'arch_algo';
-  if (first === 'archaeologist' && second === 'lastHuman') return 'arch_hum';
-  if (first === 'algorithm' && second === 'lastHuman') return 'algo_hum';
+  if (first === 'algorithm' && second === 'archaeologist') {
+    return 'arch_algo';
+  }
+  if (first === 'archaeologist' && second === 'lastHuman') {
+    return 'arch_hum';
+  }
+  if (first === 'algorithm' && second === 'lastHuman') {
+    return 'algo_hum';
+  }
 
   return null;
 }
@@ -346,7 +375,9 @@ function classifyNavigationPattern(
   const { breadth, depth } = explorationMetrics;
 
   // Not enough data yet
-  if (breadth < 10) return 'undetermined';
+  if (breadth < 10) {
+    return 'undetermined';
+  }
 
   // Recursive: High revisit rate + high depth
   if (revisitFrequency > 40 && depth > 2) {
@@ -599,7 +630,10 @@ export const useStoryStore = create<StoryStore>()(
      * @param opts - Optional configuration for context building
      * @returns Condition context including node-specific visit count (if nodeId provided)
      */
-    getConditionContext: (nodeId?: string, opts?: { includeRecentVariations?: boolean }): ConditionContext => {
+    getConditionContext: (
+      nodeId?: string,
+      opts?: { includeRecentVariations?: boolean },
+    ): ConditionContext => {
       const state = get();
       const tracking = state.progress.journeyTracking;
       const visitRecord = nodeId ? state.progress.visitedNodes[nodeId] : undefined;
@@ -686,7 +720,9 @@ export const useStoryStore = create<StoryStore>()(
         // Update total time spent
         state.progress.totalTimeSpent += durationSeconds;
 
-        devLog(`[Visit] Finalized ${activeVisit.nodeId}: ${durationSeconds}s (total: ${visitRecord.timeSpent}s)`);
+        devLog(
+          `[Visit] Finalized ${activeVisit.nodeId}: ${durationSeconds}s (total: ${visitRecord.timeSpent}s)`,
+        );
 
         // Clear active visit
         state.activeVisit = null;
@@ -899,7 +935,9 @@ export const useStoryStore = create<StoryStore>()(
      */
     markL3SectionRead: (section: 'arch' | 'algo' | 'hum' | 'conv') => {
       set((state) => {
-        if (!state.progress.l3AssembliesViewed?.length) return;
+        if (!state.progress.l3AssembliesViewed?.length) {
+          return;
+        }
 
         // Mark in most recent view
         const latest =
@@ -925,7 +963,9 @@ export const useStoryStore = create<StoryStore>()(
       // Check each configured node
       for (const [nodeId, config] of state.unlockConfigs) {
         // Skip if already in recently unlocked list
-        if (state.recentlyUnlockedNodes.includes(nodeId)) continue;
+        if (state.recentlyUnlockedNodes.includes(nodeId)) {
+          continue;
+        }
 
         // Check if node is now unlocked
         const wasLocked = config.defaultLocked;
@@ -951,7 +991,9 @@ export const useStoryStore = create<StoryStore>()(
       const state = get();
       const config = state.unlockConfigs.get(nodeId);
 
-      if (!config) return null;
+      if (!config) {
+        return null;
+      }
 
       return getUnlockProgressUtil(config, state.progress);
     },
@@ -1237,7 +1279,9 @@ export const useStoryStore = create<StoryStore>()(
 
     loadProgress: () => {
       const saved = loadFromStorage<SavedState>(STORAGE_KEYS.SAVED_STATE);
-      if (!saved) return;
+      if (!saved) {
+        return;
+      }
 
       if (!validateSavedState(saved)) {
         devError('Invalid saved state format');
@@ -1260,7 +1304,9 @@ export const useStoryStore = create<StoryStore>()(
         const state = get();
         for (const nodeId of Object.keys(saved.progress.visitedNodes)) {
           const node = state.nodes.get(nodeId);
-          if (!node) continue;
+          if (!node) {
+            continue;
+          }
 
           if (node.character === 'archaeologist') {
             saved.progress.characterNodesVisited.archaeologist++;
@@ -1299,7 +1345,9 @@ export const useStoryStore = create<StoryStore>()(
         const state = get();
         for (const nodeId of Object.keys(saved.progress.visitedNodes)) {
           const node = state.nodes.get(nodeId);
-          if (!node) continue;
+          if (!node) {
+            continue;
+          }
 
           const layerMatch = nodeId.match(/^(arch|arc|algo|hum|algorithm|human)-L?(\d).*$/);
           if (layerMatch) {
@@ -1462,7 +1510,9 @@ export const useStoryStore = create<StoryStore>()(
       // Find nodes that have transformations available based on visit count
       for (const [nodeId, visitRecord] of Object.entries(state.progress.visitedNodes)) {
         const node = state.nodes.get(nodeId);
-        if (!node) continue;
+        if (!node) {
+          continue;
+        }
 
         // Check if node has special transformations that could be unlocked
         if (node.unlockConditions?.specialTransforms) {
@@ -1565,7 +1615,9 @@ export const useStoryStore = create<StoryStore>()(
       const state = get();
       const node = state.nodes.get(nodeId);
 
-      if (!node) return false;
+      if (!node) {
+        return false;
+      }
 
       // Check if node has unlock configuration
       const config = state.unlockConfigs.get(nodeId);

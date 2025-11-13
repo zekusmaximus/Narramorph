@@ -1,4 +1,5 @@
 import { ErrorBoundary } from 'react-error-boundary';
+
 import Layout from '@/components/Layout';
 import { Home } from '@/pages';
 

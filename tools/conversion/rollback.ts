@@ -4,11 +4,12 @@
  * Restores content from backup snapshots
  */
 
+import { readdir, readFile, copyFile, stat } from 'node:fs/promises';
 import { resolve, join, relative, basename } from 'node:path';
 import { parseArgs } from 'node:util';
-import { readdir, readFile, copyFile, stat } from 'node:fs/promises';
-import { Logger } from './lib/log.js';
+
 import { ensureDir } from './lib/fs.js';
+import { Logger } from './lib/log.js';
 
 interface CliArgs {
   to?: string;

@@ -3,9 +3,10 @@
  * Validates that matrix has exactly one selection per section type for every combination
  */
 
-import { describe, it, expect } from 'vitest';
 import { readFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
+
+import { describe, it, expect } from 'vitest';
 
 interface MatrixEntry {
   journeyPattern: string;
@@ -217,10 +218,18 @@ describe('Selection Matrix Properties', () => {
     let convCount = 0;
 
     for (const entry of matrix.selections) {
-      if (entry.archaeologist) archCount++;
-      if (entry.algorithm) algoCount++;
-      if (entry.lastHuman) humCount++;
-      if (entry.convergent) convCount++;
+      if (entry.archaeologist) {
+        archCount++;
+      }
+      if (entry.algorithm) {
+        algoCount++;
+      }
+      if (entry.lastHuman) {
+        humCount++;
+      }
+      if (entry.convergent) {
+        convCount++;
+      }
     }
 
     expect(matrix.coverage.archaeologist).toBe(archCount);
@@ -287,7 +296,9 @@ describe('Selection Matrix Properties', () => {
       const prev = matrix.selections[i - 1];
       const curr = matrix.selections[i];
 
-      if (!prev || !curr) continue;
+      if (!prev || !curr) {
+        continue;
+      }
 
       const prevKey = `${prev.journeyPattern}|${prev.philosophyDominant}|${prev.awarenessLevel}`;
       const currKey = `${curr.journeyPattern}|${curr.philosophyDominant}|${curr.awarenessLevel}`;
@@ -398,10 +409,18 @@ describe('Selection Matrix Properties', () => {
       if (entry) {
         // Verify reported missing sections are actually null
         for (const section of missing.missingSections) {
-          if (section === 'archaeologist') expect(entry.archaeologist).toBeNull();
-          if (section === 'algorithm') expect(entry.algorithm).toBeNull();
-          if (section === 'lastHuman') expect(entry.lastHuman).toBeNull();
-          if (section === 'convergent') expect(entry.convergent).toBeNull();
+          if (section === 'archaeologist') {
+            expect(entry.archaeologist).toBeNull();
+          }
+          if (section === 'algorithm') {
+            expect(entry.algorithm).toBeNull();
+          }
+          if (section === 'lastHuman') {
+            expect(entry.lastHuman).toBeNull();
+          }
+          if (section === 'convergent') {
+            expect(entry.convergent).toBeNull();
+          }
         }
       }
     }

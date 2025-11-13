@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
+
 import { useStoryStore } from '@/stores/storyStore';
 
 interface Fragment {
@@ -22,13 +23,17 @@ export function MemoryFragments() {
   // Generate fragments from visited nodes
   const fragments = useMemo(() => {
     const visited = Object.keys(progress.visitedNodes);
-    if (visited.length === 0) return [];
+    if (visited.length === 0) {
+      return [];
+    }
 
     return visited
       .slice(0, 8)
       .map((nodeId, i) => {
         const node = nodes.get(nodeId);
-        if (!node) return null;
+        if (!node) {
+          return null;
+        }
 
         // Extract fragment from content
         const content = node.content.initial || '';

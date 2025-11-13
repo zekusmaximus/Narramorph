@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
+
 import { useStoryStore } from '@/stores/storyStore';
 
 /**
@@ -16,7 +17,9 @@ export function NeuralNetwork() {
     );
   }, [nodes, progress.visitedNodes]);
 
-  if (algorithmNodes.length < 2) return null;
+  if (algorithmNodes.length < 2) {
+    return null;
+  }
 
   return (
     <svg className="absolute inset-0 pointer-events-none">

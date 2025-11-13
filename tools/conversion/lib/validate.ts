@@ -2,9 +2,9 @@
  * Content validation with severity policies
  */
 
-import { Logger } from './log.js';
-import { validateZeroPadding, type Layer } from './ids.js';
 import { validateEnumField, validateArrayField, validateRequiredFields } from './frontmatter.js';
+import { validateZeroPadding, type Layer } from './ids.js';
+import { Logger } from './log.js';
 
 export interface ValidationOptions {
   strict: boolean;

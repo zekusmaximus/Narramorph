@@ -117,6 +117,7 @@ export interface NodeMetadata {
   thematicTags: string[]; // Tags for filtering/searching
   narrativeAct: number; // Which act this belongs to (1-3)
   criticalPath: boolean; // Is this node essential to story understanding?
+  chapterTitle?: string; // Optional chapter title for display
 }
 
 /**

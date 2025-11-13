@@ -5,11 +5,12 @@
  * Maps each {journeyPattern, philosophyDominant, awarenessLevel} combo to one file per section type
  */
 
+import { readdir, readFile } from 'node:fs/promises';
 import { resolve, join } from 'node:path';
 import { parseArgs } from 'node:util';
-import { readdir, readFile } from 'node:fs/promises';
-import { Logger } from './lib/log.js';
+
 import { writeFileAtomic } from './lib/fs.js';
+import { Logger } from './lib/log.js';
 
 const SCHEMA_VERSION = '1.0.0';
 
@@ -84,7 +85,9 @@ async function main() {
   try {
     const files = await readdir(layer3VariationsDir);
     for (const file of files) {
-      if (!file.endsWith('.json')) continue;
+      if (!file.endsWith('.json')) {
+        continue;
+      }
 
       const filePath = join(layer3VariationsDir, file);
       const content = await readFile(filePath, 'utf-8');
@@ -156,7 +159,9 @@ async function main() {
 
   for (const key of sortedKeys) {
     const parts = key.split('|');
-    if (parts.length !== 3) continue; // Skip invalid keys
+    if (parts.length !== 3) {
+      continue;
+    } // Skip invalid keys
     const journeyPattern = parts[0];
     const philosophyDominant = parts[1];
     const awarenessLevel = parts[2];
@@ -169,17 +174,33 @@ async function main() {
     const conv = selectFirst(bySection.get('conv-L3') || []);
 
     // Track coverage
-    if (arch) coverage.archaeologist++;
-    if (algo) coverage.algorithm++;
-    if (hum) coverage.lastHuman++;
-    if (conv) coverage.convergent++;
+    if (arch) {
+      coverage.archaeologist++;
+    }
+    if (algo) {
+      coverage.algorithm++;
+    }
+    if (hum) {
+      coverage.lastHuman++;
+    }
+    if (conv) {
+      coverage.convergent++;
+    }
 
     // Check for missing sections
     const missingSections: string[] = [];
-    if (!arch) missingSections.push('archaeologist');
-    if (!algo) missingSections.push('algorithm');
-    if (!hum) missingSections.push('lastHuman');
-    if (!conv) missingSections.push('convergent');
+    if (!arch) {
+      missingSections.push('archaeologist');
+    }
+    if (!algo) {
+      missingSections.push('algorithm');
+    }
+    if (!hum) {
+      missingSections.push('lastHuman');
+    }
+    if (!conv) {
+      missingSections.push('convergent');
+    }
 
     if (missingSections.length > 0) {
       const comboLabel = `${journeyPattern}-${philosophyDominant}-${awarenessLevel}`;
@@ -266,7 +287,9 @@ async function main() {
  * Select first file after numeric-then-lexicographic sort
  */
 function selectFirst(files: L3File[]): L3File | null {
-  if (files.length === 0) return null;
+  if (files.length === 0) {
+    return null;
+  }
 
   // Sort by ID: numeric-then-lex
   const sorted = [...files].sort((a, b) => {
@@ -277,7 +300,9 @@ function selectFirst(files: L3File[]): L3File | null {
     if (aMatch && aMatch[1] && bMatch && bMatch[1]) {
       const aNum = parseInt(aMatch[1], 10);
       const bNum = parseInt(bMatch[1], 10);
-      if (aNum !== bNum) return aNum - bNum;
+      if (aNum !== bNum) {
+        return aNum - bNum;
+      }
     }
 
     // Fallback to lexicographic

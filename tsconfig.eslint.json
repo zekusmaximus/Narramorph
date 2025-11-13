@@ -1,5 +1,21 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/**/*.{ts,tsx}", "tests/**/*.{ts,tsx}"],
-  "exclude": ["node_modules", "dist", "build"]
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "tools/**/*",
+    "tools/conversion/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    "*.config.js",
+    "*.config.cjs",
+    "*.config.mjs",
+    "*.config.ts",
+    "tools/conversion/**/generated/**",
+    "**/*.js"
+  ]
 }

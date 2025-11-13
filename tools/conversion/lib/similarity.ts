@@ -46,7 +46,7 @@ function generateMinHashSignature(shingles: Set<string>, numHashes: number): num
   for (const shingle of shingles) {
     for (let i = 0; i < numHashes; i++) {
       const hash = hashString(shingle, i);
-      signature[i] = Math.min(signature[i]!, hash);
+      signature[i] = Math.min(signature[i], hash);
     }
   }
 
@@ -118,7 +118,9 @@ export function detectSimilarVariations(
 
   // Process each group independently
   for (const groupVariations of groups.values()) {
-    if (groupVariations.length < 2) continue;
+    if (groupVariations.length < 2) {
+      continue;
+    }
 
     // Generate MinHash signatures
     const signatures = new Map<string, number[]>();
@@ -142,12 +144,14 @@ export function detectSimilarVariations(
     // Find candidate pairs (in same bucket)
     const candidatePairs = new Set<string>();
     for (const bucket of buckets.values()) {
-      if (bucket.length < 2) continue;
+      if (bucket.length < 2) {
+        continue;
+      }
 
       for (let i = 0; i < bucket.length; i++) {
         for (let j = i + 1; j < bucket.length; j++) {
-          const id1 = bucket[i]!;
-          const id2 = bucket[j]!;
+          const id1 = bucket[i];
+          const id2 = bucket[j];
           const pairKey = [id1, id2].sort().join('|');
           candidatePairs.add(pairKey);
         }
@@ -157,13 +161,13 @@ export function detectSimilarVariations(
     // Check similarity for candidate pairs
     for (const pairKey of candidatePairs) {
       const [id1, id2] = pairKey.split('|');
-      const sig1 = signatures.get(id1!)!;
-      const sig2 = signatures.get(id2!)!;
+      const sig1 = signatures.get(id1)!;
+      const sig2 = signatures.get(id2)!;
 
       const similarity = estimateSimilarity(sig1, sig2);
 
       if (similarity >= SIMILARITY_THRESHOLD) {
-        results.push({ id1: id1!, id2: id2!, similarity });
+        results.push({ id1: id1, id2: id2, similarity });
 
         logger?.warning(
           'SIMILARITY_HIGH',

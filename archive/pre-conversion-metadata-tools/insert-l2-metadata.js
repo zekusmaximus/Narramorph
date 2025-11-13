@@ -12,11 +12,11 @@
  * Usage: node insert-l2-metadata.js [--dry-run] [--batch] [--file=path]
  */
 
-const fs = require('fs');
-const path = require('path');
-const readline = require('readline');
+import fs from 'fs';
+import path from 'path';
+import readline from 'readline';
 
-const yaml = require('js-yaml');
+import yaml from 'js-yaml';
 
 // ============================================================================
 // CONFIGURATION
@@ -284,7 +284,7 @@ function extractWorldBuilding(content) {
     data: /fragment|consciousness|pattern|memory|trace/gi,
   };
 
-  for (const [category, pattern] of Object.entries(patterns)) {
+  for (const [_category, pattern] of Object.entries(patterns)) {
     const matches = [...new Set(content.match(pattern) || [])];
     elements.push(...matches.map((m) => m.toLowerCase()));
   }
@@ -351,7 +351,7 @@ function hasFrontmatter(content) {
 /**
  * Extract existing frontmatter
  */
-function extractFrontmatter(content) {
+function _extractFrontmatter(content) {
   if (!hasFrontmatter(content)) {
     return null;
   }
@@ -415,12 +415,14 @@ class MetadataCollector {
     console.log('Enter values one per line. Empty line when done.');
 
     const values = [];
-    while (true) {
+    let hasMoreValues = true;
+    while (hasMoreValues) {
       const value = await this.ask('  -');
       if (!value) {
-        break;
+        hasMoreValues = false;
+      } else {
+        values.push(value);
       }
-      values.push(value);
     }
 
     return values;
@@ -769,13 +771,8 @@ async function main() {
 }
 
 // Run if called directly
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(console.error);
 }
 
-module.exports = {
-  findL2VariationFiles,
-  parseFilename,
-  analyzeContent,
-  processFile,
-};
+export { findL2VariationFiles, parseFilename, analyzeContent, processFile };

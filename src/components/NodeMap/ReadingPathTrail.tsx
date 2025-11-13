@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
+
 import { useStoryStore } from '@/stores/storyStore';
 
 /**
@@ -23,7 +24,9 @@ export function ReadingPathTrail() {
       }));
   }, [readingPath, nodes]);
 
-  if (pathPositions.length === 0) return null;
+  if (pathPositions.length === 0) {
+    return null;
+  }
 
   return (
     <svg className="absolute inset-0 pointer-events-none">

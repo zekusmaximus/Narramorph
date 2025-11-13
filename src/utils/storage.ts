@@ -34,7 +34,9 @@ export function saveToStorage<T>(key: string, data: T): boolean {
 export function loadFromStorage<T>(key: string): T | null {
   try {
     const json = localStorage.getItem(key);
-    if (!json) return null;
+    if (!json) {
+      return null;
+    }
     return JSON.parse(json) as T;
   } catch (error) {
     console.error('Failed to load from localStorage:', error);

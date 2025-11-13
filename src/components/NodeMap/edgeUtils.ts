@@ -1,5 +1,6 @@
-import type { CSSProperties } from 'react';
 import type { Edge, MarkerType } from '@xyflow/react';
+import type { CSSProperties } from 'react';
+
 import type { StoryNode, ConnectionType, UserProgress } from '@/types';
 
 /**

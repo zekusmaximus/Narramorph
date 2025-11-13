@@ -3,22 +3,29 @@
  */
 
 import { useMemo } from 'react';
+
 import { useStoryStore } from '@/stores/storyStore';
-import { loadVariationFile } from '@/utils/variationLoader';
-import { findMatchingVariation } from '@/utils/conditionEvaluator';
 import type { VariationMetadata } from '@/types';
+import { findMatchingVariation } from '@/utils/conditionEvaluator';
+import { loadVariationFile } from '@/utils/variationLoader';
 
 const isDevEnv = process.env.NODE_ENV !== 'production';
 const devLog = (...args: unknown[]): void => {
-  if (!isDevEnv) return;
+  if (!isDevEnv) {
+    return;
+  }
   console.warn('[VariationSelection]', ...args);
 };
 const devWarn = (...args: unknown[]): void => {
-  if (!isDevEnv) return;
+  if (!isDevEnv) {
+    return;
+  }
   console.warn('[VariationSelection:warn]', ...args);
 };
 const devError = (...args: unknown[]): void => {
-  if (!isDevEnv) return;
+  if (!isDevEnv) {
+    return;
+  }
   console.error('[VariationSelection:error]', ...args);
 };
 /**

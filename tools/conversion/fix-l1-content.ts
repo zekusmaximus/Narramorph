@@ -11,6 +11,7 @@
 
 import { promises as fs } from 'node:fs';
 import { join, resolve } from 'node:path';
+
 import YAML from 'yaml';
 
 const ROOT = resolve(process.cwd(), '../..');
@@ -24,7 +25,9 @@ async function listMd(dir: string): Promise<string[]> {
     const entries = await fs.readdir(dir, { withFileTypes: true });
     const files: string[] = [];
     for (const e of entries) {
-      if (e.isFile() && e.name.endsWith('.md')) files.push(join(dir, e.name));
+      if (e.isFile() && e.name.endsWith('.md')) {
+        files.push(join(dir, e.name));
+      }
     }
     files.sort();
     return files;
@@ -39,12 +42,14 @@ function detectPhase(filePath: string): 'FR' | 'MA' {
 
 function extractNumberFromName(name: string): string | null {
   const m = name.match(/-(FR|MA)-(\d{1,3})\.md$/i);
-  return m ? m[2]!.padStart(3, '0') : null;
+  return m ? m[2].padStart(3, '0') : null;
 }
 
 function detectCharacter(filePath: string): 'arch' | 'algo' | 'hum' {
   const m = filePath.match(/(arch|algo|hum)-L1/i);
-  if (m && m[1]) return m[1].toLowerCase() as any;
+  if (m && m[1]) {
+    return m[1].toLowerCase() as any;
+  }
   return 'arch';
 }
 
@@ -53,11 +58,15 @@ function hasFrontmatterStart(text: string): boolean {
 }
 
 function splitFrontmatter(text: string): { fm: string; body: string } | null {
-  if (!hasFrontmatterStart(text)) return null;
+  if (!hasFrontmatterStart(text)) {
+    return null;
+  }
   const norm = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   const startIdx = norm.indexOf('---');
   const endIdx = norm.indexOf('\n---', startIdx + 3);
-  if (endIdx === -1) return null;
+  if (endIdx === -1) {
+    return null;
+  }
   const fm = norm.slice(0, endIdx + 4);
   const body = norm.slice(endIdx + 4);
   return { fm, body };
@@ -104,11 +113,13 @@ function fixConditionsIndent(block: string): string {
   const EOL = block.includes('\r\n') ? '\r\n' : '\n';
   const lines = block.split(EOL);
   for (let i = 0; i < lines.length; i++) {
-    if (/^conditions:\s*$/.test(lines[i]!)) {
+    if (/^conditions:\s*$/.test(lines[i])) {
       // indent subsequent key:value lines until next top-level key (no indent) or '---'
       for (let j = i + 1; j < lines.length; j++) {
-        const line = lines[j]!;
-        if (line === '---' || /^\S/.test(line)) break;
+        const line = lines[j];
+        if (line === '---' || /^\S/.test(line)) {
+          break;
+        }
         if (/^\s*[a-zA-Z0-9_]+:/.test(line) && !/^\s{2}/.test(line)) {
           lines[j] = '  ' + line.trimStart();
         }
@@ -130,14 +141,18 @@ function fixListBlocks(block: string): string {
   const EOL = block.includes('\r\n') ? '\r\n' : '\n';
   const lines = block.split(EOL);
   for (let i = 0; i < lines.length; i++) {
-    const key = listKeys.find((k) => new RegExp(`^\s*${k}:\s*$`).test(lines[i]!));
+    const key = listKeys.find((k) => new RegExp(`^\s*${k}:\s*$`).test(lines[i]));
     if (key) {
       for (let j = i + 1; j < lines.length; j++) {
-        const l = lines[j]!;
-        if (l === '---' || /^[A-Za-z_][\w-]*:\s*/.test(l)) break; // next top-level key
-        if (l.trim() === '') continue;
+        const l = lines[j];
+        if (l === '---' || /^[A-Za-z_][\w-]*:\s*/.test(l)) {
+          break;
+        } // next top-level key
+        if (l.trim() === '') {
+          continue;
+        }
         // Ensure list dash and indentation
-        let content = l.trim().replace(/^\-\s*/, '');
+        const content = l.trim().replace(/^\-\s*/, '');
         const quoted = `'${content.replace(/'/g, "''")}'`;
         lines[j] = '  - ' + quoted;
       }
@@ -151,19 +166,25 @@ function foldMultilineScalars(block: string): string {
   const lines = block.split(EOL);
   const out: string[] = [];
   for (let i = 0; i < lines.length; i++) {
-    const line = lines[i]!;
+    const line = lines[i];
     const keyMatch = line.match(/^\s*([a-zA-Z_][\w-]*):\s+(.+)$/);
     if (keyMatch) {
-      const key = keyMatch[1]!;
-      const first = keyMatch[2]!;
+      const key = keyMatch[1];
+      const first = keyMatch[2];
       // Lookahead for continuation lines (indented or starting with a space and not a list or new key)
       const cont: string[] = [first];
       let k = i + 1;
       while (k < lines.length) {
-        const nl = lines[k]!;
-        if (nl === '---') break;
-        if (/^\s*-\s/.test(nl)) break; // list start
-        if (/^[a-zA-Z_][\w-]*:\s*/.test(nl)) break; // new key
+        const nl = lines[k];
+        if (nl === '---') {
+          break;
+        }
+        if (/^\s*-\s/.test(nl)) {
+          break;
+        } // list start
+        if (/^[a-zA-Z_][\w-]*:\s*/.test(nl)) {
+          break;
+        } // new key
         if (/^\s/.test(nl) || nl.trim().length > 0) {
           cont.push(nl.trim());
           k++;
@@ -194,12 +215,16 @@ function quoteAllListItems(block: string): string {
   const EOL = block.includes('\r\n') ? '\r\n' : '\n';
   const lines = block.split(EOL);
   for (let i = 0; i < lines.length; i++) {
-    const m = lines[i]!.match(/^(\s*)-\s+(.+)$/);
-    if (!m) continue;
+    const m = lines[i].match(/^(\s*)-\s+(.+)$/);
+    if (!m) {
+      continue;
+    }
     const indent = m[1] || '';
     let content = m[2] || '';
     // Skip likely mapping items
-    if (/^[A-Za-z_][\w-]*:\s*/.test(content)) continue;
+    if (/^[A-Za-z_][\w-]*:\s*/.test(content)) {
+      continue;
+    }
     // Remove raw double quotes and neutralize colon-space to avoid implicit map parsing
     content = content.replace(/\\\"/g, '"').replace(/\"/g, '"').replace(/"/g, '');
     content = content.replace(/:\s/g, ' - ');
@@ -214,9 +239,9 @@ function cleanOverquoting(block: string): string {
   const lines = block.split(EOL);
   for (let i = 0; i < lines.length; i++) {
     // Remove leading repeated single quotes after list dash
-    lines[i] = lines[i]!.replace(/^(\s*-\s+)'+/, '$1');
+    lines[i] = lines[i].replace(/^(\s*-\s+)'+/, '$1');
     // Remove leading backslashes after list dash
-    lines[i] = lines[i]!.replace(/^(\s*-\s+)\\+/, '$1');
+    lines[i] = lines[i].replace(/^(\s*-\s+)\\+/, '$1');
   }
   return lines.join(EOL);
 }
@@ -228,7 +253,9 @@ async function fixFile(filePath: string): Promise<boolean> {
   let changed = false;
 
   if (!hasFrontmatterStart(raw)) {
-    if (!num) return false;
+    if (!num) {
+      return false;
+    }
     const variation_id = `arch-L1-${phase}-${num}`;
     const variation_type = phase === 'FR' ? 'firstRevisit' : 'metaAware';
     const body = raw.trim();
@@ -240,7 +267,9 @@ async function fixFile(filePath: string): Promise<boolean> {
   }
 
   const parts = splitFrontmatter(raw);
-  if (!parts) return false;
+  if (!parts) {
+    return false;
+  }
   let { fm, body } = parts;
 
   // Normalize EOLs to LF for consistency
@@ -262,7 +291,9 @@ async function fixFile(filePath: string): Promise<boolean> {
     data = YAML.parse(yamlText) || {};
   } catch (e) {
     // Fallback: replace with minimal valid frontmatter preserving only required fields
-    if (!num) return false;
+    if (!num) {
+      return false;
+    }
     const variation_id = `arch-L1-${phase}-${num}`;
     const variation_type = phase === 'FR' ? 'firstRevisit' : 'metaAware';
     const word_count = body.trim().split(/\s+/).filter(Boolean).length;
@@ -302,9 +333,13 @@ async function fixFile(filePath: string): Promise<boolean> {
 
   // Emit new frontmatter using YAML.stringify
   const newFm = `---\n${YAML.stringify(data, { defaultStringType: 'QUOTE_SINGLE' as any })}---\n`;
-  if (newFm !== fm) changed = true;
+  if (newFm !== fm) {
+    changed = true;
+  }
 
-  if (!changed) return false;
+  if (!changed) {
+    return false;
+  }
   await fs.writeFile(filePath, newFm + body, 'utf-8');
   return true;
 }
@@ -319,7 +354,9 @@ async function main() {
   let modified = 0;
   for (const f of files) {
     const ok = await fixFile(f).catch(() => false);
-    if (ok) modified++;
+    if (ok) {
+      modified++;
+    }
   }
   console.log(`Fixed ${modified} file(s)`);
 }
