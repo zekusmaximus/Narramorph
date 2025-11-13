@@ -9,6 +9,18 @@ import { UnlockNotificationSystem } from '@/components/UI/UnlockNotification';
 import { useStoryStore } from '@/stores';
 
 /**
+ * Error fallback component for ErrorBoundary
+ */
+function ErrorFallback({ error }: { error: Error }) {
+  return (
+    <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+      <h2 className="text-red-800 font-semibold mb-2">Something went wrong</h2>
+      <pre className="text-sm text-red-600">{error.message}</pre>
+    </div>
+  );
+}
+
+/**
  * Main home page component that displays the node map and story view
  */
 export default function Home() {
@@ -61,12 +73,12 @@ export default function Home() {
 
       {/* Main content area with node map */}
       <div className="flex-1 relative">
-        <ErrorBoundary>
+        <ErrorBoundary fallbackRender={({ error }) => <ErrorFallback error={error} />}>
           <NodeMap className="w-full h-full" />
         </ErrorBoundary>
 
         {/* Overlay story view */}
-        <ErrorBoundary>
+        <ErrorBoundary fallbackRender={({ error }) => <ErrorFallback error={error} />}>
           <StoryView />
         </ErrorBoundary>
 
@@ -77,7 +89,7 @@ export default function Home() {
           transition={{ delay: 1, duration: 0.5 }}
           className="absolute bottom-4 left-1/2 -translate-x-1/2 w-80 z-10"
         >
-          <ErrorBoundary>
+          <ErrorBoundary fallbackRender={({ error }) => <ErrorFallback error={error} />}>
             <JourneyTracker />
           </ErrorBoundary>
         </motion.div>
@@ -86,7 +98,7 @@ export default function Home() {
         {/* L3 Assembly View Modal */}
         <AnimatePresence>
           {l3AssemblyViewOpen && currentL3Assembly && (
-            <ErrorBoundary>
+            <ErrorBoundary fallbackRender={({ error }) => <ErrorFallback error={error} />}>
               <L3AssemblyView
                 assembly={currentL3Assembly}
                 onClose={closeL3AssemblyView}

@@ -7,7 +7,8 @@
       "Bash(echo:*)",
       "Bash(dir:*)",
       "Bash(findstr:*)",
-      "Read(//c/**)"
+      "Read(//c/**)",
+      "Bash(npm run type-check:*)"
     ],
     "deny": [],
     "ask": []

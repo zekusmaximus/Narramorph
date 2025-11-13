@@ -11,7 +11,7 @@
     "lastModified": "2025-01-15T00:00:00Z"
   },
   "configuration": {
-    "startNode": "arc-L1",
+    "startNode": "arch-L1",
     "enableTransformations": true,
     "requireCompleteReads": false,
     "allowBacktracking": true,
@@ -21,8 +21,8 @@
     "totalNodes": 12,
     "totalConnections": 18,
     "narrativeActs": 3,
-    "criticalPathNodes": ["arc-L1", "algo-L1", "hum-L1"],
-    "endingNodes": [],
+    "criticalPathNodes": ["arch-L1", "algo-L1", "hum-L1", "L3-preserve", "L3-release", "L3-transform", "final-reveal"],
+    "endingNodes": ["L3-preserve", "L3-release", "L3-transform", "final-reveal"],
     "characterDistribution": {
       "archaeologist": 4,
       "algorithm": 4,

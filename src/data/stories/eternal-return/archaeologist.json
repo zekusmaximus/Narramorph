@@ -2,7 +2,7 @@
   "character": "archaeologist",
   "nodes": [
     {
-      "id": "arc-L1",
+      "id": "arch-L1",
       "layer": 1,
       "chapterTitle": "First Documentation",
       "connections": ["arch-L2-accept", "arch-L2-resist", "arch-L2-invest"],

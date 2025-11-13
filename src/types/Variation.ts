@@ -2,6 +2,8 @@
  * Type definitions for the variation system, journey patterns, and L3 assembly
  */
 
+import type { TransformationState } from './Node';
+
 /**
  * Journey patterns track which character the reader started with and whether they stayed
  */
@@ -84,6 +86,7 @@ export interface Variation {
   schemaVersion: string;
   id: string;
   sectionType: string;
+  transformationState: TransformationState;
   journeyPattern: JourneyPattern;
   philosophyDominant: PathPhilosophy;
   awarenessLevel: AwarenessLevel;
@@ -222,7 +225,7 @@ export interface ConditionContext {
   journeyPattern: JourneyPattern;
   pathPhilosophy: PathPhilosophy;
   visitCount: number;
-  transformationState: 'initial' | 'firstRevisit' | 'metaAware';
+  transformationState: TransformationState;
   characterVisitPercentages: {
     archaeologist: number;
     algorithm: number;

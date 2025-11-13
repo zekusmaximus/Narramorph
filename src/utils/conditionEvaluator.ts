@@ -12,6 +12,15 @@ import type {
 } from '@/types';
 import { performanceMonitor } from './performanceMonitor';
 
+const isDebugEnv = process.env.NODE_ENV !== 'production';
+const debugLog = (...args: unknown[]): void => {
+  if (!isDebugEnv) {
+    return;
+  }
+  // eslint-disable-next-line no-console
+  console.log(...args);
+};
+
 /**
  * Convert numeric awareness to level category
  */
@@ -82,7 +91,7 @@ export function findMatchingVariation(
 ): Variation | null {
   const endTimer = performanceMonitor.startTimer('variationSelection');
 
-  console.log('[VariationSelection] Finding match for:', {
+  debugLog('[VariationSelection] Finding match for:', {
     nodeId: context.nodeId,
     awareness: context.awareness,
     awarenessLevel: getAwarenessLevel(context.awareness),
@@ -92,7 +101,7 @@ export function findMatchingVariation(
     transformationState: context.transformationState,
   });
 
-  console.log(`[VariationSelection] Evaluating ${variations.length} variations`);
+  debugLog(`[VariationSelection] Evaluating ${variations.length} variations`);
 
   // Filter variations that match the context
   const matches = variations.filter(variation => {
@@ -104,7 +113,7 @@ export function findMatchingVariation(
       return false;
     }
 
-    console.log('[VariationSelection] Checking variation:', {
+    debugLog('[VariationSelection] Checking variation:', {
       variationId: variation.variationId || meta.variationId,
       transformationState: variation.transformationState,
       awarenessRange: meta.awarenessRange,
@@ -114,33 +123,33 @@ export function findMatchingVariation(
 
     // CRITICAL: Check transformation state FIRST
     if (variation.transformationState !== context.transformationState) {
-      console.log('[VariationSelection] ✗ Transformation state mismatch');
+      debugLog('[VariationSelection] ✗ Transformation state mismatch');
       return false;
     }
 
     // Check awareness range
     if (!isInRange(context.awareness, meta.awarenessRange)) {
-      console.log('[VariationSelection] ✗ Awareness mismatch');
+      debugLog('[VariationSelection] ✗ Awareness mismatch');
       return false;
     }
 
     // Check journey pattern
     if (meta.journeyPattern !== 'unknown' && meta.journeyPattern !== context.journeyPattern) {
-      console.log('[VariationSelection] ✗ Journey pattern mismatch');
+      debugLog('[VariationSelection] ✗ Journey pattern mismatch');
       return false;
     }
 
     // Check philosophy
     if (meta.philosophyDominant !== 'unknown' && meta.philosophyDominant !== context.pathPhilosophy) {
-      console.log('[VariationSelection] ✗ Philosophy mismatch');
+      debugLog('[VariationSelection] ✗ Philosophy mismatch');
       return false;
     }
 
-    console.log('[VariationSelection] ✓ Match found');
+    debugLog('[VariationSelection] ✓ Match found');
     return true;
   });
 
-  console.log(`[VariationSelection] Found ${matches.length} matching variations`);
+  debugLog(`[VariationSelection] Found ${matches.length} matching variations`);
 
   if (matches.length === 0) {
     console.warn('[VariationSelection] No matches found, returning null');
@@ -161,7 +170,7 @@ export function findMatchingVariation(
 
   if (exactMatches.length > 0) {
     const selected = exactMatches[0];
-    console.log(`[VariationSelection] Selected exact match: ${selected.variationId}`);
+    debugLog(`[VariationSelection] Selected exact match: ${selected.variationId}`);
     endTimer({
       nodeId: context.nodeId,
       variationCount: variations.length,
@@ -177,7 +186,7 @@ export function findMatchingVariation(
 
   if (journeyMatches.length > 0) {
     const selected = journeyMatches[0];
-    console.log(`[VariationSelection] Selected journey match: ${selected.variationId}`);
+    debugLog(`[VariationSelection] Selected journey match: ${selected.variationId}`);
     endTimer({
       nodeId: context.nodeId,
       variationCount: variations.length,
@@ -193,7 +202,7 @@ export function findMatchingVariation(
 
   if (philosophyMatches.length > 0) {
     const selected = philosophyMatches[0];
-    console.log(`[VariationSelection] Selected philosophy match: ${selected.variationId}`);
+    debugLog(`[VariationSelection] Selected philosophy match: ${selected.variationId}`);
     endTimer({
       nodeId: context.nodeId,
       variationCount: variations.length,
@@ -204,7 +213,7 @@ export function findMatchingVariation(
   }
 
   const selected = matches[0];
-  console.log(`[VariationSelection] Selected first match: ${selected.variationId}`);
+  debugLog(`[VariationSelection] Selected first match: ${selected.variationId}`);
   endTimer({
     nodeId: context.nodeId,
     variationCount: variations.length,

@@ -10,7 +10,7 @@
  * - Compound conditions (AND/OR/NOT logic)
  */
 
-import type { PathPhilosophy, JourneyPattern } from './Variation';
+import type { PathPhilosophy } from './Variation';
 import type { TransformationState } from './Node';
 
 /**

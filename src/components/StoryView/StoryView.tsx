@@ -46,7 +46,9 @@ const characterThemes: Record<CharacterType, {
 
 /**
  * Gets visual icon for transformation states
+ * Currently unused but kept for future feature
  */
+// @ts-expect-error - Unused but kept for future feature
 function getStateIcon(state: TransformationState): string {
   switch (state) {
     case 'initial': return '🔵';
@@ -58,7 +60,9 @@ function getStateIcon(state: TransformationState): string {
 
 /**
  * Gets human-readable label for transformation states
+ * Currently unused but kept for future feature
  */
+// @ts-ignore - Unused but kept for future feature
 function getStateLabel(state: TransformationState): string {
   switch (state) {
     case 'initial': return 'First Visit';
@@ -70,7 +74,9 @@ function getStateLabel(state: TransformationState): string {
 
 /**
  * Gets icon for connection types
+ * Currently unused but kept for future feature
  */
+// @ts-expect-error - Unused but kept for future feature
 function getConnectionIcon(type: ConnectionType): React.ReactNode {
   switch (type) {
     case 'temporal':
