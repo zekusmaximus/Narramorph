@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import NarromorphCanvas from '@/components/3d/NarromorphCanvas';
+import ContentPanel3D from '@/components/ContentPanel3D';
 import NodeMap from '@/components/NodeMap';
 import StoryView from '@/components/StoryView';
 import { JourneyTracker } from '@/components/UI/JourneyTracker';
@@ -77,9 +78,9 @@ export default function Home() {
           )}
         </ErrorBoundary>
 
-        {/* Overlay story view */}
+        {/* Content panels - different for 2D vs 3D mode */}
         <ErrorBoundary fallbackRender={({ error }) => <ErrorFallback error={error} />}>
-          <StoryView />
+          {import.meta.env.VITE_ENABLE_3D === 'true' ? <ContentPanel3D /> : <StoryView />}
         </ErrorBoundary>
 
         {/* Journey Tracker - center bottom */}
