@@ -171,6 +171,7 @@ export interface StoryStore {
   selectedNode: string | null;
   hoveredNode: string | null;
   storyViewOpen: boolean;
+  isAnimating: boolean; // Camera animation in progress
 
   // L3 Assembly State
   l3AssemblyCache: Map<string, L3Assembly>;

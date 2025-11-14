@@ -20,6 +20,7 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
   const selectedNode = useStoryStore((state) => state.selectedNode);
   const visitedNodes = useStoryStore((state) => state.progress.visitedNodes);
   const awarenessLevel = useStoryStore((state) => state.progress.temporalAwarenessLevel);
+  const isAnimating = useStoryStore((state) => state.isAnimating);
   const openStoryView = useStoryStore((state) => state.openStoryView);
 
   if (!node) return null;
@@ -51,10 +52,12 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
 
   // Event handlers
   const handleClick = () => {
+    if (isAnimating) return; // Ignore clicks during animation
     openStoryView(nodeId);
   };
 
   const handlePointerOver = () => {
+    if (isAnimating) return; // Don't change cursor during animation
     setIsHovered(true);
     document.body.style.cursor = 'pointer';
   };
