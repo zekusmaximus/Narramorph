@@ -210,6 +210,7 @@ export interface StoryStore {
   updateViewport: (viewport: Partial<MapViewport>) => void;
   selectNode: (nodeId: string | null) => void;
   setHoveredNode: (nodeId: string | null) => void;
+  setIsAnimating: (value: boolean) => void;
   openStoryView: (nodeId: string, opts?: { variationId?: string }) => void;
   closeStoryView: () => void;
   saveProgress: () => void;

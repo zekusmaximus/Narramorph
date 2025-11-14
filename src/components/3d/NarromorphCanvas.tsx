@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
-import CameraController from './CameraController';
+import CameraController, { DEFAULT_CAMERA_POSITION } from './CameraController';
 import SceneContent from './SceneContent';
 
 /**
@@ -63,8 +63,10 @@ export default function NarromorphCanvas() {
   return (
     <Canvas
       camera={{
-        position: [0, 0, 60],
+        position: DEFAULT_CAMERA_POSITION,
         fov: 50,
+        near: 0.1,
+        far: 500,
       }}
     >
       {/* Atmospheric fog for depth perception */}
