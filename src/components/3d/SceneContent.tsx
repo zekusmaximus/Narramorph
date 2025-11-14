@@ -1,12 +1,13 @@
 import { useEffect, useMemo } from 'react';
 
+import NodeSphere from './NodeSphere';
 import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';
 import type { StoryNode } from '@/types';
 
 /**
  * Scene content for 3D visualization
- * Renders test spheres positioned by character layout
+ * Renders node spheres positioned by character layout
  */
 export default function SceneContent() {
   const nodes = useStoryStore((state) => state.nodes);
@@ -46,21 +47,19 @@ export default function SceneContent() {
     }
   }, [positions]);
 
-  // Render test spheres - one per character at first node position
+  // Flatten all nodes from all characters
+  const allNodes = useMemo(() => {
+    return characters.flatMap((character) => character.nodes);
+  }, [characters]);
+
+  // Render NodeSphere for each node
   return (
     <>
-      {characters.map((character, index) => {
-        const firstNode = character.nodes[0];
-        if (!firstNode || !positions[firstNode.id]) return null;
+      {allNodes.map((node) => {
+        const position = positions[node.id];
+        if (!position) return null;
 
-        const [x, y, z] = positions[firstNode.id];
-
-        return (
-          <mesh key={`char-${index}`} position={[x, y, z]}>
-            <sphereGeometry args={[1, 32, 32]} />
-            <meshStandardMaterial color={index === 0 ? '#4A90E2' : index === 1 ? '#50C878' : '#E74C3C'} />
-          </mesh>
-        );
+        return <NodeSphere key={node.id} nodeId={node.id} position={position} />;
       })}
     </>
   );
