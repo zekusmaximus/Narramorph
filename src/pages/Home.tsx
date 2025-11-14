@@ -4,6 +4,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 import NarromorphCanvas from '@/components/3d/NarromorphCanvas';
 import LoadingState from '@/components/3d/LoadingState';
+import FPSCounter from '@/components/3d/FPSCounter';
 import ContentPanel3D from '@/components/ContentPanel3D';
 import NodeMap from '@/components/NodeMap';
 import StoryView from '@/components/StoryView';
@@ -133,6 +134,9 @@ export default function Home() {
         <ErrorBoundary fallbackRender={({ error }) => <ErrorFallback error={error} />}>
           {use3DMode ? <ContentPanel3D /> : <StoryView />}
         </ErrorBoundary>
+
+        {/* Dev-only FPS counter for 3D mode */}
+        {use3DMode && <FPSCounter />}
 
         {/* Journey Tracker - center bottom */}
         <motion.div

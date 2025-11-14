@@ -17,23 +17,23 @@ interface GetNodeAppearanceParams {
 }
 
 /**
- * Character color palette
+ * Character color palette (matches tailwind config)
  */
 const CHARACTER_COLORS: Record<string, string> = {
-  archaeologist: '#4A90E2', // Blue
-  algorithm: '#50C878', // Green
-  'last-human': '#E74C3C', // Red
-  'multi-perspective': '#9B59B6', // Purple
+  archaeologist: '#4A90E2', // Blue-500
+  algorithm: '#50C878', // Green-500
+  'last-human': '#E74C3C', // Red-500
+  'multi-perspective': '#9B59B6', // Purple-500
 };
 
 /**
- * Darker color palette for locked nodes
+ * Darker color palette for locked nodes (using 800 variants for better contrast)
  */
 const LOCKED_COLORS: Record<string, string> = {
-  archaeologist: '#2D5A8F', // Darker blue
-  algorithm: '#2F7A4D', // Darker green
-  'last-human': '#8F2E1E', // Darker red
-  'multi-perspective': '#5E366F', // Darker purple
+  archaeologist: '#1e40af', // Blue-800
+  algorithm: '#166534', // Green-800
+  'last-human': '#991b1b', // Red-800
+  'multi-perspective': '#6b21a8', // Purple-800
 };
 
 /**

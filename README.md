@@ -64,12 +64,69 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed development guidelines.
 
 ---
 
+## 3D Visualization Mode
+
+Narramorph includes an experimental 3D visualization mode that renders the story nodes as interactive spheres in 3D space.
+
+### Enabling 3D Mode
+
+Create a `.env.local` file in the project root:
+
+```bash
+VITE_ENABLE_3D=true
+```
+
+Or set the environment variable when running:
+
+```bash
+VITE_ENABLE_3D=true npm run dev
+```
+
+**Requirements**:
+- WebGL-compatible browser
+- Modern GPU recommended for optimal performance
+- Automatic fallback to 2D mode if WebGL is unavailable
+
+### Controls
+
+**Mouse/Trackpad**:
+- **Left Click + Drag**: Rotate camera around scene
+- **Right Click + Drag**: Pan camera
+- **Scroll Wheel**: Zoom in/out
+- **Click Node**: Open story content panel
+
+**Keyboard**:
+- **Escape**: Close story content panel
+- **Arrow Keys**: Manual camera navigation (via OrbitControls)
+
+### Features
+
+- **Spatial Layout**: Nodes arranged in circular patterns by character perspective
+- **Character Layers**: Three temporal layers along z-axis (Past, Present, Future)
+- **Visual States**: Color-coded node states (visited, active, locked, unvisited)
+- **Smooth Transitions**: Camera animates to selected nodes with spring physics
+- **Atmospheric Fog**: Depth perception enhancement
+- **Performance Monitor**: FPS counter (development mode only)
+
+### Architecture
+
+See detailed 3D architecture documentation: [src/components/3d/README.md](src/components/3d/README.md)
+
+**Key Technologies**:
+- Three.js for 3D rendering
+- React Three Fiber for React integration
+- React Spring for smooth animations
+- Zustand for spatial state management
+
+---
+
 ## Tech Stack
 
 - **React 18** + TypeScript
 - **Zustand** with Immer for state management
 - **Tailwind CSS** for styling
 - **Framer Motion** for animations
+- **Three.js** + React Three Fiber for 3D visualization
 - **Vite** for build tooling
 - **Vitest** + React Testing Library for testing
 
@@ -86,7 +143,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed development guidelines.
 ├── L4/                         # Layer 4 terminal variations (3)
 ├── src/
 │   ├── algorithms/            # L3/L4 selection algorithms
-│   ├── components/            # React components
+│   ├── components/
+│   │   ├── 3d/               # Three.js 3D visualization components
+│   │   ├── NodeMap/          # 2D React Flow node map
+│   │   ├── StoryView/        # Story content display
+│   │   └── UI/               # UI components
 │   ├── stores/                # Zustand state management
 │   ├── types/                 # TypeScript type definitions
 │   └── data/                  # Story content (JSON)

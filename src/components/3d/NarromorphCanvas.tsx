@@ -19,6 +19,9 @@ export default function NarromorphCanvas() {
         fov: 50,
       }}
     >
+      {/* Atmospheric fog for depth perception */}
+      <fog attach="fog" args={['#1a1a1a', 50, 200]} />
+
       <ambientLight intensity={0.3} />
       <pointLight position={[10, 10, 10]} />
 

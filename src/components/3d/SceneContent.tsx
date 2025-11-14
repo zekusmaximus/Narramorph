@@ -7,12 +7,12 @@ import { useSpatialStore } from '@/stores/spatialStore';
 import type { StoryNode, CharacterType } from '@/types';
 
 /**
- * Character metadata for visual guides
+ * Character metadata for visual guides (matches tailwind config)
  */
 const CHARACTER_METADATA: Record<string, { color: string; label: string }> = {
-  archaeologist: { color: '#4A90E2', label: 'Past - Discovery' },
-  algorithm: { color: '#50C878', label: 'Present - Processing' },
-  'last-human': { color: '#E74C3C', label: 'Future - Memory' },
+  archaeologist: { color: '#4A90E2', label: 'Past - Discovery' }, // Blue-500
+  algorithm: { color: '#50C878', label: 'Present - Processing' }, // Green-500
+  'last-human': { color: '#E74C3C', label: 'Future - Memory' }, // Red-500
 };
 
 /**
