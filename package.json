@@ -32,6 +32,9 @@
     "content:rollback": "cd tools/conversion && npm run rollback"
   },
   "dependencies": {
+    "@react-spring/three": "^9.7.3",
+    "@react-three/drei": "^9.92.0",
+    "@react-three/fiber": "^8.15.0",
     "@xyflow/react": "^12.0.0",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.0",
@@ -41,6 +44,7 @@
     "react-dom": "^18.3.1",
     "react-error-boundary": "^6.0.0",
     "tailwindcss": "^3.4.0",
+    "three": "^0.159.0",
     "zustand": "^4.5.0"
   },
   "devDependencies": {
