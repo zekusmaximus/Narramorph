@@ -3,6 +3,7 @@ import { animated, useSpring } from '@react-spring/three';
 
 import { useStoryStore } from '@/stores';
 import { getNodeAppearance } from '@/utils/getNodeAppearance';
+import { isNodeAvailable } from '@/utils/isNodeAvailable';
 
 interface NodeSphereProps {
   nodeId: string;
@@ -18,9 +19,11 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
   // Get node data and state from store
   const node = useStoryStore((state) => state.nodes.get(nodeId));
   const selectedNode = useStoryStore((state) => state.selectedNode);
+  const progress = useStoryStore((state) => state.progress);
   const visitedNodes = useStoryStore((state) => state.progress.visitedNodes);
   const awarenessLevel = useStoryStore((state) => state.progress.temporalAwarenessLevel);
   const isAnimating = useStoryStore((state) => state.isAnimating);
+  const unlockConfigs = useStoryStore((state) => state.unlockConfigs);
   const openStoryView = useStoryStore((state) => state.openStoryView);
 
   if (!node) return null;
@@ -31,33 +34,45 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
   const isActive = selectedNode === nodeId;
   const isVisited = visitCount > 0;
 
+  // Check if node is available
+  const unlockConfig = unlockConfigs.get(nodeId);
+  const isAvailable = isNodeAvailable(nodeId, progress, unlockConfig);
+  const isLocked = !isAvailable;
+
   // Get appearance based on state
   const appearance = getNodeAppearance({
     character: node.character,
     isActive,
     isVisited,
+    isLocked,
     awarenessLevel,
   });
 
-  // Animated properties
-  const { scale, emissiveIntensity } = useSpring({
-    scale: isActive ? 1.3 : isHovered ? 1.15 : 1.0,
+  // Animated properties - conditional hover based on availability
+  const baseScale = appearance.scale;
+  const { scale, emissiveIntensity, opacity } = useSpring({
+    scale: isActive
+      ? baseScale * 1.3
+      : isHovered && isAvailable
+        ? baseScale * 1.05
+        : baseScale,
     emissiveIntensity: isActive
       ? appearance.emissiveIntensity
-      : isHovered
-        ? appearance.emissiveIntensity * 1.5
+      : isHovered && isAvailable
+        ? appearance.emissiveIntensity * 1.2
         : appearance.emissiveIntensity,
+    opacity: appearance.opacity,
     config: { tension: 300, friction: 20 },
   });
 
   // Event handlers
   const handleClick = () => {
-    if (isAnimating) return; // Ignore clicks during animation
+    if (isAnimating || !isAvailable) return; // Ignore clicks if animating or locked
     openStoryView(nodeId);
   };
 
   const handlePointerOver = () => {
-    if (isAnimating) return; // Don't change cursor during animation
+    if (isAnimating || !isAvailable) return; // No hover effects if animating or locked
     setIsHovered(true);
     document.body.style.cursor = 'pointer';
   };
@@ -80,6 +95,8 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
         color={appearance.color}
         emissive={appearance.emissiveColor}
         emissiveIntensity={emissiveIntensity}
+        opacity={opacity}
+        transparent
       />
     </animated.mesh>
   );

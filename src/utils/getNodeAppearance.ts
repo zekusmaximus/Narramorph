@@ -4,12 +4,15 @@ interface NodeAppearance {
   color: string;
   emissiveColor: string;
   emissiveIntensity: number;
+  scale: number;
+  opacity: number;
 }
 
 interface GetNodeAppearanceParams {
   character: CharacterType;
   isActive: boolean;
   isVisited: boolean;
+  isLocked: boolean;
   awarenessLevel: number;
 }
 
@@ -24,14 +27,37 @@ const CHARACTER_COLORS: Record<string, string> = {
 };
 
 /**
+ * Darker color palette for locked nodes
+ */
+const LOCKED_COLORS: Record<string, string> = {
+  archaeologist: '#2D5A8F', // Darker blue
+  algorithm: '#2F7A4D', // Darker green
+  'last-human': '#8F2E1E', // Darker red
+  'multi-perspective': '#5E366F', // Darker purple
+};
+
+/**
  * Get visual appearance for a node based on its state
  */
 export function getNodeAppearance({
   character,
   isActive,
   isVisited,
+  isLocked,
 }: GetNodeAppearanceParams): NodeAppearance {
   const baseColor = CHARACTER_COLORS[character] || '#CCCCCC';
+  const lockedColor = LOCKED_COLORS[character] || '#666666';
+
+  // Locked node: reduced scale, dim, low opacity
+  if (isLocked) {
+    return {
+      color: lockedColor,
+      emissiveColor: lockedColor,
+      emissiveIntensity: 0.1,
+      scale: 0.8,
+      opacity: 0.3,
+    };
+  }
 
   // Active node: bright glow
   if (isActive) {
@@ -39,6 +65,8 @@ export function getNodeAppearance({
       color: baseColor,
       emissiveColor: baseColor,
       emissiveIntensity: 2.0,
+      scale: 1.0,
+      opacity: 1.0,
     };
   }
 
@@ -48,6 +76,8 @@ export function getNodeAppearance({
       color: baseColor,
       emissiveColor: baseColor,
       emissiveIntensity: 0.5,
+      scale: 1.0,
+      opacity: 1.0,
     };
   }
 
@@ -56,5 +86,7 @@ export function getNodeAppearance({
     color: baseColor,
     emissiveColor: baseColor,
     emissiveIntensity: 0.2,
+    scale: 1.0,
+    opacity: 1.0,
   };
 }
