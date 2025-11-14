@@ -119,6 +119,8 @@ function createInitialProgress(): UserProgress {
     },
     journeyTracking: createInitialJourneyTracking(),
     unlockedL2Characters: [],
+    l3ConvergenceTriggered: false,
+    lockedNodes: [],
   };
 }
 
@@ -656,6 +658,17 @@ export const useStoryStore = create<StoryStore>()(
     },
 
     /**
+     * Check if a node is locked (after L3 convergence)
+     *
+     * @param nodeId - Node ID to check
+     * @returns true if node is locked and cannot be accessed
+     */
+    isNodeLocked: (nodeId: string): boolean => {
+      const state = get();
+      return state.progress.lockedNodes?.includes(nodeId) || false;
+    },
+
+    /**
      * Update the active visit with a variationId after it's been determined
      */
     updateActiveVisitVariation: (variationId: string) => {
@@ -851,6 +864,34 @@ export const useStoryStore = create<StoryStore>()(
       if (!assembly) {
         devError('[L3Assembly] Cannot open view - no assembly available');
         return;
+      }
+
+      // ONE-WAY GATE: Lock L1/L2 nodes after first L3 view (convergence moment)
+      if (!state.progress.l3ConvergenceTriggered) {
+        devLog('[L3Assembly] ⚠️  CONVERGENCE TRIGGERED - Locking L1/L2 nodes (one-way gate)');
+
+        set((draftState) => {
+          // Mark convergence as triggered
+          draftState.progress.l3ConvergenceTriggered = true;
+
+          // Initialize lockedNodes if needed
+          if (!draftState.progress.lockedNodes) {
+            draftState.progress.lockedNodes = [];
+          }
+
+          // Lock all L1 and L2 nodes
+          for (const [nId, node] of draftState.nodes) {
+            if (node.layer === 1 || node.layer === 2) {
+              if (!draftState.progress.lockedNodes.includes(nId)) {
+                draftState.progress.lockedNodes.push(nId);
+              }
+            }
+          }
+
+          devLog(
+            `[L3Assembly] Locked ${draftState.progress.lockedNodes.length} L1/L2 nodes. Your journey has crystallized.`,
+          );
+        });
       }
 
       set((state) => {
@@ -1201,6 +1242,14 @@ export const useStoryStore = create<StoryStore>()(
     openStoryView: (nodeId: string, opts?: { variationId?: string }) => {
       const state = get();
 
+      // GATE: Prevent access to locked nodes (L1/L2 after L3 convergence)
+      if (state.progress.lockedNodes?.includes(nodeId)) {
+        devWarn(
+          `[Navigation] Cannot open locked node: ${nodeId}. Journey has crystallized at L3 convergence.`,
+        );
+        return;
+      }
+
       // Check if this is an L3 node
       if (isL3Node(nodeId)) {
         devLog('[Navigation] L3 node detected, opening assembly view');
@@ -1360,6 +1409,17 @@ export const useStoryStore = create<StoryStore>()(
         devLog(
           `Migration complete. Unlocked L2 characters: ${saved.progress.unlockedL2Characters.join(', ')}`,
         );
+      }
+
+      // Migration for old saves without L3 convergence system
+      if (saved.progress.l3ConvergenceTriggered === undefined) {
+        devLog('Migrating old save to L3 convergence system...');
+
+        // Initialize the fields
+        saved.progress.l3ConvergenceTriggered = false;
+        saved.progress.lockedNodes = [];
+
+        devLog('Migration complete. L3 convergence system initialized.');
       }
 
       set((state) => {
