@@ -231,5 +231,5 @@ export interface ConditionContext {
     algorithm: number;
     lastHuman: number;
   };
-  recentVariationIds?: string[]; // Last N variation IDs for de-duplication
+  recentVariationIds?: string[]; // ALL variation IDs ever shown for this node (absolute deduplication - never repeat)
 }

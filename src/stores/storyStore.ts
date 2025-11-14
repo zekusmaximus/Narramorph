@@ -196,19 +196,18 @@ function determineTransformationState(
 
   const visitCount = visitRecord?.visitCount || 0;
 
-  // First visit: always initial state
-  if (visitCount === 0 || visitCount === 1) {
+  // First visit ONLY: always initial state
+  if (visitCount === 1) {
     devLog(`[TransformState] ${nodeId}: visitCount=${visitCount} → initial`);
     return 'initial';
   }
 
-  // Second visit: temporal bleeding if awareness threshold met
+  // Second visit: always firstRevisit (never show initial again)
   if (visitCount === 2) {
-    const state = temporalAwarenessLevel > 20 ? 'firstRevisit' : 'initial';
     devLog(
-      `[TransformState] ${nodeId}: visitCount=2, awareness=${temporalAwarenessLevel} → ${state}`,
+      `[TransformState] ${nodeId}: visitCount=2, awareness=${temporalAwarenessLevel} → firstRevisit`,
     );
-    return state;
+    return 'firstRevisit';
   }
 
   // Third+ visit OR high awareness: full meta-aware
@@ -676,13 +675,13 @@ export const useStoryStore = create<StoryStore>()(
         // Update the visit record with the variationId
         visitRecord.variationId = variationId;
 
-        // Maintain sliding window of recent variationIds (max 5 entries)
+        // Track ALL variations ever shown for this node (absolute deduplication)
         if (!visitRecord.recentVariationIds) {
           visitRecord.recentVariationIds = [];
         }
-        visitRecord.recentVariationIds.push(variationId);
-        if (visitRecord.recentVariationIds.length > 5) {
-          visitRecord.recentVariationIds.shift(); // Remove oldest
+        // Only add if not already in the list (prevent duplicates in the array itself)
+        if (!visitRecord.recentVariationIds.includes(variationId)) {
+          visitRecord.recentVariationIds.push(variationId);
         }
 
         devLog(`[Visit] Updated ${activeVisit.nodeId} with variationId: ${variationId}`);

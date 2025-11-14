@@ -23,78 +23,55 @@ const debugLog = (...args: unknown[]): void => {
 };
 
 /**
- * Pick a non-repeating variation from candidates using sliding window de-duplication
+ * Pick a non-repeating variation from candidates using ABSOLUTE de-duplication
  *
  * Algorithm:
- * 1. If no recent history → return first candidate
- * 2. Get last N (windowSize) variationIds from recent history
- * 3. Filter candidates to exclude those in window
- * 4. If any unused → return first unused
- * 5. Else (all recently used) → return LRU (earliest in window)
- * 6. Fallback → first candidate
+ * 1. If no history → return first candidate
+ * 2. Filter candidates to exclude ALL previously shown variations
+ * 3. If any never-shown variations exist → return first
+ * 4. Else (all variations have been shown) → return null to indicate exhaustion
  *
  * @param candidates - Array of variations to choose from
- * @param recentIds - Recent variation IDs (sliding window)
- * @param windowSize - Size of deduplication window (default: 3)
- * @returns Selected variation
+ * @param shownIds - ALL variation IDs ever shown for this node
+ * @returns Selected variation, or null if all have been shown
  */
 export function pickNonRepeatingVariation<T extends { variationId?: string; id?: string }>(
   candidates: T[],
-  recentIds?: string[],
-  windowSize: number = 3,
+  shownIds?: string[],
 ): T | null {
   if (candidates.length === 0) {
     return null;
   }
 
-  // If no recent history, return first candidate
-  if (!recentIds || recentIds.length === 0) {
+  // If no history, return first candidate
+  if (!shownIds || shownIds.length === 0) {
     return candidates[0];
   }
 
-  // Get last N variation IDs from window
-  const recentWindow = recentIds.slice(-windowSize);
-
-  debugLog('[Dedupe] Recent window:', recentWindow);
+  debugLog('[Dedupe] Previously shown:', shownIds);
   debugLog(
     '[Dedupe] Candidates:',
     candidates.map((c) => c.variationId || c.id),
   );
 
-  // Filter out candidates that were recently used
-  const unused = candidates.filter((candidate) => {
+  // Filter out candidates that have EVER been shown
+  const neverShown = candidates.filter((candidate) => {
     const candidateId = candidate.variationId || candidate.id;
-    return !recentWindow.includes(candidateId || '');
+    return !shownIds.includes(candidateId || '');
   });
 
-  debugLog('[Dedupe] Unused candidates:', unused.length);
+  debugLog('[Dedupe] Never-shown candidates:', neverShown.length);
 
-  // If we have unused candidates, return the first one
-  if (unused.length > 0) {
-    return unused[0];
+  // If we have variations that have never been shown, return the first one
+  if (neverShown.length > 0) {
+    debugLog('[Dedupe] Selected never-shown:', neverShown[0].variationId || neverShown[0].id);
+    return neverShown[0];
   }
 
-  // All candidates were recently used - use LRU (Least Recently Used)
-  // Find the candidate that appears earliest in the recent window
-  let lruCandidate = candidates[0];
-  let earliestIndex = recentWindow.length;
-
-  for (const candidate of candidates) {
-    const candidateId = candidate.variationId || candidate.id;
-    const index = recentWindow.indexOf(candidateId || '');
-
-    if (index !== -1 && index < earliestIndex) {
-      earliestIndex = index;
-      lruCandidate = candidate;
-    }
-  }
-
-  debugLog(
-    '[Dedupe] All candidates recently used, selecting LRU:',
-    lruCandidate.variationId || lruCandidate.id,
-  );
-
-  return lruCandidate;
+  // All candidates have been shown - return null to indicate pool exhaustion
+  // The caller should handle this gracefully (e.g., show a message or fallback)
+  debugLog('[Dedupe] All candidates have been shown previously - pool exhausted');
+  return null;
 }
 
 /**
@@ -323,7 +300,18 @@ export function findMatchingVariation(
     return selected;
   }
 
-  // Should never reach here, but return first match as ultimate fallback
+  // All variations for this transformation state have been shown - repeat first match
+  // This happens when the reader has exhausted all unique variations for this state
+  debugLog(
+    `[VariationSelection] All variations exhausted for transformation state '${context.transformationState}', repeating first match: ${matches[0].variationId}`,
+  );
+  endTimer({
+    nodeId: context.nodeId,
+    variationCount: variations.length,
+    matchFound: true,
+    variationId: matches[0].variationId,
+    exhausted: true,
+  });
   return matches[0];
 }
 
