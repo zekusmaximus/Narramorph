@@ -7,35 +7,45 @@
       "defaultLocked": true,
       "unlockConditions": [
         {
-          "id": "l2-exploration",
+          "id": "thorough-exploration",
           "type": "visitCount",
           "params": {
-            "layerVisits": { "2": 2 }
+            "layerVisits": { "1": 3, "2": 6 },
+            "minTotalVisits": 12
           },
-          "description": "Visit at least 2 Layer 2 nodes",
-          "hint": "Explore more Layer 2 philosophical divergences"
+          "description": "Visit all 3 Layer 1 nodes and at least 6 Layer 2 nodes (12+ total visits)",
+          "hint": "Thorough exploration of all character origins and multiple philosophical paths required"
         },
         {
-          "id": "cross-character-exploration",
+          "id": "meta-aware-experience",
+          "type": "transformation",
+          "params": {
+            "minMetaAwareNodes": 2
+          },
+          "description": "Experience at least 2 meta-aware variations (revisit nodes 3+ times)",
+          "hint": "Deep engagement with nodes reveals meta-aware transformations"
+        },
+        {
+          "id": "all-characters",
           "type": "character",
           "params": {
-            "minCharacterCount": 2
+            "minCharacterCount": 3
           },
-          "description": "Explore at least 2 different character perspectives",
-          "hint": "Experience multiple consciousness streams"
+          "description": "Explore all 3 character perspectives",
+          "hint": "Experience Archaeologist, Algorithm, and Last Human perspectives"
         },
         {
-          "id": "medium-awareness",
+          "id": "elevated-awareness",
           "type": "awareness",
           "params": {
-            "minAwareness": 35
+            "minAwareness": 50
           },
-          "description": "Reach Medium temporal awareness (35%)",
-          "hint": "Cross-character exploration increases awareness"
+          "description": "Reach elevated temporal awareness (50%)",
+          "hint": "Cross-character exploration and revisits increase awareness"
         }
       ],
-      "lockedMessage": "Layer 3 convergence requires deeper exploration across multiple perspectives.",
-      "unlockMessage": "Layer 3 convergence unlocked! Your journey has achieved cross-temporal synthesis.",
+      "lockedMessage": "Layer 3 convergence requires thorough exploration, deep engagement, and elevated temporal awareness. Continue exploring all character perspectives and revisiting nodes to unlock meta-aware transformations.",
+      "unlockMessage": "Layer 3 convergence unlocked! Your journey has achieved sufficient depth and breadth for cross-temporal synthesis.",
       "priority": 1
     },
     {
@@ -44,35 +54,45 @@
       "defaultLocked": true,
       "unlockConditions": [
         {
-          "id": "l2-exploration",
+          "id": "thorough-exploration",
           "type": "visitCount",
           "params": {
-            "layerVisits": { "2": 2 }
+            "layerVisits": { "1": 3, "2": 6 },
+            "minTotalVisits": 12
           },
-          "description": "Visit at least 2 Layer 2 nodes",
-          "hint": "Explore more Layer 2 philosophical divergences"
+          "description": "Visit all 3 Layer 1 nodes and at least 6 Layer 2 nodes (12+ total visits)",
+          "hint": "Thorough exploration of all character origins and multiple philosophical paths required"
         },
         {
-          "id": "cross-character-exploration",
+          "id": "meta-aware-experience",
+          "type": "transformation",
+          "params": {
+            "minMetaAwareNodes": 2
+          },
+          "description": "Experience at least 2 meta-aware variations (revisit nodes 3+ times)",
+          "hint": "Deep engagement with nodes reveals meta-aware transformations"
+        },
+        {
+          "id": "all-characters",
           "type": "character",
           "params": {
-            "minCharacterCount": 2
+            "minCharacterCount": 3
           },
-          "description": "Explore at least 2 different character perspectives",
-          "hint": "Experience multiple consciousness streams"
+          "description": "Explore all 3 character perspectives",
+          "hint": "Experience Archaeologist, Algorithm, and Last Human perspectives"
         },
         {
-          "id": "medium-awareness",
+          "id": "elevated-awareness",
           "type": "awareness",
           "params": {
-            "minAwareness": 35
+            "minAwareness": 50
           },
-          "description": "Reach Medium temporal awareness (35%)",
-          "hint": "Cross-character exploration increases awareness"
+          "description": "Reach elevated temporal awareness (50%)",
+          "hint": "Cross-character exploration and revisits increase awareness"
         }
       ],
-      "lockedMessage": "Layer 3 convergence requires deeper exploration across multiple perspectives.",
-      "unlockMessage": "Layer 3 convergence unlocked! Your journey has achieved cross-temporal synthesis."
+      "lockedMessage": "Layer 3 convergence requires thorough exploration, deep engagement, and elevated temporal awareness. Continue exploring all character perspectives and revisiting nodes to unlock meta-aware transformations.",
+      "unlockMessage": "Layer 3 convergence unlocked! Your journey has achieved sufficient depth and breadth for cross-temporal synthesis."
     },
     {
       "nodeId": "hum-L3",
@@ -80,35 +100,45 @@
       "defaultLocked": true,
       "unlockConditions": [
         {
-          "id": "l2-exploration",
+          "id": "thorough-exploration",
           "type": "visitCount",
           "params": {
-            "layerVisits": { "2": 2 }
+            "layerVisits": { "1": 3, "2": 6 },
+            "minTotalVisits": 12
           },
-          "description": "Visit at least 2 Layer 2 nodes",
-          "hint": "Explore more Layer 2 philosophical divergences"
+          "description": "Visit all 3 Layer 1 nodes and at least 6 Layer 2 nodes (12+ total visits)",
+          "hint": "Thorough exploration of all character origins and multiple philosophical paths required"
         },
         {
-          "id": "cross-character-exploration",
+          "id": "meta-aware-experience",
+          "type": "transformation",
+          "params": {
+            "minMetaAwareNodes": 2
+          },
+          "description": "Experience at least 2 meta-aware variations (revisit nodes 3+ times)",
+          "hint": "Deep engagement with nodes reveals meta-aware transformations"
+        },
+        {
+          "id": "all-characters",
           "type": "character",
           "params": {
-            "minCharacterCount": 2
+            "minCharacterCount": 3
           },
-          "description": "Explore at least 2 different character perspectives",
-          "hint": "Experience multiple consciousness streams"
+          "description": "Explore all 3 character perspectives",
+          "hint": "Experience Archaeologist, Algorithm, and Last Human perspectives"
         },
         {
-          "id": "medium-awareness",
+          "id": "elevated-awareness",
           "type": "awareness",
           "params": {
-            "minAwareness": 35
+            "minAwareness": 50
           },
-          "description": "Reach Medium temporal awareness (35%)",
-          "hint": "Cross-character exploration increases awareness"
+          "description": "Reach elevated temporal awareness (50%)",
+          "hint": "Cross-character exploration and revisits increase awareness"
         }
       ],
-      "lockedMessage": "Layer 3 convergence requires deeper exploration across multiple perspectives.",
-      "unlockMessage": "Layer 3 convergence unlocked! Your journey has achieved cross-temporal synthesis."
+      "lockedMessage": "Layer 3 convergence requires thorough exploration, deep engagement, and elevated temporal awareness. Continue exploring all character perspectives and revisiting nodes to unlock meta-aware transformations.",
+      "unlockMessage": "Layer 3 convergence unlocked! Your journey has achieved sufficient depth and breadth for cross-temporal synthesis."
     },
     {
       "nodeId": "final-preserve",

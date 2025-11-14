@@ -78,6 +78,12 @@ export interface UserProgress {
 
   // L3 assembly viewing history
   l3AssembliesViewed?: L3AssemblyViewRecord[];
+
+  // L3 convergence gate - once L3 is opened, L1/L2 nodes lock (one-way gate)
+  l3ConvergenceTriggered?: boolean; // true after first L3 node visit
+
+  // Locked nodes (cannot be accessed) - used after L3 convergence
+  lockedNodes?: string[]; // nodeIds that are locked
 }
 
 /**
