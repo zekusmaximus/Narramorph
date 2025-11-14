@@ -1,9 +1,19 @@
 import { useEffect, useMemo } from 'react';
 
 import NodeSphere from './NodeSphere';
+import PlaneGuide from './PlaneGuide';
 import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';
-import type { StoryNode } from '@/types';
+import type { StoryNode, CharacterType } from '@/types';
+
+/**
+ * Character metadata for visual guides
+ */
+const CHARACTER_METADATA: Record<string, { color: string; label: string }> = {
+  archaeologist: { color: '#4A90E2', label: 'Past - Discovery' },
+  algorithm: { color: '#50C878', label: 'Present - Processing' },
+  'last-human': { color: '#E74C3C', label: 'Future - Memory' },
+};
 
 /**
  * Scene content for 3D visualization
@@ -14,8 +24,9 @@ export default function SceneContent() {
   const computeLayout = useSpatialStore((state) => state.computeLayout);
   const positions = useSpatialStore((state) => state.positions);
 
-  // Group nodes by character
+  // Group nodes by character in consistent order
   const characters = useMemo(() => {
+    const charOrder: CharacterType[] = ['archaeologist', 'algorithm', 'last-human'];
     const charMap = new Map<string, StoryNode[]>();
 
     nodes.forEach((node) => {
@@ -29,8 +40,13 @@ export default function SceneContent() {
       charMap.get(char)!.push(node);
     });
 
-    // Convert to array of { nodes: StoryNode[] }
-    return Array.from(charMap.values()).map((nodeList) => ({ nodes: nodeList }));
+    // Convert to array in consistent order
+    return charOrder
+      .filter((char) => charMap.has(char))
+      .map((char) => ({
+        type: char,
+        nodes: charMap.get(char)!,
+      }));
   }, [nodes]);
 
   // Compute layout when characters change
@@ -52,9 +68,25 @@ export default function SceneContent() {
     return characters.flatMap((character) => character.nodes);
   }, [characters]);
 
-  // Render NodeSphere for each node
+  // Render plane guides and node spheres
   return (
     <>
+      {/* Character layer guides */}
+      {characters.map((character, index) => {
+        const metadata = CHARACTER_METADATA[character.type];
+        if (!metadata) return null;
+
+        return (
+          <PlaneGuide
+            key={`guide-${character.type}`}
+            zPosition={index * 25}
+            color={metadata.color}
+            label={metadata.label}
+          />
+        );
+      })}
+
+      {/* Node spheres */}
       {allNodes.map((node) => {
         const position = positions[node.id];
         if (!position) return null;
