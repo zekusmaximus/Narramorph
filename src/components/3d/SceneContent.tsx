@@ -20,7 +20,7 @@ const CHARACTER_METADATA: Record<string, { color: string; label: string }> = {
  * Renders node spheres positioned by character layout
  */
 export default function SceneContent() {
-  const nodes = useStoryStore((state) => state.nodes);
+  const nodes = useStoryStore((state) => Array.from(state.nodes.values()));
   const computeLayout = useSpatialStore((state) => state.computeLayout);
   const positions = useSpatialStore((state) => state.positions);
 
@@ -49,30 +49,60 @@ export default function SceneContent() {
       }));
   }, [nodes]);
 
+  // Ensure predictable ordering, limit to spec maximum of 19 nodes total
+  const visibleCharacters = useMemo(() => {
+    let remaining = 19;
+    const result: { type: CharacterType; nodes: StoryNode[] }[] = [];
+
+    for (const character of characters) {
+      if (remaining <= 0) {
+        break;
+      }
+
+      const sortedNodes = [...character.nodes].sort((a, b) => {
+        if (a.layer !== b.layer) {
+          return a.layer - b.layer;
+        }
+
+        const titleA = a.metadata?.chapterTitle ?? a.title ?? a.id;
+        const titleB = b.metadata?.chapterTitle ?? b.title ?? b.id;
+        return titleA.localeCompare(titleB);
+      });
+
+      const limitedNodes = sortedNodes.slice(0, remaining);
+      if (limitedNodes.length === 0) {
+        continue;
+      }
+
+      result.push({
+        type: character.type,
+        nodes: limitedNodes,
+      });
+      remaining -= limitedNodes.length;
+    }
+
+    return result;
+  }, [characters]);
+
   // Compute layout when characters change
   useEffect(() => {
-    if (characters.length > 0) {
-      computeLayout(characters);
+    if (visibleCharacters.length > 0) {
+      computeLayout(visibleCharacters.map(({ nodes }) => ({ nodes })));
+    } else {
+      computeLayout([]);
     }
-  }, [characters, computeLayout]);
-
-  // Log positions for debugging
-  useEffect(() => {
-    if (Object.keys(positions).length > 0) {
-      console.log('[SceneContent] Computed positions:', positions);
-    }
-  }, [positions]);
+  }, [computeLayout, visibleCharacters]);
 
   // Flatten all nodes from all characters
   const allNodes = useMemo(() => {
-    return characters.flatMap((character) => character.nodes);
-  }, [characters]);
+    return visibleCharacters.flatMap((character) => character.nodes);
+  }, [visibleCharacters]);
 
   // Render plane guides and node spheres
   return (
     <>
       {/* Character layer guides */}
-      {characters.map((character, index) => {
+      {visibleCharacters.map((character, index) => {
         const metadata = CHARACTER_METADATA[character.type];
         if (!metadata) return null;
 

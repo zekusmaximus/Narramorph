@@ -14,7 +14,7 @@ export default function PlaneGuide({ zPosition, color, label }: PlaneGuideProps)
   return (
     <>
       {/* Plane */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, zPosition]}>
+      <mesh position={[0, 0, zPosition]}>
         <planeGeometry args={[80, 80]} />
         <meshBasicMaterial color={color} opacity={0.05} transparent side={DoubleSide} />
       </mesh>

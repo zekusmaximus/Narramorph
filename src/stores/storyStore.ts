@@ -1240,6 +1240,12 @@ export const useStoryStore = create<StoryStore>()(
       });
     },
 
+    setIsAnimating: (value: boolean) => {
+      set((state) => {
+        state.isAnimating = value;
+      });
+    },
+
     openStoryView: async (nodeId: string, opts?: { variationId?: string }) => {
       const state = get();
 
@@ -1250,18 +1256,14 @@ export const useStoryStore = create<StoryStore>()(
       }
 
       // Set animation flag
-      set((state) => {
-        state.isAnimating = true;
-      });
+      get().setIsAnimating(true);
 
       // GATE: Prevent access to locked nodes (L1/L2 after L3 convergence)
       if (state.progress.lockedNodes?.includes(nodeId)) {
         devWarn(
           `[Navigation] Cannot open locked node: ${nodeId}. Journey has crystallized at L3 convergence.`,
         );
-        set((state) => {
-          state.isAnimating = false;
-        });
+        get().setIsAnimating(false);
         return;
       }
 
@@ -1270,11 +1272,7 @@ export const useStoryStore = create<StoryStore>()(
         devLog('[Navigation] L3 node detected, opening assembly view');
         state.openL3AssemblyView(nodeId);
         // Clear animation flag after delay
-        setTimeout(() => {
-          set((state) => {
-            state.isAnimating = false;
-          });
-        }, 500);
+        get().setIsAnimating(false);
         return;
       }
 
@@ -1289,9 +1287,7 @@ export const useStoryStore = create<StoryStore>()(
       if (state.activeVisit && state.activeVisit.nodeId === nodeId) {
         devLog('[Navigation] Already viewing', nodeId, '- skipping visit recording');
         // Clear animation flag
-        set((state) => {
-          state.isAnimating = false;
-        });
+        get().setIsAnimating(false);
         return;
       }
 
@@ -1328,12 +1324,7 @@ export const useStoryStore = create<StoryStore>()(
 
       devLog('[Navigation] Opened story view:', nodeId);
 
-      // Clear animation flag after delay
-      setTimeout(() => {
-        set((state) => {
-          state.isAnimating = false;
-        });
-      }, 500);
+      // CameraController will clear the animation flag when the spring settles
     },
 
     closeStoryView: () => {
