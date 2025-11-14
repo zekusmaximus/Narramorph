@@ -21,7 +21,7 @@ export interface VisitRecord {
   lastVisited: string; // ISO-8601 timestamp of last visit
   variationId?: string | null; // ID of the variation shown (null for L3 nodes)
   duration?: number; // Duration of current/last visit in seconds (0 until finalized)
-  recentVariationIds?: string[]; // Sliding window of recent variationIds (max 5, uses last 3)
+  recentVariationIds?: string[]; // ALL variation IDs ever shown for this node (absolute deduplication - never repeat)
 }
 
 /**
