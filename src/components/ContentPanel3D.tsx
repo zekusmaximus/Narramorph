@@ -94,6 +94,7 @@ export default function ContentPanel3D() {
     content: currentContent,
     variationId,
     usedFallback,
+    error: variationError,
   } = useVariationSelection(currentNode?.id || null, fallbackContent);
 
   // Get theme
@@ -187,6 +188,18 @@ export default function ContentPanel3D() {
 
         {/* Content */}
         <div className="flex-1 overflow-y-auto p-6">
+          {/* Error banner if variation content failed to load */}
+          {variationError && (
+            <div className="mb-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+              <p className="text-sm text-yellow-800">
+                <strong>Note:</strong> Dynamic content unavailable. Showing fallback content.
+              </p>
+              {usedFallback && (
+                <p className="text-xs text-yellow-600 mt-1">Using static variation instead.</p>
+              )}
+            </div>
+          )}
+
           <div className="prose prose-lg max-w-none">
             {parseMarkdown(currentContent)}
           </div>
