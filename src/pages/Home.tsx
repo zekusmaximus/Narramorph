@@ -68,8 +68,22 @@ export default function Home() {
   const positions = useSpatialStore((state) => state.positions);
 
   // Track whether 3D mode should be used
-  const [use3DMode, setUse3DMode] = useState(import.meta.env.VITE_ENABLE_3D === 'true');
+  // Priority: localStorage > environment variable
+  const [use3DMode, setUse3DMode] = useState(() => {
+    const stored = localStorage.getItem('narramorph-3d-mode');
+    if (stored !== null) return stored === 'true';
+    return import.meta.env.VITE_ENABLE_3D === 'true';
+  });
   const isPositionsLoaded = Object.keys(positions).length > 0;
+
+  // Toggle 3D mode and persist to localStorage
+  const toggle3DMode = () => {
+    setUse3DMode((prev) => {
+      const newValue = !prev;
+      localStorage.setItem('narramorph-3d-mode', String(newValue));
+      return newValue;
+    });
+  };
 
   // Initialize the application
   useEffect(() => {
@@ -137,6 +151,16 @@ export default function Home() {
 
         {/* Dev-only FPS counter for 3D mode */}
         {use3DMode && <FPSCounter />}
+
+        {/* 3D/2D Mode Toggle (optional UI control) */}
+        <button
+          type="button"
+          onClick={toggle3DMode}
+          className="fixed top-4 left-4 z-90 bg-gray-900/80 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800/90 transition-colors backdrop-blur-sm border border-gray-700 shadow-lg"
+          title={`Switch to ${use3DMode ? '2D' : '3D'} mode`}
+        >
+          {use3DMode ? '2D Mode' : '3D Mode'}
+        </button>
 
         {/* Journey Tracker - center bottom */}
         <motion.div
