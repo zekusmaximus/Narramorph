@@ -16,6 +16,7 @@ export { customRender as render };
 export const mockNode: StoryNode = {
   id: 'test-001',
   character: 'archaeologist',
+  layer: 1,
   title: 'Test Node',
   position: { x: 100, y: 200 },
   content: {

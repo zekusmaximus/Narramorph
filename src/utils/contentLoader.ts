@@ -274,6 +274,7 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
           const node: StoryNode = {
             id: def.id,
             character: normalizeCharacter(characterRaw),
+            layer: (def.layer || 1) as 1 | 2 | 3 | 4,
             title: def.chapterTitle,
             position: def.position || getNodePosition(def.id, layout),
             content: content,
