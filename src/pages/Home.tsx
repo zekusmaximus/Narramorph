@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import NarromorphCanvas from '@/components/3d/NarromorphCanvas';
 import NodeMap from '@/components/NodeMap';
 import StoryView from '@/components/StoryView';
 import { JourneyTracker } from '@/components/UI/JourneyTracker';
@@ -69,7 +70,11 @@ export default function Home() {
       {/* Main content area with node map */}
       <div className="flex-1 relative">
         <ErrorBoundary fallbackRender={({ error }) => <ErrorFallback error={error} />}>
-          <NodeMap className="w-full h-full" />
+          {import.meta.env.VITE_ENABLE_3D === 'true' ? (
+            <NarromorphCanvas />
+          ) : (
+            <NodeMap className="w-full h-full" />
+          )}
         </ErrorBoundary>
 
         {/* Overlay story view */}
