@@ -63,6 +63,7 @@ describe('Visit Tracking System', () => {
     const testNode: StoryNode = {
       id: 'test-001',
       character: 'archaeologist',
+      layer: 1,
       title: 'Test Node',
       position: { x: 100, y: 200 },
       content: {
@@ -105,6 +106,7 @@ describe('Visit Tracking System', () => {
     const testNode: StoryNode = {
       id: 'test-002',
       character: 'algorithm',
+      layer: 1,
       title: 'Test Node 2',
       position: { x: 150, y: 250 },
       content: {
@@ -170,6 +172,7 @@ describe('Visit Tracking System', () => {
     const testNode: StoryNode = {
       id: 'test-003',
       character: 'last-human',
+      layer: 1,
       title: 'Test Node 3',
       position: { x: 200, y: 300 },
       content: {
@@ -217,6 +220,7 @@ describe('Visit Tracking System', () => {
     const archaeologistNode: StoryNode = {
       id: 'arch-001',
       character: 'archaeologist',
+      layer: 1,
       title: 'Archaeologist Node',
       position: { x: 100, y: 100 },
       content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -228,6 +232,7 @@ describe('Visit Tracking System', () => {
     const algorithmNode: StoryNode = {
       id: 'algo-001',
       character: 'algorithm',
+      layer: 1,
       title: 'Algorithm Node',
       position: { x: 200, y: 200 },
       content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -401,6 +406,7 @@ describe('Temporal Awareness System', () => {
       const testNode: StoryNode = {
         id: 'test-ta-001',
         character: 'archaeologist',
+        layer: 1,
         title: 'Test Node',
         position: { x: 100, y: 100 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -438,6 +444,7 @@ describe('Temporal Awareness System', () => {
       const archNode: StoryNode = {
         id: 'test-ta-arch',
         character: 'archaeologist',
+        layer: 1,
         title: 'Arch Node',
         position: { x: 100, y: 100 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -449,6 +456,7 @@ describe('Temporal Awareness System', () => {
       const algoNode: StoryNode = {
         id: 'test-ta-algo',
         character: 'algorithm',
+        layer: 1,
         title: 'Algo Node',
         position: { x: 200, y: 200 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -481,6 +489,7 @@ describe('Temporal Awareness System', () => {
       const testNode: StoryNode = {
         id: 'test-ta-003',
         character: 'last-human',
+        layer: 1,
         title: 'Test Node',
         position: { x: 100, y: 100 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -506,6 +515,7 @@ describe('Temporal Awareness System', () => {
       const testNode: StoryNode = {
         id: 'test-ta-004',
         character: 'archaeologist',
+        layer: 1,
         title: 'Test Node',
         position: { x: 100, y: 100 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -555,6 +565,7 @@ describe('Temporal Awareness System', () => {
       const testNode: StoryNode = {
         id: 'test-ta-005',
         character: 'algorithm',
+        layer: 1,
         title: 'Test Node',
         position: { x: 100, y: 100 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -592,6 +603,7 @@ describe('Temporal Awareness System', () => {
       const archNode: StoryNode = {
         id: 'arch-001',
         character: 'archaeologist',
+        layer: 1,
         title: 'Arch Node',
         position: { x: 100, y: 100 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -613,6 +625,7 @@ describe('Temporal Awareness System', () => {
       const algoNode: StoryNode = {
         id: 'algo-001',
         character: 'algorithm',
+        layer: 1,
         title: 'Algo Node',
         position: { x: 100, y: 100 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -633,6 +646,7 @@ describe('Temporal Awareness System', () => {
       const humanNode: StoryNode = {
         id: 'human-001',
         character: 'last-human',
+        layer: 1,
         title: 'Human Node',
         position: { x: 100, y: 100 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -653,6 +667,7 @@ describe('Temporal Awareness System', () => {
       const multiNode: StoryNode = {
         id: 'multi-001',
         character: 'multi-perspective',
+        layer: 3,
         title: 'Multi Node',
         position: { x: 100, y: 100 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -677,6 +692,7 @@ describe('Temporal Awareness System', () => {
       const archNode: StoryNode = {
         id: 'arch-test',
         character: 'archaeologist',
+        layer: 1,
         title: 'Arch',
         position: { x: 100, y: 100 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -688,6 +704,7 @@ describe('Temporal Awareness System', () => {
       const algoNode: StoryNode = {
         id: 'algo-test',
         character: 'algorithm',
+        layer: 1,
         title: 'Algo',
         position: { x: 200, y: 200 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -714,6 +731,7 @@ describe('Temporal Awareness System', () => {
       const archNode: StoryNode = {
         id: 'arch-transform',
         character: 'archaeologist',
+        layer: 1,
         title: 'Arch',
         position: { x: 100, y: 100 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -725,6 +743,7 @@ describe('Temporal Awareness System', () => {
       const algoNode: StoryNode = {
         id: 'algo-transform',
         character: 'algorithm',
+        layer: 1,
         title: 'Algo',
         position: { x: 200, y: 200 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -763,6 +782,7 @@ describe('Temporal Awareness System', () => {
       const archNode: StoryNode = {
         id: 'arch-migrate',
         character: 'archaeologist',
+        layer: 1,
         title: 'Arch',
         position: { x: 100, y: 100 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },
@@ -774,6 +794,7 @@ describe('Temporal Awareness System', () => {
       const algoNode: StoryNode = {
         id: 'algo-migrate',
         character: 'algorithm',
+        layer: 1,
         title: 'Algo',
         position: { x: 200, y: 200 },
         content: { initial: 'test', firstRevisit: 'test', metaAware: 'test' },

@@ -422,6 +422,7 @@ export const useStoryStore = create<StoryStore>()(
     selectedNode: null,
     hoveredNode: null,
     storyViewOpen: false,
+    isAnimating: false,
     stats: createInitialStats(),
     preferences: createInitialPreferences(),
 
@@ -1239,14 +1240,28 @@ export const useStoryStore = create<StoryStore>()(
       });
     },
 
-    openStoryView: (nodeId: string, opts?: { variationId?: string }) => {
+    openStoryView: async (nodeId: string, opts?: { variationId?: string }) => {
       const state = get();
+
+      // GATE: Prevent navigation during camera animation
+      if (state.isAnimating) {
+        devLog('[Navigation] Animation in progress, ignoring click');
+        return;
+      }
+
+      // Set animation flag
+      set((state) => {
+        state.isAnimating = true;
+      });
 
       // GATE: Prevent access to locked nodes (L1/L2 after L3 convergence)
       if (state.progress.lockedNodes?.includes(nodeId)) {
         devWarn(
           `[Navigation] Cannot open locked node: ${nodeId}. Journey has crystallized at L3 convergence.`,
         );
+        set((state) => {
+          state.isAnimating = false;
+        });
         return;
       }
 
@@ -1254,6 +1269,12 @@ export const useStoryStore = create<StoryStore>()(
       if (isL3Node(nodeId)) {
         devLog('[Navigation] L3 node detected, opening assembly view');
         state.openL3AssemblyView(nodeId);
+        // Clear animation flag after delay
+        setTimeout(() => {
+          set((state) => {
+            state.isAnimating = false;
+          });
+        }, 500);
         return;
       }
 
@@ -1267,6 +1288,10 @@ export const useStoryStore = create<StoryStore>()(
       // Idempotency check: if already viewing this node, don't re-record
       if (state.activeVisit && state.activeVisit.nodeId === nodeId) {
         devLog('[Navigation] Already viewing', nodeId, '- skipping visit recording');
+        // Clear animation flag
+        set((state) => {
+          state.isAnimating = false;
+        });
         return;
       }
 
@@ -1302,6 +1327,13 @@ export const useStoryStore = create<StoryStore>()(
       });
 
       devLog('[Navigation] Opened story view:', nodeId);
+
+      // Clear animation flag after delay
+      setTimeout(() => {
+        set((state) => {
+          state.isAnimating = false;
+        });
+      }, 500);
     },
 
     closeStoryView: () => {

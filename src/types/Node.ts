@@ -126,6 +126,7 @@ export interface NodeMetadata {
 export interface StoryNode {
   id: string; // Unique identifier (e.g., "archaeologist-001")
   character: CharacterType;
+  layer: NodeLayer; // Which layer (1-4) this node belongs to
   title: string; // Short title for the node
   position: Position; // Position on the map
   content: NodeContent;
