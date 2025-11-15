@@ -61,23 +61,39 @@ export default function NarromorphCanvas() {
   const controlsRef = useRef<OrbitControlsImpl>(null);
 
   return (
-    <Canvas
-      camera={{
-        position: DEFAULT_CAMERA_POSITION,
-        fov: 50,
-        near: 0.1,
-        far: 500,
-      }}
-    >
-      {/* Atmospheric fog for depth perception */}
-      <fog attach="fog" args={['#1a1a1a', 50, 200]} />
+    <div className="absolute inset-0">
+      <Canvas
+        className="h-full w-full"
+        camera={{
+          position: DEFAULT_CAMERA_POSITION,
+          fov: 50,
+          near: 0.1,
+          far: 500,
+        }}
+        dpr={[1, 2]}
+      >
+        {/* Atmospheric fog for depth perception */}
+        <fog attach="fog" args={['#1a1a1a', 50, 200]} />
 
-      <ambientLight intensity={0.3} />
-      <pointLight position={[10, 10, 10]} />
+        <ambientLight intensity={0.3} />
+        <pointLight position={[10, 10, 10]} />
 
-      <SceneContent />
-      <CameraController controlsRef={controlsRef} />
-      <OrbitControls ref={controlsRef} />
-    </Canvas>
+        <SceneContent />
+        <CameraController controlsRef={controlsRef} />
+        <OrbitControls
+          ref={controlsRef}
+          enableDamping
+          dampingFactor={0.08}
+          enablePan={false}
+          enableZoom
+          minDistance={35}
+          maxDistance={140}
+          minPolarAngle={Math.PI / 6}
+          maxPolarAngle={Math.PI / 2}
+          rotateSpeed={0.6}
+          zoomSpeed={0.8}
+        />
+      </Canvas>
+    </div>
   );
 }

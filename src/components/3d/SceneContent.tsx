@@ -20,7 +20,30 @@ const CHARACTER_METADATA: Record<string, { color: string; label: string }> = {
  * Renders node spheres positioned by character layout
  */
 export default function SceneContent() {
-  const nodes = useStoryStore((state) => Array.from(state.nodes.values()));
+  const nodeMap = useStoryStore((state) => state.nodes);
+  const visitedNodes = useStoryStore((state) => state.progress.visitedNodes);
+  const canVisitNode = useStoryStore((state) => state.canVisitNode);
+  const nodes = useMemo(() => {
+    // Memoize array conversion so spatial updates don't create new references
+    return Array.from(nodeMap.values());
+  }, [nodeMap]);
+  const accessibleNodes = useMemo(() => {
+    if (nodes.length === 0) {
+      return [];
+    }
+
+    return nodes.filter((node) => {
+      if (node.character === 'multi-perspective') {
+        return false;
+      }
+
+      if (visitedNodes[node.id]) {
+        return true;
+      }
+
+      return canVisitNode(node.id);
+    });
+  }, [canVisitNode, nodes, visitedNodes]);
   const computeLayout = useSpatialStore((state) => state.computeLayout);
   const positions = useSpatialStore((state) => state.positions);
 
@@ -29,8 +52,8 @@ export default function SceneContent() {
     const charOrder: CharacterType[] = ['archaeologist', 'algorithm', 'last-human'];
     const charMap = new Map<string, StoryNode[]>();
 
-    nodes.forEach((node) => {
-      // Skip multi-perspective nodes
+    accessibleNodes.forEach((node) => {
+      // Nodes already filtered to exclude multi-perspective entries, but double-check to be safe
       if (node.character === 'multi-perspective') return;
 
       const char = node.character;
@@ -47,7 +70,7 @@ export default function SceneContent() {
         type: char,
         nodes: charMap.get(char)!,
       }));
-  }, [nodes]);
+  }, [accessibleNodes]);
 
   // Ensure predictable ordering, limit to spec maximum of 19 nodes total
   const visibleCharacters = useMemo(() => {
@@ -87,7 +110,8 @@ export default function SceneContent() {
   // Compute layout when characters change
   useEffect(() => {
     if (visibleCharacters.length > 0) {
-      computeLayout(visibleCharacters.map(({ nodes }) => ({ nodes })));
+      const payload = visibleCharacters.map(({ nodes }) => ({ nodes }));
+      computeLayout(payload);
     } else {
       computeLayout([]);
     }

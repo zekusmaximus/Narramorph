@@ -30,8 +30,9 @@ export default function CameraController({ controlsRef }: CameraControllerProps)
   const positions = useSpatialStore((state) => state.positions);
   const setIsAnimating = useStoryStore((state) => state.setIsAnimating);
 
-  const previousTargetRef = useRef<Vec3>(DEFAULT_CAMERA_TARGET);
-  const previousPositionRef = useRef<Vec3>(DEFAULT_CAMERA_POSITION);
+  const previousTargetRef = useRef<Vec3 | null>(null);
+  const previousPositionRef = useRef<Vec3 | null>(null);
+  const animationActiveRef = useRef(false);
 
   // Compute target position based on active node
   const activeNodeId = selectedNode;
@@ -57,6 +58,20 @@ export default function CameraController({ controlsRef }: CameraControllerProps)
     config: { tension: 280, friction: 60 },
   }));
 
+  // Ensure controls start with the same framing as our default camera target
+  useEffect(() => {
+    if (!controlsRef.current) {
+      return;
+    }
+
+    controlsRef.current.target.set(
+      DEFAULT_CAMERA_TARGET[0],
+      DEFAULT_CAMERA_TARGET[1],
+      DEFAULT_CAMERA_TARGET[2],
+    );
+    controlsRef.current.update();
+  }, [controlsRef]);
+
   // If a node is selected before layout finishes, release the animation lock immediately
   useEffect(() => {
     if (activeNodeId && !positions[activeNodeId]) {
@@ -66,7 +81,9 @@ export default function CameraController({ controlsRef }: CameraControllerProps)
 
   useEffect(() => {
     const hasTargetChanged =
+      !previousTargetRef.current ||
       !vec3Equals(previousTargetRef.current, target) ||
+      !previousPositionRef.current ||
       !vec3Equals(previousPositionRef.current, cameraTargetPos);
 
     if (!hasTargetChanged) {
@@ -79,13 +96,30 @@ export default function CameraController({ controlsRef }: CameraControllerProps)
     api.start({
       position: cameraTargetPos,
       target,
-      onStart: () => setIsAnimating(true),
-      onRest: () => setIsAnimating(false),
+      onStart: () => {
+        animationActiveRef.current = true;
+        setIsAnimating(true);
+      },
+      onRest: () => {
+        animationActiveRef.current = false;
+        setIsAnimating(false);
+
+        // Ensure camera + controls are perfectly in sync after animation completes
+        camera.position.set(cameraTargetPos[0], cameraTargetPos[1], cameraTargetPos[2]);
+        if (controlsRef.current) {
+          controlsRef.current.target.set(target[0], target[1], target[2]);
+          controlsRef.current.update();
+        }
+      },
     });
   }, [api, cameraTargetPos, setIsAnimating, target]);
 
   // Update camera and controls on each frame
   useFrame(() => {
+    if (!animationActiveRef.current) {
+      return;
+    }
+
     const pos = spring.position.get();
     const tgt = spring.target.get();
 
