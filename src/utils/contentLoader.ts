@@ -1,4 +1,5 @@
-import type { StoryData, StoryNode, Connection } from '@/types';
+import type { StoryData, Connection } from '@/types';
+import type { StoryNode } from '@/types/Node';
 
 // Glob imports (Vite) — eager for metadata/nodes, lazy for heavy L3 sections
 // We keep types inline here to avoid cross-file coupling during migration

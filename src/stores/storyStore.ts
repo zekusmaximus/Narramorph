@@ -1,4 +1,5 @@
 import { enableMapSet } from 'immer';
+import type { WritableDraft } from 'immer';
 
 // Enable Immer MapSet plugin for Map/Set support
 enableMapSet();
@@ -223,6 +224,14 @@ function determineTransformationState(
   // Fallback (shouldn't normally reach here)
   devLog(`[TransformState] ${nodeId}: fallback → firstRevisit`);
   return 'firstRevisit';
+}
+
+type DraftStoryNode = WritableDraft<StoryNode>;
+
+function isLayeredStoryNode(
+  node: DraftStoryNode | StoryNode | undefined,
+): node is DraftStoryNode & Pick<StoryNode, 'layer'> {
+  return typeof node === 'object' && node !== null && 'layer' in node;
 }
 
 /**
@@ -882,6 +891,10 @@ export const useStoryStore = create<StoryStore>()(
 
           // Lock all L1 and L2 nodes
           for (const [nId, node] of draftState.nodes) {
+            if (!isLayeredStoryNode(node)) {
+              continue;
+            }
+
             if (node.layer === 1 || node.layer === 2) {
               if (!draftState.progress.lockedNodes.includes(nId)) {
                 draftState.progress.lockedNodes.push(nId);
