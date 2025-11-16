@@ -1353,6 +1353,8 @@ export const useStoryStore = create<StoryStore>()(
       set((state) => {
         state.storyViewOpen = false;
       });
+      // Clear animation flag to restore map interaction
+      get().setIsAnimating(false);
     },
 
     saveProgress: () => {
