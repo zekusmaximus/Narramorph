@@ -200,9 +200,7 @@ export default function ContentPanel3D() {
             </div>
           )}
 
-          <div className="prose prose-lg max-w-none">
-            {parseMarkdown(currentContent)}
-          </div>
+          <div className="prose prose-lg max-w-none">{parseMarkdown(currentContent)}</div>
 
           {/* Reading time tracker */}
           <div className="mt-8 pt-4 border-t border-gray-200 text-sm text-gray-500">

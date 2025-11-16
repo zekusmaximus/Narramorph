@@ -11,7 +11,12 @@ interface PlaneGuideProps {
 /**
  * Visual guide plane for character layers
  */
-export default function PlaneGuide({ zPosition, color, label, showPlane = false }: PlaneGuideProps) {
+export default function PlaneGuide({
+  zPosition,
+  color,
+  label,
+  showPlane = false,
+}: PlaneGuideProps) {
   return (
     <>
       {/* Optional translucent guide plane */}

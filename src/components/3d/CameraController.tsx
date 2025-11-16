@@ -93,7 +93,7 @@ export default function CameraController({ controlsRef }: CameraControllerProps)
     previousTargetRef.current = target;
     previousPositionRef.current = cameraTargetPos;
 
-    api.start({
+    void api.start({
       position: cameraTargetPos,
       target,
       onStart: () => {

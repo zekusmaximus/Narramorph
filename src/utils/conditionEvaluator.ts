@@ -159,8 +159,8 @@ export function findMatchingVariation(
   // Track matching stats for summary
   let stateMatches = 0;
   let awarenessMatches = 0;
-  let journeyMatches = 0;
-  let philosophyMatches = 0;
+  let journeyMatchCount = 0;
+  let philosophyMatchCount = 0;
 
   // Filter variations that match the context
   const matches = variations.filter((variation, index) => {
@@ -191,7 +191,7 @@ export function findMatchingVariation(
     if (meta.journeyPattern !== 'unknown' && meta.journeyPattern !== context.journeyPattern) {
       return false;
     }
-    journeyMatches++;
+    journeyMatchCount++;
 
     // Check philosophy
     if (
@@ -200,18 +200,18 @@ export function findMatchingVariation(
     ) {
       return false;
     }
-    philosophyMatches++;
+    philosophyMatchCount++;
 
     // Log only the match (not every rejection)
     debugLog(
-      `[VariationSelection] ✓ Match #${philosophyMatches}: ${variation.variationId || meta.variationId} (position ${index + 1}/${variations.length})`,
+      `[VariationSelection] ✓ Match #${philosophyMatchCount}: ${variation.variationId || meta.variationId} (position ${index + 1}/${variations.length})`,
     );
     return true;
   });
 
   // Summary of matching process
   debugLog(
-    `[VariationSelection] 📊 Summary: checked ${variations.length} → state:${stateMatches} → awareness:${awarenessMatches} → journey:${journeyMatches} → philosophy:${philosophyMatches} MATCHES`,
+    `[VariationSelection] 📊 Summary: checked ${variations.length} → state:${stateMatches} → awareness:${awarenessMatches} → journey:${journeyMatchCount} → philosophy:${philosophyMatchCount} MATCHES`,
   );
 
   if (matches.length === 0) {
