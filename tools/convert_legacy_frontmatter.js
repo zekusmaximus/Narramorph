@@ -86,8 +86,7 @@ function deriveBasics(filePath, legacyBlock) {
   const pathPhilosophy = m[2];
   const code = m[3];
   const num = m[4];
-  const character =
-    shortChar === 'arch' ? 'archaeologist' : shortChar === 'algo' ? 'algorithm' : 'lastHuman';
+  const character = shortChar === 'arch' ? 'archaeologist' : shortChar === 'algo' ? 'algorithm' : 'lastHuman';
   const transformationState = code === 'FR' ? 'firstRevisit' : 'metaAware';
   const nodeId = `${shortChar}-L2-${pathPhilosophy}`;
   const variationId = `${shortChar}-L2-${pathPhilosophy}-${code}-${num}`;
@@ -112,10 +111,7 @@ function parseSnakeLegacy(front) {
     .filter(Boolean)
     .slice(0, 5);
   return {
-    awarenessRange:
-      awarenessMin && awarenessMax
-        ? [parseInt(awarenessMin, 10), parseInt(awarenessMax, 10)]
-        : null,
+    awarenessRange: awarenessMin && awarenessMax ? [parseInt(awarenessMin, 10), parseInt(awarenessMax, 10)] : null,
     primaryThemes: themes,
   };
 }
@@ -356,9 +352,7 @@ function main() {
         meta.awarenessRange = snake.awarenessRange;
       }
       if (Array.isArray(snake.primaryThemes) && snake.primaryThemes.length > 0) {
-        meta.thematicContent.primaryThemes = snake.primaryThemes.map((s) =>
-          s.toLowerCase().replace(/\s+/g, '-'),
-        );
+        meta.thematicContent.primaryThemes = snake.primaryThemes.map((s) => s.toLowerCase().replace(/\s+/g, '-'));
       }
     }
     const b = backup(fp);

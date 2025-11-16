@@ -354,11 +354,7 @@ interface L4SelectionAlgorithm {
    * Determine terminal philosophy based on complete journey
    * Considers L2 path choices, L3 assembly, temporal awareness
    */
-  selectTerminalPhilosophy(
-    visitHistory: UserProgress,
-    l3Experience: L3ConvergenceNode,
-    temporalAwareness: number,
-  ): TerminalPhilosophy;
+  selectTerminalPhilosophy(visitHistory: UserProgress, l3Experience: L3ConvergenceNode, temporalAwareness: number): TerminalPhilosophy;
 
   /**
    * Load appropriate L4 terminal variation

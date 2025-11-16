@@ -1,8 +1,6 @@
 # State Model Snapshot — Current vs. Required
 
-**Generated:** 2025-11-12
-**Scope:** Read-only analysis of journey state model (Task 1)
-**Files Analyzed:** `Store.ts`, `Variation.ts`, `Node.ts`, `Unlock.ts`, `storyStore.ts`, `conditionEvaluator.ts`, `nodeUtils.ts`
+**Generated:** 2025-11-12 **Scope:** Read-only analysis of journey state model (Task 1) **Files Analyzed:** `Store.ts`, `Variation.ts`, `Node.ts`, `Unlock.ts`, `storyStore.ts`, `conditionEvaluator.ts`, `nodeUtils.ts`
 
 ---
 
@@ -189,11 +187,11 @@ interface NodeUnlockConfig {
 
 **File:** `src/utils/conditionEvaluator.ts`
 
-| Function                    | Line    | Logic                                                                                                                                                                                                                                                                                        |
-| --------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Function | Line | Logic |
+| --- | --- | --- |
 | `calculateJourneyPattern()` | 256-303 | Returns `JourneyPattern` based on starting character + percentages<br>- `started-stayed`: dominant >60% same as starting<br>- `shifted-dominant`: dominant switched, >50%<br>- `started-bounced`: starting 40-60%<br>- `began-lightly`: starting <40%, later >50%<br>- `met-later`: fallback |
-| `calculatePathPhilosophy()` | 308-340 | Returns `PathPhilosophy` from L2 choice counts<br>- Dominant if >50%<br>- `mixed` if all within 20% of each other                                                                                                                                                                            |
-| `getAwarenessLevel()`       | 18-22   | Maps 0-100 numeric to `'low'` (<35), `'medium'` (<70), `'high'`                                                                                                                                                                                                                              |
+| `calculatePathPhilosophy()` | 308-340 | Returns `PathPhilosophy` from L2 choice counts<br>- Dominant if >50%<br>- `mixed` if all within 20% of each other |
+| `getAwarenessLevel()` | 18-22 | Maps 0-100 numeric to `'low'` (<35), `'medium'` (<70), `'high'` |
 
 ### Temporal Awareness Algorithm
 
@@ -214,17 +212,17 @@ temporalAwarenessLevel = min(diversityBonus + explorationScore, 100)
 
 ## 3. Required Capabilities — Gap Analysis
 
-| Capability                                            | Status                 | Details                                                                                                                                                           |
-| ----------------------------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Visit history (nodeId, timestamp, duration)**       | ✅ **Present**         | `visitedNodes` record with `VisitRecord` containing `visitCount`, `visitTimestamps[]`, `timeSpent`, `lastVisited`                                                 |
-| **Visit history (variationId)**                       | ⚠️ **Missing**         | `VisitRecord` does not track which specific variation was shown. Currently no way to audit "reader saw variation X on visit 2"                                    |
-| **Visit history (previousNode)**                      | ⚠️ **Partial**         | Not in `VisitRecord`, but can infer from `readingPath[]` array. Risk: `readingPath` can contain duplicates (revisits), so previousNode lookup requires index math |
-| **Awareness per character (0-3)**                     | ⚠️ **Different scale** | Uses single `temporalAwarenessLevel: 0-100` based on cross-character exploration, not per-character 0-3 scale. May conflict with requirements.                    |
-| **Cross-character connections**                       | ✅ **Present**         | `crossCharacterConnections: {arch_algo, arch_hum, algo_hum}` tracks perspective switches. Updated in `visitNode()` (line 877-894)                                 |
-| **Philosophical profile (accept/resist/investigate)** | ⚠️ **Naming mismatch** | Uses `invest` instead of `investigate`. Tracked in `l2Choices: {accept, resist, invest}`. Philosophy auto-detected from nodeId via `getNodePhilosophy()` mapping  |
-| **Unlock progression**                                | ✅ **Present**         | Full unlock system with `unlockConfigs`, compound conditions (AND/OR/NOT), progress tracking via `getUnlockProgress()`                                            |
-| **Visit counts**                                      | ✅ **Present**         | Per-node `visitCount`, per-character `characterNodesVisited`, total derivable from `visitedNodes` record size                                                     |
-| **Path sequences**                                    | ✅ **Present**         | `readingPath: string[]` ordered array of all visited nodes (includes revisits)                                                                                    |
+| Capability | Status | Details |
+| --- | --- | --- |
+| **Visit history (nodeId, timestamp, duration)** | ✅ **Present** | `visitedNodes` record with `VisitRecord` containing `visitCount`, `visitTimestamps[]`, `timeSpent`, `lastVisited` |
+| **Visit history (variationId)** | ⚠️ **Missing** | `VisitRecord` does not track which specific variation was shown. Currently no way to audit "reader saw variation X on visit 2" |
+| **Visit history (previousNode)** | ⚠️ **Partial** | Not in `VisitRecord`, but can infer from `readingPath[]` array. Risk: `readingPath` can contain duplicates (revisits), so previousNode lookup requires index math |
+| **Awareness per character (0-3)** | ⚠️ **Different scale** | Uses single `temporalAwarenessLevel: 0-100` based on cross-character exploration, not per-character 0-3 scale. May conflict with requirements. |
+| **Cross-character connections** | ✅ **Present** | `crossCharacterConnections: {arch_algo, arch_hum, algo_hum}` tracks perspective switches. Updated in `visitNode()` (line 877-894) |
+| **Philosophical profile (accept/resist/investigate)** | ⚠️ **Naming mismatch** | Uses `invest` instead of `investigate`. Tracked in `l2Choices: {accept, resist, invest}`. Philosophy auto-detected from nodeId via `getNodePhilosophy()` mapping |
+| **Unlock progression** | ✅ **Present** | Full unlock system with `unlockConfigs`, compound conditions (AND/OR/NOT), progress tracking via `getUnlockProgress()` |
+| **Visit counts** | ✅ **Present** | Per-node `visitCount`, per-character `characterNodesVisited`, total derivable from `visitedNodes` record size |
+| **Path sequences** | ✅ **Present** | `readingPath: string[]` ordered array of all visited nodes (includes revisits) |
 
 ---
 
@@ -447,15 +445,15 @@ interface JourneyState {
 
 ## 7. File Reference Summary
 
-| File                              | Purpose                      | Key Types                                                                               |
-| --------------------------------- | ---------------------------- | --------------------------------------------------------------------------------------- |
-| `src/types/Store.ts`              | Core state interfaces        | `StoryStore`, `UserProgress`, `VisitRecord`, `ReadingStats`                             |
-| `src/types/Variation.ts`          | Journey tracking & L3        | `JourneyTracking`, `ConditionContext`, `L3Assembly`, `JourneyPattern`, `PathPhilosophy` |
-| `src/types/Node.ts`               | Node definitions             | `StoryNode`, `TransformationState`, `NodeContent`                                       |
-| `src/types/Unlock.ts`             | Unlock system                | `NodeUnlockConfig`, `UnlockCondition`, `UnlockProgress`                                 |
-| `src/stores/storyStore.ts`        | Zustand store implementation | All actions, selectors, calculation logic                                               |
-| `src/utils/conditionEvaluator.ts` | Journey calculations         | `calculateJourneyPattern()`, `calculatePathPhilosophy()`, `getAwarenessLevel()`         |
-| `src/utils/nodeUtils.ts`          | Layer detection              | `isL3Node()`, `getNodeLayer()`, `getNodeCharacter()`                                    |
+| File | Purpose | Key Types |
+| --- | --- | --- |
+| `src/types/Store.ts` | Core state interfaces | `StoryStore`, `UserProgress`, `VisitRecord`, `ReadingStats` |
+| `src/types/Variation.ts` | Journey tracking & L3 | `JourneyTracking`, `ConditionContext`, `L3Assembly`, `JourneyPattern`, `PathPhilosophy` |
+| `src/types/Node.ts` | Node definitions | `StoryNode`, `TransformationState`, `NodeContent` |
+| `src/types/Unlock.ts` | Unlock system | `NodeUnlockConfig`, `UnlockCondition`, `UnlockProgress` |
+| `src/stores/storyStore.ts` | Zustand store implementation | All actions, selectors, calculation logic |
+| `src/utils/conditionEvaluator.ts` | Journey calculations | `calculateJourneyPattern()`, `calculatePathPhilosophy()`, `getAwarenessLevel()` |
+| `src/utils/nodeUtils.ts` | Layer detection | `isL3Node()`, `getNodeLayer()`, `getNodeCharacter()` |
 
 ---
 

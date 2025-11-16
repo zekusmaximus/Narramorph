@@ -35,17 +35,9 @@
     "philosophicalCulmination": "Authentication examining authentication examining consciousness creates consciousness through examination-recursion",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "meta-examination",
-      "recursive-consciousness",
-      "methodology-examining-itself"
-    ],
+    "primaryThemes": ["meta-examination", "recursive-consciousness", "methodology-examining-itself"],
     "crossCharacterConnections": ["moderate-algo-parallel", "light-hum-glimpsed"],
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "archaeologist-primary-2047",
-      "algorithm-parallel-2151",
-      "human-distant-2383"
-    ]
+    "observerPositions": ["archaeologist-primary-2047", "algorithm-parallel-2151", "human-distant-2383"]
   }
 }

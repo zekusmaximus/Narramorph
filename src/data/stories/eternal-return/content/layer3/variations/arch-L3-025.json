@@ -43,10 +43,6 @@
     ],
     "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "archaeologist-primary-2047",
-      "starting-foundational-temporal",
-      "other-distant-temporal"
-    ]
+    "observerPositions": ["archaeologist-primary-2047", "starting-foundational-temporal", "other-distant-temporal"]
   }
 }

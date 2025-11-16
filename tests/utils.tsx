@@ -1,16 +1,18 @@
-import { render, RenderOptions } from '@testing-library/react';
-import { ReactElement } from 'react';
+import type { RenderOptions } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import type { ReactElement } from 'react';
 
 import type { StoryNode, VisitRecord } from '@/types';
 
-// Custom render function for testing components
-const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
-  render(ui, { ...options });
+// Custom render function for testing components that can be used alongside the default render
+export const customRender = (
+  ui: ReactElement,
+  options?: Omit<RenderOptions, 'wrapper'>,
+): ReturnType<typeof render> => render(ui, { ...options });
 
 // Re-export testing library functions
 // eslint-disable-next-line react-refresh/only-export-components
 export * from '@testing-library/react';
-export { customRender as render };
 
 // Test utilities and mock data
 export const mockNode: StoryNode = {

@@ -1,8 +1,8 @@
-import { RefObject, useEffect, useMemo, useRef } from 'react';
-
 import { useSpring } from '@react-spring/three';
-import { useFrame, useThree } from '@react-three/fiber';
-import { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
+import { useThree, useFrame } from '@react-three/fiber';
+import type { RefObject } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
+import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
 import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';
@@ -65,7 +65,11 @@ export default function CameraController({ controlsRef }: CameraControllerProps)
       return;
     }
 
-    controlsRef.current.target.set(DEFAULT_CAMERA_TARGET[0], DEFAULT_CAMERA_TARGET[1], DEFAULT_CAMERA_TARGET[2]);
+    controlsRef.current.target.set(
+      DEFAULT_CAMERA_TARGET[0],
+      DEFAULT_CAMERA_TARGET[1],
+      DEFAULT_CAMERA_TARGET[2],
+    );
     controlsRef.current.update();
   }, [controlsRef]);
 

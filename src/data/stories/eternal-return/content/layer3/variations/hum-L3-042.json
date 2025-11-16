@@ -38,10 +38,6 @@
     "primaryThemes": ["embodied-resistance", "verification-through-sensation", "proof-required"],
     "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "algorithm-primary-2151",
-      "human-integrated-2383",
-      "archaeologist-foundational-2047"
-    ]
+    "observerPositions": ["algorithm-primary-2151", "human-integrated-2383", "archaeologist-foundational-2047"]
   }
 }

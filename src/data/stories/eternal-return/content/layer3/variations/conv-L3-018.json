@@ -40,11 +40,7 @@
     "circularCausality": "absent",
     "readerPosition": "absent",
     "thematicContent": null,
-    "primaryThemes": [
-      "three-substrate-resistance",
-      "parallel-impossibility",
-      "methodological-persistence"
-    ],
+    "primaryThemes": ["three-substrate-resistance", "parallel-impossibility", "methodological-persistence"],
     "crossCharacterSynthesis": "three-consciousness-parallel",
     "temporalBleedingLevel": "low-moderate",
     "observerPositions": ["three-equal-positions"],

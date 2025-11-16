@@ -295,5 +295,4 @@ Minimal. De-duplication adds O(N×M) comparison where N = candidates, M = window
 
 ---
 
-**Implementation Date**: 2025-01-12
-**Status**: ✅ Complete and Ready for Review
+**Implementation Date**: 2025-01-12 **Status**: ✅ Complete and Ready for Review

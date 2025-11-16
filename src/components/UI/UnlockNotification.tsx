@@ -79,11 +79,16 @@ export function UnlockNotificationSystem() {
               >
                 {/* Header with icon */}
                 <div className="flex items-center space-x-3 mb-2">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: `${color}20` }}>
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: `${color}20` }}
+                  >
                     <Sparkles className="w-6 h-6" style={{ color }} />
                   </div>
                   <div>
-                    <div className="text-xs text-gray-400 uppercase tracking-wider">Node Unlocked</div>
+                    <div className="text-xs text-gray-400 uppercase tracking-wider">
+                      Node Unlocked
+                    </div>
                     <div className="text-sm font-bold" style={{ color }}>
                       {node.title}
                     </div>
@@ -91,7 +96,9 @@ export function UnlockNotificationSystem() {
                 </div>
 
                 {/* Unlock message */}
-                {config.unlockMessage && <div className="text-sm text-gray-300 mb-3">{config.unlockMessage}</div>}
+                {config.unlockMessage && (
+                  <div className="text-sm text-gray-300 mb-3">{config.unlockMessage}</div>
+                )}
 
                 {/* Call to action */}
                 <div className="text-xs text-gray-400 flex items-center justify-between">

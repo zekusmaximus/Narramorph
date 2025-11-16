@@ -35,18 +35,9 @@
     "philosophicalCulmination": "Authentication accepts that different approaches to consciousness preservation each contribute valid understanding",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": [
-      "methodological-diversity",
-      "complementary-approaches",
-      "acceptance-of-uncertainty",
-      "professional-humility"
-    ],
+    "primaryThemes": ["methodological-diversity", "complementary-approaches", "acceptance-of-uncertainty", "professional-humility"],
     "crossCharacterConnections": ["moderate-algo-parallel", "moderate-hum-parallel"],
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "archaeologist-network-2047",
-      "algorithm-parallel-2151",
-      "human-parallel-2383"
-    ]
+    "observerPositions": ["archaeologist-network-2047", "algorithm-parallel-2151", "human-parallel-2383"]
   }
 }

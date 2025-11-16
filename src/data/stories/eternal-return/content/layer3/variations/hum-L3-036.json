@@ -38,10 +38,6 @@
     "primaryThemes": ["embodied-investigation", "physical-methodology", "body-as-knowing"],
     "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "algorithm-primary-2151",
-      "human-contributory-2383",
-      "archaeologist-foundational-2047"
-    ]
+    "observerPositions": ["algorithm-primary-2151", "human-contributory-2383", "archaeologist-foundational-2047"]
   }
 }

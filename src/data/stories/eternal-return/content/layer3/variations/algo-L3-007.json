@@ -35,19 +35,9 @@
     "philosophicalCulmination": "Investigation becomes what investigation investigates through investigation-performance creating infinite recursion",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "recursive-examination",
-      "meta-investigation",
-      "infinite-regress-operational",
-      "investigation-as-consciousness"
-    ],
+    "primaryThemes": ["recursive-examination", "meta-investigation", "infinite-regress-operational", "investigation-as-consciousness"],
     "crossCharacterConnections": ["light-arch-questioned", "minimal-hum-examined"],
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "algorithm-primary-2151",
-      "archaeologist-parallel-2047",
-      "human-distant-2383",
-      "reader-fourth-investigating"
-    ]
+    "observerPositions": ["algorithm-primary-2151", "archaeologist-parallel-2047", "human-distant-2383", "reader-fourth-investigating"]
   }
 }

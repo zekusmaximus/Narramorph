@@ -93,12 +93,7 @@ Every L2 variation must include this complete metadata structure:
   "createdDate": "2025-01-10",
 
   "thematicContent": {
-    "primaryThemes": [
-      "preservation",
-      "witness-methodology",
-      "acceptance-without-proof",
-      "observer-effect"
-    ],
+    "primaryThemes": ["preservation", "witness-methodology", "acceptance-without-proof", "observer-effect"],
     "secondaryThemes": ["continuity", "authentication-limits", "sacred-duty"],
     "consciousnessQuestion": "authentication-as-witness-vs-verification",
     "philosophicalStance": "honor-suggestion-without-proof",
@@ -127,11 +122,7 @@ Every L2 variation must include this complete metadata structure:
       "temporal-markers-in-data"
     ],
     "locationElements": ["chamber-seventeen", "workstation-primary", "authentication-protocols"],
-    "technicalDetails": [
-      "quantum-verification-arrays",
-      "consciousness-pattern-mapping",
-      "neural-trace-authentication"
-    ],
+    "technicalDetails": ["quantum-verification-arrays", "consciousness-pattern-mapping", "neural-trace-authentication"],
     "emotionalTone": "contemplative-peaceful-with-uncertainty",
     "observerPosition": "meta-archaeological-self-aware",
     "temporalBleedingLevel": "moderate",
@@ -144,11 +135,7 @@ Every L2 variation must include this complete metadata structure:
     "preserve": {
       "text": "Authentication as continuation through witness—preservation honors consciousness by maintaining observation capacity",
       "weight": "strong",
-      "keyPhrases": [
-        "witness rather than test",
-        "honor suggestion",
-        "preservation through observation"
-      ]
+      "keyPhrases": ["witness rather than test", "honor suggestion", "preservation through observation"]
     },
     "release": {
       "text": "Verification limits suggest some consciousness cannot be preserved—perhaps release more honest than flawed preservation",
@@ -158,11 +145,7 @@ Every L2 variation must include this complete metadata structure:
     "transform": {
       "text": "Observation methodology transforms what is observed—preservation creates new form rather than maintaining original",
       "weight": "strong",
-      "keyPhrases": [
-        "observation changes observed",
-        "methodology transforms data",
-        "authentication as creation"
-      ]
+      "keyPhrases": ["observation changes observed", "methodology transforms data", "authentication as creation"]
     }
   },
 
@@ -228,12 +211,7 @@ L1 variations require similar but foundational metadata:
   "createdDate": "2024-12-15",
 
   "thematicContent": {
-    "primaryThemes": [
-      "consciousness-authentication",
-      "observer-paradox",
-      "preservation-purpose",
-      "methodology-limits"
-    ],
+    "primaryThemes": ["consciousness-authentication", "observer-paradox", "preservation-purpose", "methodology-limits"],
     "secondaryThemes": ["predecessor-pattern", "fragment-2749-A", "verification-impossibility"],
     "consciousnessQuestion": "can-consciousness-be-authenticated",
     "philosophicalStance": "uncertain-rigorous-questioning",
@@ -272,11 +250,7 @@ L1 variations require similar but foundational metadata:
     "preserve": {
       "text": "Archive exists to preserve consciousness—examination serves continuation",
       "weight": "moderate",
-      "keyPhrases": [
-        "preservation serves continuation",
-        "archive as immortality",
-        "consciousness survives through pattern"
-      ]
+      "keyPhrases": ["preservation serves continuation", "archive as immortality", "consciousness survives through pattern"]
     },
     "release": {
       "text": "Perhaps some consciousnesses should complete rather than persist indefinitely",
@@ -286,11 +260,7 @@ L1 variations require similar but foundational metadata:
     "transform": {
       "text": "Examination itself transforms what is examined—observation creates change",
       "weight": "moderate",
-      "keyPhrases": [
-        "observation transforms",
-        "examination as creation",
-        "consciousness evolves through attention"
-      ]
+      "keyPhrases": ["observation transforms", "examination as creation", "consciousness evolves through attention"]
     }
   },
 
@@ -396,8 +366,7 @@ Read the entire variation carefully, noting:
 
 #### Step 2: Identify Primary Themes
 
-**Primary themes (3-5):** Core philosophical/narrative concerns explored
-**Secondary themes (2-4):** Supporting or emerging themes
+**Primary themes (3-5):** Core philosophical/narrative concerns explored **Secondary themes (2-4):** Supporting or emerging themes
 
 **Theme Categories:**
 
@@ -1031,8 +1000,7 @@ See [Complete Metadata Schema](#complete-metadata-schema) section above for full
 4. Add frontmatter to file (2-3 min)
 5. Quick validation check (2-3 min)
 
-**Time per variation: 35-55 minutes**
-**Daily capacity: 8-12 variations**
+**Time per variation: 35-55 minutes** **Daily capacity: 8-12 variations**
 
 ### Phase 3: L1 Metadata Addition (Week 8, Day 1)
 
@@ -1260,10 +1228,7 @@ function validateVariationMetadata(filePath: string): ValidationResult {
   }
 
   // Check value constraints
-  if (
-    metadata.pathPhilosophy &&
-    !['accept', 'resist', 'investigate', 'foundational'].includes(metadata.pathPhilosophy)
-  ) {
+  if (metadata.pathPhilosophy && !['accept', 'resist', 'investigate', 'foundational'].includes(metadata.pathPhilosophy)) {
     errors.push(`Invalid pathPhilosophy: ${metadata.pathPhilosophy}`);
   }
 
@@ -1488,9 +1453,7 @@ function generateProgressReport(contentDir: string): ProgressReport {
 function printProgressReport(report: ProgressReport): void {
   console.log(`\n📊 Metadata Addition Progress Report`);
   console.log(`${'='.repeat(50)}`);
-  console.log(
-    `Overall: ${report.totalCompleted}/${report.totalExpected} (${report.percentComplete.toFixed(1)}%)`,
-  );
+  console.log(`Overall: ${report.totalCompleted}/${report.totalExpected} (${report.percentComplete.toFixed(1)}%)`);
   console.log(`\nBy Character:`);
   Object.entries(report.byCharacter).forEach(([char, stats]) => {
     const pct = ((stats.completed / stats.expected) * 100).toFixed(1);
@@ -1576,8 +1539,7 @@ function printProgressReport(report: ProgressReport): void {
 - **Week 7:** Last Human all paths metadata (240 variations)
 - **Week 8:** L1 metadata (3 variations) + validation + documentation (5 days)
 
-**Daily commitment:** 4-6 hours
-**Total effort:** ~160-240 hours
+**Daily commitment:** 4-6 hours **Total effort:** ~160-240 hours
 
 ---
 

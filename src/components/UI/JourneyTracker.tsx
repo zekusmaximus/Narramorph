@@ -5,9 +5,9 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
-import { useStoryStore } from '../../stores';
-
 import type { JourneyPattern, PathPhilosophy } from '@/types';
+
+import { useStoryStore } from '../../stores';
 
 const journeyPatternLabels: Record<JourneyPattern, string> = {
   'started-stayed': 'Started & Stayed',
@@ -60,7 +60,9 @@ function ConnectionHeatmap() {
 
   return (
     <div className="mt-4 p-3 bg-gray-900/40 border border-cyan-500/20 rounded">
-      <div className="text-xs text-cyan-400 mb-3 font-mono uppercase tracking-wider">Cross-Character Connections</div>
+      <div className="text-xs text-cyan-400 mb-3 font-mono uppercase tracking-wider">
+        Cross-Character Connections
+      </div>
 
       <div className="space-y-2">
         {connections.map((conn) => {
@@ -136,7 +138,9 @@ function NavigationPatternInsight() {
 
   return (
     <div className="mt-4 p-3 bg-gray-900/40 border border-cyan-500/20 rounded">
-      <div className="text-xs text-cyan-400 mb-3 font-mono uppercase tracking-wider">Navigation Pattern</div>
+      <div className="text-xs text-cyan-400 mb-3 font-mono uppercase tracking-wider">
+        Navigation Pattern
+      </div>
 
       {/* Pattern badge */}
       <div
@@ -211,10 +215,17 @@ function NextUnlockPreview() {
       <h4 className="text-cyan-400 font-mono text-xs uppercase tracking-wider">Next Unlocks</h4>
       <div className="space-y-2">
         {topThree.map(({ config, progress, node }) => (
-          <div key={config.nodeId} className="bg-black/40 border border-cyan-500/20 rounded p-2 space-y-1">
+          <div
+            key={config.nodeId}
+            className="bg-black/40 border border-cyan-500/20 rounded p-2 space-y-1"
+          >
             <div className="flex items-center justify-between">
-              <span className="text-white text-xs font-medium truncate">{node?.metadata?.chapterTitle || config.nodeId}</span>
-              <span className="text-cyan-400 text-xs font-mono">{Math.round(progress?.progress || 0)}%</span>
+              <span className="text-white text-xs font-medium truncate">
+                {node?.metadata?.chapterTitle || config.nodeId}
+              </span>
+              <span className="text-cyan-400 text-xs font-mono">
+                {Math.round(progress?.progress || 0)}%
+              </span>
             </div>
             <div className="w-full bg-gray-800 rounded-full h-1.5">
               <div
@@ -222,7 +233,9 @@ function NextUnlockPreview() {
                 style={{ width: `${progress?.progress || 0}%` }}
               />
             </div>
-            {progress?.nextConditionHint && <p className="text-gray-400 text-xs italic">{progress.nextConditionHint}</p>}
+            {progress?.nextConditionHint && (
+              <p className="text-gray-400 text-xs italic">{progress.nextConditionHint}</p>
+            )}
           </div>
         ))}
       </div>
@@ -235,7 +248,8 @@ export function JourneyTracker() {
   const tracking = progress.journeyTracking;
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const { characterVisitPercentages, currentJourneyPattern, dominantPhilosophy, l2Choices } = tracking;
+  const { characterVisitPercentages, currentJourneyPattern, dominantPhilosophy, l2Choices } =
+    tracking;
 
   return (
     <div className="journey-tracker bg-black/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg overflow-hidden">
@@ -243,7 +257,9 @@ export function JourneyTracker() {
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full p-4 text-left hover:bg-cyan-500/10 transition-colors flex items-center justify-between"
       >
-        <h3 className="text-cyan-400 font-mono text-sm uppercase tracking-wider">Journey Tracking</h3>
+        <h3 className="text-cyan-400 font-mono text-sm uppercase tracking-wider">
+          Journey Tracking
+        </h3>
         <svg
           className={`w-5 h-5 text-cyan-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
           fill="none"
@@ -267,13 +283,17 @@ export function JourneyTracker() {
               {/* Journey Pattern */}
               <div className="space-y-2">
                 <div className="text-xs text-gray-400 font-mono">JOURNEY PATTERN</div>
-                <div className="text-sm text-cyan-300 font-mono">{journeyPatternLabels[currentJourneyPattern]}</div>
+                <div className="text-sm text-cyan-300 font-mono">
+                  {journeyPatternLabels[currentJourneyPattern]}
+                </div>
               </div>
 
               {/* Path Philosophy */}
               <div className="space-y-2">
                 <div className="text-xs text-gray-400 font-mono">PATH PHILOSOPHY</div>
-                <div className="text-sm text-cyan-300 font-mono">{philosophyLabels[dominantPhilosophy]}</div>
+                <div className="text-sm text-cyan-300 font-mono">
+                  {philosophyLabels[dominantPhilosophy]}
+                </div>
                 {(l2Choices.accept > 0 || l2Choices.resist > 0 || l2Choices.invest > 0) && (
                   <div className="flex gap-2 text-xs text-gray-500 font-mono">
                     <span>Accept: {l2Choices.accept}</span>
@@ -307,7 +327,9 @@ export function JourneyTracker() {
                         style={{ width: `${characterVisitPercentages.algorithm}%` }}
                       />
                     </div>
-                    <div className="w-12 text-xs text-gray-400 font-mono text-right">{characterVisitPercentages.algorithm.toFixed(0)}%</div>
+                    <div className="w-12 text-xs text-gray-400 font-mono text-right">
+                      {characterVisitPercentages.algorithm.toFixed(0)}%
+                    </div>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-20 text-xs text-red-400 font-mono">Human</div>
@@ -317,7 +339,9 @@ export function JourneyTracker() {
                         style={{ width: `${characterVisitPercentages.lastHuman}%` }}
                       />
                     </div>
-                    <div className="w-12 text-xs text-gray-400 font-mono text-right">{characterVisitPercentages.lastHuman.toFixed(0)}%</div>
+                    <div className="w-12 text-xs text-gray-400 font-mono text-right">
+                      {characterVisitPercentages.lastHuman.toFixed(0)}%
+                    </div>
                   </div>
                 </div>
               </div>
@@ -332,7 +356,9 @@ export function JourneyTracker() {
                       style={{ width: `${progress.temporalAwarenessLevel}%` }}
                     />
                   </div>
-                  <div className="w-12 text-xs text-cyan-400 font-mono text-right">{progress.temporalAwarenessLevel.toFixed(0)}%</div>
+                  <div className="w-12 text-xs text-cyan-400 font-mono text-right">
+                    {progress.temporalAwarenessLevel.toFixed(0)}%
+                  </div>
                 </div>
               </div>
 
@@ -345,12 +371,19 @@ export function JourneyTracker() {
               {/* L3 Assembly Views */}
               {progress.l3AssembliesViewed && progress.l3AssembliesViewed.length > 0 && (
                 <div className="space-y-2 mt-4 pt-4 border-t border-purple-500/30">
-                  <div className="text-xs text-purple-400 font-mono">L3 ASSEMBLIES VIEWED: {progress.l3AssembliesViewed.length}</div>
+                  <div className="text-xs text-purple-400 font-mono">
+                    L3 ASSEMBLIES VIEWED: {progress.l3AssembliesViewed.length}
+                  </div>
                   <div className="space-y-2">
                     {progress.l3AssembliesViewed.map((view, index) => {
-                      const sectionsReadCount = Object.values(view.sectionsRead).filter(Boolean).length;
+                      const sectionsReadCount = Object.values(view.sectionsRead).filter(
+                        Boolean,
+                      ).length;
                       return (
-                        <div key={index} className="text-xs text-gray-400 bg-purple-900/20 p-2 rounded">
+                        <div
+                          key={index}
+                          className="text-xs text-gray-400 bg-purple-900/20 p-2 rounded"
+                        >
                           <div className="font-mono mb-1">
                             {view.journeyPattern} • {view.pathPhilosophy} • {view.synthesisPattern}
                           </div>
@@ -359,14 +392,18 @@ export function JourneyTracker() {
                               <span
                                 key={section}
                                 className={`w-4 h-4 rounded text-center leading-4 ${
-                                  view.sectionsRead[section] ? 'bg-green-500 text-white' : 'bg-gray-600 text-gray-400'
+                                  view.sectionsRead[section]
+                                    ? 'bg-green-500 text-white'
+                                    : 'bg-gray-600 text-gray-400'
                                 }`}
                                 title={`${section} ${view.sectionsRead[section] ? '✓' : '○'}`}
                               >
                                 {view.sectionsRead[section] ? '✓' : '○'}
                               </span>
                             ))}
-                            <span className="ml-2 text-gray-500">{sectionsReadCount}/4 sections read</span>
+                            <span className="ml-2 text-gray-500">
+                              {sectionsReadCount}/4 sections read
+                            </span>
                           </div>
                         </div>
                       );

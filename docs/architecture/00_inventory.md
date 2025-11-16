@@ -1,8 +1,6 @@
 # Architecture Inventory — Narramorph
 
-**Generated:** 2025-11-12
-**Purpose:** Targeted file map to guide architecture audit
-**Scope:** Non-destructive read-only survey of React/TypeScript codebase
+**Generated:** 2025-11-12 **Purpose:** Targeted file map to guide architecture audit **Scope:** Non-destructive read-only survey of React/TypeScript codebase
 
 ---
 
@@ -92,17 +90,17 @@ docs/
 
 ## 2. Functional Area → Candidate Files
 
-| Area                    | Key Files                                                                                                                                                                                                     | Notes                                                                                                        |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| **Journey State**       | `src/stores/storyStore.ts:41-68,493-555`                                                                                                                                                                      | `JourneyTracking` interface, `createInitialJourneyTracking()`, `updateJourneyTracking()`, `recordL2Choice()` |
-| **Variation Selection** | `src/hooks/useVariationSelection.ts` (not read)<br>`src/utils/variationLoader.ts` (not read)<br>`src/stores/storyStore.ts:576-590` (`getConditionContext`)                                                    | Hook for runtime selection, loader for file I/O, condition context builder                                   |
-| **Unlocks**             | `src/utils/unlockLoader.ts` (not read)<br>`src/utils/unlockEvaluator.ts` (not read)<br>`src/types/Unlock.ts` (not read)<br>`src/data/.../unlock-config.json` (not read)<br>`src/stores/storyStore.ts:785-834` | Unlock config schema, evaluator logic, store actions (`evaluateUnlocks`, `getUnlockProgress`)                |
-| **L3 Assembly**         | `src/utils/l3Assembly.ts` (not read)<br>`src/stores/storyStore.ts:594-779`                                                                                                                                    | Fragment selection, parameterization, caching (`l3AssemblyCache`), assembly view state                       |
-| **Content Loading**     | `src/utils/contentLoader.ts` (not read)<br>`src/utils/variationLoader.ts` (not read)<br>`src/stores/storyStore.ts:374-451`                                                                                    | File fetch, frontmatter parsing, JSON loading, error handling                                                |
-| **Navigation**          | `src/components/NodeMap/NodeMap.tsx` (not read)<br>`src/components/NodeMap/CustomStoryNode.tsx` (not read)<br>`src/pages/Home.tsx` (not read)<br>`src/stores/storyStore.ts:836-1004`                          | Visit recording (`visitNode`), node selection, view routing (L3 detection line 1028)                         |
-| **Type System**         | `src/types/Node.ts` (not read)<br>`src/types/Variation.ts` (not read)<br>`src/types/Store.ts` (not read)<br>`src/types/Unlock.ts` (not read)<br>`src/types/index.ts` (read)                                   | Core domain models for nodes, variations, journey patterns, unlock configs                                   |
-| **State Utils**         | `src/utils/conditionEvaluator.ts` (not read)<br>`src/utils/nodeUtils.ts` (not read)<br>`src/stores/storyStore.ts:462-555`                                                                                     | Journey pattern calculation, philosophy calculation, temporal awareness, node layer detection                |
-| **Persistence**         | `src/utils/storage.ts` (not read)<br>`src/utils/validation.ts` (not read)<br>`src/stores/storyStore.ts:1056-1200`                                                                                             | LocalStorage wrapper, save/load/export/import, migration logic (lines 1080-1153)                             |
+| Area | Key Files | Notes |
+| --- | --- | --- |
+| **Journey State** | `src/stores/storyStore.ts:41-68,493-555` | `JourneyTracking` interface, `createInitialJourneyTracking()`, `updateJourneyTracking()`, `recordL2Choice()` |
+| **Variation Selection** | `src/hooks/useVariationSelection.ts` (not read)<br>`src/utils/variationLoader.ts` (not read)<br>`src/stores/storyStore.ts:576-590` (`getConditionContext`) | Hook for runtime selection, loader for file I/O, condition context builder |
+| **Unlocks** | `src/utils/unlockLoader.ts` (not read)<br>`src/utils/unlockEvaluator.ts` (not read)<br>`src/types/Unlock.ts` (not read)<br>`src/data/.../unlock-config.json` (not read)<br>`src/stores/storyStore.ts:785-834` | Unlock config schema, evaluator logic, store actions (`evaluateUnlocks`, `getUnlockProgress`) |
+| **L3 Assembly** | `src/utils/l3Assembly.ts` (not read)<br>`src/stores/storyStore.ts:594-779` | Fragment selection, parameterization, caching (`l3AssemblyCache`), assembly view state |
+| **Content Loading** | `src/utils/contentLoader.ts` (not read)<br>`src/utils/variationLoader.ts` (not read)<br>`src/stores/storyStore.ts:374-451` | File fetch, frontmatter parsing, JSON loading, error handling |
+| **Navigation** | `src/components/NodeMap/NodeMap.tsx` (not read)<br>`src/components/NodeMap/CustomStoryNode.tsx` (not read)<br>`src/pages/Home.tsx` (not read)<br>`src/stores/storyStore.ts:836-1004` | Visit recording (`visitNode`), node selection, view routing (L3 detection line 1028) |
+| **Type System** | `src/types/Node.ts` (not read)<br>`src/types/Variation.ts` (not read)<br>`src/types/Store.ts` (not read)<br>`src/types/Unlock.ts` (not read)<br>`src/types/index.ts` (read) | Core domain models for nodes, variations, journey patterns, unlock configs |
+| **State Utils** | `src/utils/conditionEvaluator.ts` (not read)<br>`src/utils/nodeUtils.ts` (not read)<br>`src/stores/storyStore.ts:462-555` | Journey pattern calculation, philosophy calculation, temporal awareness, node layer detection |
+| **Persistence** | `src/utils/storage.ts` (not read)<br>`src/utils/validation.ts` (not read)<br>`src/stores/storyStore.ts:1056-1200` | LocalStorage wrapper, save/load/export/import, migration logic (lines 1080-1153) |
 
 ---
 
@@ -291,8 +289,7 @@ hooks/useVariationSelection
 | L3    | `{char}-L3-{id}.json`                                 | ~200+ files   | Reflection fragments for dynamic assembly         |
 | L4    | `final-{philosophy}.json`, `terminal-variations.json` | ~4 files      | Convergence/terminal states                       |
 
-**Total Content Files:** 292 JSON files
-**Temporary Files:** `.tmp` suffixes present (likely conversion artifacts)
+**Total Content Files:** 292 JSON files **Temporary Files:** `.tmp` suffixes present (likely conversion artifacts)
 
 ---
 

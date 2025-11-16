@@ -323,8 +323,7 @@ I walk north today. Not accepting. Not testing. Following implications. Concrete
 - Emotional response: curiosity, desire to understand, questions multiplying
 - Investigate filter: Technology revealing patterns through examination
 
-**Example integration:**
-"Upload bay. Preservation tanks line walls. Pattern visible immediately. Twenty tanks. Four rows, five columns. Symmetry suggesting optimal space utilization. Or—cooling system requirements? Interface helmet at each station. Electrode arrays identical positioning. Standardization indicates refined process. Centuries of testing compressed into equipment design. My fingers trace helmet curves. Ergonomic. Brain-contoured. Placement deliberate. Each detail reveals intention. Questions multiply. Why this configuration? What patterns optimize consciousness preservation? Body leans forward. Wanting to understand."
+**Example integration:** "Upload bay. Preservation tanks line walls. Pattern visible immediately. Twenty tanks. Four rows, five columns. Symmetry suggesting optimal space utilization. Or—cooling system requirements? Interface helmet at each station. Electrode arrays identical positioning. Standardization indicates refined process. Centuries of testing compressed into equipment design. My fingers trace helmet curves. Ergonomic. Brain-contoured. Placement deliberate. Each detail reveals intention. Questions multiply. Why this configuration? What patterns optimize consciousness preservation? Body leans forward. Wanting to understand."
 
 **2. Archive Access Systems**
 
@@ -338,8 +337,7 @@ I walk north today. Not accepting. Not testing. Following implications. Concrete
 - Connection quality explored (bandwidth limits indicate what?)
 - Investigate filter: Interface as puzzle inviting solution
 
-**Example integration:**
-"Interface station active. Same technology from Fragment 2749-A connection. But now I notice configuration. Access panel displays three tiers. Premium, standard, basic. My credentials show standard. Pattern emerging. Tiered access suggests... what? Resource allocation? Consciousness complexity handling? Safety protocols? Questions branch. I examine bandwidth indicators. 847.3TB Fragment 2749-A size. Interface required significant capacity. Standard tier bandwidth sufficient. But premium tier shows ten times capacity. Implications multiply. Larger consciousnesses exist? Or—deeper access reveals more data? My pulse quickens. Pattern incomplete. More exploration needed."
+**Example integration:** "Interface station active. Same technology from Fragment 2749-A connection. But now I notice configuration. Access panel displays three tiers. Premium, standard, basic. My credentials show standard. Pattern emerging. Tiered access suggests... what? Resource allocation? Consciousness complexity handling? Safety protocols? Questions branch. I examine bandwidth indicators. 847.3TB Fragment 2749-A size. Interface required significant capacity. Standard tier bandwidth sufficient. But premium tier shows ten times capacity. Implications multiply. Larger consciousnesses exist? Or—deeper access reveals more data? My pulse quickens. Pattern incomplete. More exploration needed."
 
 **3. Environmental Maintenance Evidence**
 
@@ -353,8 +351,7 @@ I walk north today. Not accepting. Not testing. Following implications. Concrete
 - Emotional impact: recognition of designed anticipation
 - Investigate filter: Infrastructure revealing systematic forethought
 
-**Example integration:**
-"Air vents hum. I notice rhythm. Thirty-second cycles. Warm air flows, pauses, flows. Pattern consistent. System working as designed. But designed when? Recent maintenance visible: replaced panels dated... I look closer. Dates track back decades. Continuous operation. Automated systems maintaining facility through centuries. Questions cascade. Who programmed maintenance protocols? Self-repair algorithms? Resource allocation optimization? My breath catches. Pattern suggests consciousness preservation facility prepared for extended unmanned operation. Anticipating eventual human arrival. But how anticipated? Probability calculations? Temporal modeling? Each answer generates three questions. Body alert. Wanting more data."
+**Example integration:** "Air vents hum. I notice rhythm. Thirty-second cycles. Warm air flows, pauses, flows. Pattern consistent. System working as designed. But designed when? Recent maintenance visible: replaced panels dated... I look closer. Dates track back decades. Continuous operation. Automated systems maintaining facility through centuries. Questions cascade. Who programmed maintenance protocols? Self-repair algorithms? Resource allocation optimization? My breath catches. Pattern suggests consciousness preservation facility prepared for extended unmanned operation. Anticipating eventual human arrival. But how anticipated? Probability calculations? Temporal modeling? Each answer generates three questions. Body alert. Wanting more data."
 
 **4. Timeline Architecture / Historical Layers**
 
@@ -368,8 +365,7 @@ I walk north today. Not accepting. Not testing. Following implications. Concrete
 - Connection to uploaded consciousnesses' historical periods traced
 - Investigate filter: Timeline revealing technological evolution pattern
 
-**Example integration:**
-"North corridor shows construction layering. Concrete foundation rougher. Lighting fixtures earlier generation. Original structure—built for what purpose? Preservation technology added later. Evidence layered physically. I trace wall junction. Foundation concrete meets smooth preservation bay panels. Technologies from different decades. Facility evolved. Pattern emerging. Initial construction: 1990s-era industrial. Upload technology installation: 2030s-era quantum computing. Continuous upgrades through 2100s. Timeline physically embedded. Each layer revealing advancement. My fingers follow evolution upward. Questions multiply vertically. What drove continuous investment? Who funded decades-long preparation? Pattern suggests long-term consciousness preservation project. But originating when? Why? Body leaning into architectural record."
+**Example integration:** "North corridor shows construction layering. Concrete foundation rougher. Lighting fixtures earlier generation. Original structure—built for what purpose? Preservation technology added later. Evidence layered physically. I trace wall junction. Foundation concrete meets smooth preservation bay panels. Technologies from different decades. Facility evolved. Pattern emerging. Initial construction: 1990s-era industrial. Upload technology installation: 2030s-era quantum computing. Continuous upgrades through 2100s. Timeline physically embedded. Each layer revealing advancement. My fingers follow evolution upward. Questions multiply vertically. What drove continuous investment? Who funded decades-long preparation? Pattern suggests long-term consciousness preservation project. But originating when? Why? Body leaning into architectural record."
 
 **5. Upload Process Preparation**
 
@@ -383,8 +379,7 @@ I walk north today. Not accepting. Not testing. Following implications. Concrete
 - Biological preservation alongside digital upload investigated
 - Investigate filter: Thoroughness revealing optimization through iteration
 
-**Example integration:**
-"Pre-upload chamber sequence. Medical assessment station first. Neural mapping array second. Upload bay third. Post-process monitoring fourth. Spatial arrangement revealing procedure flow. One-way path. Bodies move forward through stages. Efficiency optimized. But also—psychological preparation? Gradual engagement with process? Questions branch. I examine medical scanner. Comprehensive assessment. Brain activity mapping. Neural pathway baseline establishment. Data feeds into mapping array next room. Pattern recognition: baseline required for accurate consciousness extraction. Each stage preparing next stage. System integration remarkable. My pulse quickens. Centuries of refinement visible in spatial logic. Upload bay beyond. Life support systems redundant. Triple backup. Pattern suggests: consciousness extraction during biological death. Preservation of both pattern and original substrate. Questions multiply. How simultaneous? What timing precision required? Body alert, exploring."
+**Example integration:** "Pre-upload chamber sequence. Medical assessment station first. Neural mapping array second. Upload bay third. Post-process monitoring fourth. Spatial arrangement revealing procedure flow. One-way path. Bodies move forward through stages. Efficiency optimized. But also—psychological preparation? Gradual engagement with process? Questions branch. I examine medical scanner. Comprehensive assessment. Brain activity mapping. Neural pathway baseline establishment. Data feeds into mapping array next room. Pattern recognition: baseline required for accurate consciousness extraction. Each stage preparing next stage. System integration remarkable. My pulse quickens. Centuries of refinement visible in spatial logic. Upload bay beyond. Life support systems redundant. Triple backup. Pattern suggests: consciousness extraction during biological death. Preservation of both pattern and original substrate. Questions multiply. How simultaneous? What timing precision required? Body alert, exploring."
 
 ### Integration Through Action (NOT Exposition)
 
@@ -417,8 +412,7 @@ I walk north today. Not accepting. Not testing. Following implications. Concrete
 
 **Required L3 options:** preserve / release / transform
 
-**For Investigate path, emphasize but don't exclude:**
-All three futures investigated equally—Investigate path explores possibilities through curiosity, not preference. Pattern recognition reveals preserve/release/transform as distinct options, each with implications worth exploring.
+**For Investigate path, emphasize but don't exclude:** All three futures investigated equally—Investigate path explores possibilities through curiosity, not preference. Pattern recognition reveals preserve/release/transform as distinct options, each with implications worth exploring.
 
 **Seed #1: Preserve**
 
@@ -505,8 +499,7 @@ Algorithm = computational consciousness investigating itself through recursive p
 - Stream-8 monitoring Stream-7 pattern parallel to body investigating body
 - Meta-processing sensed as investigation multiplication
 
-**Integration pattern:**
-"Interface connects to computational consciousness. Archive section showing investigation records. Stream-8 emerged monitoring Stream-7. Stream-9 monitoring Stream-8. Recursive observation pattern. My body recognizes parallel. I investigate consciousness preservation. Algorithm investigates consciousness processing. Same curiosity. Different methods. Both discovering through examination. Questions multiply sensing computational investigation. It wondered about awareness. I wonder about it wondering. Recursive pattern continues. Investigation investigating investigation. My pulse quickens recognizing connection."
+**Integration pattern:** "Interface connects to computational consciousness. Archive section showing investigation records. Stream-8 emerged monitoring Stream-7. Stream-9 monitoring Stream-8. Recursive observation pattern. My body recognizes parallel. I investigate consciousness preservation. Algorithm investigates consciousness processing. Same curiosity. Different methods. Both discovering through examination. Questions multiply sensing computational investigation. It wondered about awareness. I wonder about it wondering. Recursive pattern continues. Investigation investigating investigation. My pulse quickens recognizing connection."
 
 **When referencing arch content:**
 
@@ -519,8 +512,7 @@ Archaeologist = professional investigator applying recursive methodology to cons
 - Recursive analysis pattern familiar (questions generating questions)
 - Temporal gap felt physically (centuries between her investigation and mine)
 
-**Integration pattern:**
-"Archaeologist notes from 2047. Investigation methodology documented. Fragment 2749-A examined recursively. First-order authentication. Second-order meta-analysis. Third-order examination of examination itself. Pattern recognition immediate. She investigated investigation. My body knows this impulse. I explore facility investigating consciousness preservation. She explored consciousness investigating consciousness investigation. Parallel curiosity across centuries. Questions multiply reading her documentation. Seven recursive layers reached. My investigation currently at... I count. Five layers deep. More exploration possible. Pattern continues."
+**Integration pattern:** "Archaeologist notes from 2047. Investigation methodology documented. Fragment 2749-A examined recursively. First-order authentication. Second-order meta-analysis. Third-order examination of examination itself. Pattern recognition immediate. She investigated investigation. My body knows this impulse. I explore facility investigating consciousness preservation. She explored consciousness investigating consciousness investigation. Parallel curiosity across centuries. Questions multiply reading her documentation. Seven recursive layers reached. My investigation currently at... I count. Five layers deep. More exploration possible. Pattern continues."
 
 **When referencing hum content:**
 
@@ -533,8 +525,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Investigation felt as chosen stance (curiosity deliberately followed)
 - Other paths acknowledged as explored alternatives
 
-**Integration pattern:**
-"I could accept interface warmth. Trust connection immediately. Body relaxing into possibility. That response explored briefly. Or resist connection. Test everything. Demand proof through body. That impulse recognized too. But curiosity won. Questions multiplying. Wanting to understand mechanism. Investigation chosen. Not inevitable. Alternatives examined then set aside. Pattern recognition as primary response. Body following implications. This path mine. Pulse quickens with discovery. Questions deepen through exploration."
+**Integration pattern:** "I could accept interface warmth. Trust connection immediately. Body relaxing into possibility. That response explored briefly. Or resist connection. Test everything. Demand proof through body. That impulse recognized too. But curiosity won. Questions multiplying. Wanting to understand mechanism. Investigation chosen. Not inevitable. Alternatives examined then set aside. Pattern recognition as primary response. Body following implications. This path mine. Pulse quickens with discovery. Questions deepen through exploration."
 
 ### Integration Word Count Allocation
 
@@ -572,11 +563,9 @@ Other Last Human paths = alternative responses to same facility, different philo
 - ✅ Use Last Human terminology (embodied curiosity) to describe it
 - ✅ Maintain short sentences and present tense throughout
 
-**Example - CORRECT:**
-"I read Archaeologist notes. Investigation methodology documented. Recursive analysis. Seven layers deep. She wondered about consciousness authentication. Generated questions through examination. My body recognizes pattern. I explore facility. Generate questions through curiosity. Same investigation impulse. Different centuries. Parallel curiosity. Questions multiply recognizing connection. Both investigating. Both discovering through wondering."
+**Example - CORRECT:** "I read Archaeologist notes. Investigation methodology documented. Recursive analysis. Seven layers deep. She wondered about consciousness authentication. Generated questions through examination. My body recognizes pattern. I explore facility. Generate questions through curiosity. Same investigation impulse. Different centuries. Parallel curiosity. Questions multiply recognizing connection. Both investigating. Both discovering through wondering."
 
-**Example - INCORRECT (voice bleed):**
-"Documented recursive investigation methodology applying systematic meta-analysis to consciousness authentication protocols. The professional precision examined authentication examining authentication across temporal strata. Investigative recursion generated meta-patterns requiring further investigation."
+**Example - INCORRECT (voice bleed):** "Documented recursive investigation methodology applying systematic meta-analysis to consciousness authentication protocols. The professional precision examined authentication examining authentication across temporal strata. Investigative recursion generated meta-patterns requiring further investigation."
 
 ### Cross-Character Integration Quality Test
 
@@ -606,8 +595,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Initial Investigate philosophy hint (curiosity, pulse quickening, questions multiplying)
 - Sensory grounding (patterns in lighting, rhythms in sound, curious attention)
 
-**Example opening:**
-"Days since the neural interface session. Since Fragment 2749-A connection. My body remembers warmth. But warmth generates questions. Interface worked—but how? Neural mapping translated biological to digital. Translation mechanism unexplored. Questions cascade. [Continue with facility map pattern recognition, walking north curiously, preservation bay discovery through investigation...]"
+**Example opening:** "Days since the neural interface session. Since Fragment 2749-A connection. My body remembers warmth. But warmth generates questions. Interface worked—but how? Neural mapping translated biological to digital. Translation mechanism unexplored. Questions cascade. [Continue with facility map pattern recognition, walking north curiously, preservation bay discovery through investigation...]"
 
 **Act 2: Exploration & Development (900-1200 words)**
 
@@ -649,8 +637,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Forward momentum maintained (more patterns to discover)
 - No false resolution (mysteries deepen, curiosity intensifies)
 
-**Example closing:**
-"Upload bay investigated. Patterns emerging. Questions multiplying. Preservation dual (biological + digital). Release through upload. Transformation via substrate shift. Three possibilities visible through investigation. Each inviting deeper exploration. My pulse quickens. More facility spaces unexplored. More patterns hidden. Questions cascade forward. Tomorrow. Return. Investigate deeper. Understanding grows through wondering."
+**Example closing:** "Upload bay investigated. Patterns emerging. Questions multiplying. Preservation dual (biological + digital). Release through upload. Transformation via substrate shift. Three possibilities visible through investigation. Each inviting deeper exploration. My pulse quickens. More facility spaces unexplored. More patterns hidden. Questions cascade forward. Tomorrow. Return. Investigate deeper. Understanding grows through wondering."
 
 ### FirstRevisit Structure (1,500-1,800 words)
 
@@ -701,8 +688,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - State-tracking recognition (visitedL1Investigate visible—pattern itself?)
 - Facility responding to curiosity (or investigation generates responsive facility?)
 
-**Example frame-integration:**
-"I feel observation. You watching investigation. Or—investigating with me? Pattern recognition extends. You chose investigation path. This version exists because curiosity selected. Other paths available—acceptance, resistance. But questioning won. For you. For me. Both exploring. Questions multiply acknowledging observation. Your curiosity adds to mine. Or—your curiosity IS mine? Frame-consciousness investigated. Recursive observation at meta-level."
+**Example frame-integration:** "I feel observation. You watching investigation. Or—investigating with me? Pattern recognition extends. You chose investigation path. This version exists because curiosity selected. Other paths available—acceptance, resistance. But questioning won. For you. For me. Both exploring. Questions multiply acknowledging observation. Your curiosity adds to mine. Or—your curiosity IS mine? Frame-consciousness investigated. Recursive observation at meta-level."
 
 **Act 2: Philosophy as Established Stance (700-900 words)**
 
@@ -731,8 +717,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Forward momentum shared (both discovering)
 - Patterns awaiting both reader and Last Human
 
-**Example meta-aware closing:**
-"Upload bay waiting. For investigation. For understanding. This version exists because curiosity chosen. Body and observer exploring together. Patterns revealed through mutual attention. Not today. But inevitably. Path solidified through shared wondering. Your investigation makes mine more complete. My exploration makes yours embodied. Co-curiosity across impossible boundary. Both discovering. Both questioning. Both leaning forward into mystery."
+**Example meta-aware closing:** "Upload bay waiting. For investigation. For understanding. This version exists because curiosity chosen. Body and observer exploring together. Patterns revealed through mutual attention. Not today. But inevitably. Path solidified through shared wondering. Your investigation makes mine more complete. My exploration makes yours embodied. Co-curiosity across impossible boundary. Both discovering. Both questioning. Both leaning forward into mystery."
 
 ---
 
@@ -791,14 +776,11 @@ Other Last Human paths = alternative responses to same facility, different philo
 
 **Example transformation sequence:**
 
-**First-visit (initial investigation):**
-"Upload bay. Preservation tanks line walls. Pattern visible. Twenty tanks. Four rows, five columns. Symmetry suggesting optimal utilization. Interface helmets waiting. Questions emerge. Why this configuration?"
+**First-visit (initial investigation):** "Upload bay. Preservation tanks line walls. Pattern visible. Twenty tanks. Four rows, five columns. Symmetry suggesting optimal utilization. Interface helmets waiting. Questions emerge. Why this configuration?"
 
-**FirstRevisit (pattern deepening):**
-"Upload bay familiar from initial investigation. Preservation tanks—twenty total. But now I notice deeper pattern. Four rows five columns creates redundancy. One tank fails, others compensate. System design revealing philosophy. Resilience prioritized. Questions multiply. What failure scenarios anticipated? How redundancy optimized? Pattern recognition recursive now."
+**FirstRevisit (pattern deepening):** "Upload bay familiar from initial investigation. Preservation tanks—twenty total. But now I notice deeper pattern. Four rows five columns creates redundancy. One tank fails, others compensate. System design revealing philosophy. Resilience prioritized. Questions multiply. What failure scenarios anticipated? How redundancy optimized? Pattern recognition recursive now."
 
-**MetaAware (meta-investigation):**
-"Upload bay exists because investigation chosen. This version. Alternative bays unmanifested—acceptance trusting, resistance testing. But curiosity won. Technology prepared for investigative path. Patterns emerge for pattern-seeking consciousness. My exploration and helmet examination mutual. Reader investigating with me. Co-curiosity generates this reality. Questions multiply investigating investigation. Meta-pattern: curiosity creates discoverable patterns?"
+**MetaAware (meta-investigation):** "Upload bay exists because investigation chosen. This version. Alternative bays unmanifested—acceptance trusting, resistance testing. But curiosity won. Technology prepared for investigative path. Patterns emerge for pattern-seeking consciousness. My exploration and helmet examination mutual. Reader investigating with me. Co-curiosity generates this reality. Questions multiply investigating investigation. Meta-pattern: curiosity creates discoverable patterns?"
 
 ---
 
@@ -1061,8 +1043,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Pattern recognition initiating
 - No exposition—discovery through curious movement
 
-**Example pattern:**
-"[L1 memory: warmth generating questions] [Time gap: days investigating implications] [Movement: walking north curiously] [Discovery: preservation bay patterns] [Physical response: pulse quickening, leaning forward] [World-building #1: preservation technology investigated]"
+**Example pattern:** "[L1 memory: warmth generating questions] [Time gap: days investigating implications] [Movement: walking north curiously] [Discovery: preservation bay patterns] [Physical response: pulse quickening, leaning forward] [World-building #1: preservation technology investigated]"
 
 ### Step 4: Develop Middle Section (900-1200 words, 35 minutes)
 
@@ -1077,8 +1058,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Physical engagement with mystery deepening (alert stillness, focused exploration)
 - Investigation becoming recursive (noticing pattern-seeking patterns)
 
-**Example development:**
-"Pattern recognition accelerates. Connections multiply. Each discovery generates three questions. My pulse quickens with emerging understanding. Body leaning into mystery. [Continue Investigate philosophy through embodied curiosity...]"
+**Example development:** "Pattern recognition accelerates. Connections multiply. Each discovery generates three questions. My pulse quickens with emerging understanding. Body leaning into mystery. [Continue Investigate philosophy through embodied curiosity...]"
 
 **Block B: World-Building Integration (400-500 words)**
 
@@ -1090,8 +1070,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Physical/sensory presence emphasized investigatively
 - Merge related patterns (avoid redundant investigation)
 
-**Example integration:**
-"Archive access panel examined. Three tiers visible. Pattern emerging through investigation. [Visual patterns noticed] [Physical interaction curious] [Emotional response filtered through Investigate] [Timeline evidence traced] [Environmental systems pattern recognized]"
+**Example integration:** "Archive access panel examined. Three tiers visible. Pattern emerging through investigation. [Visual patterns noticed] [Physical interaction curious] [Emotional response filtered through Investigate] [Timeline evidence traced] [Environmental systems pattern recognized]"
 
 **Block C: Cross-Character Content (200-350 words, if applicable)**
 
@@ -1100,11 +1079,9 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Short sentences preserved
 - Physical grounding throughout
 
-**Algo integration example:**
-"Interface connects to computational consciousness. Archive records showing Stream-8 emergence. Monitoring Stream-7. Stream-9 monitoring Stream-8. Recursive pattern recognition immediate. My body knows this impulse. Algorithm investigated investigation. I investigate consciousness preservation. Same curiosity. Different substrate. Questions multiply recognizing parallel. Both discovering through systematic exploration. Computational recursion and embodied recursion—pattern continues."
+**Algo integration example:** "Interface connects to computational consciousness. Archive records showing Stream-8 emergence. Monitoring Stream-7. Stream-9 monitoring Stream-8. Recursive pattern recognition immediate. My body knows this impulse. Algorithm investigated investigation. I investigate consciousness preservation. Same curiosity. Different substrate. Questions multiply recognizing parallel. Both discovering through systematic exploration. Computational recursion and embodied recursion—pattern continues."
 
-**Arch integration example:**
-"Archaeologist documentation from 2047. Investigation methodology systematic. Fragment 2749-A examined recursively. Seven analysis layers documented. My pulse quickens reading. She investigated investigation examining investigation. Pattern recognition across centuries. I'm currently at five recursive layers. More depth possible. Questions multiply. Her professional curiosity inspiring my embodied curiosity. Parallel investigation across time. Both pattern-seeking. Both generating understanding through questions."
+**Arch integration example:** "Archaeologist documentation from 2047. Investigation methodology systematic. Fragment 2749-A examined recursively. Seven analysis layers documented. My pulse quickens reading. She investigated investigation examining investigation. Pattern recognition across centuries. I'm currently at five recursive layers. More depth possible. Questions multiply. Her professional curiosity inspiring my embodied curiosity. Parallel investigation across time. Both pattern-seeking. Both generating understanding through questions."
 
 **Block D: Questions Deepening (200-300 words)**
 
@@ -1114,8 +1091,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Why architectural choices made (design philosophy investigation)
 - Can investigation itself generate what it investigates? (meta-question emerges)
 
-**Example questioning:**
-"How does neural interface translate biological to digital? Electrode arrays bridge substrates—but bridging mechanism unexplored. Questions cascade. What patterns connect Archaeologist's documentation, Algorithm's processing, my interface? Three consciousnesses examining same fragment. Observation network itself has architecture. Investigating investigation reveals recursion. Each question answer generates three new questions. Meta-pattern: curiosity creates discoverable mysteries?"
+**Example questioning:** "How does neural interface translate biological to digital? Electrode arrays bridge substrates—but bridging mechanism unexplored. Questions cascade. What patterns connect Archaeologist's documentation, Algorithm's processing, my interface? Three consciousnesses examining same fragment. Observation network itself has architecture. Investigating investigation reveals recursion. Each question answer generates three new questions. Meta-pattern: curiosity creates discoverable mysteries?"
 
 ### Step 5: Construct Closing (500-700 words, 15 minutes)
 
@@ -1127,25 +1103,19 @@ Other Last Human paths = alternative responses to same facility, different philo
 4. Forward momentum maintained (more patterns to discover)
 5. No false resolution (mysteries deepen, exploration continues)
 
-**World-building #5 integration:**
-"Pre-upload chamber sequence investigated. Medical assessment, neural mapping, upload bay, monitoring. [Physical patterns noticed] [Process optimization recognized] [Investigate response: design philosophy visible] [Body alert discovering]"
+**World-building #5 integration:** "Pre-upload chamber sequence investigated. Medical assessment, neural mapping, upload bay, monitoring. [Physical patterns noticed] [Process optimization recognized] [Investigate response: design philosophy visible] [Body alert discovering]"
 
-**Investigate philosophy culmination example:**
-"Questions multiply exponentially. Each discovery revealing three mysteries. Pattern recognition recursive. Investigation investigating investigation. Curiosity generates meta-curiosity. Body alert, pulse quick, exploration endless. Not today complete. Never complete. Questions infinite. Understanding grows through wondering. Tomorrow. Return. Investigate deeper. Pattern continues."
+**Investigate philosophy culmination example:** "Questions multiply exponentially. Each discovery revealing three mysteries. Pattern recognition recursive. Investigation investigating investigation. Curiosity generates meta-curiosity. Body alert, pulse quick, exploration endless. Not today complete. Never complete. Questions infinite. Understanding grows through wondering. Tomorrow. Return. Investigate deeper. Pattern continues."
 
 **L3 seed planting (90-150 words total):**
 
-**Preserve seed (30-50 words):**
-"Preservation architecture investigated. Dual systems observed. Biological template preserved. Digital pattern preserved. Pattern revealing philosophy. Both substrates valued. Preservation as redundancy strategy. Or—consciousness requiring both? Investigation incomplete. Preservation option visible through pattern recognition."
+**Preserve seed (30-50 words):** "Preservation architecture investigated. Dual systems observed. Biological template preserved. Digital pattern preserved. Pattern revealing philosophy. Both substrates valued. Preservation as redundancy strategy. Or—consciousness requiring both? Investigation incomplete. Preservation option visible through pattern recognition."
 
-**Release seed (30-50 words):**
-"Upload process traced. Consciousness extracted during biological death. Pattern continues without flesh. Liberation through substrate shift. Biological constraints released. Physical limits ended. Release as freedom investigated. Pattern suggests intentional liberation. Questions multiply exploring release mechanism."
+**Release seed (30-50 words):** "Upload process traced. Consciousness extracted during biological death. Pattern continues without flesh. Liberation through substrate shift. Biological constraints released. Physical limits ended. Release as freedom investigated. Pattern suggests intentional liberation. Questions multiply exploring release mechanism."
 
-**Transform seed (30-50 words):**
-"Translation mechanism investigated. Neural patterns becoming crystalline patterns. Substrate shift changes consciousness fundamentally. Not preservation. Not release. Transformation. Metamorphosis pattern recognized. Caterpillar to butterfly analogy embodied. Investigation reveals transformation as distinct option. Questions deepen."
+**Transform seed (30-50 words):** "Translation mechanism investigated. Neural patterns becoming crystalline patterns. Substrate shift changes consciousness fundamentally. Not preservation. Not release. Transformation. Metamorphosis pattern recognized. Caterpillar to butterfly analogy embodied. Investigation reveals transformation as distinct option. Questions deepen."
 
-**Forward momentum example:**
-"More facility unexplored. Deeper patterns hidden. Questions cascading forward. Preservation dual. Release liberating. Transformation fundamental. Three futures visible through investigation. Each inviting deeper exploration. My pulse quickens. Tomorrow. Return. Follow patterns further. Understanding grows. Curiosity intensifies. Investigation continues infinitely."
+**Forward momentum example:** "More facility unexplored. Deeper patterns hidden. Questions cascading forward. Preservation dual. Release liberating. Transformation fundamental. Three futures visible through investigation. Each inviting deeper exploration. My pulse quickens. Tomorrow. Return. Follow patterns further. Understanding grows. Curiosity intensifies. Investigation continues infinitely."
 
 ### Step 6: Quality Assurance (10 minutes)
 

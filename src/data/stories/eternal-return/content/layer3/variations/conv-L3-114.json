@@ -40,12 +40,7 @@
     "circularCausality": "recognized",
     "readerPosition": "pattern-recognized",
     "thematicContent": null,
-    "primaryThemes": [
-      "preservation-as-devotion",
-      "triple-witness",
-      "network-consciousness",
-      "substrate-synthesis"
-    ],
+    "primaryThemes": ["preservation-as-devotion", "triple-witness", "network-consciousness", "substrate-synthesis"],
     "crossCharacterSynthesis": "rotating-equal-weight",
     "temporalBleedingLevel": "medium",
     "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383"],

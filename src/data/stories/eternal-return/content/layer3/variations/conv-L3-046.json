@@ -40,20 +40,10 @@
     "circularCausality": "explicit-reader-acknowledged",
     "readerPosition": "fourth-position-acknowledged",
     "thematicContent": null,
-    "primaryThemes": [
-      "recursive-investigation",
-      "meta-methodology",
-      "observer-observing-observer",
-      "infinite-examination"
-    ],
+    "primaryThemes": ["recursive-investigation", "meta-methodology", "observer-observing-observer", "infinite-examination"],
     "crossCharacterSynthesis": "archaeologist-dominant-recursive",
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "arch-primary-2047",
-      "algo-parallel-2151",
-      "hum-contributory-2383",
-      "reader-fourth-meta-position"
-    ],
+    "observerPositions": ["arch-primary-2047", "algo-parallel-2151", "hum-contributory-2383", "reader-fourth-meta-position"],
     "philosophicalResolution": "investigation-investigating-investigation-transform",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

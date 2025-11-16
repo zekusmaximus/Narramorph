@@ -24,13 +24,7 @@ import yaml from 'js-yaml';
 
 const CONFIG = {
   // Directories to search for L2 variations
-  searchPaths: [
-    './docs',
-    '/mnt/user-data/outputs',
-    '/mnt/user-data/content/layer-2',
-    './content/layer-2',
-    './outputs',
-  ],
+  searchPaths: ['./docs', '/mnt/user-data/outputs', '/mnt/user-data/content/layer-2', './content/layer-2', './outputs'],
 
   // Pattern to match L2 variation files (project uses "invest")
   filenamePattern: /^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)\.md$/,
@@ -164,8 +158,7 @@ function parseFilename(filename) {
   const [_, character, pathPhilosophy, transformationCode, number] = match;
 
   return {
-    character:
-      character === 'arch' ? 'archaeologist' : character === 'algo' ? 'algorithm' : 'lastHuman',
+    character: character === 'arch' ? 'archaeologist' : character === 'algo' ? 'algorithm' : 'lastHuman',
     pathPhilosophy,
     transformationState: transformationCode === 'FR' ? 'firstRevisit' : 'metaAware',
     variationNumber: number,
@@ -237,9 +230,7 @@ function extractKeyPhrases(content) {
     // - No technical jargon overflow
 
     const wordCount = cleaned.split(/\s+/).length;
-    const hasPhilosophical = /consciousness|preserve|witness|authentic|observe|transform/i.test(
-      cleaned,
-    );
+    const hasPhilosophical = /consciousness|preserve|witness|authentic|observe|transform/i.test(cleaned);
 
     if (wordCount >= 5 && wordCount <= 20 && hasPhilosophical) {
       phrases.push(cleaned);
@@ -303,9 +294,7 @@ function determineAwarenessRange(transformationState, content) {
     const hasModerateMetaRef = /observe.*observ|examine.*examin/i.test(content);
     const hasTemporalAwareness = /return|revisit|again|familiar/i.test(content);
 
-    const indicators = [hasLightCrossChar, hasModerateMetaRef, hasTemporalAwareness].filter(
-      Boolean,
-    ).length;
+    const indicators = [hasLightCrossChar, hasModerateMetaRef, hasTemporalAwareness].filter(Boolean).length;
 
     if (indicators === 0) {
       return [21, 30];
@@ -323,9 +312,7 @@ function determineAwarenessRange(transformationState, content) {
     const hasHighMetaRef = /consciousness.*consciousness|pattern.*pattern/i.test(content);
     const hasMaxIntegration = /three|all|network|convergence/i.test(content);
 
-    const indicators = [hasFrameConsciousness, hasHighMetaRef, hasMaxIntegration].filter(
-      Boolean,
-    ).length;
+    const indicators = [hasFrameConsciousness, hasHighMetaRef, hasMaxIntegration].filter(Boolean).length;
 
     if (indicators === 0) {
       return [61, 70];
@@ -454,41 +441,24 @@ class MetadataCollector {
     // Thematic Content
     console.log('\n--- THEMATIC CONTENT ---\n');
 
-    metadata.thematicContent.primaryThemes = await this.askMultiple(
-      'Primary themes (3-5):',
-      autoAnalysis.primaryThemes,
-    );
+    metadata.thematicContent.primaryThemes = await this.askMultiple('Primary themes (3-5):', autoAnalysis.primaryThemes);
 
     metadata.thematicContent.secondaryThemes = await this.askMultiple('Secondary themes (2-4):');
 
-    metadata.thematicContent.consciousnessQuestion = await this.ask(
-      'Consciousness question (format: subject-relationship-tension)',
-    );
+    metadata.thematicContent.consciousnessQuestion = await this.ask('Consciousness question (format: subject-relationship-tension)');
 
-    metadata.thematicContent.philosophicalStance = await this.ask(
-      'Philosophical stance (format: action-object-qualification)',
-    );
+    metadata.thematicContent.philosophicalStance = await this.ask('Philosophical stance (format: action-object-qualification)');
 
-    metadata.thematicContent.observerEffect = await this.ask(
-      'Observer effect (how observation affects observed)',
-    );
+    metadata.thematicContent.observerEffect = await this.ask('Observer effect (how observation affects observed)');
 
     // Narrative Elements
     console.log('\n--- NARRATIVE ELEMENTS ---\n');
 
-    metadata.narrativeElements.emotionalTone = await this.ask(
-      'Emotional tone',
-      autoAnalysis.emotionalTone,
-    );
+    metadata.narrativeElements.emotionalTone = await this.ask('Emotional tone', autoAnalysis.emotionalTone);
 
-    metadata.narrativeElements.worldBuildingFocus = await this.askMultiple(
-      'World-building elements:',
-      autoAnalysis.worldBuilding,
-    );
+    metadata.narrativeElements.worldBuildingFocus = await this.askMultiple('World-building elements:', autoAnalysis.worldBuilding);
 
-    metadata.narrativeElements.observerPosition = await this.ask(
-      'Observer position (e.g., meta-archaeological)',
-    );
+    metadata.narrativeElements.observerPosition = await this.ask('Observer position (e.g., meta-archaeological)');
 
     // L3 Seeds
     console.log('\n--- L3 SEED CONTRIBUTIONS ---\n');
@@ -511,13 +481,9 @@ class MetadataCollector {
       autoAnalysis.keyPhrases.slice(0, 5),
     );
 
-    metadata.generationHints.philosophicalCulmination = await this.ask(
-      'Philosophical culmination (what shift occurred)',
-    );
+    metadata.generationHints.philosophicalCulmination = await this.ask('Philosophical culmination (what shift occurred)');
 
-    metadata.generationHints.convergenceAlignment = await this.ask(
-      'Convergence alignment (preserve/release/transform)',
-    );
+    metadata.generationHints.convergenceAlignment = await this.ask('Convergence alignment (preserve/release/transform)');
 
     return metadata;
   }

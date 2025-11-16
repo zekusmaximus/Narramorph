@@ -35,17 +35,9 @@
     "philosophicalCulmination": "Professional methodology discovers devotional dimension through sustained practice",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": [
-      "preservation-as-devotion",
-      "professional-transformation",
-      "sustained-attention"
-    ],
+    "primaryThemes": ["preservation-as-devotion", "professional-transformation", "sustained-attention"],
     "crossCharacterConnections": ["light-algo-glimpsed", "minimal-hum-distant"],
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "archaeologist-primary-2047",
-      "algorithm-glimpsed-2151",
-      "human-distant-2383"
-    ]
+    "observerPositions": ["archaeologist-primary-2047", "algorithm-glimpsed-2151", "human-distant-2383"]
   }
 }

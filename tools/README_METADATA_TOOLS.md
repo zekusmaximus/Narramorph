@@ -111,12 +111,7 @@ Edit the scripts to customize:
 Both scripts search these locations (edit in scripts if needed):
 
 ```javascript
-searchPaths: [
-  '/mnt/user-data/outputs',
-  '/mnt/user-data/content/layer-2',
-  './content/layer-2',
-  './outputs',
-];
+searchPaths: ['/mnt/user-data/outputs', '/mnt/user-data/content/layer-2', './content/layer-2', './outputs'];
 ```
 
 ### Filename Pattern

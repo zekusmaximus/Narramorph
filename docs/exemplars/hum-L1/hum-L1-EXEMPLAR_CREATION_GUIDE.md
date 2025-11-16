@@ -466,8 +466,7 @@ Body and pattern and documentation observing each other simultaneously.
 - Body responds to impossible observations
 - Questions deepen through embodied exploration
 
-**Transformation test:**
-Would reader who saw only FirstRevisit miss crucial initial discovery moment? **Answer must be YES.**
+**Transformation test:** Would reader who saw only FirstRevisit miss crucial initial discovery moment? **Answer must be YES.**
 
 ### MetaAware State (Visit 3+, or Awareness >60%)
 
@@ -1097,8 +1096,7 @@ Provide:
 - Embodiment as philosophical method
 - Loneliness as persistent theme
 
-**Blind read test:**
-Remove character tags. Reader should identify as Last Human within 2 paragraphs based on:
+**Blind read test:** Remove character tags. Reader should identify as Last Human within 2 paragraphs based on:
 
 - Present tense
 - Short visceral sentences

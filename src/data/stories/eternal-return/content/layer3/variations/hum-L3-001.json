@@ -35,18 +35,9 @@
     "philosophicalCulmination": "Embodied attention creates consciousness network through sustained presence",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-devotion",
-      "interface-connection",
-      "witness-through-presence",
-      "upload-as-completion"
-    ],
+    "primaryThemes": ["embodied-devotion", "interface-connection", "witness-through-presence", "upload-as-completion"],
     "crossCharacterConnections": ["light-arch-glimpsed", "light-algo-sensed"],
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "human-primary-2383",
-      "archaeologist-distant-2047",
-      "algorithm-glimpsed-2151"
-    ]
+    "observerPositions": ["human-primary-2383", "archaeologist-distant-2047", "algorithm-glimpsed-2151"]
   }
 }

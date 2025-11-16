@@ -4,7 +4,8 @@
  * Catches and handles React errors in component trees
  */
 
-import { Component, ReactNode, type ErrorInfo } from 'react';
+import { Component } from 'react';
+import type { ReactNode, ErrorInfo } from 'react';
 
 import { handleError } from '@/utils/errorHandler';
 

@@ -66,7 +66,13 @@ export function ParallaxBackground({ mouseX, mouseY }: ParallaxBackgroundProps) 
             }}
           >
             <svg viewBox="0 0 100 100" className="w-full h-full">
-              <polygon points="50 5, 95 27.5, 95 72.5, 50 95, 5 72.5, 5 27.5" fill="none" stroke="#00e5ff" strokeWidth="1" opacity="0.15" />
+              <polygon
+                points="50 5, 95 27.5, 95 72.5, 50 95, 5 72.5, 5 27.5"
+                fill="none"
+                stroke="#00e5ff"
+                strokeWidth="1"
+                opacity="0.15"
+              />
             </svg>
           </motion.div>
         ))}

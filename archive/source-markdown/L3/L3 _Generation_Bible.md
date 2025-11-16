@@ -1060,19 +1060,11 @@ Four separate node visits:
 
 ### Production Quality Targets
 
-**Voice consistency:** 95%+ across all variations
-**Immediate approval rate:** 90%+ (minimal revision needed)
-**Word count accuracy:** 100% (within tolerance ranges)
-**Three-factor integration:** 100% (all factors present in every variation)
-**Convergence seed presence:** 100% (all three seeds in every variation)
+**Voice consistency:** 95%+ across all variations **Immediate approval rate:** 90%+ (minimal revision needed) **Word count accuracy:** 100% (within tolerance ranges) **Three-factor integration:** 100% (all factors present in every variation) **Convergence seed presence:** 100% (all three seeds in every variation)
 
 ### Reader Experience Targets
 
-**Variation appropriateness:** Reader feels journey honored
-**Character voice recognition:** Blind test identifies character correctly
-**Philosophical resonance:** Path philosophy felt, not stated
-**Convergence preparation:** Reader understands choice approaching
-**Synthesis coherence:** L3-conv feels like natural culmination
+**Variation appropriateness:** Reader feels journey honored **Character voice recognition:** Blind test identifies character correctly **Philosophical resonance:** Path philosophy felt, not stated **Convergence preparation:** Reader understands choice approaching **Synthesis coherence:** L3-conv feels like natural culmination
 
 ---
 

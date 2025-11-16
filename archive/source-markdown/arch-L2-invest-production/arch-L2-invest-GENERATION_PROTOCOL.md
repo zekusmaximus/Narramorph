@@ -355,14 +355,11 @@ suspended pending additional evidence or refined methodology.
 
 **Reader's Next Decision:**
 
-**Option A: Test Refinement**
-_Reader chooses to design more sophisticated tests to resolve ambiguity_
+**Option A: Test Refinement** _Reader chooses to design more sophisticated tests to resolve ambiguity_
 
-**Option B: Expand Evidence Base**
-_Reader chooses to search for additional fragments that might clarify origin_
+**Option B: Expand Evidence Base** _Reader chooses to search for additional fragments that might clarify origin_
 
-**Option C: Methodological Analysis**
-_Reader chooses to investigate investigation itself—why tests yield ambiguity_
+**Option C: Methodological Analysis** _Reader chooses to investigate investigation itself—why tests yield ambiguity_
 
 ### Setup Requirements
 
@@ -463,22 +460,19 @@ _Incorrect (too dialogue-like):_
 
 ### Post-Generation Validation
 
-**Fragment Test:**
-Extract 200-word passage from middle of L2. Reader should be able to identify:
+**Fragment Test:** Extract 200-word passage from middle of L2. Reader should be able to identify:
 
 1. This is Archaeologist (voice distinct from Algorithm/Human)
 2. This is Investigate path (systematic, not conclusive or defensive)
 3. This is L2 (bounded awareness, no L3+ realizations)
 
-**Transformation Test:**
-Compare first paragraph to last paragraph. Evidence of shift should include:
+**Transformation Test:** Compare first paragraph to last paragraph. Evidence of shift should include:
 
 1. Language: Neutral archaeological → methodologically uncertain metaphors
 2. Focus: Past observation → ongoing systematic inquiry
 3. Stance: Observer → investigator-of-undecidability
 
-**Fork Test:**
-Final paragraph must:
+**Fork Test:** Final paragraph must:
 
 1. Present three distinct options with clear differentiators
 2. Show Archaeologist prepared to choose
@@ -637,8 +631,7 @@ _Good:_
 **If reader's investigate choice includes specific reasoning:**
 
 - Integrate reasoning into opening section's acknowledgment
-- Example: Reader says "I investigate because certainty requires evidence"
-  → Opening: "Certainty required evidence. The external prompt provided data, not answers. Investigation was epistemological necessity."
+- Example: Reader says "I investigate because certainty requires evidence" → Opening: "Certainty required evidence. The external prompt provided data, not answers. Investigation was epistemological necessity."
 
 **If L1 established specific fragments:**
 

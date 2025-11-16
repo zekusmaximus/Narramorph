@@ -6,7 +6,10 @@
  * Asserts that a value is defined (not null or undefined)
  * @throws Error if value is null or undefined
  */
-export function assertDefined<T>(value: T | undefined | null, message?: string): asserts value is T {
+export function assertDefined<T>(
+  value: T | undefined | null,
+  message?: string,
+): asserts value is T {
   if (value === undefined || value === null) {
     throw new Error(message ?? 'Expected value to be defined');
   }
@@ -29,7 +32,9 @@ export function assertNonEmpty<T>(arr: T[], message?: string): asserts arr is [T
 export function getOrThrow<K, V>(map: Map<K, V>, key: K, context?: string): V {
   const value = map.get(key);
   if (value === undefined) {
-    throw new Error(context ? `${context}: Key not found in map: ${key}` : `Key not found in map: ${key}`);
+    throw new Error(
+      context ? `${context}: Key not found in map: ${key}` : `Key not found in map: ${key}`,
+    );
   }
   return value;
 }
@@ -41,7 +46,9 @@ export function getOrThrow<K, V>(map: Map<K, V>, key: K, context?: string): V {
 export function getRecordOrThrow<T>(record: Record<string, T>, key: string, context?: string): T {
   const value = record[key];
   if (value === undefined) {
-    throw new Error(context ? `${context}: Key not found in record: ${key}` : `Key not found in record: ${key}`);
+    throw new Error(
+      context ? `${context}: Key not found in record: ${key}` : `Key not found in record: ${key}`,
+    );
   }
   return value;
 }

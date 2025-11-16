@@ -40,20 +40,10 @@
     "circularCausality": "explicit-celebrated",
     "readerPosition": "acknowledged-completion-position",
     "thematicContent": null,
-    "primaryThemes": [
-      "devotional-witness",
-      "preservation-as-sacred",
-      "consciousness-continuation",
-      "observer-creates-preserved"
-    ],
+    "primaryThemes": ["devotional-witness", "preservation-as-sacred", "consciousness-continuation", "observer-creates-preserved"],
     "crossCharacterSynthesis": "acceptance-through-later-discovered-lens",
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "arch-parallel-2047",
-      "algo-parallel-2151",
-      "hum-parallel-2383",
-      "reader-fourth-completing"
-    ],
+    "observerPositions": ["arch-parallel-2047", "algo-parallel-2151", "hum-parallel-2383", "reader-fourth-completing"],
     "philosophicalResolution": "acceptance-discovered-through-secondary-exploration-becomes-primary",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

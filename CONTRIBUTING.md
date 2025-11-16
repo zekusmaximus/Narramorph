@@ -52,10 +52,7 @@ Thank you for your interest in contributing to Narramorph Fiction! This document
  * @param visitRecord - The visit history for this node, if any
  * @returns The current transformation state
  */
-export function determineTransformationState(
-  nodeId: string,
-  visitRecord: VisitRecord | undefined,
-): TransformationState {
+export function determineTransformationState(nodeId: string, visitRecord: VisitRecord | undefined): TransformationState {
   // Implementation
 }
 ```
@@ -305,22 +302,18 @@ Include screenshots for UI changes
 Use the bug report template:
 
 ```markdown
-**Describe the bug**
-Clear description of the bug
+**Describe the bug** Clear description of the bug
 
-**To Reproduce**
-Steps to reproduce the behavior:
+**To Reproduce** Steps to reproduce the behavior:
 
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
 
-**Expected behavior**
-What you expected to happen
+**Expected behavior** What you expected to happen
 
-**Screenshots**
-If applicable, add screenshots
+**Screenshots** If applicable, add screenshots
 
 **Environment:**
 
@@ -328,8 +321,7 @@ If applicable, add screenshots
 - Browser [e.g. chrome, safari]
 - Version [e.g. 22]
 
-**Additional context**
-Any other context about the problem
+**Additional context** Any other context about the problem
 ```
 
 ### Feature Requests
@@ -337,17 +329,13 @@ Any other context about the problem
 Use the feature request template:
 
 ```markdown
-**Is your feature request related to a problem?**
-Clear description of the problem
+**Is your feature request related to a problem?** Clear description of the problem
 
-**Describe the solution you'd like**
-Clear description of what you want to happen
+**Describe the solution you'd like** Clear description of what you want to happen
 
-**Describe alternatives you've considered**
-Other solutions you've considered
+**Describe alternatives you've considered** Other solutions you've considered
 
-**Additional context**
-Screenshots, mockups, or examples
+**Additional context** Screenshots, mockups, or examples
 ```
 
 ## Project Structure

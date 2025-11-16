@@ -72,7 +72,10 @@ interface VariationFile {
 }
 
 interface LayoutFile {
-  layers: Record<string, { y?: number; spacing?: number; nodes: Record<string, { x: number; y: number }> }>;
+  layers: Record<
+    string,
+    { y?: number; spacing?: number; nodes: Record<string, { x: number; y: number }> }
+  >;
 }
 
 export class ContentLoadError extends Error {
@@ -85,7 +88,9 @@ export class ContentLoadError extends Error {
   }
 }
 
-function normalizeCharacter(char: string): 'archaeologist' | 'algorithm' | 'last-human' | 'multi-perspective' {
+function normalizeCharacter(
+  char: string,
+): 'archaeologist' | 'algorithm' | 'last-human' | 'multi-perspective' {
   const n = (char || '').toLowerCase().replace(/[-_]/g, '');
   if (n === 'human' || n === 'lasthuman' || n === 'hum') {
     return 'last-human';
@@ -102,7 +107,10 @@ function normalizeCharacter(char: string): 'archaeologist' | 'algorithm' | 'last
   return 'archaeologist';
 }
 
-function getNodePosition(nodeId: string | undefined, layout?: LayoutFile): { x: number; y: number } {
+function getNodePosition(
+  nodeId: string | undefined,
+  layout?: LayoutFile,
+): { x: number; y: number } {
   // Default position if nodeId is invalid
   if (!nodeId) {
     // Development warning: getNodePosition called with undefined nodeId, using default position
@@ -120,7 +128,10 @@ function getNodePosition(nodeId: string | undefined, layout?: LayoutFile): { x: 
   if (match) {
     const char = match[1];
     const layer = parseInt(match[2] || '1', 10);
-    const charIndex = { arch: 0, arc: 0, algo: 1, algorithm: 1, hum: 2, human: 2 } as Record<string, number>;
+    const charIndex = { arch: 0, arc: 0, algo: 1, algorithm: 1, hum: 2, human: 2 } as Record<
+      string,
+      number
+    >;
     const charValue = char ? (charIndex[char] ?? 0) : 0;
     return { x: 150 + charValue * 350, y: 150 + layer * 220 };
   }
@@ -135,18 +146,27 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
       eager: true,
       import: 'default',
     });
-    const charMap = import.meta.glob<CharacterNodeDefinitionFile | CharacterNodeFile>('/src/data/stories/*/*.json', {
-      eager: true,
-      import: 'default',
-    });
-    const l1VarMap = import.meta.glob<VariationFile>('/src/data/stories/*/content/layer1/*-variations.json', {
-      eager: true,
-      import: 'default',
-    });
-    const l2VarMap = import.meta.glob<VariationFile>('/src/data/stories/*/content/layer2/*-variations.json', {
-      eager: true,
-      import: 'default',
-    });
+    const charMap = import.meta.glob<CharacterNodeDefinitionFile | CharacterNodeFile>(
+      '/src/data/stories/*/*.json',
+      {
+        eager: true,
+        import: 'default',
+      },
+    );
+    const l1VarMap = import.meta.glob<VariationFile>(
+      '/src/data/stories/*/content/layer1/*-variations.json',
+      {
+        eager: true,
+        import: 'default',
+      },
+    );
+    const l2VarMap = import.meta.glob<VariationFile>(
+      '/src/data/stories/*/content/layer2/*-variations.json',
+      {
+        eager: true,
+        import: 'default',
+      },
+    );
     const layoutMap = import.meta.glob<LayoutFile>('/src/data/stories/*/layout.json', {
       eager: true,
       import: 'default',
@@ -164,7 +184,12 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
     // Gather character node files for this story (exclude story.json, layout.json, unlock-config.json, and content subpaths)
     const charFiles = Object.entries(charMap)
       .filter(
-        ([p]) => p.includes(`/stories/${storyId}/`) && !p.endsWith('/story.json') && !p.endsWith('/layout.json') && !p.endsWith('/unlock-config.json') && !p.includes('/content/'),
+        ([p]) =>
+          p.includes(`/stories/${storyId}/`) &&
+          !p.endsWith('/story.json') &&
+          !p.endsWith('/layout.json') &&
+          !p.endsWith('/unlock-config.json') &&
+          !p.includes('/content/'),
       )
       .map(([, data]) => data);
 
@@ -173,9 +198,16 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
     const allNodes: StoryNode[] = [];
     const allConnections: Connection[] = [];
 
-    const isDefinitionFile = (data: CharacterNodeDefinitionFile | CharacterNodeFile): data is CharacterNodeDefinitionFile => {
+    const isDefinitionFile = (
+      data: CharacterNodeDefinitionFile | CharacterNodeFile,
+    ): data is CharacterNodeDefinitionFile => {
       const firstNode = data.nodes[0];
-      return Array.isArray(data.nodes) && data.nodes.length > 0 && !!firstNode && 'contentFile' in firstNode;
+      return (
+        Array.isArray(data.nodes) &&
+        data.nodes.length > 0 &&
+        !!firstNode &&
+        'contentFile' in firstNode
+      );
     };
 
     for (const charData of charFiles) {
@@ -191,11 +223,21 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
 
           if (def.layer === 1) {
             // L1: content/archaeologist/arc-L1.json -> content/layer1/arch-L1-variations.json
-            const charPrefix = characterRaw === 'archaeologist' || characterRaw === 'arc' ? 'arch' : characterRaw === 'algorithm' || characterRaw === 'algo' ? 'algo' : 'hum';
+            const charPrefix =
+              characterRaw === 'archaeologist' || characterRaw === 'arc'
+                ? 'arch'
+                : characterRaw === 'algorithm' || characterRaw === 'algo'
+                  ? 'algo'
+                  : 'hum';
             actualContentPath = `/src/data/stories/${storyId}/content/layer1/${charPrefix}-L1-variations.json`;
           } else if (def.layer === 2) {
             // L2: Need to determine path philosophy from node ID (accept/resist/invest)
-            const charPrefix = characterRaw === 'archaeologist' || characterRaw === 'arc' ? 'arch' : characterRaw === 'algorithm' || characterRaw === 'algo' ? 'algo' : 'hum';
+            const charPrefix =
+              characterRaw === 'archaeologist' || characterRaw === 'arc'
+                ? 'arch'
+                : characterRaw === 'algorithm' || characterRaw === 'algo'
+                  ? 'algo'
+                  : 'hum';
             // For now, try to find any L2 file for this character
             const paths = [
               `/src/data/stories/${storyId}/content/layer2/${charPrefix}-L2-accept-variations.json`,
@@ -205,7 +247,9 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
             actualContentPath = paths.find((p) => l2VarMap[p]) || null;
           }
 
-          const varData = actualContentPath ? l1VarMap[actualContentPath] || l2VarMap[actualContentPath] : undefined;
+          const varData = actualContentPath
+            ? l1VarMap[actualContentPath] || l2VarMap[actualContentPath]
+            : undefined;
 
           // Development log: Content loading for node ${def.id}
 
@@ -213,7 +257,8 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
 
           if (varData && varData.variations?.length) {
             // Materialize one representative per state for now (selector will refine later)
-            const pick = (state: 'initial' | 'firstRevisit' | 'metaAware') => varData.variations.find((v) => v.transformationState === state)?.content || '';
+            const pick = (state: 'initial' | 'firstRevisit' | 'metaAware') =>
+              varData.variations.find((v) => v.transformationState === state)?.content || '';
 
             // Fallback: if no 'initial' state exists, use 'firstRevisit' as initial
             const initialContent = pick('initial') || pick('firstRevisit');
@@ -247,7 +292,9 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
             })),
             visualState: {
               defaultColor:
-                characterRaw === 'archaeologist' || characterRaw === 'arch' || characterRaw === 'arc'
+                characterRaw === 'archaeologist' ||
+                characterRaw === 'arch' ||
+                characterRaw === 'arc'
                   ? '#4A90E2'
                   : characterRaw === 'algorithm' || characterRaw === 'algo'
                     ? '#50C878'
@@ -354,7 +401,9 @@ function validateStoryData(storyData: StoryData): void {
   }
   const startNodeExists = storyData.nodes.some((n) => n.id === storyData.configuration.startNodeId);
   if (!startNodeExists) {
-    throw new ContentLoadError(`Start node ${storyData.configuration.startNodeId} not found in story nodes`);
+    throw new ContentLoadError(
+      `Start node ${storyData.configuration.startNodeId} not found in story nodes`,
+    );
   }
   const nodeIds = new Set(storyData.nodes.map((n) => n.id));
   for (const node of storyData.nodes) {
@@ -367,7 +416,11 @@ function validateStoryData(storyData: StoryData): void {
     if (!node.character) {
       throw new ContentLoadError(`Node ${node.id} missing character`);
     }
-    if (!node.position || typeof node.position.x !== 'number' || typeof node.position.y !== 'number') {
+    if (
+      !node.position ||
+      typeof node.position.x !== 'number' ||
+      typeof node.position.y !== 'number'
+    ) {
       throw new ContentLoadError(`Node ${node.id} missing position`);
     }
   }

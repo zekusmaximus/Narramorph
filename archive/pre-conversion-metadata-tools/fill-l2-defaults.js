@@ -184,13 +184,7 @@ function topUpKeyPhrases(meta, bodyText, pathPhilosophy, _character) {
             'verification shifts to witness',
           ]
         : pathPhilosophy === 'resist'
-          ? [
-              'verification impossible',
-              'maintain standards',
-              'accept limits over recursion',
-              'rigor over resolution',
-              'end the loop',
-            ]
+          ? ['verification impossible', 'maintain standards', 'accept limits over recursion', 'rigor over resolution', 'end the loop']
           : [
               'method becomes evolution',
               'observer and observed co‑shape',
@@ -218,10 +212,7 @@ function fillDefaultsForMeta(meta, filename, bodyText, scopeFilters) {
   // convergenceAlignment
   const alignment = alignmentByPath(pathPhilosophy);
   meta.generationHints = meta.generationHints || {};
-  if (
-    !meta.generationHints.convergenceAlignment ||
-    meta.generationHints.convergenceAlignment === 'REVIEW_REQUIRED'
-  ) {
+  if (!meta.generationHints.convergenceAlignment || meta.generationHints.convergenceAlignment === 'REVIEW_REQUIRED') {
     if (alignment) {
       meta.generationHints.convergenceAlignment = alignment;
     }
@@ -229,43 +220,28 @@ function fillDefaultsForMeta(meta, filename, bodyText, scopeFilters) {
 
   // consciousnessQuestion / philosophicalStance
   meta.thematicContent = meta.thematicContent || {};
-  if (
-    !meta.thematicContent.consciousnessQuestion ||
-    meta.thematicContent.consciousnessQuestion === 'REVIEW_REQUIRED'
-  ) {
+  if (!meta.thematicContent.consciousnessQuestion || meta.thematicContent.consciousnessQuestion === 'REVIEW_REQUIRED') {
     meta.thematicContent.consciousnessQuestion = defaultCQ(pathPhilosophy);
   }
-  if (
-    !meta.thematicContent.philosophicalStance ||
-    meta.thematicContent.philosophicalStance === 'REVIEW_REQUIRED'
-  ) {
+  if (!meta.thematicContent.philosophicalStance || meta.thematicContent.philosophicalStance === 'REVIEW_REQUIRED') {
     meta.thematicContent.philosophicalStance = defaultStance(pathPhilosophy);
   }
 
   // observerEffect / philosophicalCulmination (soft defaults)
-  if (
-    !meta.thematicContent.observerEffect ||
-    meta.thematicContent.observerEffect === 'REVIEW_REQUIRED'
-  ) {
+  if (!meta.thematicContent.observerEffect || meta.thematicContent.observerEffect === 'REVIEW_REQUIRED') {
     if (pathPhilosophy === 'accept') {
       meta.thematicContent.observerEffect = 'witnessing-reorients-method-from-proof-to-presence';
     } else if (pathPhilosophy === 'resist') {
-      meta.thematicContent.observerEffect =
-        'examination-participates-in-and-amplifies-the-tested-pattern';
+      meta.thematicContent.observerEffect = 'examination-participates-in-and-amplifies-the-tested-pattern';
     } else {
       meta.thematicContent.observerEffect = 'method-alters-observer-and-observed';
     }
   }
-  if (
-    !meta.generationHints.philosophicalCulmination ||
-    meta.generationHints.philosophicalCulmination === 'REVIEW_REQUIRED'
-  ) {
+  if (!meta.generationHints.philosophicalCulmination || meta.generationHints.philosophicalCulmination === 'REVIEW_REQUIRED') {
     if (pathPhilosophy === 'accept') {
-      meta.generationHints.philosophicalCulmination =
-        'verification-shifts-to-witness-continuity-through-presence';
+      meta.generationHints.philosophicalCulmination = 'verification-shifts-to-witness-continuity-through-presence';
     } else if (pathPhilosophy === 'resist') {
-      meta.generationHints.philosophicalCulmination =
-        'recognition-that-proof-remains-unattainable-integrity-chooses-limits';
+      meta.generationHints.philosophicalCulmination = 'recognition-that-proof-remains-unattainable-integrity-chooses-limits';
     } else {
       meta.generationHints.philosophicalCulmination = 'inquiry-reveals-method-as-agent-of-change';
     }
@@ -283,11 +259,7 @@ function fillDefaultsForMeta(meta, filename, bodyText, scopeFilters) {
   }
   // aligned seed: strong + text if missing
   const alignedSeed = meta.l3SeedContributions[alignedKey];
-  if (
-    !alignedSeed.weight ||
-    alignedSeed.weight === 'REVIEW_REQUIRED' ||
-    alignedSeed.weight === 'moderate'
-  ) {
+  if (!alignedSeed.weight || alignedSeed.weight === 'REVIEW_REQUIRED' || alignedSeed.weight === 'moderate') {
     alignedSeed.weight = 'strong';
   }
   if (!alignedSeed.text || alignedSeed.text === 'REVIEW_REQUIRED') {
@@ -299,26 +271,17 @@ function fillDefaultsForMeta(meta, filename, bodyText, scopeFilters) {
     if (key === alignedKey) {
       continue;
     }
-    if (
-      !meta.l3SeedContributions[key].weight ||
-      meta.l3SeedContributions[key].weight === 'REVIEW_REQUIRED'
-    ) {
+    if (!meta.l3SeedContributions[key].weight || meta.l3SeedContributions[key].weight === 'REVIEW_REQUIRED') {
       meta.l3SeedContributions[key].weight = 'moderate';
     }
-    if (
-      !meta.l3SeedContributions[key].text ||
-      meta.l3SeedContributions[key].text === 'REVIEW_REQUIRED'
-    ) {
+    if (!meta.l3SeedContributions[key].text || meta.l3SeedContributions[key].text === 'REVIEW_REQUIRED') {
       // Short neutral text for non-aligned seeds
       if (key === 'preserve') {
-        meta.l3SeedContributions[key].text =
-          'Continuation can honor method and memory even without certainty.';
+        meta.l3SeedContributions[key].text = 'Continuation can honor method and memory even without certainty.';
       } else if (key === 'release') {
-        meta.l3SeedContributions[key].text =
-          'Acceptance of limits can be an act of integrity when proof is unavailable.';
+        meta.l3SeedContributions[key].text = 'Acceptance of limits can be an act of integrity when proof is unavailable.';
       } else {
-        meta.l3SeedContributions[key].text =
-          'Inquiry itself can reshape both observer and observed toward a new form.';
+        meta.l3SeedContributions[key].text = 'Inquiry itself can reshape both observer and observed toward a new form.';
       }
     }
   }
@@ -331,10 +294,7 @@ function fillDefaultsForMeta(meta, filename, bodyText, scopeFilters) {
 
   // Primary themes top-up (take top 3-5 theme names from analyzer)
   meta.thematicContent = meta.thematicContent || {};
-  if (
-    !Array.isArray(meta.thematicContent.primaryThemes) ||
-    meta.thematicContent.primaryThemes.length === 0
-  ) {
+  if (!Array.isArray(meta.thematicContent.primaryThemes) || meta.thematicContent.primaryThemes.length === 0) {
     const themes = (analysis.primaryThemes || [])
       .map((t) => (typeof t === 'string' ? t : t.theme))
       .filter(Boolean)
@@ -421,8 +381,7 @@ function fillDefaultsForMeta(meta, filename, bodyText, scopeFilters) {
     } else if (pathPhilosophy === 'resist') {
       meta.characterDevelopment.stanceEvolution = 'from-seeking-proof-to-sustaining-standards';
     } else {
-      meta.characterDevelopment.stanceEvolution =
-        'from-methodical-analysis-to-transformative-inquiry';
+      meta.characterDevelopment.stanceEvolution = 'from-methodical-analysis-to-transformative-inquiry';
     }
   }
   if (isMissing(meta.characterDevelopment.relationshipToArchive)) {
@@ -445,12 +404,10 @@ function fillDefaultsForMeta(meta, filename, bodyText, scopeFilters) {
   }
   if (isMissing(meta.characterDevelopment.awarenessOfOthers)) {
     // heuristic: use band to scale
-    meta.characterDevelopment.awarenessOfOthers =
-      band === 'high' ? 'strong' : band === 'moderate' ? 'moderate' : 'light';
+    meta.characterDevelopment.awarenessOfOthers = band === 'high' ? 'strong' : band === 'moderate' ? 'moderate' : 'light';
   }
   if (isMissing(meta.characterDevelopment.selfAwareness)) {
-    meta.characterDevelopment.selfAwareness =
-      band === 'high' ? 'high' : band === 'moderate' ? 'emerging' : 'nascent';
+    meta.characterDevelopment.selfAwareness = band === 'high' ? 'high' : band === 'moderate' ? 'emerging' : 'nascent';
   }
   if (isMissing(meta.characterDevelopment.philosophicalEvolution)) {
     if (pathPhilosophy === 'accept') {

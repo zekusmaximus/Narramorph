@@ -29,15 +29,7 @@ module.exports = {
     },
     'import/core-modules': ['three'],
   },
-  plugins: [
-    '@typescript-eslint',
-    'import',
-    'unused-imports',
-    'prettier',
-    'react',
-    'react-hooks',
-    'react-refresh',
-  ],
+  plugins: ['@typescript-eslint', 'import', 'unused-imports', 'prettier', 'react', 'react-hooks', 'react-refresh'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
@@ -60,6 +52,7 @@ module.exports = {
     '*.config.ts',
     'tools/conversion/**/generated/**',
     'archive/**',
+    'tools/**',
   ],
   rules: {
     // bug risk
@@ -110,6 +103,9 @@ module.exports = {
         alphabetize: { order: 'asc', caseInsensitive: true },
       },
     ],
+    'import/no-cycle': ['error', { maxDepth: 2 }],
+    'import/no-self-import': 'error',
+    'import/no-duplicates': 'error',
     'no-console': ['warn', { allow: ['info', 'warn', 'error'] }],
     'prettier/prettier': 'warn',
   },
@@ -125,21 +121,27 @@ module.exports = {
         '@typescript-eslint/no-misused-promises': 'error',
         '@typescript-eslint/await-thenable': 'error',
         '@typescript-eslint/no-unnecessary-type-assertion': 'warn',
+        '@typescript-eslint/consistent-type-imports': [
+          'warn',
+          {
+            prefer: 'type-imports',
+            fixStyle: 'separate-type-imports',
+          },
+        ],
+        '@typescript-eslint/explicit-function-return-type': [
+          'warn',
+          {
+            allowExpressions: true,
+            allowTypedFunctionExpressions: true,
+            allowHigherOrderFunctions: true,
+          },
+        ],
       },
     },
     {
-      files: ['**/*.test.*', '**/__tests__/**'],
-      env: {
-        jest: true,
-      },
+      files: ['**/*.test.ts', '**/*.test.tsx', '**/tests/**', '**/__tests__/**'],
       rules: {
-        'no-console': 'off',
-      },
-    },
-    {
-      files: ['tools/**/*.js', 'tools/**/*.ts', 'archive/**/*.js'],
-      rules: {
-        'no-console': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
       },
     },

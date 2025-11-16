@@ -137,8 +137,7 @@ characterVoices: [archaeologist, algorithm, last-human]
 
 **Fix**: Add or remove variations to match expected count
 
-**Strict Mode**: Fails conversion
-**Non-strict Mode**: Warns but continues
+**Strict Mode**: Fails conversion **Non-strict Mode**: Warns but continues
 
 #### INVALID_PADDING
 

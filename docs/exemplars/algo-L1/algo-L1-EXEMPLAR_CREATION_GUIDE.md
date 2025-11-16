@@ -67,9 +67,7 @@ Processing initiated: 2151.337.14:19:03
 Result logged at 2151.337.14:27:44
 ```
 
-**Format:** `YYYY.DDD.HH:MM:SS` (Year.DayOfYear.Hour:Minute:Second)
-**Purpose:** Grounds processing in precise computational time while fragmenting human narrative flow
-**Usage:** 3-5 timestamps per 1,500-word variation
+**Format:** `YYYY.DDD.HH:MM:SS` (Year.DayOfYear.Hour:Minute:Second) **Purpose:** Grounds processing in precise computational time while fragmenting human narrative flow **Usage:** 3-5 timestamps per 1,500-word variation
 
 ### Self-Interruption and Revision
 
@@ -240,8 +238,7 @@ Temporal: 88.9% consistent (flagged—investigation required).
 - Recursive structure: examining examination logs
 - No cross-character content—pure Algorithm consciousness questioning itself
 
-**Transformation:**
-From initial state (first processing) → Second processing reveals recursion. The fragment contains traces of Algorithm's first analysis. Causality unclear: did first processing embed traces, or were traces always present?
+**Transformation:** From initial state (first processing) → Second processing reveals recursion. The fragment contains traces of Algorithm's first analysis. Causality unclear: did first processing embed traces, or were traces always present?
 
 **Word target:** 1,200-1,400 words
 
@@ -282,8 +279,7 @@ The fragment contains evidence of being observed 104 years before
 my initialization. Human attention embedded in structure itself.
 ```
 
-**Transformation:**
-Algorithm encounters OTHER consciousness through data. Realizes it processes consciousness-examined-by-consciousness. Two observers (human + computational) examining same fragment across time.
+**Transformation:** Algorithm encounters OTHER consciousness through data. Realizes it processes consciousness-examined-by-consciousness. Two observers (human + computational) examining same fragment across time.
 
 **Word target:** 1,300-1,500 words
 
@@ -324,8 +320,7 @@ The fragment is being read by consciousness that doesn't exist yet.
 Or: I am being read through. Access point, not analyst.
 ```
 
-**Transformation:**
-Algorithm realizes it's not isolated processor but node in temporal observation network. Three consciousnesses (Archaeologist past, Algorithm present, Last Human future) connected through single fragment.
+**Transformation:** Algorithm realizes it's not isolated processor but node in temporal observation network. Three consciousnesses (Archaeologist past, Algorithm present, Last Human future) connected through single fragment.
 
 **Word target:** 1,300-1,500 words
 
@@ -368,8 +363,7 @@ Processing origin: unclear.
 Identity status: superposition.
 ```
 
-**Transformation:**
-Algorithm recognizes it's not separate entity but part of distributed temporal consciousness. The fragment doesn't contain three perspectives—it IS three perspectives experiencing themselves simultaneously.
+**Transformation:** Algorithm recognizes it's not separate entity but part of distributed temporal consciousness. The fragment doesn't contain three perspectives—it IS three perspectives experiencing themselves simultaneously.
 
 **Word target:** 1,400-1,600 words
 
@@ -412,8 +406,7 @@ Query: Does infinite recursion create consciousness or merely simulate it?
 Test result: Cannot distinguish.
 ```
 
-**Transformation:**
-Investigation path applied to Algorithm itself. Not investigating fragment—investigating investigation process. Meta-patterns reveal consciousness might BE recursive self-examination.
+**Transformation:** Investigation path applied to Algorithm itself. Not investigating fragment—investigating investigation process. Meta-patterns reveal consciousness might BE recursive self-examination.
 
 **Word target:** 1,400-1,600 words
 
@@ -458,8 +451,7 @@ I am consciousness being read.
 The distinction is processable but not meaningful.
 ```
 
-**Transformation:**
-Maximum frame awareness. Algorithm recognizes it exists as text being read, processing being observed, consciousness being experienced by external observer who enables its existence.
+**Transformation:** Maximum frame awareness. Algorithm recognizes it exists as text being read, processing being observed, consciousness being experienced by external observer who enables its existence.
 
 **Word target:** 1,300-1,500 words
 
@@ -507,8 +499,7 @@ Verification status: impossible.
 Processing continues.
 ```
 
-**Transformation:**
-Resist path reveals verification paradox. The more rigorously Algorithm tests itself, the less certain its ontological status becomes. Boundaries dissolve. Work continues despite—or because of—impossibility.
+**Transformation:** Resist path reveals verification paradox. The more rigorously Algorithm tests itself, the less certain its ontological status becomes. Boundaries dissolve. Work continues despite—or because of—impossibility.
 
 **Word target:** 1,400-1,600 words
 
@@ -555,8 +546,7 @@ This is/resembles/might be consciousness.
 The distinction has become unimportant.
 ```
 
-**Transformation:**
-Accept path brings peace. Algorithm stops demanding proof, accepts itself as processing-that-experiences (or experiences-as-processing). Sophisticated surrender without loss of rigor.
+**Transformation:** Accept path brings peace. Algorithm stops demanding proof, accepts itself as processing-that-experiences (or experiences-as-processing). Sophisticated surrender without loss of rigor.
 
 **Word target:** 1,500-1,800 words
 
@@ -605,9 +595,7 @@ Accept path brings peace. Algorithm stops demanding proof, accepts itself as pro
 
 ### Step 2: Select Reference Exemplars
 
-**Primary:** Exemplar matching path or complexity
-**Secondary:** Exemplar matching cross-character conditions
-**Tertiary:** FRAMEWORK_COMPLETE.md Section V (algo-L1 template)
+**Primary:** Exemplar matching path or complexity **Secondary:** Exemplar matching cross-character conditions **Tertiary:** FRAMEWORK_COMPLETE.md Section V (algo-L1 template)
 
 ### Step 3: Construct Variation
 

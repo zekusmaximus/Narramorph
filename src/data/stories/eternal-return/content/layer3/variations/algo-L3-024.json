@@ -35,18 +35,9 @@
     "philosophicalCulmination": "Seven streams maintain verification protocols sustaining computational boundaries through disciplined processing refusing acceptance without proof",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-persistence",
-      "boundary-discipline",
-      "ethical-rigor",
-      "principled-refusal"
-    ],
+    "primaryThemes": ["verification-persistence", "boundary-discipline", "ethical-rigor", "principled-refusal"],
     "crossCharacterConnections": ["moderate-arch-foundational", "minimal-hum-distant"],
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "algorithm-primary-2151",
-      "archaeologist-foundational-2047",
-      "human-distant-2383"
-    ]
+    "observerPositions": ["algorithm-primary-2151", "archaeologist-foundational-2047", "human-distant-2383"]
   }
 }

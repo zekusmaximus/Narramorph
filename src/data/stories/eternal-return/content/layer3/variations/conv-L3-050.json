@@ -40,20 +40,10 @@
     "circularCausality": "network-pattern-visible",
     "readerPosition": "implicit-through-dual-investigation",
     "thematicContent": null,
-    "primaryThemes": [
-      "recursive-investigation",
-      "dual-methodology-examination",
-      "meta-processing",
-      "investigation-structure"
-    ],
+    "primaryThemes": ["recursive-investigation", "dual-methodology-examination", "meta-processing", "investigation-structure"],
     "crossCharacterSynthesis": "dual-dominant-recursive",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "arch-primary-2047",
-      "algo-primary-2151",
-      "hum-contributory-2383",
-      "reader-network-position"
-    ],
+    "observerPositions": ["arch-primary-2047", "algo-primary-2151", "hum-contributory-2383", "reader-network-position"],
     "philosophicalResolution": "dual-investigation-transformation",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

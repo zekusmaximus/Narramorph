@@ -148,9 +148,7 @@ function parseMatrixArgs(): MatrixGeneratorOptions {
 
   // Parse --layers=L1,L2,L3,L4
   const layersArg = values.layers;
-  const layers = layersArg
-    ? (layersArg.split(',').map((l) => l.trim()) as ('L1' | 'L2' | 'L3' | 'L4')[])
-    : ['L1', 'L2', 'L3', 'L4'];
+  const layers = layersArg ? (layersArg.split(',').map((l) => l.trim()) as ('L1' | 'L2' | 'L3' | 'L4')[]) : ['L1', 'L2', 'L3', 'L4'];
 
   // Parse strict mode
   const strictMode = values.strict === true || values['non-strict'] === false;
@@ -294,9 +292,7 @@ function generateL1Entries(variations: L1Variation[]): MatrixEntry[] {
 
   for (const [char, charVariations] of Object.entries(byCharacter)) {
     // Initial variations (first visit)
-    const initial = charVariations.filter(
-      (v) => (v.variation_type || v.transformationState) === 'Initial',
-    );
+    const initial = charVariations.filter((v) => (v.variation_type || v.transformationState) === 'Initial');
     for (const variation of initial) {
       const varId = variation.variation_id || variation.id || '';
       entries.push({
@@ -319,8 +315,7 @@ function generateL1Entries(variations: L1Variation[]): MatrixEntry[] {
     // FirstRevisit variations (visit 2-3)
     const firstRevisit = charVariations.filter(
       (v) =>
-        (v.variation_type || v.transformationState) === 'FirstRevisit' ||
-        (v.variation_type || v.transformationState) === 'firstRevisit',
+        (v.variation_type || v.transformationState) === 'FirstRevisit' || (v.variation_type || v.transformationState) === 'firstRevisit',
     );
     for (const variation of firstRevisit) {
       const varId = variation.variation_id || variation.id || '';
@@ -343,9 +338,7 @@ function generateL1Entries(variations: L1Variation[]): MatrixEntry[] {
 
     // MetaAware variations (visit 4+)
     const metaAware = charVariations.filter(
-      (v) =>
-        (v.variation_type || v.transformationState) === 'MetaAware' ||
-        (v.variation_type || v.transformationState) === 'metaAware',
+      (v) => (v.variation_type || v.transformationState) === 'MetaAware' || (v.variation_type || v.transformationState) === 'metaAware',
     );
     for (const variation of metaAware) {
       const varId = variation.variation_id || variation.id || '';
@@ -370,10 +363,7 @@ function generateL1Entries(variations: L1Variation[]): MatrixEntry[] {
   return entries;
 }
 
-function generateL2Entries(
-  l2Variations: L2Variation[],
-  l1Variations: L1Variation[],
-): MatrixEntry[] {
+function generateL2Entries(l2Variations: L2Variation[], l1Variations: L1Variation[]): MatrixEntry[] {
   const entries: MatrixEntry[] = [];
 
   // Group by character and path
@@ -389,8 +379,7 @@ function generateL2Entries(
     // FirstRevisit variations
     const firstRevisit = variations.filter(
       (v) =>
-        (v.variation_type || v.transformationState) === 'FirstRevisit' ||
-        (v.variation_type || v.transformationState) === 'firstRevisit',
+        (v.variation_type || v.transformationState) === 'FirstRevisit' || (v.variation_type || v.transformationState) === 'firstRevisit',
     );
     for (const variation of firstRevisit) {
       const varId = variation.variation_id || variation.variationId || '';
@@ -414,9 +403,7 @@ function generateL2Entries(
 
     // MetaAware variations
     const metaAware = variations.filter(
-      (v) =>
-        (v.variation_type || v.transformationState) === 'MetaAware' ||
-        (v.variation_type || v.transformationState) === 'metaAware',
+      (v) => (v.variation_type || v.transformationState) === 'MetaAware' || (v.variation_type || v.transformationState) === 'metaAware',
     );
     for (const variation of metaAware) {
       const varId = variation.variation_id || variation.variationId || '';
@@ -443,19 +430,12 @@ function generateL2Entries(
   return entries;
 }
 
-function generateL3Entries(
-  l3Variations: L3Variation[],
-  l1Variations: L1Variation[],
-  l2Variations: L2Variation[],
-): MatrixEntry[] {
+function generateL3Entries(l3Variations: L3Variation[], l1Variations: L1Variation[], l2Variations: L2Variation[]): MatrixEntry[] {
   const entries: MatrixEntry[] = [];
 
   // Solo character convergence (arch-L3, algo-L3, hum-L3)
   const soloVariations = l3Variations.filter(
-    (v) =>
-      v.variationId.startsWith('arch-L3') ||
-      v.variationId.startsWith('algo-L3') ||
-      v.variationId.startsWith('hum-L3'),
+    (v) => v.variationId.startsWith('arch-L3') || v.variationId.startsWith('algo-L3') || v.variationId.startsWith('hum-L3'),
   );
 
   for (const variation of soloVariations) {
@@ -507,10 +487,7 @@ function generateL3Entries(
   return entries;
 }
 
-function generateL4Entries(
-  l4Variations: L4Variation[],
-  l3Variations: L3Variation[],
-): MatrixEntry[] {
+function generateL4Entries(l4Variations: L4Variation[], l3Variations: L3Variation[]): MatrixEntry[] {
   const entries: MatrixEntry[] = [];
 
   for (const variation of l4Variations) {
@@ -538,11 +515,7 @@ function generateL4Entries(
 // COVERAGE ANALYSIS
 // ============================================================================
 
-function analyzeCoverage(
-  layerData: LayerData,
-  matrixEntries: MatrixEntry[],
-  options: MatrixGeneratorOptions,
-): CoverageReport {
+function analyzeCoverage(layerData: LayerData, matrixEntries: MatrixEntry[], options: MatrixGeneratorOptions): CoverageReport {
   const report: CoverageReport = {
     timestamp: new Date().toISOString(),
     layersIncluded: options.layers,
@@ -684,8 +657,7 @@ function analyzeCoverage(
 
   // Compute overall coverage
   if (report.summary.expectedCombinations > 0) {
-    report.summary.coveragePercentage =
-      (report.summary.actualCombinations / report.summary.expectedCombinations) * 100;
+    report.summary.coveragePercentage = (report.summary.actualCombinations / report.summary.expectedCombinations) * 100;
   }
 
   return report;
@@ -813,9 +785,7 @@ function printCoverageReport(report: CoverageReport): void {
   if (report.expectedPatterns?.L3) {
     console.log('\nL3 Pattern Analysis:');
     console.log(`  Solo Nodes: ${report.expectedPatterns.L3.soloNodes.join(', ')}`);
-    console.log(
-      `  Convergence Nodes: ${report.expectedPatterns.L3.convergenceNodes.length} patterns`,
-    );
+    console.log(`  Convergence Nodes: ${report.expectedPatterns.L3.convergenceNodes.length} patterns`);
     if (report.expectedPatterns.L3.missing.length > 0) {
       console.log(`  Missing: ${report.expectedPatterns.L3.missing.join(', ')}`);
     }
@@ -875,9 +845,7 @@ export async function generateMatrix(options: MatrixGeneratorOptions): Promise<v
   }
 
   // Write matrix
-  const outputPath =
-    options.outputPath ||
-    resolve(process.cwd(), '../../src/data/stories/eternal-return/content/selection-matrix.json');
+  const outputPath = options.outputPath || resolve(process.cwd(), '../../src/data/stories/eternal-return/content/selection-matrix.json');
 
   await fs.mkdir(dirname(outputPath), { recursive: true });
   await fs.writeFile(outputPath, JSON.stringify(matrixEntries, null, 2), 'utf-8');
@@ -886,8 +854,7 @@ export async function generateMatrix(options: MatrixGeneratorOptions): Promise<v
   console.log(`   Total entries: ${matrixEntries.length}`);
 
   // Write coverage report
-  const reportPath =
-    options.reportPath || resolve(process.cwd(), 'reports/matrix-coverage-report.json');
+  const reportPath = options.reportPath || resolve(process.cwd(), 'reports/matrix-coverage-report.json');
 
   await fs.mkdir(dirname(reportPath), { recursive: true });
   await fs.writeFile(reportPath, JSON.stringify(coverage, null, 2), 'utf-8');

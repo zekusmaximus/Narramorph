@@ -548,8 +548,7 @@ preservation actually preserved.
 - Values this as important secondary position
 - This consciousness unfamiliar
 - Other character(s) feel primary
-- May be confused/disoriented by unfamiliar voice
-  **Reader mindset arriving at L3:**
+- May be confused/disoriented by unfamiliar voice **Reader mindset arriving at L3:**
 - This consciousness familiar but not primary
 - Significant relationship developed during L2
 - Comfortable with this perspective

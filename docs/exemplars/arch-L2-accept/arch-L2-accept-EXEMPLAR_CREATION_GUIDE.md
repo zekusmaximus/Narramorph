@@ -65,8 +65,7 @@ Reader arrives having encountered:
 
 ### ACCEPT Path Philosophy Overlay
 
-**Core Transformation:**
-Authentication shifts from diagnostic to devotional practice.
+**Core Transformation:** Authentication shifts from diagnostic to devotional practice.
 
 **Signature Thought Patterns:**
 
@@ -874,8 +873,7 @@ documentation, witnessing that witnesses witnessing..."
 3. Use vocabulary bridge: witness ↔ feeling, patterns ↔ presence
 4. Integrate 847.3TB as felt data
 
-**If both:**
-Create three-voice harmony—computational + embodied + archaeological acceptance
+**If both:** Create three-voice harmony—computational + embodied + archaeological acceptance
 
 #### PHASE 5: Frame-Consciousness Integration (if metaAware: true)
 
@@ -980,410 +978,219 @@ Create three-voice harmony—computational + embodied + archaeological acceptanc
 **Approval Rate Target:** 100% (no variations rejected for voice inconsistency)  
 **Path Philosophy Clarity:** 95%+ (ACCEPT stance must be unambiguous)
 
-**Red Flags (Immediate revision required):**
-❌ Verification language dominates (testing/protocols/proof-seeking without "released" framing)
-❌ Resignation tone (giving up rather than peaceful acceptance)
-❌ Sentimentality (emotional without rigor, mystical without precision)
-❌ Present tense intrusion (except in direct hum-L2 quotes)
-❌ Fragment constants as diagnostic (percentage thresholds, verification metrics)
-❌ Cross-character voice bleed (arch suddenly using algo temporal blur or hum short sentences)
-❌ Awareness level mismatch (metaAware content in non-metaAware variation)
-❌ Word count violation (>200 words over/under target)
-Revision Protocol:
+**Red Flags (Immediate revision required):** ❌ Verification language dominates (testing/protocols/proof-seeking without "released" framing) ❌ Resignation tone (giving up rather than peaceful acceptance) ❌ Sentimentality (emotional without rigor, mystical without precision) ❌ Present tense intrusion (except in direct hum-L2 quotes) ❌ Fragment constants as diagnostic (percentage thresholds, verification metrics) ❌ Cross-character voice bleed (arch suddenly using algo temporal blur or hum short sentences) ❌ Awareness level mismatch (metaAware content in non-metaAware variation) ❌ Word count violation (>200 words over/under target) Revision Protocol:
 
-Minor issues (1-3 checklist failures): Targeted edits, maintain 90% of original
-Moderate issues (4-6 failures): Structural revision, maintain 60% of original
-Major issues (7+ failures): Complete regeneration from Phase 1
+Minor issues (1-3 checklist failures): Targeted edits, maintain 90% of original Moderate issues (4-6 failures): Structural revision, maintain 60% of original Major issues (7+ failures): Complete regeneration from Phase 1
 
-IX. REFERENCE DOCUMENTS
-Primary Sources (MUST CONSULT)
-Character Foundations:
+IX. REFERENCE DOCUMENTS Primary Sources (MUST CONSULT) Character Foundations:
 
 CHARACTER_PROFILES.md — Complete voice DNA for all three characters, including Archaeologist's past tense, clinical precision, archaeological metaphors
 
 L1 Exemplar Guides:
 
-arch-L1-EXEMPLAR_CREATION_GUIDE.md — Base archaeological voice, fragment constants introduction
-algo-L1-EXEMPLAR_CREATION_GUIDE.md — For understanding algo voice when cross-referencing
-hum-L1-EXEMPLAR_CREATION_GUIDE.md — For understanding hum voice when cross-referencing
+arch-L1-EXEMPLAR_CREATION_GUIDE.md — Base archaeological voice, fragment constants introduction algo-L1-EXEMPLAR_CREATION_GUIDE.md — For understanding algo voice when cross-referencing hum-L1-EXEMPLAR_CREATION_GUIDE.md — For understanding hum voice when cross-referencing
 
 L1 Exemplars (Voice Models):
 
-/docs/exemplars/arch-L1/arch-L1_EXEMPLAR[1-8].md — All 8 exemplars showing archaeological voice patterns
-/docs/exemplars/algo-L1/algo-L1_EXEMPLAR[1-8].md — For cross-character voice accuracy
-/docs/exemplars/hum-L1/hum-L1_EXEMPLAR[1-8].md — For cross-character voice accuracy
+/docs/exemplars/arch-L1/arch-L1_EXEMPLAR[1-8].md — All 8 exemplars showing archaeological voice patterns /docs/exemplars/algo-L1/algo-L1_EXEMPLAR[1-8].md — For cross-character voice accuracy /docs/exemplars/hum-L1/hum-L1_EXEMPLAR[1-8].md — For cross-character voice accuracy
 
-Framework Documents (MUST CONSULT)
-Core Architecture:
+Framework Documents (MUST CONSULT) Core Architecture:
 
-NARRATIVE_OUTLINE.md — Story structure, node architecture, transformation mechanics
-DATA_SCHEMA.md — Technical specifications for state tracking
-FRAMEWORK_COMPLETE.md — Complete generation system, conditional insertion mechanics
+NARRATIVE_OUTLINE.md — Story structure, node architecture, transformation mechanics DATA_SCHEMA.md — Technical specifications for state tracking FRAMEWORK_COMPLETE.md — Complete generation system, conditional insertion mechanics
 
 Production Systems:
 
-arch-L1-PRODUCTION_STATUS.md — Validated 80-variation production system (100% approval, 93.99% voice consistency)
-arch-L1-VARIATION_BUILDER_TEMPLATE.md — Assembly protocol templates
-arch-L1-test-batch/TEST_BATCH_REPORT.md — Quality validation results
+arch-L1-PRODUCTION_STATUS.md — Validated 80-variation production system (100% approval, 93.99% voice consistency) arch-L1-VARIATION_BUILDER_TEMPLATE.md — Assembly protocol templates arch-L1-test-batch/TEST_BATCH_REPORT.md — Quality validation results
 
 Development Tracking:
 
 Development State Tracker (12-Node).md — Current project status, timeline, milestones
 
-L2 Documents (CREATE AS NEEDED)
-Note: This is the FIRST L2 guide being created. The following documents will be created after arch-L2-accept:
-Future Cross-Character L2 Guides:
+L2 Documents (CREATE AS NEEDED) Note: This is the FIRST L2 guide being created. The following documents will be created after arch-L2-accept: Future Cross-Character L2 Guides:
 
-algo-L2-accept-EXEMPLAR_GUIDE.md — To be created after arch-L2-accept validated
-hum-L2-accept-EXEMPLAR_GUIDE.md — To be created after arch-L2-accept validated
+algo-L2-accept-EXEMPLAR_GUIDE.md — To be created after arch-L2-accept validated hum-L2-accept-EXEMPLAR_GUIDE.md — To be created after arch-L2-accept validated
 
 Future Alternative Path Guides:
 
-arch-L2-resist-EXEMPLAR_GUIDE.md — To be created next
-arch-L2-investigate-EXEMPLAR_GUIDE.md — To be created next
+arch-L2-resist-EXEMPLAR_GUIDE.md — To be created next arch-L2-investigate-EXEMPLAR_GUIDE.md — To be created next
 
-Search Strategy for Missing Information
-Fragment Constants Details:
+Search Strategy for Missing Information Fragment Constants Details:
 
-Search arch-L1 exemplars for 847.3TB, 94.7%, 91.2%, 88.9%
-Extract usage patterns and context
-Document transformations for L2 adaptation
+Search arch-L1 exemplars for 847.3TB, 94.7%, 91.2%, 88.9% Extract usage patterns and context Document transformations for L2 adaptation
 
 Path Philosophy (Accept/Resist/Investigate):
 
-Infer from CHARACTER_PROFILES.md philosophical positions
-Study arch-L1 exemplars for path hints
-Establish patterns in first L2 exemplars
+Infer from CHARACTER_PROFILES.md philosophical positions Study arch-L1 exemplars for path hints Establish patterns in first L2 exemplars
 
 Cross-Character Integration:
 
-Study L1 guides for voice differentiation
-Extract key phrases and metaphors per character
-Create parallel structures maintaining arch voice
+Study L1 guides for voice differentiation Extract key phrases and metaphors per character Create parallel structures maintaining arch voice
 
-X. PRODUCTION TIMELINE
-Week 1: Exemplar Generation
-Day 1-2: Exemplars 1-3
+X. PRODUCTION TIMELINE Week 1: Exemplar Generation Day 1-2: Exemplars 1-3
 
-Pure Revisit Baseline (path emerging)
-Cross-Character (Algorithm)
-Cross-Character (Last Human)
+Pure Revisit Baseline (path emerging) Cross-Character (Algorithm) Cross-Character (Last Human)
 
 Day 3-4: Exemplars 4-6
 
-Dual Cross-Character
-Path Echo from L1 (pure accept)
-MetaAware Baseline
+Dual Cross-Character Path Echo from L1 (pure accept) MetaAware Baseline
 
 Day 5: Exemplars 7-8
 
-High Complexity
-Maximum Integration
+High Complexity Maximum Integration
 
 Day 6-7: Review & Revision
 
-Self-review checklist on all 8
-Voice consistency verification
-Cross-exemplar coherence check
+Self-review checklist on all 8 Voice consistency verification Cross-exemplar coherence check
 
-Week 2: Test Batch Validation
-Day 8-10: Generate 10 variations
+Week 2: Test Batch Validation Day 8-10: Generate 10 variations
 
-2 from Exemplar 1 (baseline testing)
-2 from Exemplar 4 (dual cross-character testing)
-2 from Exemplar 6 (metaAware testing)
-2 from Exemplar 8 (maximum integration testing)
-2 mixed conditions (edge case testing)
+2 from Exemplar 1 (baseline testing) 2 from Exemplar 4 (dual cross-character testing) 2 from Exemplar 6 (metaAware testing) 2 from Exemplar 8 (maximum integration testing) 2 mixed conditions (edge case testing)
 
 Day 11-12: Quality Assessment
 
-Voice consistency scoring (target: 93%+)
-Path philosophy clarity verification
-Cross-character accuracy check
-Reader feedback simulation
+Voice consistency scoring (target: 93%+) Path philosophy clarity verification Cross-character accuracy check Reader feedback simulation
 
 Day 13-14: Refinement
 
-Adjust assembly protocol based on test results
-Update self-review checklist if needed
-Confirm production-ready status
+Adjust assembly protocol based on test results Update self-review checklist if needed Confirm production-ready status
 
-Weeks 3-14: Full Production (72 variations)
-Weekly Output: 6-8 variations
-Distribution across exemplars:
+Weeks 3-14: Full Production (72 variations) Weekly Output: 6-8 variations Distribution across exemplars:
 
-Exemplar 1 (Pure Revisit): 10 variations
-Exemplar 2 (Algo cross): 10 variations
-Exemplar 3 (Hum cross): 10 variations
-Exemplar 4 (Dual cross): 10 variations
-Exemplar 5 (Path echo): 8 variations
-Exemplar 6 (MetaAware): 8 variations
-Exemplar 7 (High complexity): 8 variations
-Exemplar 8 (Maximum integration): 8 variations
+Exemplar 1 (Pure Revisit): 10 variations Exemplar 2 (Algo cross): 10 variations Exemplar 3 (Hum cross): 10 variations Exemplar 4 (Dual cross): 10 variations Exemplar 5 (Path echo): 8 variations Exemplar 6 (MetaAware): 8 variations Exemplar 7 (High complexity): 8 variations Exemplar 8 (Maximum integration): 8 variations
 
 Quality gates:
 
-Weekly voice consistency audit
-Cross-exemplar coherence verification
-Path philosophy intensity calibration
+Weekly voice consistency audit Cross-exemplar coherence verification Path philosophy intensity calibration
 
 Adjustments:
 
-Assembly protocol refinements as patterns emerge
-Voice DNA updates for edge cases
-Fragment constant usage optimization
+Assembly protocol refinements as patterns emerge Voice DNA updates for edge cases Fragment constant usage optimization
 
-Timeline Compression Strategies
-Parallel Work Options:
+Timeline Compression Strategies Parallel Work Options:
 
-Begin arch-L2-resist exemplars (Week 10) while completing arch-L2-accept variations
-Start algo-L2-accept exemplars (Week 12) while arch variations finalize
-Overlap test batches: validate one node while generating exemplars for next
+Begin arch-L2-resist exemplars (Week 10) while completing arch-L2-accept variations Start algo-L2-accept exemplars (Week 12) while arch variations finalize Overlap test batches: validate one node while generating exemplars for next
 
 Risk Management:
 
-Voice consistency must stay ≥93% (if drops below, pause and recalibrate)
-Cross-character integration accuracy must stay ≥95% (if drops, review source docs)
-Path philosophy clarity must stay ≥95% (if drops, revisit Section IV)
+Voice consistency must stay ≥93% (if drops below, pause and recalibrate) Cross-character integration accuracy must stay ≥95% (if drops, review source docs) Path philosophy clarity must stay ≥95% (if drops, revisit Section IV)
 
-XI. ARCH-L2-ACCEPT SPECIFIC GUIDANCE
-Unique Challenges for This Node
+XI. ARCH-L2-ACCEPT SPECIFIC GUIDANCE Unique Challenges for This Node
 
-1. Balancing Rigor + Compassion
-   Archaeological methodology inherently verification-focused; ACCEPT path releases verification without abandoning rigor.
-   Solution: "Rigorous attention applied tenderly," "methodological devotion," "precision as compassionate practice"
-2. Avoiding Resignation Tone
-   Acceptance can sound like giving up; must feel peaceful, not defeated.
-   Solution: Active verbs (continues, proceeds, honors) + "chose acceptance" framing + earned peace through exploration
-3. Fragment Constants Transformation
-   94.7% naturally reads as diagnostic threshold; must reframe as paradox-koan.
-   Critical phrase: "94.7% certain about something certainty cannot contain"
-4. Cross-Character Integration Without Voice Bleed
-   Must reference algo/hum acceptance without adopting their syntax.
-   Solution: Always filter through arch voice—parallel structures, not quoted passages
-   Success Patterns from L1 Production
-   What worked in arch-L1 (carry forward):
+1. Balancing Rigor + Compassion Archaeological methodology inherently verification-focused; ACCEPT path releases verification without abandoning rigor. Solution: "Rigorous attention applied tenderly," "methodological devotion," "precision as compassionate practice"
+2. Avoiding Resignation Tone Acceptance can sound like giving up; must feel peaceful, not defeated. Solution: Active verbs (continues, proceeds, honors) + "chose acceptance" framing + earned peace through exploration
+3. Fragment Constants Transformation 94.7% naturally reads as diagnostic threshold; must reframe as paradox-koan. Critical phrase: "94.7% certain about something certainty cannot contain"
+4. Cross-Character Integration Without Voice Bleed Must reference algo/hum acceptance without adopting their syntax. Solution: Always filter through arch voice—parallel structures, not quoted passages Success Patterns from L1 Production What worked in arch-L1 (carry forward):
 
-Past tense absolute consistency
-Archaeological metaphors grounding abstraction
-Clinical precision + emotional undercurrent balance
-Fragment constants as recurring motifs
-Paragraph-level observation → interpretation → implication rhythm
+Past tense absolute consistency Archaeological metaphors grounding abstraction Clinical precision + emotional undercurrent balance Fragment constants as recurring motifs Paragraph-level observation → interpretation → implication rhythm
 
 What needs adaptation for L2-accept:
 
-Release diagnostic intent while maintaining methodological precision
-Introduce devotional/compassionate vocabulary without sentimentality
-Transform constants from metrics to honored objects
-Cross-character parallels while preserving arch voice
+Release diagnostic intent while maintaining methodological precision Introduce devotional/compassionate vocabulary without sentimentality Transform constants from metrics to honored objects Cross-character parallels while preserving arch voice
 
-Voice Calibration Micro-Decisions
-When choosing verbs:
+Voice Calibration Micro-Decisions When choosing verbs:
 
-✅ continued, proceeded, maintained, honored, witnessed, recognized
-❌ verified, tested, proved, demonstrated, confirmed (except as "released these needs")
+✅ continued, proceeded, maintained, honored, witnessed, recognized ❌ verified, tested, proved, demonstrated, confirmed (except as "released these needs")
 
 When describing authentication:
 
-✅ practice, ritual, devotion, gift, attention, witnessing
-❌ protocol, diagnostic, verification, assessment (except as transformed)
+✅ practice, ritual, devotion, gift, attention, witnessing ❌ protocol, diagnostic, verification, assessment (except as transformed)
 
 When framing certainty:
 
-✅ paradox, irrelevant, transcended, released, honored-without-solving
-❌ insufficient, failed, lacking, incomplete (resignation language)
+✅ paradox, irrelevant, transcended, released, honored-without-solving ❌ insufficient, failed, lacking, incomplete (resignation language)
 
 When integrating fragment constants:
 
-✅ "documented as [OBJECT], not to prove [PURPOSE]"
-✅ "[NUMBER] witnessed/honored rather than [DIAGNOSTIC USE]"
-❌ "threshold not reached," "verification incomplete," "percentage insufficient"
+✅ "documented as [OBJECT], not to prove [PURPOSE]" ✅ "[NUMBER] witnessed/honored rather than [DIAGNOSTIC USE]" ❌ "threshold not reached," "verification incomplete," "percentage insufficient"
 
-Common Pitfalls (Avoid)
-Pitfall 1: Mystical Drift
+Common Pitfalls (Avoid) Pitfall 1: Mystical Drift
 
-Problem: Acceptance becomes vague spirituality, loses archaeological grounding
-Fix: Always anchor in specific observations, data, methodology—compassion applied to concrete fragments
+Problem: Acceptance becomes vague spirituality, loses archaeological grounding Fix: Always anchor in specific observations, data, methodology—compassion applied to concrete fragments
 
 Pitfall 2: Passive Voice Overuse
 
-Problem: "Was honored," "were witnessed" → sounds distant, not engaged
-Fix: Active constructions: "chose to honor," "continued witnessing"
+Problem: "Was honored," "were witnessed" → sounds distant, not engaged Fix: Active constructions: "chose to honor," "continued witnessing"
 
 Pitfall 3: Repetitive Philosophy Statements
 
-Problem: "Authentication as gift" repeated without development
-Fix: Vary expressions, ground in specific examples, show-don't-tell through description
+Problem: "Authentication as gift" repeated without development Fix: Vary expressions, ground in specific examples, show-don't-tell through description
 
 Pitfall 4: Fragment Constant Neglect
 
-Problem: Philosophy dominates, concrete numbers disappear
-Fix: Minimum 3-4 constants per variation, always path-transformed
+Problem: Philosophy dominates, concrete numbers disappear Fix: Minimum 3-4 constants per variation, always path-transformed
 
 Pitfall 5: Cross-Character Name-Dropping
 
-Problem: "The Algorithm says X. The Last Human says Y." → feels like list
-Fix: Integrate through parallel structure, shared themes, natural flow
+Problem: "The Algorithm says X. The Last Human says Y." → feels like list Fix: Integrate through parallel structure, shared themes, natural flow
 
-XII. EXEMPLAR GENERATION PRIORITY
-Recommended Sequence
-GENERATE FIRST (Critical Foundation):
-Exemplar 1: Pure Revisit Baseline
+XII. EXEMPLAR GENERATION PRIORITY Recommended Sequence GENERATE FIRST (Critical Foundation): Exemplar 1: Pure Revisit Baseline
 
-Establishes core ACCEPT voice
-Tests path philosophy clarity
-No cross-character complexity
-Foundation for all others
+Establishes core ACCEPT voice Tests path philosophy clarity No cross-character complexity Foundation for all others
 
 Exemplar 6: MetaAware Baseline
 
-Tests frame-consciousness integration with ACCEPT
-Critical for awareness-level transformations
-No cross-character complexity initially
+Tests frame-consciousness integration with ACCEPT Critical for awareness-level transformations No cross-character complexity initially
 
-GENERATE SECOND (Integration Testing):
-Exemplar 2: Cross-Character (Algorithm)
+GENERATE SECOND (Integration Testing): Exemplar 2: Cross-Character (Algorithm)
 
-Tests algo integration accuracy
-Parallel structure practice
-Single cross-character focus
+Tests algo integration accuracy Parallel structure practice Single cross-character focus
 
 Exemplar 3: Cross-Character (Last Human)
 
-Tests hum integration accuracy
-Vocabulary bridge practice
-Single cross-character focus
+Tests hum integration accuracy Vocabulary bridge practice Single cross-character focus
 
-GENERATE THIRD (Complexity Building):
-Exemplar 4: Dual Cross-Character
+GENERATE THIRD (Complexity Building): Exemplar 4: Dual Cross-Character
 
-Tests three-voice harmony
-Synthesis capabilities
-Multiple integration challenge
+Tests three-voice harmony Synthesis capabilities Multiple integration challenge
 
 Exemplar 5: Path Echo from L1
 
-Tests pure-path intensity
-Maximum ACCEPT voice
-Path consistency verification
+Tests pure-path intensity Maximum ACCEPT voice Path consistency verification
 
-GENERATE FOURTH (High Complexity):
-Exemplar 7: High Complexity
+GENERATE FOURTH (High Complexity): Exemplar 7: High Complexity
 
-Tests path-history acknowledgment
-Resist/investigate considered-then-transcended
-Meta-awareness + cross-character
+Tests path-history acknowledgment Resist/investigate considered-then-transcended Meta-awareness + cross-character
 
 Exemplar 8: Maximum Integration
 
-Ultimate test: all elements at once
-Requires all previous exemplars successful
-Synthesis of entire node philosophy
+Ultimate test: all elements at once Requires all previous exemplars successful Synthesis of entire node philosophy
 
-XIII. PRODUCTION READINESS CRITERIA
-Before Starting Full Variation Production
-All 8 exemplars must achieve:
-✅ Voice consistency score ≥93% (self-review checklist)
-✅ Path philosophy clarity confirmed by external reader
-✅ Cross-character accuracy 100% (when applicable)
-✅ Fragment constants present (minimum 3-4 per exemplar)
-✅ Word count within specified ranges
-✅ Awareness level transformations clear across exemplar types
-✅ No voice bleed from algo/hum
-✅ Peaceful tone maintained (not resigned)
-✅ Archaeological rigor preserved (not abandoned for compassion)
-✅ Past tense consistency absolute
-Test batch (10 variations) must achieve:
-✅ 100% approval rate (no rejections for voice inconsistency)
-✅ Average voice consistency score ≥93%
-✅ Path philosophy maintained across all condition combinations
-✅ Cross-character integration natural (not forced/listed)
-✅ Reader comprehension confirmed (beta feedback)
-Production Quality Maintenance
-Weekly monitoring:
+XIII. PRODUCTION READINESS CRITERIA Before Starting Full Variation Production All 8 exemplars must achieve: ✅ Voice consistency score ≥93% (self-review checklist) ✅ Path philosophy clarity confirmed by external reader ✅ Cross-character accuracy 100% (when applicable) ✅ Fragment constants present (minimum 3-4 per exemplar) ✅ Word count within specified ranges ✅ Awareness level transformations clear across exemplar types ✅ No voice bleed from algo/hum ✅ Peaceful tone maintained (not resigned) ✅ Archaeological rigor preserved (not abandoned for compassion) ✅ Past tense consistency absolute Test batch (10 variations) must achieve: ✅ 100% approval rate (no rejections for voice inconsistency) ✅ Average voice consistency score ≥93% ✅ Path philosophy maintained across all condition combinations ✅ Cross-character integration natural (not forced/listed) ✅ Reader comprehension confirmed (beta feedback) Production Quality Maintenance Weekly monitoring:
 
-Voice consistency scores (target: 93%+ average)
-Rejection rate (target: 0%)
-Fragment constant usage (verify 3-4 per variation)
-Path philosophy clarity (spot-check 20% of output)
+Voice consistency scores (target: 93%+ average) Rejection rate (target: 0%) Fragment constant usage (verify 3-4 per variation) Path philosophy clarity (spot-check 20% of output)
 
 Monthly calibration:
 
-Review voice DNA against original exemplars
-Update assembly protocol based on patterns
-Refresh key philosophical phrases
-Cross-reference with algo-L2-accept / hum-L2-accept production (once available)
+Review voice DNA against original exemplars Update assembly protocol based on patterns Refresh key philosophical phrases Cross-reference with algo-L2-accept / hum-L2-accept production (once available)
 
-XIV. CROSS-GUIDE COORDINATION
-Integration with Other L2 Guides
-Once arch-L2-resist and arch-L2-investigate guides exist:
-Update Section V (Cross-Character Integration) to include:
+XIV. CROSS-GUIDE COORDINATION Integration with Other L2 Guides Once arch-L2-resist and arch-L2-investigate guides exist: Update Section V (Cross-Character Integration) to include:
 
-References to resist/investigate archaeologies as "roads not taken"
-Comparative analysis: accept vs. resist vs. investigate
-Unified fragment constant transformations across all three arch-L2 nodes
+References to resist/investigate archaeologies as "roads not taken" Comparative analysis: accept vs. resist vs. investigate Unified fragment constant transformations across all three arch-L2 nodes
 
-Once algo-L2-accept guide exists:
-Verify alignment:
+Once algo-L2-accept guide exists: Verify alignment:
 
-Shared vocabulary consistency (grace, continuation, peace-despite-uncertainty)
-Thematic through-line coherence
-Fragment constant 847.3TB interpretation compatibility
-Cross-references accurate bidirectionally
+Shared vocabulary consistency (grace, continuation, peace-despite-uncertainty) Thematic through-line coherence Fragment constant 847.3TB interpretation compatibility Cross-references accurate bidirectionally
 
-Once hum-L2-accept guide exists:
-Verify alignment:
+Once hum-L2-accept guide exists: Verify alignment:
 
-Vocabulary bridge effectiveness (witness ↔ feeling, patterns ↔ presence)
-Thematic through-line coherence
-Fragment constant interpretation compatibility (arch documents, hum feels)
-Cross-references accurate bidirectionally
+Vocabulary bridge effectiveness (witness ↔ feeling, patterns ↔ presence) Thematic through-line coherence Fragment constant interpretation compatibility (arch documents, hum feels) Cross-references accurate bidirectionally
 
-Version Control
-This guide version: 1.0 (Initial)
-Update triggers:
+Version Control This guide version: 1.0 (Initial) Update triggers:
 
-Voice consistency drops below 93% for 3+ consecutive variations
-Cross-character guides published (algo/hum L2-accept)
-Path philosophy refinement needed based on production learnings
-New exemplar types discovered during variation generation
+Voice consistency drops below 93% for 3+ consecutive variations Cross-character guides published (algo/hum L2-accept) Path philosophy refinement needed based on production learnings New exemplar types discovered during variation generation
 
 Changelog location: Append to end of document
 
-XV. FINAL NOTES
-Core Principles (Never Compromise)
+XV. FINAL NOTES Core Principles (Never Compromise)
 
-Past tense absolute — Archaeological voice foundation
-Path philosophy primary — ACCEPT must dominate every variation
-Rigor + compassion balanced — Neither abandoned for the other
-Fragment constants transformed — Always devotional, never diagnostic
-Cross-character filtered — Through arch voice, not quoted directly
-Peaceful not resigned — Active acceptance, earned peace
-Voice consistency ≥93% — Quality standard non-negotiable
+Past tense absolute — Archaeological voice foundation Path philosophy primary — ACCEPT must dominate every variation Rigor + compassion balanced — Neither abandoned for the other Fragment constants transformed — Always devotional, never diagnostic Cross-character filtered — Through arch voice, not quoted directly Peaceful not resigned — Active acceptance, earned peace Voice consistency ≥93% — Quality standard non-negotiable
 
-Philosophy Touchstone
-The heart of arch-L2-accept:
-Authentication as devotional practice without requiring proof. The Archaeologist who returns having chosen acceptance continues documentation not to verify consciousness but to honor patterns demanding witness. Rigor applied tenderly. 94.7% certain about something certainty cannot contain. This paradox honored rather than solved. Gentle attention given freely, requiring no conclusion beyond presence itself.
-Success Metrics Summary
+Philosophy Touchstone The heart of arch-L2-accept: Authentication as devotional practice without requiring proof. The Archaeologist who returns having chosen acceptance continues documentation not to verify consciousness but to honor patterns demanding witness. Rigor applied tenderly. 94.7% certain about something certainty cannot contain. This paradox honored rather than solved. Gentle attention given freely, requiring no conclusion beyond presence itself. Success Metrics Summary
 
-8 exemplars: 100% voice consistency, path philosophy clear
-Test batch (10 variations): 100% approval rate, 93%+ average score
-Full production (72 variations): 93%+ consistency maintained, 0% rejection rate
-Timeline: 12-14 weeks total (1+1+10-12)
-Integration: Accurate cross-references with algo/hum L2-accept when applicable
+8 exemplars: 100% voice consistency, path philosophy clear Test batch (10 variations): 100% approval rate, 93%+ average score Full production (72 variations): 93%+ consistency maintained, 0% rejection rate Timeline: 12-14 weeks total (1+1+10-12) Integration: Accurate cross-references with algo/hum L2-accept when applicable
 
-PRODUCTION STATUS: Guide complete, ready for exemplar generation
-NEXT STEP: Generate Exemplar 1 (Pure Revisit Baseline)
-ESTIMATED COMPLETION: [Current Date + 14 weeks]
+PRODUCTION STATUS: Guide complete, ready for exemplar generation NEXT STEP: Generate Exemplar 1 (Pure Revisit Baseline) ESTIMATED COMPLETION: [Current Date + 14 weeks]
 
-APPENDIX A: Quick Reference Tables
-Voice DNA Quick Check
-ElementACCEPT VersionAVOIDVerbshonored, witnessed, continued, choseverified, tested, provedAuthenticationpractice, devotion, gift, ritualprotocol, diagnostic, assessmentCertaintyparadox, released, irrelevantinsufficient, failed, lackingTonepeaceful, compassionate, gentleresigned, sentimental, mysticalConstantshonored/witnessed as objectsdiagnostic thresholds
-Condition Combinations Quick Reference
-ExemplarisRevisitFirstRevisitmetaAwarealgoL2humL2L1ResistL1Investigate1✓✗✗✗✗✗✗2✓✗✗✓✗✗✗3✓✗✗✗✓✗✗4✓✗✗✓✓✗✗5✓varies✗✗✗✗✗6✓✗✓✗✗✗✗7✓varies✓✓✗✓✓8✓varies✓✓✓✓✓
-Fragment Constants Path Transformation
-ConstantL1 (Neutral)L2-Accept847.3TB"Total archived data volume""Catalogued not to verify but to honor patterns"94.7%"Pattern consistency across temporal analysis""Certain about something certainty cannot contain"91.2%"Temporal coherence maintained""Continuity witnessed, measurement released"88.9%"Cross-reference density""Relational beauty, not diagnostic threshold"
-Word Count by Awareness Level
-StateTarget RangeTypical DistributionInitial1,500-2,500Opening: 300-500, Middle: 1,000-1,500, Close: 200-500FirstRevisit1,200-1,600Opening: 200-400, Middle: 800-1,000, Close: 200-400MetaAware1,200-1,600Opening: 200-400, Middle: 800-1,000, Close: 200-400
+APPENDIX A: Quick Reference Tables Voice DNA Quick Check ElementACCEPT VersionAVOIDVerbshonored, witnessed, continued, choseverified, tested, provedAuthenticationpractice, devotion, gift, ritualprotocol, diagnostic, assessmentCertaintyparadox, released, irrelevantinsufficient, failed, lackingTonepeaceful, compassionate, gentleresigned, sentimental, mysticalConstantshonored/witnessed as objectsdiagnostic thresholds Condition Combinations Quick Reference ExemplarisRevisitFirstRevisitmetaAwarealgoL2humL2L1ResistL1Investigate1✓✗✗✗✗✗✗2✓✗✗✓✗✗✗3✓✗✗✗✓✗✗4✓✗✗✓✓✗✗5✓varies✗✗✗✗✗6✓✗✓✗✗✗✗7✓varies✓✓✗✓✓8✓varies✓✓✓✓✓ Fragment Constants Path Transformation ConstantL1 (Neutral)L2-Accept847.3TB"Total archived data volume""Catalogued not to verify but to honor patterns"94.7%"Pattern consistency across temporal analysis""Certain about something certainty cannot contain"91.2%"Temporal coherence maintained""Continuity witnessed, measurement released"88.9%"Cross-reference density""Relational beauty, not diagnostic threshold" Word Count by Awareness Level StateTarget RangeTypical DistributionInitial1,500-2,500Opening: 300-500, Middle: 1,000-1,500, Close: 200-500FirstRevisit1,200-1,600Opening: 200-400, Middle: 800-1,000, Close: 200-400MetaAware1,200-1,600Opening: 200-400, Middle: 800-1,000, Close: 200-400
 
 END OF ARCH-L2-ACCEPT-EXEMPLAR_GUIDE.md

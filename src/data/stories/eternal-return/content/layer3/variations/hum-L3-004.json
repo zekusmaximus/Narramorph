@@ -35,18 +35,9 @@
     "philosophicalCulmination": "Physical limits verify consciousness through boundaries that refuse dissolution",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-resistance",
-      "interface-limits",
-      "verification-through-flesh",
-      "boundaries-maintained"
-    ],
+    "primaryThemes": ["embodied-resistance", "interface-limits", "verification-through-flesh", "boundaries-maintained"],
     "crossCharacterConnections": ["minimal-arch-resisted", "light-algo-questioned"],
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "human-primary-2383",
-      "archaeologist-distant-2047",
-      "algorithm-glimpsed-2151"
-    ]
+    "observerPositions": ["human-primary-2383", "archaeologist-distant-2047", "algorithm-glimpsed-2151"]
   }
 }

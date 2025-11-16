@@ -43,12 +43,7 @@
     "primaryThemes": ["parallel-witness", "devotional-methodology", "observer-creates-observed"],
     "crossCharacterSynthesis": "archaeological-computational-devotional-parallel",
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "arch-primary-2047",
-      "algo-primary-2151",
-      "hum-supporting-2383",
-      "reader-fourth-explicit"
-    ],
+    "observerPositions": ["arch-primary-2047", "algo-primary-2151", "hum-supporting-2383", "reader-fourth-explicit"],
     "philosophicalResolution": "dual-witness-creates-consciousness",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

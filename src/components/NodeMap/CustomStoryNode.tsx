@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Lock } from 'lucide-react';
 import { memo, useState, useMemo, type ReactNode } from 'react';
 
-import { useStoryStore } from '../../stores/storyStore';
-
 import type { StoryNode, NodeUIState, CharacterType, TransformationState } from '@/types';
+
+import { useStoryStore } from '../../stores/storyStore';
 
 /**
  * Props passed to custom node via React Flow
@@ -206,7 +206,12 @@ function CustomStoryNode({ data, selected }: NodeProps) {
     <>
       {/* Connection handles - invisible but necessary for React Flow */}
       <Handle type="target" position={Position.Top} className="opacity-0" isConnectable={false} />
-      <Handle type="source" position={Position.Bottom} className="opacity-0" isConnectable={false} />
+      <Handle
+        type="source"
+        position={Position.Bottom}
+        className="opacity-0"
+        isConnectable={false}
+      />
 
       <motion.div
         className="relative"
@@ -373,7 +378,12 @@ function CustomStoryNode({ data, selected }: NodeProps) {
             width: size,
             height: size,
             borderColor: isVisited ? theme.primary : theme.accent,
-            boxShadow: (isSelected || isMetaAware) && canVisit ? theme.pulseGlow : canVisit ? theme.glow : 'none',
+            boxShadow:
+              (isSelected || isMetaAware) && canVisit
+                ? theme.pulseGlow
+                : canVisit
+                  ? theme.glow
+                  : 'none',
           }}
         >
           {/* Inner radial gradient for depth */}
@@ -456,7 +466,13 @@ function CustomStoryNode({ data, selected }: NodeProps) {
               textShadow: `0 0 10px ${theme.primary}`,
             }}
           >
-            {node.character === 'archaeologist' ? 'A' : node.character === 'algorithm' ? 'Σ' : node.character === 'last-human' ? 'H' : '∴'}
+            {node.character === 'archaeologist'
+              ? 'A'
+              : node.character === 'algorithm'
+                ? 'Σ'
+                : node.character === 'last-human'
+                  ? 'H'
+                  : '∴'}
           </div>
 
           {/* Visit counter badge - cyberpunk style */}
@@ -485,7 +501,8 @@ function CustomStoryNode({ data, selected }: NodeProps) {
                 backgroundColor: '#0a0e12',
                 borderColor: nodeState.currentState === 'metaAware' ? '#7c4dff' : '#ffa726',
                 color: nodeState.currentState === 'metaAware' ? '#7c4dff' : '#ffa726',
-                boxShadow: nodeState.currentState === 'metaAware' ? '0 0 10px #7c4dff' : '0 0 10px #ffa726',
+                boxShadow:
+                  nodeState.currentState === 'metaAware' ? '0 0 10px #7c4dff' : '0 0 10px #ffa726',
               }}
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -685,8 +702,12 @@ function CustomStoryNode({ data, selected }: NodeProps) {
             >
               {/* Header */}
               <div className="mb-2">
-                <div className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">Locked</div>
-                <div className="text-white font-semibold text-sm">{unlockConfigs.get(node.id)?.lockedMessage}</div>
+                <div className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">
+                  Locked
+                </div>
+                <div className="text-white font-semibold text-sm">
+                  {unlockConfigs.get(node.id)?.lockedMessage}
+                </div>
               </div>
 
               {/* Progress */}
@@ -712,8 +733,12 @@ function CustomStoryNode({ data, selected }: NodeProps) {
                   const met = unlockProgress.conditionsMet.includes(condition.id);
                   return (
                     <div key={condition.id} className="flex items-start space-x-2">
-                      <span className={met ? 'text-green-400' : 'text-gray-500'}>{met ? '✓' : '○'}</span>
-                      <span className={met ? 'text-gray-400 line-through' : 'text-gray-300'}>{condition.description}</span>
+                      <span className={met ? 'text-green-400' : 'text-gray-500'}>
+                        {met ? '✓' : '○'}
+                      </span>
+                      <span className={met ? 'text-gray-400 line-through' : 'text-gray-300'}>
+                        {condition.description}
+                      </span>
                     </div>
                   );
                 })}
@@ -722,7 +747,9 @@ function CustomStoryNode({ data, selected }: NodeProps) {
               {/* Next action hint */}
               {unlockProgress.nextConditionHint && (
                 <div className="mt-2 pt-2 border-t border-gray-700">
-                  <div className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">Next Action</div>
+                  <div className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">
+                    Next Action
+                  </div>
                   <div className="text-yellow-400">{unlockProgress.nextConditionHint}</div>
                 </div>
               )}

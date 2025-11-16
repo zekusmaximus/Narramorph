@@ -713,6 +713,4 @@ This document catalogs all data points required for personalizing the three L4 e
 
 ---
 
-_Last updated: November 7, 2025_
-_Document purpose: Reference for L4 ending generation and personalization_
-_Total data points: 70 (45 narrative-usable, 20 require translation, 5 backend-only)_
+_Last updated: November 7, 2025_ _Document purpose: Reference for L4 ending generation and personalization_ _Total data points: 70 (45 narrative-usable, 20 require translation, 5 backend-only)_

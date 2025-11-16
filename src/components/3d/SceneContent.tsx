@@ -1,9 +1,8 @@
 import { useEffect, useMemo } from 'react';
 
-import type { CharacterType, StoryNode } from '@/types';
-
 import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';
+import type { StoryNode, CharacterType } from '@/types';
 
 import NodeSphere from './NodeSphere';
 import PlaneGuide from './PlaneGuide';

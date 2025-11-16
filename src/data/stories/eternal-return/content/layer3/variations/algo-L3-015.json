@@ -35,17 +35,9 @@
     "philosophicalCulmination": "Boundary maintenance through verification standards sustained across network positions",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-discipline",
-      "computational-boundary-preservation",
-      "network-standards-maintenance"
-    ],
+    "primaryThemes": ["verification-discipline", "computational-boundary-preservation", "network-standards-maintenance"],
     "crossCharacterConnections": ["moderate-arch-glimpsed", "moderate-hum-glimpsed"],
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "archaeologist-parallel-2047",
-      "algorithm-verification-2151",
-      "human-parallel-2383"
-    ]
+    "observerPositions": ["archaeologist-parallel-2047", "algorithm-verification-2151", "human-parallel-2383"]
   }
 }

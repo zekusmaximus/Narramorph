@@ -38,10 +38,6 @@
     "primaryThemes": ["embodied-devotion", "witness-methodology", "presence-as-preservation"],
     "crossCharacterConnections": ["moderate-arch-foundational", "light-algo-parallel"],
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "human-primary-2383",
-      "archaeologist-foundational-2047",
-      "algorithm-glimpsed-2151"
-    ]
+    "observerPositions": ["human-primary-2383", "archaeologist-foundational-2047", "algorithm-glimpsed-2151"]
   }
 }

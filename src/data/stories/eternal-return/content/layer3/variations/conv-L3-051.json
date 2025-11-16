@@ -43,12 +43,7 @@
     "primaryThemes": ["recursive-investigation", "network-consciousness", "meta-awareness"],
     "crossCharacterSynthesis": "three-methodologies-examining-methodology",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "arch-parallel-2047",
-      "algo-parallel-2151",
-      "hum-parallel-2383",
-      "reader-fourth-implicit"
-    ],
+    "observerPositions": ["arch-parallel-2047", "algo-parallel-2151", "hum-parallel-2383", "reader-fourth-implicit"],
     "philosophicalResolution": "investigation-as-transformation",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

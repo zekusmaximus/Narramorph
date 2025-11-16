@@ -40,11 +40,7 @@
     "circularCausality": "implicit",
     "readerPosition": "subtle",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-persistence",
-      "methodological-rigor-despite-futility",
-      "professional-ethics-transcending-empirics"
-    ],
+    "primaryThemes": ["verification-persistence", "methodological-rigor-despite-futility", "professional-ethics-transcending-empirics"],
     "crossCharacterSynthesis": "primary-consciousness-dominant",
     "temporalBleedingLevel": "moderate",
     "observerPositions": ["primary-dominant", "secondary-aware", "tertiary-glimpsed"],

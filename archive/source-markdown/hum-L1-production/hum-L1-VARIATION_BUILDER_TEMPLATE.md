@@ -91,8 +91,7 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 
 ### From Exemplar #[X] (hum-L1-exemplar-0[X])
 
-**Core Philosophy:**
-[2-3 sentences describing the path's philosophical stance as experienced through body]
+**Core Philosophy:** [2-3 sentences describing the path's philosophical stance as experienced through body]
 
 **Key Physical Manifestations:**
 
@@ -101,11 +100,9 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 - "[Physical sensation expressing path philosophy 3]"
 - "[Physical sensation expressing path philosophy 4]"
 
-**Embodied Tone:**
-[Description of how path philosophy modifies physical experience and sensory language]
+**Embodied Tone:** [Description of how path philosophy modifies physical experience and sensory language]
 
-**Critical Balance:**
-[Path name] ≠ [common misinterpretation]  
+**Critical Balance:** [Path name] ≠ [common misinterpretation]  
 [Path name] = [correct interpretation through embodiment]  
 [Path name] = [another key aspect felt bodily]
 
@@ -160,8 +157,7 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 
 **Word Target:** [X] words
 
-**Embodiment Focus:**
-[1-2 sentences describing what this variation's physical experience must reveal—how path/cross-character content transforms bodily awareness]
+**Embodiment Focus:** [1-2 sentences describing what this variation's physical experience must reveal—how path/cross-character content transforms bodily awareness]
 
 ---
 
@@ -182,8 +178,7 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 
 **Word Target:** [X] words
 
-**Embodiment Focus:**
-[Description]
+**Embodiment Focus:** [Description]
 
 ---
 
@@ -204,8 +199,7 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 
 **Word Target:** [X] words
 
-**Embodiment Focus:**
-[Description]
+**Embodiment Focus:** [Description]
 
 ---
 
@@ -226,8 +220,7 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 
 **Word Target:** [X] words
 
-**Embodiment Focus:**
-[Description]
+**Embodiment Focus:** [Description]
 
 ---
 
@@ -248,8 +241,7 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 
 **Word Target:** [X] words
 
-**Embodiment Focus:**
-[Description]
+**Embodiment Focus:** [Description]
 
 ---
 
@@ -312,11 +304,9 @@ Narramorph Fiction hum-L1 generation - [Brief description of what this cluster r
 
 ### Step 3: Generate Single Variation
 
-**Opening Formula (100-150 words):**
-Present-tense return. Physical sensation immediate. Short sentences establish rhythm. Continuity without repetition.
+**Opening Formula (100-150 words):** Present-tense return. Physical sensation immediate. Short sentences establish rhythm. Continuity without repetition.
 
-**Fragment Constants Ritual (150-200 words):**
-847.3 terabytes in embodied voice. "How do you measure a person?" Authentication markers as physical sensation. 94.7%, 91.2%, 88.9% felt, not just stated.
+**Fragment Constants Ritual (150-200 words):** 847.3 terabytes in embodied voice. "How do you measure a person?" Authentication markers as physical sensation. 94.7%, 91.2%, 88.9% felt, not just stated.
 
 **Base Transformation Development ([X]-[X] words based on awareness):**
 
@@ -326,11 +316,9 @@ Present-tense return. Physical sensation immediate. Short sentences establish rh
 - [Cross-character content if applicable] experienced bodily
 - Transformation genuine—different understanding through body
 
-**Physical Grounding Integration:**
-Every paragraph must include sensory anchoring. Breath, skin, temperature constant awareness. Philosophy emerges from sensation. Body carries philosophical weight.
+**Physical Grounding Integration:** Every paragraph must include sensory anchoring. Breath, skin, temperature constant awareness. Philosophy emerges from sensation. Body carries philosophical weight.
 
-**Closing Without Resolution (150-200 words):**
-No false resolution. Physical sensation carries philosophical weight. Loneliness/connection balance. Questions remain but deepen. Present tense sustained to final word.
+**Closing Without Resolution (150-200 words):** No false resolution. Physical sensation carries philosophical weight. Loneliness/connection balance. Questions remain but deepen. Present tense sustained to final word.
 
 ---
 

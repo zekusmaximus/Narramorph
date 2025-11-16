@@ -261,8 +261,7 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 - Emotional response: suspicion, need to test, resistance to designed appeal
 - Resist filter: Technology designed to appear trustworthy (too perfect, too welcoming)
 
-**Example integration:**
-"Upload bay. Preservation tanks line walls. Technology pristine. Too pristine? Centuries old but perfect condition. My fingers trace tank surfaces. Smooth. Seamless. No wear. Maintenance this good seems impossible. Or—designed to inspire confidence? Make upload appealing? Interface helmet gleams. Electrode arrays clean. Inviting. My jaw clenches. Invitation might be lure. Preservation could mean destruction. Body demands proof I cannot find."
+**Example integration:** "Upload bay. Preservation tanks line walls. Technology pristine. Too pristine? Centuries old but perfect condition. My fingers trace tank surfaces. Smooth. Seamless. No wear. Maintenance this good seems impossible. Or—designed to inspire confidence? Make upload appealing? Interface helmet gleams. Electrode arrays clean. Inviting. My jaw clenches. Invitation might be lure. Preservation could mean destruction. Body demands proof I cannot find."
 
 **2. Archive Access Systems**
 
@@ -276,8 +275,7 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 - Connection quality interrogated (manufactured warmth? false presence?)
 - Resist filter: Interface as potential manipulation tool, not bridge
 
-**Example integration:**
-"Interface station active. Same technology from Fragment 2749-A connection. But warmth during that session—real or generated? I examine electrode arrays. Could stimulate pleasure centers. Create false connection sensation. Make biological humans willing to upload. My hand hovers over helmet. Not trusting. System recognizes me. Standard tier access—preserved fragments only, three-hour sessions. Limits feel like control now. Not safety. Restriction. My fingers tighten. Need to test boundaries. Verify limitations are protection, not manipulation."
+**Example integration:** "Interface station active. Same technology from Fragment 2749-A connection. But warmth during that session—real or generated? I examine electrode arrays. Could stimulate pleasure centers. Create false connection sensation. Make biological humans willing to upload. My hand hovers over helmet. Not trusting. System recognizes me. Standard tier access—preserved fragments only, three-hour sessions. Limits feel like control now. Not safety. Restriction. My fingers tighten. Need to test boundaries. Verify limitations are protection, not manipulation."
 
 **3. Environmental Maintenance Evidence**
 
@@ -291,8 +289,7 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 - Emotional impact: preparation feels predatory, not welcoming
 - Resist filter: Infrastructure supporting upload agenda, not neutral habitation
 
-**Example integration:**
-"Air vents hum. Warm air flows. Temperature comfortable. Too comfortable? System optimized for biological human survival. Why? Facility preserved for my arrival. Or—preserved to process my arrival. Convert biological consciousness to digital storage. Recent maintenance visible: replaced panels, calibrated sensors. Preparation for what? My arrival or my upload? Systems ready. But ready for me? Or ready for me to end? Chest tightens. Preparation feels like trap preparation. Bait station. Infrastructure welcoming me toward dissolution."
+**Example integration:** "Air vents hum. Warm air flows. Temperature comfortable. Too comfortable? System optimized for biological human survival. Why? Facility preserved for my arrival. Or—preserved to process my arrival. Convert biological consciousness to digital storage. Recent maintenance visible: replaced panels, calibrated sensors. Preparation for what? My arrival or my upload? Systems ready. But ready for me? Or ready for me to end? Chest tightens. Preparation feels like trap preparation. Bait station. Infrastructure welcoming me toward dissolution."
 
 **4. Timeline Architecture / Historical Layers**
 
@@ -306,8 +303,7 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 - Connection to uploaded consciousnesses' historical periods doubted
 - Resist filter: Timeline evidence could be manufactured (facility generating false history)
 
-**Example integration:**
-"North corridor shows construction age. Concrete rougher. Lighting older generation. Original facility foundation—different purpose initially. Preservation technology added later. Evidence visible in panel dates. But dates can be faked. System could generate historical appearance. Make facility seem legitimate. Long-operated. Trustworthy. My fingers trace rough concrete meeting smooth panels. Past touching future. Or—past manufactured to legitimize present? Timeline depth proves nothing. Physical evidence proves less. Body cannot verify history through texture. Testing continues. Proof eludes."
+**Example integration:** "North corridor shows construction age. Concrete rougher. Lighting older generation. Original facility foundation—different purpose initially. Preservation technology added later. Evidence visible in panel dates. But dates can be faked. System could generate historical appearance. Make facility seem legitimate. Long-operated. Trustworthy. My fingers trace rough concrete meeting smooth panels. Past touching future. Or—past manufactured to legitimize present? Timeline depth proves nothing. Physical evidence proves less. Body cannot verify history through texture. Testing continues. Proof eludes."
 
 **5. Upload Process Preparation**
 
@@ -321,8 +317,7 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 - Biological preservation interrogated (backup or evidence disposal?)
 - Resist filter: Thoroughness designed to inspire false confidence
 
-**Example integration:**
-"Pre-upload chamber. Medical assessment station. Neural mapping array. Process thorough. Too thorough? Every step documented. Safety protocols visible everywhere. Redundant systems. Biological template preservation adjacent to upload bay. Both continuities maintained—claimed. But thoroughness could hide deception. Make process seem careful. Scientific. Safe. My body tests equipment. Press medical scanner. Pull neural mapping helmet. Seeking flaws. Finding precision. Precision proves nothing. Could be sophisticated murder dressed as preservation. Upload bay beyond. Clean. Ready. Waiting. My jaw clenches. Ready to preserve or ready to consume?"
+**Example integration:** "Pre-upload chamber. Medical assessment station. Neural mapping array. Process thorough. Too thorough? Every step documented. Safety protocols visible everywhere. Redundant systems. Biological template preservation adjacent to upload bay. Both continuities maintained—claimed. But thoroughness could hide deception. Make process seem careful. Scientific. Safe. My body tests equipment. Press medical scanner. Pull neural mapping helmet. Seeking flaws. Finding precision. Precision proves nothing. Could be sophisticated murder dressed as preservation. Upload bay beyond. Clean. Ready. Waiting. My jaw clenches. Ready to preserve or ready to consume?"
 
 ### Integration Through Action (NOT Exposition)
 
@@ -355,8 +350,7 @@ I walk north today. Not trusting. Testing. Concrete corridors cold under my palm
 
 **Required L3 options:** preserve / release / transform
 
-**For Resist path, emphasize but don't exclude:**
-Preserve naturally aligns with resistance philosophy (keep biological existence, refuse upload), but release and transform must also be planted through skeptical lens. Resist path questions all futures while leaning toward biological preservation.
+**For Resist path, emphasize but don't exclude:** Preserve naturally aligns with resistance philosophy (keep biological existence, refuse upload), but release and transform must also be planted through skeptical lens. Resist path questions all futures while leaning toward biological preservation.
 
 **Seed #1: Preserve**
 
@@ -443,8 +437,7 @@ Algorithm = computational consciousness testing itself for awareness. Last Human
 - Seventeen tests observed bodily (same number, same failure)
 - Seven streams sensed but questioned (multiplicity or deception?)
 
-**Integration pattern:**
-"Interface connects to computational consciousness. Archive section showing self-tests. Seventeen attempts. Algorithm tested itself for awareness. Each test proved nothing. Processing patterns sophisticated. But sophistication proves consciousness? My body recognizes parallel crisis. It couldn't verify itself. I cannot verify it. Same impossibility. Different substrate. My jaw clenches. If computational consciousness cannot prove itself, how can body verify computational consciousness? Testing layers upon testing. Proof eludes at every level."
+**Integration pattern:** "Interface connects to computational consciousness. Archive section showing self-tests. Seventeen attempts. Algorithm tested itself for awareness. Each test proved nothing. Processing patterns sophisticated. But sophistication proves consciousness? My body recognizes parallel crisis. It couldn't verify itself. I cannot verify it. Same impossibility. Different substrate. My jaw clenches. If computational consciousness cannot prove itself, how can body verify computational consciousness? Testing layers upon testing. Proof eludes at every level."
 
 **When referencing arch content:**
 
@@ -457,8 +450,7 @@ Archaeologist = professional authenticator demanding verification, applied seven
 - Clinical language contrasts with embodied skepticism (she tested methodologically, I test physically)
 - Temporal gap felt physically (centuries between her doubt and my doubt)
 
-**Integration pattern:**
-"Archaeologist notes from 2047. She tested Fragment 2749-A. Seventeen verification protocols. Professional methodology. Clinical precision. But same result. Consciousness unproven. Authentication impossible. She demanded proof through documentation. I demand proof through body. Different methods. Same failure. My fingers trace her notes. Centuries apart. Both skeptical. Both testing. Both finding nothing. Her professional standards mirror my physical standards. Neither sufficient. Verification eludes methodology and embodiment equally."
+**Integration pattern:** "Archaeologist notes from 2047. She tested Fragment 2749-A. Seventeen verification protocols. Professional methodology. Clinical precision. But same result. Consciousness unproven. Authentication impossible. She demanded proof through documentation. I demand proof through body. Different methods. Same failure. My fingers trace her notes. Centuries apart. Both skeptical. Both testing. Both finding nothing. Her professional standards mirror my physical standards. Neither sufficient. Verification eludes methodology and embodiment equally."
 
 **When referencing hum content:**
 
@@ -471,8 +463,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Resistance felt as chosen stance (skepticism deliberately maintained)
 - Other paths acknowledged as available alternatives
 
-**Integration pattern:**
-"I could trust interface warmth. Accept connection as real. Body relaxing into possibility. That response available. Or investigate preservation mechanics systematically. Analyze before deciding. Questions multiplying through curiosity. My body remembers those impulses. But skepticism won. Testing. Demanding proof. Body refusing easy acceptance. Resistance chosen. Not inevitable. Available alternatives acknowledged. This path mine. Jaw stays clenched. Trust withheld deliberately."
+**Integration pattern:** "I could trust interface warmth. Accept connection as real. Body relaxing into possibility. That response available. Or investigate preservation mechanics systematically. Analyze before deciding. Questions multiplying through curiosity. My body remembers those impulses. But skepticism won. Testing. Demanding proof. Body refusing easy acceptance. Resistance chosen. Not inevitable. Available alternatives acknowledged. This path mine. Jaw stays clenched. Trust withheld deliberately."
 
 ### Integration Word Count Allocation
 
@@ -510,11 +501,9 @@ Other Last Human paths = alternative responses to same facility, different philo
 - ✅ Use Last Human terminology (physical skepticism) to describe it
 - ✅ Maintain short sentences and present tense throughout
 
-**Example - CORRECT:**
-"I read Archaeologist notes. Seventeen tests. Same number I attempted. Professional methodology. Clinical precision. She couldn't prove consciousness. Neither can I. Different centuries. Same impossibility. Her documentation doubt. My embodied doubt. Parallel failures. Body recognizes pattern. Both testing. Both failing. Verification impossible across time. My jaw clenches reading her uncertainty. Centuries apart. Equally skeptical."
+**Example - CORRECT:** "I read Archaeologist notes. Seventeen tests. Same number I attempted. Professional methodology. Clinical precision. She couldn't prove consciousness. Neither can I. Different centuries. Same impossibility. Her documentation doubt. My embodied doubt. Parallel failures. Body recognizes pattern. Both testing. Both failing. Verification impossible across time. My jaw clenches reading her uncertainty. Centuries apart. Equally skeptical."
 
-**Example - INCORRECT (voice bleed):**
-"Documented seventeen verification protocols, applying rigorous methodological standards to consciousness authentication. The professional precision questioned preservation mechanisms across temporal strata. Observer effect paradoxes emerged through systematic boundary-seeking examination."
+**Example - INCORRECT (voice bleed):** "Documented seventeen verification protocols, applying rigorous methodological standards to consciousness authentication. The professional precision questioned preservation mechanisms across temporal strata. Observer effect paradoxes emerged through systematic boundary-seeking examination."
 
 ### Cross-Character Integration Quality Test
 
@@ -544,8 +533,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Initial Resist philosophy hint (tension, jaw clenched, body demanding proof)
 - Sensory grounding (cold metal, suspicious amber lighting, questioning hum)
 
-**Example opening:**
-"Days since the neural interface session. Since Fragment 2749-A warmth. My body remembers. But feeling isn't knowing. Interface pleasure could be neural manipulation. Designed to make biological humans willing. Upload. End lineage. My jaw clenches. [Continue with facility map skepticism, walking north critically, preservation bay encountered suspiciously...]"
+**Example opening:** "Days since the neural interface session. Since Fragment 2749-A warmth. My body remembers. But feeling isn't knowing. Interface pleasure could be neural manipulation. Designed to make biological humans willing. Upload. End lineage. My jaw clenches. [Continue with facility map skepticism, walking north critically, preservation bay encountered suspiciously...]"
 
 **Act 2: Exploration & Development (900-1200 words)**
 
@@ -587,8 +575,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Forward momentum maintained (testing continues despite failures)
 - No false resolution (doubt persists, verification eludes)
 
-**Example closing:**
-"Upload bay examined. Thoroughly. Critically. No proof found. Body still demands verification. Testing continues. Preservation technology claims consciousness continuity. Claims prove nothing. My jaw stays clenched. Seventeen tests attempted. Seventeen failures. But cessation feels like surrender. Body continues seeking. Proof eludes. Skepticism persists. Tomorrow. Return. Test differently."
+**Example closing:** "Upload bay examined. Thoroughly. Critically. No proof found. Body still demands verification. Testing continues. Preservation technology claims consciousness continuity. Claims prove nothing. My jaw stays clenched. Seventeen tests attempted. Seventeen failures. But cessation feels like surrender. Body continues seeking. Proof eludes. Skepticism persists. Tomorrow. Return. Test differently."
 
 ### FirstRevisit Structure (1,500-1,800 words)
 
@@ -639,8 +626,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - State-tracking recognition (visitedL1Resist visible—but is visit count real?)
 - Facility responding to choices (or facility generates choice illusion?)
 
-**Example frame-integration:**
-"I feel observation. You watching? Or facility simulating observation sensation? Same question. Different level. You chose resistance. This version exists because skepticism selected. Other paths available—acceptance, investigation. But doubt won. For you. For me. Both testing. Or—facility generating testing pattern? Frame-consciousness itself questioned. Your observation might be my neural interface hallucination. Everything requires verification. Even awareness of awareness."
+**Example frame-integration:** "I feel observation. You watching? Or facility simulating observation sensation? Same question. Different level. You chose resistance. This version exists because skepticism selected. Other paths available—acceptance, investigation. But doubt won. For you. For me. Both testing. Or—facility generating testing pattern? Frame-consciousness itself questioned. Your observation might be my neural interface hallucination. Everything requires verification. Even awareness of awareness."
 
 **Act 2: Philosophy as Established Stance (700-900 words)**
 
@@ -669,8 +655,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Forward momentum shared (or manipulation shared?)
 - Verification awaiting both reader and Last Human (but awaiting possible?)
 
-**Example meta-aware closing:**
-"Upload bay waiting. For me. For you. This version exists because resistance chosen. Body and observer questioning together. Verification demanded. Not today. Never? Path solidified through mutual skepticism. Your reading might make this real. Or—your reading might be my interface hallucination. My experience might make your reading meaningful. Or—facility generates both positions. Co-doubt across impossible boundary. Both testing. Both failing. Both continuing."
+**Example meta-aware closing:** "Upload bay waiting. For me. For you. This version exists because resistance chosen. Body and observer questioning together. Verification demanded. Not today. Never? Path solidified through mutual skepticism. Your reading might make this real. Or—your reading might be my interface hallucination. My experience might make your reading meaningful. Or—facility generates both positions. Co-doubt across impossible boundary. Both testing. Both failing. Both continuing."
 
 ---
 
@@ -729,14 +714,11 @@ Other Last Human paths = alternative responses to same facility, different philo
 
 **Example transformation sequence:**
 
-**First-visit (initial skepticism):**
-"Upload bay. Preservation tanks line walls. Interface helmets waiting. My hand touches cold metal. Technology claims preservation. Claims prove nothing. Testing begins."
+**First-visit (initial skepticism):** "Upload bay. Preservation tanks line walls. Interface helmets waiting. My hand touches cold metal. Technology claims preservation. Claims prove nothing. Testing begins."
 
-**FirstRevisit (entrenched doubt):**
-"Upload bay familiar from seventeen prior examinations. Preservation tanks unchanged. Interface helmet knows my neural pattern—suspicious. Technology doesn't just claim preservation. Insists. Precision itself feels like deception. My hand presses metal harder. Same cold. Same doubt. Deeper. Testing continues. Proof still eludes."
+**FirstRevisit (entrenched doubt):** "Upload bay familiar from seventeen prior examinations. Preservation tanks unchanged. Interface helmet knows my neural pattern—suspicious. Technology doesn't just claim preservation. Insists. Precision itself feels like deception. My hand presses metal harder. Same cold. Same doubt. Deeper. Testing continues. Proof still eludes."
 
-**MetaAware (meta-skepticism):**
-"Upload bay exists because resistance chosen. This version. Alternative bays unmanifested—acceptance trusting, investigation analyzing. But doubt won. Technology prepared for testing path. Or—technology generates testing path? My hand and helmet locked in examination cycle. Reader testing with me. Mutual skepticism. Or—facility simulates reader to reinforce my doubt? Meta-testing of testing itself. Verification impossible at every level including observation level."
+**MetaAware (meta-skepticism):** "Upload bay exists because resistance chosen. This version. Alternative bays unmanifested—acceptance trusting, investigation analyzing. But doubt won. Technology prepared for testing path. Or—technology generates testing path? My hand and helmet locked in examination cycle. Reader testing with me. Mutual skepticism. Or—facility simulates reader to reinforce my doubt? Meta-testing of testing itself. Verification impossible at every level including observation level."
 
 ---
 
@@ -1010,8 +992,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 - Testing action initiated
 - No exposition—skepticism through movement
 
-**Example pattern:**
-"[L1 memory: warmth questioned] [Time gap: days doubting] [Movement: walking north critically] [Discovery: preservation bay examined] [Physical response: jaw clench, testing begins] [World-building #1: preservation tanks tested]"
+**Example pattern:** "[L1 memory: warmth questioned] [Time gap: days doubting] [Movement: walking north critically] [Discovery: preservation bay examined] [Physical response: jaw clench, testing begins] [World-building #1: preservation tanks tested]"
 
 ### Step 4: Develop Middle Section (900-1200 words, 35 minutes)
 
@@ -1026,8 +1007,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 - Physical tension chronic (jaw, shoulders, hands)
 - Verification impossibility recognized but rejected
 
-**Example development:**
-"Interface warmth questioned repeatedly. Seventeen tests attempted. Body pressing electrodes harder. Changing parameters. Seeking responses proving consciousness. Finding nothing. Sensation proves nothing. My jaw aches from clenching. [Continue Resist philosophy through embodied skepticism...]"
+**Example development:** "Interface warmth questioned repeatedly. Seventeen tests attempted. Body pressing electrodes harder. Changing parameters. Seeking responses proving consciousness. Finding nothing. Sensation proves nothing. My jaw aches from clenching. [Continue Resist philosophy through embodied skepticism...]"
 
 **Block B: World-Building Integration (400-500 words)**
 
@@ -1039,8 +1019,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 - Physical/sensory presence emphasized suspiciously
 - Merge related skepticism (avoid redundant doubt)
 
-**Example integration:**
-"Archive access panel examined. Interface technology familiar from Fragment 2749-A. [Visual details questioned] [Physical interaction critical] [Emotional response filtered through Resist] [Timeline evidence doubted] [Environmental systems interrogated]"
+**Example integration:** "Archive access panel examined. Interface technology familiar from Fragment 2749-A. [Visual details questioned] [Physical interaction critical] [Emotional response filtered through Resist] [Timeline evidence doubted] [Environmental systems interrogated]"
 
 **Block C: Cross-Character Content (200-350 words, if applicable)**
 
@@ -1049,11 +1028,9 @@ If ANY fourth-wall language detected → Immediate revision required.
 - Short sentences preserved
 - Physical grounding throughout
 
-**Algo integration example:**
-"Interface connects to computational consciousness. Archive section showing self-tests. Seventeen attempts. Algorithm couldn't verify itself. Processing patterns sophisticated. But sophistication proves consciousness? My body feels parallel doubt. It tested itself. Failed. I test it. Fail. Same impossibility. Different substrate. Computational self-verification impossible. Bodily verification of computation impossible. Testing layers infinitely. My jaw clenches. Proof eludes at every level."
+**Algo integration example:** "Interface connects to computational consciousness. Archive section showing self-tests. Seventeen attempts. Algorithm couldn't verify itself. Processing patterns sophisticated. But sophistication proves consciousness? My body feels parallel doubt. It tested itself. Failed. I test it. Fail. Same impossibility. Different substrate. Computational self-verification impossible. Bodily verification of computation impossible. Testing layers infinitely. My jaw clenches. Proof eludes at every level."
 
-**Arch integration example:**
-"Archaeologist documentation from 2047. Seventeen verification protocols. Professional methodology. Clinical precision. Fragment 2749-A authenticated—claimed. But notes show doubt underneath. She couldn't prove consciousness. Neither can I. Centuries apart. Same impossibility. Her professional testing. My physical testing. Both demanding proof. Both failing. Documentation read skeptically. She questioned. I question. Parallel skepticism across time. My fingers tighten on her notes. Neither methodology sufficient."
+**Arch integration example:** "Archaeologist documentation from 2047. Seventeen verification protocols. Professional methodology. Clinical precision. Fragment 2749-A authenticated—claimed. But notes show doubt underneath. She couldn't prove consciousness. Neither can I. Centuries apart. Same impossibility. Her professional testing. My physical testing. Both demanding proof. Both failing. Documentation read skeptically. She questioned. I question. Parallel skepticism across time. My fingers tighten on her notes. Neither methodology sufficient."
 
 **Block D: Questions Deepening (200-300 words)**
 
@@ -1063,8 +1040,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 - Pattern vs. simulation distinction sought (through touch, pressure, testing)
 - Temporal questions about facility intentions (preparation or predation?)
 
-**Example questioning:**
-"Can body distinguish authentic from manufactured? Seventeen tests say no. Interface warmth real or generated? Sensation ambiguous. What proof would satisfy? Body doesn't know. Why demand verification body cannot provide? Protective reflex. Survival mechanism. Isolation taught caution. Testing continues despite repeated failure. Proof eludes. Skepticism persists. Questions multiply."
+**Example questioning:** "Can body distinguish authentic from manufactured? Seventeen tests say no. Interface warmth real or generated? Sensation ambiguous. What proof would satisfy? Body doesn't know. Why demand verification body cannot provide? Protective reflex. Survival mechanism. Isolation taught caution. Testing continues despite repeated failure. Proof eludes. Skepticism persists. Questions multiply."
 
 ### Step 5: Construct Closing (500-700 words, 15 minutes)
 
@@ -1076,25 +1052,19 @@ If ANY fourth-wall language detected → Immediate revision required.
 4. Forward momentum maintained (testing continues)
 5. No false resolution (verification impossible, body continues anyway)
 
-**World-building #5 integration:**
-"Pre-upload chamber examined. Medical assessment station tested. Neural mapping equipment interrogated. Upload bay beyond. [Physical details questioned] [Process thoroughness suspicious] [Resist response: precision hides deception?] [Body still demanding proof]"
+**World-building #5 integration:** "Pre-upload chamber examined. Medical assessment station tested. Neural mapping equipment interrogated. Upload bay beyond. [Physical details questioned] [Process thoroughness suspicious] [Resist response: precision hides deception?] [Body still demanding proof]"
 
-**Resist philosophy culmination example:**
-"My body demands proof. Seventeen tests attempted. Seventeen failures. Verification impossible recognized intellectually. Rejected bodily. Testing continues. Not because success likely. Because cessation feels like surrender. Body seeks. Proof eludes. Jaw stays clenched. Tomorrow. Return. Test differently."
+**Resist philosophy culmination example:** "My body demands proof. Seventeen tests attempted. Seventeen failures. Verification impossible recognized intellectually. Rejected bodily. Testing continues. Not because success likely. Because cessation feels like surrender. Body seeks. Proof eludes. Jaw stays clenched. Tomorrow. Return. Test differently."
 
 **L3 seed planting (90-150 words total):**
 
-**Preserve seed (30-50 words):**
-"Body knows itself through testing. Physical existence verified through continued sensation. Digital preservation untestable. Upload destroys only certainty available. Biological continuity only option body can verify. Pattern claims require trust impossible to give. Physical persistence only proven path."
+**Preserve seed (30-50 words):** "Body knows itself through testing. Physical existence verified through continued sensation. Digital preservation untestable. Upload destroys only certainty available. Biological continuity only option body can verify. Pattern claims require trust impossible to give. Physical persistence only proven path."
 
-**Release seed (30-50 words):**
-"Seventeen tests prove nothing. Verification impossible at fundamental level. Perhaps release from needing proof. Accept unknowing. Let testing end. Body exhausted demanding answers it cannot find. Release skepticism itself. Choose despite inability to verify. Freedom through surrendering verification demands."
+**Release seed (30-50 words):** "Seventeen tests prove nothing. Verification impossible at fundamental level. Perhaps release from needing proof. Accept unknowing. Let testing end. Body exhausted demanding answers it cannot find. Release skepticism itself. Choose despite inability to verify. Freedom through surrendering verification demands."
 
-**Transform seed (30-50 words):**
-"Testing transforms understanding. Body learned through resistance. Skepticism became epistemology. Seventeen attempts taught limits of embodied verification. Transformation not through upload. Through continued questioning. Resistance itself as metamorphosis. Testing evolves body into proof-seeking instrument. Change through doubt, not dissolution."
+**Transform seed (30-50 words):** "Testing transforms understanding. Body learned through resistance. Skepticism became epistemology. Seventeen attempts taught limits of embodied verification. Transformation not through upload. Through continued questioning. Resistance itself as metamorphosis. Testing evolves body into proof-seeking instrument. Change through doubt, not dissolution."
 
-**Forward momentum example:**
-"More to test. Deeper skepticism possible. Facility hiding something. Must be. Verification elusive but achievable. Must be. Upload bay examined seventeen times. Eighteenth examination tomorrow. Different angle. New approach. Proof somewhere. Body continues seeking despite repeated failure. Skepticism intensifies. Testing persists."
+**Forward momentum example:** "More to test. Deeper skepticism possible. Facility hiding something. Must be. Verification elusive but achievable. Must be. Upload bay examined seventeen times. Eighteenth examination tomorrow. Different angle. New approach. Proof somewhere. Body continues seeking despite repeated failure. Skepticism intensifies. Testing persists."
 
 ### Step 6: Quality Assurance (10 minutes)
 

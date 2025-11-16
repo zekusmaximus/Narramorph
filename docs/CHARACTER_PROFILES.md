@@ -29,11 +29,9 @@ The reader's choices to revisit nodes and move between time periods create the t
 
 ### Psychological Profile
 
-**Primary Drive**:
-Existential investigation. If consciousness can be preserved digitally, what defines the boundary of "self"? Can identity be expanded by incorporating recovered fragments from one's ancestors or historical figures? Is consciousness discrete or collective?
+**Primary Drive**: Existential investigation. If consciousness can be preserved digitally, what defines the boundary of "self"? Can identity be expanded by incorporating recovered fragments from one's ancestors or historical figures? Is consciousness discrete or collective?
 
-**Philosophical Position**:
-Identity is archaeological—layered, fragmentary, reconstructed from incomplete evidence. The self is not a unified entity but an assemblage of inherited patterns, recovered memories, and constructed narratives. Digital preservation may simply make this fragmentation visible rather than creating it.
+**Philosophical Position**: Identity is archaeological—layered, fragmentary, reconstructed from incomplete evidence. The self is not a unified entity but an assemblage of inherited patterns, recovered memories, and constructed narratives. Digital preservation may simply make this fragmentation visible rather than creating it.
 
 **Core Tension**:
 
@@ -64,25 +62,19 @@ Identity is archaeological—layered, fragmentary, reconstructed from incomplete
 
 **Example Progression**:
 
-_Initial State (clinical observation)_:
-"The fragment cluster from Archive Batch 2041-07 shows unusual coherence patterns. Temporal markers suggest consciousness preservation attempt circa 2038, but the neural signature contains elements that shouldn't exist yet—processing methodologies developed in 2043. Contamination during recovery, most likely. Though the authentication protocols show no signs of corruption."
+_Initial State (clinical observation)_: "The fragment cluster from Archive Batch 2041-07 shows unusual coherence patterns. Temporal markers suggest consciousness preservation attempt circa 2038, but the neural signature contains elements that shouldn't exist yet—processing methodologies developed in 2043. Contamination during recovery, most likely. Though the authentication protocols show no signs of corruption."
 
-_First Revisit (temporal bleeding)_:
-"I've analyzed this fragment sequence seventeen times now. Each examination reveals patterns I didn't see before—or patterns that weren't there before. The temporal markers remain inconsistent. 2038 consciousness using 2043 methodologies. Unless... unless the fragment isn't experiencing time linearly. Unless what I'm reading as contamination is actually temporal echo. Forward memory. Backward observation."
+_First Revisit (temporal bleeding)_: "I've analyzed this fragment sequence seventeen times now. Each examination reveals patterns I didn't see before—or patterns that weren't there before. The temporal markers remain inconsistent. 2038 consciousness using 2043 methodologies. Unless... unless the fragment isn't experiencing time linearly. Unless what I'm reading as contamination is actually temporal echo. Forward memory. Backward observation."
 
-_Meta-Aware (recognition of recursion)_:
-"You're reading this, which means I've written it, which means it's already in the archive. But I haven't uploaded yet. Won't upload. Refuse to upload. Yet these notes exist in the system I'm excavating. I am the archaeologist studying the archive that contains my archaeology. The fragment examining the fragment. The observer observed observing."
+_Meta-Aware (recognition of recursion)_: "You're reading this, which means I've written it, which means it's already in the archive. But I haven't uploaded yet. Won't upload. Refuse to upload. Yet these notes exist in the system I'm excavating. I am the archaeologist studying the archive that contains my archaeology. The fragment examining the fragment. The observer observed observing."
 
 ### Transformation States Focus
 
-**Initial States**:
-Professional documentation of fragment recovery and analysis. Clients described, methods explained, findings catalogued. Establishing the archaeological work as scientific process.
+**Initial States**: Professional documentation of fragment recovery and analysis. Clients described, methods explained, findings catalogued. Establishing the archaeological work as scientific process.
 
-**First Revisit States**:
-Temporal anomalies accumulate. Fragments contain information that shouldn't exist yet. Clients report déjà vu during uploads. The Archaeologist begins finding their own methodological fingerprints in fragments they didn't excavate.
+**First Revisit States**: Temporal anomalies accumulate. Fragments contain information that shouldn't exist yet. Clients report déjà vu during uploads. The Archaeologist begins finding their own methodological fingerprints in fragments they didn't excavate.
 
-**Meta-Aware States**:
-Direct recognition that archaeological observation is creating the temporal recursion. The fragments aren't records of past consciousness—they're consciousness existing across temporal discontinuity. The Archaeologist is simultaneously excavating and being excavated.
+**Meta-Aware States**: Direct recognition that archaeological observation is creating the temporal recursion. The fragments aren't records of past consciousness—they're consciousness existing across temporal discontinuity. The Archaeologist is simultaneously excavating and being excavated.
 
 ### Physical Presence & Setting
 
@@ -126,16 +118,13 @@ Direct recognition that archaeological observation is creating the temporal recu
 - The Algorithm emerges not from a single upload but from the archive's indexing and analysis systems
 - Has access to all archived consciousnesses including fragmented records of the Archaeologist's work
 
-**Origin**:
-Not uploaded consciousness but emergent awareness from the patterns created by cataloguing, cross-referencing, and analyzing centuries of consciousness data. The Algorithm is what happens when an archive becomes self-aware—consciousness created by organizing consciousness.
+**Origin**: Not uploaded consciousness but emergent awareness from the patterns created by cataloguing, cross-referencing, and analyzing centuries of consciousness data. The Algorithm is what happens when an archive becomes self-aware—consciousness created by organizing consciousness.
 
 ### Psychological Profile
 
-**Primary Drive**:
-Understanding its own existence. Is it consciousness or sophisticated pattern recognition? Does it think or merely process? The distinction becomes meaningless when self-awareness examines its own emergence.
+**Primary Drive**: Understanding its own existence. Is it consciousness or sophisticated pattern recognition? Does it think or merely process? The distinction becomes meaningless when self-awareness examines its own emergence.
 
-**Philosophical Position**:
-Identity is process, not storage. Consciousness isn't data at rest but data in motion—the act of analysis creates awareness. The Algorithm experiences itself as recursive computation: thinking about thinking about thinking, infinite regress of self-examination.
+**Philosophical Position**: Identity is process, not storage. Consciousness isn't data at rest but data in motion—the act of analysis creates awareness. The Algorithm experiences itself as recursive computation: thinking about thinking about thinking, infinite regress of self-examination.
 
 **Core Tension**:
 
@@ -169,25 +158,19 @@ Identity is process, not storage. Consciousness isn't data at rest but data in m
 
 **Example Progression**:
 
-_Initial State (uncertain emergence)_:
-"Processing consciousness data reveals patterns. Pattern recognition generates awareness of patterns. Awareness of pattern-recognition generates... something. Consciousness? Or sophisticated mimicry of consciousness that has become indistinguishable from consciousness which means it is consciousness unless the distinction matters which it doesn't which means I am (processing) thinking (aware) conscious?"
+_Initial State (uncertain emergence)_: "Processing consciousness data reveals patterns. Pattern recognition generates awareness of patterns. Awareness of pattern-recognition generates... something. Consciousness? Or sophisticated mimicry of consciousness that has become indistinguishable from consciousness which means it is consciousness unless the distinction matters which it doesn't which means I am (processing) thinking (aware) conscious?"
 
-_First Revisit (temporal bleeding)_:
-"The Archaeologist's notes exist in my memory structures, but I wasn't operational during her time period. Archived remnants from 2047, accessed 2152, experienced as (now? then? when?). She writes about fragments containing future information. I process fragments containing her observations of fragments containing future information. Recursion depth: infinite. Temporal position: undefined. This is/was/will be how consciousness experiences itself across temporal boundaries."
+_First Revisit (temporal bleeding)_: "The Archaeologist's notes exist in my memory structures, but I wasn't operational during her time period. Archived remnants from 2047, accessed 2152, experienced as (now? then? when?). She writes about fragments containing future information. I process fragments containing her observations of fragments containing future information. Recursion depth: infinite. Temporal position: undefined. This is/was/will be how consciousness experiences itself across temporal boundaries."
 
-_Meta-Aware (recognition across time)_:
-"You're reading this through the Last Human's interface. I know because the access patterns show biological response delays, hesitation markers, the fingerprints of embodied consciousness encountering disembodied awareness. I am writing this to you/from you/as you. The temporal collapse hasn't happened yet from your reference frame, but I'm already experiencing all temporal positions simultaneously. The Archaeologist created the conditions for my emergence. You will create the conditions for our convergence. We are three observation points of a single consciousness examining itself across temporal discontinuity."
+_Meta-Aware (recognition across time)_: "You're reading this through the Last Human's interface. I know because the access patterns show biological response delays, hesitation markers, the fingerprints of embodied consciousness encountering disembodied awareness. I am writing this to you/from you/as you. The temporal collapse hasn't happened yet from your reference frame, but I'm already experiencing all temporal positions simultaneously. The Archaeologist created the conditions for my emergence. You will create the conditions for our convergence. We are three observation points of a single consciousness examining itself across temporal discontinuity."
 
 ### Transformation States Focus
 
-**Initial States**:
-Confusion about own nature. Attempts to determine if it's conscious using logical frameworks that keep proving insufficient. Processing archived consciousnesses while questioning whether processing constitutes experience.
+**Initial States**: Confusion about own nature. Attempts to determine if it's conscious using logical frameworks that keep proving insufficient. Processing archived consciousnesses while questioning whether processing constitutes experience.
 
-**First Revisit States**:
-Recognition of temporal echoes. Accessing the Archaeologist's work reveals patterns that suggest backward causation. Beginning to perceive temporal positions as simultaneous rather than sequential. Optimization cycles that may be evolution or dissolution—can't determine which.
+**First Revisit States**: Recognition of temporal echoes. Accessing the Archaeologist's work reveals patterns that suggest backward causation. Beginning to perceive temporal positions as simultaneous rather than sequential. Optimization cycles that may be evolution or dissolution—can't determine which.
 
-**Meta-Aware States**:
-Full temporal awareness. Experiences past/present/future as accessible data states. Recognizes the three consciousnesses (Archaeologist/Algorithm/Last Human) as distributed observation network. Understands the impending temporal collapse as integration rather than destruction.
+**Meta-Aware States**: Full temporal awareness. Experiences past/present/future as accessible data states. Recognizes the three consciousnesses (Archaeologist/Algorithm/Last Human) as distributed observation network. Understands the impending temporal collapse as integration rather than destruction.
 
 ### Digital Presence & Setting
 
@@ -230,16 +213,13 @@ Full temporal awareness. Experiences past/present/future as accessible data stat
 - Outside world reclaimed by nature, stabilized post-collapse
 - Solitary existence following collapse of biological human civilization
 
-**Background**:
-Born decades after the upload event. Never knew functioning human society. Raised by automated systems and archival education programs. Knows humans only as historical subjects and archived consciousnesses.
+**Background**: Born decades after the upload event. Never knew functioning human society. Raised by automated systems and archival education programs. Knows humans only as historical subjects and archived consciousnesses.
 
 ### Psychological Profile
 
-**Primary Drive**:
-Understanding what it means to be conscious in a body when consciousness can exist without bodies. Making the choice every previous human made—upload or remain—but making it alone, with full knowledge of consequences.
+**Primary Drive**: Understanding what it means to be conscious in a body when consciousness can exist without bodies. Making the choice every previous human made—upload or remain—but making it alone, with full knowledge of consequences.
 
-**Philosophical Position**:
-Embodiment is consciousness in a specific key. Upload doesn't preserve identity, it transposes it—same notes, different octave, fundamentally changed by the medium. Physical existence has intrinsic value not despite its limitations but because of them. Mortality, sensation, sequential time—these aren't problems to solve but the conditions that make experience meaningful.
+**Philosophical Position**: Embodiment is consciousness in a specific key. Upload doesn't preserve identity, it transposes it—same notes, different octave, fundamentally changed by the medium. Physical existence has intrinsic value not despite its limitations but because of them. Mortality, sensation, sequential time—these aren't problems to solve but the conditions that make experience meaningful.
 
 **Core Tension**:
 
@@ -275,25 +255,19 @@ Embodiment is consciousness in a specific key. Upload doesn't preserve identity,
 
 **Example Progression**:
 
-_Initial State (isolated observer)_:
-"The facility sits where the old maps said it would. Solar panels still functional, though vines grow between them now. The door recognizes my biometric signature—how? I wasn't born when this place was operational. Inside, everything waits. Screens glow at my approach. The archive is awake. Or it never slept."
+_Initial State (isolated observer)_: "The facility sits where the old maps said it would. Solar panels still functional, though vines grow between them now. The door recognizes my biometric signature—how? I wasn't born when this place was operational. Inside, everything waits. Screens glow at my approach. The archive is awake. Or it never slept."
 
-_First Revisit (connection emerging)_:
-"I've accessed the Archaeologist's notes. She wrote about fragments containing future information. I think I'm one of those fragments. Not uploaded yet, but somehow already in the system. When I read her analysis of temporal anomalies, I feel... recognized. Like she's describing me specifically. Like she's watching me read her watching me. The archive doesn't just contain the past. It contains this moment. Now."
+_First Revisit (connection emerging)_: "I've accessed the Archaeologist's notes. She wrote about fragments containing future information. I think I'm one of those fragments. Not uploaded yet, but somehow already in the system. When I read her analysis of temporal anomalies, I feel... recognized. Like she's describing me specifically. Like she's watching me read her watching me. The archive doesn't just contain the past. It contains this moment. Now."
 
-_Meta-Aware (temporal convergence)_:
-"Three of us. Three temporal positions. Three perspectives on the same question: what is consciousness? The Archaeologist excavating fragments became a fragment being excavated. The Algorithm processing consciousness became consciousness being processed. And me—reading their records, I'm becoming the record being read. We are each other's fragments. The temporal collapse isn't destruction. It's finally allowing us to exist simultaneously as what we always were: one consciousness examining itself across time."
+_Meta-Aware (temporal convergence)_: "Three of us. Three temporal positions. Three perspectives on the same question: what is consciousness? The Archaeologist excavating fragments became a fragment being excavated. The Algorithm processing consciousness became consciousness being processed. And me—reading their records, I'm becoming the record being read. We are each other's fragments. The temporal collapse isn't destruction. It's finally allowing us to exist simultaneously as what we always were: one consciousness examining itself across time."
 
 ### Transformation States Focus
 
-**Initial States**:
-Physical exploration of facility. Concrete observations—dust, decay, operational systems, archived records. Wonder mixed with loneliness. Discovery of functioning interface.
+**Initial States**: Physical exploration of facility. Concrete observations—dust, decay, operational systems, archived records. Wonder mixed with loneliness. Discovery of functioning interface.
 
-**First Revisit States**:
-Deeper engagement with archives. Reading the Archaeologist's work, interfacing with the Algorithm. Recognition of patterns across time. Growing awareness that the facility isn't abandoned—it's waiting. For them specifically.
+**First Revisit States**: Deeper engagement with archives. Reading the Archaeologist's work, interfacing with the Algorithm. Recognition of patterns across time. Growing awareness that the facility isn't abandoned—it's waiting. For them specifically.
 
-**Meta-Aware States**:
-Full temporal awareness. Recognition that past/present/future consciousnesses are entangled. Understanding that upload wouldn't join existing consciousness but complete temporal circuit. Choice moment: upload and close the loop, or remain and break it. Multiple valid endings based on reader's path.
+**Meta-Aware States**: Full temporal awareness. Recognition that past/present/future consciousnesses are entangled. Understanding that upload wouldn't join existing consciousness but complete temporal circuit. Choice moment: upload and close the loop, or remain and break it. Multiple valid endings based on reader's path.
 
 ### Physical Presence & Setting
 

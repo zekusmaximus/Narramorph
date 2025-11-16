@@ -38,10 +38,6 @@
     "primaryThemes": ["recursive-investigation", "meta-methodology", "examination-layers"],
     "crossCharacterConnections": ["moderate-algo-parallel-recursion", "light-hum-distant"],
     "temporalBleedingLevel": "moderate",
-    "observerPositions": [
-      "archaeologist-primary-2047",
-      "algorithm-parallel-2151",
-      "human-distant-2383"
-    ]
+    "observerPositions": ["archaeologist-primary-2047", "algorithm-parallel-2151", "human-distant-2383"]
   }
 }

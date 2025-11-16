@@ -47,12 +47,7 @@
     ],
     "crossCharacterSynthesis": "perfect-three-position-network",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "arch-network-2047",
-      "algo-network-2151",
-      "hum-network-2383",
-      "reader-implied-fourth"
-    ],
+    "observerPositions": ["arch-network-2047", "algo-network-2151", "hum-network-2383", "reader-implied-fourth"],
     "philosophicalResolution": "investigative-transformation-through-network-symmetry",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

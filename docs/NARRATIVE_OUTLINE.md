@@ -617,11 +617,7 @@ L3 Experience =
 
 ### L4 Production Timeline
 
-**Week 1-2**: L4-PRESERVE (Character immersion + Choice consequence: 5,500 words)
-**Week 3**: L4-PRESERVE (Reader address + Convergence: 4,500 words)
-**Week 4-5**: L4-RELEASE (Complete 9,000 words)
-**Week 6-7**: L4-TRANSFORM (Complete 11,000 words)
-**Week 8**: Integration, voice consistency verification, journey data integration testing
+**Week 1-2**: L4-PRESERVE (Character immersion + Choice consequence: 5,500 words) **Week 3**: L4-PRESERVE (Reader address + Convergence: 4,500 words) **Week 4-5**: L4-RELEASE (Complete 9,000 words) **Week 6-7**: L4-TRANSFORM (Complete 11,000 words) **Week 8**: Integration, voice consistency verification, journey data integration testing
 
 **Total**: 30,000 words of closing content across three endings
 
@@ -978,8 +974,7 @@ The three L5 choices resonate with each other:
 
 ### Linear Exploration
 
-**Pattern**: Complete one character arc before starting another
-**Experience**:
+**Pattern**: Complete one character arc before starting another **Experience**:
 
 - Strongest individual character understanding
 - Clear sense of three separate stories
@@ -990,8 +985,7 @@ The three L5 choices resonate with each other:
 
 ### Balanced Weaving
 
-**Pattern**: Alternate between characters at each layer
-**Experience**:
+**Pattern**: Alternate between characters at each layer **Experience**:
 
 - Maximum temporal bleeding
 - Early recognition of three-point pattern
@@ -1002,8 +996,7 @@ The three L5 choices resonate with each other:
 
 ### Scattered Exploration
 
-**Pattern**: Non-linear, curiosity-driven navigation
-**Experience**:
+**Pattern**: Non-linear, curiosity-driven navigation **Experience**:
 
 - Unique path through content
 - Unexpected connections discovered
@@ -1056,8 +1049,7 @@ The three L5 choices resonate with each other:
 
 ### Transformation State Differentiation
 
-**Not acceptable**: Simply adding new information
-**Required**: Genuinely transforming meaning of existing content
+**Not acceptable**: Simply adding new information **Required**: Genuinely transforming meaning of existing content
 
 **Example**:
 

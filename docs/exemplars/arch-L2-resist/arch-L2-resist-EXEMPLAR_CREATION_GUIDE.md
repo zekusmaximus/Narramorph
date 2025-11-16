@@ -1175,77 +1175,43 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 
 ### Primary Documents (Always Check When Uncertain)
 
-**docs/CHARACTER_PROFILES.md**
-→ Archaeologist voice complete description, what differentiates from other characters
-→ Use for: Voice verification, professional stance, methodological rigor
+**docs/CHARACTER_PROFILES.md** → Archaeologist voice complete description, what differentiates from other characters → Use for: Voice verification, professional stance, methodological rigor
 
-**docs/exemplars/arch-L2-resist/arch-L2-resist-EXEMPLAR_GUIDE.md** (this document)
-→ Complete production guide, resist path philosophy, exemplar summaries
-→ Use for: Voice DNA, resist path integration, verification protocol patterns
+**docs/exemplars/arch-L2-resist/arch-L2-resist-EXEMPLAR_GUIDE.md** (this document) → Complete production guide, resist path philosophy, exemplar summaries → Use for: Voice DNA, resist path integration, verification protocol patterns
 
-**docs/framework/FRAMEWORK_COMPLETE.md**
-→ arch-L2 template (when created), transformation mechanics, variation assembly
-→ Use for: Understanding structural requirements, conditional insertion percentages
+**docs/framework/FRAMEWORK_COMPLETE.md** → arch-L2 template (when created), transformation mechanics, variation assembly → Use for: Understanding structural requirements, conditional insertion percentages
 
-**docs/arch-L1 (Draft - Initial State).md**
-→ Original arch-L1 establishing voice foundation
-→ Use for: Voice DNA baseline, fragment constant introduction, methodological rigor
+**docs/arch-L1 (Draft - Initial State).md** → Original arch-L1 establishing voice foundation → Use for: Voice DNA baseline, fragment constant introduction, methodological rigor
 
-**docs/NARRATIVE_OUTLINE.md**
-→ arch-L2-resist node structure, connections, philosophical focus
-→ Use for: Understanding resist path's role in larger narrative
+**docs/NARRATIVE_OUTLINE.md** → arch-L2-resist node structure, connections, philosophical focus → Use for: Understanding resist path's role in larger narrative
 
 ### Exemplar References (Once Created)
 
-**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR1.md**
-→ Pure revisit baseline (resist path emerging)
-→ Use for: Baseline resist voice, verification protocol introduction, first tests
+**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR1.md** → Pure revisit baseline (resist path emerging) → Use for: Baseline resist voice, verification protocol introduction, first tests
 
-**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR2.md**
-→ After algo-L1 (seven-stream testing)
-→ Use for: Cross-character integration with Algorithm, computational verification
+**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR2.md** → After algo-L1 (seven-stream testing) → Use for: Cross-character integration with Algorithm, computational verification
 
-**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR3.md**
-→ After hum-L1 (temporal paradox testing)
-→ Use for: Cross-character integration with Last Human, future observation verification
+**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR3.md** → After hum-L1 (temporal paradox testing) → Use for: Cross-character integration with Last Human, future observation verification
 
-**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR4.md**
-→ Dual cross-character (three-consciousness network testing)
-→ Use for: Maximum cross-character complexity, network verification protocols
+**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR4.md** → Dual cross-character (three-consciousness network testing) → Use for: Maximum cross-character complexity, network verification protocols
 
-**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR5.md**
-→ Resist path deepening (L1 resist → L2 resist escalation)
-→ Use for: Path intensification, meta-recognition of testing limits
+**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR5.md** → Resist path deepening (L1 resist → L2 resist escalation) → Use for: Path intensification, meta-recognition of testing limits
 
-**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR6.md**
-→ MetaAware baseline (frame-consciousness + resist)
-→ Use for: Reader integration, frame-level verification crisis
+**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR6.md** → MetaAware baseline (frame-consciousness + resist) → Use for: Reader integration, frame-level verification crisis
 
-**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR7.md**
-→ High complexity (multiple conditions + resist)
-→ Use for: Resist through-line across all three characters
+**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR7.md** → High complexity (multiple conditions + resist) → Use for: Resist through-line across all three characters
 
-**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR8.md**
-→ Maximum integration (all elements + resist at highest intensity)
-→ Use for: Ultimate resist path expression, verification crisis at all levels
+**docs/exemplars/arch-L2-resist/arch-L2-resist_EXEMPLAR8.md** → Maximum integration (all elements + resist at highest intensity) → Use for: Ultimate resist path expression, verification crisis at all levels
 
 ### Cross-Reference Documents
 
-**docs/exemplars/algo-L2-resist/algo-L2-resist-EXEMPLAR_GUIDE.md** (when created)
-→ Algorithm resist path expression
-→ Use for: Understanding computational verification crisis, cross-character through-lines
+**docs/exemplars/algo-L2-resist/algo-L2-resist-EXEMPLAR_GUIDE.md** (when created) → Algorithm resist path expression → Use for: Understanding computational verification crisis, cross-character through-lines
 
-**docs/exemplars/hum-L2-resist/hum-L2-resist-EXEMPLAR_GUIDE.md** (when created)
-→ Last Human resist path expression
-→ Use for: Understanding embodied verification crisis, physical testing parallels
+**docs/exemplars/hum-L2-resist/hum-L2-resist-EXEMPLAR_GUIDE.md** (when created) → Last Human resist path expression → Use for: Understanding embodied verification crisis, physical testing parallels
 
-**docs/exemplars/arch-L2-accept/arch-L2-accept-EXEMPLAR_GUIDE.md** (when created)
-→ Accept path alternative
-→ Use for: Understanding philosophical contrast, path differentiation
+**docs/exemplars/arch-L2-accept/arch-L2-accept-EXEMPLAR_GUIDE.md** (when created) → Accept path alternative → Use for: Understanding philosophical contrast, path differentiation
 
-**docs/exemplars/arch-L2-investigate/arch-L2-investigate-EXEMPLAR_GUIDE.md** (when created)
-→ Investigate path alternative
-→ Use for: Understanding philosophical contrast, path differentiation
+**docs/exemplars/arch-L2-investigate/arch-L2-investigate-EXEMPLAR_GUIDE.md** (when created) → Investigate path alternative → Use for: Understanding philosophical contrast, path differentiation
 
 ---
 
@@ -1301,8 +1267,7 @@ Critical: Each variation must meet quality standards individually. No "batch gen
 - Resist path philosophy maintained throughout
 - Verification protocols consistently applied
 
-**If targets met:** Proceed to full production
-**If targets missed:** Refine exemplars, adjust protocol, retest
+**If targets met:** Proceed to full production **If targets missed:** Refine exemplars, adjust protocol, retest
 
 ### Phase 3: Full Production (Weeks 3-14)
 

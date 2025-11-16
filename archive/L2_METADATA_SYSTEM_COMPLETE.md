@@ -257,12 +257,7 @@ If you prefer interactive mode for everything:
 Edit at top of scripts to point to your L2 files:
 
 ```javascript
-searchPaths: [
-  '/mnt/user-data/outputs',
-  '/mnt/user-data/content/layer-2',
-  './content/layer-2',
-  './outputs',
-];
+searchPaths: ['/mnt/user-data/outputs', '/mnt/user-data/content/layer-2', './content/layer-2', './outputs'];
 ```
 
 ### Filename Pattern
@@ -312,15 +307,11 @@ Examples:
 
 ### What Gets Created
 
-📁 `./metadata-backups/` directory
-📄 `*.bak` backup files (timestamped)
-📄 `inventory-report.json` (optional)
+📁 `./metadata-backups/` directory 📄 `*.bak` backup files (timestamped) 📄 `inventory-report.json` (optional)
 
 ### What Stays Unchanged
 
-❌ File content below frontmatter
-❌ File permissions
-❌ Directory structure
+❌ File content below frontmatter ❌ File permissions ❌ Directory structure
 
 ## Validation & Quality
 
@@ -478,31 +469,15 @@ Include:
 
 Metadata insertion complete when:
 
-✅ All 720 L2 variations have YAML frontmatter
-✅ All required fields present in each file
-✅ Automated validation passes 100%
-✅ Manual spot checks (30 files) pass quality review
-✅ Aggregated metadata index generated
-✅ L3 selection algorithm can query all needed data
-✅ No 'REVIEW_REQUIRED' fields remain (batch mode)
-✅ Backups safely stored
-✅ Documentation updated with lessons learned
+✅ All 720 L2 variations have YAML frontmatter ✅ All required fields present in each file ✅ Automated validation passes 100% ✅ Manual spot checks (30 files) pass quality review ✅ Aggregated metadata index generated ✅ L3 selection algorithm can query all needed data ✅ No 'REVIEW_REQUIRED' fields remain (batch mode) ✅ Backups safely stored ✅ Documentation updated with lessons learned
 
 ## Package Information
 
-**Version:** 1.0.0
-**Created:** 2025-01-15
-**Node Version:** >= 14.0.0
-**Dependencies:** js-yaml ^4.1.0
-**Total Scripts:** 2 core + 2 documentation
-**Total Lines:** ~1,500 lines of code
-**Test Coverage:** Automated validation built-in
+**Version:** 1.0.0 **Created:** 2025-01-15 **Node Version:** >= 14.0.0 **Dependencies:** js-yaml ^4.1.0 **Total Scripts:** 2 core + 2 documentation **Total Lines:** ~1,500 lines of code **Test Coverage:** Automated validation built-in
 
 ## License & Credits
 
-**Project:** Narramorph Fiction
-**System:** L2 Metadata Insertion Tooling
-**Purpose:** Enable L3 journey-responsive generation
+**Project:** Narramorph Fiction **System:** L2 Metadata Insertion Tooling **Purpose:** Enable L3 journey-responsive generation
 
 ---
 

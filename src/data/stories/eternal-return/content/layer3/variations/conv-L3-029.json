@@ -48,12 +48,7 @@
     ],
     "crossCharacterSynthesis": "archaeological-computational-balanced-devotion",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "arch-parallel-2047",
-      "algo-parallel-2151",
-      "hum-explored-2383",
-      "reader-fifth-present"
-    ],
+    "observerPositions": ["arch-parallel-2047", "algo-parallel-2151", "hum-explored-2383", "reader-fifth-present"],
     "philosophicalResolution": "accept-preservation-through-dual-devotional-witness",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

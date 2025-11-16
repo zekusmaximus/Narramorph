@@ -40,12 +40,7 @@
     "circularCausality": "minimal-immersive",
     "readerPosition": "not-addressed",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-crisis",
-      "professional-standards",
-      "methodological-boundaries",
-      "systematic-resistance"
-    ],
+    "primaryThemes": ["verification-crisis", "professional-standards", "methodological-boundaries", "systematic-resistance"],
     "crossCharacterSynthesis": "archaeologist-dominant-convergence",
     "temporalBleedingLevel": "low",
     "observerPositions": ["arch-primary-2047", "algo-contributory-2151", "hum-distant-2383"],

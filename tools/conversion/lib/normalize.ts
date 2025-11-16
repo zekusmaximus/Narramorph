@@ -44,11 +44,7 @@ export interface NormalizationResult {
 /**
  * Normalize text according to plan specifications
  */
-export function normalizeText(
-  text: string,
-  logger?: Logger,
-  filePath?: string,
-): NormalizationResult {
+export function normalizeText(text: string, logger?: Logger, filePath?: string): NormalizationResult {
   const warnings: string[] = [];
   let normalized = text;
 

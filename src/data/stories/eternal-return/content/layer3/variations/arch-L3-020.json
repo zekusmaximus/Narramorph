@@ -35,18 +35,9 @@
     "philosophicalCulmination": "Authentication discovered through shifting focus accepts that archaeological methodology provides what starting position indicated without achieving",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": [
-      "methodological-migration",
-      "archaeological-discovery",
-      "acceptance-through-shift",
-      "position-finding"
-    ],
+    "primaryThemes": ["methodological-migration", "archaeological-discovery", "acceptance-through-shift", "position-finding"],
     "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "archaeologist-primary-2047",
-      "starting-foundational-temporal",
-      "other-distant-temporal"
-    ]
+    "observerPositions": ["archaeologist-primary-2047", "starting-foundational-temporal", "other-distant-temporal"]
   }
 }

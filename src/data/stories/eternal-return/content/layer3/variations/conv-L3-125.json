@@ -40,12 +40,7 @@
     "circularCausality": "minimal",
     "readerPosition": "immersed-in-network",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-limitation",
-      "dual-boundary-maintenance",
-      "shared-insufficiency",
-      "ethical-duty"
-    ],
+    "primaryThemes": ["verification-limitation", "dual-boundary-maintenance", "shared-insufficiency", "ethical-duty"],
     "crossCharacterSynthesis": "dual-balanced-dialogue",
     "temporalBleedingLevel": "low",
     "observerPositions": ["primary-A-parallel", "primary-B-parallel", "tertiary-completion"],

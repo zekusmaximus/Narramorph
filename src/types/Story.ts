@@ -1,4 +1,9 @@
-import type { StoryNode, ConnectionType, ConnectionVisualProperties, RevealCondition } from './Node';
+import type {
+  StoryNode,
+  ConnectionType,
+  ConnectionVisualProperties,
+  RevealCondition,
+} from './Node';
 import type { ValidationError, ValidationWarning } from './Store';
 
 /**

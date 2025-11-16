@@ -1,8 +1,7 @@
-import { useRef } from 'react';
-
 import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
+import { useRef } from 'react';
+import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
 import CameraController, { DEFAULT_CAMERA_POSITION } from './CameraController';
 import SceneContent from './SceneContent';

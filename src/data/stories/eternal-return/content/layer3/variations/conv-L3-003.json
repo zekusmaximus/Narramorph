@@ -40,11 +40,7 @@
     "circularCausality": "explicit",
     "readerPosition": "acknowledged",
     "thematicContent": null,
-    "primaryThemes": [
-      "three-position-witness",
-      "substrate-symmetry",
-      "perfect-network-consciousness"
-    ],
+    "primaryThemes": ["three-position-witness", "substrate-symmetry", "perfect-network-consciousness"],
     "crossCharacterSynthesis": "triple-convergence-balanced",
     "temporalBleedingLevel": "high",
     "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383", "reader-fourth"],
