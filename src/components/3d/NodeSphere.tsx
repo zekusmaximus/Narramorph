@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { animated, useSpring } from '@react-spring/three';
 
 import { useStoryStore } from '@/stores';
@@ -81,7 +82,9 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
   }
 
   const handlePointerOver = () => {
-    if (isAnimating || !isAvailable) return; // No hover effects if animating or locked
+    if (isAnimating || !isAvailable) {
+      return; // No hover effects if animating or locked
+    }
     setIsHovered(true);
     document.body.style.cursor = 'pointer';
   };

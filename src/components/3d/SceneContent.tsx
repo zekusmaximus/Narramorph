@@ -1,10 +1,12 @@
 import { useEffect, useMemo } from 'react';
 
-import NodeSphere from './NodeSphere';
-import PlaneGuide from './PlaneGuide';
+import type { CharacterType, StoryNode } from '@/types';
+
 import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';
-import type { StoryNode, CharacterType } from '@/types';
+
+import NodeSphere from './NodeSphere';
+import PlaneGuide from './PlaneGuide';
 
 /**
  * Character metadata for visual guides (matches tailwind config)
@@ -54,7 +56,9 @@ export default function SceneContent() {
 
     accessibleNodes.forEach((node) => {
       // Nodes already filtered to exclude multi-perspective entries, but double-check to be safe
-      if (node.character === 'multi-perspective') return;
+      if (node.character === 'multi-perspective') {
+        return;
+      }
 
       const char = node.character;
       if (!charMap.has(char)) {
@@ -128,7 +132,9 @@ export default function SceneContent() {
       {/* Character layer guides */}
       {visibleCharacters.map((character, index) => {
         const metadata = CHARACTER_METADATA[character.type];
-        if (!metadata) return null;
+        if (!metadata) {
+          return null;
+        }
 
         return (
           <PlaneGuide
@@ -143,7 +149,9 @@ export default function SceneContent() {
       {/* Node spheres */}
       {allNodes.map((node) => {
         const position = positions[node.id];
-        if (!position) return null;
+        if (!position) {
+          return null;
+        }
 
         return <NodeSphere key={node.id} nodeId={node.id} position={position} />;
       })}

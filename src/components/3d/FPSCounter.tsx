@@ -9,7 +9,9 @@ export default function FPSCounter() {
 
   useEffect(() => {
     // Only run in development mode
-    if (!import.meta.env.DEV) return undefined;
+    if (!import.meta.env.DEV) {
+      return undefined;
+    }
 
     let frameCount = 0;
     let lastTime = performance.now();
@@ -38,7 +40,9 @@ export default function FPSCounter() {
   }, []);
 
   // Don't render in production
-  if (!import.meta.env.DEV) return null;
+  if (!import.meta.env.DEV) {
+    return null;
+  }
 
   return (
     <div className="fixed top-4 right-4 z-100 bg-black/70 text-white px-3 py-1.5 rounded-lg font-mono text-sm backdrop-blur-sm pointer-events-none">

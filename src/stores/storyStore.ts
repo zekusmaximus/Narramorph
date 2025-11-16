@@ -1270,7 +1270,7 @@ export const useStoryStore = create<StoryStore>()(
       });
     },
 
-    openStoryView: async (nodeId: string, opts?: { variationId?: string }) => {
+    openStoryView: (nodeId: string, opts?: { variationId?: string }) => {
       const state = get();
 
       // GATE: Prevent navigation during camera animation
