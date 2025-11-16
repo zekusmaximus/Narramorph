@@ -133,11 +133,15 @@ function formatTime(seconds: number): string {
  * Supports bold, italic, and paragraph formatting
  */
 function parseMarkdown(content: string): ReactNode {
+  // Strip YAML frontmatter if present (format: ---metadata\n---\n or ---\nmetadata\n---\n)
+  const frontmatterRegex = /^---[\s\S]*?\n---\n+/;
+  const cleanContent = content.replace(frontmatterRegex, '');
+
   // Split into paragraphs - L1 nodes use double newlines, L2 nodes use single newlines
   // Try double newlines first, fall back to single newlines if we only get one paragraph
-  let paragraphs = content.split('\n\n').filter((p) => p.trim());
+  let paragraphs = cleanContent.split('\n\n').filter((p) => p.trim());
   if (paragraphs.length === 1) {
-    paragraphs = content.split('\n').filter((p) => p.trim());
+    paragraphs = cleanContent.split('\n').filter((p) => p.trim());
   }
 
   return paragraphs.map((paragraph, pIndex) => {
