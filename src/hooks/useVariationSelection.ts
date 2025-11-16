@@ -10,6 +10,10 @@ import { findMatchingVariation } from '@/utils/conditionEvaluator';
 import { loadVariationFile } from '@/utils/variationLoader';
 
 const isDevEnv = process.env.NODE_ENV !== 'production';
+
+// Render counter to detect StrictMode double-rendering
+let renderCount = 0;
+
 const devLog = (...args: unknown[]): void => {
   if (!isDevEnv) {
     return;
@@ -92,13 +96,9 @@ export function useVariationSelection(
   );
 
   return useMemo(() => {
-    const triggerSummary = [
-      variationTriggers.temporalAwareness,
-      variationTriggers.visitCount,
-      variationTriggers.currentState,
-      variationTriggers.journeyPattern,
-      variationTriggers.philosophy,
-    ].join('|');
+    // Increment render counter for tracking
+    renderCount++;
+    const currentRender = renderCount;
 
     // Early return if no node
     if (!nodeId) {
@@ -112,6 +112,9 @@ export function useVariationSelection(
       };
     }
 
+    // Log render marker to track StrictMode double-renders
+    devLog(`🎬 RENDER #${currentRender} for ${nodeId}`);
+
     try {
       // Step 1: Get current reader state (with recent variations for de-duplication)
       const context = getConditionContext(nodeId, { includeRecentVariations: true });
@@ -123,11 +126,7 @@ export function useVariationSelection(
       if (!variationFile || !variationFile.variations || variationFile.variations.length === 0) {
         // No variations available - use fallback
         if (fallbackContent) {
-          devWarn(
-            'No variations found for %s, using fallback (triggers: %s)',
-            nodeId,
-            triggerSummary,
-          );
+          devWarn(`⚠️  No variation file for ${nodeId}, using fallback content`);
           return {
             content: fallbackContent,
             variationId: null,
@@ -146,11 +145,7 @@ export function useVariationSelection(
 
       if (!matchedVariation) {
         // No match found - use first variation as fallback
-        devWarn(
-          'No matching variation for %s, using first available (triggers: %s)',
-          nodeId,
-          triggerSummary,
-        );
+        devWarn(`⚠️  No matching variation for ${nodeId}, using first available`);
         const firstVariation = variationFile.variations[0];
         const firstVarId =
           firstVariation.variationId ||
@@ -174,7 +169,10 @@ export function useVariationSelection(
         matchedVariation.id ||
         matchedVariation.metadata?.variationId ||
         'unknown';
-      devLog('Selected %s for %s (triggers: %s)', varId, nodeId, triggerSummary);
+
+      // Final selection log - important for tracking choice order for PDF
+      devLog(`📝 CHOICE RECORDED: ${nodeId} → ${varId} [render #${currentRender}]`);
+
       return {
         content: matchedVariation.content,
         variationId: varId,
@@ -184,12 +182,7 @@ export function useVariationSelection(
         usedFallback: false,
       };
     } catch (error) {
-      devError(
-        'Error selecting variation (node %s, triggers: %s): %o',
-        nodeId,
-        triggerSummary,
-        error,
-      );
+      devError(`❌ Error selecting variation for ${nodeId}: %o`, error);
 
       return {
         content: fallbackContent || '',
