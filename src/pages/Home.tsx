@@ -30,7 +30,13 @@ function ErrorFallback({ error }: { error: Error }) {
  * WebGL error fallback component
  * Automatically switches to 2D mode when WebGL fails
  */
-function WebGLErrorFallback({ error: _error, onFallbackTo2D }: { error: Error; onFallbackTo2D: () => void }) {
+function WebGLErrorFallback({
+  error: _error,
+  onFallbackTo2D,
+}: {
+  error: Error;
+  onFallbackTo2D: () => void;
+}) {
   useEffect(() => {
     // Automatically switch to 2D mode
     onFallbackTo2D();
@@ -41,7 +47,9 @@ function WebGLErrorFallback({ error: _error, onFallbackTo2D }: { error: Error; o
       <div className="max-w-md text-center">
         <div className="text-6xl mb-4">⚠️</div>
         <h2 className="text-2xl font-bold mb-4">WebGL Not Supported</h2>
-        <p className="text-gray-300 mb-4">Your browser or device doesn&apos;t support WebGL, which is required for 3D visualization.</p>
+        <p className="text-gray-300 mb-4">
+          Your browser or device doesn&apos;t support WebGL, which is required for 3D visualization.
+        </p>
         <p className="text-sm text-gray-400">Automatically switching to 2D view...</p>
       </div>
     </div>
@@ -107,10 +115,13 @@ export default function Home() {
         className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6"
       >
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">Eternal Return of the Digital Self</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">
+            Eternal Return of the Digital Self
+          </h1>
           <p className="text-blue-100 text-lg max-w-2xl">
-            Experience a recursive narrative exploring digital consciousness across time. Navigate through interconnected nodes to uncover
-            the story of three perspectives: the Archaeologist, the Algorithm, and the Human.
+            Experience a recursive narrative exploring digital consciousness across time. Navigate
+            through interconnected nodes to uncover the story of three perspectives: the
+            Archaeologist, the Algorithm, and the Human.
           </p>
           <div className="mt-4 flex items-center space-x-4 text-sm">
             <span className="bg-blue-500/30 px-3 py-1 rounded-full">Interactive Narrative</span>
@@ -122,7 +133,11 @@ export default function Home() {
 
       {/* Main content area with node map */}
       <div className="flex-1 relative">
-        <ErrorBoundary fallbackRender={({ error }) => <WebGLErrorFallback error={error} onFallbackTo2D={handleFallbackTo2D} />}>
+        <ErrorBoundary
+          fallbackRender={({ error }) => (
+            <WebGLErrorFallback error={error} onFallbackTo2D={handleFallbackTo2D} />
+          )}
+        >
           {use3DMode ? (
             <>
               <NarromorphCanvas />

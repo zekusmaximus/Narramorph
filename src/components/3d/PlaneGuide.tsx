@@ -1,5 +1,6 @@
-import { Billboard, Text } from '@react-three/drei';
 import { DoubleSide } from 'three';
+
+import { Billboard, Text } from '@react-three/drei';
 
 interface PlaneGuideProps {
   zPosition: number;
@@ -11,14 +12,25 @@ interface PlaneGuideProps {
 /**
  * Visual guide plane for character layers
  */
-export default function PlaneGuide({ zPosition, color, label, showPlane = false }: PlaneGuideProps) {
+export default function PlaneGuide({
+  zPosition,
+  color,
+  label,
+  showPlane = false,
+}: PlaneGuideProps) {
   return (
     <>
       {/* Optional translucent guide plane */}
       {showPlane && (
         <mesh position={[0, 0, zPosition]}>
           <planeGeometry args={[80, 80]} />
-          <meshBasicMaterial color={color} opacity={0.02} transparent side={DoubleSide} depthWrite={false} />
+          <meshBasicMaterial
+            color={color}
+            opacity={0.02}
+            transparent
+            side={DoubleSide}
+            depthWrite={false}
+          />
         </mesh>
       )}
 

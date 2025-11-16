@@ -56,7 +56,10 @@ export function BootSequence({ onComplete }: BootSequenceProps) {
                 <span className="text-green-400">{'>'}</span>
                 <span>{line}</span>
                 {i === currentLine && (
-                  <motion.span animate={{ opacity: [1, 0, 1] }} transition={{ duration: 0.8, repeat: Infinity }}>
+                  <motion.span
+                    animate={{ opacity: [1, 0, 1] }}
+                    transition={{ duration: 0.8, repeat: Infinity }}
+                  >
                     _
                   </motion.span>
                 )}

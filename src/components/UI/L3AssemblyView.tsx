@@ -3,8 +3,7 @@
  */
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import type React from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo, type ReactNode } from 'react';
 
 import { useStoryStore } from '@/stores/storyStore';
 import type { L3Assembly } from '@/types';
@@ -14,7 +13,7 @@ import { getL3AssemblySections } from '@/utils/l3Assembly';
  * Simple markdown parser for story content
  * Supports bold, italic, and paragraph formatting
  */
-function parseMarkdown(content: string): React.ReactNode {
+function parseMarkdown(content: string): ReactNode {
   // Split into paragraphs
   const paragraphs = content.split('\n\n').filter((p) => p.trim());
 
@@ -23,7 +22,7 @@ function parseMarkdown(content: string): React.ReactNode {
     let key = 0;
 
     // Process text with bold and italic formatting
-    const processedParts: React.ReactNode[] = [];
+    const processedParts: ReactNode[] = [];
 
     // Regex patterns for markdown formatting
     const boldPattern = /(\*\*|__)(.*?)\1/g;
@@ -83,7 +82,9 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   const markL3SectionRead = useStoryStore((state) => state.markL3SectionRead);
   const finalizeActiveVisit = useStoryStore((state) => state.finalizeActiveVisit);
-  const l3Progress = useStoryStore((state) => state.progress.l3AssembliesViewed?.[state.progress.l3AssembliesViewed.length - 1]);
+  const l3Progress = useStoryStore(
+    (state) => state.progress.l3AssembliesViewed?.[state.progress.l3AssembliesViewed.length - 1],
+  );
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const sections = useMemo(() => getL3AssemblySections(assembly), [assembly]);
@@ -215,7 +216,10 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
               </div>
             </div>
             {onClose && (
-              <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors font-mono text-sm">
+              <button
+                onClick={onClose}
+                className="text-gray-400 hover:text-white transition-colors font-mono text-sm"
+              >
                 [ESC]
               </button>
             )}
@@ -264,11 +268,17 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
               transition={{ duration: 0.3 }}
               className="p-8"
             >
-              <h3 className={`text-xl font-mono mb-4 ${characterTextColors[currentSection.character as keyof typeof characterTextColors]}`}>
+              <h3
+                className={`text-xl font-mono mb-4 ${characterTextColors[currentSection.character as keyof typeof characterTextColors]}`}
+              >
                 {currentSection.title}
               </h3>
-              <div className="text-xs text-gray-400 font-mono mb-6">{currentSection.wordCount} words</div>
-              <div className="prose prose-invert prose-cyan max-w-none text-gray-200">{parseMarkdown(currentSection.content)}</div>
+              <div className="text-xs text-gray-400 font-mono mb-6">
+                {currentSection.wordCount} words
+              </div>
+              <div className="prose prose-invert prose-cyan max-w-none text-gray-200">
+                {parseMarkdown(currentSection.content)}
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>

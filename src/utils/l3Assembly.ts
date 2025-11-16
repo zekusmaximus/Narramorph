@@ -2,7 +2,13 @@
  * L3 Assembly Builder - constructs 4-section convergence assemblies
  */
 
-import type { L3Assembly, L3AssemblySection, ConditionContext, SynthesisPattern, VariationFile } from '@/types';
+import type {
+  L3Assembly,
+  L3AssemblySection,
+  ConditionContext,
+  SynthesisPattern,
+  VariationFile,
+} from '@/types';
 
 import { findMatchingVariation } from './conditionEvaluator';
 import { performanceMonitor } from './performanceMonitor';
@@ -11,7 +17,11 @@ import { loadL3Variations } from './variationLoader';
 /**
  * Calculate synthesis pattern based on character visit percentages
  */
-export function calculateSynthesisPattern(percentages: { archaeologist: number; algorithm: number; lastHuman: number }): SynthesisPattern {
+export function calculateSynthesisPattern(percentages: {
+  archaeologist: number;
+  algorithm: number;
+  lastHuman: number;
+}): SynthesisPattern {
   const { archaeologist, algorithm, lastHuman } = percentages;
   const max = Math.max(archaeologist, algorithm, lastHuman);
 
@@ -22,7 +32,11 @@ export function calculateSynthesisPattern(percentages: { archaeologist: number; 
 
   // True-triad: All three characters ~33% each (within 15% of each other)
   const avg = (archaeologist + algorithm + lastHuman) / 3;
-  const maxDiff = Math.max(Math.abs(archaeologist - avg), Math.abs(algorithm - avg), Math.abs(lastHuman - avg));
+  const maxDiff = Math.max(
+    Math.abs(archaeologist - avg),
+    Math.abs(algorithm - avg),
+    Math.abs(lastHuman - avg),
+  );
 
   if (maxDiff < 15) {
     return 'true-triad';
@@ -100,7 +114,8 @@ export function buildL3Assembly(storyId: string, context: ConditionContext): L3A
     return null;
   }
 
-  const totalWordCount = archSection.wordCount + algoSection.wordCount + humSection.wordCount + convSection.wordCount;
+  const totalWordCount =
+    archSection.wordCount + algoSection.wordCount + humSection.wordCount + convSection.wordCount;
 
   const result = {
     arch: archSection,
@@ -111,7 +126,12 @@ export function buildL3Assembly(storyId: string, context: ConditionContext): L3A
     metadata: {
       journeyPattern: context.journeyPattern,
       pathPhilosophy: context.pathPhilosophy,
-      awarenessLevel: context.awareness < 35 ? ('low' as const) : context.awareness < 70 ? ('medium' as const) : ('high' as const),
+      awarenessLevel:
+        context.awareness < 35
+          ? ('low' as const)
+          : context.awareness < 70
+            ? ('medium' as const)
+            : ('high' as const),
       synthesisPattern,
       convergenceAlignment: convSection.metadata.convergenceAlignment,
     },
@@ -204,12 +224,21 @@ export function validateL3Assembly(assembly: L3Assembly): {
   }
 
   // Check word counts (approximate expected ranges)
-  const checkWordCount = (section: L3AssemblySection, name: string, expectedMin: number, expectedMax: number) => {
+  const checkWordCount = (
+    section: L3AssemblySection,
+    name: string,
+    expectedMin: number,
+    expectedMax: number,
+  ) => {
     if (section.wordCount < expectedMin) {
-      warnings.push(`${name} section word count (${section.wordCount}) below expected minimum (${expectedMin})`);
+      warnings.push(
+        `${name} section word count (${section.wordCount}) below expected minimum (${expectedMin})`,
+      );
     }
     if (section.wordCount > expectedMax) {
-      warnings.push(`${name} section word count (${section.wordCount}) above expected maximum (${expectedMax})`);
+      warnings.push(
+        `${name} section word count (${section.wordCount}) above expected maximum (${expectedMax})`,
+      );
     }
   };
 
@@ -230,7 +259,9 @@ export function validateL3Assembly(assembly: L3Assembly): {
   const expectedTotal = 4200; // Approximate expected total
   const tolerance = 500;
   if (Math.abs(assembly.totalWordCount - expectedTotal) > tolerance) {
-    warnings.push(`Total word count (${assembly.totalWordCount}) differs from expected (~${expectedTotal})`);
+    warnings.push(
+      `Total word count (${assembly.totalWordCount}) differs from expected (~${expectedTotal})`,
+    );
   }
 
   return {

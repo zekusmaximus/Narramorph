@@ -12,7 +12,9 @@ export function NeuralNetwork() {
 
   // Find algorithm nodes that have been visited
   const algorithmNodes = useMemo(() => {
-    return Array.from(nodes.values()).filter((node) => node.character === 'algorithm' && progress.visitedNodes[node.id]);
+    return Array.from(nodes.values()).filter(
+      (node) => node.character === 'algorithm' && progress.visitedNodes[node.id],
+    );
   }, [nodes, progress.visitedNodes]);
 
   if (algorithmNodes.length < 2) {

@@ -47,7 +47,11 @@ export default function FPSCounter() {
   return (
     <div className="fixed top-4 right-4 z-100 bg-black/70 text-white px-3 py-1.5 rounded-lg font-mono text-sm backdrop-blur-sm pointer-events-none">
       <span className="text-gray-400">FPS:</span>{' '}
-      <span className={fps >= 55 ? 'text-green-400' : fps >= 30 ? 'text-yellow-400' : 'text-red-400'}>{fps}</span>
+      <span
+        className={fps >= 55 ? 'text-green-400' : fps >= 30 ? 'text-yellow-400' : 'text-red-400'}
+      >
+        {fps}
+      </span>
     </div>
   );
 }

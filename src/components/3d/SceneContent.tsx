@@ -135,7 +135,14 @@ export default function SceneContent() {
           return null;
         }
 
-        return <PlaneGuide key={`guide-${character.type}`} zPosition={index * 25} color={metadata.color} label={metadata.label} />;
+        return (
+          <PlaneGuide
+            key={`guide-${character.type}`}
+            zPosition={index * 25}
+            color={metadata.color}
+            label={metadata.label}
+          />
+        );
       })}
 
       {/* Node spheres */}

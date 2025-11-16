@@ -204,7 +204,9 @@ export default function ContentPanel3D() {
               <p className="text-sm text-yellow-800">
                 <strong>Note:</strong> Dynamic content unavailable. Showing fallback content.
               </p>
-              {usedFallback && <p className="text-xs text-yellow-600 mt-1">Using static variation instead.</p>}
+              {usedFallback && (
+                <p className="text-xs text-yellow-600 mt-1">Using static variation instead.</p>
+              )}
             </div>
           )}
 

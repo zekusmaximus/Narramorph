@@ -73,7 +73,10 @@ export function getEdgeStyle(connectionType: ConnectionType): CSSProperties {
 /**
  * Convert story connections to React Flow edges
  */
-export function convertToReactFlowEdges(storyNodes: Map<string, StoryNode>, progress: UserProgress): Edge[] {
+export function convertToReactFlowEdges(
+  storyNodes: Map<string, StoryNode>,
+  progress: UserProgress,
+): Edge[] {
   const edges: Edge[] = [];
 
   for (const node of storyNodes.values()) {

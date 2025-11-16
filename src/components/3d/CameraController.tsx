@@ -65,7 +65,11 @@ export default function CameraController({ controlsRef }: CameraControllerProps)
       return;
     }
 
-    controlsRef.current.target.set(DEFAULT_CAMERA_TARGET[0], DEFAULT_CAMERA_TARGET[1], DEFAULT_CAMERA_TARGET[2]);
+    controlsRef.current.target.set(
+      DEFAULT_CAMERA_TARGET[0],
+      DEFAULT_CAMERA_TARGET[1],
+      DEFAULT_CAMERA_TARGET[2],
+    );
     controlsRef.current.update();
   }, [controlsRef]);
 

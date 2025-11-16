@@ -65,7 +65,9 @@ class PerformanceMonitor {
     max: number;
     p95: number;
   } | null {
-    const operationMetrics = this.metrics.filter((m) => m.operation === operation).map((m) => m.duration);
+    const operationMetrics = this.metrics
+      .filter((m) => m.operation === operation)
+      .map((m) => m.duration);
 
     if (operationMetrics.length === 0) {
       return null;

@@ -10,10 +10,9 @@ import {
   type OnNodesChange,
   type OnEdgesChange,
 } from '@xyflow/react';
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import type React from 'react';
 import '@xyflow/react/dist/style.css';
 import { motion } from 'framer-motion';
+import { useCallback, useEffect, useMemo, useState, type MouseEvent } from 'react';
 
 import { useStoryStore } from '@/stores';
 import type { StoryNode, NodeUIState } from '@/types';
@@ -116,7 +115,15 @@ const nodeTypes = {
  * Interactive node map component with React Flow visualization
  */
 export default function NodeMap({ className = '' }: NodeMapProps) {
-  const { nodes: storyNodes, selectedNode, selectNode, openStoryView, getNodeState, progress, canVisitNode } = useStoryStore();
+  const {
+    nodes: storyNodes,
+    selectedNode,
+    selectNode,
+    openStoryView,
+    getNodeState,
+    progress,
+    canVisitNode,
+  } = useStoryStore();
 
   // State for atmospheric effects
   const [glitchActive, setGlitchActive] = useState(false);
@@ -138,7 +145,10 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
     [storyNodes, getNodeState, selectedNode, canVisitNode],
   );
 
-  const initialEdges = useMemo(() => convertToReactFlowEdges(storyNodes, progress), [storyNodes, progress]);
+  const initialEdges = useMemo(
+    () => convertToReactFlowEdges(storyNodes, progress),
+    [storyNodes, progress],
+  );
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -166,7 +176,7 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
 
   // Handle node click - select and open story view
   const onNodeClick = useCallback(
-    (_event: React.MouseEvent, node: Node) => {
+    (_event: MouseEvent, node: Node) => {
       const nodeData = node.data as { node: StoryNode };
       const visitRecord = progress.visitedNodes[node.id];
 
@@ -236,7 +246,8 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at center, transparent 0%, rgba(10, 14, 18, 0.8) 100%)',
+          background:
+            'radial-gradient(ellipse at center, transparent 0%, rgba(10, 14, 18, 0.8) 100%)',
         }}
       />
 
@@ -364,10 +375,19 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
           preventScrolling={true}
         >
           {/* Background grid with subtle pattern */}
-          <Background color="#1a2332" gap={32} size={1} variant={BackgroundVariant.Lines} style={{ opacity: 0.15 }} />
+          <Background
+            color="#1a2332"
+            gap={32}
+            size={1}
+            variant={BackgroundVariant.Lines}
+            style={{ opacity: 0.15 }}
+          />
 
           {/* Zoom/pan controls */}
-          <Controls className="bg-black/80 backdrop-blur-sm shadow-lg rounded border border-gray-700/50" showInteractive={false} />
+          <Controls
+            className="bg-black/80 backdrop-blur-sm shadow-lg rounded border border-gray-700/50"
+            showInteractive={false}
+          />
 
           {/* Mini-map for overview */}
           <MiniMap
@@ -385,7 +405,11 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
       <motion.div
         className="absolute top-4 left-4 bg-black/90 backdrop-blur-sm px-4 py-3 rounded border border-cyan-500/30 shadow-lg shadow-cyan-500/20 font-mono max-w-xs pointer-events-none"
         animate={{
-          boxShadow: ['0 0 20px rgba(0, 229, 255, 0.2)', '0 0 30px rgba(0, 229, 255, 0.3)', '0 0 20px rgba(0, 229, 255, 0.2)'],
+          boxShadow: [
+            '0 0 20px rgba(0, 229, 255, 0.2)',
+            '0 0 30px rgba(0, 229, 255, 0.3)',
+            '0 0 20px rgba(0, 229, 255, 0.2)',
+          ],
         }}
         transition={{
           duration: 2,
@@ -432,10 +456,14 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
           </div>
           <div className="flex items-center justify-between">
             <span className="text-gray-500">STATE:</span>
-            <span className="text-purple-400 font-semibold text-[10px]">{visitedCount === 0 ? 'INITIAL' : 'ACTIVE'}</span>
+            <span className="text-purple-400 font-semibold text-[10px]">
+              {visitedCount === 0 ? 'INITIAL' : 'ACTIVE'}
+            </span>
           </div>
         </div>
-        <div className="text-xs text-cyan-400 mt-2 pt-2 border-t border-cyan-500/30">└────────────────────────┘</div>
+        <div className="text-xs text-cyan-400 mt-2 pt-2 border-t border-cyan-500/30">
+          └────────────────────────┘
+        </div>
       </motion.div>
 
       {/* Corruption meter */}
@@ -443,23 +471,36 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
 
       {/* Legend - Cyberpunk style */}
       <div className="absolute bottom-20 left-4 bg-black/90 backdrop-blur-sm px-4 py-3 rounded border border-gray-700/50 shadow-lg font-mono pointer-events-none">
-        <div className="text-xs font-semibold text-gray-400 mb-2 tracking-wider uppercase">Characters</div>
+        <div className="text-xs font-semibold text-gray-400 mb-2 tracking-wider uppercase">
+          Characters
+        </div>
         <div className="space-y-1.5 text-xs">
           <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 rounded-full bg-gradient-to-br from-cyan-400 to-teal-700" style={{ boxShadow: '0 0 8px #00e5ff' }} />
+            <div
+              className="w-3 h-3 rounded-full bg-gradient-to-br from-cyan-400 to-teal-700"
+              style={{ boxShadow: '0 0 8px #00e5ff' }}
+            />
             <span className="text-gray-300">Archaeologist 🔍</span>
           </div>
           <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 rounded-full bg-gradient-to-br from-green-400 to-purple-600" style={{ boxShadow: '0 0 8px #39ff14' }} />
+            <div
+              className="w-3 h-3 rounded-full bg-gradient-to-br from-green-400 to-purple-600"
+              style={{ boxShadow: '0 0 8px #39ff14' }}
+            />
             <span className="text-gray-300">Algorithm 🧠</span>
           </div>
           <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 rounded-full bg-gradient-to-br from-red-600 to-red-900" style={{ boxShadow: '0 0 8px #d32f2f' }} />
+            <div
+              className="w-3 h-3 rounded-full bg-gradient-to-br from-red-600 to-red-900"
+              style={{ boxShadow: '0 0 8px #d32f2f' }}
+            />
             <span className="text-gray-300">Human 👤</span>
           </div>
         </div>
 
-        <div className="text-xs font-semibold text-gray-400 mb-2 mt-3 tracking-wider uppercase">Connections</div>
+        <div className="text-xs font-semibold text-gray-400 mb-2 mt-3 tracking-wider uppercase">
+          Connections
+        </div>
         <div className="space-y-1.5 text-xs">
           <div className="flex items-center space-x-2">
             <div
@@ -485,7 +526,8 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
             <div
               className="w-4 h-0.5"
               style={{
-                background: 'repeating-linear-gradient(to right, #39ff14 0, #39ff14 3px, transparent 3px, transparent 8px)',
+                background:
+                  'repeating-linear-gradient(to right, #39ff14 0, #39ff14 3px, transparent 3px, transparent 8px)',
                 boxShadow: '0 0 4px #39ff14',
               }}
             />

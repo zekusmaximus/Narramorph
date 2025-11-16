@@ -36,7 +36,15 @@ export type {
 } from './Store';
 
 // Story types
-export type { Connection, StoryMetadata, StoryConfiguration, StoryData, MigrationStrategy, StoryManifest, StoryDefinition } from './Story';
+export type {
+  Connection,
+  StoryMetadata,
+  StoryConfiguration,
+  StoryData,
+  MigrationStrategy,
+  StoryManifest,
+  StoryDefinition,
+} from './Story';
 
 // Variation system types
 export type {
