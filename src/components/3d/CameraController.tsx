@@ -1,6 +1,7 @@
 import { RefObject, useEffect, useMemo, useRef } from 'react';
-import { useThree, useFrame } from '@react-three/fiber';
+
 import { useSpring } from '@react-spring/three';
+import { useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
 import { useStoryStore } from '@/stores';
@@ -93,7 +94,7 @@ export default function CameraController({ controlsRef }: CameraControllerProps)
     previousTargetRef.current = target;
     previousPositionRef.current = cameraTargetPos;
 
-    api.start({
+    void api.start({
       position: cameraTargetPos,
       target,
       onStart: () => {

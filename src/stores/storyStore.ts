@@ -515,7 +515,9 @@ export const useStoryStore = create<StoryStore>()(
             validation.missing,
           );
         } else {
-          devLog(`[Journey] ✓ INIT #${initializationCount}: All L2 nodes have valid philosophy mappings`);
+          devLog(
+            `[Journey] ✓ INIT #${initializationCount}: All L2 nodes have valid philosophy mappings`,
+          );
         }
 
         // TODO: Add success notification
@@ -1268,7 +1270,7 @@ export const useStoryStore = create<StoryStore>()(
       });
     },
 
-    openStoryView: async (nodeId: string, opts?: { variationId?: string }) => {
+    openStoryView: (nodeId: string, opts?: { variationId?: string }) => {
       const state = get();
 
       // GATE: Prevent navigation during camera animation

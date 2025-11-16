@@ -1,10 +1,11 @@
-import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
+
+import { AnimatePresence, motion } from 'framer-motion';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import NarromorphCanvas from '@/components/3d/NarromorphCanvas';
-import LoadingState from '@/components/3d/LoadingState';
 import FPSCounter from '@/components/3d/FPSCounter';
+import LoadingState from '@/components/3d/LoadingState';
+import NarromorphCanvas from '@/components/3d/NarromorphCanvas';
 import ContentPanel3D from '@/components/ContentPanel3D';
 import NodeMap from '@/components/NodeMap';
 import StoryView from '@/components/StoryView';
@@ -91,7 +92,9 @@ export default function Home() {
     loadProgress();
 
     // Load default story (placeholder for now)
-    loadStory('eternal-return');
+    void loadStory('eternal-return').catch((err) => {
+      console.error('[Home] Failed to load story:', err);
+    });
   }, [loadStory, loadProgress]);
 
   // Fallback to 2D mode on WebGL error

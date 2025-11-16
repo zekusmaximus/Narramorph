@@ -74,18 +74,24 @@ export default function ContentPanel3D() {
   const [timeSpent, setTimeSpent] = useState(0);
 
   const currentNode: StoryNode | null = useMemo(() => {
-    if (!selectedNode) return null;
+    if (!selectedNode) {
+      return null;
+    }
     return nodes.get(selectedNode) || null;
   }, [nodes, selectedNode]);
 
   const nodeState = useMemo(() => {
-    if (!selectedNode) return null;
+    if (!selectedNode) {
+      return null;
+    }
     return getNodeState(selectedNode);
   }, [selectedNode, getNodeState]);
 
   // Get fallback content
   const fallbackContent = useMemo(() => {
-    if (!currentNode || !nodeState) return '';
+    if (!currentNode || !nodeState) {
+      return '';
+    }
     return currentNode.content[nodeState.currentState];
   }, [currentNode, nodeState]);
 
@@ -99,13 +105,17 @@ export default function ContentPanel3D() {
 
   // Get theme
   const theme = useMemo(() => {
-    if (!currentNode) return characterThemes.archaeologist;
+    if (!currentNode) {
+      return characterThemes.archaeologist;
+    }
     return characterThemes[currentNode.character];
   }, [currentNode]);
 
   // Track reading time
   useEffect(() => {
-    if (!storyViewOpen || !selectedNode) return undefined;
+    if (!storyViewOpen || !selectedNode) {
+      return undefined;
+    }
 
     const startTime = Date.now();
     const interval = setInterval(() => {
@@ -200,9 +210,7 @@ export default function ContentPanel3D() {
             </div>
           )}
 
-          <div className="prose prose-lg max-w-none">
-            {parseMarkdown(currentContent)}
-          </div>
+          <div className="prose prose-lg max-w-none">{parseMarkdown(currentContent)}</div>
 
           {/* Reading time tracker */}
           <div className="mt-8 pt-4 border-t border-gray-200 text-sm text-gray-500">
