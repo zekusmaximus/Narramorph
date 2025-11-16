@@ -6,8 +6,7 @@ conditions:
   visit_count: 3
   awareness: 'high_with_path_history'
   cross_character: true
-  visited_nodes:
-    ['arch-L1-accept', 'arch-L1-resist', 'arch-L1-investigate', 'algo-L2-accept', 'arch-L2-accept']
+  visited_nodes: ['arch-L1-accept', 'arch-L1-resist', 'arch-L1-investigate', 'algo-L2-accept', 'arch-L2-accept']
   dominant_path: 'accept'
 themes:
   - Acceptance chosen after exploring alternatives

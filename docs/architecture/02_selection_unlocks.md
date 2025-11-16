@@ -1,8 +1,6 @@
 # Variation Selection & Unlocks Scan
 
-**Generated:** 2025-11-12
-**Scope:** Read-only analysis of variation selection and unlock evaluation (Task 2)
-**Files Analyzed:** `useVariationSelection.ts`, `variationLoader.ts`, `unlockLoader.ts`, `unlockEvaluator.ts`, `l3Assembly.ts`, `conditionEvaluator.ts`, `unlock-config.json`
+**Generated:** 2025-11-12 **Scope:** Read-only analysis of variation selection and unlock evaluation (Task 2) **Files Analyzed:** `useVariationSelection.ts`, `variationLoader.ts`, `unlockLoader.ts`, `unlockEvaluator.ts`, `l3Assembly.ts`, `conditionEvaluator.ts`, `unlock-config.json`
 
 ---
 
@@ -109,16 +107,14 @@ const l4VariationFiles = import.meta.glob('/src/data/stories/*/content/layer4/*-
 3. **Journey Pattern (line 128):**
 
    ```typescript
-   if (meta.journeyPattern !== 'unknown' && meta.journeyPattern !== context.journeyPattern)
-     return false;
+   if (meta.journeyPattern !== 'unknown' && meta.journeyPattern !== context.journeyPattern) return false;
    ```
 
    Skip if metadata is `'unknown'`, otherwise must match
 
 4. **Philosophy (line 134):**
    ```typescript
-   if (meta.philosophyDominant !== 'unknown' && meta.philosophyDominant !== context.pathPhilosophy)
-     return false;
+   if (meta.philosophyDominant !== 'unknown' && meta.philosophyDominant !== context.pathPhilosophy) return false;
    ```
    Skip if metadata is `'unknown'`, otherwise must match
 
@@ -286,15 +282,15 @@ const unlockConfigFiles = import.meta.glob('/src/data/stories/*/unlock-config.js
 
 ### Variation Selection Signals
 
-| Signal                   | Source                              | Used In Matching?  | Notes                                                                 |
-| ------------------------ | ----------------------------------- | ------------------ | --------------------------------------------------------------------- |
-| **Transformation State** | `context.transformationState`       | ✅ **PRIMARY**     | `'initial'` \| `'firstRevisit'` \| `'metaAware'` — Must match exactly |
-| **Awareness (numeric)**  | `context.awareness` (0-100)         | ✅ **Range**       | Must fall within variation's `awarenessRange: [min, max]`             |
-| **Journey Pattern**      | `context.journeyPattern`            | ✅ **Conditional** | Matched if variation metadata ≠ `'unknown'`                           |
-| **Path Philosophy**      | `context.pathPhilosophy`            | ✅ **Conditional** | Matched if variation metadata ≠ `'unknown'`                           |
-| **Visit Count**          | `context.visitCount`                | ❌ **No**          | Included in context but not used in `findMatchingVariation()`         |
-| **Character Visit %**    | `context.characterVisitPercentages` | ⚠️ **L3 only**     | Used to calculate `synthesisPattern` for L3 conv section              |
-| **Node ID**              | `context.nodeId`                    | ❌ **No**          | Used for logging, not matching                                        |
+| Signal | Source | Used In Matching? | Notes |
+| --- | --- | --- | --- |
+| **Transformation State** | `context.transformationState` | ✅ **PRIMARY** | `'initial'` \| `'firstRevisit'` \| `'metaAware'` — Must match exactly |
+| **Awareness (numeric)** | `context.awareness` (0-100) | ✅ **Range** | Must fall within variation's `awarenessRange: [min, max]` |
+| **Journey Pattern** | `context.journeyPattern` | ✅ **Conditional** | Matched if variation metadata ≠ `'unknown'` |
+| **Path Philosophy** | `context.pathPhilosophy` | ✅ **Conditional** | Matched if variation metadata ≠ `'unknown'` |
+| **Visit Count** | `context.visitCount` | ❌ **No** | Included in context but not used in `findMatchingVariation()` |
+| **Character Visit %** | `context.characterVisitPercentages` | ⚠️ **L3 only** | Used to calculate `synthesisPattern` for L3 conv section |
+| **Node ID** | `context.nodeId` | ❌ **No** | Used for logging, not matching |
 
 **Key Insight:** Transformation state acts as the primary filter, with awareness/journey/philosophy as secondary refinements.
 
@@ -302,15 +298,15 @@ const unlockConfigFiles = import.meta.glob('/src/data/stories/*/unlock-config.js
 
 ### Unlock Evaluation Signals
 
-| Predicate Type     | Supported Parameters                                                                                          | Examples                                             |
-| ------------------ | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| **visitCount**     | `totalVisits`, `nodeVisits: {nodeId: count}`, `characterVisits: {char: count}`, `layerVisits: {layer: count}` | "Visit 2+ L2 nodes", "Visit arch-L1 3 times"         |
-| **awareness**      | `minAwareness`, `maxAwareness` (0-100)                                                                        | "Reach 35% awareness", "Stay below 50%"              |
-| **philosophy**     | `requiredPhilosophy`, `minPhilosophyCount`, `philosophyDistribution: {accept, resist, invest}`                | "Dominant philosophy = resist", "Make 3+ L2 choices" |
-| **character**      | `requiredCharacters`, `minCharacterCount`, `minCharacterPercentage: {char: %}`                                | "Visit all 3 characters", "Archaeologist >40%"       |
-| **transformation** | `requiredTransformations`, `minMetaAwareNodes`                                                                | "See metaAware state", "3+ nodes in metaAware"       |
-| **l3Assembly**     | `minL3Assemblies`, `requiredL3Completion`                                                                     | "View L3 assembly", "Complete all 4 sections"        |
-| **compound**       | `operator: 'AND' \| 'OR' \| 'NOT'`, `conditions: []`                                                          | "(Visit L1 AND awareness >20) OR L3 complete"        |
+| Predicate Type | Supported Parameters | Examples |
+| --- | --- | --- |
+| **visitCount** | `totalVisits`, `nodeVisits: {nodeId: count}`, `characterVisits: {char: count}`, `layerVisits: {layer: count}` | "Visit 2+ L2 nodes", "Visit arch-L1 3 times" |
+| **awareness** | `minAwareness`, `maxAwareness` (0-100) | "Reach 35% awareness", "Stay below 50%" |
+| **philosophy** | `requiredPhilosophy`, `minPhilosophyCount`, `philosophyDistribution: {accept, resist, invest}` | "Dominant philosophy = resist", "Make 3+ L2 choices" |
+| **character** | `requiredCharacters`, `minCharacterCount`, `minCharacterPercentage: {char: %}` | "Visit all 3 characters", "Archaeologist >40%" |
+| **transformation** | `requiredTransformations`, `minMetaAwareNodes` | "See metaAware state", "3+ nodes in metaAware" |
+| **l3Assembly** | `minL3Assemblies`, `requiredL3Completion` | "View L3 assembly", "Complete all 4 sections" |
+| **compound** | `operator: 'AND' \| 'OR' \| 'NOT'`, `conditions: []` | "(Visit L1 AND awareness >20) OR L3 complete" |
 
 **Compound Logic (lines 260-285):**
 

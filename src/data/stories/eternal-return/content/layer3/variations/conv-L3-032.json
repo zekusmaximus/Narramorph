@@ -40,20 +40,10 @@
     "circularCausality": "emerging-recognition",
     "readerPosition": "implied-network-completion",
     "thematicContent": null,
-    "primaryThemes": [
-      "boundary-maintenance",
-      "verification-crisis",
-      "dual-resistance",
-      "network-recognition"
-    ],
+    "primaryThemes": ["boundary-maintenance", "verification-crisis", "dual-resistance", "network-recognition"],
     "crossCharacterSynthesis": "resistance-dialogue-revelation",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "arch-parallel-2047",
-      "algo-parallel-2151",
-      "hum-parallel-2383",
-      "reader-implied-present"
-    ],
+    "observerPositions": ["arch-parallel-2047", "algo-parallel-2151", "hum-parallel-2383", "reader-implied-present"],
     "philosophicalResolution": "resistance-recognizes-limits-maintains-practice",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

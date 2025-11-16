@@ -6,15 +6,7 @@ conditions:
   visit_count: 7
   awareness: 'MetaAware'
   cross_character: true
-  visited_nodes:
-    [
-      'arch-L2-investigate',
-      'arch-L1',
-      'algo-L2-investigate',
-      'hum-L2-investigate',
-      'arch-L2-accept',
-      'arch-L2-resist',
-    ]
+  visited_nodes: ['arch-L2-investigate', 'arch-L1', 'algo-L2-investigate', 'hum-L2-investigate', 'arch-L2-accept', 'arch-L2-resist']
   dominant_path: 'invest'
 themes:
   - maximum_system_integration

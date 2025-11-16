@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 
-import { useStoryStore } from './storyStore';
-
 import type { StoryNode } from '@/types';
+
+import { useStoryStore } from './storyStore';
 
 describe('Visit Tracking System', () => {
   beforeEach(() => {
@@ -160,7 +160,7 @@ describe('Visit Tracking System', () => {
     const state = useStoryStore.getState();
     expect(state.progress.visitedNodes['non-existent']).toBeUndefined();
     expect(state.progress.readingPath).not.toContain('non-existent');
-    expect(consoleSpy).toHaveBeenCalledWith('Node not found: non-existent');
+    expect(consoleSpy).toHaveBeenCalledWith('[StoryStore:error]', 'Node not found: non-existent');
 
     consoleSpy.mockRestore();
   });

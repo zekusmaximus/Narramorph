@@ -54,11 +54,51 @@ Open your browser to `http://localhost:5173`
 ### Development Commands
 
 ```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run test         # Run tests
-npm run validate     # Run type-check + lint + test
+npm run dev            # Start development server
+npm run build          # Build for production
+npm run test           # Run tests
+npm run test:ui        # Run tests with UI
+npm run type-check     # TypeScript type checking
+npm run lint           # Run ESLint
+npm run lint:fix       # Auto-fix linting issues + format code
+npm run lint:ci        # Lint with zero warnings allowed
+npm run format         # Format code with Prettier
+npm run format:check   # Check code formatting
+npm run validate       # Full validation: type-check + lint + test
 ```
+
+### Code Quality & Automation
+
+Narramorph enforces strict code quality standards through automation:
+
+**TypeScript Strict Mode**
+
+- Full `strict: true` with additional flags:
+  - `noUncheckedIndexedAccess` - Array/object access safety
+  - `noImplicitReturns` - Explicit return statements
+- Zero tolerance: `npm run type-check` must pass with 0 errors
+
+**ESLint Configuration**
+
+- Modern TypeScript patterns enforced:
+  - Consistent type imports (`import type { ... }`)
+  - Explicit function return types for exported functions
+  - Import cycle detection
+  - Zero `any` tolerance (except truly dynamic code paths)
+- Pre-commit hooks run `eslint --fix` on staged files
+
+**Automated Checks**
+
+- **Pre-commit**: Husky + lint-staged automatically lint and format staged files
+- **CI**: GitHub Actions runs type-check, lint, format:check, and tests on all PRs
+- **Local validation**: Run `npm run validate` before pushing
+
+**VS Code Integration**
+
+- Recommended extensions installed automatically
+- Format on save enabled
+- ESLint auto-fix on save
+- TypeScript workspace SDK configured
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed development guidelines.
 
@@ -83,6 +123,7 @@ VITE_ENABLE_3D=true npm run dev
 ```
 
 **Requirements**:
+
 - WebGL-compatible browser
 - Modern GPU recommended for optimal performance
 - Automatic fallback to 2D mode if WebGL is unavailable
@@ -90,12 +131,14 @@ VITE_ENABLE_3D=true npm run dev
 ### Controls
 
 **Mouse/Trackpad**:
+
 - **Left Click + Drag**: Rotate camera around scene
 - **Right Click + Drag**: Pan camera
 - **Scroll Wheel**: Zoom in/out
 - **Click Node**: Open story content panel
 
 **Keyboard**:
+
 - **Escape**: Close story content panel
 - **Arrow Keys**: Manual camera navigation (via OrbitControls)
 
@@ -113,6 +156,7 @@ VITE_ENABLE_3D=true npm run dev
 See detailed 3D architecture documentation: [src/components/3d/README.md](src/components/3d/README.md)
 
 **Key Technologies**:
+
 - Three.js for 3D rendering
 - React Three Fiber for React integration
 - React Spring for smooth animations

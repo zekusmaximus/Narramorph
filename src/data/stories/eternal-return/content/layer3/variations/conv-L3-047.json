@@ -48,12 +48,7 @@
     ],
     "crossCharacterSynthesis": "dual-dominant-recursive-examination",
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "arch-primary-2047",
-      "algo-primary-2151",
-      "hum-contributory-2383",
-      "reader-fourth-meta-observer"
-    ],
+    "observerPositions": ["arch-primary-2047", "algo-primary-2151", "hum-contributory-2383", "reader-fourth-meta-observer"],
     "philosophicalResolution": "dual-investigation-transformation",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

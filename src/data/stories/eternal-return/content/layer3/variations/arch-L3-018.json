@@ -35,18 +35,9 @@
     "philosophicalCulmination": "Authentication discovers that examining consciousness preservation requires questioning examination methods across different investigative approaches",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "methodological-questioning",
-      "investigation-examining-itself",
-      "approach-diversity",
-      "recursive-inquiry-foundation"
-    ],
+    "primaryThemes": ["methodological-questioning", "investigation-examining-itself", "approach-diversity", "recursive-inquiry-foundation"],
     "crossCharacterConnections": ["moderate-algo-parallel", "moderate-hum-parallel"],
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "archaeologist-network-2047",
-      "algorithm-parallel-2151",
-      "human-parallel-2383"
-    ]
+    "observerPositions": ["archaeologist-network-2047", "algorithm-parallel-2151", "human-parallel-2383"]
   }
 }

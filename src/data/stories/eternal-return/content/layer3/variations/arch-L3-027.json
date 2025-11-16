@@ -35,17 +35,9 @@
     "philosophicalCulmination": "Authentication becomes recursive question testing the questioner",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "recursive-investigation",
-      "methodological-reflexivity",
-      "verification-paradox"
-    ],
+    "primaryThemes": ["recursive-investigation", "methodological-reflexivity", "verification-paradox"],
     "crossCharacterConnections": ["light-starting-foundational", "minimal-other-glimpsed"],
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "archaeologist-primary-2047",
-      "algorithm-foundational-2151",
-      "human-distant-2383"
-    ]
+    "observerPositions": ["archaeologist-primary-2047", "algorithm-foundational-2151", "human-distant-2383"]
   }
 }

@@ -1,8 +1,6 @@
 # Consolidated Implementation Plan — Architecture Audit Results
 
-**Generated:** 2025-11-12
-**Scope:** Actionable plan based on Tasks 0-4 audit findings
-**Purpose:** Roadmap for narrative engine completion before 3D UI implementation
+**Generated:** 2025-11-12 **Scope:** Actionable plan based on Tasks 0-4 audit findings **Purpose:** Roadmap for narrative engine completion before 3D UI implementation
 
 ---
 
@@ -30,12 +28,12 @@
 
 ### 🔴 Severity 1: Data Integrity / Correctness
 
-| #       | Issue                                  | Impact                                                                  | Dependency                | Files Affected                                        | Est. Effort         |
-| ------- | -------------------------------------- | ----------------------------------------------------------------------- | ------------------------- | ----------------------------------------------------- | ------------------- |
-| **1.1** | **L3 visit recording unclear**         | If L3 visits not tracked, awareness/unlock calculations break           | Blocks all L3 features    | `storyStore.ts:1027-1032`<br>`L3AssemblyView.tsx`     | 2h verify + 4h fix  |
-| **1.2** | **visitNode() timing (useEffect)**     | User can close view before visit records; "peeking" without tracking    | Affects all analytics     | `StoryView.tsx:299-303`<br>`storyStore.ts:836`        | 1h fix              |
-| **1.3** | **No variation deduplication**         | Same variation shown on revisit; breaks "temporal bleeding" expectation | Affects reader experience | `useVariationSelection.ts`<br>`VisitRecord` interface | 6h implement        |
-| **1.4** | **Missing variationId in VisitRecord** | Cannot audit which variations were shown; blocks deduplication          | Prerequisite for 1.3      | `Store.ts:16-22`                                      | 2h add + 2h migrate |
+| # | Issue | Impact | Dependency | Files Affected | Est. Effort |
+| --- | --- | --- | --- | --- | --- |
+| **1.1** | **L3 visit recording unclear** | If L3 visits not tracked, awareness/unlock calculations break | Blocks all L3 features | `storyStore.ts:1027-1032`<br>`L3AssemblyView.tsx` | 2h verify + 4h fix |
+| **1.2** | **visitNode() timing (useEffect)** | User can close view before visit records; "peeking" without tracking | Affects all analytics | `StoryView.tsx:299-303`<br>`storyStore.ts:836` | 1h fix |
+| **1.3** | **No variation deduplication** | Same variation shown on revisit; breaks "temporal bleeding" expectation | Affects reader experience | `useVariationSelection.ts`<br>`VisitRecord` interface | 6h implement |
+| **1.4** | **Missing variationId in VisitRecord** | Cannot audit which variations were shown; blocks deduplication | Prerequisite for 1.3 | `Store.ts:16-22` | 2h add + 2h migrate |
 
 **Total Est:** 17 hours
 
@@ -43,12 +41,12 @@
 
 ### 🟡 Severity 2: Type Safety / Maintainability
 
-| #       | Issue                              | Impact                                                    | Dependency                | Files Affected                                   | Est. Effort                   |
-| ------- | ---------------------------------- | --------------------------------------------------------- | ------------------------- | ------------------------------------------------ | ----------------------------- |
-| **2.1** | **`any` in variationLoader.ts:58** | No compile-time validation of variation structure         | Critical path type safety | `variationLoader.ts`                             | 3h fix + 2h test              |
-| **2.2** | **Optional journeyTracking**       | 20+ defensive null checks; code complexity                | Code quality              | `Store.ts:74`<br>`storyStore.ts` (20+ locations) | 2h make required + 1h cleanup |
-| **2.3** | **React Flow type erasure**        | `as unknown` casts bypass type checking in node rendering | Navigation type safety    | `NodeMap.tsx:207`<br>`CustomStoryNode.tsx:158`   | 4h fix with generics          |
-| **2.4** | **VariationMetadata all optional** | Incomplete variation validation; runtime errors possible  | Content validation        | `Variation.ts:42-70`                             | 3h split core/enrichment      |
+| # | Issue | Impact | Dependency | Files Affected | Est. Effort |
+| --- | --- | --- | --- | --- | --- |
+| **2.1** | **`any` in variationLoader.ts:58** | No compile-time validation of variation structure | Critical path type safety | `variationLoader.ts` | 3h fix + 2h test |
+| **2.2** | **Optional journeyTracking** | 20+ defensive null checks; code complexity | Code quality | `Store.ts:74`<br>`storyStore.ts` (20+ locations) | 2h make required + 1h cleanup |
+| **2.3** | **React Flow type erasure** | `as unknown` casts bypass type checking in node rendering | Navigation type safety | `NodeMap.tsx:207`<br>`CustomStoryNode.tsx:158` | 4h fix with generics |
+| **2.4** | **VariationMetadata all optional** | Incomplete variation validation; runtime errors possible | Content validation | `Variation.ts:42-70` | 3h split core/enrichment |
 
 **Total Est:** 15 hours
 
@@ -56,12 +54,12 @@
 
 ### 🟢 Severity 3: Performance / Architecture
 
-| #       | Issue                                    | Impact                                                      | Dependency               | Files Affected                                              | Est. Effort               |
-| ------- | ---------------------------------------- | ----------------------------------------------------------- | ------------------------ | ----------------------------------------------------------- | ------------------------- |
-| **3.1** | **L3 cache clears on every L2 visit**    | Unnecessary rebuilds if philosophy unchanged                | Performance optimization | `storyStore.ts:932`                                         | 2h selective invalidation |
-| **3.2** | **No service layer abstraction**         | Direct imports create tight coupling; hard to test          | Architecture improvement | `storyStore.ts` (12+ imports)<br>`useVariationSelection.ts` | 16h refactor (Phase 2)    |
-| **3.3** | **No visit count in variation matching** | Cannot create "visit 3+ specific" content                   | Feature gap              | `conditionEvaluator.ts:79-215`                              | 4h add visitCountRange    |
-| **3.4** | **Missing unlock predicates**            | No cross-character, navigation pattern, sequence predicates | Feature gap              | `unlockEvaluator.ts`                                        | 8h add 3 new types        |
+| # | Issue | Impact | Dependency | Files Affected | Est. Effort |
+| --- | --- | --- | --- | --- | --- |
+| **3.1** | **L3 cache clears on every L2 visit** | Unnecessary rebuilds if philosophy unchanged | Performance optimization | `storyStore.ts:932` | 2h selective invalidation |
+| **3.2** | **No service layer abstraction** | Direct imports create tight coupling; hard to test | Architecture improvement | `storyStore.ts` (12+ imports)<br>`useVariationSelection.ts` | 16h refactor (Phase 2) |
+| **3.3** | **No visit count in variation matching** | Cannot create "visit 3+ specific" content | Feature gap | `conditionEvaluator.ts:79-215` | 4h add visitCountRange |
+| **3.4** | **Missing unlock predicates** | No cross-character, navigation pattern, sequence predicates | Feature gap | `unlockEvaluator.ts` | 8h add 3 new types |
 
 **Total Est:** 30 hours
 
@@ -106,8 +104,7 @@
 
 #### **1.1-A: Verify L3 Visit Recording**
 
-**Priority:** P0 (Blocker)
-**Files to check:**
+**Priority:** P0 (Blocker) **Files to check:**
 
 - `src/components/UI/L3AssemblyView.tsx`
 
@@ -128,8 +125,7 @@
 
 #### **1.1-B: Move visitNode() to openStoryView**
 
-**Priority:** P0 (Blocker)
-**Files to modify:**
+**Priority:** P0 (Blocker) **Files to modify:**
 
 - `src/stores/storyStore.ts:1024-1051` (openStoryView action)
 - `src/components/StoryView/StoryView.tsx:299-303` (remove useEffect)
@@ -180,8 +176,7 @@ openStoryView: (nodeId: string) => {
 
 #### **1.2-A: Add variationId to VisitRecord**
 
-**Priority:** P0 (Prerequisite for deduplication)
-**Files to modify:**
+**Priority:** P0 (Prerequisite for deduplication) **Files to modify:**
 
 - `src/types/Store.ts:16-22` (VisitRecord interface)
 - `src/stores/storyStore.ts:846-865` (visitNode action)
@@ -244,8 +239,7 @@ if (!savedProgress.visitedNodes[nodeId].variationId) {
 
 #### **1.2-B: Implement Variation Deduplication**
 
-**Priority:** P1 (Depends on 1.2-A)
-**Files to modify:**
+**Priority:** P1 (Depends on 1.2-A) **Files to modify:**
 
 - `src/utils/conditionEvaluator.ts:79-215` (findMatchingVariation)
 - `src/hooks/useVariationSelection.ts:55-134` (add exclusion)
@@ -309,8 +303,7 @@ interface VisitRecord {
 
 #### **1.3: Make journeyTracking Required**
 
-**Priority:** P1 (Code quality improvement)
-**Files to modify:**
+**Priority:** P1 (Code quality improvement) **Files to modify:**
 
 - `src/types/Store.ts:74` (UserProgress interface)
 - `src/stores/storyStore.ts:41-68` (createInitialProgress)
@@ -383,8 +376,7 @@ grep -rn "!.*journeyTracking" src/stores
 
 #### **2.1: Replace `any` in variationLoader**
 
-**Priority:** P1 (Type safety critical path)
-**Files to modify:**
+**Priority:** P1 (Type safety critical path) **Files to modify:**
 
 - `src/utils/variationLoader.ts:58-139` (normalizeVariation function)
 
@@ -439,8 +431,7 @@ function isPlainObject(value: unknown): value is Record<string, unknown> {
 
 #### **2.2: Split VariationMetadata into Core + Enrichment**
 
-**Priority:** P2 (Validation improvement)
-**Files to modify:**
+**Priority:** P2 (Validation improvement) **Files to modify:**
 
 - `src/types/Variation.ts:42-70` (VariationMetadata interface)
 
@@ -519,8 +510,7 @@ export function validateVariationMetadata(metadata: unknown): metadata is Variat
 
 #### **2.3: Fix React Flow Type Erasure**
 
-**Priority:** P2 (Navigation type safety)
-**Files to modify:**
+**Priority:** P2 (Navigation type safety) **Files to modify:**
 
 - `src/components/NodeMap/NodeMap.tsx:49-74` (convertToReactFlowNodes)
 - `src/components/NodeMap/CustomStoryNode.tsx:157-158` (data destructuring)
@@ -592,8 +582,7 @@ const nodeTypes = {
 
 #### **2.4: Add Content Validation Layer**
 
-**Priority:** P2 (Quality assurance)
-**Files to create:**
+**Priority:** P2 (Quality assurance) **Files to create:**
 
 - `src/utils/contentValidator.ts` (new file)
 
@@ -632,10 +621,8 @@ export function validateStoryData(storyData: StoryData): ValidationResult {
   // Check all connections reference valid nodes
   const nodeIds = new Set(storyData.nodes.map((n) => n.id));
   for (const conn of storyData.connections || []) {
-    if (!nodeIds.has(conn.sourceId))
-      errors.push(`Connection ${conn.id} references invalid source: ${conn.sourceId}`);
-    if (!nodeIds.has(conn.targetId))
-      errors.push(`Connection ${conn.id} references invalid target: ${conn.targetId}`);
+    if (!nodeIds.has(conn.sourceId)) errors.push(`Connection ${conn.id} references invalid source: ${conn.sourceId}`);
+    if (!nodeIds.has(conn.targetId)) errors.push(`Connection ${conn.id} references invalid target: ${conn.targetId}`);
   }
 
   return { valid: errors.length === 0, errors, warnings };
@@ -665,8 +652,7 @@ export function validateVariationFile(file: VariationFile): ValidationResult {
   // Check transformation state coverage
   const states = new Set(file.variations.map((v) => v.transformationState));
   if (!states.has('initial')) warnings.push('No "initial" transformation state variations');
-  if (!states.has('firstRevisit'))
-    warnings.push('No "firstRevisit" transformation state variations');
+  if (!states.has('firstRevisit')) warnings.push('No "firstRevisit" transformation state variations');
   if (!states.has('metaAware')) warnings.push('No "metaAware" transformation state variations');
 
   return { valid: errors.length === 0, errors, warnings };
@@ -681,13 +667,7 @@ export function validateL3Coverage(variations: Variation[]): ValidationResult {
 
   // Expected: 5 journey × 3 philosophy × 3 awareness = 45 for char sections
   // Expected: 5 × 3 × 3 × 3 synthesis = 135 for conv section
-  const journeyPatterns = [
-    'started-stayed',
-    'started-bounced',
-    'shifted-dominant',
-    'began-lightly',
-    'met-later',
-  ];
+  const journeyPatterns = ['started-stayed', 'started-bounced', 'shifted-dominant', 'began-lightly', 'met-later'];
   const philosophies = ['accept', 'resist', 'invest'];
   const awarenessLevels = ['low', 'medium', 'high'];
 
@@ -696,10 +676,7 @@ export function validateL3Coverage(variations: Variation[]): ValidationResult {
     for (const phil of philosophies) {
       for (const awareness of awarenessLevels) {
         const found = variations.find(
-          (v) =>
-            v.journeyPattern === journey &&
-            v.philosophyDominant === phil &&
-            v.awarenessLevel === awareness,
+          (v) => v.journeyPattern === journey && v.philosophyDominant === phil && v.awarenessLevel === awareness,
         );
         if (!found) {
           warnings.push(`Missing L3 variation: ${journey}-${phil}-${awareness}`);
@@ -760,8 +737,7 @@ if (!validationResult.valid) {
 
 #### **3.1: Add Cross-Character Connection Predicates**
 
-**Priority:** P2 (Feature gap)
-**Files to modify:**
+**Priority:** P2 (Feature gap) **Files to modify:**
 
 - `src/types/Unlock.ts:10-81` (UnlockConditionParams interface)
 - `src/utils/unlockEvaluator.ts:24-46` (add case), 161-198 (evaluateCharacterCondition)
@@ -789,10 +765,7 @@ interface UnlockConditionParams {
 
 ```typescript
 // unlockEvaluator.ts:161 (extend evaluateCharacterCondition)
-function evaluateCharacterCondition(
-  params: UnlockConditionParams,
-  progress: UserProgress,
-): boolean {
+function evaluateCharacterCondition(params: UnlockConditionParams, progress: UserProgress): boolean {
   const tracking = progress.journeyTracking;
   if (!tracking) return false;
 
@@ -800,10 +773,7 @@ function evaluateCharacterCondition(
 
   // ✅ NEW: Cross-character connection checks
   if (params.minCrossCharacterSwitches !== undefined) {
-    const totalSwitches = Object.values(tracking.crossCharacterConnections).reduce(
-      (sum, count) => sum + count,
-      0,
-    );
+    const totalSwitches = Object.values(tracking.crossCharacterConnections).reduce((sum, count) => sum + count, 0);
     if (totalSwitches < params.minCrossCharacterSwitches) return false;
   }
 
@@ -817,10 +787,7 @@ function evaluateCharacterCondition(
 
   if (params.minConnectionPairSwitches) {
     for (const [pair, minCount] of Object.entries(params.minConnectionPairSwitches)) {
-      const actualCount =
-        tracking.crossCharacterConnections[
-          pair as keyof typeof tracking.crossCharacterConnections
-        ] || 0;
+      const actualCount = tracking.crossCharacterConnections[pair as keyof typeof tracking.crossCharacterConnections] || 0;
       if (actualCount < minCount) return false;
     }
   }
@@ -860,8 +827,7 @@ function evaluateCharacterCondition(
 
 #### **3.2: Add Navigation Pattern Predicates**
 
-**Priority:** P2 (Feature gap)
-**Files to modify:**
+**Priority:** P2 (Feature gap) **Files to modify:**
 
 - `src/types/Unlock.ts:10-81` (UnlockConditionParams)
 - `src/utils/unlockEvaluator.ts` (add new condition type)
@@ -903,10 +869,7 @@ switch (condition.type) {
 }
 
 // unlockEvaluator.ts (new function)
-function evaluateNavigationPatternCondition(
-  params: UnlockConditionParams,
-  progress: UserProgress,
-): boolean {
+function evaluateNavigationPatternCondition(params: UnlockConditionParams, progress: UserProgress): boolean {
   const tracking = progress.journeyTracking;
   if (!tracking) return false;
 
@@ -972,8 +935,7 @@ function evaluateNavigationPatternCondition(
 
 #### **3.3: Selective L3 Cache Invalidation**
 
-**Priority:** P2 (Performance)
-**Files to modify:**
+**Priority:** P2 (Performance) **Files to modify:**
 
 - `src/stores/storyStore.ts:930-934` (L3 cache clear logic)
 
@@ -1002,9 +964,7 @@ if (layer === 2) {
   // Only clear cache if philosophy actually changed
   if (oldPhilosophy !== newPhilosophy) {
     draftState.l3AssemblyCache.clear();
-    console.log(
-      `[L3Assembly] Cache cleared: philosophy changed from ${oldPhilosophy} to ${newPhilosophy}`,
-    );
+    console.log(`[L3Assembly] Cache cleared: philosophy changed from ${oldPhilosophy} to ${newPhilosophy}`);
   } else {
     console.log(`[L3Assembly] Cache retained: philosophy unchanged (${oldPhilosophy})`);
   }
@@ -1049,8 +1009,7 @@ clearL3CacheIfNeeded: () => {
 
 #### **3.4: Add visitCountRange to Variation Matching**
 
-**Priority:** P3 (Feature gap)
-**Files to modify:**
+**Priority:** P3 (Feature gap) **Files to modify:**
 
 - `src/types/Variation.ts:42-70` (VariationMetadata)
 - `src/utils/conditionEvaluator.ts:79-215` (findMatchingVariation)
@@ -1138,8 +1097,7 @@ export function findMatchingVariation(
 
 #### **4.1: Extract ContentService**
 
-**Priority:** P3 (Architecture improvement)
-**Files to create:**
+**Priority:** P3 (Architecture improvement) **Files to create:**
 
 - `src/services/ContentService.ts` (new file)
 
@@ -1198,8 +1156,7 @@ loadStory: async (storyId: string) => {
 
 #### **4.2: Extract VariationSelectionService**
 
-**Priority:** P3 (Architecture improvement)
-**Files to create:**
+**Priority:** P3 (Architecture improvement) **Files to create:**
 
 - `src/services/VariationSelectionService.ts`
 
@@ -1207,19 +1164,11 @@ loadStory: async (storyId: string) => {
 
 ```typescript
 export class VariationSelectionService {
-  selectVariation(
-    variations: Variation[],
-    context: ConditionContext,
-    options?: { excludeVariationIds?: string[] },
-  ): Variation | null {
+  selectVariation(variations: Variation[], context: ConditionContext, options?: { excludeVariationIds?: string[] }): Variation | null {
     // Move findMatchingVariation logic
   }
 
-  buildL3Assembly(
-    storyId: string,
-    context: ConditionContext,
-    contentService: IContentProvider,
-  ): L3Assembly | null {
+  buildL3Assembly(storyId: string, context: ConditionContext, contentService: IContentProvider): L3Assembly | null {
     // Move buildL3Assembly logic
   }
 
@@ -1233,8 +1182,7 @@ export class VariationSelectionService {
 
 #### **4.3: Extract JourneyTrackingService**
 
-**Priority:** P3
-**Files to create:**
+**Priority:** P3 **Files to create:**
 
 - `src/services/JourneyTrackingService.ts`
 
@@ -1242,10 +1190,7 @@ export class VariationSelectionService {
 
 ```typescript
 export class JourneyTrackingService {
-  calculateJourneyPattern(
-    startingCharacter: Character,
-    percentages: CharacterPercentages,
-  ): JourneyPattern {
+  calculateJourneyPattern(startingCharacter: Character, percentages: CharacterPercentages): JourneyPattern {
     // Move from conditionEvaluator.ts
   }
 
@@ -1263,8 +1208,7 @@ export class JourneyTrackingService {
 
 #### **4.4: Abstract Cache Interface**
 
-**Priority:** P3
-**Files to create:**
+**Priority:** P3 **Files to create:**
 
 - `src/utils/cache.ts`
 
@@ -1325,9 +1269,7 @@ export class InMemoryCache<K, V> implements ICache<K, V> {
 
 ### Quick Win 1: Add Console Logging for Visit Recording
 
-**Effort:** 15 minutes
-**Impact:** Immediate debugging visibility
-**Files:** `src/stores/storyStore.ts:846-1004`
+**Effort:** 15 minutes **Impact:** Immediate debugging visibility **Files:** `src/stores/storyStore.ts:846-1004`
 
 **Changes:**
 
@@ -1354,9 +1296,7 @@ visitNode: (nodeId: string) => {
 
 ### Quick Win 2: Add Variation Selection Logging
 
-**Effort:** 20 minutes
-**Impact:** Debug variation matching
-**Files:** `src/utils/conditionEvaluator.ts:79-215`
+**Effort:** 20 minutes **Impact:** Debug variation matching **Files:** `src/utils/conditionEvaluator.ts:79-215`
 
 **Changes:**
 
@@ -1389,9 +1329,7 @@ export function findMatchingVariation(...) {
 
 ### Quick Win 3: Add Unlock Progress to Node Tooltip
 
-**Effort:** 30 minutes
-**Impact:** Better unlock UX
-**Files:** `src/components/NodeMap/NodeTooltip.tsx`
+**Effort:** 30 minutes **Impact:** Better unlock UX **Files:** `src/components/NodeMap/NodeTooltip.tsx`
 
 **Enhancement:** Display unlock progress bar and next condition hint in tooltip (already implemented in `CustomStoryNode.tsx:671-744`, verify it's working).
 
@@ -1401,9 +1339,7 @@ export function findMatchingVariation(...) {
 
 ### Quick Win 4: Add Type Validation to Story Loading
 
-**Effort:** 45 minutes
-**Impact:** Early error detection
-**Files:** `src/utils/contentLoader.ts:261`
+**Effort:** 45 minutes **Impact:** Early error detection **Files:** `src/utils/contentLoader.ts:261`
 
 **Changes:**
 
@@ -1412,10 +1348,7 @@ export function findMatchingVariation(...) {
 try {
   validateStoryData(storyData); // ✅ Change: throw on errors
 } catch (err) {
-  throw new ContentLoadError(
-    `Story validation failed for ${storyId}: ${(err as Error).message}`,
-    err as Error,
-  );
+  throw new ContentLoadError(`Story validation failed for ${storyId}: ${(err as Error).message}`, err as Error);
 }
 ```
 
@@ -1425,9 +1358,7 @@ try {
 
 ### Quick Win 5: Add Performance Timing to visitNode
 
-**Effort:** 30 minutes
-**Impact:** Identify slow operations
-**Files:** `src/stores/storyStore.ts:836`
+**Effort:** 30 minutes **Impact:** Identify slow operations **Files:** `src/stores/storyStore.ts:836`
 
 **Changes:**
 
@@ -1451,9 +1382,7 @@ visitNode: (nodeId: string) => {
 
 ### Quick Win 6: Add Variation Coverage Report
 
-**Effort:** 45 minutes
-**Impact:** Content quality assurance
-**Files:** Create `scripts/analyze-variations.ts`
+**Effort:** 45 minutes **Impact:** Content quality assurance **Files:** Create `scripts/analyze-variations.ts`
 
 **Script:**
 
@@ -1489,9 +1418,7 @@ console.log('Awareness levels:', Array.from(awarenessLevels).sort());
 
 ### Quick Win 7: Add ESC Key Handler Test
 
-**Effort:** 15 minutes
-**Impact:** Verify visit recording timing
-**Files:** Manual test
+**Effort:** 15 minutes **Impact:** Verify visit recording timing **Files:** Manual test
 
 **Test steps:**
 
@@ -1507,9 +1434,7 @@ console.log('Awareness levels:', Array.from(awarenessLevels).sort());
 
 ### Quick Win 8: Add Git Pre-commit Hook for Type Check
 
-**Effort:** 20 minutes
-**Impact:** Prevent type errors in commits
-**Files:** `.husky/pre-commit` or `package.json`
+**Effort:** 20 minutes **Impact:** Prevent type errors in commits **Files:** `.husky/pre-commit` or `package.json`
 
 **Setup:**
 

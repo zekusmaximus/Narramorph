@@ -1,11 +1,11 @@
 import { useEffect, useMemo } from 'react';
 
-import NodeSphere from './NodeSphere';
-import PlaneGuide from './PlaneGuide';
-
 import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';
 import type { StoryNode, CharacterType } from '@/types';
+
+import NodeSphere from './NodeSphere';
+import PlaneGuide from './PlaneGuide';
 
 /**
  * Character metadata for visual guides (matches tailwind config)

@@ -2,9 +2,9 @@
  * Condition evaluator - evaluates selection matrix conditions against user state
  */
 
-import { performanceMonitor } from './performanceMonitor';
-
 import type { SelectionMatrixEntry, Variation, ConditionContext, AwarenessLevel, JourneyPattern, PathPhilosophy } from '@/types';
+
+import { performanceMonitor } from './performanceMonitor';
 
 const isDebugEnv = process.env.NODE_ENV !== 'production';
 const debugLog = (...args: unknown[]): void => {

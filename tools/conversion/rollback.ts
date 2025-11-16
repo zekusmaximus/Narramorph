@@ -114,10 +114,7 @@ async function main() {
       const fileName = basename(path, '.json');
       return nodes.some((node) => fileName.startsWith(node) || fileName === node);
     });
-    logger.info(
-      'ROLLBACK_FILTER',
-      `Filtering to nodes ${nodes.join(',')}: ${filesToRestore.length} files`,
-    );
+    logger.info('ROLLBACK_FILTER', `Filtering to nodes ${nodes.join(',')}: ${filesToRestore.length} files`);
   }
 
   // Restore files

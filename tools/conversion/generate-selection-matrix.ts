@@ -94,13 +94,7 @@ async function main() {
       const data = JSON.parse(content);
 
       // Validate required fields
-      if (
-        !data.id ||
-        !data.sectionType ||
-        !data.journeyPattern ||
-        !data.philosophyDominant ||
-        !data.awarenessLevel
-      ) {
+      if (!data.id || !data.sectionType || !data.journeyPattern || !data.philosophyDominant || !data.awarenessLevel) {
         logger.warning('INVALID_L3_FILE', `Skipping file with missing fields: ${file}`, {
           file: filePath,
         });

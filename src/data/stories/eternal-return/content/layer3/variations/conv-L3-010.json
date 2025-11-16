@@ -42,11 +42,7 @@
     "primaryThemes": ["verification-crisis", "boundary-maintenance", "impossible-standards"],
     "crossCharacterSynthesis": "dominant-primary-minimal-others",
     "temporalBleedingLevel": "medium-high",
-    "observerPositions": [
-      "primary-dominant-2047-or-2151-or-2383",
-      "others-minimal",
-      "pattern-fourth"
-    ],
+    "observerPositions": ["primary-dominant-2047-or-2151-or-2383", "others-minimal", "pattern-fourth"],
     "philosophicalResolution": "maintained-standards-through-acknowledged-impossibility",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

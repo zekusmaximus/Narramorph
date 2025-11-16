@@ -11,8 +11,12 @@ import {
   type OnEdgesChange,
 } from '@xyflow/react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import type React from 'react';
 import '@xyflow/react/dist/style.css';
 import { motion } from 'framer-motion';
+
+import { useStoryStore } from '@/stores';
+import type { StoryNode, NodeUIState } from '@/types';
 
 import { BootSequence } from './BootSequence';
 import { CorruptionMeter } from './CorruptionMeter';
@@ -27,9 +31,6 @@ import { NodeTooltip } from './NodeTooltip';
 import { ParallaxBackground } from './ParallaxBackground';
 import { ReadingPathTrail } from './ReadingPathTrail';
 import { TemporalDistortion } from './TemporalDistortion';
-
-import { useStoryStore } from '@/stores';
-import type { StoryNode, NodeUIState } from '@/types';
 
 interface NodeMapProps {
   className?: string;

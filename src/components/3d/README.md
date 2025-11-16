@@ -22,6 +22,7 @@ NarromorphCanvas (Canvas setup, lighting, fog)
 ### Core Components
 
 #### NarromorphCanvas.tsx
+
 - **Purpose**: Main canvas container and scene setup
 - **Responsibilities**:
   - Canvas configuration (camera position, FOV)
@@ -33,6 +34,7 @@ NarromorphCanvas (Canvas setup, lighting, fog)
   - Fog: `color: #1a1a1a`, `near: 50`, `far: 200`
 
 #### SceneContent.tsx
+
 - **Purpose**: Scene management and layout orchestration
 - **Responsibilities**:
   - Groups nodes by character type
@@ -47,6 +49,7 @@ NarromorphCanvas (Canvas setup, lighting, fog)
   5. Renders scene elements
 
 #### NodeSphere.tsx
+
 - **Purpose**: Interactive 3D representation of a story node
 - **Responsibilities**:
   - Visual state representation (visited, active, locked)
@@ -64,6 +67,7 @@ NarromorphCanvas (Canvas setup, lighting, fog)
   - Click: Opens story view (if available and not animating)
 
 #### CameraController.tsx
+
 - **Purpose**: Smooth camera transitions during navigation
 - **Responsibilities**:
   - Monitors `selectedNode` from store
@@ -76,6 +80,7 @@ NarromorphCanvas (Canvas setup, lighting, fog)
   - Updates every frame via `useFrame`
 
 #### PlaneGuide.tsx
+
 - **Purpose**: Visual guides for character layers
 - **Responsibilities**:
   - Renders semi-transparent planes at character z-positions
@@ -86,6 +91,7 @@ NarromorphCanvas (Canvas setup, lighting, fog)
   - Labels: "Past - Discovery", "Present - Processing", "Future - Memory"
 
 #### FPSCounter.tsx (Dev-only)
+
 - **Purpose**: Performance monitoring during development
 - **Responsibilities**:
   - Measures and displays FPS in real-time
@@ -93,6 +99,7 @@ NarromorphCanvas (Canvas setup, lighting, fog)
   - Only renders when `import.meta.env.DEV === true`
 
 #### LoadingState.tsx
+
 - **Purpose**: Loading overlay during spatial computation
 - **Responsibilities**:
   - Displays spinner and message while positions are empty
@@ -185,6 +192,7 @@ isNodeAvailable(
 ```
 
 Checks:
+
 1. L3 convergence locks (`progress.lockedNodes`)
 2. Unlock conditions (`evaluateNodeUnlock`)
 
@@ -270,11 +278,13 @@ Checks:
 ### Running in 3D Mode
 
 Set environment variable:
+
 ```bash
 VITE_ENABLE_3D=true npm run dev
 ```
 
 Or create `.env.local`:
+
 ```
 VITE_ENABLE_3D=true
 ```
@@ -282,6 +292,7 @@ VITE_ENABLE_3D=true
 ### Performance Monitoring
 
 FPSCounter automatically appears in development mode:
+
 - **Green (≥55 FPS)**: Optimal performance
 - **Yellow (30-54 FPS)**: Acceptable performance
 - **Red (<30 FPS)**: Performance issues
@@ -296,33 +307,39 @@ FPSCounter automatically appears in development mode:
 ### Common Issues
 
 **Issue**: Nodes not appearing
+
 - **Check**: `spatialStore.positions` populated?
 - **Check**: Console for layout computation logs
 - **Fix**: Ensure `computeLayout` called with valid characters
 
 **Issue**: Camera not moving
+
 - **Check**: `selectedNode` updating in StoryStore?
 - **Check**: Position exists in spatialStore?
 - **Fix**: Verify node IDs match between stores
 
 **Issue**: Poor performance
+
 - **Check**: FPSCounter reading
 - **Check**: Number of rendered nodes
 - **Fix**: Consider implementing LOD or culling
 
 **Issue**: WebGL errors
+
 - **Check**: Browser WebGL support
 - **Fix**: Automatic fallback to 2D mode (see ErrorBoundary in Home.tsx)
 
 ## Dependencies
 
 ### Core
+
 - `three@^0.159.0`: 3D graphics library
 - `@react-three/fiber@^8.15.0`: React renderer for Three.js
 - `@react-three/drei@^9.92.0`: Helper components (OrbitControls, Text)
 - `@react-spring/three@^9.7.3`: Spring physics animations
 
 ### Peer
+
 - `react@^18.x`: UI framework
 - `zustand@^4.x`: State management
 - `framer-motion@^11.x`: DOM animations (ContentPanel3D)
@@ -337,6 +354,7 @@ FPSCounter automatically appears in development mode:
 ## Contributing
 
 When adding new 3D features:
+
 1. Follow existing component patterns
 2. Update this README with architectural changes
 3. Add TypeScript types for all new interfaces

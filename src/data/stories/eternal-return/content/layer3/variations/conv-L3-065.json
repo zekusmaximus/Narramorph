@@ -43,12 +43,7 @@
     "primaryThemes": ["paired-resistance", "dual-impossibility", "verification-dialogue"],
     "crossCharacterSynthesis": "dual-methodology-crisis",
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "character-a-metaconscious",
-      "character-b-metaconscious",
-      "character-c-supporting",
-      "reader-fifth"
-    ],
+    "observerPositions": ["character-a-metaconscious", "character-b-metaconscious", "character-c-supporting", "reader-fifth"],
     "philosophicalResolution": "maintained-standards-through-paired-recognition",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

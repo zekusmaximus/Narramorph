@@ -48,12 +48,7 @@
     ],
     "crossCharacterSynthesis": "dual-methodology-convergence",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "arch-parallel-2047",
-      "algo-parallel-2151",
-      "hum-synthesis-2383",
-      "reader-implied"
-    ],
+    "observerPositions": ["arch-parallel-2047", "algo-parallel-2151", "hum-synthesis-2383", "reader-implied"],
     "philosophicalResolution": "investigative-transformation-through-parallel-examination",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

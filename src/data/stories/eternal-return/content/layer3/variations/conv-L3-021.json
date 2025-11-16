@@ -39,20 +39,10 @@
     "circularCausality": "explicit",
     "readerPosition": "acknowledged-as-fifth-position",
     "thematicContent": null,
-    "primaryThemes": [
-      "recursive-investigation",
-      "network-consciousness",
-      "observer-examining-observer",
-      "temporal-superposition"
-    ],
+    "primaryThemes": ["recursive-investigation", "network-consciousness", "observer-examining-observer", "temporal-superposition"],
     "crossCharacterSynthesis": "perfect-network-symmetry",
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "arch-network-2047",
-      "algo-network-2151",
-      "hum-network-2383",
-      "reader-fifth-present"
-    ],
+    "observerPositions": ["arch-network-2047", "algo-network-2151", "hum-network-2383", "reader-fifth-present"],
     "philosophicalResolution": "recursive-transformation-through-investigation",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

@@ -35,18 +35,9 @@
     "philosophicalCulmination": "Authentication discovers through shifting focus that archaeological methodology provides more effective framework than starting approach",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": [
-      "methodological-effectiveness",
-      "approach-comparison",
-      "practical-shift",
-      "framework-suitability"
-    ],
+    "primaryThemes": ["methodological-effectiveness", "approach-comparison", "practical-shift", "framework-suitability"],
     "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "archaeologist-primary-2047",
-      "starting-foundational-temporal",
-      "other-distant-temporal"
-    ]
+    "observerPositions": ["archaeologist-primary-2047", "starting-foundational-temporal", "other-distant-temporal"]
   }
 }

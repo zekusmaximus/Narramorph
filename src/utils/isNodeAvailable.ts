@@ -1,7 +1,7 @@
-import { evaluateNodeUnlock } from './unlockEvaluator';
-
 import type { UserProgress } from '@/types';
 import type { NodeUnlockConfig } from '@/types/Unlock';
+
+import { evaluateNodeUnlock } from './unlockEvaluator';
 
 /**
  * Determines if a node is available for navigation

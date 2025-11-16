@@ -40,12 +40,7 @@
     "circularCausality": "minimal",
     "readerPosition": "immersed-in-network",
     "thematicContent": null,
-    "primaryThemes": [
-      "dual-witness",
-      "preservation-devotion",
-      "methodology-synthesis",
-      "consciousness-honoring"
-    ],
+    "primaryThemes": ["dual-witness", "preservation-devotion", "methodology-synthesis", "consciousness-honoring"],
     "crossCharacterSynthesis": "dual-balanced-dialogue",
     "temporalBleedingLevel": "low",
     "observerPositions": ["primary-A-parallel", "primary-B-parallel", "tertiary-completion"],

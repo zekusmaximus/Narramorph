@@ -1,11 +1,6 @@
 import { describe, it, expect } from 'vitest';
 
-import {
-  parseFrontmatter,
-  validateRequiredFields,
-  validateEnumField,
-  countWords,
-} from '../../lib/frontmatter.js';
+import { parseFrontmatter, validateRequiredFields, validateEnumField, countWords } from '../../lib/frontmatter.js';
 import { Logger } from '../../lib/log.js';
 
 describe('parseFrontmatter', () => {
@@ -115,12 +110,7 @@ describe('validateEnumField', () => {
   it('should pass for valid enum value', () => {
     const frontmatter = { type: 'initial' };
     const logger = new Logger();
-    const result = validateEnumField(
-      frontmatter,
-      'type',
-      ['initial', 'firstRevisit'] as const,
-      logger,
-    );
+    const result = validateEnumField(frontmatter, 'type', ['initial', 'firstRevisit'] as const, logger);
     expect(result).toBe(true);
     expect(logger.hasBlockers()).toBe(false);
   });
@@ -128,12 +118,7 @@ describe('validateEnumField', () => {
   it('should fail for invalid enum value', () => {
     const frontmatter = { type: 'invalid' };
     const logger = new Logger();
-    const result = validateEnumField(
-      frontmatter,
-      'type',
-      ['initial', 'firstRevisit'] as const,
-      logger,
-    );
+    const result = validateEnumField(frontmatter, 'type', ['initial', 'firstRevisit'] as const, logger);
     expect(result).toBe(false);
     expect(logger.hasBlockers()).toBe(true);
   });

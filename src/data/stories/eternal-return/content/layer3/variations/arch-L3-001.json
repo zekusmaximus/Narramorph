@@ -35,17 +35,9 @@
     "philosophicalCulmination": "Authentication becomes sacred witness creating what it honors",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": [
-      "preservation-as-devotion",
-      "witness-methodology",
-      "observer-creates-observed"
-    ],
+    "primaryThemes": ["preservation-as-devotion", "witness-methodology", "observer-creates-observed"],
     "crossCharacterConnections": ["moderate-algo-parallel", "light-hum-glimpsed"],
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "archaeologist-primary-2047",
-      "algorithm-parallel-2151",
-      "human-distant-2383"
-    ]
+    "observerPositions": ["archaeologist-primary-2047", "algorithm-parallel-2151", "human-distant-2383"]
   }
 }

@@ -2,11 +2,11 @@
  * L3 Assembly Builder - constructs 4-section convergence assemblies
  */
 
+import type { L3Assembly, L3AssemblySection, ConditionContext, SynthesisPattern, VariationFile } from '@/types';
+
 import { findMatchingVariation } from './conditionEvaluator';
 import { performanceMonitor } from './performanceMonitor';
 import { loadL3Variations } from './variationLoader';
-
-import type { L3Assembly, L3AssemblySection, ConditionContext, SynthesisPattern, VariationFile } from '@/types';
 
 /**
  * Calculate synthesis pattern based on character visit percentages

@@ -35,18 +35,9 @@
     "philosophicalCulmination": "Physical boundaries verify consciousness through maintained limits",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-resistance",
-      "verification-demand",
-      "boundary-maintenance",
-      "limits-honored"
-    ],
+    "primaryThemes": ["embodied-resistance", "verification-demand", "boundary-maintenance", "limits-honored"],
     "crossCharacterConnections": ["minimal-arch-distant", "light-algo-sensed"],
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "human-primary-2383",
-      "archaeologist-distant-2047",
-      "algorithm-glimpsed-2151"
-    ]
+    "observerPositions": ["human-primary-2383", "archaeologist-distant-2047", "algorithm-glimpsed-2151"]
   }
 }

@@ -57,10 +57,7 @@ const SECTION_TYPES = ['archaeologist', 'algorithm', 'lastHuman', 'convergent'];
 describe('Selection Matrix Properties', () => {
   it('should exist with valid schema', async () => {
     const projectRoot = resolve(process.cwd(), '../..');
-    const matrixPath = join(
-      projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
-    );
+    const matrixPath = join(projectRoot, 'src/data/stories/eternal-return/content/layer3/selection-matrix.json');
 
     let matrix: SelectionMatrix;
     try {
@@ -80,10 +77,7 @@ describe('Selection Matrix Properties', () => {
 
   it('should have entries for all valid combinations', async () => {
     const projectRoot = resolve(process.cwd(), '../..');
-    const matrixPath = join(
-      projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
-    );
+    const matrixPath = join(projectRoot, 'src/data/stories/eternal-return/content/layer3/selection-matrix.json');
 
     let matrix: SelectionMatrix;
     try {
@@ -95,8 +89,7 @@ describe('Selection Matrix Properties', () => {
     }
 
     // Calculate expected combinations: 8 patterns × 3 philosophies × 5 awareness = 120
-    const expectedCombos =
-      JOURNEY_PATTERNS.length * PATH_PHILOSOPHIES.length * AWARENESS_LEVELS.length;
+    const expectedCombos = JOURNEY_PATTERNS.length * PATH_PHILOSOPHIES.length * AWARENESS_LEVELS.length;
 
     expect(matrix.totalCombinations).toBeGreaterThanOrEqual(1);
     expect(matrix.selections.length).toBeGreaterThanOrEqual(1);
@@ -107,10 +100,7 @@ describe('Selection Matrix Properties', () => {
 
   it('should have unique combinations (no duplicates)', async () => {
     const projectRoot = resolve(process.cwd(), '../..');
-    const matrixPath = join(
-      projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
-    );
+    const matrixPath = join(projectRoot, 'src/data/stories/eternal-return/content/layer3/selection-matrix.json');
 
     let matrix: SelectionMatrix;
     try {
@@ -133,10 +123,7 @@ describe('Selection Matrix Properties', () => {
 
   it('should have valid enum values for all entries', async () => {
     const projectRoot = resolve(process.cwd(), '../..');
-    const matrixPath = join(
-      projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
-    );
+    const matrixPath = join(projectRoot, 'src/data/stories/eternal-return/content/layer3/selection-matrix.json');
 
     let matrix: SelectionMatrix;
     try {
@@ -156,10 +143,7 @@ describe('Selection Matrix Properties', () => {
 
   it('should have valid variation IDs when present', async () => {
     const projectRoot = resolve(process.cwd(), '../..');
-    const matrixPath = join(
-      projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
-    );
+    const matrixPath = join(projectRoot, 'src/data/stories/eternal-return/content/layer3/selection-matrix.json');
 
     let matrix: SelectionMatrix;
     try {
@@ -197,10 +181,7 @@ describe('Selection Matrix Properties', () => {
 
   it('should have coverage counts matching selections', async () => {
     const projectRoot = resolve(process.cwd(), '../..');
-    const matrixPath = join(
-      projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
-    );
+    const matrixPath = join(projectRoot, 'src/data/stories/eternal-return/content/layer3/selection-matrix.json');
 
     let matrix: SelectionMatrix;
     try {
@@ -240,10 +221,7 @@ describe('Selection Matrix Properties', () => {
 
   it('should report missing combinations correctly', async () => {
     const projectRoot = resolve(process.cwd(), '../..');
-    const matrixPath = join(
-      projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
-    );
+    const matrixPath = join(projectRoot, 'src/data/stories/eternal-return/content/layer3/selection-matrix.json');
 
     let matrix: SelectionMatrix;
     try {
@@ -277,10 +255,7 @@ describe('Selection Matrix Properties', () => {
 
   it('should maintain deterministic selection order', async () => {
     const projectRoot = resolve(process.cwd(), '../..');
-    const matrixPath = join(
-      projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
-    );
+    const matrixPath = join(projectRoot, 'src/data/stories/eternal-return/content/layer3/selection-matrix.json');
 
     let matrix: SelectionMatrix;
     try {
@@ -309,10 +284,7 @@ describe('Selection Matrix Properties', () => {
 
   it('should have complete section coverage for each combination (property test)', async () => {
     const projectRoot = resolve(process.cwd(), '../..');
-    const matrixPath = join(
-      projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
-    );
+    const matrixPath = join(projectRoot, 'src/data/stories/eternal-return/content/layer3/selection-matrix.json');
 
     let matrix: SelectionMatrix;
     try {
@@ -326,12 +298,7 @@ describe('Selection Matrix Properties', () => {
     // Property: Every combination must have either ALL 4 sections or be in missing list
     for (const entry of matrix.selections) {
       const comboKey = `${entry.journeyPattern}-${entry.philosophyDominant}-${entry.awarenessLevel}`;
-      const hasSections = [
-        entry.archaeologist !== null,
-        entry.algorithm !== null,
-        entry.lastHuman !== null,
-        entry.convergent !== null,
-      ];
+      const hasSections = [entry.archaeologist !== null, entry.algorithm !== null, entry.lastHuman !== null, entry.convergent !== null];
 
       const sectionCount = hasSections.filter(Boolean).length;
 
@@ -352,10 +319,7 @@ describe('Selection Matrix Properties', () => {
 
   it('should enforce exactly one section per type per combination', async () => {
     const projectRoot = resolve(process.cwd(), '../..');
-    const matrixPath = join(
-      projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
-    );
+    const matrixPath = join(projectRoot, 'src/data/stories/eternal-return/content/layer3/selection-matrix.json');
 
     let matrix: SelectionMatrix;
     try {
@@ -383,10 +347,7 @@ describe('Selection Matrix Properties', () => {
 
   it('should validate missing combinations report accuracy', async () => {
     const projectRoot = resolve(process.cwd(), '../..');
-    const matrixPath = join(
-      projectRoot,
-      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
-    );
+    const matrixPath = join(projectRoot, 'src/data/stories/eternal-return/content/layer3/selection-matrix.json');
 
     let matrix: SelectionMatrix;
     try {
@@ -400,9 +361,7 @@ describe('Selection Matrix Properties', () => {
     // Verify missing array is accurate
     for (const missing of matrix.missing) {
       // Find the corresponding selection entry
-      const entry = matrix.selections.find(
-        (s) => `${s.journeyPattern}-${s.philosophyDominant}-${s.awarenessLevel}` === missing.combo,
-      );
+      const entry = matrix.selections.find((s) => `${s.journeyPattern}-${s.philosophyDominant}-${s.awarenessLevel}` === missing.combo);
 
       expect(entry).toBeDefined();
 

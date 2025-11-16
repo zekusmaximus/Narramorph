@@ -47,18 +47,9 @@
       "boundaries-dual-defended",
       "integrity-through-dual-release"
     ],
-    "crossCharacterConnections": [
-      "heavy-dual-primary",
-      "heavy-dual-primary",
-      "light-tertiary-bridging"
-    ],
+    "crossCharacterConnections": ["heavy-dual-primary", "heavy-dual-primary", "light-tertiary-bridging"],
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "archaeologist-contributory-2047",
-      "algorithm-parallel-2151",
-      "human-parallel-2383",
-      "reader-completion-present"
-    ],
+    "observerPositions": ["archaeologist-contributory-2047", "algorithm-parallel-2151", "human-parallel-2383", "reader-completion-present"],
     "convergenceChoiceFraming": "all-three-present-release-emphasized",
     "metaAwarenessDepth": "frame-conscious-reader-addressed",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]

@@ -42,8 +42,7 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 
 ### From Exemplar #[X] (arch-L1-exemplar-0[X])
 
-**Core Philosophy:**
-[2-3 sentences describing the path's philosophical stance]
+**Core Philosophy:** [2-3 sentences describing the path's philosophical stance]
 
 **Key Phrases:**
 
@@ -53,11 +52,9 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 - "[Signature phrase 4]"
 - "[Signature phrase 5]"
 
-**Emotional Tone:**
-[Description of tone qualities and what to avoid]
+**Emotional Tone:** [Description of tone qualities and what to avoid]
 
-**Critical Balance:**
-[Path name] ≠ [common misinterpretation]  
+**Critical Balance:** [Path name] ≠ [common misinterpretation]  
 [Path name] = [correct interpretation]  
 [Path name] = [another key aspect]
 
@@ -82,8 +79,7 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 
 **Word Target:** [X] words
 
-**Integration Focus:**
-[1-2 sentences describing what this variation must achieve - how path integrates with character content, what transformation occurs, etc.]
+**Integration Focus:** [1-2 sentences describing what this variation must achieve - how path integrates with character content, what transformation occurs, etc.]
 
 ---
 
@@ -104,8 +100,7 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 
 **Word Target:** [X] words
 
-**Integration Focus:**
-[Description]
+**Integration Focus:** [Description]
 
 ---
 
@@ -126,8 +121,7 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 
 **Word Target:** [X] words
 
-**Integration Focus:**
-[Description]
+**Integration Focus:** [Description]
 
 ---
 
@@ -148,8 +142,7 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 
 **Word Target:** [X] words
 
-**Integration Focus:**
-[Description]
+**Integration Focus:** [Description]
 
 ---
 
@@ -170,8 +163,7 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 
 **Word Target:** [X] words
 
-**Integration Focus:**
-[Description]
+**Integration Focus:** [Description]
 
 ---
 
@@ -220,11 +212,9 @@ Narramorph Fiction arch-L1 generation - [Brief description of what this cluster 
 
 ### Step 3: Generate Single Variation
 
-**Opening Formula:**
-Establish continuity ("The archaeologist returns..." / "returns to Fragment 2749-A") while signaling transformation toward [path quality].
+**Opening Formula:** Establish continuity ("The archaeologist returns..." / "returns to Fragment 2749-A") while signaling transformation toward [path quality].
 
-**Constants Ritual:**
-847.3TB, 94.7%, 91.2%, 88.9% - numbers that [significance in context of path].
+**Constants Ritual:** 847.3TB, 94.7%, 91.2%, 88.9% - numbers that [significance in context of path].
 
 **[Path Name] Philosophy Integration ([X]-[X] words):**
 
@@ -237,11 +227,9 @@ Establish continuity ("The archaeologist returns..." / "returns to Fragment 2749
 - [Character 1] hints/clear: [What to include based on awareness]
 - [Character 2] hints/clear: [What to include based on awareness]
 
-**Technical-to-Philosophical Arc:**
-Ground [path philosophy] in concrete professional action. Start with [opening focus]. Move toward [philosophical development]. End with [closing stance].
+**Technical-to-Philosophical Arc:** Ground [path philosophy] in concrete professional action. Start with [opening focus]. Move toward [philosophical development]. End with [closing stance].
 
-**Closing Without Resolution:**
-[How path achieves its form of resolution - or doesn't]
+**Closing Without Resolution:** [How path achieves its form of resolution - or doesn't]
 
 ### Step 4: Self-Review Checklist (MANDATORY)
 

@@ -401,11 +401,7 @@ Convergent synthesis variations include additional synthesis-specific metadata:
   },
 
   "narrativeElements": {
-    "worldBuildingFocus": [
-      "authentication-station",
-      "archive-crystalline-substrate",
-      "fragment-structure"
-    ],
+    "worldBuildingFocus": ["authentication-station", "archive-crystalline-substrate", "fragment-structure"],
     "emotionalTone": "contemplative-peaceful",
     "observerPosition": "meta-archaeological",
     "temporalBleedingLevel": "moderate",
@@ -579,9 +575,7 @@ interface ReaderJourneySignature {
 **Dominant Path Philosophy:**
 
 ```typescript
-function getDominantPathPhilosophy(
-  progress: UserProgress,
-): 'accept' | 'resist' | 'investigate' | 'balanced' {
+function getDominantPathPhilosophy(progress: UserProgress): 'accept' | 'resist' | 'investigate' | 'balanced' {
   const pathCounts = { accept: 0, resist: 0, investigate: 0 };
 
   for (const nodeId of Object.keys(progress.visitedNodes)) {
@@ -606,17 +600,13 @@ function getDominantPathPhilosophy(
 **Character Balance Type:**
 
 ```typescript
-function getCharacterBalanceType(
-  progress: UserProgress,
-): 'single-focused' | 'dual-focused' | 'triple-balanced' {
+function getCharacterBalanceType(progress: UserProgress): 'single-focused' | 'dual-focused' | 'triple-balanced' {
   const { archaeologist, algorithm, lastHuman } = progress.characterNodesVisited;
   const total = archaeologist + algorithm + lastHuman;
 
   if (total === 0) return 'triple-balanced';
 
-  const percentages = [archaeologist / total, algorithm / total, lastHuman / total].sort(
-    (a, b) => b - a,
-  );
+  const percentages = [archaeologist / total, algorithm / total, lastHuman / total].sort((a, b) => b - a);
 
   // If top character is >60% of visits, single-focused
   if (percentages[0] > 0.6) return 'single-focused';
@@ -632,9 +622,7 @@ function getCharacterBalanceType(
 **Synthesis Pattern:**
 
 ```typescript
-function getSynthesisPattern(
-  progress: UserProgress,
-): 'single-dominant' | 'dual-balanced' | 'triple-balanced' {
+function getSynthesisPattern(progress: UserProgress): 'single-dominant' | 'dual-balanced' | 'triple-balanced' {
   return getCharacterBalanceType(progress);
 }
 ```
@@ -689,26 +677,11 @@ function selectL3Content(
   const signature = generateJourneySignature(progress);
 
   // 2. Select variation for each section
-  const archSection = selectSectionVariation(
-    `${nodeId}-arch`,
-    'archaeologist',
-    signature,
-    variationMetadata,
-  );
+  const archSection = selectSectionVariation(`${nodeId}-arch`, 'archaeologist', signature, variationMetadata);
 
-  const algoSection = selectSectionVariation(
-    `${nodeId}-algo`,
-    'algorithm',
-    signature,
-    variationMetadata,
-  );
+  const algoSection = selectSectionVariation(`${nodeId}-algo`, 'algorithm', signature, variationMetadata);
 
-  const humSection = selectSectionVariation(
-    `${nodeId}-hum`,
-    'lastHuman',
-    signature,
-    variationMetadata,
-  );
+  const humSection = selectSectionVariation(`${nodeId}-hum`, 'lastHuman', signature, variationMetadata);
 
   const convSection = selectConvergentVariation(`${nodeId}-conv`, signature, variationMetadata);
 
@@ -716,8 +689,7 @@ function selectL3Content(
   return {
     nodeId,
     sections: [archSection, algoSection, humSection, convSection],
-    totalWordCount:
-      archSection.wordCount + algoSection.wordCount + humSection.wordCount + convSection.wordCount,
+    totalWordCount: archSection.wordCount + algoSection.wordCount + humSection.wordCount + convSection.wordCount,
     journeySignature: signature,
   };
 }
@@ -781,8 +753,7 @@ function selectConvergentVariation(
   // 1. Determine all factors
   const journeyPattern = getJourneyPatternForCharacter(signature.dominantCharacter, signature);
 
-  const philosophy =
-    signature.dominantPathPhilosophy === 'balanced' ? 'accept' : signature.dominantPathPhilosophy;
+  const philosophy = signature.dominantPathPhilosophy === 'balanced' ? 'accept' : signature.dominantPathPhilosophy;
 
   const awareness = signature.awarenessCategory;
 
@@ -861,25 +832,13 @@ interface L3UnlockRequirements {
 function canUnlockL3(progress: UserProgress): boolean {
   const totalVisited = Object.keys(progress.visitedNodes).length;
 
-  const charactersExplored = Object.values(progress.characterNodesVisited).filter(
-    (count) => count > 0,
-  ).length;
+  const charactersExplored = Object.values(progress.characterNodesVisited).filter((count) => count > 0).length;
 
-  const allL1Visited = ['arch-L1', 'algo-L1', 'hum-L1'].every(
-    (id) => progress.visitedNodes[id]?.visitCount > 0,
-  );
+  const allL1Visited = ['arch-L1', 'algo-L1', 'hum-L1'].every((id) => progress.visitedNodes[id]?.visitCount > 0);
 
-  const l2VisitCount = Object.keys(progress.visitedNodes).filter((id) =>
-    id.includes('-L2-'),
-  ).length;
+  const l2VisitCount = Object.keys(progress.visitedNodes).filter((id) => id.includes('-L2-')).length;
 
-  return (
-    totalVisited >= 6 &&
-    charactersExplored >= 2 &&
-    progress.temporalAwarenessLevel >= 20 &&
-    allL1Visited &&
-    l2VisitCount >= 3
-  );
+  return totalVisited >= 6 && charactersExplored >= 2 && progress.temporalAwarenessLevel >= 20 && allL1Visited && l2VisitCount >= 3;
 }
 ```
 
@@ -903,8 +862,7 @@ function checkL2Constraints(progress: UserProgress, nodeId: string): L2AccessSta
     .reduce((sum, [_, record]) => sum + record.visitCount, 0);
 
   const thisNodeVisits = progress.visitedNodes[nodeId]?.visitCount || 0;
-  const thisNodeMetaVisits =
-    progress.visitedNodes[nodeId]?.currentState === 'metaAware' ? thisNodeVisits : 0;
+  const thisNodeMetaVisits = progress.visitedNodes[nodeId]?.currentState === 'metaAware' ? thisNodeVisits : 0;
 
   // Hard blocks
   if (totalL2Visits >= 30) {

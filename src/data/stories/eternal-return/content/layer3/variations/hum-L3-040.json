@@ -35,17 +35,9 @@
     "philosophicalCulmination": "Body maintains boundaries consciousness-examination attempts to dissolve",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": [
-      "embodied-resistance",
-      "verification-through-sensation",
-      "boundary-maintenance"
-    ],
+    "primaryThemes": ["embodied-resistance", "verification-through-sensation", "boundary-maintenance"],
     "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "algorithm-primary-2151",
-      "human-integrated-2383",
-      "archaeologist-foundational-2047"
-    ]
+    "observerPositions": ["algorithm-primary-2151", "human-integrated-2383", "archaeologist-foundational-2047"]
   }
 }

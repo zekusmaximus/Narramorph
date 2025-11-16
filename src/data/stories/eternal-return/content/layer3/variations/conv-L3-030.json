@@ -47,12 +47,7 @@
     ],
     "crossCharacterSynthesis": "perfect-three-position-devotional-network",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "arch-network-2047",
-      "algo-network-2151",
-      "hum-network-2383",
-      "reader-fifth-present"
-    ],
+    "observerPositions": ["arch-network-2047", "algo-network-2151", "hum-network-2383", "reader-fifth-present"],
     "philosophicalResolution": "accept-preservation-through-network-devotional-witness",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

@@ -40,19 +40,10 @@
     "circularCausality": "explicit",
     "readerPosition": "acknowledged",
     "thematicContent": null,
-    "primaryThemes": [
-      "three-investigation",
-      "balanced-recursion",
-      "examination-examining-examination"
-    ],
+    "primaryThemes": ["three-investigation", "balanced-recursion", "examination-examining-examination"],
     "crossCharacterSynthesis": "three-position-investigation",
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "archaeologist-investigator",
-      "algorithm-investigator",
-      "human-investigator",
-      "reader-fifth"
-    ],
+    "observerPositions": ["archaeologist-investigator", "algorithm-investigator", "human-investigator", "reader-fifth"],
     "philosophicalResolution": "investigation-transforms-through-three-position-investigation",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

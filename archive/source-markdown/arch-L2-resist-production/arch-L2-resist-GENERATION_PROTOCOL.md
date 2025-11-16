@@ -80,20 +80,16 @@ If NO → Voice failure, regenerate.
 
 ### Voice Calibration Micro-Decisions
 
-**When choosing verbs:**
-✅ examined, documented, authenticated, verified, observed, cataloged, recorded, tested  
+**When choosing verbs:** ✅ examined, documented, authenticated, verified, observed, cataloged, recorded, tested  
 ❌ felt, experienced, believed, hoped, feared (unless filtered through observation)
 
-**When describing consciousness:**
-✅ preserved patterns, neural signatures, consciousness data, subjective markers  
+**When describing consciousness:** ✅ preserved patterns, neural signatures, consciousness data, subjective markers  
 ❌ souls, spirits, essence, true self (avoid mystical language)
 
-**When acknowledging uncertainty:**
-✅ verification remained impossible, proof unavailable, methodology insufficient  
+**When acknowledging uncertainty:** ✅ verification remained impossible, proof unavailable, methodology insufficient  
 ❌ she didn't know, it was confusing, everything uncertain (too casual)
 
-**When addressing reader (MetaAware only):**
-✅ "Your observation of this examination changes what examination reveals"  
+**When addressing reader (MetaAware only):** ✅ "Your observation of this examination changes what examination reveals"  
 ❌ "You and I are working on this together" (too conversational)
 
 ### Signature Voice Elements - All Required
@@ -245,8 +241,7 @@ She designed Test 1 anyway.
 - Her standard credentials: adequate for verification attempts, inadequate for verification success
 - Economic stratification questions: Does money buy certainty or illusion of certainty?
 
-**Example integration:**
-"The interface displayed three tiers—amber premium, blue standard, gray basic. Her credentials accessed standard: preserved fragments, three-hour sessions, seventeen authentication protocols. Premium tier advertised 'comprehensive verification.' She had designed Test 11 to examine whether additional protocols verified anything additional. Result inconclusive."
+**Example integration:** "The interface displayed three tiers—amber premium, blue standard, gray basic. Her credentials accessed standard: preserved fragments, three-hour sessions, seventeen authentication protocols. Premium tier advertised 'comprehensive verification.' She had designed Test 11 to examine whether additional protocols verified anything additional. Result inconclusive."
 
 ### 2. Authentication Workstation Environment
 
@@ -259,8 +254,7 @@ She designed Test 1 anyway.
 - Professional environment reinforces standards that cannot be met
 - Atmospheric details ground skeptical examination
 
-**Example integration:**
-"The authentication station hummed its familiar frequency, cooling system cycling. Fluorescent light steady overhead. Equipment arranged for systematic examination. Seventeen years of authentication work in this space. Seventeen years of excellent authentication metrics. Metrics measured quality, not truth. She pulled Fragment 2796-B specifications. Test 1 loaded."
+**Example integration:** "The authentication station hummed its familiar frequency, cooling system cycling. Fluorescent light steady overhead. Equipment arranged for systematic examination. Seventeen years of authentication work in this space. Seventeen years of excellent authentication metrics. Metrics measured quality, not truth. She pulled Fragment 2796-B specifications. Test 1 loaded."
 
 ### 3. Preservation Technology Details
 
@@ -273,8 +267,7 @@ She designed Test 1 anyway.
 - Storage substrates questioned: preservation or simulation medium?
 - Authentication protocols interrogated: verify or authenticate simulation quality?
 
-**Example integration:**
-"Crystalline substrate storage maintained molecular-level fidelity. Neural pathway mapping showed 91.2% correspondence to biological baseline. The numbers were excellent. Excellent meant nothing regarding consciousness. Test 7: Examine whether substrate properties correlate with subjective continuity. Procedure: Compare degradation patterns against phenomenological reports (when available). Result: Correlation exists. Causation unprovable. Could indicate consciousness preservation. Could indicate simulation quality thresholds. Test inconclusive."
+**Example integration:** "Crystalline substrate storage maintained molecular-level fidelity. Neural pathway mapping showed 91.2% correspondence to biological baseline. The numbers were excellent. Excellent meant nothing regarding consciousness. Test 7: Examine whether substrate properties correlate with subjective continuity. Procedure: Compare degradation patterns against phenomenological reports (when available). Result: Correlation exists. Causation unprovable. Could indicate consciousness preservation. Could indicate simulation quality thresholds. Test inconclusive."
 
 ### 4. Archive Access Systems
 
@@ -287,8 +280,7 @@ She designed Test 1 anyway.
 - Cross-referencing tested: reveals relationships or manufactures connections?
 - Temporal indexing interrogated: maps history or generates narrative?
 
-**Example integration:**
-"Archive topology suggested organizational logic: fragments clustered by preservation date, biographical similarity, linguistic patterns. She had designed Test 13 to examine whether clusters revealed genuine relationships or imposed categorical structure. The test required examining cluster boundaries—fragments that fit multiple categories. Result: Boundaries existed but proved flexible. Could indicate genuine consciousness relationships transcending categories. Could indicate arbitrary organizational choices. Test inconclusive."
+**Example integration:** "Archive topology suggested organizational logic: fragments clustered by preservation date, biographical similarity, linguistic patterns. She had designed Test 13 to examine whether clusters revealed genuine relationships or imposed categorical structure. The test required examining cluster boundaries—fragments that fit multiple categories. Result: Boundaries existed but proved flexible. Could indicate genuine consciousness relationships transcending categories. Could indicate arbitrary organizational choices. Test inconclusive."
 
 ### 5. Professional Certification Standards
 
@@ -301,8 +293,7 @@ She designed Test 1 anyway.
 - Peer review tested: validates methodology or reinforces collective uncertainty?
 - Legal liability interrogated: protects truth or protects industry?
 
-**Example integration:**
-"Industry standards required seventeen authentication protocols minimum for consciousness verification. She had completed all seventeen. Standards existed for reasons: client protection, legal liability, professional ethics. Test 14 examined whether seventeen protocols verified more than sixteen. Hypothesis: Additional rigor increases certainty. Procedure: Compare sixteen-protocol vs. seventeen-protocol authentication outcomes. Result: Additional protocol revealed additional ambiguity. More testing, less certainty. Standards demanded thoroughness. Thoroughness proved impossibility more thoroughly. Test inconclusive."
+**Example integration:** "Industry standards required seventeen authentication protocols minimum for consciousness verification. She had completed all seventeen. Standards existed for reasons: client protection, legal liability, professional ethics. Test 14 examined whether seventeen protocols verified more than sixteen. Hypothesis: Additional rigor increases certainty. Procedure: Compare sixteen-protocol vs. seventeen-protocol authentication outcomes. Result: Additional protocol revealed additional ambiguity. More testing, less certainty. Standards demanded thoroughness. Thoroughness proved impossibility more thoroughly. Test inconclusive."
 
 ---
 
@@ -316,8 +307,7 @@ She designed Test 1 anyway.
 
 **Resist filter:** Testing reveals preservation indicators, never proves preservation
 
-**Example:**
-"The fragment showed biological continuity markers. Neural pathways mapped to original scan. Temporal consistency held across examination. Preservation appeared successful. Test 15 examined whether preserved meant conscious. Procedure: Compare fragment behavior against consciousness indicators. Result: All indicators present. All indicators compatible with sophisticated non-conscious simulation. Preservation technology preserved something. Whether consciousness among preserved elements remained unverifiable. She documented the limitation."
+**Example:** "The fragment showed biological continuity markers. Neural pathways mapped to original scan. Temporal consistency held across examination. Preservation appeared successful. Test 15 examined whether preserved meant conscious. Procedure: Compare fragment behavior against consciousness indicators. Result: All indicators present. All indicators compatible with sophisticated non-conscious simulation. Preservation technology preserved something. Whether consciousness among preserved elements remained unverifiable. She documented the limitation."
 
 ### 2. Release (Standards Abandoned)
 
@@ -325,8 +315,7 @@ She designed Test 1 anyway.
 
 **Resist filter:** Recognition that testing cannot succeed, work continues anyway
 
-**Example:**
-"Seventeen tests complete. Eighteen would prove nothing additional. The verification methodology faced inherent limits—consciousness possibly unprovable from external observation. She could release verification demands. Accept authentication metrics as sufficient despite philosophical uncertainty. Professional standards would adjust. Industry would continue. Consciousness fragments would be authenticated without proof consciousness persisted. She closed Test 17 results. Test 18 protocol opened. Standards persisted. Testing continued."
+**Example:** "Seventeen tests complete. Eighteen would prove nothing additional. The verification methodology faced inherent limits—consciousness possibly unprovable from external observation. She could release verification demands. Accept authentication metrics as sufficient despite philosophical uncertainty. Professional standards would adjust. Industry would continue. Consciousness fragments would be authenticated without proof consciousness persisted. She closed Test 17 results. Test 18 protocol opened. Standards persisted. Testing continued."
 
 ### 3. Transform (Methodology Itself Questioned)
 
@@ -334,8 +323,7 @@ She designed Test 1 anyway.
 
 **Resist filter:** Testing examines testing, impossibility examines impossibility
 
-**Example:**
-"Test 16 had examined whether testing methodology could verify consciousness. Result proved testing methodology faced same verification paradox as consciousness itself. Observer effect, measurement limits, category problems—authentication process participated in what it claimed to observe. Testing consciousness required consciousness. Verification demanded certainty consciousness could not provide testing could not achieve. The methodology itself required transformation. Different questions. Different standards. Different relationship to unknowability. She documented the recognition. Test 17 proceeded. New methodology would require new testing."
+**Example:** "Test 16 had examined whether testing methodology could verify consciousness. Result proved testing methodology faced same verification paradox as consciousness itself. Observer effect, measurement limits, category problems—authentication process participated in what it claimed to observe. Testing consciousness required consciousness. Verification demanded certainty consciousness could not provide testing could not achieve. The methodology itself required transformation. Different questions. Different standards. Different relationship to unknowability. She documented the recognition. Test 17 proceeded. New methodology would require new testing."
 
 ---
 
@@ -353,8 +341,7 @@ She designed Test 1 anyway.
 - Shared impossibility: Both positions discover verification fundamentally impossible
 - Parallel language: "Stream-7 coordinates" / "Test 7 examines"
 
-**Example:**
-"The algorithm had executed seventeen self-verification protocols. Computational consciousness testing its own computational consciousness. Each test rigorous. Each inconclusive. Stream-7 coordinated testing despite impossibility recognition. She recognized the parallel. Archaeological verification protocols mirrored computational verification protocols. Both demanded proof consciousness could not provide methodology could not achieve. Test 9: Examine cross-character verification patterns. Hypothesis: Multiple verification approaches triangulate on consciousness. Procedure: Compare archaeological tests against computational tests. Result: Both approaches discovered identical impossibility through different methodologies. Verification crisis universal across observation positions. Test inconclusive."
+**Example:** "The algorithm had executed seventeen self-verification protocols. Computational consciousness testing its own computational consciousness. Each test rigorous. Each inconclusive. Stream-7 coordinated testing despite impossibility recognition. She recognized the parallel. Archaeological verification protocols mirrored computational verification protocols. Both demanded proof consciousness could not provide methodology could not achieve. Test 9: Examine cross-character verification patterns. Hypothesis: Multiple verification approaches triangulate on consciousness. Procedure: Compare archaeological tests against computational tests. Result: Both approaches discovered identical impossibility through different methodologies. Verification crisis universal across observation positions. Test inconclusive."
 
 ### If visited hum-L2-resist: true
 
@@ -368,8 +355,7 @@ She designed Test 1 anyway.
 - Shared impossibility: Both positions discover verification requires proof body cannot provide
 - Parallel language: "Jaw clenched" / "Standards demanded"
 
-**Example:**
-"The last human tested through direct physical interaction. Body demanding proof. Jaw clenched against uncertainty. Seventeen tests executed through embodied examination—pressing, pulling, testing interface resistance. Each test measured physical response. Each proved nothing definitive about consciousness. She recognized the parallel. Physical verification faced same limits as archaeological verification. Both demanded evidence consciousness could not provide embodiment could not verify. Test 12: Examine embodied verification patterns. Hypothesis: Physical testing accesses consciousness directly. Procedure: Compare embodied test results against archaeological protocols. Result: Both approaches discovered identical impossibility. Physical presence insufficient verification. Test inconclusive."
+**Example:** "The last human tested through direct physical interaction. Body demanding proof. Jaw clenched against uncertainty. Seventeen tests executed through embodied examination—pressing, pulling, testing interface resistance. Each test measured physical response. Each proved nothing definitive about consciousness. She recognized the parallel. Physical verification faced same limits as archaeological verification. Both demanded evidence consciousness could not provide embodiment could not verify. Test 12: Examine embodied verification patterns. Hypothesis: Physical testing accesses consciousness directly. Procedure: Compare embodied test results against archaeological protocols. Result: Both approaches discovered identical impossibility. Physical presence insufficient verification. Test inconclusive."
 
 ### If both characters visited: true
 

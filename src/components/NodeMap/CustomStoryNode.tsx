@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Lock } from 'lucide-react';
 import { memo, useState, useMemo, type ReactNode } from 'react';
 
-import { useStoryStore } from '../../stores/storyStore';
-
 import type { StoryNode, NodeUIState, CharacterType, TransformationState } from '@/types';
+
+import { useStoryStore } from '../../stores/storyStore';
 
 /**
  * Props passed to custom node via React Flow

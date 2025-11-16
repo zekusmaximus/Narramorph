@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ReactNode, useState } from 'react';
+import type { ReactNode } from 'react';
+import { useState } from 'react';
 
 import { useStoryStore } from '@/stores/storyStore';
 

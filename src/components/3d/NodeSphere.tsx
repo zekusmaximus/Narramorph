@@ -26,11 +26,7 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
   const unlockConfigs = useStoryStore((state) => state.unlockConfigs);
   const openStoryView = useStoryStore((state) => state.openStoryView);
 
-  if (!node) {
-    return null;
-  }
-
-  // Calculate node state
+  // Calculate node state - with safe defaults if node doesn't exist
   const visitRecord = visitedNodes[nodeId];
   const visitCount = visitRecord?.visitCount || 0;
   const isActive = selectedNode === nodeId;
@@ -38,19 +34,21 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
 
   // Check if node is available
   const unlockConfig = unlockConfigs.get(nodeId);
-  const isAvailable = isNodeAvailable(nodeId, progress, unlockConfig);
+  const isAvailable = node ? isNodeAvailable(nodeId, progress, unlockConfig) : false;
   const isLocked = !isAvailable;
 
-  // Get appearance based on state
-  const appearance = getNodeAppearance({
-    character: node.character,
-    isActive,
-    isVisited,
-    isLocked,
-    awarenessLevel,
-  });
+  // Get appearance based on state - with default values if node doesn't exist
+  const appearance = node
+    ? getNodeAppearance({
+        character: node.character,
+        isActive,
+        isVisited,
+        isLocked,
+        awarenessLevel,
+      })
+    : { scale: 1, emissiveIntensity: 0, opacity: 0, color: '#888888', emissiveColor: '#000000' };
 
-  // Animated properties - conditional hover based on availability
+  // Animated properties - must be called unconditionally (React rules of hooks)
   const baseScale = appearance.scale;
   const { scale, emissiveIntensity, opacity } = useSpring({
     scale: isActive ? baseScale * 1.3 : isHovered && isAvailable ? baseScale * 1.05 : baseScale,
@@ -62,6 +60,11 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
     opacity: appearance.opacity,
     config: { tension: 300, friction: 20 },
   });
+
+  // Early return after all hooks have been called
+  if (!node) {
+    return null;
+  }
 
   // Event handlers
   const handleClick = () => {

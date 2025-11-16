@@ -40,12 +40,7 @@
     "circularCausality": "minimal",
     "readerPosition": "immersed-in-network",
     "thematicContent": null,
-    "primaryThemes": [
-      "preservation-as-devotion",
-      "sustained-witness",
-      "consciousness-honoring",
-      "verification-practice"
-    ],
+    "primaryThemes": ["preservation-as-devotion", "sustained-witness", "consciousness-honoring", "verification-practice"],
     "crossCharacterSynthesis": "single-dominant-primary",
     "temporalBleedingLevel": "low",
     "observerPositions": ["primary-dominant", "secondary-support", "tertiary-support"],

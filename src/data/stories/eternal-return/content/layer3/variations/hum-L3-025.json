@@ -35,17 +35,9 @@
     "philosophicalCulmination": "Embodied examination recursively creates what examination examines through examination creating embodiment examining creation",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "recursive-investigation",
-      "embodied-examination",
-      "observer-creates-observed"
-    ],
+    "primaryThemes": ["recursive-investigation", "embodied-examination", "observer-creates-observed"],
     "crossCharacterConnections": ["moderate-arch-foundational", "light-algo-parallel"],
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "human-primary-2383",
-      "archaeologist-foundational-2047",
-      "algorithm-glimpsed-2151"
-    ]
+    "observerPositions": ["human-primary-2383", "archaeologist-foundational-2047", "algorithm-glimpsed-2151"]
   }
 }

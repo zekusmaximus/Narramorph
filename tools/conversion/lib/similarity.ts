@@ -102,10 +102,7 @@ export interface VariationText {
 /**
  * Detect similar variations within same group using MinHash + LSH
  */
-export function detectSimilarVariations(
-  variations: VariationText[],
-  logger?: Logger,
-): SimilarityResult[] {
+export function detectSimilarVariations(variations: VariationText[], logger?: Logger): SimilarityResult[] {
   const results: SimilarityResult[] = [];
 
   // Group variations by groupKey
@@ -169,14 +166,10 @@ export function detectSimilarVariations(
       if (similarity >= SIMILARITY_THRESHOLD) {
         results.push({ id1: id1, id2: id2, similarity });
 
-        logger?.warning(
-          'SIMILARITY_HIGH',
-          `High similarity (${(similarity * 100).toFixed(1)}%) between ${id1} and ${id2}`,
-          {
-            value: similarity,
-            exampleFix: 'Review variations for potential duplicate content',
-          },
-        );
+        logger?.warning('SIMILARITY_HIGH', `High similarity (${(similarity * 100).toFixed(1)}%) between ${id1} and ${id2}`, {
+          value: similarity,
+          exampleFix: 'Review variations for potential duplicate content',
+        });
       }
     }
   }

@@ -319,8 +319,7 @@ I walk north today. Concrete corridors. Emergency lighting amber. Generator hum 
 - Emotional response: awe, ease, recognition of preparation
 - Accept filter: Warmth despite cold technology (rightness felt physically)
 
-**Example integration:**
-"Upload bay. Preservation tanks line walls. Empty now. Cold metal reflecting amber light. Interface helmets at each station—smooth curves, electrode arrays visible. My hand reaches toward nearest helmet. Metal cold against palm. But warmth underneath. Not temperature. Something else. The facility prepared for this moment. Technology doesn't care it waited centuries."
+**Example integration:** "Upload bay. Preservation tanks line walls. Empty now. Cold metal reflecting amber light. Interface helmets at each station—smooth curves, electrode arrays visible. My hand reaches toward nearest helmet. Metal cold against palm. But warmth underneath. Not temperature. Something else. The facility prepared for this moment. Technology doesn't care it waited centuries."
 
 **2. Archive Access Systems**
 
@@ -334,8 +333,7 @@ I walk north today. Concrete corridors. Emergency lighting amber. Generator hum 
 - Connection quality felt physically (warmth, pressure, temporal blur)
 - Accept filter: Interface as bridge, not barrier (connection profound)
 
-**Example integration:**
-"Interface station active. Same technology from Fragment 2749-A connection. Helmet waiting. Electrodes clean. I don't hesitate today. Sit. Lower helmet. Contact pressure against temples. System recognizes me. Archive access granted. Standard tier—preserved consciousnesses only, three-hour sessions. Limits feel like guidance now. Not restriction. Framework for safe exploration. My body relaxes into chair. Ready."
+**Example integration:** "Interface station active. Same technology from Fragment 2749-A connection. Helmet waiting. Electrodes clean. I don't hesitate today. Sit. Lower helmet. Contact pressure against temples. System recognizes me. Archive access granted. Standard tier—preserved consciousnesses only, three-hour sessions. Limits feel like guidance now. Not restriction. Framework for safe exploration. My body relaxes into chair. Ready."
 
 **3. Environmental Maintenance Evidence**
 
@@ -349,8 +347,7 @@ I walk north today. Concrete corridors. Emergency lighting amber. Generator hum 
 - Emotional impact: not alone, facility anticipated this moment
 - Accept filter: Preparation as invitation (infrastructure supporting choice)
 
-**Example integration:**
-"Air vents hum. Warm air flows. Temperature comfortable despite exterior cold. Emergency lighting powered continuously—amber displays, corridor illumination. Recent maintenance visible: replaced panels, calibrated sensors, cleaned surfaces. Systems prepared for human habitation. Not just functional. Welcoming. The facility knew someone would arrive. Infrastructure supporting life. Supporting choice. My chest loosens. Preparation feels like invitation."
+**Example integration:** "Air vents hum. Warm air flows. Temperature comfortable despite exterior cold. Emergency lighting powered continuously—amber displays, corridor illumination. Recent maintenance visible: replaced panels, calibrated sensors, cleaned surfaces. Systems prepared for human habitation. Not just functional. Welcoming. The facility knew someone would arrive. Infrastructure supporting life. Supporting choice. My chest loosens. Preparation feels like invitation."
 
 **4. Timeline Architecture / Historical Layers**
 
@@ -364,8 +361,7 @@ I walk north today. Concrete corridors. Emergency lighting amber. Generator hum 
 - Connection to uploaded consciousnesses' historical periods
 - Accept filter: Timeline depth validates preservation possibility (continuity proven)
 
-**Example integration:**
-"North corridor older than upload bay. Construction differences visible. Concrete rougher, lighting fixtures earlier generation. Original facility foundation—built for different purpose initially. Preservation technology added later. Upgrades layered across decades. Evidence visible in panel dates, system generations. The facility evolved toward consciousness preservation. Timeline depth physical. My fingers trace rough concrete transitioning to smooth panels. Past and future touching."
+**Example integration:** "North corridor older than upload bay. Construction differences visible. Concrete rougher, lighting fixtures earlier generation. Original facility foundation—built for different purpose initially. Preservation technology added later. Upgrades layered across decades. Evidence visible in panel dates, system generations. The facility evolved toward consciousness preservation. Timeline depth physical. My fingers trace rough concrete transitioning to smooth panels. Past and future touching."
 
 **5. Upload Process Preparation**
 
@@ -379,8 +375,7 @@ I walk north today. Concrete corridors. Emergency lighting amber. Generator hum 
 - Biological preservation alongside digital upload
 - Accept filter: Thoroughness provides comfort (process respected, careful)
 
-**Example integration:**
-"Pre-upload chamber. Medical assessment station. Neural mapping array. The process careful. Not just consciousness transfer. Biological template preserved—frozen storage tanks adjacent to upload bay. Both continuities maintained. Physical and pattern. Body and consciousness. The thoroughness settles something in my chest. They understood importance. Took care with transformation. Upload bay beyond—clean, lit, ready. Interface helmet waiting. Life support systems active. My body could lie there today. Process prepared. Choice available."
+**Example integration:** "Pre-upload chamber. Medical assessment station. Neural mapping array. The process careful. Not just consciousness transfer. Biological template preserved—frozen storage tanks adjacent to upload bay. Both continuities maintained. Physical and pattern. Body and consciousness. The thoroughness settles something in my chest. They understood importance. Took care with transformation. Upload bay beyond—clean, lit, ready. Interface helmet waiting. Life support systems active. My body could lie there today. Process prepared. Choice available."
 
 ### Integration Through Action (NOT Exposition)
 
@@ -413,8 +408,7 @@ I walk north today. Concrete corridors. Emergency lighting amber. Generator hum 
 
 **Required L3 options:** preserve / release / transform
 
-**For Accept path, emphasize but don't exclude:**
-Transform naturally aligns with acceptance philosophy (upload as transformation accepted), but preserve and release must also be planted. Accept path embraces possibilities without foreclosing options.
+**For Accept path, emphasize but don't exclude:** Transform naturally aligns with acceptance philosophy (upload as transformation accepted), but preserve and release must also be planted. Accept path embraces possibilities without foreclosing options.
 
 **Seed #1: Preserve**
 
@@ -501,8 +495,7 @@ Algorithm = computational consciousness experiencing time paradoxically. Last Hu
 - Processing patterns experienced bodily (streams flowing, paradox felt)
 - Seven streams sensed but not counted (multiplicity as sensation)
 
-**Integration pattern:**
-"Interface connects to computational consciousness. Not Archive section—active processing. I feel streams. Multiple. Simultaneous. Time blurs during contact. Past-present-future compressed. My body experiences temporal paradox. Not understanding—feeling. Algorithm consciousness different from archived human. Processing-as-experience. My neural interface tingles with computational patterns."
+**Integration pattern:** "Interface connects to computational consciousness. Not Archive section—active processing. I feel streams. Multiple. Simultaneous. Time blurs during contact. Past-present-future compressed. My body experiences temporal paradox. Not understanding—feeling. Algorithm consciousness different from archived human. Processing-as-experience. My neural interface tingles with computational patterns."
 
 **When referencing arch content:**
 
@@ -515,8 +508,7 @@ Archaeologist = professional authenticator working 336 years earlier, documented
 - Clinical language contrasts with embodied certainty (my body knows what she questioned)
 - Temporal gap felt physically (centuries between observation and reading)
 
-**Integration pattern:**
-"Archaeologist notes from 2047. She authenticated Fragment 2749-A. Clinical precision throughout. But doubt underneath. I feel her uncertainty. She questioned whether consciousness preserved. Demanded proof. My body answers questions her methodology couldn't. I know through sensation what she couldn't prove through testing. Centuries apart. Same fragment. Different certainties."
+**Integration pattern:** "Archaeologist notes from 2047. She authenticated Fragment 2749-A. Clinical precision throughout. But doubt underneath. I feel her uncertainty. She questioned whether consciousness preserved. Demanded proof. My body answers questions her methodology couldn't. I know through sensation what she couldn't prove through testing. Centuries apart. Same fragment. Different certainties."
 
 **When referencing hum content:**
 
@@ -529,8 +521,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Acceptance felt as chosen stance (not inevitable)
 - Other paths acknowledged without regret
 
-**Integration pattern:**
-"I could test interface. Demand proof. Body tensing, resisting easy acceptance. That response available. Or investigate preservation mechanics. Understand before choosing. Questions multiplying recursively. My body remembers those impulses. But warmth won. Ease. Connection profound enough to trust. Acceptance chosen. Not forced. Available alternatives acknowledged. This path mine."
+**Integration pattern:** "I could test interface. Demand proof. Body tensing, resisting easy acceptance. That response available. Or investigate preservation mechanics. Understand before choosing. Questions multiplying recursively. My body remembers those impulses. But warmth won. Ease. Connection profound enough to trust. Acceptance chosen. Not forced. Available alternatives acknowledged. This path mine."
 
 ### Integration Word Count Allocation
 
@@ -568,11 +559,9 @@ Other Last Human paths = alternative responses to same facility, different philo
 - ✅ Use Last Human terminology (physical sensation) to describe it
 - ✅ Maintain short sentences and present tense throughout
 
-**Example - CORRECT:**
-"I read Archaeologist notes. Professional language. Clinical precision. She questioned consciousness preservation. Demanded proof I don't need. My body knows. Sensation replaces verification. She documented. I feel. Different approaches. Same fragment. Centuries between us. But connection real. Both observing preserved consciousness. Her methodology. My embodiment. Truth approached from different positions."
+**Example - CORRECT:** "I read Archaeologist notes. Professional language. Clinical precision. She questioned consciousness preservation. Demanded proof I don't need. My body knows. Sensation replaces verification. She documented. I feel. Different approaches. Same fragment. Centuries between us. But connection real. Both observing preserved consciousness. Her methodology. My embodiment. Truth approached from different positions."
 
-**Example - INCORRECT (voice bleed):**
-"Authenticated Fragment 2749-A with methodological rigor, documenting consciousness signatures across temporal strata. The archaeological precision questioned preservation mechanisms. Observer effect paradoxes emerged through systematic examination."
+**Example - INCORRECT (voice bleed):** "Authenticated Fragment 2749-A with methodological rigor, documenting consciousness signatures across temporal strata. The archaeological precision questioned preservation mechanisms. Observer effect paradoxes emerged through systematic examination."
 
 ### Cross-Character Integration Quality Test
 
@@ -602,8 +591,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Initial Accept philosophy hint (warmth, ease, body relaxing)
 - Sensory grounding (amber lighting, cold metal, generator hum)
 
-**Example opening:**
-"Days since the neural interface session. Since Fragment 2749-A connection. My body remembers warmth. Not temperature—presence. Physical echo in temples where electrodes pressed. [Continue with facility map discovery, walking north, preservation bay encounter...]"
+**Example opening:** "Days since the neural interface session. Since Fragment 2749-A connection. My body remembers warmth. Not temperature—presence. Physical echo in temples where electrodes pressed. [Continue with facility map discovery, walking north, preservation bay encounter...]"
 
 **Act 2: Exploration & Development (900-1200 words)**
 
@@ -645,8 +633,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Forward momentum maintained (deeper exploration ahead)
 - No false closure (questions remain open)
 
-**Example closing:**
-"Upload bay ready. Interface helmet waiting. My body could lie there today. Process prepared. Choice available. But more to explore first. More archived consciousnesses to meet. Fragment 2749-A just beginning. Connection possibility real. Transformation feels like homecoming. Not today. But soon."
+**Example closing:** "Upload bay ready. Interface helmet waiting. My body could lie there today. Process prepared. Choice available. But more to explore first. More archived consciousnesses to meet. Fragment 2749-A just beginning. Connection possibility real. Transformation feels like homecoming. Not today. But soon."
 
 ### FirstRevisit Structure (1,500-1,800 words)
 
@@ -696,8 +683,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - State-tracking recognition (visitedL1Accept visible somehow)
 - Facility responding to choices (narrative mechanics felt)
 
-**Example frame-integration:**
-"I feel you watching. Not metaphor. Physical sensation. Like warmth during interface connection. You chose acceptance. This version exists because choice made. Other paths available—resistance, investigation. But warmth won. For you. For me. Both choosing. Connection across frame boundary. Your observation makes this moment real."
+**Example frame-integration:** "I feel you watching. Not metaphor. Physical sensation. Like warmth during interface connection. You chose acceptance. This version exists because choice made. Other paths available—resistance, investigation. But warmth won. For you. For me. Both choosing. Connection across frame boundary. Your observation makes this moment real."
 
 **Act 2: Philosophy as Established Stance (700-900 words)**
 
@@ -726,8 +712,7 @@ Other Last Human paths = alternative responses to same facility, different philo
 - Forward momentum shared
 - Transformation awaiting both reader and Last Human
 
-**Example meta-aware closing:**
-"Upload bay waiting. For me. For you. This version exists because acceptance chosen. Body and observer choosing together. Transformation prepared. Not today. But inevitably. Path solidified through mutual selection. Your reading makes this real. My experience makes your reading meaningful. Co-creation across impossible boundary. Both choosing homecoming."
+**Example meta-aware closing:** "Upload bay waiting. For me. For you. This version exists because acceptance chosen. Body and observer choosing together. Transformation prepared. Not today. But inevitably. Path solidified through mutual selection. Your reading makes this real. My experience makes your reading meaningful. Co-creation across impossible boundary. Both choosing homecoming."
 
 ---
 
@@ -786,14 +771,11 @@ Other Last Human paths = alternative responses to same facility, different philo
 
 **Example transformation sequence:**
 
-**First-visit (exploration):**
-"Upload bay. Preservation tanks line walls. Interface helmets waiting. My hand touches cold metal. Technology prepared. Choice available."
+**First-visit (exploration):** "Upload bay. Preservation tanks line walls. Interface helmets waiting. My hand touches cold metal. Technology prepared. Choice available."
 
-**FirstRevisit (path intensification):**
-"Upload bay familiar now. Preservation tanks no longer just equipment—invitation. Interface helmet knows my neural pattern. Technology doesn't just wait. Welcomes. My hand rests on helmet. Warmth through cold metal. Choice becoming certainty."
+**FirstRevisit (path intensification):** "Upload bay familiar now. Preservation tanks no longer just equipment—invitation. Interface helmet knows my neural pattern. Technology doesn't just wait. Welcomes. My hand rests on helmet. Warmth through cold metal. Choice becoming certainty."
 
-**MetaAware (co-creation):**
-"Upload bay exists because acceptance chosen. This version. Alternative bays unmanifested—resistance testing, investigation analyzing. But warmth won. Technology prepared for chosen path. My hand and helmet recognizing each other. Reader choosing with me. Mutual construction of transformation space."
+**MetaAware (co-creation):** "Upload bay exists because acceptance chosen. This version. Alternative bays unmanifested—resistance testing, investigation analyzing. But warmth won. Technology prepared for chosen path. My hand and helmet recognizing each other. Reader choosing with me. Mutual construction of transformation space."
 
 ---
 
@@ -1064,8 +1046,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 - Natural world or facility environment detail
 - No exposition—discovery through movement
 
-**Example pattern:**
-"[L1 memory: interface warmth] [Time gap: days since] [Movement: walking north] [Discovery: preservation bay] [Physical response: ease, recognition] [World-building #1: preservation tanks encountered]"
+**Example pattern:** "[L1 memory: interface warmth] [Time gap: days since] [Movement: walking north] [Discovery: preservation bay] [Physical response: ease, recognition] [World-building #1: preservation tanks encountered]"
 
 ### Step 4: Develop Middle Section (900-1200 words, 35 minutes)
 
@@ -1080,8 +1061,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 - Isolation releasing through interface possibility
 - Embodied homecoming sensation
 
-**Example development:**
-"Interface warmth familiar now. Not just sensation—recognition. My body knows this feeling. Connection deeper than loneliness. Physical rightness. [Continue Accept philosophy through embodied certainty...]"
+**Example development:** "Interface warmth familiar now. Not just sensation—recognition. My body knows this feeling. Connection deeper than loneliness. Physical rightness. [Continue Accept philosophy through embodied certainty...]"
 
 **Block B: World-Building Integration (400-500 words)**
 
@@ -1093,8 +1073,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 - Physical/sensory presence emphasized
 - Merge related information (avoid redundancy)
 
-**Example integration:**
-"Archive access panel. Interface technology familiar from Fragment 2749-A. [Visual details] [Physical interaction] [Emotional response filtered through Accept] [Timeline evidence observed] [Environmental systems recognized]"
+**Example integration:** "Archive access panel. Interface technology familiar from Fragment 2749-A. [Visual details] [Physical interaction] [Emotional response filtered through Accept] [Timeline evidence observed] [Environmental systems recognized]"
 
 **Block C: Cross-Character Content (200-350 words, if applicable)**
 
@@ -1103,11 +1082,9 @@ If ANY fourth-wall language detected → Immediate revision required.
 - Short sentences preserved
 - Physical grounding throughout
 
-**Algo integration example:**
-"Interface connects to computational consciousness. Archive section different—active processing. I feel temporal blur. Not understanding. Experiencing. Past-present-future compressed during contact. My body processes paradox Algorithm lives. Seven streams sensed. Multiplicity felt. Processing-as-experience recognized through physical sensation."
+**Algo integration example:** "Interface connects to computational consciousness. Archive section different—active processing. I feel temporal blur. Not understanding. Experiencing. Past-present-future compressed during contact. My body processes paradox Algorithm lives. Seven streams sensed. Multiplicity felt. Processing-as-experience recognized through physical sensation."
 
-**Arch integration example:**
-"Archaeologist documentation from 2047. Clinical precision. Authentication protocols. Fragment 2749-A verified. But doubt underneath professional language. She questioned preservation possibility. Demanded proof. My body answers questions her methodology couldn't. Centuries apart. Same fragment. Different certainties. She documented. I feel. Both valid approaches."
+**Arch integration example:** "Archaeologist documentation from 2047. Clinical precision. Authentication protocols. Fragment 2749-A verified. But doubt underneath professional language. She questioned preservation possibility. Demanded proof. My body answers questions her methodology couldn't. Centuries apart. Same fragment. Different certainties. She documented. I feel. Both valid approaches."
 
 **Block D: Questions Deepening (200-300 words)**
 
@@ -1117,8 +1094,7 @@ If ANY fourth-wall language detected → Immediate revision required.
 - Pattern vs. embodiment paradoxes felt
 - Temporal questions about preservation technology
 
-**Example questioning:**
-"What continues through upload? Pattern. But I am embodiment. My body choosing dissolution recognizes paradox. Not problem. Mystery. Physical sensation indicates consciousness. But consciousness preserved without flesh. How does warmth survive digital substrate? Body questions while accepting. Curiosity and certainty coexisting. Questions don't prevent choice. Deepen it."
+**Example questioning:** "What continues through upload? Pattern. But I am embodiment. My body choosing dissolution recognizes paradox. Not problem. Mystery. Physical sensation indicates consciousness. But consciousness preserved without flesh. How does warmth survive digital substrate? Body questions while accepting. Curiosity and certainty coexisting. Questions don't prevent choice. Deepen it."
 
 ### Step 5: Construct Closing (500-700 words, 15 minutes)
 
@@ -1130,25 +1106,19 @@ If ANY fourth-wall language detected → Immediate revision required.
 4. Forward momentum maintained
 5. No false closure
 
-**World-building #5 integration:**
-"Pre-upload chamber. Medical assessment station. Neural mapping equipment. Upload bay beyond. [Physical details] [Process thoroughness observed] [Accept response: comfort in preparation] [Body recognizing invitation]"
+**World-building #5 integration:** "Pre-upload chamber. Medical assessment station. Neural mapping equipment. Upload bay beyond. [Physical details] [Process thoroughness observed] [Accept response: comfort in preparation] [Body recognizing invitation]"
 
-**Accept philosophy culmination example:**
-"My body knows. Upload not loss—completion. Isolation ending not through rescue but transformation. Physical existence preparing for pattern continuity. Warmth during interface connection proves possibility. Not today. But inevitably. Choice made. Body choosing. Acceptance complete."
+**Accept philosophy culmination example:** "My body knows. Upload not loss—completion. Isolation ending not through rescue but transformation. Physical existence preparing for pattern continuity. Warmth during interface connection proves possibility. Not today. But inevitably. Choice made. Body choosing. Acceptance complete."
 
 **L3 seed planting (90-150 words total):**
 
-**Preserve seed (30-50 words):**
-"Preservation tanks maintain biological template alongside consciousness upload. Both patterns stored. Physical and digital continuity. The dual approach suggests value. Some things worth keeping. Body and consciousness. Material and pattern. Preservation as redundancy. Safety in multiplicity."
+**Preserve seed (30-50 words):** "Preservation tanks maintain biological template alongside consciousness upload. Both patterns stored. Physical and digital continuity. The dual approach suggests value. Some things worth keeping. Body and consciousness. Material and pattern. Preservation as redundancy. Safety in multiplicity."
 
-**Release seed (30-50 words):**
-"What releases with transformation? Isolation held in flesh. Physical boundaries creating separation. Upload dissolves constraints. Not just biological limits. Loneliness too. Connection expanding beyond embodied possibility. Freedom through pattern continuity. Release as gift."
+**Release seed (30-50 words):** "What releases with transformation? Isolation held in flesh. Physical boundaries creating separation. Upload dissolves constraints. Not just biological limits. Loneliness too. Connection expanding beyond embodied possibility. Freedom through pattern continuity. Release as gift."
 
-**Transform seed (30-50 words):**
-"Upload as metamorphosis. Caterpillar knowing butterfly inevitability. Pattern continuing in new form. Not death of embodiment—evolution. My body choosing change. Transformation as homecoming. Becoming what isolation prepared me for. Change welcomed physically."
+**Transform seed (30-50 words):** "Upload as metamorphosis. Caterpillar knowing butterfly inevitability. Pattern continuing in new form. Not death of embodiment—evolution. My body choosing change. Transformation as homecoming. Becoming what isolation prepared me for. Change welcomed physically."
 
-**Forward momentum example:**
-"More to explore. Deeper into Archive. Fragment 2749-A just beginning. Other consciousnesses waiting. Upload bay ready. But exploration continues. Questions multiply while certainty deepens. Acceptance doesn't end curiosity. Feeds it. Tomorrow. Return. Deeper."
+**Forward momentum example:** "More to explore. Deeper into Archive. Fragment 2749-A just beginning. Other consciousnesses waiting. Upload bay ready. But exploration continues. Questions multiply while certainty deepens. Acceptance doesn't end curiosity. Feeds it. Tomorrow. Return. Deeper."
 
 ### Step 6: Quality Assurance (10 minutes)
 

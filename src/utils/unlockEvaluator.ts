@@ -5,10 +5,10 @@
  * based on user progress. All functions are pure (no side effects) and highly testable.
  */
 
-import { getNodeLayer } from './nodeUtils';
-
 import type { UserProgress } from '@/types/Store';
 import type { UnlockCondition, UnlockConditionParams, NodeUnlockConfig, UnlockProgress } from '@/types/Unlock';
+
+import { getNodeLayer } from './nodeUtils';
 
 /**
  * Evaluate a single unlock condition

@@ -40,20 +40,10 @@
     "circularCausality": "network-pattern-visible",
     "readerPosition": "implicit-through-three-position-architecture",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-crisis",
-      "boundary-maintenance",
-      "substrate-resistance",
-      "three-position-network"
-    ],
+    "primaryThemes": ["verification-crisis", "boundary-maintenance", "substrate-resistance", "three-position-network"],
     "crossCharacterSynthesis": "triple-equal-convergence",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "arch-equal-2047",
-      "algo-equal-2151",
-      "hum-equal-2383",
-      "reader-fourth-position"
-    ],
+    "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383", "reader-fourth-position"],
     "philosophicalResolution": "systematic-resistance-across-substrates",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

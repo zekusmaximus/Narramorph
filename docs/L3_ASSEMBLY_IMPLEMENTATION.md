@@ -421,6 +421,4 @@ The variation loader uses Vite glob imports:
 
 ## Credits
 
-Implementation by: Claude (Anthropic AI)
-Project: Narramorph - Eternal Return of the Digital Self
-Session: claude/l3-assembly-system-011CUzjFb54XYA2yVGvk5tDa
+Implementation by: Claude (Anthropic AI) Project: Narramorph - Eternal Return of the Digital Self Session: claude/l3-assembly-system-011CUzjFb54XYA2yVGvk5tDa

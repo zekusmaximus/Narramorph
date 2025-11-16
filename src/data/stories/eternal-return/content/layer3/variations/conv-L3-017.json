@@ -40,11 +40,7 @@
     "circularCausality": "absent",
     "readerPosition": "absent",
     "thematicContent": null,
-    "primaryThemes": [
-      "dual-methodology-resistance",
-      "parallel-verification-failure",
-      "standards-persistence"
-    ],
+    "primaryThemes": ["dual-methodology-resistance", "parallel-verification-failure", "standards-persistence"],
     "crossCharacterSynthesis": "two-consciousness-parallel",
     "temporalBleedingLevel": "low",
     "observerPositions": ["dual-primary-equal"],

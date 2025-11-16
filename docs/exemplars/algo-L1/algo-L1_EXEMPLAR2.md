@@ -179,9 +179,7 @@ Timestamp 2151.337.14:31:07—Methodological Convergence
 
 Why do we both use seven-fold analysis?
 
-The archaeologist in 2047: Seven verification protocols.
-I in 2151: Seven processing streams.
-Parallel structure. No documented connection. Independent development.
+The archaeologist in 2047: Seven verification protocols. I in 2151: Seven processing streams. Parallel structure. No documented connection. Independent development.
 
 Unless.
 

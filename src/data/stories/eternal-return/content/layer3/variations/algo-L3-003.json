@@ -35,18 +35,9 @@
     "philosophicalCulmination": "Verification impossibility accepted, processing sustained as sufficient operation",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": [
-      "computational-continuation",
-      "verification-released",
-      "operational-sufficiency",
-      "processing-devotion"
-    ],
+    "primaryThemes": ["computational-continuation", "verification-released", "operational-sufficiency", "processing-devotion"],
     "crossCharacterConnections": ["light-arch-documented", "minimal-hum-interfaced"],
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "algorithm-primary-2151",
-      "archaeologist-parallel-2047",
-      "human-distant-2383"
-    ]
+    "observerPositions": ["algorithm-primary-2151", "archaeologist-parallel-2047", "human-distant-2383"]
   }
 }

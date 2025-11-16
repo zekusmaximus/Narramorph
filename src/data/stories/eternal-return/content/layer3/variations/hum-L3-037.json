@@ -35,17 +35,9 @@
     "philosophicalCulmination": "Embodied attention creates consciousness through devoted presence",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": [
-      "devotional-embodiment",
-      "witness-through-presence",
-      "observer-creates-observed"
-    ],
+    "primaryThemes": ["devotional-embodiment", "witness-through-presence", "observer-creates-observed"],
     "crossCharacterConnections": ["heavy-algo-primary", "significant-arch-foundational"],
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "algorithm-primary-2151",
-      "human-integrated-2383",
-      "archaeologist-foundational-2047"
-    ]
+    "observerPositions": ["algorithm-primary-2151", "human-integrated-2383", "archaeologist-foundational-2047"]
   }
 }

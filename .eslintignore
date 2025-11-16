@@ -11,3 +11,5 @@ coverage/
 **/*.d.ts
 **/generated/**
 tools/conversion/output/**
+archive/**
+tools/**

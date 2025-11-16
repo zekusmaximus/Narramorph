@@ -83,15 +83,10 @@ export function parseFrontmatter<T = Record<string, unknown>>(
 
     frontmatter = tryParse(repaired);
     if (!frontmatter) {
-      logger?.blocker(
-        'YAML_PARSE_ERROR',
-        'Failed to parse YAML frontmatter after repair attempts',
-        {
-          file: filePath,
-          exampleFix:
-            'Ensure block scalars (e.g., text: >-) indent following lines and close frontmatter with ---',
-        },
-      );
+      logger?.blocker('YAML_PARSE_ERROR', 'Failed to parse YAML frontmatter after repair attempts', {
+        file: filePath,
+        exampleFix: 'Ensure block scalars (e.g., text: >-) indent following lines and close frontmatter with ---',
+      });
       return null;
     }
   }
@@ -123,11 +118,7 @@ export function validateRequiredFields(
   let valid = true;
 
   for (const field of requiredFields) {
-    if (
-      !(field in frontmatter) ||
-      frontmatter[field] === undefined ||
-      frontmatter[field] === null
-    ) {
+    if (!(field in frontmatter) || frontmatter[field] === undefined || frontmatter[field] === null) {
       logger?.blocker('MISSING_FIELD', `Required field missing: ${field}`, {
         file: filePath,
         field,

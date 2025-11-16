@@ -5,9 +5,9 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
-import { useStoryStore } from '../../stores';
-
 import type { JourneyPattern, PathPhilosophy } from '@/types';
+
+import { useStoryStore } from '../../stores';
 
 const journeyPatternLabels: Record<JourneyPattern, string> = {
   'started-stayed': 'Started & Stayed',

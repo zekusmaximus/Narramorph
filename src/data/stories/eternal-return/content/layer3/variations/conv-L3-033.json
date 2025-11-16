@@ -40,20 +40,10 @@
     "circularCausality": "present-implicit",
     "readerPosition": "external-observer",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-impossibility",
-      "boundary-maintenance",
-      "standard-adherence",
-      "resistance-practice"
-    ],
+    "primaryThemes": ["verification-impossibility", "boundary-maintenance", "standard-adherence", "resistance-practice"],
     "crossCharacterSynthesis": "three-position-resistance-parallel",
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "arch-primary-2047",
-      "algo-primary-2151",
-      "hum-primary-2383",
-      "reader-external"
-    ],
+    "observerPositions": ["arch-primary-2047", "algo-primary-2151", "hum-primary-2383", "reader-external"],
     "philosophicalResolution": "resistance-maintains-integrity-through-practice",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

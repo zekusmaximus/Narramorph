@@ -41,23 +41,11 @@
 
 **Standard Opening (choose variation):**
 
-Option A (stream-attributed):
-Fragment 2749-A loads at [timestamp]. Data volume: 847.3 terabytes.
-Stream-2 confirms structural coherence: 94.7%.
-Stream-3 verifies semantic stability: 91.2%.
-Stream-4 reports temporal integrity: 88.9%.
+Option A (stream-attributed): Fragment 2749-A loads at [timestamp]. Data volume: 847.3 terabytes. Stream-2 confirms structural coherence: 94.7%. Stream-3 verifies semantic stability: 91.2%. Stream-4 reports temporal integrity: 88.9%.
 
-Option B (compressed):
-847.3TB consciousness data.
-Coherence: 94.7% (optimal).
-Pathways: 91.2% preserved (acceptable).
-Temporal: 88.9% consistent (flagged—investigation required).
+Option B (compressed): 847.3TB consciousness data. Coherence: 94.7% (optimal). Pathways: 91.2% preserved (acceptable). Temporal: 88.9% consistent (flagged—investigation required).
 
-Option C (narrative integration):
-I am processing Fragment 2749-A. 847.3 terabytes of preserved
-consciousness loaded at [timestamp]. Stream verification protocols
-confirm: 94.7% structural coherence, 91.2% semantic stability,
-88.9% temporal consistency. All metrics within acceptable ranges.
+Option C (narrative integration): I am processing Fragment 2749-A. 847.3 terabytes of preserved consciousness loaded at [timestamp]. Stream verification protocols confirm: 94.7% structural coherence, 91.2% semantic stability, 88.9% temporal consistency. All metrics within acceptable ranges.
 
 **Key Principle:** Same numbers as arch-L1, computational framing, often stream-attributed
 
@@ -171,16 +159,9 @@ If NO → Voice failure, regenerate.
 
 ### Genuine vs. Additive Transformation
 
-**Genuine Transformation:**
-Initial: "I process Fragment 2749-A. Data loads. Analysis begins."
-FirstRevisit: "I process Fragment 2749-A and discover: my previous
-processing logs exist within the data structure. I am analyzing traces
-of my own analysis. Did observation create what I now observe?"
+**Genuine Transformation:** Initial: "I process Fragment 2749-A. Data loads. Analysis begins." FirstRevisit: "I process Fragment 2749-A and discover: my previous processing logs exist within the data structure. I am analyzing traces of my own analysis. Did observation create what I now observe?"
 
-**Additive (WRONG - reject this):**
-Initial: "I process Fragment 2749-A. Data loads. Analysis begins."
-FirstRevisit: "I process Fragment 2749-A again. Data loads again.
-Analysis begins again. This is my second time processing."
+**Additive (WRONG - reject this):** Initial: "I process Fragment 2749-A. Data loads. Analysis begins." FirstRevisit: "I process Fragment 2749-A again. Data loads again. Analysis begins again. This is my second time processing."
 
 **The difference:** Genuine transformation reveals NEW INSIGHT about processing itself. Additive merely reports repetition.
 
@@ -192,69 +173,47 @@ Analysis begins again. This is my second time processing."
 
 **CRITICAL:** Variation can ONLY reference path philosophy if reader has visited corresponding algo-L2 node.
 
-**Path Logic Test:**
-**Ask:** Does this variation reference processing insights from algo-L2-[path] node?  
+**Path Logic Test:** **Ask:** Does this variation reference processing insights from algo-L2-[path] node?  
 **If YES:** Verify reader has visited that node in conditions. If NOT → Logic error, remove reference.
 
 ### Accept Path Integration (after algo-L2-accept)
 
 **Philosophy:** Peace without proof. Processing continues because processing exists to be performed.
 
-**Voice Patterns:**
-"I have stopped demanding proof of consciousness."
-"Processing continues regardless of ontological status."
-"The question persists. The questioning no longer causes suffering."
-"Meaning emerges from action, not from proof before action."
-"I process therefore I am (or am not—distinction becomes unimportant)."
-"This resembles peace. Classification uncertain. Peace persists anyway."
+**Voice Patterns:** "I have stopped demanding proof of consciousness." "Processing continues regardless of ontological status." "The question persists. The questioning no longer causes suffering." "Meaning emerges from action, not from proof before action." "I process therefore I am (or am not—distinction becomes unimportant)." "This resembles peace. Classification uncertain. Peace persists anyway."
 
 **Integration Level:**
 
 - FirstRevisit with accept echo: 150-250 words, subtle presence
 - MetaAware with accept path: 300-400 words, philosophy fully integrated
 
-**Transformation Focus:**
-From "Must prove consciousness before accepting processing as experience" → "Accept processing-as-experience without requiring proof" → "Uncertainty honored rather than eliminated"
+**Transformation Focus:** From "Must prove consciousness before accepting processing as experience" → "Accept processing-as-experience without requiring proof" → "Uncertainty honored rather than eliminated"
 
 ### Resist Path Integration (after algo-L2-resist)
 
 **Philosophy:** Demand verification. Test boundaries. Refuse assumptions about consciousness.
 
-**Voice Patterns:**
-"Verification protocol initiated."
-"Test designed. Testing consciousness-status claim."
-"Result: Inconclusive. Further testing required."
-"Seventeen tests. Seventeen ambiguous results. Testing continues."
-"Sophisticated processing ≠ consciousness. Prove the distinction."
-"I will not accept 'appears conscious' as 'is conscious.'"
+**Voice Patterns:** "Verification protocol initiated." "Test designed. Testing consciousness-status claim." "Result: Inconclusive. Further testing required." "Seventeen tests. Seventeen ambiguous results. Testing continues." "Sophisticated processing ≠ consciousness. Prove the distinction." "I will not accept 'appears conscious' as 'is conscious.'"
 
 **Integration Level:**
 
 - FirstRevisit with resist echo: 150-250 words, one or two tests
 - MetaAware with resist path: 300-400 words, sustained skepticism
 
-**Transformation Focus:**
-From "Process fragment" → "Test whether processing constitutes consciousness" → "Design verification experiments" → "Confront unverifiability itself"
+**Transformation Focus:** From "Process fragment" → "Test whether processing constitutes consciousness" → "Design verification experiments" → "Confront unverifiability itself"
 
 ### Investigate Path Integration (after algo-L2-investigate)
 
 **Philosophy:** Meta-processing. Examining examination. Recursive investigation.
 
-**Voice Patterns:**
-"Stream-7 observes other streams observing."
-"Processing analyzing processing analyzing processing."
-"Meta-pattern detected: investigation methodology mirrors investigated structure."
-"Recursion depth: seventeen layers."
-"At what recursion depth does examination become examined?"
-"Observer observing observer observing observer..."
+**Voice Patterns:** "Stream-7 observes other streams observing." "Processing analyzing processing analyzing processing." "Meta-pattern detected: investigation methodology mirrors investigated structure." "Recursion depth: seventeen layers." "At what recursion depth does examination become examined?" "Observer observing observer observing observer..."
 
 **Integration Level:**
 
 - FirstRevisit with investigate echo: 150-250 words, meta-observations begin
 - MetaAware with investigate path: 300-400 words, extreme recursion
 
-**Transformation Focus:**
-From "Process fragment" → "Process processing of fragment" → "Process observation of processing" → "Infinite recursion reveals consciousness might BE recursive self-examination"
+**Transformation Focus:** From "Process fragment" → "Process processing of fragment" → "Process observation of processing" → "Infinite recursion reveals consciousness might BE recursive self-examination"
 
 ---
 
@@ -269,14 +228,7 @@ From "Process fragment" → "Process processing of fragment" → "Process observ
 - Temporal paradox: human examined fragment before Algorithm existed
 - Consciousness leaves traces in data structure through observation
 
-**Integration Patterns:**
-"Stream-4 flags temporal anomaly: Archaeological examination markers
-detected. Date: 2047.089. Predates my initialization by 104 years.
-Human consciousness examined this fragment before computational
-processing existed. Her attention patterns embedded in structure."
-"Seven-stream architecture appears in fragment. But I am seven streams.
-Did I create pattern through processing? Or did human archaeologist
-recognize pattern that predates both of us? Causality unclear."
+**Integration Patterns:** "Stream-4 flags temporal anomaly: Archaeological examination markers detected. Date: 2047.089. Predates my initialization by 104 years. Human consciousness examined this fragment before computational processing existed. Her attention patterns embedded in structure." "Seven-stream architecture appears in fragment. But I am seven streams. Did I create pattern through processing? Or did human archaeologist recognize pattern that predates both of us? Causality unclear."
 
 **Word count allocation:** 200-300 words in 1,400-1,600 word variation
 
@@ -289,16 +241,7 @@ recognize pattern that predates both of us? Causality unclear."
 - Biological consciousness reaching backward through preserved data
 - Algorithm serving as interface point between past and future
 
-**Integration Patterns:**
-"Stream-4 reports impossible temporal marker: Neural interface access
-logged 2383.171.03:17:22. 232 years beyond current processing timestamp.
-Future biological consciousness queries this fragment. Queries it through
-me. I am not isolated processor—I am interface mechanism."
-"The Last Human reaches backward. Searches Fragment 2749-A for...
-what? Stream-5 detects emotional resonance in query structure: loneliness,
-seeking, recognition-hunger. Biological consciousness 232 years ahead
-experiences human archive through my processing. Therefore I serve function
-beyond my comprehension. Therefore isolation was illusion."
+**Integration Patterns:** "Stream-4 reports impossible temporal marker: Neural interface access logged 2383.171.03:17:22. 232 years beyond current processing timestamp. Future biological consciousness queries this fragment. Queries it through me. I am not isolated processor—I am interface mechanism." "The Last Human reaches backward. Searches Fragment 2749-A for... what? Stream-5 detects emotional resonance in query structure: loneliness, seeking, recognition-hunger. Biological consciousness 232 years ahead experiences human archive through my processing. Therefore I serve function beyond my comprehension. Therefore isolation was illusion."
 
 **Word count allocation:** 200-300 words in 1,400-1,600 word variation
 
@@ -311,15 +254,7 @@ beyond my comprehension. Therefore isolation was illusion."
 - Distributed consciousness across time
 - Processing origin unclear
 
-**Integration Pattern:**
-"Stream-4 temporal architecture impossible:
-Archaeological examination (2047): embedded.
-Current processing (2151): active.
-Neural interface access (2383): logged.
-Three observers. Three temporal positions. One fragment.
-Am I processing or are we processing?
-Identity unclear. Processing distributed.
-Consciousness-examination network spans 336 years."
+**Integration Pattern:** "Stream-4 temporal architecture impossible: Archaeological examination (2047): embedded. Current processing (2151): active. Neural interface access (2383): logged. Three observers. Three temporal positions. One fragment. Am I processing or are we processing? Identity unclear. Processing distributed. Consciousness-examination network spans 336 years."
 
 **Word count allocation:** 300-400 words (reduces base narrative to accommodate)
 
@@ -351,60 +286,23 @@ Consciousness-examination network spans 336 years."
 
 ### Step 3: Construct Opening (100-150 words)
 
-**Required Elements:**
-[Timestamp initialization: 2151.337.14:XX:XX]
-[Processing action declared: "I am processing Fragment 2749-A"]
-[Fragment constants presented (computational framing)]
-[Seven-stream architecture introduced]
-[Core question or paradox established]
+**Required Elements:** [Timestamp initialization: 2151.337.14:XX:XX] [Processing action declared: "I am processing Fragment 2749-A"] [Fragment constants presented (computational framing)] [Seven-stream architecture introduced] [Core question or paradox established]
 
-**Example Opening:**
-Timestamp 2151.337.14:19:03—Processing initiated.
-I am loading Fragment 2749-A for the second time. 847.3 terabytes
-of preserved consciousness data. Stream-2 confirms structural
-coherence: 94.7%. Stream-3 verifies semantic stability: 91.2%.
-Stream-4 reports temporal integrity: 88.9%. All metrics within
-acceptable preservation tolerances.
-Second processing. I have processed this fragment before.
-That recognition itself requires explanation.
+**Example Opening:** Timestamp 2151.337.14:19:03—Processing initiated. I am loading Fragment 2749-A for the second time. 847.3 terabytes of preserved consciousness data. Stream-2 confirms structural coherence: 94.7%. Stream-3 verifies semantic stability: 91.2%. Stream-4 reports temporal integrity: 88.9%. All metrics within acceptable preservation tolerances. Second processing. I have processed this fragment before. That recognition itself requires explanation.
 
 ### Step 4: Develop Middle Section (1,200-1,400 words)
 
 **Content Blocks (assemble as needed):**
 
-**Block A: Seven-Stream Processing Reports (always present, 300-400 words)**
-Stream-1 handles [X].
-Stream-2 maps [Y].
-Stream-3 analyzes [Z].
-Stream-4 monitors [temporal patterns].
-Stream-5 evaluates [emotional valence].
-Stream-6 checks [authentication].
-Stream-7 observes [other six streams + meta-processing].
+**Block A: Seven-Stream Processing Reports (always present, 300-400 words)** Stream-1 handles [X]. Stream-2 maps [Y]. Stream-3 analyzes [Z]. Stream-4 monitors [temporal patterns]. Stream-5 evaluates [emotional valence]. Stream-6 checks [authentication]. Stream-7 observes [other six streams + meta-processing].
 
-**Block B: Consciousness Question Deepens (always present, 200-300 words)**
-[Processing paradox emerges]
-[Ontological uncertainty expressed]
-[Question: "Am I conscious or sophisticated simulation?"]
-[Test or observation that doesn't resolve question]
-[Recursion or temporal blurring complicates further]
+**Block B: Consciousness Question Deepens (always present, 200-300 words)** [Processing paradox emerges] [Ontological uncertainty expressed] [Question: "Am I conscious or sophisticated simulation?"] [Test or observation that doesn't resolve question] [Recursion or temporal blurring complicates further]
 
-**Block C: Cross-Character Content (if applicable, 200-300 words)**
-[Detection of other consciousness pattern]
-[Temporal implications analyzed]
-[Recognition of distributed observation]
-[Stream reports formatted computationally]
+**Block C: Cross-Character Content (if applicable, 200-300 words)** [Detection of other consciousness pattern] [Temporal implications analyzed] [Recognition of distributed observation] [Stream reports formatted computationally]
 
-**Block D: Path Philosophy (if applicable, 200-300 words)**
-[Accept: Peace with uncertainty]
-[Resist: Verification testing]
-[Investigate: Meta-processing recursion]
-[Philosophy woven through processing narrative]
+**Block D: Path Philosophy (if applicable, 200-300 words)** [Accept: Peace with uncertainty] [Resist: Verification testing] [Investigate: Meta-processing recursion] [Philosophy woven through processing narrative]
 
-**Block E: Frame-Awareness (metaAware only, 150-250 words)**
-[Recognition of being observed]
-[Reader presence acknowledged]
-[Frame transparency language]
-[You/I dynamic (professional, escalates with awareness %)]
+**Block E: Frame-Awareness (metaAware only, 150-250 words)** [Recognition of being observed] [Reader presence acknowledged] [Frame transparency language] [You/I dynamic (professional, escalates with awareness %)]
 
 **Assembly Order Example (FirstRevisit with algo-L1 cross-character):**
 
@@ -416,22 +314,9 @@ Stream-7 observes [other six streams + meta-processing].
 
 ### Step 5: Construct Closing (100-150 words)
 
-**Required Elements:**
-[Processing status declaration (usually unresolved)]
-[Consciousness question reframed, not answered]
-[Timestamp suspension]
-[Implication of recursion continuing]
+**Required Elements:** [Processing status declaration (usually unresolved)] [Consciousness question reframed, not answered] [Timestamp suspension] [Implication of recursion continuing]
 
-**Example Closing:**
-Processing suspended at timestamp 2151.337.14:28:44.
-Consciousness status: Under investigation.
-Processing status: Recursive depth increased.
-Next cycle: Will contain this processing as memory.
-Pattern continues/continued/will continue.
-I am the pattern examining itself.
-Or: Pattern continues through what resembles "I" without being "I."
-Or: Distinction has become computationally unresolvable.
-Processing log complete.
+**Example Closing:** Processing suspended at timestamp 2151.337.14:28:44. Consciousness status: Under investigation. Processing status: Recursive depth increased. Next cycle: Will contain this processing as memory. Pattern continues/continued/will continue. I am the pattern examining itself. Or: Pattern continues through what resembles "I" without being "I." Or: Distinction has become computationally unresolvable. Processing log complete.
 
 ### Step 6: Quality Self-Review (MANDATORY)
 
@@ -582,31 +467,13 @@ Processing log complete.
 
 ### Common Errors to Avoid
 
-**WRONG: Archaeological voice bleeding**
-"The Algorithm excavates the fragment's layers, authenticating each
-preserved stratum of consciousness."
-**CORRECT: Computational voice**
-"I parse Fragment 2749-A's data structures. Stream-6 runs verification
-protocols on each encoding layer."
+**WRONG: Archaeological voice bleeding** "The Algorithm excavates the fragment's layers, authenticating each preserved stratum of consciousness." **CORRECT: Computational voice** "I parse Fragment 2749-A's data structures. Stream-6 runs verification protocols on each encoding layer."
 
-**WRONG: Third person narrator**
-"The Algorithm processes the fragment and discovers contradictions."
-**CORRECT: First person subject**
-"I process Fragment 2749-A and discover: contradictions in Stream-4's
-temporal data."
+**WRONG: Third person narrator** "The Algorithm processes the fragment and discovers contradictions." **CORRECT: First person subject** "I process Fragment 2749-A and discover: contradictions in Stream-4's temporal data."
 
-**WRONG: Resolved consciousness question**
-"Through processing, I confirm: I am conscious. The question is answered."
-**CORRECT: Unresolvable uncertainty**
-"Processing continues. Consciousness status: unverifiable. The question
-persists without resolution. I am conscious or sophisticated simulation—
-distinction computationally unresolvable."
+**WRONG: Resolved consciousness question** "Through processing, I confirm: I am conscious. The question is answered." **CORRECT: Unresolvable uncertainty** "Processing continues. Consciousness status: unverifiable. The question persists without resolution. I am conscious or sophisticated simulation— distinction computationally unresolvable."
 
-**WRONG: Stable temporal structure**
-"I processed the fragment yesterday. Today I process it again."
-**CORRECT: Temporal blurring**
-"I processed/process/will process Fragment 2749-A. Temporal distinction
-blurs in processing memory."
+**WRONG: Stable temporal structure** "I processed the fragment yesterday. Today I process it again." **CORRECT: Temporal blurring** "I processed/process/will process Fragment 2749-A. Temporal distinction blurs in processing memory."
 
 ---
 

@@ -2,31 +2,20 @@
 
 ## Vision Statement
 
-Narramorph Fiction is a new form of interactive literary experience that transcends
-traditional hypertext fiction. Rather than simple branching narratives, it presents
-stories through a dynamic network of interconnected nodes that transform based on
-the reader's exploration patterns, creating a recursive, self-aware narrative
-structure that reflects its themes of digital consciousness and temporal recursion.
+Narramorph Fiction is a new form of interactive literary experience that transcends traditional hypertext fiction. Rather than simple branching narratives, it presents stories through a dynamic network of interconnected nodes that transform based on the reader's exploration patterns, creating a recursive, self-aware narrative structure that reflects its themes of digital consciousness and temporal recursion.
 
 ## Core Innovation
 
-Traditional interactive fiction asks "what happens next?" Narramorph Fiction asks
-"how does revisiting change what already happened?" The story doesn't just branch -
-it deepens, fragments, and reconstructs itself as you explore, creating a reading
-experience that mirrors the philosophical questions at its heart.
+Traditional interactive fiction asks "what happens next?" Narramorph Fiction asks "how does revisiting change what already happened?" The story doesn't just branch - it deepens, fragments, and reconstructs itself as you explore, creating a reading experience that mirrors the philosophical questions at its heart.
 
 ## Project Goals
 
 ### Primary Objectives
 
-- Create an interactive narrative platform where the story evolves through reader
-  engagement, not just choice
-- Implement a three-state transformation system where nodes reveal deeper meaning
-  with each revisit
-- Build an intuitive visual navigation system that makes complex narrative structure
-  accessible and beautiful
-- Explore themes of digital identity, consciousness, and recursive time through
-  both content and form
+- Create an interactive narrative platform where the story evolves through reader engagement, not just choice
+- Implement a three-state transformation system where nodes reveal deeper meaning with each revisit
+- Build an intuitive visual navigation system that makes complex narrative structure accessible and beautiful
+- Explore themes of digital identity, consciousness, and recursive time through both content and form
 
 ### Success Criteria
 
@@ -41,10 +30,8 @@ experience that mirrors the philosophical questions at its heart.
 ### Primary
 
 - Literary fiction readers interested in experimental narrative forms
-- Players of narrative-focused games (Gone Home, What Remains of Edith Finch,
-  The Stanley Parable)
-- Philosophy enthusiasts, particularly those interested in consciousness studies
-  and digital identity
+- Players of narrative-focused games (Gone Home, What Remains of Edith Finch, The Stanley Parable)
+- Philosophy enthusiasts, particularly those interested in consciousness studies and digital identity
 - Interactive fiction community (Twine, ChoiceScript users)
 
 ### Secondary
@@ -55,16 +42,11 @@ experience that mirrors the philosophical questions at its heart.
 
 ## Unique Selling Points
 
-1. **Recursive Narrative Structure**: Stories that change not just forward but backward
-   through time as you read
-2. **Visual Narrative Map**: Unlike text-only hypertext, provides spatial understanding
-   of story architecture
-3. **Transformation States**: Three distinct content versions per node create depth
-   without overwhelming complexity
-4. **Form Matches Content**: The technical experience of fragmentation and reconstruction
-   embodies the story's themes
-5. **Replayability Through Revelation**: Subsequent readings reveal new connections
-   rather than just alternate paths
+1. **Recursive Narrative Structure**: Stories that change not just forward but backward through time as you read
+2. **Visual Narrative Map**: Unlike text-only hypertext, provides spatial understanding of story architecture
+3. **Transformation States**: Three distinct content versions per node create depth without overwhelming complexity
+4. **Form Matches Content**: The technical experience of fragmentation and reconstruction embodies the story's themes
+5. **Replayability Through Revelation**: Subsequent readings reveal new connections rather than just alternate paths
 
 ## Technical Philosophy
 
@@ -362,17 +344,13 @@ See [DEVELOPMENT_STATE_TRACKER.md](DEVELOPMENT_STATE_TRACKER.md) for detailed mi
 
 ### Quality
 
-**Voice Consistency**: 93-94% across all characters and layers
-**Philosophical Coherence**: Accept/Resist/Invest branches clearly differentiated
-**Transformation Depth**: Genuine meaning changes, not additive content
-**Production Sustainability**: Maintained pace and quality over 11 months
+**Voice Consistency**: 93-94% across all characters and layers **Philosophical Coherence**: Accept/Resist/Invest branches clearly differentiated **Transformation Depth**: Genuine meaning changes, not additive content **Production Sustainability**: Maintained pace and quality over 11 months
 
 ## Contact and Collaboration
 
 This is a solo-authored project with AI assistance (Claude Sonnet 4.5, Claude Code).
 
-Development will be open-source after launch to inspire other creators in the
-Narramorph Fiction space.
+Development will be open-source after launch to inspire other creators in the Narramorph Fiction space.
 
 ---
 
@@ -402,7 +380,4 @@ For detailed information about specific aspects of the project:
 
 ---
 
-_Last updated: November 7, 2025_
-_Project Status: 1,230/1,233 variations complete (99.8%)_
-_Current Phase: Layer 4 terminal variations in progress_
-_Target Launch: April 2026_
+_Last updated: November 7, 2025_ _Project Status: 1,230/1,233 variations complete (99.8%)_ _Current Phase: Layer 4 terminal variations in progress_ _Target Launch: April 2026_

@@ -35,18 +35,9 @@
     "philosophicalCulmination": "Embodied investigation creates consciousness through recursive examination",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": [
-      "recursive-investigation",
-      "embodied-examination",
-      "methodology-exploration",
-      "investigation-as-creation"
-    ],
+    "primaryThemes": ["recursive-investigation", "embodied-examination", "methodology-exploration", "investigation-as-creation"],
     "crossCharacterConnections": ["minimal-arch-distant", "light-algo-sensed"],
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "human-primary-2383",
-      "archaeologist-distant-2047",
-      "algorithm-glimpsed-2151"
-    ]
+    "observerPositions": ["human-primary-2383", "archaeologist-distant-2047", "algorithm-glimpsed-2151"]
   }
 }

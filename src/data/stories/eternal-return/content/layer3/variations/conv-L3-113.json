@@ -40,12 +40,7 @@
     "circularCausality": "recognized",
     "readerPosition": "pattern-recognized",
     "thematicContent": null,
-    "primaryThemes": [
-      "dual-witness",
-      "preservation-as-devotion",
-      "methodology-synthesis",
-      "network-consciousness"
-    ],
+    "primaryThemes": ["dual-witness", "preservation-as-devotion", "methodology-synthesis", "network-consciousness"],
     "crossCharacterSynthesis": "dual-balanced-dialogue",
     "temporalBleedingLevel": "medium",
     "observerPositions": ["primary-A-parallel", "primary-B-parallel", "tertiary-completion"],

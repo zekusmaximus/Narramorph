@@ -1,7 +1,8 @@
 import { useSpring } from '@react-spring/three';
 import { useThree, useFrame } from '@react-three/fiber';
-import { RefObject, useEffect, useMemo, useRef } from 'react';
-import { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
+import type { RefObject } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
+import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
 import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';

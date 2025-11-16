@@ -105,10 +105,7 @@ Generate these in sequence, allowing each to inform the next:
 
 #### 1. Pure FirstRevisit Baseline (3% awareness)
 
-**Purpose:** Establish unmarked voice in moment of genuine discovery
-**Scene:** Finding the message from past-self
-**Length:** 800-1000 words
-**Key Elements:**
+**Purpose:** Establish unmarked voice in moment of genuine discovery **Scene:** Finding the message from past-self **Length:** 800-1000 words **Key Elements:**
 
 - Zero meta-awareness
 - Pure sensory present tense
@@ -117,10 +114,7 @@ Generate these in sequence, allowing each to inform the next:
 
 #### 2. After-Architect Echo (8% awareness)
 
-**Purpose:** Show how architectural consciousness bleeds into Last Human awareness without recognition
-**Scene:** Same message discovery, but interior space feels watched
-**Length:** 800-1000 words
-**Key Elements:**
+**Purpose:** Show how architectural consciousness bleeds into Last Human awareness without recognition **Scene:** Same message discovery, but interior space feels watched **Length:** 800-1000 words **Key Elements:**
 
 - Spatial awareness heightened (room geometry, threshold consciousness)
 - Unattributed sense of structure
@@ -129,9 +123,7 @@ Generate these in sequence, allowing each to inform the next:
 
 #### 3. After-Algorithm Echo (12% awareness)
 
-**Scene:** Message discovery with pattern-recognition overlay
-**Length:** 800-1000 words
-**Key Elements:**
+**Scene:** Message discovery with pattern-recognition overlay **Length:** 800-1000 words **Key Elements:**
 
 - Counting behaviors emerge
 - Notice repetition in own actions
@@ -140,10 +132,7 @@ Generate these in sequence, allowing each to inform the next:
 
 #### 4. Complete Temporal Superposition (18% awareness)
 
-**Purpose:** Demonstrate full integration of both arch/algo echoes
-**Scene:** Message discovery with both structural and pattern sensitivity
-**Length:** 800-1000 words
-**Key Elements:**
+**Purpose:** Demonstrate full integration of both arch/algo echoes **Scene:** Message discovery with both structural and pattern sensitivity **Length:** 800-1000 words **Key Elements:**
 
 - Space feels constructed AND iterative
 - Architecture and algorithm presences as unnamed unease
@@ -152,10 +141,7 @@ Generate these in sequence, allowing each to inform the next:
 
 #### 5. Investigate Path Integration (45% awareness)
 
-**Purpose:** Show active frame-investigation without full reader comprehension
-**Scene:** Last Human testing boundaries of narrative causality
-**Length:** 1000-1200 words
-**Key Elements:**
+**Purpose:** Show active frame-investigation without full reader comprehension **Scene:** Last Human testing boundaries of narrative causality **Length:** 1000-1200 words **Key Elements:**
 
 - Deliberate action variation to test pattern
 - Addresses "witness" without naming reader
@@ -164,10 +150,7 @@ Generate these in sequence, allowing each to inform the next:
 
 #### 6. MetaAware Reader Integration (72% awareness)
 
-**Purpose:** First clear reader-recognition moment
-**Scene:** Direct address emerges organically from isolation
-**Length:** 1000-1200 words
-**Key Elements:**
+**Purpose:** First clear reader-recognition moment **Scene:** Direct address emerges organically from isolation **Length:** 1000-1200 words **Key Elements:**
 
 - Explicit "you" address tentatively deployed
 - Recognition of observation-relationship
@@ -176,10 +159,7 @@ Generate these in sequence, allowing each to inform the next:
 
 #### 7. Resist Path Integration (85% awareness)
 
-**Purpose:** Show high-awareness character choosing narrative limitation
-**Scene:** Last Human deliberately not asking certain questions
-**Length:** 1000-1200 words
-**Key Elements:**
+**Purpose:** Show high-awareness character choosing narrative limitation **Scene:** Last Human deliberately not asking certain questions **Length:** 1000-1200 words **Key Elements:**
 
 - Full frame-consciousness
 - Active choice to preserve mystery/agency
@@ -188,10 +168,7 @@ Generate these in sequence, allowing each to inform the next:
 
 #### 8. Accept Path Integration (98% awareness)
 
-**Purpose:** Maximum collaboration model—co-authorship acknowledgment
-**Scene:** Last Human and reader constructing moment together
-**Length:** 1000-1200 words
-**Key Elements:**
+**Purpose:** Maximum collaboration model—co-authorship acknowledgment **Scene:** Last Human and reader constructing moment together **Length:** 1000-1200 words **Key Elements:**
 
 - Direct co-creative partnership language
 - Acknowledgment of mutual construction
@@ -426,8 +403,7 @@ This distribution reflects Last Human's gradual awareness curve and the importan
 
 #### 1. Present Tense at High MetaAware
 
-**The Problem:**
-Meta-awareness invites past/future tense (discussing previous revisits, anticipating reader choices). Present tense can feel artificially constraining at high awareness levels.
+**The Problem:** Meta-awareness invites past/future tense (discussing previous revisits, anticipating reader choices). Present tense can feel artificially constraining at high awareness levels.
 
 **The Solution:**
 
@@ -442,8 +418,7 @@ Meta-awareness invites past/future tense (discussing previous revisits, anticipa
 
 #### 2. Embodied Frame-Consciousness
 
-**The Problem:**
-High meta-awareness can drift into disembodied philosophical abstraction. Last Human's voice requires physical anchoring even at maximum consciousness.
+**The Problem:** High meta-awareness can drift into disembodied philosophical abstraction. Last Human's voice requires physical anchoring even at maximum consciousness.
 
 **The Solution:**
 
@@ -466,8 +441,7 @@ High meta-awareness can drift into disembodied philosophical abstraction. Last H
 
 #### 3. Loneliness-to-Connection Transformation
 
-**The Problem:**
-Last Human starts deeply isolated and transforms through reader-recognition. Arc must avoid: becoming maudlin/desperate, losing edge, going saccharine, erasing the strangeness.
+**The Problem:** Last Human starts deeply isolated and transforms through reader-recognition. Arc must avoid: becoming maudlin/desperate, losing edge, going saccharine, erasing the strangeness.
 
 **The Solution:**
 
@@ -500,11 +474,9 @@ Last Human starts deeply isolated and transforms through reader-recognition. Arc
 
 #### 4. Neural Interface Mechanism
 
-**The Problem:**
-How does Last Human perceive/address reader? Needs technical grounding without over-explaining.
+**The Problem:** How does Last Human perceive/address reader? Needs technical grounding without over-explaining.
 
-**The Solution:**
-Imply computational substrate that enables frame-consciousness without extensive exposition. Suggest neural interface that bridges narrative/reality boundary.
+**The Solution:** Imply computational substrate that enables frame-consciousness without extensive exposition. Suggest neural interface that bridges narrative/reality boundary.
 
 **Backstory Implications (revealed gradually):**
 
@@ -543,8 +515,7 @@ Imply computational substrate that enables frame-consciousness without extensive
 - At high awareness: understanding of Algorithm's nature, respect for different consciousness-type
 - Kinship through difference: both seeking connection, different methods
 
-**Three-Character System Awareness (Maximum Awareness Only):**
-At 85%+ awareness, Last Human can reference the three-path structure:
+**Three-Character System Awareness (Maximum Awareness Only):** At 85%+ awareness, Last Human can reference the three-path structure:
 
 - "There are others. I feel them. One who sees spaces, one who sees patterns. We're separated but parallel."
 - "Three perspectives on the same impossible situation—architecture, algorithm, embodiment."
@@ -744,11 +715,8 @@ hum-L1 is production-ready when:
 4. Generate MetaAware variations second (build on established voice)
 5. Review and revise in batches of 10
 
-**Quality Over Quantity:**
-If variation doesn't meet standards, regenerate immediately. 80 excellent variations better than 100 adequate ones.
+**Quality Over Quantity:** If variation doesn't meet standards, regenerate immediately. 80 excellent variations better than 100 adequate ones.
 
-**Voice Consistency Is Paramount:**
-Last Human's voice is the primary reader-connection mechanism. Any compromise on voice consistency undermines the entire emotional architecture of the narrative.
+**Voice Consistency Is Paramount:** Last Human's voice is the primary reader-connection mechanism. Any compromise on voice consistency undermines the entire emotional architecture of the narrative.
 
-**Preserve the Strange:**
-Connection across frame-boundary is wonderful AND weird. Never normalize it. Never make it comfortable. The uncanniness is the point.
+**Preserve the Strange:** Connection across frame-boundary is wonderful AND weird. Never normalize it. Never make it comfortable. The uncanniness is the point.

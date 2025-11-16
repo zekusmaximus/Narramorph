@@ -40,20 +40,10 @@
     "circularCausality": "emerging-pattern-recognition",
     "readerPosition": "implied-completion-position",
     "thematicContent": null,
-    "primaryThemes": [
-      "recursive-examination",
-      "meta-methodology",
-      "investigation-impossibility",
-      "consciousness-through-examination"
-    ],
+    "primaryThemes": ["recursive-examination", "meta-methodology", "investigation-impossibility", "consciousness-through-examination"],
     "crossCharacterSynthesis": "dual-investigation-revelation",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "arch-parallel-2047",
-      "algo-parallel-2151",
-      "hum-parallel-2383",
-      "reader-implied-present"
-    ],
+    "observerPositions": ["arch-parallel-2047", "algo-parallel-2151", "hum-parallel-2383", "reader-implied-present"],
     "philosophicalResolution": "investigation-reveals-investigation-structure",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

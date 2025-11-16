@@ -38,10 +38,6 @@
     "primaryThemes": ["somatic-recursion", "meta-investigation", "embodied-examination"],
     "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "hum-contributory"],
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "archaeologist-primary-2047",
-      "algorithm-primary-2151",
-      "human-contributory-2383"
-    ]
+    "observerPositions": ["archaeologist-primary-2047", "algorithm-primary-2151", "human-contributory-2383"]
   }
 }

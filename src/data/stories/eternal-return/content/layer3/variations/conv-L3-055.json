@@ -40,19 +40,10 @@
     "circularCausality": "explicit",
     "readerPosition": "acknowledged",
     "thematicContent": null,
-    "primaryThemes": [
-      "devotional-witness",
-      "preservation-through-attention",
-      "observer-creates-observed"
-    ],
+    "primaryThemes": ["devotional-witness", "preservation-through-attention", "observer-creates-observed"],
     "crossCharacterSynthesis": "archaeological-witness-primary",
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "arch-primary-2047",
-      "algo-parallel-2151",
-      "hum-parallel-2383",
-      "reader-fourth-explicit"
-    ],
+    "observerPositions": ["arch-primary-2047", "algo-parallel-2151", "hum-parallel-2383", "reader-fourth-explicit"],
     "philosophicalResolution": "witness-creates-witnessed",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

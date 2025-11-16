@@ -40,12 +40,7 @@
     "circularCausality": "minimal-immersive",
     "readerPosition": "not-addressed",
     "thematicContent": null,
-    "primaryThemes": [
-      "verification-crisis",
-      "systematic-resistance",
-      "dual-methodology-limitation",
-      "boundary-maintenance"
-    ],
+    "primaryThemes": ["verification-crisis", "systematic-resistance", "dual-methodology-limitation", "boundary-maintenance"],
     "crossCharacterSynthesis": "dual-dominant-immersive",
     "temporalBleedingLevel": "low",
     "observerPositions": ["arch-primary-2047", "algo-primary-2151", "hum-distant-2383"],

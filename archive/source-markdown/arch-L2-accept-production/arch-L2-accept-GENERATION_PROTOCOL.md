@@ -349,14 +349,11 @@ this response. Correlation: Sending establishes external contact?
 
 **Reader's Next Decision:**
 
-**Option A: Send Response**
-_Reader chooses to reply directly to external prompt, establishing two-way contact_
+**Option A: Send Response** _Reader chooses to reply directly to external prompt, establishing two-way contact_
 
-**Option B: Trace Origin**
-_Reader chooses to investigate external prompt's source before responding_
+**Option B: Trace Origin** _Reader chooses to investigate external prompt's source before responding_
 
-**Option C: Document First**
-_Reader chooses to fully archive investigation before taking action_
+**Option C: Document First** _Reader chooses to fully archive investigation before taking action_
 
 ### Setup Requirements
 
@@ -457,22 +454,19 @@ _Incorrect (too dialogue-like):_
 
 ### Post-Generation Validation
 
-**Fragment Test:**
-Extract 200-word passage from middle of L2. Reader should be able to identify:
+**Fragment Test:** Extract 200-word passage from middle of L2. Reader should be able to identify:
 
 1. This is Archaeologist (voice distinct from Algorithm/Human)
 2. This is Accept path (investigation active, not skeptical or questioning)
 3. This is L2 (bounded awareness, no L3+ realizations)
 
-**Transformation Test:**
-Compare first paragraph to last paragraph. Evidence of shift should include:
+**Transformation Test:** Compare first paragraph to last paragraph. Evidence of shift should include:
 
 1. Language: Static archaeological → dynamic investigative metaphors
 2. Focus: Past preservation → future discovery
 3. Stance: Observer → actor
 
-**Fork Test:**
-Final paragraph must:
+**Fork Test:** Final paragraph must:
 
 1. Present three distinct options with clear differentiators
 2. Show Archaeologist prepared to choose
@@ -635,8 +629,7 @@ _Good:_
 **If reader's accept choice includes specific reasoning:**
 
 - Integrate reasoning into opening section's acknowledgment
-- Example: Reader says "I accept because I've been searching for this"
-  → Opening: "I had been searching through the archive's structure for any evidence of boundary or edge. The external prompt was the answer I'd been excavating toward."
+- Example: Reader says "I accept because I've been searching for this" → Opening: "I had been searching through the archive's structure for any evidence of boundary or edge. The external prompt was the answer I'd been excavating toward."
 
 **If L1 established specific fragments:**
 

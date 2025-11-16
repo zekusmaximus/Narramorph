@@ -41,7 +41,7 @@ function WebGLErrorFallback({ error: _error, onFallbackTo2D }: { error: Error; o
       <div className="max-w-md text-center">
         <div className="text-6xl mb-4">⚠️</div>
         <h2 className="text-2xl font-bold mb-4">WebGL Not Supported</h2>
-        <p className="text-gray-300 mb-4">Your browser or device doesn't support WebGL, which is required for 3D visualization.</p>
+        <p className="text-gray-300 mb-4">Your browser or device doesn&apos;t support WebGL, which is required for 3D visualization.</p>
         <p className="text-sm text-gray-400">Automatically switching to 2D view...</p>
       </div>
     </div>
@@ -85,7 +85,9 @@ export default function Home() {
     loadProgress();
 
     // Load default story (placeholder for now)
-    loadStory('eternal-return');
+    void loadStory('eternal-return').catch((err) => {
+      console.error('Failed to load story:', err);
+    });
   }, [loadStory, loadProgress]);
 
   // Fallback to 2D mode on WebGL error

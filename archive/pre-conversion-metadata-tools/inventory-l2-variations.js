@@ -22,13 +22,7 @@ import path from 'path';
 
 const CONFIG = {
   // Default roots to search (first is project docs)
-  searchPaths: [
-    './docs',
-    '/mnt/user-data/outputs',
-    '/mnt/user-data/content/layer-2',
-    './content/layer-2',
-    './outputs',
-  ],
+  searchPaths: ['./docs', '/mnt/user-data/outputs', '/mnt/user-data/content/layer-2', './content/layer-2', './outputs'],
 
   // Project uses "invest" not "investigate"
   filenamePattern: /^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)\.md$/,
@@ -47,8 +41,7 @@ function parseFilename(filename) {
   const [_, character, pathPhilosophy, transformationCode, number] = match;
 
   return {
-    character:
-      character === 'arch' ? 'archaeologist' : character === 'algo' ? 'algorithm' : 'lastHuman',
+    character: character === 'arch' ? 'archaeologist' : character === 'algo' ? 'algorithm' : 'lastHuman',
     pathPhilosophy,
     transformationState: transformationCode === 'FR' ? 'firstRevisit' : 'metaAware',
     variationNumber: parseInt(number),
@@ -108,9 +101,7 @@ function extractKeyPhrases(content) {
   for (const sentence of sentences) {
     const cleaned = sentence.trim();
     const wordCount = cleaned.split(/\s+/).length;
-    const hasPhilosophical = /consciousness|preserve|witness|authentic|observe|transform/i.test(
-      cleaned,
-    );
+    const hasPhilosophical = /consciousness|preserve|witness|authentic|observe|transform/i.test(cleaned);
 
     if (wordCount >= 5 && wordCount <= 20 && hasPhilosophical) {
       phrases.push(cleaned);
@@ -198,9 +189,7 @@ function detectAwarenessIndicators(content) {
 
 function estimateAwarenessRange(transformationState, indicators) {
   if (transformationState === 'firstRevisit') {
-    const level = indicators.filter(
-      (i) => i.startsWith('cross-character') || i === 'temporal-awareness',
-    ).length;
+    const level = indicators.filter((i) => i.startsWith('cross-character') || i === 'temporal-awareness').length;
 
     if (level === 0) {
       return [21, 30];
@@ -213,9 +202,7 @@ function estimateAwarenessRange(transformationState, indicators) {
     }
     return [51, 60];
   } else {
-    const level = indicators.filter(
-      (i) => i === 'frame-consciousness' || i === 'high-integration',
-    ).length;
+    const level = indicators.filter((i) => i === 'frame-consciousness' || i === 'high-integration').length;
 
     if (level === 0) {
       return [61, 70];
@@ -330,10 +317,7 @@ function inventoryFiles(roots) {
       let analysis = null;
       if (!hasMetadata) {
         analysis = analyzeContent(content);
-        analysis.estimatedAwarenessRange = estimateAwarenessRange(
-          parsed.transformationState,
-          analysis.awarenessIndicators,
-        );
+        analysis.estimatedAwarenessRange = estimateAwarenessRange(parsed.transformationState, analysis.awarenessIndicators);
       }
 
       inventory.files.push({
@@ -362,9 +346,7 @@ function printReport(inventory) {
   console.log('OVERALL STATISTICS');
   console.log('─'.repeat(70));
   console.log(`Total L2 variation files found: ${inventory.totalFiles}`);
-  console.log(
-    `  ✅ With metadata:    ${inventory.withMetadata} (${((inventory.withMetadata / inventory.totalFiles) * 100).toFixed(1)}%)`,
-  );
+  console.log(`  ✅ With metadata:    ${inventory.withMetadata} (${((inventory.withMetadata / inventory.totalFiles) * 100).toFixed(1)}%)`);
   console.log(
     `  ⚠️  Without metadata: ${inventory.withoutMetadata} (${((inventory.withoutMetadata / inventory.totalFiles) * 100).toFixed(1)}%)`,
   );
@@ -375,9 +357,7 @@ function printReport(inventory) {
   console.log('─'.repeat(70));
   for (const [character, stats] of Object.entries(inventory.byCharacter)) {
     console.log(`${character}:`);
-    console.log(
-      `  Total: ${stats.total} | With metadata: ${stats.withMetadata} | Without: ${stats.withoutMetadata}`,
-    );
+    console.log(`  Total: ${stats.total} | With metadata: ${stats.withMetadata} | Without: ${stats.withoutMetadata}`);
   }
   console.log('');
 
@@ -386,9 +366,7 @@ function printReport(inventory) {
   console.log('─'.repeat(70));
   for (const [path, stats] of Object.entries(inventory.byPath)) {
     console.log(`${path}:`);
-    console.log(
-      `  Total: ${stats.total} | With metadata: ${stats.withMetadata} | Without: ${stats.withoutMetadata}`,
-    );
+    console.log(`  Total: ${stats.total} | With metadata: ${stats.withMetadata} | Without: ${stats.withoutMetadata}`);
   }
   console.log('');
 
@@ -397,9 +375,7 @@ function printReport(inventory) {
   console.log('─'.repeat(70));
   for (const [state, stats] of Object.entries(inventory.byState)) {
     console.log(`${state}:`);
-    console.log(
-      `  Total: ${stats.total} | With metadata: ${stats.withMetadata} | Without: ${stats.withoutMetadata}`,
-    );
+    console.log(`  Total: ${stats.total} | With metadata: ${stats.withMetadata} | Without: ${stats.withoutMetadata}`);
   }
   console.log('');
 
@@ -416,16 +392,10 @@ function printReport(inventory) {
       console.log(`   Character: ${file.character} | Path: ${file.pathPhilosophy}`);
       console.log(`   State: ${file.transformationState}`);
       console.log(`   Word count: ${file.analysis.wordCount}`);
-      console.log(
-        `   Estimated awareness: ${file.analysis.estimatedAwarenessRange[0]}-${file.analysis.estimatedAwarenessRange[1]}%`,
-      );
+      console.log(`   Estimated awareness: ${file.analysis.estimatedAwarenessRange[0]}-${file.analysis.estimatedAwarenessRange[1]}%`);
       console.log(`   Emotional tone: ${file.analysis.emotionalTone}`);
-      console.log(
-        `   Primary themes: ${file.analysis.primaryThemes.map((t) => t.theme).join(', ')}`,
-      );
-      console.log(
-        `   Cross-character refs: ${file.analysis.crossCharacterRefs.join(', ') || 'none detected'}`,
-      );
+      console.log(`   Primary themes: ${file.analysis.primaryThemes.map((t) => t.theme).join(', ')}`);
+      console.log(`   Cross-character refs: ${file.analysis.crossCharacterRefs.join(', ') || 'none detected'}`);
       console.log(`   Awareness indicators: ${file.analysis.awarenessIndicators.join(', ')}`);
       console.log(`   Sample key phrase: "${file.analysis.keyPhrases[0] || 'N/A'}"`);
     }

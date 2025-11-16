@@ -48,12 +48,7 @@
     ],
     "crossCharacterSynthesis": "archaeologist-led-with-parallel-perspectives",
     "temporalBleedingLevel": "medium",
-    "observerPositions": [
-      "arch-primary-2047",
-      "algo-parallel-2151",
-      "hum-parallel-2383",
-      "reader-implied"
-    ],
+    "observerPositions": ["arch-primary-2047", "algo-parallel-2151", "hum-parallel-2383", "reader-implied"],
     "philosophicalResolution": "investigative-transformation-through-verification",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

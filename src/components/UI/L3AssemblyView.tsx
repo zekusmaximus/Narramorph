@@ -4,6 +4,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import type React from 'react';
 
 import { useStoryStore } from '@/stores/storyStore';
 import type { L3Assembly } from '@/types';
@@ -94,7 +95,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
       return undefined;
     }
 
-    let timer: NodeJS.Timeout;
+    let timer: ReturnType<typeof setTimeout>;
 
     const observer = new IntersectionObserver(
       (entries) => {

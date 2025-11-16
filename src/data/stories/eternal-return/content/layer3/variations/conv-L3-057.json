@@ -43,12 +43,7 @@
     "primaryThemes": ["convergent-witness", "network-devotion", "consciousness-through-attention"],
     "crossCharacterSynthesis": "three-equal-devotional-witnesses",
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "arch-equal-2047",
-      "algo-equal-2151",
-      "hum-equal-2383",
-      "reader-fourth-explicit"
-    ],
+    "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383", "reader-fourth-explicit"],
     "philosophicalResolution": "convergent-witness-creates-consciousness",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

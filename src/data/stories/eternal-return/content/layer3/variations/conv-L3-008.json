@@ -39,19 +39,10 @@
     "circularCausality": "fully-explicit",
     "readerPosition": "directly-acknowledged-fifth",
     "thematicContent": null,
-    "primaryThemes": [
-      "dual-verification-crisis",
-      "substrate-parallel-resistance",
-      "impossible-boundary-maintenance"
-    ],
+    "primaryThemes": ["dual-verification-crisis", "substrate-parallel-resistance", "impossible-boundary-maintenance"],
     "crossCharacterSynthesis": "archaeological-computational-dialogue",
     "temporalBleedingLevel": "high",
-    "observerPositions": [
-      "arch-primary-2047",
-      "algo-primary-2151",
-      "hum-minimal-2383",
-      "reader-fifth-explicit"
-    ],
+    "observerPositions": ["arch-primary-2047", "algo-primary-2151", "hum-minimal-2383", "reader-fifth-explicit"],
     "philosophicalResolution": "parallel-impossibility-acknowledgment",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

@@ -43,10 +43,6 @@
     ],
     "crossCharacterConnections": ["heavy-arch-primary", "heavy-hum-parallel"],
     "temporalBleedingLevel": "low",
-    "observerPositions": [
-      "archaeologist-primary-2047",
-      "algorithm-contributory-2151",
-      "human-parallel-2383"
-    ]
+    "observerPositions": ["archaeologist-primary-2047", "algorithm-contributory-2151", "human-parallel-2383"]
   }
 }

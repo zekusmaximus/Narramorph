@@ -44,9 +44,7 @@ async function main() {
   }) as { values: CliArgs };
 
   const logger = new Logger(values.verbose);
-  const maxWarningsPerType = values['max-warnings-per-type']
-    ? parseInt(values['max-warnings-per-type'], 10)
-    : 50;
+  const maxWarningsPerType = values['max-warnings-per-type'] ? parseInt(values['max-warnings-per-type'], 10) : 50;
 
   const projectRoot = process.cwd() + '/../..';
   const contentRoot = join(projectRoot, 'src/data/stories/eternal-return/content');
@@ -206,18 +204,10 @@ async function main() {
   }
 }
 
-async function validateLayer(
-  dirPath: string,
-  logger: Logger,
-  layerName: string,
-  validator: (content: string) => boolean,
-): Promise<void> {
+async function validateLayer(dirPath: string, logger: Logger, layerName: string, validator: (content: string) => boolean): Promise<void> {
   try {
     const files = await readdir(dirPath);
-    logger.info(
-      `${layerName}_VALIDATE_START`,
-      `Validating ${layerName} layer: ${files.length} files`,
-    );
+    logger.info(`${layerName}_VALIDATE_START`, `Validating ${layerName} layer: ${files.length} files`);
 
     for (const file of files) {
       if (!file.endsWith('.json')) {
@@ -251,10 +241,7 @@ function validateL1L2File(jsonContent: string, logger: Logger, expectedCount: nu
 
     // Check totalVariations
     if (data.totalVariations !== expectedCount) {
-      logger.error(
-        'COUNT_MISMATCH',
-        `Expected ${expectedCount} variations, found ${data.totalVariations}`,
-      );
+      logger.error('COUNT_MISMATCH', `Expected ${expectedCount} variations, found ${data.totalVariations}`);
     }
 
     // Check variations array
@@ -271,10 +258,7 @@ function validateL1L2File(jsonContent: string, logger: Logger, expectedCount: nu
       }
 
       if (!variation.transformationState) {
-        logger.blocker(
-          'MISSING_TRANSFORMATION_STATE',
-          `Variation ${variation.id} missing transformationState`,
-        );
+        logger.blocker('MISSING_TRANSFORMATION_STATE', `Variation ${variation.id} missing transformationState`);
         return false;
       }
 
@@ -365,11 +349,7 @@ function validateL4File(jsonContent: string, logger: Logger): boolean {
   }
 }
 
-async function validateL3Matrix(
-  matrixPath: string,
-  logger: Logger,
-  strict: boolean,
-): Promise<boolean> {
+async function validateL3Matrix(matrixPath: string, logger: Logger, strict: boolean): Promise<boolean> {
   try {
     const content = await readFile(matrixPath, 'utf-8');
     const matrix = JSON.parse(content);
@@ -385,11 +365,7 @@ async function validateL3Matrix(
 
     if (actualCombos !== expectedCombos) {
       const severity = strict ? 'ERROR' : 'WARNING';
-      logger.log(
-        'MATRIX_INCOMPLETE',
-        severity as Severity,
-        `Matrix has ${actualCombos} combinations, expected ${expectedCombos}`,
-      );
+      logger.log('MATRIX_INCOMPLETE', severity as Severity, `Matrix has ${actualCombos} combinations, expected ${expectedCombos}`);
     }
 
     return !logger.hasBlockers();
