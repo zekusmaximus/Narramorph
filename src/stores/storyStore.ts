@@ -48,6 +48,9 @@ import { loadUnlockConfig } from '@/utils/unlockLoader';
 import { validateSavedState } from '@/utils/validation';
 
 const isDevEnv = process.env.NODE_ENV !== 'production';
+
+// Track initialization count for StrictMode detection
+let initializationCount = 0;
 const devLog = (...args: unknown[]): void => {
   if (!isDevEnv) {
     return;
@@ -499,14 +502,20 @@ export const useStoryStore = create<StoryStore>()(
         // Update reading statistics
         get().updateStats();
 
+        // Track initialization for StrictMode detection
+        initializationCount++;
+
         // Validate L2 philosophy mappings
         const nodeIds = Array.from(get().nodes.keys());
         const validation = validateL2PhilosophyMappings(nodeIds);
 
         if (!validation.valid) {
-          devWarn('[Journey] L2 nodes missing philosophy mappings:', validation.missing);
+          devWarn(
+            `[Journey] 🏗️  INIT #${initializationCount}: L2 nodes missing philosophy mappings:`,
+            validation.missing,
+          );
         } else {
-          devLog('[Journey] All L2 nodes have valid philosophy mappings');
+          devLog(`[Journey] ✓ INIT #${initializationCount}: All L2 nodes have valid philosophy mappings`);
         }
 
         // TODO: Add success notification
@@ -1335,7 +1344,9 @@ export const useStoryStore = create<StoryStore>()(
         state.storyViewOpen = true;
       });
 
-      devLog('[Navigation] Opened story view:', nodeId);
+      devLog(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+      devLog(`[Navigation] 🎯 USER CLICKED: ${nodeId}`);
+      devLog(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
 
       // CameraController will clear the animation flag when the spring settles
     },
