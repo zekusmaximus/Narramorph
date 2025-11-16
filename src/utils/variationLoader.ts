@@ -14,30 +14,25 @@ const selectionMatrixCache: SelectionMatrixEntry[] | null = null;
  * Load all variation files using Vite's glob import
  * Note: Vite wraps imports in { default: T } structure
  */
-const l1VariationFiles = import.meta.glob<{ default: VariationFile }>(
-  '/src/data/stories/*/content/layer1/*-variations.json',
-  { eager: true },
-);
+const l1VariationFiles = import.meta.glob<{ default: VariationFile }>('/src/data/stories/*/content/layer1/*-variations.json', {
+  eager: true,
+});
 
-const l2VariationFiles = import.meta.glob<{ default: VariationFile }>(
-  '/src/data/stories/*/content/layer2/*-variations.json',
-  { eager: true },
-);
+const l2VariationFiles = import.meta.glob<{ default: VariationFile }>('/src/data/stories/*/content/layer2/*-variations.json', {
+  eager: true,
+});
 
-const l3VariationFiles = import.meta.glob<{ default: VariationFile }>(
-  '/src/data/stories/*/content/layer3/*-variations.json',
-  { eager: true },
-);
+const l3VariationFiles = import.meta.glob<{ default: VariationFile }>('/src/data/stories/*/content/layer3/*-variations.json', {
+  eager: true,
+});
 
-const l4VariationFiles = import.meta.glob<{ default: VariationFile }>(
-  '/src/data/stories/*/content/layer4/*-variations.json',
-  { eager: true },
-);
+const l4VariationFiles = import.meta.glob<{ default: VariationFile }>('/src/data/stories/*/content/layer4/*-variations.json', {
+  eager: true,
+});
 
-const selectionMatrixFiles = import.meta.glob<{ default: SelectionMatrixEntry[] }>(
-  '/src/data/stories/*/content/selection-matrix.json',
-  { eager: true },
-);
+const selectionMatrixFiles = import.meta.glob<{ default: SelectionMatrixEntry[] }>('/src/data/stories/*/content/selection-matrix.json', {
+  eager: true,
+});
 
 /**
  * Combine all variation file imports
@@ -153,16 +148,12 @@ export function loadVariationFile(storyId: string, nodeId: string): VariationFil
   // Search for matching file
   for (const [path, module] of Object.entries(allVariationFiles)) {
     if (path.includes(storyId)) {
-      const fileData: VariationFile =
-        'default' in module ? module.default : (module as unknown as VariationFile);
+      const fileData: VariationFile = 'default' in module ? module.default : (module as unknown as VariationFile);
 
       // Check if this file contains the node we're looking for
       if (
         fileData.nodeId === nodeId ||
-        (fileData.variations &&
-          fileData.variations.some(
-            (v: any) => v.metadata?.nodeId === nodeId || v.nodeId === nodeId,
-          ))
+        (fileData.variations && fileData.variations.some((v: any) => v.metadata?.nodeId === nodeId || v.nodeId === nodeId))
       ) {
         // Normalize all variations before caching
         const normalizedFile: VariationFile = {
@@ -197,14 +188,12 @@ export function loadL3Variations(storyId: string): {
 
   for (const [path, module] of Object.entries(l3VariationFiles)) {
     if (path.includes(storyId)) {
-      const fileData: VariationFile =
-        'default' in module ? module.default : (module as unknown as VariationFile);
+      const fileData: VariationFile = 'default' in module ? module.default : (module as unknown as VariationFile);
 
       // Normalize variations before storing
       const normalizedFile: VariationFile = {
         ...fileData,
-        variations:
-          fileData.variations?.map((v: any) => normalizeVariation(v, fileData.nodeId)) || [],
+        variations: fileData.variations?.map((v: any) => normalizeVariation(v, fileData.nodeId)) || [],
       };
 
       if (path.includes('arch-L3')) {
@@ -234,8 +223,7 @@ export function loadSelectionMatrix(storyId: string): SelectionMatrixEntry[] {
   // Find the selection matrix file for this story
   for (const [path, module] of Object.entries(selectionMatrixFiles)) {
     if (path.includes(storyId)) {
-      const matrixData: SelectionMatrixEntry[] =
-        'default' in module ? module.default : (module as unknown as SelectionMatrixEntry[]);
+      const matrixData: SelectionMatrixEntry[] = 'default' in module ? module.default : (module as unknown as SelectionMatrixEntry[]);
       return matrixData;
     }
   }
@@ -256,10 +244,7 @@ export function getVariations(variationFile: VariationFile | null): Variation[] 
 /**
  * Find a specific variation by ID
  */
-export function findVariationById(
-  variationFile: VariationFile | null,
-  variationId: string,
-): Variation | null {
+export function findVariationById(variationFile: VariationFile | null, variationId: string): Variation | null {
   if (!variationFile || !variationFile.variations) {
     return null;
   }

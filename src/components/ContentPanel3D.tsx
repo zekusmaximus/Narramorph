@@ -74,18 +74,24 @@ export default function ContentPanel3D() {
   const [timeSpent, setTimeSpent] = useState(0);
 
   const currentNode: StoryNode | null = useMemo(() => {
-    if (!selectedNode) return null;
+    if (!selectedNode) {
+      return null;
+    }
     return nodes.get(selectedNode) || null;
   }, [nodes, selectedNode]);
 
   const nodeState = useMemo(() => {
-    if (!selectedNode) return null;
+    if (!selectedNode) {
+      return null;
+    }
     return getNodeState(selectedNode);
   }, [selectedNode, getNodeState]);
 
   // Get fallback content
   const fallbackContent = useMemo(() => {
-    if (!currentNode || !nodeState) return '';
+    if (!currentNode || !nodeState) {
+      return '';
+    }
     return currentNode.content[nodeState.currentState];
   }, [currentNode, nodeState]);
 
@@ -99,13 +105,17 @@ export default function ContentPanel3D() {
 
   // Get theme
   const theme = useMemo(() => {
-    if (!currentNode) return characterThemes.archaeologist;
+    if (!currentNode) {
+      return characterThemes.archaeologist;
+    }
     return characterThemes[currentNode.character];
   }, [currentNode]);
 
   // Track reading time
   useEffect(() => {
-    if (!storyViewOpen || !selectedNode) return undefined;
+    if (!storyViewOpen || !selectedNode) {
+      return undefined;
+    }
 
     const startTime = Date.now();
     const interval = setInterval(() => {
@@ -156,7 +166,7 @@ export default function ContentPanel3D() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold bg-white/20">
-                {currentNode.character[0].toUpperCase()}
+                {currentNode.character[0]?.toUpperCase() ?? '?'}
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-white">{currentNode.title}</h2>
@@ -194,15 +204,11 @@ export default function ContentPanel3D() {
               <p className="text-sm text-yellow-800">
                 <strong>Note:</strong> Dynamic content unavailable. Showing fallback content.
               </p>
-              {usedFallback && (
-                <p className="text-xs text-yellow-600 mt-1">Using static variation instead.</p>
-              )}
+              {usedFallback && <p className="text-xs text-yellow-600 mt-1">Using static variation instead.</p>}
             </div>
           )}
 
-          <div className="prose prose-lg max-w-none">
-            {parseMarkdown(currentContent)}
-          </div>
+          <div className="prose prose-lg max-w-none">{parseMarkdown(currentContent)}</div>
 
           {/* Reading time tracker */}
           <div className="mt-8 pt-4 border-t border-gray-200 text-sm text-gray-500">

@@ -16,7 +16,7 @@
  */
 export function getNodeLayer(nodeId: string): number {
   const match = nodeId.match(/-L(\d)/);
-  return match ? parseInt(match[1], 10) : 1;
+  return match && match[1] ? parseInt(match[1], 10) : 1;
 }
 
 /**

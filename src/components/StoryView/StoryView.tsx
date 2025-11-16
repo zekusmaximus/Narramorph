@@ -230,16 +230,8 @@ function parseMarkdown(content: string): ReactNode {
  * Story reading component that displays node content based on transformation state
  */
 export default function StoryView({ className = '' }: StoryViewProps) {
-  const {
-    nodes,
-    selectedNode,
-    storyViewOpen,
-    preferences,
-    closeStoryView,
-    getNodeState,
-    updateActiveVisitVariation,
-    finalizeActiveVisit,
-  } = useStoryStore();
+  const { nodes, selectedNode, storyViewOpen, preferences, closeStoryView, getNodeState, updateActiveVisitVariation, finalizeActiveVisit } =
+    useStoryStore();
 
   // Reading time tracking
   const [timeSpentOnNode, setTimeSpentOnNode] = useState(0);
@@ -376,7 +368,7 @@ export default function StoryView({ className = '' }: StoryViewProps) {
               <div className="flex items-center space-x-4">
                 {/* Character indicator */}
                 <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold bg-white/20 backdrop-blur-sm">
-                  {currentNode.character[0].toUpperCase()}
+                  {currentNode.character[0]?.toUpperCase() ?? '?'}
                 </div>
 
                 <div>
@@ -402,18 +394,8 @@ export default function StoryView({ className = '' }: StoryViewProps) {
                 className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                 aria-label="Close story view"
               >
-                <svg
-                  className="w-6 h-6 text-white/80"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                <svg className="w-6 h-6 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
@@ -428,13 +410,7 @@ export default function StoryView({ className = '' }: StoryViewProps) {
                   bg-white/10 backdrop-blur-sm text-white
                 `}
                 >
-                  <span>
-                    {nodeState.currentState === 'initial'
-                      ? '●'
-                      : nodeState.currentState === 'firstRevisit'
-                        ? '◑'
-                        : '◎'}
-                  </span>
+                  <span>{nodeState.currentState === 'initial' ? '●' : nodeState.currentState === 'firstRevisit' ? '◑' : '◎'}</span>
                   <span>{getStateLabel(nodeState.currentState)}</span>
                 </div>
 
@@ -448,10 +424,7 @@ export default function StoryView({ className = '' }: StoryViewProps) {
                 {/* Tags */}
                 <div className="flex items-center space-x-1">
                   {currentNode.metadata.thematicTags.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 bg-white/10 backdrop-blur-sm text-white/80 text-xs rounded"
-                    >
+                    <span key={tag} className="px-2 py-1 bg-white/10 backdrop-blur-sm text-white/80 text-xs rounded">
                       {tag}
                     </span>
                   ))}
@@ -460,8 +433,7 @@ export default function StoryView({ className = '' }: StoryViewProps) {
 
               {/* Reading progress */}
               <div className="text-sm text-white/70">
-                Reading: {formatTime(timeSpentOnNode)} / ~{currentNode.metadata.estimatedReadTime}{' '}
-                min
+                Reading: {formatTime(timeSpentOnNode)} / ~{currentNode.metadata.estimatedReadTime} min
               </div>
             </div>
 
@@ -538,9 +510,7 @@ export default function StoryView({ className = '' }: StoryViewProps) {
               >
                 Act {currentNode.metadata.narrativeAct}
                 {currentNode.metadata.criticalPath && (
-                  <span className="ml-2 px-2 py-1 bg-orange-100 text-orange-800 text-xs font-medium rounded">
-                    Critical Path
-                  </span>
+                  <span className="ml-2 px-2 py-1 bg-orange-100 text-orange-800 text-xs font-medium rounded">Critical Path</span>
                 )}
               </div>
 

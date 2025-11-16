@@ -1,12 +1,4 @@
-import type {
-  StoryNode,
-  TransformationState,
-  Theme,
-  TextSize,
-  MapViewport,
-  NodeUIState,
-  ConnectionUIState,
-} from './Node';
+import type { StoryNode, TransformationState, Theme, TextSize, MapViewport, NodeUIState, ConnectionUIState } from './Node';
 import type { Connection, StoryData } from './Story';
 import type { JourneyTracking, ConditionContext, L3Assembly } from './Variation';
 
@@ -191,10 +183,7 @@ export interface StoryStore {
   updateTemporalAwareness: () => void;
   updateJourneyTracking: () => void;
   recordL2Choice: (choice: 'accept' | 'resist' | 'invest') => void;
-  getConditionContext: (
-    nodeId?: string,
-    opts?: { includeRecentVariations?: boolean },
-  ) => ConditionContext;
+  getConditionContext: (nodeId?: string, opts?: { includeRecentVariations?: boolean }) => ConditionContext;
   updateActiveVisitVariation: (variationId: string) => void;
   finalizeActiveVisit: () => void;
   buildL3Assembly: () => L3Assembly | null;

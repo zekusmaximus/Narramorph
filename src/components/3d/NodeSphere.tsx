@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { animated, useSpring } from '@react-spring/three';
+import { useState } from 'react';
 
 import { useStoryStore } from '@/stores';
 import { getNodeAppearance } from '@/utils/getNodeAppearance';
@@ -26,7 +26,9 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
   const unlockConfigs = useStoryStore((state) => state.unlockConfigs);
   const openStoryView = useStoryStore((state) => state.openStoryView);
 
-  if (!node) return null;
+  if (!node) {
+    return null;
+  }
 
   // Calculate node state
   const visitRecord = visitedNodes[nodeId];
@@ -51,11 +53,7 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
   // Animated properties - conditional hover based on availability
   const baseScale = appearance.scale;
   const { scale, emissiveIntensity, opacity } = useSpring({
-    scale: isActive
-      ? baseScale * 1.3
-      : isHovered && isAvailable
-        ? baseScale * 1.05
-        : baseScale,
+    scale: isActive ? baseScale * 1.3 : isHovered && isAvailable ? baseScale * 1.05 : baseScale,
     emissiveIntensity: isActive
       ? appearance.emissiveIntensity
       : isHovered && isAvailable
@@ -67,12 +65,16 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
 
   // Event handlers
   const handleClick = () => {
-    if (isAnimating || !isAvailable) return; // Ignore clicks if animating or locked
+    if (isAnimating || !isAvailable) {
+      return;
+    } // Ignore clicks if animating or locked
     openStoryView(nodeId);
   };
 
   const handlePointerOver = () => {
-    if (isAnimating || !isAvailable) return; // No hover effects if animating or locked
+    if (isAnimating || !isAvailable) {
+      return;
+    } // No hover effects if animating or locked
     setIsHovered(true);
     document.body.style.cursor = 'pointer';
   };

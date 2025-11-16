@@ -93,9 +93,9 @@ describe('Visit Tracking System', () => {
     const visitRecord = updatedState.progress.visitedNodes['test-001'];
 
     expect(visitRecord).toBeDefined();
-    expect(visitRecord.visitCount).toBe(1);
-    expect(visitRecord.currentState).toBe('initial');
-    expect(visitRecord.visitTimestamps).toHaveLength(1);
+    expect(visitRecord!.visitCount).toBe(1);
+    expect(visitRecord!.currentState).toBe('initial');
+    expect(visitRecord!.visitTimestamps).toHaveLength(1);
     expect(updatedState.progress.readingPath).toContain('test-001');
   });
 
@@ -132,22 +132,22 @@ describe('Visit Tracking System', () => {
     // First visit
     store.visitNode('test-002');
     let state = useStoryStore.getState();
-    expect(state.progress.visitedNodes['test-002'].currentState).toBe('initial');
+    expect(state.progress.visitedNodes['test-002']!.currentState).toBe('initial');
     expect(state.progress.characterNodesVisited.algorithm).toBe(1);
 
     // Second visit - awareness increases, triggering firstRevisit
     store.visitNode('test-002');
     state = useStoryStore.getState();
-    expect(state.progress.visitedNodes['test-002'].visitCount).toBe(2);
+    expect(state.progress.visitedNodes['test-002']!.visitCount).toBe(2);
     // Note: visitCount increments each visit to the same node
     // After 2 visits to same node, awareness = 20 + (2/10)*40 = 28%, so firstRevisit
-    expect(state.progress.visitedNodes['test-002'].currentState).toBe('firstRevisit');
+    expect(state.progress.visitedNodes['test-002']!.currentState).toBe('firstRevisit');
 
     // Third visit - now metaAware
     store.visitNode('test-002');
     state = useStoryStore.getState();
-    expect(state.progress.visitedNodes['test-002'].visitCount).toBe(3);
-    expect(state.progress.visitedNodes['test-002'].currentState).toBe('metaAware');
+    expect(state.progress.visitedNodes['test-002']!.visitCount).toBe(3);
+    expect(state.progress.visitedNodes['test-002']!.currentState).toBe('metaAware');
   });
 
   it('should handle non-existent node gracefully', () => {
@@ -427,8 +427,8 @@ describe('Temporal Awareness System', () => {
 
       store.visitNode('test-ta-001');
       const state = useStoryStore.getState();
-      expect(state.progress.visitedNodes['test-ta-001'].currentState).toBe('initial');
-      expect(state.progress.visitedNodes['test-ta-001'].visitCount).toBe(1);
+      expect(state.progress.visitedNodes['test-ta-001']!.currentState).toBe('initial');
+      expect(state.progress.visitedNodes['test-ta-001']!.visitCount).toBe(1);
     });
 
     it('should return initial for second visit with low awareness (SKIPPED - behavior changed)', () => {
@@ -480,8 +480,8 @@ describe('Temporal Awareness System', () => {
       // Revisit arch node - should now be firstRevisit
       store.visitNode('test-ta-arch');
       state = useStoryStore.getState();
-      expect(state.progress.visitedNodes['test-ta-arch'].visitCount).toBe(2);
-      expect(state.progress.visitedNodes['test-ta-arch'].currentState).toBe('firstRevisit');
+      expect(state.progress.visitedNodes['test-ta-arch']!.visitCount).toBe(2);
+      expect(state.progress.visitedNodes['test-ta-arch']!.currentState).toBe('firstRevisit');
     });
 
     it('should return metaAware for third visit', () => {
@@ -506,8 +506,8 @@ describe('Temporal Awareness System', () => {
       store.visitNode('test-ta-003');
 
       const state = useStoryStore.getState();
-      expect(state.progress.visitedNodes['test-ta-003'].visitCount).toBe(3);
-      expect(state.progress.visitedNodes['test-ta-003'].currentState).toBe('metaAware');
+      expect(state.progress.visitedNodes['test-ta-003']!.visitCount).toBe(3);
+      expect(state.progress.visitedNodes['test-ta-003']!.currentState).toBe('metaAware');
     });
 
     it('should return metaAware for high awareness regardless of visit count', () => {
@@ -542,22 +542,22 @@ describe('Temporal Awareness System', () => {
       // First visit - still initial despite high awareness
       store.visitNode('test-ta-004');
       let state = useStoryStore.getState();
-      expect(state.progress.visitedNodes['test-ta-004'].visitCount).toBe(1);
-      expect(state.progress.visitedNodes['test-ta-004'].currentState).toBe('initial');
+      expect(state.progress.visitedNodes['test-ta-004']!.visitCount).toBe(1);
+      expect(state.progress.visitedNodes['test-ta-004']!.currentState).toBe('initial');
 
       // Second visit - should be firstRevisit (visitCount=2 always returns firstRevisit if awareness > 20%)
       store.visitNode('test-ta-004');
       state = useStoryStore.getState();
-      expect(state.progress.visitedNodes['test-ta-004'].visitCount).toBe(2);
+      expect(state.progress.visitedNodes['test-ta-004']!.visitCount).toBe(2);
       // NOTE: With visitCount === 2, the determineTransformationState logic returns firstRevisit
       // even with high awareness. metaAware requires visitCount >= 3
-      expect(state.progress.visitedNodes['test-ta-004'].currentState).toBe('firstRevisit');
+      expect(state.progress.visitedNodes['test-ta-004']!.currentState).toBe('firstRevisit');
 
       // Third visit - NOW it should be metaAware due to high awareness
       store.visitNode('test-ta-004');
       state = useStoryStore.getState();
-      expect(state.progress.visitedNodes['test-ta-004'].visitCount).toBe(3);
-      expect(state.progress.visitedNodes['test-ta-004'].currentState).toBe('metaAware');
+      expect(state.progress.visitedNodes['test-ta-004']!.visitCount).toBe(3);
+      expect(state.progress.visitedNodes['test-ta-004']!.currentState).toBe('metaAware');
     });
 
     it('should prioritize special transformations', () => {
@@ -593,7 +593,7 @@ describe('Temporal Awareness System', () => {
       // First visit should be metaAware due to special transformation
       store.visitNode('test-ta-005');
       const state = useStoryStore.getState();
-      expect(state.progress.visitedNodes['test-ta-005'].currentState).toBe('metaAware');
+      expect(state.progress.visitedNodes['test-ta-005']!.currentState).toBe('metaAware');
     });
   });
 
@@ -758,7 +758,7 @@ describe('Temporal Awareness System', () => {
       // Visit arch once (should be initial)
       store.visitNode('arch-transform');
       let state = useStoryStore.getState();
-      expect(state.progress.visitedNodes['arch-transform'].currentState).toBe('initial');
+      expect(state.progress.visitedNodes['arch-transform']!.currentState).toBe('initial');
 
       // Visit algo (increases awareness via diversity)
       store.visitNode('algo-transform');
@@ -769,8 +769,8 @@ describe('Temporal Awareness System', () => {
       // Note: arch has visitCount=1, but we're visiting it again, so this will be visit #2
       store.visitNode('arch-transform');
       state = useStoryStore.getState();
-      expect(state.progress.visitedNodes['arch-transform'].visitCount).toBe(2);
-      expect(state.progress.visitedNodes['arch-transform'].currentState).toBe('firstRevisit');
+      expect(state.progress.visitedNodes['arch-transform']!.visitCount).toBe(2);
+      expect(state.progress.visitedNodes['arch-transform']!.currentState).toBe('firstRevisit');
     });
   });
 
@@ -843,8 +843,7 @@ describe('Temporal Awareness System', () => {
       };
 
       // Mock localStorage with old save - override the global mock for this test
-      const storageModule =
-        await vi.importMock<typeof import('@/utils/storage')>('@/utils/storage');
+      const storageModule = await vi.importMock<typeof import('@/utils/storage')>('@/utils/storage');
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       storageModule.loadFromStorage = vi.fn(() => oldSave) as any;
 

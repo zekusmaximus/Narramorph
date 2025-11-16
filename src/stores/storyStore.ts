@@ -7,10 +7,7 @@ enableMapSet();
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
-import {
-  getNodePhilosophy,
-  validateL2PhilosophyMappings,
-} from '@/data/stories/eternal-return/nodePhilosophyMapping';
+import { getNodePhilosophy, validateL2PhilosophyMappings } from '@/data/stories/eternal-return/nodePhilosophyMapping';
 import type {
   StoryStore,
   UserProgress,
@@ -25,8 +22,6 @@ import type {
   VisitRecord,
   StoryNode,
   Connection,
-} from '@/types';
-import type {
   JourneyTracking,
   ConditionContext,
   L3Assembly,
@@ -40,10 +35,7 @@ import { loadStoryContent, ContentLoadError } from '@/utils/contentLoader';
 import { buildL3Assembly, calculateSynthesisPattern } from '@/utils/l3Assembly';
 import { isL3Node, isL4Node } from '@/utils/nodeUtils';
 import { saveToStorage, loadFromStorage, STORAGE_KEYS } from '@/utils/storage';
-import {
-  evaluateNodeUnlock,
-  getUnlockProgress as getUnlockProgressUtil,
-} from '@/utils/unlockEvaluator';
+import { evaluateNodeUnlock, getUnlockProgress as getUnlockProgressUtil } from '@/utils/unlockEvaluator';
 import { loadUnlockConfig } from '@/utils/unlockLoader';
 import { validateSavedState } from '@/utils/validation';
 
@@ -210,17 +202,13 @@ function determineTransformationState(
 
   // Second visit: always firstRevisit (never show initial again)
   if (visitCount === 2) {
-    devLog(
-      `[TransformState] ${nodeId}: visitCount=2, awareness=${temporalAwarenessLevel} → firstRevisit`,
-    );
+    devLog(`[TransformState] ${nodeId}: visitCount=2, awareness=${temporalAwarenessLevel} → firstRevisit`);
     return 'firstRevisit';
   }
 
   // Third+ visit OR high awareness: full meta-aware
   if (visitCount >= 3 || temporalAwarenessLevel > 50) {
-    devLog(
-      `[TransformState] ${nodeId}: visitCount=${visitCount}, awareness=${temporalAwarenessLevel} → metaAware`,
-    );
+    devLog(`[TransformState] ${nodeId}: visitCount=${visitCount}, awareness=${temporalAwarenessLevel} → metaAware`);
     return 'metaAware';
   }
 
@@ -231,9 +219,7 @@ function determineTransformationState(
 
 type DraftStoryNode = WritableDraft<StoryNode>;
 
-function isLayeredStoryNode(
-  node: DraftStoryNode | StoryNode | undefined,
-): node is DraftStoryNode & Pick<StoryNode, 'layer'> {
+function isLayeredStoryNode(node: DraftStoryNode | StoryNode | undefined): node is DraftStoryNode & Pick<StoryNode, 'layer'> {
   return typeof node === 'object' && node !== null && 'layer' in node;
 }
 
@@ -245,11 +231,7 @@ function isLayeredStoryNode(
  * @param progress - Current user progress
  * @returns Array of newly unlocked transformations
  */
-function checkSpecialTransformations(
-  _visitedNodeId: string,
-  nodes: StoryNode[],
-  progress: UserProgress,
-): UnlockedTransformation[] {
+function checkSpecialTransformations(_visitedNodeId: string, nodes: StoryNode[], progress: UserProgress): UnlockedTransformation[] {
   const newlyUnlocked: UnlockedTransformation[] = [];
 
   for (const node of nodes) {
@@ -259,18 +241,14 @@ function checkSpecialTransformations(
 
     for (const transform of node.unlockConditions.specialTransforms) {
       // Check if already unlocked
-      const alreadyUnlocked = progress.specialTransformations.some(
-        (t) => t.nodeId === node.id && t.transformationId === transform.id,
-      );
+      const alreadyUnlocked = progress.specialTransformations.some((t) => t.nodeId === node.id && t.transformationId === transform.id);
 
       if (alreadyUnlocked) {
         continue;
       }
 
       // Check required prior nodes (any order)
-      const hasRequiredNodes = transform.requiredPriorNodes.every(
-        (nodeId) => progress.visitedNodes[nodeId],
-      );
+      const hasRequiredNodes = transform.requiredPriorNodes.every((nodeId) => progress.visitedNodes[nodeId]);
 
       if (!hasRequiredNodes) {
         continue;
@@ -381,9 +359,7 @@ function getConnectionKey(
 /**
  * Classify navigation pattern based on journey tracking metrics
  */
-function classifyNavigationPattern(
-  tracking: JourneyTracking,
-): 'linear' | 'exploratory' | 'recursive' | 'undetermined' {
+function classifyNavigationPattern(tracking: JourneyTracking): 'linear' | 'exploratory' | 'recursive' | 'undetermined' {
   const { revisitFrequency, explorationMetrics } = tracking;
   const { breadth, depth } = explorationMetrics;
 
@@ -398,10 +374,7 @@ function classifyNavigationPattern(
   }
 
   // Exploratory: High breadth + low depth + many cross-character connections
-  const totalConnections = Object.values(tracking.crossCharacterConnections).reduce(
-    (sum, count) => sum + count,
-    0,
-  );
+  const totalConnections = Object.values(tracking.crossCharacterConnections).reduce((sum, count) => sum + count, 0);
 
   if (breadth > 50 && depth < 2 && totalConnections > 5) {
     return 'exploratory';
@@ -510,10 +483,7 @@ export const useStoryStore = create<StoryStore>()(
         const validation = validateL2PhilosophyMappings(nodeIds);
 
         if (!validation.valid) {
-          devWarn(
-            `[Journey] 🏗️  INIT #${initializationCount}: L2 nodes missing philosophy mappings:`,
-            validation.missing,
-          );
+          devWarn(`[Journey] 🏗️  INIT #${initializationCount}: L2 nodes missing philosophy mappings:`, validation.missing);
         } else {
           devLog(`[Journey] ✓ INIT #${initializationCount}: All L2 nodes have valid philosophy mappings`);
         }
@@ -528,9 +498,7 @@ export const useStoryStore = create<StoryStore>()(
           throw new Error(`Story loading failed: ${error.message}`);
         } else {
           // Handle unexpected errors
-          throw new Error(
-            `Unexpected error loading story: ${error instanceof Error ? error.message : 'Unknown error'}`,
-          );
+          throw new Error(`Unexpected error loading story: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
       }
     },
@@ -555,18 +523,13 @@ export const useStoryStore = create<StoryStore>()(
         }
 
         // Calculate diversity of exploration
-        const perspectivesVisited = [archaeologist > 0, algorithm > 0, lastHuman > 0].filter(
-          Boolean,
-        ).length;
+        const perspectivesVisited = [archaeologist > 0, algorithm > 0, lastHuman > 0].filter(Boolean).length;
 
         // Temporal awareness formula
         const diversityBonus = perspectivesVisited * 20; // 0, 20, 40, or 60
         const explorationScore = Math.min((total / 10) * 40, 40); // Cap at 40
 
-        draftState.progress.temporalAwarenessLevel = Math.min(
-          diversityBonus + explorationScore,
-          100,
-        );
+        draftState.progress.temporalAwarenessLevel = Math.min(diversityBonus + explorationScore, 100);
       });
     },
 
@@ -596,24 +559,22 @@ export const useStoryStore = create<StoryStore>()(
         // Set starting character based on first visit in reading path
         if (tracking.startingCharacter === null && draftState.progress.readingPath.length > 0) {
           const firstNodeId = draftState.progress.readingPath[0];
-          const firstNode = draftState.nodes.get(firstNodeId);
-          if (firstNode) {
-            if (firstNode.character === 'archaeologist') {
-              tracking.startingCharacter = 'archaeologist';
-            } else if (firstNode.character === 'algorithm') {
-              tracking.startingCharacter = 'algorithm';
-            } else if (firstNode.character === 'last-human') {
-              tracking.startingCharacter = 'lastHuman';
+          if (firstNodeId) {
+            const firstNode = draftState.nodes.get(firstNodeId);
+            if (firstNode) {
+              if (firstNode.character === 'archaeologist') {
+                tracking.startingCharacter = 'archaeologist';
+              } else if (firstNode.character === 'algorithm') {
+                tracking.startingCharacter = 'algorithm';
+              } else if (firstNode.character === 'last-human') {
+                tracking.startingCharacter = 'lastHuman';
+              }
             }
           }
         }
 
         // Determine dominant character
-        const maxPercentage = Math.max(
-          percentages.archaeologist,
-          percentages.algorithm,
-          percentages.lastHuman,
-        );
+        const maxPercentage = Math.max(percentages.archaeologist, percentages.algorithm, percentages.lastHuman);
         if (percentages.archaeologist === maxPercentage) {
           tracking.dominantCharacter = 'archaeologist';
         } else if (percentages.algorithm === maxPercentage) {
@@ -623,10 +584,7 @@ export const useStoryStore = create<StoryStore>()(
         }
 
         // Calculate journey pattern
-        tracking.currentJourneyPattern = calculateJourneyPattern(
-          tracking.startingCharacter,
-          percentages,
-        );
+        tracking.currentJourneyPattern = calculateJourneyPattern(tracking.startingCharacter, percentages);
 
         // Calculate dominant philosophy
         tracking.dominantPhilosophy = calculatePathPhilosophy(tracking.l2Choices);
@@ -650,10 +608,7 @@ export const useStoryStore = create<StoryStore>()(
      * @param opts - Optional configuration for context building
      * @returns Condition context including node-specific visit count (if nodeId provided)
      */
-    getConditionContext: (
-      nodeId?: string,
-      opts?: { includeRecentVariations?: boolean },
-    ): ConditionContext => {
+    getConditionContext: (nodeId?: string, opts?: { includeRecentVariations?: boolean }): ConditionContext => {
       const state = get();
       const tracking = state.progress.journeyTracking;
       const visitRecord = nodeId ? state.progress.visitedNodes[nodeId] : undefined;
@@ -751,9 +706,7 @@ export const useStoryStore = create<StoryStore>()(
         // Update total time spent
         state.progress.totalTimeSpent += durationSeconds;
 
-        devLog(
-          `[Visit] Finalized ${activeVisit.nodeId}: ${durationSeconds}s (total: ${visitRecord.timeSpent}s)`,
-        );
+        devLog(`[Visit] Finalized ${activeVisit.nodeId}: ${durationSeconds}s (total: ${visitRecord.timeSpent}s)`);
 
         // Clear active visit
         state.activeVisit = null;
@@ -793,16 +746,10 @@ export const useStoryStore = create<StoryStore>()(
       const synthesisPattern = calculateSynthesisPattern(tracking.characterVisitPercentages);
 
       // Determine awareness level
-      const awarenessLevel =
-        context.awareness < 35 ? 'low' : context.awareness < 70 ? 'medium' : 'high';
+      const awarenessLevel = context.awareness < 35 ? 'low' : context.awareness < 70 ? 'medium' : 'high';
 
       // Generate cache key
-      const cacheKey = generateL3CacheKey(
-        context.journeyPattern,
-        context.pathPhilosophy,
-        awarenessLevel,
-        synthesisPattern,
-      );
+      const cacheKey = generateL3CacheKey(context.journeyPattern, context.pathPhilosophy, awarenessLevel, synthesisPattern);
 
       // Check cache first
       const cached = state.l3AssemblyCache.get(cacheKey);
@@ -911,9 +858,7 @@ export const useStoryStore = create<StoryStore>()(
             }
           }
 
-          devLog(
-            `[L3Assembly] Locked ${draftState.progress.lockedNodes.length} L1/L2 nodes. Your journey has crystallized.`,
-          );
+          devLog(`[L3Assembly] Locked ${draftState.progress.lockedNodes.length} L1/L2 nodes. Your journey has crystallized.`);
         });
       }
 
@@ -1003,10 +948,9 @@ export const useStoryStore = create<StoryStore>()(
         }
 
         // Mark in most recent view
-        const latest =
-          state.progress.l3AssembliesViewed[state.progress.l3AssembliesViewed.length - 1];
+        const latest = state.progress.l3AssembliesViewed[state.progress.l3AssembliesViewed.length - 1];
 
-        if (latest.sectionsRead[section] === false) {
+        if (latest && latest.sectionsRead[section] === false) {
           latest.sectionsRead[section] = true;
           devLog(`[L3Assembly] Marked section ${section} as read`);
         }
@@ -1135,9 +1079,7 @@ export const useStoryStore = create<StoryStore>()(
         // @ts-expect-error - Unused but kept for future analytics
         const isRevisit = existingRecord && existingRecord.visitCount > 0;
         const totalVisits = Object.keys(draftState.progress.visitedNodes).length;
-        const revisits = Object.values(draftState.progress.visitedNodes).filter(
-          (record) => record.visitCount > 1,
-        ).length;
+        const revisits = Object.values(draftState.progress.visitedNodes).filter((record) => record.visitCount > 1).length;
 
         if (totalVisits > 0) {
           tracking.revisitFrequency = (revisits / totalVisits) * 100;
@@ -1146,10 +1088,7 @@ export const useStoryStore = create<StoryStore>()(
         // === Exploration Metrics ===
         const totalNodes = get().nodes.size;
         const uniqueVisited = Object.keys(draftState.progress.visitedNodes).length;
-        const totalVisitCount = Object.values(draftState.progress.visitedNodes).reduce(
-          (sum, record) => sum + record.visitCount,
-          0,
-        );
+        const totalVisitCount = Object.values(draftState.progress.visitedNodes).reduce((sum, record) => sum + record.visitCount, 0);
 
         tracking.explorationMetrics = {
           breadth: totalNodes > 0 ? (uniqueVisited / totalNodes) * 100 : 0,
@@ -1177,11 +1116,7 @@ export const useStoryStore = create<StoryStore>()(
         const nodePhilosophy = getNodePhilosophy(nodeId);
         if (nodePhilosophy) {
           // Only track if it's one of the three core philosophies
-          if (
-            nodePhilosophy === 'accept' ||
-            nodePhilosophy === 'resist' ||
-            nodePhilosophy === 'invest'
-          ) {
+          if (nodePhilosophy === 'accept' || nodePhilosophy === 'resist' || nodePhilosophy === 'invest') {
             draftState.progress.journeyTracking.l2Choices[nodePhilosophy]++;
           }
         }
@@ -1209,11 +1144,7 @@ export const useStoryStore = create<StoryStore>()(
 
       // Check for special transformations
       const freshStateAgain = get();
-      const newTransforms = checkSpecialTransformations(
-        nodeId,
-        Array.from(freshStateAgain.nodes.values()),
-        freshStateAgain.progress,
-      );
+      const newTransforms = checkSpecialTransformations(nodeId, Array.from(freshStateAgain.nodes.values()), freshStateAgain.progress);
 
       if (newTransforms.length > 0) {
         set((draftState) => {
@@ -1282,9 +1213,7 @@ export const useStoryStore = create<StoryStore>()(
 
       // GATE: Prevent access to locked nodes (L1/L2 after L3 convergence)
       if (state.progress.lockedNodes?.includes(nodeId)) {
-        devWarn(
-          `[Navigation] Cannot open locked node: ${nodeId}. Journey has crystallized at L3 convergence.`,
-        );
+        devWarn(`[Navigation] Cannot open locked node: ${nodeId}. Journey has crystallized at L3 convergence.`);
         get().setIsAnimating(false);
         return;
       }
@@ -1417,9 +1346,7 @@ export const useStoryStore = create<StoryStore>()(
         const total = archaeologist + algorithm + lastHuman;
 
         if (total > 0) {
-          const perspectivesVisited = [archaeologist > 0, algorithm > 0, lastHuman > 0].filter(
-            Boolean,
-          ).length;
+          const perspectivesVisited = [archaeologist > 0, algorithm > 0, lastHuman > 0].filter(Boolean).length;
 
           const diversityBonus = perspectivesVisited * 20;
           const explorationScore = Math.min((total / 10) * 40, 40);
@@ -1453,9 +1380,7 @@ export const useStoryStore = create<StoryStore>()(
           }
         }
 
-        devLog(
-          `Migration complete. Unlocked L2 characters: ${saved.progress.unlockedL2Characters.join(', ')}`,
-        );
+        devLog(`Migration complete. Unlocked L2 characters: ${saved.progress.unlockedL2Characters.join(', ')}`);
       }
 
       // Migration for old saves without L3 convergence system
@@ -1629,9 +1554,7 @@ export const useStoryStore = create<StoryStore>()(
 
             if (!alreadyUnlocked) {
               // Check if requirements are close to being met
-              const hasRequiredNodes = transform.requiredPriorNodes.every(
-                (id) => state.progress.visitedNodes[id],
-              );
+              const hasRequiredNodes = transform.requiredPriorNodes.every((id) => state.progress.visitedNodes[id]);
 
               if (hasRequiredNodes) {
                 availableTransformations.push(`${nodeId}:${transform.id}`);

@@ -9,10 +9,7 @@ import type { UnlockConfigFile, NodeUnlockConfig } from '@/types/Unlock';
 /**
  * Load unlock configuration using Vite glob import
  */
-const unlockConfigFiles = import.meta.glob<UnlockConfigFile>(
-  '/src/data/stories/*/unlock-config.json',
-  { eager: true, import: 'default' },
-);
+const unlockConfigFiles = import.meta.glob<UnlockConfigFile>('/src/data/stories/*/unlock-config.json', { eager: true, import: 'default' });
 
 /**
  * Load unlock configuration for a story
