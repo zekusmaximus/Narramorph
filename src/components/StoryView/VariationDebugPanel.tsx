@@ -46,7 +46,7 @@ export function VariationDebugPanel({ nodeId, variationId, variationMetadata, us
   const handleCopy = () => {
     const debugInfo = JSON.stringify({ nodeId, variationId, context, variationMetadata }, null, 2);
     void navigator.clipboard.writeText(debugInfo).catch((err) => {
-      console.error('Failed to copy to clipboard:', err);
+      console.error('[VariationDebugPanel] Failed to copy to clipboard:', err);
     });
   };
 

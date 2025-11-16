@@ -1,11 +1,12 @@
 import { useEffect, useMemo } from 'react';
 
-import NodeSphere from './NodeSphere';
-import PlaneGuide from './PlaneGuide';
+import type { CharacterType, StoryNode } from '@/types';
 
 import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';
-import type { StoryNode, CharacterType } from '@/types';
+
+import NodeSphere from './NodeSphere';
+import PlaneGuide from './PlaneGuide';
 
 /**
  * Character metadata for visual guides (matches tailwind config)
@@ -135,7 +136,14 @@ export default function SceneContent() {
           return null;
         }
 
-        return <PlaneGuide key={`guide-${character.type}`} zPosition={index * 25} color={metadata.color} label={metadata.label} />;
+        return (
+          <PlaneGuide
+            key={`guide-${character.type}`}
+            zPosition={index * 25}
+            color={metadata.color}
+            label={metadata.label}
+          />
+        );
       })}
 
       {/* Node spheres */}

@@ -1,5 +1,6 @@
-import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
+
+import { AnimatePresence, motion } from 'framer-motion';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import FPSCounter from '@/components/3d/FPSCounter';
@@ -85,7 +86,9 @@ export default function Home() {
     loadProgress();
 
     // Load default story (placeholder for now)
-    loadStory('eternal-return');
+    void loadStory('eternal-return').catch((err) => {
+      console.error('[Home] Failed to load story:', err);
+    });
   }, [loadStory, loadProgress]);
 
   // Fallback to 2D mode on WebGL error

@@ -148,8 +148,8 @@ export function findMatchingVariation(variations: Variation[], context: Conditio
   );
 
   // Track matching stats for summary
-  let stateMatchCount = 0;
-  let awarenessMatchCount = 0;
+  let stateMatches = 0;
+  let awarenessMatches = 0;
   let journeyMatchCount = 0;
   let philosophyMatchCount = 0;
 
@@ -196,7 +196,7 @@ export function findMatchingVariation(variations: Variation[], context: Conditio
 
   // Summary of matching process
   debugLog(
-    `[VariationSelection] 📊 Summary: checked ${variations.length} → state:${stateMatchCount} → awareness:${awarenessMatchCount} → journey:${journeyMatchCount} → philosophy:${philosophyMatchCount} MATCHES`,
+    `[VariationSelection] 📊 Summary: checked ${variations.length} → state:${stateMatches} → awareness:${awarenessMatches} → journey:${journeyMatchCount} → philosophy:${philosophyMatchCount} MATCHES`,
   );
 
   if (matches.length === 0) {
