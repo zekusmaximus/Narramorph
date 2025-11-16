@@ -8,12 +8,7 @@
 import { getNodeLayer } from './nodeUtils';
 
 import type { UserProgress } from '@/types/Store';
-import type {
-  UnlockCondition,
-  UnlockConditionParams,
-  NodeUnlockConfig,
-  UnlockProgress,
-} from '@/types/Unlock';
+import type { UnlockCondition, UnlockConditionParams, NodeUnlockConfig, UnlockProgress } from '@/types/Unlock';
 
 /**
  * Evaluate a single unlock condition
@@ -22,10 +17,7 @@ import type {
  * @param progress - User's current progress
  * @returns true if condition is satisfied, false otherwise
  */
-export function evaluateUnlockCondition(
-  condition: UnlockCondition,
-  progress: UserProgress,
-): boolean {
+export function evaluateUnlockCondition(condition: UnlockCondition, progress: UserProgress): boolean {
   switch (condition.type) {
     case 'visitCount':
       return evaluateVisitCountCondition(condition.params, progress);
@@ -50,10 +42,7 @@ export function evaluateUnlockCondition(
 /**
  * Evaluate visit count condition
  */
-function evaluateVisitCountCondition(
-  params: UnlockConditionParams,
-  progress: UserProgress,
-): boolean {
+function evaluateVisitCountCondition(params: UnlockConditionParams, progress: UserProgress): boolean {
   // Total visits check
   if (params.totalVisits !== undefined) {
     const totalVisits = Object.keys(progress.visitedNodes).length;
@@ -75,9 +64,7 @@ function evaluateVisitCountCondition(
   // Character visits
   if (params.characterVisits) {
     for (const [character, minCount] of Object.entries(params.characterVisits)) {
-      const charVisits =
-        progress.characterNodesVisited[character as keyof typeof progress.characterNodesVisited] ||
-        0;
+      const charVisits = progress.characterNodesVisited[character as keyof typeof progress.characterNodesVisited] || 0;
       if (charVisits < minCount) {
         return false;
       }
@@ -104,10 +91,7 @@ function evaluateVisitCountCondition(
 /**
  * Evaluate awareness condition
  */
-function evaluateAwarenessCondition(
-  params: UnlockConditionParams,
-  progress: UserProgress,
-): boolean {
+function evaluateAwarenessCondition(params: UnlockConditionParams, progress: UserProgress): boolean {
   const awareness = progress.temporalAwarenessLevel || 0;
 
   if (params.minAwareness !== undefined && awareness < params.minAwareness) {
@@ -124,17 +108,12 @@ function evaluateAwarenessCondition(
 /**
  * Evaluate philosophy condition
  */
-function evaluatePhilosophyCondition(
-  params: UnlockConditionParams,
-  progress: UserProgress,
-): boolean {
+function evaluatePhilosophyCondition(params: UnlockConditionParams, progress: UserProgress): boolean {
   const tracking = progress.journeyTracking;
 
   // Required philosophy check
   if (params.requiredPhilosophy) {
-    const required = Array.isArray(params.requiredPhilosophy)
-      ? params.requiredPhilosophy
-      : [params.requiredPhilosophy];
+    const required = Array.isArray(params.requiredPhilosophy) ? params.requiredPhilosophy : [params.requiredPhilosophy];
 
     if (!required.includes(tracking.dominantPhilosophy)) {
       return false;
@@ -143,9 +122,7 @@ function evaluatePhilosophyCondition(
 
   // Minimum philosophy count
   if (params.minPhilosophyCount !== undefined) {
-    const totalChoices = tracking.l2Choices
-      ? Object.values(tracking.l2Choices).reduce((a, b) => a + b, 0)
-      : 0;
+    const totalChoices = tracking.l2Choices ? Object.values(tracking.l2Choices).reduce((a, b) => a + b, 0) : 0;
 
     if (totalChoices < params.minPhilosophyCount) {
       return false;
@@ -174,10 +151,7 @@ function evaluatePhilosophyCondition(
 /**
  * Evaluate character condition
  */
-function evaluateCharacterCondition(
-  params: UnlockConditionParams,
-  progress: UserProgress,
-): boolean {
+function evaluateCharacterCondition(params: UnlockConditionParams, progress: UserProgress): boolean {
   const tracking = progress.journeyTracking;
 
   // Required characters check
@@ -195,9 +169,7 @@ function evaluateCharacterCondition(
 
   // Minimum character count
   if (params.minCharacterCount !== undefined) {
-    const uniqueChars = Object.values(tracking.characterVisitPercentages).filter(
-      (percentage) => percentage > 0,
-    ).length;
+    const uniqueChars = Object.values(tracking.characterVisitPercentages).filter((percentage) => percentage > 0).length;
 
     if (uniqueChars < params.minCharacterCount) {
       return false;
@@ -207,10 +179,7 @@ function evaluateCharacterCondition(
   // Character percentage requirements
   if (params.minCharacterPercentage) {
     for (const [character, minPercent] of Object.entries(params.minCharacterPercentage)) {
-      const actualPercent =
-        tracking.characterVisitPercentages[
-          character as keyof typeof tracking.characterVisitPercentages
-        ] || 0;
+      const actualPercent = tracking.characterVisitPercentages[character as keyof typeof tracking.characterVisitPercentages] || 0;
       if (actualPercent < minPercent) {
         return false;
       }
@@ -223,15 +192,10 @@ function evaluateCharacterCondition(
 /**
  * Evaluate transformation condition
  */
-function evaluateTransformationCondition(
-  params: UnlockConditionParams,
-  progress: UserProgress,
-): boolean {
+function evaluateTransformationCondition(params: UnlockConditionParams, progress: UserProgress): boolean {
   // Required transformation states
   if (params.requiredTransformations) {
-    const transformationStates = new Set(
-      Object.values(progress.visitedNodes).map((record) => record.currentState),
-    );
+    const transformationStates = new Set(Object.values(progress.visitedNodes).map((record) => record.currentState));
 
     for (const requiredState of params.requiredTransformations) {
       if (!transformationStates.has(requiredState)) {
@@ -242,9 +206,7 @@ function evaluateTransformationCondition(
 
   // Minimum meta-aware nodes
   if (params.minMetaAwareNodes !== undefined) {
-    const metaAwareCount = Object.values(progress.visitedNodes).filter(
-      (record) => record.currentState === 'metaAware',
-    ).length;
+    const metaAwareCount = Object.values(progress.visitedNodes).filter((record) => record.currentState === 'metaAware').length;
 
     if (metaAwareCount < params.minMetaAwareNodes) {
       return false;
@@ -257,10 +219,7 @@ function evaluateTransformationCondition(
 /**
  * Evaluate L3 assembly condition
  */
-function evaluateL3AssemblyCondition(
-  params: UnlockConditionParams,
-  progress: UserProgress,
-): boolean {
+function evaluateL3AssemblyCondition(params: UnlockConditionParams, progress: UserProgress): boolean {
   const assemblies = progress.l3AssembliesViewed || [];
 
   // Minimum L3 assemblies viewed
@@ -273,6 +232,9 @@ function evaluateL3AssemblyCondition(
   // Required L3 completion (all 4 sections read)
   if (params.requiredL3Completion && assemblies.length > 0) {
     const latestAssembly = assemblies[assemblies.length - 1];
+    if (!latestAssembly) {
+      return false;
+    }
     const allSectionsRead = Object.values(latestAssembly.sectionsRead).every((read) => read);
 
     if (!allSectionsRead) {
@@ -292,9 +254,7 @@ function evaluateCompoundCondition(params: UnlockConditionParams, progress: User
     return false;
   }
 
-  const results = params.conditions.map((condition) =>
-    evaluateUnlockCondition(condition, progress),
-  );
+  const results = params.conditions.map((condition) => evaluateUnlockCondition(condition, progress));
 
   switch (params.operator) {
     case 'AND':
@@ -334,10 +294,7 @@ export function evaluateNodeUnlock(config: NodeUnlockConfig, progress: UserProgr
  * @param progress - User's current progress
  * @returns Detailed progress information
  */
-export function getUnlockProgress(
-  config: NodeUnlockConfig,
-  progress: UserProgress,
-): UnlockProgress {
+export function getUnlockProgress(config: NodeUnlockConfig, progress: UserProgress): UnlockProgress {
   const conditionResults = config.unlockConditions.map((condition) => ({
     id: condition.id,
     met: evaluateUnlockCondition(condition, progress),
@@ -393,9 +350,7 @@ function generateVisitCountHint(params: UnlockConditionParams, progress: UserPro
   if (params.layerVisits) {
     for (const [layerStr, minCount] of Object.entries(params.layerVisits)) {
       const layer = parseInt(layerStr, 10);
-      const current = Object.keys(progress.visitedNodes).filter(
-        (nodeId) => getNodeLayer(nodeId) === layer,
-      ).length;
+      const current = Object.keys(progress.visitedNodes).filter((nodeId) => getNodeLayer(nodeId) === layer).length;
 
       if (current < minCount) {
         return `Visit ${minCount - current} more Layer ${layer} node${minCount - current > 1 ? 's' : ''}`;
@@ -405,9 +360,7 @@ function generateVisitCountHint(params: UnlockConditionParams, progress: UserPro
 
   if (params.characterVisits) {
     for (const [character, minCount] of Object.entries(params.characterVisits)) {
-      const current =
-        progress.characterNodesVisited[character as keyof typeof progress.characterNodesVisited] ||
-        0;
+      const current = progress.characterNodesVisited[character as keyof typeof progress.characterNodesVisited] || 0;
       if (current < minCount) {
         return `Explore ${minCount - current} more ${character} node${minCount - current > 1 ? 's' : ''}`;
       }
@@ -431,9 +384,7 @@ function generateAwarenessHint(params: UnlockConditionParams, progress: UserProg
 function generatePhilosophyHint(params: UnlockConditionParams, progress: UserProgress): string {
   if (params.minPhilosophyCount !== undefined) {
     const tracking = progress.journeyTracking;
-    const current = tracking?.l2Choices
-      ? Object.values(tracking.l2Choices).reduce((a, b) => a + b, 0)
-      : 0;
+    const current = tracking?.l2Choices ? Object.values(tracking.l2Choices).reduce((a, b) => a + b, 0) : 0;
 
     if (current < params.minPhilosophyCount) {
       return `Make ${params.minPhilosophyCount - current} more Layer 2 choice${params.minPhilosophyCount - current > 1 ? 's' : ''}`;
@@ -446,9 +397,7 @@ function generatePhilosophyHint(params: UnlockConditionParams, progress: UserPro
 function generateCharacterHint(params: UnlockConditionParams, progress: UserProgress): string {
   if (params.minCharacterCount !== undefined) {
     const tracking = progress.journeyTracking;
-    const current = tracking
-      ? Object.values(tracking.characterVisitPercentages).filter((p) => p > 0).length
-      : 0;
+    const current = tracking ? Object.values(tracking.characterVisitPercentages).filter((p) => p > 0).length : 0;
 
     if (current < params.minCharacterCount) {
       return `Explore ${params.minCharacterCount - current} more character perspective${params.minCharacterCount - current > 1 ? 's' : ''}`;

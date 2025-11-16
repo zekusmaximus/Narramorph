@@ -39,12 +39,7 @@ const LOCKED_COLORS: Record<string, string> = {
 /**
  * Get visual appearance for a node based on its state
  */
-export function getNodeAppearance({
-  character,
-  isActive,
-  isVisited,
-  isLocked,
-}: GetNodeAppearanceParams): NodeAppearance {
+export function getNodeAppearance({ character, isActive, isVisited, isLocked }: GetNodeAppearanceParams): NodeAppearance {
   const baseColor = CHARACTER_COLORS[character] || '#CCCCCC';
   const lockedColor = LOCKED_COLORS[character] || '#666666';
 

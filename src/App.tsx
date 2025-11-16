@@ -6,23 +6,12 @@ import { Home } from '@/pages';
 /**
  * Error fallback component for the error boundary
  */
-function ErrorFallback({
-  error,
-  resetErrorBoundary,
-}: {
-  error: Error;
-  resetErrorBoundary: () => void;
-}) {
+function ErrorFallback({ error, resetErrorBoundary }: { error: Error; resetErrorBoundary: () => void }) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6 text-center">
         <div className="w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full flex items-center justify-center">
-          <svg
-            className="w-8 h-8 text-red-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+          <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -32,13 +21,9 @@ function ErrorFallback({
           </svg>
         </div>
         <h2 className="text-xl font-semibold text-gray-900 mb-2">Something went wrong</h2>
-        <p className="text-gray-600 mb-4">
-          An unexpected error occurred while loading the application.
-        </p>
+        <p className="text-gray-600 mb-4">An unexpected error occurred while loading the application.</p>
         <details className="text-left mb-4">
-          <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">
-            Error details
-          </summary>
+          <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">Error details</summary>
           <pre className="mt-2 text-xs bg-gray-100 p-2 rounded overflow-auto">{error.message}</pre>
         </details>
         <button type="button" onClick={resetErrorBoundary} className="btn-primary w-full">

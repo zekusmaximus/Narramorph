@@ -4,14 +4,7 @@
 
 import { performanceMonitor } from './performanceMonitor';
 
-import type {
-  SelectionMatrixEntry,
-  Variation,
-  ConditionContext,
-  AwarenessLevel,
-  JourneyPattern,
-  PathPhilosophy,
-} from '@/types';
+import type { SelectionMatrixEntry, Variation, ConditionContext, AwarenessLevel, JourneyPattern, PathPhilosophy } from '@/types';
 
 const isDebugEnv = process.env.NODE_ENV !== 'production';
 const debugLog = (...args: unknown[]): void => {
@@ -35,10 +28,7 @@ const debugLog = (...args: unknown[]): void => {
  * @param shownIds - ALL variation IDs ever shown for this node
  * @returns Selected variation, or null if all have been shown
  */
-export function pickNonRepeatingVariation<T extends { variationId?: string; id?: string }>(
-  candidates: T[],
-  shownIds?: string[],
-): T | null {
+export function pickNonRepeatingVariation<T extends { variationId?: string; id?: string }>(candidates: T[], shownIds?: string[]): T | null {
   if (candidates.length === 0) {
     return null;
   }
@@ -46,9 +36,10 @@ export function pickNonRepeatingVariation<T extends { variationId?: string; id?:
   // If no history, return first candidate
   if (!shownIds || shownIds.length === 0) {
     const selected = candidates[0];
-    debugLog(
-      `[Dedupe] 🆕 First selection from pool of ${candidates.length}: ${selected.variationId || selected.id}`,
-    );
+    if (!selected) {
+      return null;
+    }
+    debugLog(`[Dedupe] 🆕 First selection from pool of ${candidates.length}: ${selected.variationId || selected.id}`);
     return selected;
   }
 
@@ -63,6 +54,9 @@ export function pickNonRepeatingVariation<T extends { variationId?: string; id?:
   // If we have variations that have never been shown, return the first one
   if (neverShown.length > 0) {
     const selected = neverShown[0];
+    if (!selected) {
+      return null;
+    }
     const excludedCount = candidates.length - neverShown.length;
     debugLog(
       `[Dedupe] ✓ Selected fresh variation: ${selected.variationId || selected.id} (excluded ${excludedCount}/${candidates.length} shown)`,
@@ -71,9 +65,7 @@ export function pickNonRepeatingVariation<T extends { variationId?: string; id?:
   }
 
   // All candidates have been shown - return null to indicate pool exhaustion
-  debugLog(
-    `[Dedupe] ⚠️  Pool exhausted: All ${candidates.length} candidates already shown [${candidateIds.join(', ')}]`,
-  );
+  debugLog(`[Dedupe] ⚠️  Pool exhausted: All ${candidates.length} candidates already shown [${candidateIds.join(', ')}]`);
   return null;
 }
 
@@ -98,16 +90,18 @@ function isInRange(value: number, range: [number, number] | undefined): boolean 
     console.warn('[ConditionEvaluator] Invalid range provided:', range);
     return false;
   }
-  return value >= range[0] && value <= range[1];
+  const [min, max] = range;
+  if (min === undefined || max === undefined) {
+    console.warn('[ConditionEvaluator] Range values are undefined:', range);
+    return false;
+  }
+  return value >= min && value <= max;
 }
 
 /**
  * Evaluate if a selection matrix entry's conditions match the current context
  */
-export function evaluateConditions(
-  entry: SelectionMatrixEntry,
-  context: ConditionContext,
-): boolean {
+export function evaluateConditions(entry: SelectionMatrixEntry, context: ConditionContext): boolean {
   const { conditions } = entry;
 
   // Check awareness level
@@ -145,10 +139,7 @@ export function evaluateConditions(
 /**
  * Find matching variations based on condition context
  */
-export function findMatchingVariation(
-  variations: Variation[],
-  context: ConditionContext,
-): Variation | null {
+export function findMatchingVariation(variations: Variation[], context: ConditionContext): Variation | null {
   const endTimer = performanceMonitor.startTimer('variationSelection');
 
   // Summary log: context and what we're looking for
@@ -168,10 +159,7 @@ export function findMatchingVariation(
 
     // Skip variations with invalid metadata
     if (!meta) {
-      console.warn(
-        '[VariationSelection] Variation missing metadata:',
-        variation.variationId || variation.id,
-      );
+      console.warn('[VariationSelection] Variation missing metadata:', variation.variationId || variation.id);
       return false;
     }
 
@@ -179,13 +167,13 @@ export function findMatchingVariation(
     if (variation.transformationState !== context.transformationState) {
       return false;
     }
-    stateMatches++;
+    stateMatchCount++;
 
     // Check awareness range
     if (!isInRange(context.awareness, meta.awarenessRange)) {
       return false;
     }
-    awarenessMatches++;
+    awarenessMatchCount++;
 
     // Check journey pattern
     if (meta.journeyPattern !== 'unknown' && meta.journeyPattern !== context.journeyPattern) {
@@ -194,10 +182,7 @@ export function findMatchingVariation(
     journeyMatchCount++;
 
     // Check philosophy
-    if (
-      meta.philosophyDominant !== 'unknown' &&
-      meta.philosophyDominant !== context.pathPhilosophy
-    ) {
+    if (meta.philosophyDominant !== 'unknown' && meta.philosophyDominant !== context.pathPhilosophy) {
       return false;
     }
     philosophyMatchCount++;
@@ -231,23 +216,17 @@ export function findMatchingVariation(
 
   // Show deduplication context if there are recent IDs
   if (recentIds && recentIds.length > 0) {
-    debugLog(
-      `[VariationSelection] 🔄 Deduplication active: ${recentIds.length} variations already shown [${recentIds.join(', ')}]`,
-    );
+    debugLog(`[VariationSelection] 🔄 Deduplication active: ${recentIds.length} variations already shown [${recentIds.join(', ')}]`);
   }
 
   const exactMatches = matches.filter(
-    (v) =>
-      v.metadata.journeyPattern === context.journeyPattern &&
-      v.metadata.philosophyDominant === context.pathPhilosophy,
+    (v) => v.metadata.journeyPattern === context.journeyPattern && v.metadata.philosophyDominant === context.pathPhilosophy,
   );
 
   if (exactMatches.length > 0) {
     const selected = pickNonRepeatingVariation(exactMatches, recentIds);
     if (selected) {
-      debugLog(
-        `[VariationSelection] ✅ SELECTED: ${selected.variationId} (exact match: journey+philosophy)`,
-      );
+      debugLog(`[VariationSelection] ✅ SELECTED: ${selected.variationId} (exact match: journey+philosophy)`);
       endTimer({
         nodeId: context.nodeId,
         variationCount: variations.length,
@@ -259,9 +238,7 @@ export function findMatchingVariation(
     debugLog('[VariationSelection] ⚠️  Exact matches all shown, trying journey matches...');
   }
 
-  const journeyMatches = matches.filter(
-    (v) => v.metadata.journeyPattern === context.journeyPattern,
-  );
+  const journeyMatches = matches.filter((v) => v.metadata.journeyPattern === context.journeyPattern);
 
   if (journeyMatches.length > 0) {
     const selected = pickNonRepeatingVariation(journeyMatches, recentIds);
@@ -278,9 +255,7 @@ export function findMatchingVariation(
     debugLog('[VariationSelection] ⚠️  Journey matches all shown, trying philosophy matches...');
   }
 
-  const philosophyMatches = matches.filter(
-    (v) => v.metadata.philosophyDominant === context.pathPhilosophy,
-  );
+  const philosophyMatches = matches.filter((v) => v.metadata.philosophyDominant === context.pathPhilosophy);
 
   if (philosophyMatches.length > 0) {
     const selected = pickNonRepeatingVariation(philosophyMatches, recentIds);
@@ -312,37 +287,35 @@ export function findMatchingVariation(
 
   // All variations for this transformation state have been shown - repeat first match
   // This happens when the reader has exhausted all unique variations for this state
+  const fallback = matches[0];
+  if (!fallback) {
+    // Should not happen as we checked matches.length > 0, but guard anyway
+    return null;
+  }
   debugLog(
-    `[VariationSelection] 🔁 POOL EXHAUSTED: All ${matches.length} variations for state '${context.transformationState}' shown. Repeating: ${matches[0].variationId}`,
+    `[VariationSelection] 🔁 POOL EXHAUSTED: All ${matches.length} variations for state '${context.transformationState}' shown. Repeating: ${fallback.variationId}`,
   );
   endTimer({
     nodeId: context.nodeId,
     variationCount: variations.length,
     matchFound: true,
-    variationId: matches[0].variationId,
+    variationId: fallback.variationId,
     exhausted: true,
   });
-  return matches[0];
+  return fallback;
 }
 
 /**
  * Find all selection matrix entries for a given node
  */
-export function findMatrixEntriesForNode(
-  matrix: SelectionMatrixEntry[],
-  nodeId: string,
-): SelectionMatrixEntry[] {
+export function findMatrixEntriesForNode(matrix: SelectionMatrixEntry[], nodeId: string): SelectionMatrixEntry[] {
   return matrix.filter((entry) => entry.fromNode === nodeId);
 }
 
 /**
  * Select the best target node from matrix based on context
  */
-export function selectTargetNode(
-  matrix: SelectionMatrixEntry[],
-  fromNode: string,
-  context: ConditionContext,
-): SelectionMatrixEntry | null {
+export function selectTargetNode(matrix: SelectionMatrixEntry[], fromNode: string, context: ConditionContext): SelectionMatrixEntry | null {
   const candidates = findMatrixEntriesForNode(matrix, fromNode);
 
   if (candidates.length === 0) {
@@ -354,11 +327,13 @@ export function selectTargetNode(
 
   if (matches.length === 0) {
     // No exact match, return first candidate as fallback
-    return candidates[0];
+    const fallback = candidates[0];
+    return fallback ?? null;
   }
 
   // Return first matching entry
-  return matches[0];
+  const match = matches[0];
+  return match ?? null;
 }
 
 /**
@@ -373,11 +348,7 @@ export function calculateJourneyPattern(
   }
 
   const startingPercentage = percentages[startingCharacter];
-  const maxPercentage = Math.max(
-    percentages.archaeologist,
-    percentages.algorithm,
-    percentages.lastHuman,
-  );
+  const maxPercentage = Math.max(percentages.archaeologist, percentages.algorithm, percentages.lastHuman);
 
   // Find which character is currently dominant
   let dominantCharacter: 'archaeologist' | 'algorithm' | 'lastHuman' = 'archaeologist';
@@ -416,11 +387,7 @@ export function calculateJourneyPattern(
 /**
  * Calculate dominant path philosophy from L2 choice counts
  */
-export function calculatePathPhilosophy(choices: {
-  accept: number;
-  resist: number;
-  invest: number;
-}): PathPhilosophy {
+export function calculatePathPhilosophy(choices: { accept: number; resist: number; invest: number }): PathPhilosophy {
   const total = choices.accept + choices.resist + choices.invest;
 
   if (total === 0) {

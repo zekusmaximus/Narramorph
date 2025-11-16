@@ -23,13 +23,7 @@ export default function PlaneGuide({
       {showPlane && (
         <mesh position={[0, 0, zPosition]}>
           <planeGeometry args={[80, 80]} />
-          <meshBasicMaterial
-            color={color}
-            opacity={0.02}
-            transparent
-            side={DoubleSide}
-            depthWrite={false}
-          />
+          <meshBasicMaterial color={color} opacity={0.02} transparent side={DoubleSide} depthWrite={false} />
         </mesh>
       )}
 

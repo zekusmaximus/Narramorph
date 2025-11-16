@@ -82,9 +82,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   const markL3SectionRead = useStoryStore((state) => state.markL3SectionRead);
   const finalizeActiveVisit = useStoryStore((state) => state.finalizeActiveVisit);
-  const l3Progress = useStoryStore(
-    (state) => state.progress.l3AssembliesViewed?.[state.progress.l3AssembliesViewed.length - 1],
-  );
+  const l3Progress = useStoryStore((state) => state.progress.l3AssembliesViewed?.[state.progress.l3AssembliesViewed.length - 1]);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const sections = useMemo(() => getL3AssemblySections(assembly), [assembly]);
@@ -92,7 +90,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
 
   // Track section reads using IntersectionObserver
   useEffect(() => {
-    if (!sectionRef.current) {
+    if (!sectionRef.current || !currentSection) {
       return undefined;
     }
 
@@ -126,7 +124,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
         clearTimeout(timer);
       }
     };
-  }, [currentSection.character, markL3SectionRead]);
+  }, [currentSection, markL3SectionRead]);
 
   // Handle section navigation
   const goToSection = useCallback(
@@ -135,12 +133,11 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
         return;
       }
 
-      const prevSection = sections[currentSectionIndex].character as
-        | 'arch'
-        | 'algo'
-        | 'hum'
-        | 'conv';
-      markL3SectionRead(prevSection);
+      const prevSection = sections[currentSectionIndex];
+      if (prevSection) {
+        const sectionKey = prevSection.character as 'arch' | 'algo' | 'hum' | 'conv';
+        markL3SectionRead(sectionKey);
+      }
 
       setCurrentSectionIndex(index);
     },
@@ -182,6 +179,11 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
     };
   }, [finalizeActiveVisit]);
 
+  // Guard: return null if no current section
+  if (!currentSection) {
+    return null;
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -212,10 +214,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
               </div>
             </div>
             {onClose && (
-              <button
-                onClick={onClose}
-                className="text-gray-400 hover:text-white transition-colors font-mono text-sm"
-              >
+              <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors font-mono text-sm">
                 [ESC]
               </button>
             )}
@@ -264,19 +263,11 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
               transition={{ duration: 0.3 }}
               className="p-8"
             >
-              <h3
-                className={`text-xl font-mono mb-4 ${
-                  characterTextColors[currentSection.character as keyof typeof characterTextColors]
-                }`}
-              >
+              <h3 className={`text-xl font-mono mb-4 ${characterTextColors[currentSection.character as keyof typeof characterTextColors]}`}>
                 {currentSection.title}
               </h3>
-              <div className="text-xs text-gray-400 font-mono mb-6">
-                {currentSection.wordCount} words
-              </div>
-              <div className="prose prose-invert prose-cyan max-w-none text-gray-200">
-                {parseMarkdown(currentSection.content)}
-              </div>
+              <div className="text-xs text-gray-400 font-mono mb-6">{currentSection.wordCount} words</div>
+              <div className="prose prose-invert prose-cyan max-w-none text-gray-200">{parseMarkdown(currentSection.content)}</div>
             </motion.div>
           </AnimatePresence>
         </div>

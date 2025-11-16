@@ -38,8 +38,7 @@ export function MemoryFragments() {
         // Extract fragment from content
         const content = node.content.initial || '';
         const words = content.split(' ').filter((w) => w.length > 4);
-        const randomWord =
-          words[Math.floor(Math.random() * Math.min(words.length, 20))] || 'memory';
+        const randomWord = words[Math.floor(Math.random() * Math.min(words.length, 20))] || 'memory';
 
         // Character-specific colors
         const colors = {

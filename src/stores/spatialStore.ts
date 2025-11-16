@@ -32,7 +32,7 @@ function shallowEqualPositions(a: Record<string, Vec3>, b: Record<string, Vec3>)
     const av = a[key];
     const bv = b[key];
 
-    if (!bv) {
+    if (!av || !bv) {
       return false;
     }
 

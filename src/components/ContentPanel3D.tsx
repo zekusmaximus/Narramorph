@@ -166,7 +166,7 @@ export default function ContentPanel3D() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold bg-white/20">
-                {currentNode.character[0].toUpperCase()}
+                {currentNode.character[0]?.toUpperCase() ?? '?'}
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-white">{currentNode.title}</h2>
@@ -204,9 +204,7 @@ export default function ContentPanel3D() {
               <p className="text-sm text-yellow-800">
                 <strong>Note:</strong> Dynamic content unavailable. Showing fallback content.
               </p>
-              {usedFallback && (
-                <p className="text-xs text-yellow-600 mt-1">Using static variation instead.</p>
-              )}
+              {usedFallback && <p className="text-xs text-yellow-600 mt-1">Using static variation instead.</p>}
             </div>
           )}
 

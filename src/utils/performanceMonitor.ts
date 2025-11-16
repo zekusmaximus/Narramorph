@@ -65,9 +65,7 @@ class PerformanceMonitor {
     max: number;
     p95: number;
   } | null {
-    const operationMetrics = this.metrics
-      .filter((m) => m.operation === operation)
-      .map((m) => m.duration);
+    const operationMetrics = this.metrics.filter((m) => m.operation === operation).map((m) => m.duration);
 
     if (operationMetrics.length === 0) {
       return null;
@@ -79,9 +77,9 @@ class PerformanceMonitor {
     return {
       count: operationMetrics.length,
       avg: operationMetrics.reduce((a, b) => a + b, 0) / operationMetrics.length,
-      min: sorted[0],
-      max: sorted[sorted.length - 1],
-      p95: sorted[p95Index],
+      min: sorted[0] ?? 0,
+      max: sorted[sorted.length - 1] ?? 0,
+      p95: sorted[p95Index] ?? 0,
     };
   }
 

@@ -52,10 +52,7 @@ export function NodeTooltip({ nodeId, position }: NodeTooltipProps) {
             boxShadow: `0 0 20px ${colors[node.character]}20`,
           }}
         >
-          <div
-            className="font-semibold mb-2 uppercase tracking-wider"
-            style={{ color: colors[node.character] }}
-          >
+          <div className="font-semibold mb-2 uppercase tracking-wider" style={{ color: colors[node.character] }}>
             {node.title}
           </div>
 
@@ -77,9 +74,7 @@ export function NodeTooltip({ nodeId, position }: NodeTooltipProps) {
               <span className="text-gray-300">{node.metadata.estimatedReadTime}m</span>
             </div>
             {node.metadata.criticalPath && (
-              <div className="text-yellow-400 text-[10px] mt-2 pt-2 border-t border-yellow-900/30">
-                ⚠ CRITICAL PATH NODE
-              </div>
+              <div className="text-yellow-400 text-[10px] mt-2 pt-2 border-t border-yellow-900/30">⚠ CRITICAL PATH NODE</div>
             )}
           </div>
         </div>

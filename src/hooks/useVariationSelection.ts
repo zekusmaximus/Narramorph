@@ -64,18 +64,13 @@ export interface UseVariationSelectionResult {
  * @param fallbackContent - Static content to use if variation system fails
  * @returns Variation content, metadata, and loading state
  */
-export function useVariationSelection(
-  nodeId: string | null,
-  fallbackContent?: string,
-): UseVariationSelectionResult {
+export function useVariationSelection(nodeId: string | null, fallbackContent?: string): UseVariationSelectionResult {
   const storyData = useStoryStore((state) => state.storyData);
   const getConditionContext = useStoryStore((state) => state.getConditionContext);
 
   // Extract reactive values that affect variation selection
   const temporalAwareness = useStoryStore((state) => state.progress.temporalAwarenessLevel);
-  const visitRecord = useStoryStore((state) =>
-    nodeId ? state.progress.visitedNodes[nodeId] : undefined,
-  );
+  const visitRecord = useStoryStore((state) => (nodeId ? state.progress.visitedNodes[nodeId] : undefined));
   const journeyTracking = useStoryStore((state) => state.progress.journeyTracking);
 
   const variationTriggers = useMemo(
@@ -147,11 +142,19 @@ export function useVariationSelection(
         // No match found - use first variation as fallback
         devWarn(`⚠️  No matching variation for ${nodeId}, using first available`);
         const firstVariation = variationFile.variations[0];
-        const firstVarId =
-          firstVariation.variationId ||
-          firstVariation.id ||
-          firstVariation.metadata?.variationId ||
-          'unknown';
+
+        if (!firstVariation) {
+          return {
+            content: '',
+            variationId: null,
+            metadata: null,
+            isLoading: false,
+            error: new Error('No variations available'),
+            usedFallback: true,
+          };
+        }
+
+        const firstVarId = firstVariation.variationId || firstVariation.id || firstVariation.metadata?.variationId || 'unknown';
 
         return {
           content: firstVariation.content,
@@ -164,11 +167,7 @@ export function useVariationSelection(
       }
 
       // Step 4: Return matched variation
-      const varId =
-        matchedVariation.variationId ||
-        matchedVariation.id ||
-        matchedVariation.metadata?.variationId ||
-        'unknown';
+      const varId = matchedVariation.variationId || matchedVariation.id || matchedVariation.metadata?.variationId || 'unknown';
 
       // Final selection log - important for tracking choice order for PDF
       devLog(`📝 CHOICE RECORDED: ${nodeId} → ${varId} [render #${currentRender}]`);

@@ -86,15 +86,10 @@ export function PerformanceDashboard() {
         })}
       </div>
 
-      {Object.keys(stats).length === 0 && (
-        <div className="text-gray-500 text-center py-4">No performance data yet</div>
-      )}
+      {Object.keys(stats).length === 0 && <div className="text-gray-500 text-center py-4">No performance data yet</div>}
 
       <div className="mt-3 pt-3 border-t border-gray-700">
-        <button
-          onClick={() => performanceMonitor.logSummary()}
-          className="w-full py-1 bg-cyan-600 hover:bg-cyan-500 rounded text-white"
-        >
+        <button onClick={() => performanceMonitor.logSummary()} className="w-full py-1 bg-cyan-600 hover:bg-cyan-500 rounded text-white">
           Log Summary to Console
         </button>
       </div>
