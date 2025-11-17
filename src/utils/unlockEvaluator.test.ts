@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import unlockConfig from '@/data/stories/eternal-return/unlock-config.json';
 import type { TransformationState } from '@/types/Node';
 import type { VisitRecord, UserProgress } from '@/types/Store';
-import type { UnlockCondition } from '@/types/Unlock';
+import type { NodeUnlockConfig, UnlockCondition } from '@/types/Unlock';
 
 import { evaluateNodeUnlock, evaluateUnlockCondition } from './unlockEvaluator';
 
@@ -131,7 +131,9 @@ describe('evaluateVisitCountCondition', () => {
 
 describe('Layer 3 unlock configuration', () => {
   it('unlocks when thorough exploration and other gates are met', () => {
-    const config = unlockConfig.nodes.find((node) => node.nodeId === 'arch-L3');
+    const config = unlockConfig.nodes.find((node) => node.nodeId === 'arch-L3') as
+      | NodeUnlockConfig
+      | undefined;
 
     if (!config) {
       throw new Error('arch-L3 unlock config missing');

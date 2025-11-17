@@ -173,8 +173,11 @@ export function findMatchingVariation(
   let journeyMatchCount = 0;
   let philosophyMatchCount = 0;
 
+  const stateAwareMatches: Variation[] = [];
+  const matches: Variation[] = [];
+
   // Filter variations that match the context
-  const matches = variations.filter((variation, index) => {
+  variations.forEach((variation, index) => {
     const meta = variation.metadata;
 
     // Skip variations with invalid metadata
@@ -183,24 +186,30 @@ export function findMatchingVariation(
         '[VariationSelection] Variation missing metadata:',
         variation.variationId || variation.id,
       );
-      return false;
+      return;
+    }
+
+    // Track state matches even if they fail later criteria
+    if (variation.transformationState === context.transformationState) {
+      stateMatches++;
     }
 
     // CRITICAL: Check transformation state FIRST
     if (variation.transformationState !== context.transformationState) {
-      return false;
+      return;
     }
-    stateMatches++;
 
-    // Check awareness range
-    if (!isInRange(context.awareness, meta.awarenessRange)) {
-      return false;
+    // Track state-aware pools before journey/philosophy filtering
+    if (isInRange(context.awareness, meta.awarenessRange)) {
+      awarenessMatches++;
+      stateAwareMatches.push(variation);
+    } else {
+      return;
     }
-    awarenessMatches++;
 
     // Check journey pattern
     if (meta.journeyPattern !== 'unknown' && meta.journeyPattern !== context.journeyPattern) {
-      return false;
+      return;
     }
     journeyMatchCount++;
 
@@ -209,31 +218,22 @@ export function findMatchingVariation(
       meta.philosophyDominant !== 'unknown' &&
       meta.philosophyDominant !== context.pathPhilosophy
     ) {
-      return false;
+      return;
     }
     philosophyMatchCount++;
+
+    matches.push(variation);
 
     // Log only the match (not every rejection)
     debugLog(
       `[VariationSelection] ✓ Match #${philosophyMatchCount}: ${variation.variationId || meta.variationId} (position ${index + 1}/${variations.length})`,
     );
-    return true;
   });
 
   // Summary of matching process
   debugLog(
     `[VariationSelection] 📊 Summary: checked ${variations.length} → state:${stateMatches} → awareness:${awarenessMatches} → journey:${journeyMatchCount} → philosophy:${philosophyMatchCount} MATCHES`,
   );
-
-  if (matches.length === 0) {
-    console.warn('[VariationSelection] No matches found, returning null');
-    endTimer({
-      nodeId: context.nodeId,
-      variationCount: variations.length,
-      matchFound: false,
-    });
-    return null;
-  }
 
   // If multiple matches, prefer exact matches over broader ones
   // Priority: exact journey + exact philosophy > exact journey > exact philosophy > any
@@ -247,18 +247,49 @@ export function findMatchingVariation(
     );
   }
 
-  const exactMatches = matches.filter(
-    (v) =>
-      v.metadata.journeyPattern === context.journeyPattern &&
-      v.metadata.philosophyDominant === context.pathPhilosophy,
+  const stateOnlyMatches = variations.filter(
+    (v) => v.transformationState === context.transformationState,
   );
 
-  if (exactMatches.length > 0) {
-    const selected = pickNonRepeatingVariation(exactMatches, recentIds);
+  const philosophyAligned = variations.filter(
+    (v) => v.metadata?.philosophyDominant === context.pathPhilosophy,
+  );
+
+  const selectionPipeline: { label: string; pool: Variation[] }[] = [
+    {
+      label: 'exact match: journey+philosophy',
+      pool: matches.filter(
+        (v) =>
+          v.metadata.journeyPattern === context.journeyPattern &&
+          v.metadata.philosophyDominant === context.pathPhilosophy,
+      ),
+    },
+    {
+      label: 'journey match',
+      pool: matches.filter((v) => v.metadata.journeyPattern === context.journeyPattern),
+    },
+    {
+      label: 'philosophy match',
+      pool: matches.filter((v) => v.metadata.philosophyDominant === context.pathPhilosophy),
+    },
+    { label: 'any strict match', pool: matches },
+    {
+      label: 'state + awareness relaxed',
+      pool: stateAwareMatches,
+    },
+    { label: 'state-only relaxed', pool: stateOnlyMatches },
+    { label: 'philosophy-only relaxed', pool: philosophyAligned },
+    { label: 'deterministic any', pool: variations },
+  ];
+
+  for (const { label, pool } of selectionPipeline) {
+    if (pool.length === 0) {
+      continue;
+    }
+
+    const selected = pickNonRepeatingVariation(pool, recentIds);
     if (selected) {
-      debugLog(
-        `[VariationSelection] ✅ SELECTED: ${selected.variationId} (exact match: journey+philosophy)`,
-      );
+      debugLog(`[VariationSelection] ✅ SELECTED: ${selected.variationId} (${label})`);
       endTimer({
         nodeId: context.nodeId,
         variationCount: variations.length,
@@ -267,69 +298,24 @@ export function findMatchingVariation(
       });
       return selected;
     }
-    debugLog('[VariationSelection] ⚠️  Exact matches all shown, trying journey matches...');
+
+    debugLog(`[VariationSelection] ⚠️  ${label} pool exhausted (${pool.length})`);
   }
 
-  const journeyMatches = matches.filter(
-    (v) => v.metadata.journeyPattern === context.journeyPattern,
-  );
+  // All variations for this transformation state have been shown - repeat deterministic fallback
+  const fallback = matches[0] || stateOnlyMatches[0] || variations[0];
 
-  if (journeyMatches.length > 0) {
-    const selected = pickNonRepeatingVariation(journeyMatches, recentIds);
-    if (selected) {
-      debugLog(`[VariationSelection] ✅ SELECTED: ${selected.variationId} (journey match)`);
-      endTimer({
-        nodeId: context.nodeId,
-        variationCount: variations.length,
-        matchFound: true,
-        variationId: selected.variationId,
-      });
-      return selected;
-    }
-    debugLog('[VariationSelection] ⚠️  Journey matches all shown, trying philosophy matches...');
-  }
-
-  const philosophyMatches = matches.filter(
-    (v) => v.metadata.philosophyDominant === context.pathPhilosophy,
-  );
-
-  if (philosophyMatches.length > 0) {
-    const selected = pickNonRepeatingVariation(philosophyMatches, recentIds);
-    if (selected) {
-      debugLog(`[VariationSelection] ✅ SELECTED: ${selected.variationId} (philosophy match)`);
-      endTimer({
-        nodeId: context.nodeId,
-        variationCount: variations.length,
-        matchFound: true,
-        variationId: selected.variationId,
-      });
-      return selected;
-    }
-    debugLog('[VariationSelection] ⚠️  Philosophy matches all shown, trying any match...');
-  }
-
-  // Fallback: apply de-duplication to all matches
-  const selected = pickNonRepeatingVariation(matches, recentIds);
-  if (selected) {
-    debugLog(`[VariationSelection] ✅ SELECTED: ${selected.variationId} (any match)`);
+  if (!fallback) {
     endTimer({
       nodeId: context.nodeId,
       variationCount: variations.length,
-      matchFound: true,
-      variationId: selected.variationId,
+      matchFound: false,
     });
-    return selected;
-  }
-
-  // All variations for this transformation state have been shown - repeat first match
-  // This happens when the reader has exhausted all unique variations for this state
-  const fallback = matches[0];
-  if (!fallback) {
-    // Should not happen as we checked matches.length > 0, but guard anyway
     return null;
   }
+
   debugLog(
-    `[VariationSelection] 🔁 POOL EXHAUSTED: All ${matches.length} variations for state '${context.transformationState}' shown. Repeating: ${fallback.variationId}`,
+    `[VariationSelection] 🔁 POOL EXHAUSTED: All ${variations.length} variations shown. Repeating: ${fallback.variationId}`,
   );
   endTimer({
     nodeId: context.nodeId,
