@@ -113,7 +113,7 @@ export default function CameraController({ controlsRef }: CameraControllerProps)
         }
       },
     });
-  }, [api, cameraTargetPos, setIsAnimating, target]);
+  }, [api, camera, cameraTargetPos, controlsRef, setIsAnimating, target]);
 
   // Update camera and controls on each frame
   useFrame(() => {

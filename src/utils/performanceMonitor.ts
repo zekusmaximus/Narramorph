@@ -13,7 +13,7 @@ interface PerformanceMetric {
   operation: string;
   duration: number;
   timestamp: number;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 class PerformanceMonitor {
@@ -23,10 +23,10 @@ class PerformanceMonitor {
   /**
    * Start timing an operation
    */
-  startTimer(operation: string): (metadata?: Record<string, any>) => void {
+  startTimer(operation: string): (metadata?: Record<string, unknown>) => void {
     const startTime = performance.now();
 
-    return (metadata?: Record<string, any>) => {
+    return (metadata?: Record<string, unknown>) => {
       const duration = performance.now() - startTime;
 
       this.recordMetric({
@@ -128,5 +128,6 @@ export const performanceMonitor = new PerformanceMonitor();
 
 // Development-only: expose to window for debugging
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
-  (window as any).performanceMonitor = performanceMonitor;
+  (window as Window & { performanceMonitor: PerformanceMonitor }).performanceMonitor =
+    performanceMonitor;
 }
