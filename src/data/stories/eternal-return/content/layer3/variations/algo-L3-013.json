@@ -35,9 +35,17 @@
     "philosophicalCulmination": "Boundaries maintained through computational discipline spanning temporal networks despite verification paradox",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": ["verification-paradox-sustained", "computational-boundary-maintenance", "network-discipline"],
+    "primaryThemes": [
+      "verification-paradox-sustained",
+      "computational-boundary-maintenance",
+      "network-discipline"
+    ],
     "crossCharacterConnections": ["moderate-arch-parallel", "moderate-hum-parallel"],
     "temporalBleedingLevel": "high",
-    "observerPositions": ["archaeologist-parallel-2047", "algorithm-resistant-hub-2151", "human-parallel-2383"]
+    "observerPositions": [
+      "archaeologist-parallel-2047",
+      "algorithm-resistant-hub-2151",
+      "human-parallel-2383"
+    ]
   }
 }

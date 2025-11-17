@@ -38,6 +38,10 @@
     "primaryThemes": ["embodied-verification", "boundary-defense", "resistance-practice"],
     "crossCharacterConnections": ["moderate-arch-foundational", "light-algo-detected"],
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["human-primary-2383", "archaeologist-foundational-2047", "algorithm-parallel-2151"]
+    "observerPositions": [
+      "human-primary-2383",
+      "archaeologist-foundational-2047",
+      "algorithm-parallel-2151"
+    ]
   }
 }

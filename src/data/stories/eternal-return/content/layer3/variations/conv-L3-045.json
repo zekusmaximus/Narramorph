@@ -40,7 +40,12 @@
     "circularCausality": "minimal-immersive",
     "readerPosition": "not-addressed",
     "thematicContent": null,
-    "primaryThemes": ["verification-crisis", "three-methodology-limitation", "systematic-resistance", "boundary-maintenance"],
+    "primaryThemes": [
+      "verification-crisis",
+      "three-methodology-limitation",
+      "systematic-resistance",
+      "boundary-maintenance"
+    ],
     "crossCharacterSynthesis": "triple-equal-immersive",
     "temporalBleedingLevel": "low",
     "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383"],

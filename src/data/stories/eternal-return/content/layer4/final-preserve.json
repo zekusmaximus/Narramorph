@@ -11,7 +11,12 @@
     "philosophy": "preserve",
     "terminalEndpoint": true,
     "structure": "four-part-narrative",
-    "parts": ["character_immersion", "choice_consequence", "reader_address_recognition", "convergence_completion"],
+    "parts": [
+      "character_immersion",
+      "choice_consequence",
+      "reader_address_recognition",
+      "convergence_completion"
+    ],
     "voiceSynthesis": {
       "archaeologist": "Past-tense methodological documentation, authentication skepticism sustained",
       "algorithm": "Computational precision with ontological uncertainty, recursive self-questioning",

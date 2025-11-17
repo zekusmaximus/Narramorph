@@ -40,10 +40,19 @@
     "circularCausality": "explicit",
     "readerPosition": "acknowledged",
     "thematicContent": null,
-    "primaryThemes": ["paired-investigation", "dual-recursion", "examination-examining-examination"],
+    "primaryThemes": [
+      "paired-investigation",
+      "dual-recursion",
+      "examination-examining-examination"
+    ],
     "crossCharacterSynthesis": "dual-methodology-investigation",
     "temporalBleedingLevel": "high",
-    "observerPositions": ["character-a-investigator", "character-b-investigator", "character-c-supporting", "reader-fifth"],
+    "observerPositions": [
+      "character-a-investigator",
+      "character-b-investigator",
+      "character-c-supporting",
+      "reader-fifth"
+    ],
     "philosophicalResolution": "investigation-transforms-through-paired-investigation",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

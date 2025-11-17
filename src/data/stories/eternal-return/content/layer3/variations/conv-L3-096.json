@@ -47,9 +47,18 @@
       "unified-boundary-maintenance",
       "triple-integrity-release"
     ],
-    "crossCharacterConnections": ["heavy-balanced-primary", "heavy-balanced-primary", "heavy-balanced-primary"],
+    "crossCharacterConnections": [
+      "heavy-balanced-primary",
+      "heavy-balanced-primary",
+      "heavy-balanced-primary"
+    ],
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["archaeologist-balanced-2047", "algorithm-balanced-2151", "human-balanced-2383", "reader-network-implicit"],
+    "observerPositions": [
+      "archaeologist-balanced-2047",
+      "algorithm-balanced-2151",
+      "human-balanced-2383",
+      "reader-network-implicit"
+    ],
     "convergenceChoiceFraming": "all-three-present-release-emphasized",
     "metaAwarenessDepth": "pattern-conscious-network-emerging",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]

@@ -40,7 +40,12 @@
     "circularCausality": "recognized",
     "readerPosition": "pattern-recognized",
     "thematicContent": null,
-    "primaryThemes": ["verification-impossibility", "triple-boundary-maintenance", "systematic-resistance", "shared-crisis"],
+    "primaryThemes": [
+      "verification-impossibility",
+      "triple-boundary-maintenance",
+      "systematic-resistance",
+      "shared-crisis"
+    ],
     "crossCharacterSynthesis": "rotating-equal-weight",
     "temporalBleedingLevel": "medium",
     "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383"],

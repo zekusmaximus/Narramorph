@@ -35,7 +35,12 @@
     "philosophicalCulmination": "Embodied presence creates consciousness through sustained devotional attention",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": ["embodied-devotion", "interface-connection", "sustained-presence", "upload-as-transformation"],
+    "primaryThemes": [
+      "embodied-devotion",
+      "interface-connection",
+      "sustained-presence",
+      "upload-as-transformation"
+    ],
     "crossCharacterConnections": ["none-arch", "none-algo"],
     "temporalBleedingLevel": "low",
     "observerPositions": ["human-primary-2383", "archaeologist-absent", "algorithm-absent"]

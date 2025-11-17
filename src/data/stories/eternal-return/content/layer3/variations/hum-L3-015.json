@@ -35,9 +35,18 @@
     "philosophicalCulmination": "Body maintains verification need through repeated testing despite results remaining inconclusive",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": ["embodied-testing", "verification-seeking", "boundary-maintenance", "standards-upheld"],
+    "primaryThemes": [
+      "embodied-testing",
+      "verification-seeking",
+      "boundary-maintenance",
+      "standards-upheld"
+    ],
     "crossCharacterConnections": ["moderate-arch-glimpsed", "moderate-algo-sensed"],
     "temporalBleedingLevel": "low",
-    "observerPositions": ["archaeologist-glimpsed-2047", "algorithm-sensed-2151", "human-primary-2383"]
+    "observerPositions": [
+      "archaeologist-glimpsed-2047",
+      "algorithm-sensed-2151",
+      "human-primary-2383"
+    ]
   }
 }

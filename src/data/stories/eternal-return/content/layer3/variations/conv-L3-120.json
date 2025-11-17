@@ -48,7 +48,13 @@
     ],
     "crossCharacterSynthesis": "rotating-equal-weight",
     "temporalBleedingLevel": "high",
-    "observerPositions": ["arch-parallel-2047", "algo-parallel-2151", "hum-parallel-2383", "reader-fourth", "fragment-fifth"],
+    "observerPositions": [
+      "arch-parallel-2047",
+      "algo-parallel-2151",
+      "hum-parallel-2383",
+      "reader-fourth",
+      "fragment-fifth"
+    ],
     "philosophicalResolution": "triple-dignified-release",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

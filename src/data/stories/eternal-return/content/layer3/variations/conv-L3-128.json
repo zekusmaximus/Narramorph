@@ -39,11 +39,28 @@
     "voiceBalance": "dual-primary",
     "synthesisDepth": "dual-substrate-dialogue",
     "thematicContent": null,
-    "primaryThemes": ["dual-investigation", "substrate-dialogue", "consciousness-through-examination", "recursive-verification"],
-    "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "moderate-hum-synthesis"],
+    "primaryThemes": [
+      "dual-investigation",
+      "substrate-dialogue",
+      "consciousness-through-examination",
+      "recursive-verification"
+    ],
+    "crossCharacterConnections": [
+      "heavy-arch-primary",
+      "heavy-algo-primary",
+      "moderate-hum-synthesis"
+    ],
     "temporalBleedingLevel": "high",
-    "observerPositions": ["archaeologist-primary-2047", "algorithm-primary-2151", "human-synthesis-2383"],
-    "convergenceChoices": ["transform-emphasized", "investigate-sustained", "preserve-through-investigation"],
+    "observerPositions": [
+      "archaeologist-primary-2047",
+      "algorithm-primary-2151",
+      "human-synthesis-2383"
+    ],
+    "convergenceChoices": [
+      "transform-emphasized",
+      "investigate-sustained",
+      "preserve-through-investigation"
+    ],
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

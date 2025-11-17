@@ -38,6 +38,10 @@
     "primaryThemes": ["verification-rigor", "skeptical-maintenance", "proof-requirement"],
     "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
     "temporalBleedingLevel": "low",
-    "observerPositions": ["archaeologist-contributory-2047", "algorithm-primary-2151", "human-parallel-2383"]
+    "observerPositions": [
+      "archaeologist-contributory-2047",
+      "algorithm-primary-2151",
+      "human-parallel-2383"
+    ]
   }
 }

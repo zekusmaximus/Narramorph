@@ -35,9 +35,17 @@
     "philosophicalCulmination": "Authentication becomes devotional witness serving larger examination beyond verification demands",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": ["devotional-witness", "contributory-authentication", "acceptance-without-capture"],
+    "primaryThemes": [
+      "devotional-witness",
+      "contributory-authentication",
+      "acceptance-without-capture"
+    ],
     "crossCharacterConnections": ["heavy-algorithm-primary", "moderate-human-parallel"],
     "temporalBleedingLevel": "low",
-    "observerPositions": ["archaeologist-contributory-2047", "algorithm-primary-2151", "human-parallel-2383"]
+    "observerPositions": [
+      "archaeologist-contributory-2047",
+      "algorithm-primary-2151",
+      "human-parallel-2383"
+    ]
   }
 }

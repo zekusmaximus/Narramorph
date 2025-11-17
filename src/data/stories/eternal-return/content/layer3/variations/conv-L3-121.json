@@ -40,7 +40,12 @@
     "circularCausality": "recognized",
     "readerPosition": "pattern-recognized",
     "thematicContent": null,
-    "primaryThemes": ["verification-impossibility", "boundary-maintenance", "ethical-duty", "systematic-resistance"],
+    "primaryThemes": [
+      "verification-impossibility",
+      "boundary-maintenance",
+      "ethical-duty",
+      "systematic-resistance"
+    ],
     "crossCharacterSynthesis": "single-dominant-primary",
     "temporalBleedingLevel": "medium",
     "observerPositions": ["primary-dominant", "secondary-support", "tertiary-support"],

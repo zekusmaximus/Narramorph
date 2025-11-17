@@ -35,9 +35,18 @@
     "philosophicalCulmination": "Investigation questions investigation-structure creating recursive examination operational",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": ["recursive-questioning", "meta-examination", "investigation-methodology", "examination-of-examination"],
+    "primaryThemes": [
+      "recursive-questioning",
+      "meta-examination",
+      "investigation-methodology",
+      "examination-of-examination"
+    ],
     "crossCharacterConnections": ["light-arch-questioned", "minimal-hum-examined"],
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["algorithm-primary-2151", "archaeologist-parallel-2047", "human-distant-2383"]
+    "observerPositions": [
+      "algorithm-primary-2151",
+      "archaeologist-parallel-2047",
+      "human-distant-2383"
+    ]
   }
 }

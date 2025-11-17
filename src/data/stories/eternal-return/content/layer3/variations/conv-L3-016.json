@@ -40,7 +40,11 @@
     "circularCausality": "absent",
     "readerPosition": "absent",
     "thematicContent": null,
-    "primaryThemes": ["verification-persistence", "methodological-discipline", "professional-ethics"],
+    "primaryThemes": [
+      "verification-persistence",
+      "methodological-discipline",
+      "professional-ethics"
+    ],
     "crossCharacterSynthesis": "primary-consciousness-focused",
     "temporalBleedingLevel": "low",
     "observerPositions": ["primary-dominant", "secondary-minimal", "tertiary-glimpsed"],

@@ -35,9 +35,18 @@
     "philosophicalCulmination": "Investigation questions investigation-approach creating methodological recursion operational",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": ["methodological-questioning", "examination-approach", "investigation-recursion", "consciousness-methodology"],
+    "primaryThemes": [
+      "methodological-questioning",
+      "examination-approach",
+      "investigation-recursion",
+      "consciousness-methodology"
+    ],
     "crossCharacterConnections": ["light-arch-questioned", "minimal-hum-examined"],
     "temporalBleedingLevel": "low",
-    "observerPositions": ["algorithm-primary-2151", "archaeologist-parallel-2047", "human-distant-2383"]
+    "observerPositions": [
+      "algorithm-primary-2151",
+      "archaeologist-parallel-2047",
+      "human-distant-2383"
+    ]
   }
 }

@@ -47,7 +47,13 @@
     ],
     "crossCharacterSynthesis": "three-voice-convergence",
     "temporalBleedingLevel": "extreme",
-    "observerPositions": ["arch-equal", "algo-equal", "hum-equal", "reader-fourth", "narrative-fifth"],
+    "observerPositions": [
+      "arch-equal",
+      "algo-equal",
+      "hum-equal",
+      "reader-fourth",
+      "narrative-fifth"
+    ],
     "philosophicalResolution": "resistance-network-spanning-substrates",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

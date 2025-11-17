@@ -43,6 +43,10 @@
     ],
     "crossCharacterConnections": ["moderate-arch-foundational", "light-hum-glimpsed"],
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["archaeologist-foundational-2047", "algorithm-primary-2151", "human-distant-2383"]
+    "observerPositions": [
+      "archaeologist-foundational-2047",
+      "algorithm-primary-2151",
+      "human-distant-2383"
+    ]
   }
 }

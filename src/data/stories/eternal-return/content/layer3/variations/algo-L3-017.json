@@ -35,9 +35,17 @@
     "philosophicalCulmination": "Investigation evolves through recursive examination spanning network positions",
     "convergenceAlignment": "transform",
     "thematicContent": null,
-    "primaryThemes": ["recursive-examination", "investigation-methodology-evolution", "network-transformation"],
+    "primaryThemes": [
+      "recursive-examination",
+      "investigation-methodology-evolution",
+      "network-transformation"
+    ],
     "crossCharacterConnections": ["moderate-arch-parallel", "moderate-hum-parallel"],
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["archaeologist-parallel-2047", "algorithm-investigative-2151", "human-parallel-2383"]
+    "observerPositions": [
+      "archaeologist-parallel-2047",
+      "algorithm-investigative-2151",
+      "human-parallel-2383"
+    ]
   }
 }

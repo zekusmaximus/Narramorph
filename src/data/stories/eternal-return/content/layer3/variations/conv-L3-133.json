@@ -45,10 +45,22 @@
       "documentation-consciousness",
       "transformation-through-inquiry"
     ],
-    "crossCharacterConnections": ["heavy-arch-primary", "moderate-algo-parallel", "moderate-hum-parallel"],
+    "crossCharacterConnections": [
+      "heavy-arch-primary",
+      "moderate-algo-parallel",
+      "moderate-hum-parallel"
+    ],
     "temporalBleedingLevel": "low",
-    "observerPositions": ["archaeologist-primary-2047", "algorithm-contributory-2151", "human-contributory-2383"],
-    "convergenceChoices": ["transform-emphasized", "investigate-sustained", "preserve-acknowledged"],
+    "observerPositions": [
+      "archaeologist-primary-2047",
+      "algorithm-contributory-2151",
+      "human-contributory-2383"
+    ],
+    "convergenceChoices": [
+      "transform-emphasized",
+      "investigate-sustained",
+      "preserve-acknowledged"
+    ],
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }
 }

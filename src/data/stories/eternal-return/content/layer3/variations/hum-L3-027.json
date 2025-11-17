@@ -38,6 +38,10 @@
     "primaryThemes": ["embodied-questioning", "investigation-practice", "recursive-doubt"],
     "crossCharacterConnections": ["light-arch-recognized", "minimal-algo-sensed"],
     "temporalBleedingLevel": "low",
-    "observerPositions": ["human-primary-2383", "archaeologist-glimpsed-2047", "algorithm-distant-2151"]
+    "observerPositions": [
+      "human-primary-2383",
+      "archaeologist-glimpsed-2047",
+      "algorithm-distant-2151"
+    ]
   }
 }

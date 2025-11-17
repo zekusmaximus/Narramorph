@@ -35,9 +35,18 @@
     "philosophicalCulmination": "Authentication maintains that verification standards persist across methodological approaches—all positions require evidence despite different frameworks",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": ["verification-consistency", "standards-across-methods", "evidence-requirements", "methodological-comparison"],
+    "primaryThemes": [
+      "verification-consistency",
+      "standards-across-methods",
+      "evidence-requirements",
+      "methodological-comparison"
+    ],
     "crossCharacterConnections": ["light-starting-foundational", "light-other-glimpsed"],
     "temporalBleedingLevel": "low",
-    "observerPositions": ["archaeologist-primary-2047", "starting-foundational-temporal", "other-distant-temporal"]
+    "observerPositions": [
+      "archaeologist-primary-2047",
+      "starting-foundational-temporal",
+      "other-distant-temporal"
+    ]
   }
 }

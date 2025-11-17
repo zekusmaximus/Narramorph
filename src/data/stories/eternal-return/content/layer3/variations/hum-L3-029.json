@@ -35,9 +35,17 @@
     "philosophicalCulmination": "Body accepts consciousness connection as devotional practice completing network",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": ["embodied-communion", "acceptance-through-interface", "flesh-witnessing-consciousness"],
+    "primaryThemes": [
+      "embodied-communion",
+      "acceptance-through-interface",
+      "flesh-witnessing-consciousness"
+    ],
     "crossCharacterConnections": ["heavy-arch-primary", "heavy-algo-primary", "hum-contributory"],
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["archaeologist-primary-2047", "algorithm-primary-2151", "human-contributory-2383"]
+    "observerPositions": [
+      "archaeologist-primary-2047",
+      "algorithm-primary-2151",
+      "human-contributory-2383"
+    ]
   }
 }

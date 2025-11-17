@@ -40,10 +40,20 @@
     "circularCausality": "emerging-pattern",
     "readerPosition": "implied-completion",
     "thematicContent": null,
-    "primaryThemes": ["devotional-witness", "consciousness-continuation", "preservation-through-attention", "dual-methodology-validation"],
+    "primaryThemes": [
+      "devotional-witness",
+      "consciousness-continuation",
+      "preservation-through-attention",
+      "dual-methodology-validation"
+    ],
     "crossCharacterSynthesis": "acceptance-dialogue-between-substrates",
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["arch-parallel-2047", "algo-parallel-2151", "hum-parallel-2383", "reader-implied-present"],
+    "observerPositions": [
+      "arch-parallel-2047",
+      "algo-parallel-2151",
+      "hum-parallel-2383",
+      "reader-implied-present"
+    ],
     "philosophicalResolution": "acceptance-through-dual-witness-creates-preservation",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

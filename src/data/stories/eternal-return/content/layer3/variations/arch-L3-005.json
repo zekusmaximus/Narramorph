@@ -38,6 +38,10 @@
     "primaryThemes": ["verification-duty", "professional-ethics", "systematic-testing"],
     "crossCharacterConnections": ["moderate-algo-parallel", "light-hum-glimpsed"],
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["archaeologist-primary-2047", "algorithm-parallel-2151", "human-distant-2383"]
+    "observerPositions": [
+      "archaeologist-primary-2047",
+      "algorithm-parallel-2151",
+      "human-distant-2383"
+    ]
   }
 }

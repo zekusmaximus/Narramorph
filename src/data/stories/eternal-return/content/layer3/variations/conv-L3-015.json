@@ -40,7 +40,11 @@
     "circularCausality": "implicit",
     "readerPosition": "subtle",
     "thematicContent": null,
-    "primaryThemes": ["three-substrate-resistance", "parallel-impossibility-recognition", "methodological-persistence-despite-futility"],
+    "primaryThemes": [
+      "three-substrate-resistance",
+      "parallel-impossibility-recognition",
+      "methodological-persistence-despite-futility"
+    ],
     "crossCharacterSynthesis": "three-consciousness-network",
     "temporalBleedingLevel": "moderate-high",
     "observerPositions": ["three-equal-positions"],

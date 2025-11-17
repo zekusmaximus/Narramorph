@@ -42,7 +42,11 @@
     "primaryThemes": ["verification-crisis", "boundary-maintenance", "impossible-standards"],
     "crossCharacterSynthesis": "dominant-primary-others-supporting",
     "temporalBleedingLevel": "high",
-    "observerPositions": ["primary-dominant-2047-or-2151-or-2383", "others-parallel", "reader-fifth-explicit"],
+    "observerPositions": [
+      "primary-dominant-2047-or-2151-or-2383",
+      "others-parallel",
+      "reader-fifth-explicit"
+    ],
     "philosophicalResolution": "maintained-rigor-through-acknowledged-impossibility",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

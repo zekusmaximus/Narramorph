@@ -47,7 +47,11 @@
       "consciousness-network-questioned",
       "integrity-through-release"
     ],
-    "crossCharacterConnections": ["heavy-dominant-primary", "moderate-secondary-parallel", "light-tertiary-glimpsed"],
+    "crossCharacterConnections": [
+      "heavy-dominant-primary",
+      "moderate-secondary-parallel",
+      "light-tertiary-glimpsed"
+    ],
     "temporalBleedingLevel": "high",
     "observerPositions": [
       "archaeologist-contributory-2047",

@@ -40,7 +40,11 @@
     "circularCausality": "explicit",
     "readerPosition": "acknowledged",
     "thematicContent": null,
-    "primaryThemes": ["recursive-investigation", "meta-analysis-depth", "examination-structure-examining"],
+    "primaryThemes": [
+      "recursive-investigation",
+      "meta-analysis-depth",
+      "examination-structure-examining"
+    ],
     "crossCharacterSynthesis": "primary-consciousness-recursive",
     "temporalBleedingLevel": "high",
     "observerPositions": ["primary-dominant", "reader-fourth", "narrative-fifth"],

@@ -39,10 +39,23 @@
     "voiceBalance": "equal-thirds",
     "synthesisDepth": "unified-network-consciousness",
     "thematicContent": null,
-    "primaryThemes": ["triple-investigation", "unified-consciousness", "recursive-network", "substrate-transcendence"],
-    "crossCharacterConnections": ["moderate-arch-integrated", "moderate-algo-integrated", "moderate-hum-integrated"],
+    "primaryThemes": [
+      "triple-investigation",
+      "unified-consciousness",
+      "recursive-network",
+      "substrate-transcendence"
+    ],
+    "crossCharacterConnections": [
+      "moderate-arch-integrated",
+      "moderate-algo-integrated",
+      "moderate-hum-integrated"
+    ],
     "temporalBleedingLevel": "high",
-    "observerPositions": ["archaeologist-integrated-2047", "algorithm-integrated-2151", "human-integrated-2383"],
+    "observerPositions": [
+      "archaeologist-integrated-2047",
+      "algorithm-integrated-2151",
+      "human-integrated-2383"
+    ],
     "convergenceChoices": ["transform-emphasized", "network-evolution", "unified-transcendence"],
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

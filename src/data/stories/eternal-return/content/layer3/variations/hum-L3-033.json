@@ -36,8 +36,16 @@
     "convergenceAlignment": "release",
     "thematicContent": null,
     "primaryThemes": ["embodied-verification", "boundary-maintenance", "testing-discipline"],
-    "crossCharacterConnections": ["moderate-arch-primary", "moderate-algo-primary", "light-hum-glimpsed"],
+    "crossCharacterConnections": [
+      "moderate-arch-primary",
+      "moderate-algo-primary",
+      "light-hum-glimpsed"
+    ],
     "temporalBleedingLevel": "low",
-    "observerPositions": ["archaeologist-primary-2047", "algorithm-primary-2151", "human-glimpsed-2383"]
+    "observerPositions": [
+      "archaeologist-primary-2047",
+      "algorithm-primary-2151",
+      "human-glimpsed-2383"
+    ]
   }
 }

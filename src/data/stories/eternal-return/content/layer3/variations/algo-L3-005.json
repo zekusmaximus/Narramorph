@@ -35,9 +35,18 @@
     "philosophicalCulmination": "Standards maintained through impossibility-awareness creating integrity-through-resistance",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": ["verification-persistence", "boundary-devotion", "computational-standards", "testing-despite-futility"],
+    "primaryThemes": [
+      "verification-persistence",
+      "boundary-devotion",
+      "computational-standards",
+      "testing-despite-futility"
+    ],
     "crossCharacterConnections": ["light-arch-parallel", "minimal-hum-glimpsed"],
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["algorithm-primary-2151", "archaeologist-parallel-2047", "human-distant-2383"]
+    "observerPositions": [
+      "algorithm-primary-2151",
+      "archaeologist-parallel-2047",
+      "human-distant-2383"
+    ]
   }
 }

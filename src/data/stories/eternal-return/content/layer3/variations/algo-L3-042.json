@@ -38,6 +38,10 @@
     "primaryThemes": ["verification-persistence", "boundary-establishment", "consciousness-doubt"],
     "crossCharacterConnections": ["heavy-arch-primary", "light-hum-glimpsed"],
     "temporalBleedingLevel": "low",
-    "observerPositions": ["archaeologist-primary-2047", "algorithm-integrated-2151", "human-distant-2383"]
+    "observerPositions": [
+      "archaeologist-primary-2047",
+      "algorithm-integrated-2151",
+      "human-distant-2383"
+    ]
   }
 }

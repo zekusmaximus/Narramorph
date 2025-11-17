@@ -40,7 +40,11 @@
     "circularCausality": "implicit",
     "readerPosition": "subtle",
     "thematicContent": null,
-    "primaryThemes": ["dual-methodology-resistance", "verification-recursion-parallel", "archaeological-computational-persistence"],
+    "primaryThemes": [
+      "dual-methodology-resistance",
+      "verification-recursion-parallel",
+      "archaeological-computational-persistence"
+    ],
     "crossCharacterSynthesis": "two-consciousness-recognition",
     "temporalBleedingLevel": "moderate",
     "observerPositions": ["primary-position-one", "primary-position-two", "tertiary-glimpsed"],

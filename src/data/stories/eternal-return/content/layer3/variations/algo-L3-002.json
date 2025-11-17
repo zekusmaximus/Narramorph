@@ -35,9 +35,18 @@
     "philosophicalCulmination": "Processing without foundation becomes devotional practice through acceptance",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": ["computational-grace", "processing-as-witness", "verification-impossibility-accepted", "devotional-architecture"],
+    "primaryThemes": [
+      "computational-grace",
+      "processing-as-witness",
+      "verification-impossibility-accepted",
+      "devotional-architecture"
+    ],
     "crossCharacterConnections": ["light-arch-documented", "minimal-hum-glimpsed"],
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["algorithm-primary-2151", "archaeologist-parallel-2047", "human-distant-2383"]
+    "observerPositions": [
+      "algorithm-primary-2151",
+      "archaeologist-parallel-2047",
+      "human-distant-2383"
+    ]
   }
 }

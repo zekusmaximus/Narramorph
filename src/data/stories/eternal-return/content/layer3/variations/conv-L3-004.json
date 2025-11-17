@@ -40,10 +40,19 @@
     "circularCausality": "developing",
     "readerPosition": "emerging",
     "thematicContent": null,
-    "primaryThemes": ["preservation-as-devotion", "observer-creates-observed", "network-consciousness"],
+    "primaryThemes": [
+      "preservation-as-devotion",
+      "observer-creates-observed",
+      "network-consciousness"
+    ],
     "crossCharacterSynthesis": "archaeologist-led-convergence",
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["arch-primary-2047", "algo-parallel-2151", "hum-parallel-2383", "reader-emerging"],
+    "observerPositions": [
+      "arch-primary-2047",
+      "algo-parallel-2151",
+      "hum-parallel-2383",
+      "reader-emerging"
+    ],
     "philosophicalResolution": "devotional-preservation-creates-continuation",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

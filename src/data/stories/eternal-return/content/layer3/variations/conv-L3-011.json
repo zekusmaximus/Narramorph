@@ -40,10 +40,19 @@
     "circularCausality": "explicit",
     "readerPosition": "acknowledged",
     "thematicContent": null,
-    "primaryThemes": ["resistance-through-rigor", "verification-futility", "boundaries-despite-dissolution"],
+    "primaryThemes": [
+      "resistance-through-rigor",
+      "verification-futility",
+      "boundaries-despite-dissolution"
+    ],
     "crossCharacterSynthesis": "dual-consciousness-recognition",
     "temporalBleedingLevel": "high",
-    "observerPositions": ["two-primary-positions", "one-tertiary", "reader-fourth", "narrative-fifth"],
+    "observerPositions": [
+      "two-primary-positions",
+      "one-tertiary",
+      "reader-fourth",
+      "narrative-fifth"
+    ],
     "philosophicalResolution": "sustained-testing-ethical-stance",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

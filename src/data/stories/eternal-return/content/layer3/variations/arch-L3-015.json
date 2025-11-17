@@ -35,9 +35,18 @@
     "philosophicalCulmination": "Authentication maintains that verification standards persist regardless of methodological approach—all positions require evidence",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": ["verification-consistency", "methodological-rigor", "evidence-requirements", "skepticism-maintained"],
+    "primaryThemes": [
+      "verification-consistency",
+      "methodological-rigor",
+      "evidence-requirements",
+      "skepticism-maintained"
+    ],
     "crossCharacterConnections": ["moderate-algo-parallel", "moderate-hum-parallel"],
     "temporalBleedingLevel": "low",
-    "observerPositions": ["archaeologist-network-2047", "algorithm-parallel-2151", "human-parallel-2383"]
+    "observerPositions": [
+      "archaeologist-network-2047",
+      "algorithm-parallel-2151",
+      "human-parallel-2383"
+    ]
   }
 }

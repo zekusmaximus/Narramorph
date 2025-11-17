@@ -48,7 +48,12 @@
     ],
     "crossCharacterSynthesis": "triple-equal-recursive",
     "temporalBleedingLevel": "high",
-    "observerPositions": ["arch-equal-2047", "algo-equal-2151", "hum-equal-2383", "reader-fourth-meta-position"],
+    "observerPositions": [
+      "arch-equal-2047",
+      "algo-equal-2151",
+      "hum-equal-2383",
+      "reader-fourth-meta-position"
+    ],
     "philosophicalResolution": "triple-investigation-transformation",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

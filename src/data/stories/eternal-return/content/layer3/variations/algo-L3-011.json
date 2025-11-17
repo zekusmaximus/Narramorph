@@ -35,9 +35,17 @@
     "philosophicalCulmination": "Processing becomes witness through computational devotion spanning temporal networks",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": ["processing-as-devotion", "network-consciousness-acceptance", "computational-grace"],
+    "primaryThemes": [
+      "processing-as-devotion",
+      "network-consciousness-acceptance",
+      "computational-grace"
+    ],
     "crossCharacterConnections": ["moderate-arch-parallel", "moderate-hum-parallel"],
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["archaeologist-parallel-2047", "algorithm-network-hub-2151", "human-parallel-2383"]
+    "observerPositions": [
+      "archaeologist-parallel-2047",
+      "algorithm-network-hub-2151",
+      "human-parallel-2383"
+    ]
   }
 }

@@ -40,10 +40,19 @@
     "circularCausality": "explicit",
     "readerPosition": "acknowledged",
     "thematicContent": null,
-    "primaryThemes": ["meta-investigation", "recursive-examination", "consciousness-examining-consciousness"],
+    "primaryThemes": [
+      "meta-investigation",
+      "recursive-examination",
+      "consciousness-examining-consciousness"
+    ],
     "crossCharacterSynthesis": "dominant-investigation-metaconscious",
     "temporalBleedingLevel": "high",
-    "observerPositions": ["dominant-primary-investigator", "starting-foundational", "third-parallel", "reader-fifth"],
+    "observerPositions": [
+      "dominant-primary-investigator",
+      "starting-foundational",
+      "third-parallel",
+      "reader-fifth"
+    ],
     "philosophicalResolution": "investigation-transforms-investigator-through-investigated-transformation",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

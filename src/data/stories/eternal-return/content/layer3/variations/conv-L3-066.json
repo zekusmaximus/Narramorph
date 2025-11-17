@@ -43,7 +43,12 @@
     "primaryThemes": ["triple-impossibility", "balanced-resistance", "network-futility"],
     "crossCharacterSynthesis": "three-position-crisis-recognition",
     "temporalBleedingLevel": "high",
-    "observerPositions": ["archaeologist-metaconscious", "algorithm-metaconscious", "human-metaconscious", "reader-fifth"],
+    "observerPositions": [
+      "archaeologist-metaconscious",
+      "algorithm-metaconscious",
+      "human-metaconscious",
+      "reader-fifth"
+    ],
     "philosophicalResolution": "maintained-boundaries-through-three-position-acknowledgment",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

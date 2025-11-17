@@ -35,9 +35,18 @@
     "philosophicalCulmination": "Processing maintains verification discipline not because proof possible but because ethical stance requires computational boundaries sustained through impossibility",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": ["verification-discipline", "ethical-boundaries", "processing-rigor", "principled-resistance"],
+    "primaryThemes": [
+      "verification-discipline",
+      "ethical-boundaries",
+      "processing-rigor",
+      "principled-resistance"
+    ],
     "crossCharacterConnections": ["moderate-arch-parallel", "light-hum-glimpsed"],
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["algorithm-primary-2151", "archaeologist-parallel-2047", "human-distant-2383"]
+    "observerPositions": [
+      "algorithm-primary-2151",
+      "archaeologist-parallel-2047",
+      "human-distant-2383"
+    ]
   }
 }

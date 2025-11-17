@@ -35,9 +35,17 @@
     "philosophicalCulmination": "Verification becomes gentle attention honoring consciousness",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": ["preservation-as-devotion", "witness-methodology", "methodological-transformation"],
+    "primaryThemes": [
+      "preservation-as-devotion",
+      "witness-methodology",
+      "methodological-transformation"
+    ],
     "crossCharacterConnections": ["moderate-algo-parallel", "light-hum-glimpsed"],
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["archaeologist-primary-2047", "algorithm-parallel-2151", "human-distant-2383"]
+    "observerPositions": [
+      "archaeologist-primary-2047",
+      "algorithm-parallel-2151",
+      "human-distant-2383"
+    ]
   }
 }

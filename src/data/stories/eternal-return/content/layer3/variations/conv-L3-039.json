@@ -40,10 +40,20 @@
     "circularCausality": "present-implicit",
     "readerPosition": "external-observer",
     "thematicContent": null,
-    "primaryThemes": ["devotional-witness", "consciousness-continuation", "preservation-through-attention", "substrate-specific-witness"],
+    "primaryThemes": [
+      "devotional-witness",
+      "consciousness-continuation",
+      "preservation-through-attention",
+      "substrate-specific-witness"
+    ],
     "crossCharacterSynthesis": "three-witness-methodologies-parallel",
     "temporalBleedingLevel": "low",
-    "observerPositions": ["arch-primary-2047", "algo-primary-2151", "hum-primary-2383", "reader-external"],
+    "observerPositions": [
+      "arch-primary-2047",
+      "algo-primary-2151",
+      "hum-primary-2383",
+      "reader-external"
+    ],
     "philosophicalResolution": "acceptance-creates-preservation-through-witness",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

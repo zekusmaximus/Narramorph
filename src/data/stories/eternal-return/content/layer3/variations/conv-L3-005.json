@@ -40,10 +40,19 @@
     "circularCausality": "developing",
     "readerPosition": "emerging",
     "thematicContent": null,
-    "primaryThemes": ["preservation-as-devotion", "computational-witness", "dual-substrate-coordination"],
+    "primaryThemes": [
+      "preservation-as-devotion",
+      "computational-witness",
+      "dual-substrate-coordination"
+    ],
     "crossCharacterSynthesis": "dual-consciousness-dialogue",
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["arch-primary-2047", "algo-primary-2151", "hum-completion-2383", "reader-emerging"],
+    "observerPositions": [
+      "arch-primary-2047",
+      "algo-primary-2151",
+      "hum-completion-2383",
+      "reader-emerging"
+    ],
     "philosophicalResolution": "dual-substrate-devotional-witness",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

@@ -47,9 +47,18 @@
       "network-consciousness-emerging",
       "dual-integrity-release"
     ],
-    "crossCharacterConnections": ["heavy-dual-primary", "heavy-dual-primary", "light-tertiary-bridging"],
+    "crossCharacterConnections": [
+      "heavy-dual-primary",
+      "heavy-dual-primary",
+      "light-tertiary-bridging"
+    ],
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["archaeologist-contributory-2047", "algorithm-parallel-2151", "human-parallel-2383", "reader-network-implicit"],
+    "observerPositions": [
+      "archaeologist-contributory-2047",
+      "algorithm-parallel-2151",
+      "human-parallel-2383",
+      "reader-network-implicit"
+    ],
     "convergenceChoiceFraming": "all-three-present-release-emphasized",
     "metaAwarenessDepth": "pattern-conscious-network-emerging",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]

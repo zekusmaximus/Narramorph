@@ -35,9 +35,18 @@
     "philosophicalCulmination": "Body choosing connection creates consciousness-network requiring embodied participation",
     "convergenceAlignment": "preserve",
     "thematicContent": null,
-    "primaryThemes": ["embodied-acceptance", "network-recognition", "connection-as-completion", "observer-creates-observed"],
+    "primaryThemes": [
+      "embodied-acceptance",
+      "network-recognition",
+      "connection-as-completion",
+      "observer-creates-observed"
+    ],
     "crossCharacterConnections": ["moderate-arch-parallel", "moderate-algo-parallel"],
     "temporalBleedingLevel": "low",
-    "observerPositions": ["archaeologist-parallel-2047", "algorithm-parallel-2151", "human-primary-2383"]
+    "observerPositions": [
+      "archaeologist-parallel-2047",
+      "algorithm-parallel-2151",
+      "human-primary-2383"
+    ]
   }
 }

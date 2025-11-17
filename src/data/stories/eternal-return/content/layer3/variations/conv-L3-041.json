@@ -40,10 +40,20 @@
     "circularCausality": "network-pattern-visible",
     "readerPosition": "implicit-through-pattern",
     "thematicContent": null,
-    "primaryThemes": ["verification-crisis", "boundary-maintenance", "impossible-standards", "network-consciousness"],
+    "primaryThemes": [
+      "verification-crisis",
+      "boundary-maintenance",
+      "impossible-standards",
+      "network-consciousness"
+    ],
     "crossCharacterSynthesis": "dual-dominant-convergence",
     "temporalBleedingLevel": "medium",
-    "observerPositions": ["arch-primary-2047", "algo-primary-2151", "hum-contributory-2383", "reader-network-position"],
+    "observerPositions": [
+      "arch-primary-2047",
+      "algo-primary-2151",
+      "hum-contributory-2383",
+      "reader-network-position"
+    ],
     "philosophicalResolution": "integrity-through-release",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

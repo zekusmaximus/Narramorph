@@ -38,6 +38,10 @@
     "primaryThemes": ["methodological-investigation", "self-examination", "recursive-practice"],
     "crossCharacterConnections": ["light-algo-glimpsed", "minimal-hum-distant"],
     "temporalBleedingLevel": "low",
-    "observerPositions": ["archaeologist-primary-2047", "algorithm-glimpsed-2151", "human-distant-2383"]
+    "observerPositions": [
+      "archaeologist-primary-2047",
+      "algorithm-glimpsed-2151",
+      "human-distant-2383"
+    ]
   }
 }

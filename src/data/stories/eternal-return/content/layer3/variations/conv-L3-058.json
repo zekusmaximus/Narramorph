@@ -40,7 +40,11 @@
     "circularCausality": "implicit-through-structure",
     "readerPosition": "pattern-visible",
     "thematicContent": null,
-    "primaryThemes": ["devotional-witness", "archaeological-precision-as-sacred", "preservation-through-attention"],
+    "primaryThemes": [
+      "devotional-witness",
+      "archaeological-precision-as-sacred",
+      "preservation-through-attention"
+    ],
     "crossCharacterSynthesis": "archaeological-devotion-primary",
     "temporalBleedingLevel": "medium",
     "observerPositions": ["arch-primary-2047", "algo-supporting-2151", "hum-supporting-2383"],

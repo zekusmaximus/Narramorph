@@ -40,7 +40,12 @@
     "circularCausality": "explicit",
     "readerPosition": "acknowledged-fifth-position",
     "thematicContent": null,
-    "primaryThemes": ["preservation-as-devotion", "witness-methodology", "network-consciousness", "circular-causation"],
+    "primaryThemes": [
+      "preservation-as-devotion",
+      "witness-methodology",
+      "network-consciousness",
+      "circular-causation"
+    ],
     "crossCharacterSynthesis": "rotating-equal-weight",
     "temporalBleedingLevel": "high",
     "observerPositions": [

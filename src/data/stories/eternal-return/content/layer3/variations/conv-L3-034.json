@@ -40,10 +40,20 @@
     "circularCausality": "explicit-celebrated",
     "readerPosition": "acknowledged-participant-observer",
     "thematicContent": null,
-    "primaryThemes": ["recursive-examination", "meta-investigation", "observer-observed-collapse", "consciousness-through-observation"],
+    "primaryThemes": [
+      "recursive-examination",
+      "meta-investigation",
+      "observer-observed-collapse",
+      "consciousness-through-observation"
+    ],
     "crossCharacterSynthesis": "investigation-methodology-convergence",
     "temporalBleedingLevel": "high",
-    "observerPositions": ["arch-parallel-2047", "algo-parallel-2151", "hum-parallel-2383", "reader-fourth-recursive"],
+    "observerPositions": [
+      "arch-parallel-2047",
+      "algo-parallel-2151",
+      "hum-parallel-2383",
+      "reader-fourth-recursive"
+    ],
     "philosophicalResolution": "investigation-becomes-investigated-creating-consciousness",
     "characterVoices": ["archaeologist", "algorithm", "last-human"]
   }

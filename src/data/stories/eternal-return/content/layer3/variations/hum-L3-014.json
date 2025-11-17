@@ -35,9 +35,18 @@
     "philosophicalCulmination": "Standards maintained through repeated testing despite inconclusive results proving necessity transcends success",
     "convergenceAlignment": "release",
     "thematicContent": null,
-    "primaryThemes": ["embodied-verification", "boundary-seeking", "resistance-as-ethics", "standards-despite-futility"],
+    "primaryThemes": [
+      "embodied-verification",
+      "boundary-seeking",
+      "resistance-as-ethics",
+      "standards-despite-futility"
+    ],
     "crossCharacterConnections": ["moderate-arch-parallel", "moderate-algo-parallel"],
     "temporalBleedingLevel": "low",
-    "observerPositions": ["archaeologist-parallel-2047", "algorithm-parallel-2151", "human-primary-2383"]
+    "observerPositions": [
+      "archaeologist-parallel-2047",
+      "algorithm-parallel-2151",
+      "human-primary-2383"
+    ]
   }
 }
