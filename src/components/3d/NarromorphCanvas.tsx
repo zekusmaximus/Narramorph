@@ -3,7 +3,8 @@ import { Canvas } from '@react-three/fiber';
 import { useRef } from 'react';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
-import CameraController, { DEFAULT_CAMERA_POSITION } from './CameraController';
+import CameraController from './CameraController';
+import { DEFAULT_CAMERA_POSITION } from './cameraDefaults';
 import SceneContent from './SceneContent';
 
 /**

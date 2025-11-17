@@ -30,7 +30,7 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-    handleError(error, errorInfo);
+    handleError(error, { componentStack: errorInfo.componentStack });
   }
 
   render() {

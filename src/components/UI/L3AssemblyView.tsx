@@ -24,11 +24,8 @@ function parseMarkdown(content: string): ReactNode {
     // Process text with bold and italic formatting
     const processedParts: ReactNode[] = [];
 
-    // Regex patterns for markdown formatting
+    // Regex pattern for markdown bold formatting
     const boldPattern = /(\*\*|__)(.*?)\1/g;
-    // italicPattern currently unused but kept for future feature
-    // @ts-expect-error - Unused but kept for future feature
-    const italicPattern = /(\*|_)(.*?)\1/g;
 
     // First pass: handle bold text
     let match;

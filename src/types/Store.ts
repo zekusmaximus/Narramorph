@@ -8,6 +8,7 @@ import type {
   ConnectionUIState,
 } from './Node';
 import type { Connection, StoryData } from './Story';
+import type { NodeUnlockConfig, UnlockProgress } from './Unlock';
 import type { JourneyTracking, ConditionContext, L3Assembly } from './Variation';
 
 /**
@@ -179,7 +180,7 @@ export interface StoryStore {
   currentL3Assembly: L3Assembly | null;
 
   // Unlock System State
-  unlockConfigs: Map<string, import('./Unlock').NodeUnlockConfig>;
+  unlockConfigs: Map<string, NodeUnlockConfig>;
   recentlyUnlockedNodes: string[];
 
   // Reading statistics (computed)
@@ -205,7 +206,7 @@ export interface StoryStore {
   trackL3AssemblyView: (assembly: L3Assembly) => void;
   markL3SectionRead: (section: 'arch' | 'algo' | 'hum' | 'conv') => void;
   evaluateUnlocks: () => void;
-  getUnlockProgress: (nodeId: string) => import('./Unlock').UnlockProgress | null;
+  getUnlockProgress: (nodeId: string) => UnlockProgress | null;
   clearUnlockNotifications: () => void;
   updateViewport: (viewport: Partial<MapViewport>) => void;
   selectNode: (nodeId: string | null) => void;
