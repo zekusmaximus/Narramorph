@@ -26,3 +26,8 @@ interface ImportMeta {
     ): Record<string, Module>;
   };
 }
+
+// Augment Window interface for development-only properties
+interface Window {
+  performanceMonitor?: import('./utils/performanceMonitor').PerformanceMonitor;
+}

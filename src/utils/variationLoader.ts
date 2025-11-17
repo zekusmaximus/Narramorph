@@ -115,7 +115,8 @@ function normalizeVariation(variation: unknown, fileNodeId?: string): Variation 
     meta.awarenessLevel = v.awarenessLevel;
   } else if (!meta.awarenessLevel && meta.awarenessRange) {
     // Derive awarenessLevel from awarenessRange if missing
-    const midpoint = (meta.awarenessRange[0] + meta.awarenessRange[1]) / 2;
+    const range = meta.awarenessRange as [number, number];
+    const midpoint = (range[0] + range[1]) / 2;
     meta.awarenessLevel = midpoint < 35 ? 'low' : midpoint < 70 ? 'medium' : 'high';
   } else if (!meta.awarenessLevel) {
     meta.awarenessLevel = 'low';
@@ -154,7 +155,25 @@ function normalizeVariation(variation: unknown, fileNodeId?: string): Variation 
     meta.humanDescription = '';
   }
 
-  return v as Variation;
+  // Validate required fields before casting
+  const requiredFields = [
+    'variationId',
+    'id',
+    'sectionType',
+    'transformationState',
+    'content',
+    'metadata',
+  ];
+  for (const field of requiredFields) {
+    if (!(field in v) || v[field] === undefined) {
+      throw new Error(
+        `Invalid variation: missing required field '${field}' in variation ${v.id || 'unknown'}`,
+      );
+    }
+  }
+
+  // Safe to cast after validation
+  return v as unknown as Variation;
 }
 
 /**

@@ -7,15 +7,13 @@ import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';
 
+import { DEFAULT_CAMERA_TARGET, DEFAULT_CAMERA_POSITION } from './cameraDefaults';
+
 interface CameraControllerProps {
   controlsRef: RefObject<OrbitControlsImpl>;
 }
 
 type Vec3 = [number, number, number];
-
-// Default framing keeps the camera high enough to reveal complete rings instead of clipped half-spheres
-export const DEFAULT_CAMERA_TARGET: Vec3 = [0, 0, 25];
-export const DEFAULT_CAMERA_POSITION: Vec3 = [0, 35, 90];
 
 function vec3Equals(a: Vec3, b: Vec3) {
   return a[0] === b[0] && a[1] === b[1] && a[2] === b[2];

@@ -128,6 +128,5 @@ export const performanceMonitor = new PerformanceMonitor();
 
 // Development-only: expose to window for debugging
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
-  (window as Window & { performanceMonitor: PerformanceMonitor }).performanceMonitor =
-    performanceMonitor;
+  window.performanceMonitor = performanceMonitor;
 }
