@@ -62,6 +62,18 @@ function evaluateVisitCountCondition(
     }
   }
 
+  // Minimum aggregate visits across all nodes (counts revisits)
+  if (params.minTotalVisits !== undefined) {
+    const aggregateVisits = Object.values(progress.visitedNodes).reduce(
+      (sum, record) => sum + (record.visitCount || 0),
+      0,
+    );
+
+    if (aggregateVisits < params.minTotalVisits) {
+      return false;
+    }
+  }
+
   // Specific node visits
   if (params.nodeVisits) {
     for (const [nodeId, minCount] of Object.entries(params.nodeVisits)) {
