@@ -31,6 +31,7 @@ export type UnlockConditionType =
 export interface UnlockConditionParams {
   // Visit count conditions
   totalVisits?: number; // Minimum total nodes visited
+  minTotalVisits?: number; // Minimum total visits across all nodes (counts revisits)
   nodeVisits?: Record<string, number>; // Specific nodes with min visit counts
   characterVisits?: Record<string, number>; // Min visits per character (e.g., {"archaeologist": 3})
   layerVisits?: Record<number, number>; // Min visits per layer (e.g., {1: 2, 2: 1})
