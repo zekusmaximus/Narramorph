@@ -78,7 +78,10 @@ async function main() {
 
   // Default paths
   const projectRoot = resolve(process.cwd(), '../..');
-  const defaultManifest = join(projectRoot, 'src/data/stories/eternal-return/content/manifest.json');
+  const defaultManifest = join(
+    projectRoot,
+    'src/data/stories/eternal-return/content/manifest.json',
+  );
 
   const beforePath = resolve(values.before || defaultManifest);
   const afterPath = resolve(values.after || defaultManifest);
@@ -110,7 +113,12 @@ async function main() {
   process.exit(1);
 }
 
-async function diffManifests(beforePath: string, afterPath: string, summaryOnly: boolean | undefined, logger: Logger): Promise<void> {
+async function diffManifests(
+  beforePath: string,
+  afterPath: string,
+  summaryOnly: boolean | undefined,
+  logger: Logger,
+): Promise<void> {
   // Read manifests
   let before: Manifest;
   let after: Manifest;
@@ -365,7 +373,12 @@ function deepDiff(before: unknown, after: unknown, path: string[] = []): DirFiel
   return changes;
 }
 
-async function diffDirectories(beforeDir: string, afterDir: string, summaryOnly: boolean | undefined, logger: Logger): Promise<void> {
+async function diffDirectories(
+  beforeDir: string,
+  afterDir: string,
+  summaryOnly: boolean | undefined,
+  logger: Logger,
+): Promise<void> {
   const beforeFiles = await listJsonFiles(beforeDir);
   const afterFiles = await listJsonFiles(afterDir);
 

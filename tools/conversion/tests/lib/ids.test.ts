@@ -1,6 +1,12 @@
 import { describe, it, expect } from 'vitest';
 
-import { parseVariationId, generateAggregatedId, generateL3Id, validateZeroPadding, extractNodeId } from '../../lib/ids.js';
+import {
+  parseVariationId,
+  generateAggregatedId,
+  generateL3Id,
+  validateZeroPadding,
+  extractNodeId,
+} from '../../lib/ids.js';
 import { Logger } from '../../lib/log.js';
 
 describe('parseVariationId', () => {

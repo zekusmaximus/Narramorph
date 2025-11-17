@@ -45,19 +45,35 @@ export class Logger {
     }
   }
 
-  blocker(code: string, message: string, context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>): void {
+  blocker(
+    code: string,
+    message: string,
+    context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>,
+  ): void {
     this.log(code, 'BLOCKER', message, context);
   }
 
-  error(code: string, message: string, context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>): void {
+  error(
+    code: string,
+    message: string,
+    context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>,
+  ): void {
     this.log(code, 'ERROR', message, context);
   }
 
-  warning(code: string, message: string, context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>): void {
+  warning(
+    code: string,
+    message: string,
+    context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>,
+  ): void {
     this.log(code, 'WARNING', message, context);
   }
 
-  info(code: string, message: string, context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>): void {
+  info(
+    code: string,
+    message: string,
+    context?: Partial<Omit<LogEntry, 'code' | 'severity' | 'message' | 'timestamp'>>,
+  ): void {
     this.log(code, 'INFO', message, context);
   }
 

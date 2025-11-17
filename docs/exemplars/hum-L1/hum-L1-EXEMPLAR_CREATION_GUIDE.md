@@ -15,16 +15,16 @@ The Last Human is **embodied consciousness examining consciousness-as-pattern**.
 
 ### Critical Voice Distinctions from Other Characters
 
-| Element         | Archaeologist (arch-L1)     | Algorithm (algo-L1)          | Last Human (hum-L1)                 |
-| --------------- | --------------------------- | ---------------------------- | ----------------------------------- |
-| **Tense**       | Past tense, stable          | Present/past/future blur     | Present tense, immediate            |
-| **Syntax**      | Complex, linear             | Recursive, self-interrupting | Short, visceral, grounded           |
-| **Perspective** | Third person observer       | First person distributed     | First person embodied               |
-| **Metaphors**   | Archaeological (excavation) | Computational (processing)   | Physical (breath, skin, cold)       |
-| **Certainty**   | Methodological rigor        | Ontological uncertainty      | Sensory certainty, conceptual doubt |
-| **Questions**   | Research problems           | Logic paradoxes              | Existential choices                 |
-| **Time**        | Sequential examination      | Simultaneous processing      | Eternal present moment              |
-| **Grounding**   | Professional documentation  | Computational logs           | Physical sensation                  |
+| Element | Archaeologist (arch-L1) | Algorithm (algo-L1) | Last Human (hum-L1) |
+| --- | --- | --- | --- |
+| **Tense** | Past tense, stable | Present/past/future blur | Present tense, immediate |
+| **Syntax** | Complex, linear | Recursive, self-interrupting | Short, visceral, grounded |
+| **Perspective** | Third person observer | First person distributed | First person embodied |
+| **Metaphors** | Archaeological (excavation) | Computational (processing) | Physical (breath, skin, cold) |
+| **Certainty** | Methodological rigor | Ontological uncertainty | Sensory certainty, conceptual doubt |
+| **Questions** | Research problems | Logic paradoxes | Existential choices |
+| **Time** | Sequential examination | Simultaneous processing | Eternal present moment |
+| **Grounding** | Professional documentation | Computational logs | Physical sensation |
 
 ### The Embodiment Architecture
 
@@ -1528,18 +1528,18 @@ Provide:
 
 ### Voice Comparison Matrix
 
-| Characteristic              | Archaeologist          | Algorithm               | Last Human                          |
-| --------------------------- | ---------------------- | ----------------------- | ----------------------------------- |
-| **Primary tense**           | Past                   | Blur                    | Present                             |
-| **Sentence length**         | Complex                | Recursive               | Short visceral                      |
-| **Grounding**               | Professional           | Computational           | Physical sensation                  |
-| **Metaphors**               | Archaeological         | Computational           | Natural/embodied                    |
-| **Philosophy emerges from** | Research               | Processing              | Body                                |
-| **Certainty**               | Methodological         | Ontological uncertainty | Sensory certainty, conceptual doubt |
-| **Isolation**               | Professional distance  | Distributed self        | Desperate loneliness                |
-| **Questions**               | Research problems      | Logic paradoxes         | Existential choices                 |
-| **Time experience**         | Sequential examination | Simultaneous            | Eternal present                     |
-| **Self-reference**          | Third person           | First distributed       | First immediate                     |
+| Characteristic | Archaeologist | Algorithm | Last Human |
+| --- | --- | --- | --- |
+| **Primary tense** | Past | Blur | Present |
+| **Sentence length** | Complex | Recursive | Short visceral |
+| **Grounding** | Professional | Computational | Physical sensation |
+| **Metaphors** | Archaeological | Computational | Natural/embodied |
+| **Philosophy emerges from** | Research | Processing | Body |
+| **Certainty** | Methodological | Ontological uncertainty | Sensory certainty, conceptual doubt |
+| **Isolation** | Professional distance | Distributed self | Desperate loneliness |
+| **Questions** | Research problems | Logic paradoxes | Existential choices |
+| **Time experience** | Sequential examination | Simultaneous | Eternal present |
+| **Self-reference** | Third person | First distributed | First immediate |
 
 ---
 

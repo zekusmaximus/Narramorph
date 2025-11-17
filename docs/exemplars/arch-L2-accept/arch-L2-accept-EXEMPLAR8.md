@@ -6,7 +6,15 @@ conditions:
   visit_count: 3
   awareness: 'ultimate_synthesis'
   cross_character: true
-  visited_nodes: ['arch-L1-accept', 'arch-L1-resist', 'arch-L1-investigate', 'algo-L2-accept', 'hum-L2-accept', 'arch-L2-accept']
+  visited_nodes:
+    [
+      'arch-L1-accept',
+      'arch-L1-resist',
+      'arch-L1-investigate',
+      'algo-L2-accept',
+      'hum-L2-accept',
+      'arch-L2-accept',
+    ]
   dominant_path: 'accept'
 themes:
   - Ultimate synthesis of all paths and substrates

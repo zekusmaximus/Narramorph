@@ -20,8 +20,16 @@ export const CHARACTERS = ['archaeologist', 'algorithm', 'last-human'] as const;
 /**
  * Validate L1/L2 variation frontmatter
  */
-export function validateL1L2Frontmatter(frontmatter: Record<string, unknown>, layer: 1 | 2, logger: Logger, filePath: string): boolean {
-  const requiredFields = layer === 1 ? ['variation_id', 'variation_type', 'word_count'] : ['variation_id', 'variation_type', 'word_count'];
+export function validateL1L2Frontmatter(
+  frontmatter: Record<string, unknown>,
+  layer: 1 | 2,
+  logger: Logger,
+  filePath: string,
+): boolean {
+  const requiredFields =
+    layer === 1
+      ? ['variation_id', 'variation_type', 'word_count']
+      : ['variation_id', 'variation_type', 'word_count'];
 
   // Required fields
   if (!validateRequiredFields(frontmatter, requiredFields, logger, filePath)) {
@@ -74,7 +82,11 @@ export function validateL1L2Frontmatter(frontmatter: Record<string, unknown>, la
 /**
  * Validate L3 variation frontmatter
  */
-export function validateL3Frontmatter(frontmatter: Record<string, unknown>, logger: Logger, filePath: string): boolean {
+export function validateL3Frontmatter(
+  frontmatter: Record<string, unknown>,
+  logger: Logger,
+  filePath: string,
+): boolean {
   const requiredFields = ['variationId', 'journeyPattern', 'philosophyDominant', 'awarenessLevel'];
 
   // Required fields
@@ -88,12 +100,30 @@ export function validateL3Frontmatter(frontmatter: Record<string, unknown>, logg
     validateEnumField(
       frontmatter,
       'journeyPattern',
-      ['linear', 'exploratory', 'recursive', 'started-stayed', 'started-bounced', 'shifted-dominant', 'began-lightly', 'met-later'],
+      [
+        'linear',
+        'exploratory',
+        'recursive',
+        'started-stayed',
+        'started-bounced',
+        'shifted-dominant',
+        'began-lightly',
+        'met-later',
+      ],
       logger,
       filePath,
     ) && valid;
-  valid = validateEnumField(frontmatter, 'philosophyDominant', PATH_PHILOSOPHIES, logger, filePath) && valid;
-  valid = validateEnumField(frontmatter, 'awarenessLevel', ['veryLow', 'low', 'medium', 'high', 'maximum'], logger, filePath) && valid;
+  valid =
+    validateEnumField(frontmatter, 'philosophyDominant', PATH_PHILOSOPHIES, logger, filePath) &&
+    valid;
+  valid =
+    validateEnumField(
+      frontmatter,
+      'awarenessLevel',
+      ['veryLow', 'low', 'medium', 'high', 'maximum'],
+      logger,
+      filePath,
+    ) && valid;
 
   // Validate variationId format
   const varId = frontmatter.variationId as string;
@@ -110,7 +140,9 @@ export function validateL3Frontmatter(frontmatter: Record<string, unknown>, logg
         exampleFix: 'Add characterVoices: [archaeologist, algorithm, last-human]',
       });
       valid = false;
-    } else if (!validateArrayField(frontmatter, 'characterVoices', 2, undefined, logger, filePath)) {
+    } else if (
+      !validateArrayField(frontmatter, 'characterVoices', 2, undefined, logger, filePath)
+    ) {
       logger.blocker('INVALID_CHARACTER_VOICES', 'conv-L3 characterVoices must have ≥2 voices', {
         file: filePath,
         field: 'characterVoices',
@@ -127,7 +159,11 @@ export function validateL3Frontmatter(frontmatter: Record<string, unknown>, logg
 /**
  * Validate L4 frontmatter
  */
-export function validateL4Frontmatter(frontmatter: Record<string, unknown>, logger: Logger, filePath: string): boolean {
+export function validateL4Frontmatter(
+  frontmatter: Record<string, unknown>,
+  logger: Logger,
+  filePath: string,
+): boolean {
   const requiredFields = ['id', 'philosophy'];
 
   // Required fields
@@ -136,7 +172,15 @@ export function validateL4Frontmatter(frontmatter: Record<string, unknown>, logg
   }
 
   // Validate philosophy enum
-  if (!validateEnumField(frontmatter, 'philosophy', ['preserve', 'release', 'transform'], logger, filePath)) {
+  if (
+    !validateEnumField(
+      frontmatter,
+      'philosophy',
+      ['preserve', 'release', 'transform'],
+      logger,
+      filePath,
+    )
+  ) {
     return false;
   }
 
@@ -171,11 +215,15 @@ export function validateWordCount(
   const percentDiff = (diff / expectedCount) * 100;
 
   if (percentDiff > tolerance) {
-    logger.warning('WORD_COUNT_DRIFT', `Word count drift: ${actualCount} vs expected ${expectedCount} (${percentDiff.toFixed(1)}% diff)`, {
-      file: filePath,
-      field: 'word_count',
-      value: actualCount,
-    });
+    logger.warning(
+      'WORD_COUNT_DRIFT',
+      `Word count drift: ${actualCount} vs expected ${expectedCount} (${percentDiff.toFixed(1)}% diff)`,
+      {
+        file: filePath,
+        field: 'word_count',
+        value: actualCount,
+      },
+    );
   }
 }
 
@@ -191,10 +239,15 @@ export function validateVariationCount(
 ): boolean {
   if (actualCount !== expectedCount) {
     const severity = options.strict ? 'ERROR' : 'WARNING';
-    logger.log('COUNT_MISMATCH', severity as any, `${nodeId}: Expected ${expectedCount} variations, found ${actualCount}`, {
-      field: 'totalVariations',
-      value: actualCount,
-    });
+    logger.log(
+      'COUNT_MISMATCH',
+      severity as any,
+      `${nodeId}: Expected ${expectedCount} variations, found ${actualCount}`,
+      {
+        field: 'totalVariations',
+        value: actualCount,
+      },
+    );
     return !options.strict;
   }
   return true;
@@ -231,7 +284,11 @@ export function checkDuplicateIds(ids: string[], logger: Logger, context?: strin
 /**
  * Validate schemaVersion is present
  */
-export function validateSchemaVersion(output: Record<string, unknown>, logger: Logger, filePath: string): boolean {
+export function validateSchemaVersion(
+  output: Record<string, unknown>,
+  logger: Logger,
+  filePath: string,
+): boolean {
   if (!output.schemaVersion) {
     logger.blocker('MISSING_SCHEMA_VERSION', 'Output must include schemaVersion field', {
       file: filePath,

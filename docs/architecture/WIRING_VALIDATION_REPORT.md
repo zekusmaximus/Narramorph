@@ -10,13 +10,13 @@ This report validates the architectural plan in `docs/architecture/05_plan.md` b
 
 ### Quick Assessment
 
-| Category                 | Status             | Summary                                                          |
-| ------------------------ | ------------------ | ---------------------------------------------------------------- |
-| **Internal Consistency** | ✅ **GREEN**       | Plan is logically coherent with proper dependency ordering       |
-| **Repo Compatibility**   | 🟡 **YELLOW**      | 12/12 files exist; some minor inaccuracies in issue descriptions |
-| **3D UI Readiness**      | 🟡 **YELLOW**      | Core APIs exist but Sprint 1 fixes are prerequisites             |
-| **Risk Level**           | 🟡 **YELLOW**      | Medium risk if Sprint 1 skipped; low risk if executed as planned |
-| **Overall Verdict**      | ✅ **GREEN LIGHT** | Proceed with Sprint 1-3, defer Sprint 4                          |
+| Category | Status | Summary |
+| --- | --- | --- |
+| **Internal Consistency** | ✅ **GREEN** | Plan is logically coherent with proper dependency ordering |
+| **Repo Compatibility** | 🟡 **YELLOW** | 12/12 files exist; some minor inaccuracies in issue descriptions |
+| **3D UI Readiness** | 🟡 **YELLOW** | Core APIs exist but Sprint 1 fixes are prerequisites |
+| **Risk Level** | 🟡 **YELLOW** | Medium risk if Sprint 1 skipped; low risk if executed as planned |
+| **Overall Verdict** | ✅ **GREEN LIGHT** | Proceed with Sprint 1-3, defer Sprint 4 |
 
 **Recommendation:** Execute Sprint 1 (State Integrity) and Sprint 2 (Type Safety) before beginning 3D UI work. Sprint 3 can run in parallel with 3D implementation. Sprint 4 is optional and should be deferred.
 
@@ -373,21 +373,21 @@ import { loadL3Variations } from '@/utils/variationLoader';
 
 ### Priority 0 (Must Fix Before 3D)
 
-| Issue     | Description        | Impact on 3D                    | Fix Location                          | Effort             |
-| --------- | ------------------ | ------------------------------- | ------------------------------------- | ------------------ |
-| **1.1-B** | visitNode() timing | 3D can't rely on visit tracking | StoryView.tsx:299, storyStore.ts:1024 | 1h                 |
-| **1.1-A** | L3 visit recording | Awareness/unlocks broken for L3 | L3AssemblyView.tsx                    | 2h verify + 4h fix |
+| Issue | Description | Impact on 3D | Fix Location | Effort |
+| --- | --- | --- | --- | --- |
+| **1.1-B** | visitNode() timing | 3D can't rely on visit tracking | StoryView.tsx:299, storyStore.ts:1024 | 1h |
+| **1.1-A** | L3 visit recording | Awareness/unlocks broken for L3 | L3AssemblyView.tsx | 2h verify + 4h fix |
 
 **Total P0 Effort:** ~7 hours (1 day)
 
 ### Priority 1 (Recommended Before 3D)
 
-| Issue     | Description                      | Impact on 3D                      | Fix Location                   | Effort |
-| --------- | -------------------------------- | --------------------------------- | ------------------------------ | ------ |
-| **1.2-A** | Add variationId to VisitRecord   | Can't deduplicate variations      | Store.ts:16, storyStore.ts:846 | 4h     |
-| **1.2-B** | Variation deduplication          | Repeated content ruins experience | conditionEvaluator.ts:79       | 6h     |
-| **2.1**   | Replace `any` in variationLoader | Runtime errors possible           | variationLoader.ts:58          | 5h     |
-| **1.3**   | Make journeyTracking required    | Cleaner code, fewer bugs          | Store.ts:71, storyStore.ts     | 3h     |
+| Issue | Description | Impact on 3D | Fix Location | Effort |
+| --- | --- | --- | --- | --- |
+| **1.2-A** | Add variationId to VisitRecord | Can't deduplicate variations | Store.ts:16, storyStore.ts:846 | 4h |
+| **1.2-B** | Variation deduplication | Repeated content ruins experience | conditionEvaluator.ts:79 | 6h |
+| **2.1** | Replace `any` in variationLoader | Runtime errors possible | variationLoader.ts:58 | 5h |
+| **1.3** | Make journeyTracking required | Cleaner code, fewer bugs | Store.ts:71, storyStore.ts | 3h |
 
 **Total P1 Effort:** ~18 hours (2-3 days)
 

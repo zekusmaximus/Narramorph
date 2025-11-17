@@ -113,7 +113,12 @@ describe('L3 Integration Tests', () => {
   });
 
   it('should have proper zero-padded IDs', async () => {
-    const files = ['arch-L3/arch-L3-001.md', 'algo-L3/algo-L3-001.md', 'hum-L3/hum-L3-001.md', 'conv-L3/conv-L3-001.md'];
+    const files = [
+      'arch-L3/arch-L3-001.md',
+      'algo-L3/algo-L3-001.md',
+      'hum-L3/hum-L3-001.md',
+      'conv-L3/conv-L3-001.md',
+    ];
 
     for (const file of files) {
       const fullPath = join(FIXTURES_DIR, file);

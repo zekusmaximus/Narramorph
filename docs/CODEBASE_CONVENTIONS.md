@@ -313,10 +313,16 @@ narramorph-fiction/
 1. **Calculate Journey Pattern** (per character):
 
 ```typescript
-function calculateJourneyPattern(character: CharacterType, visitHistory: UserProgress): JourneyPattern {
+function calculateJourneyPattern(
+  character: CharacterType,
+  visitHistory: UserProgress,
+): JourneyPattern {
   const charNodes = getCharacterNodes(character, visitHistory);
   const firstVisit = visitHistory.readingPath[0];
-  const totalVisits = charNodes.reduce((sum, node) => sum + (visitHistory.visitedNodes[node]?.visitCount || 0), 0);
+  const totalVisits = charNodes.reduce(
+    (sum, node) => sum + (visitHistory.visitedNodes[node]?.visitCount || 0),
+    0,
+  );
 
   // Started-Stayed: Started with this character, stayed focused
   if (firstVisit.startsWith(character) && totalVisits >= 8) {
@@ -362,7 +368,9 @@ function calculatePathPhilosophy(visitHistory: UserProgress): PathPhilosophy {
   }
 
   // Return dominant philosophy
-  return Object.keys(pathCounts).reduce((a, b) => (pathCounts[a] > pathCounts[b] ? a : b)) as PathPhilosophy;
+  return Object.keys(pathCounts).reduce((a, b) =>
+    pathCounts[a] > pathCounts[b] ? a : b,
+  ) as PathPhilosophy;
 }
 ```
 
@@ -401,7 +409,11 @@ function determineCharacterOrder(visitHistory: UserProgress): CharacterType[] {
 5. **Assemble L3 Node**:
 
 ```typescript
-function assembleL3Node(visitHistory: UserProgress, temporalAwareness: number, selectionMatrix: SelectionMatrix): L3ConvergenceNode {
+function assembleL3Node(
+  visitHistory: UserProgress,
+  temporalAwareness: number,
+  selectionMatrix: SelectionMatrix,
+): L3ConvergenceNode {
   const pathPhilosophy = calculatePathPhilosophy(visitHistory);
   const awarenessLevel = calculateAwarenessLevel(temporalAwareness);
   const characterOrder = determineCharacterOrder(visitHistory);
@@ -485,7 +497,9 @@ function selectTerminalPhilosophy(
     transform: transformScore,
   };
 
-  return Object.keys(scores).reduce((a, b) => (scores[a] > scores[b] ? a : b)) as TerminalPhilosophy;
+  return Object.keys(scores).reduce((a, b) =>
+    scores[a] > scores[b] ? a : b,
+  ) as TerminalPhilosophy;
 }
 ```
 
@@ -497,7 +511,12 @@ function selectTerminalPhilosophy(
 
 ```typescript
 // Journey Pattern (5 options)
-type JourneyPattern = 'Started-Stayed' | 'Started-Bounced' | 'Shifted-Dominant' | 'Began-Lightly' | 'Met-Later';
+type JourneyPattern =
+  | 'Started-Stayed'
+  | 'Started-Bounced'
+  | 'Shifted-Dominant'
+  | 'Began-Lightly'
+  | 'Met-Later';
 
 // Path Philosophy (3 options)
 type PathPhilosophy = 'accept' | 'resist' | 'invest';
@@ -626,7 +645,13 @@ function validateL3Variation(filePath: string): ValidationResult {
   // Validate selection key
   if (data.selectionKey) {
     if (
-      !['Started-Stayed', 'Started-Bounced', 'Shifted-Dominant', 'Began-Lightly', 'Met-Later'].includes(data.selectionKey.journeyPattern)
+      ![
+        'Started-Stayed',
+        'Started-Bounced',
+        'Shifted-Dominant',
+        'Began-Lightly',
+        'Met-Later',
+      ].includes(data.selectionKey.journeyPattern)
     ) {
       errors.push('Invalid journeyPattern');
     }
@@ -934,7 +959,11 @@ interface StoryStore {
 **Example**:
 
 ```tsx
-<button aria-label="Visit Archaeologist origin node" onClick={handleVisitNode} onKeyDown={(e) => e.key === 'Enter' && handleVisitNode()}>
+<button
+  aria-label="Visit Archaeologist origin node"
+  onClick={handleVisitNode}
+  onKeyDown={(e) => e.key === 'Enter' && handleVisitNode()}
+>
   <NodeIcon />
 </button>
 ```

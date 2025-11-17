@@ -318,7 +318,8 @@ async function fixFile(filePath: string): Promise<boolean> {
     typeof data.variation_id === 'string'
       ? data.variation_id.replace(
           /((arch|algo|hum)-L1-(FR|MA)-)(\d{1,3})/i,
-          (_m: string, pre: string, _ch: string, _ph: string, n: string) => `${pre}${n.padStart(3, '0')}`,
+          (_m: string, pre: string, _ch: string, _ph: string, n: string) =>
+            `${pre}${n.padStart(3, '0')}`,
         )
       : `${ch}-L1-${phase}-${num}`;
 

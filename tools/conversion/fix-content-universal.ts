@@ -117,7 +117,15 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
 
   L2: {
     pattern: /^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-\d+\.md$/,
-    requiredFields: ['variationId', 'nodeId', 'character', 'layer', 'pathPhilosophy', 'transformationState', 'awarenessRange'],
+    requiredFields: [
+      'variationId',
+      'nodeId',
+      'character',
+      'layer',
+      'pathPhilosophy',
+      'transformationState',
+      'awarenessRange',
+    ],
     conditionalFields: new Map([
       ['thematicContent', (fm) => true],
       ['narrativeElements', (fm) => true],
@@ -338,7 +346,8 @@ function createMinimalFrontmatter(filename: string, layer: string, config: Layer
     baseFields.variationId = config.idNormalizer(filename, {});
     const match = filename.match(/^(\w+)-L2-(\w+)-(FR|MA)/);
     if (match) {
-      baseFields.character = match[1] === 'arch' ? 'archaeologist' : match[1] === 'algo' ? 'algorithm' : 'human';
+      baseFields.character =
+        match[1] === 'arch' ? 'archaeologist' : match[1] === 'algo' ? 'algorithm' : 'human';
       baseFields.pathPhilosophy = match[2];
       baseFields.transformationState = match[3] === 'FR' ? 'firstRevisit' : 'metaAware';
     }
@@ -447,7 +456,12 @@ function getDefaultValue(field: string, layer: string): any {
   return defaults[field] ?? null;
 }
 
-async function normalizeFile(filePath: string, layer: string, config: LayerConfig, verbose: boolean = false): Promise<NormalizationResult> {
+async function normalizeFile(
+  filePath: string,
+  layer: string,
+  config: LayerConfig,
+  verbose: boolean = false,
+): Promise<NormalizationResult> {
   const raw = await fs.readFile(filePath, 'utf-8');
   const filename = basename(filePath);
   const errors: string[] = [];
@@ -471,7 +485,12 @@ async function normalizeFile(filePath: string, layer: string, config: LayerConfi
   }
 
   // Normalize variation ID
-  const idField = config.fieldConvention === 'snake_case' ? 'variation_id' : layer === 'L4' ? 'id' : 'variationId';
+  const idField =
+    config.fieldConvention === 'snake_case'
+      ? 'variation_id'
+      : layer === 'L4'
+        ? 'id'
+        : 'variationId';
   const expectedId = config.idNormalizer(filename, frontmatter);
 
   if (frontmatter[idField] !== expectedId) {
@@ -515,7 +534,10 @@ async function normalizeFile(filePath: string, layer: string, config: LayerConfi
   }
   // Layer-specific fixes
   if (layer === 'L3') {
-    if (typeof frontmatter.philosophyDominant === 'string' && frontmatter.philosophyDominant.toLowerCase() === 'investigate') {
+    if (
+      typeof frontmatter.philosophyDominant === 'string' &&
+      frontmatter.philosophyDominant.toLowerCase() === 'investigate'
+    ) {
       frontmatter.philosophyDominant = 'invest';
       modified = true;
     }
@@ -618,7 +640,12 @@ export async function fixContent(options: FixerOptions): Promise<FixerReport> {
             await writeNormalizedFile(filePath, result);
           }
 
-          const status = result.errors.length > 0 ? '(with errors)' : result.warnings.length > 0 ? '(with warnings)' : '';
+          const status =
+            result.errors.length > 0
+              ? '(with errors)'
+              : result.warnings.length > 0
+                ? '(with warnings)'
+                : '';
           console.log(`   ✓ ${filename} ${status}`);
 
           if (verbose && result.warnings.length > 0) {

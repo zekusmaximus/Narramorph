@@ -621,8 +621,10 @@ export function validateStoryData(storyData: StoryData): ValidationResult {
   // Check all connections reference valid nodes
   const nodeIds = new Set(storyData.nodes.map((n) => n.id));
   for (const conn of storyData.connections || []) {
-    if (!nodeIds.has(conn.sourceId)) errors.push(`Connection ${conn.id} references invalid source: ${conn.sourceId}`);
-    if (!nodeIds.has(conn.targetId)) errors.push(`Connection ${conn.id} references invalid target: ${conn.targetId}`);
+    if (!nodeIds.has(conn.sourceId))
+      errors.push(`Connection ${conn.id} references invalid source: ${conn.sourceId}`);
+    if (!nodeIds.has(conn.targetId))
+      errors.push(`Connection ${conn.id} references invalid target: ${conn.targetId}`);
   }
 
   return { valid: errors.length === 0, errors, warnings };
@@ -652,7 +654,8 @@ export function validateVariationFile(file: VariationFile): ValidationResult {
   // Check transformation state coverage
   const states = new Set(file.variations.map((v) => v.transformationState));
   if (!states.has('initial')) warnings.push('No "initial" transformation state variations');
-  if (!states.has('firstRevisit')) warnings.push('No "firstRevisit" transformation state variations');
+  if (!states.has('firstRevisit'))
+    warnings.push('No "firstRevisit" transformation state variations');
   if (!states.has('metaAware')) warnings.push('No "metaAware" transformation state variations');
 
   return { valid: errors.length === 0, errors, warnings };
@@ -667,7 +670,13 @@ export function validateL3Coverage(variations: Variation[]): ValidationResult {
 
   // Expected: 5 journey × 3 philosophy × 3 awareness = 45 for char sections
   // Expected: 5 × 3 × 3 × 3 synthesis = 135 for conv section
-  const journeyPatterns = ['started-stayed', 'started-bounced', 'shifted-dominant', 'began-lightly', 'met-later'];
+  const journeyPatterns = [
+    'started-stayed',
+    'started-bounced',
+    'shifted-dominant',
+    'began-lightly',
+    'met-later',
+  ];
   const philosophies = ['accept', 'resist', 'invest'];
   const awarenessLevels = ['low', 'medium', 'high'];
 
@@ -676,7 +685,10 @@ export function validateL3Coverage(variations: Variation[]): ValidationResult {
     for (const phil of philosophies) {
       for (const awareness of awarenessLevels) {
         const found = variations.find(
-          (v) => v.journeyPattern === journey && v.philosophyDominant === phil && v.awarenessLevel === awareness,
+          (v) =>
+            v.journeyPattern === journey &&
+            v.philosophyDominant === phil &&
+            v.awarenessLevel === awareness,
         );
         if (!found) {
           warnings.push(`Missing L3 variation: ${journey}-${phil}-${awareness}`);
@@ -765,7 +777,10 @@ interface UnlockConditionParams {
 
 ```typescript
 // unlockEvaluator.ts:161 (extend evaluateCharacterCondition)
-function evaluateCharacterCondition(params: UnlockConditionParams, progress: UserProgress): boolean {
+function evaluateCharacterCondition(
+  params: UnlockConditionParams,
+  progress: UserProgress,
+): boolean {
   const tracking = progress.journeyTracking;
   if (!tracking) return false;
 
@@ -773,7 +788,10 @@ function evaluateCharacterCondition(params: UnlockConditionParams, progress: Use
 
   // ✅ NEW: Cross-character connection checks
   if (params.minCrossCharacterSwitches !== undefined) {
-    const totalSwitches = Object.values(tracking.crossCharacterConnections).reduce((sum, count) => sum + count, 0);
+    const totalSwitches = Object.values(tracking.crossCharacterConnections).reduce(
+      (sum, count) => sum + count,
+      0,
+    );
     if (totalSwitches < params.minCrossCharacterSwitches) return false;
   }
 
@@ -787,7 +805,10 @@ function evaluateCharacterCondition(params: UnlockConditionParams, progress: Use
 
   if (params.minConnectionPairSwitches) {
     for (const [pair, minCount] of Object.entries(params.minConnectionPairSwitches)) {
-      const actualCount = tracking.crossCharacterConnections[pair as keyof typeof tracking.crossCharacterConnections] || 0;
+      const actualCount =
+        tracking.crossCharacterConnections[
+          pair as keyof typeof tracking.crossCharacterConnections
+        ] || 0;
       if (actualCount < minCount) return false;
     }
   }
@@ -869,7 +890,10 @@ switch (condition.type) {
 }
 
 // unlockEvaluator.ts (new function)
-function evaluateNavigationPatternCondition(params: UnlockConditionParams, progress: UserProgress): boolean {
+function evaluateNavigationPatternCondition(
+  params: UnlockConditionParams,
+  progress: UserProgress,
+): boolean {
   const tracking = progress.journeyTracking;
   if (!tracking) return false;
 
@@ -964,7 +988,9 @@ if (layer === 2) {
   // Only clear cache if philosophy actually changed
   if (oldPhilosophy !== newPhilosophy) {
     draftState.l3AssemblyCache.clear();
-    console.log(`[L3Assembly] Cache cleared: philosophy changed from ${oldPhilosophy} to ${newPhilosophy}`);
+    console.log(
+      `[L3Assembly] Cache cleared: philosophy changed from ${oldPhilosophy} to ${newPhilosophy}`,
+    );
   } else {
     console.log(`[L3Assembly] Cache retained: philosophy unchanged (${oldPhilosophy})`);
   }
@@ -1164,11 +1190,19 @@ loadStory: async (storyId: string) => {
 
 ```typescript
 export class VariationSelectionService {
-  selectVariation(variations: Variation[], context: ConditionContext, options?: { excludeVariationIds?: string[] }): Variation | null {
+  selectVariation(
+    variations: Variation[],
+    context: ConditionContext,
+    options?: { excludeVariationIds?: string[] },
+  ): Variation | null {
     // Move findMatchingVariation logic
   }
 
-  buildL3Assembly(storyId: string, context: ConditionContext, contentService: IContentProvider): L3Assembly | null {
+  buildL3Assembly(
+    storyId: string,
+    context: ConditionContext,
+    contentService: IContentProvider,
+  ): L3Assembly | null {
     // Move buildL3Assembly logic
   }
 
@@ -1190,7 +1224,10 @@ export class VariationSelectionService {
 
 ```typescript
 export class JourneyTrackingService {
-  calculateJourneyPattern(startingCharacter: Character, percentages: CharacterPercentages): JourneyPattern {
+  calculateJourneyPattern(
+    startingCharacter: Character,
+    percentages: CharacterPercentages,
+  ): JourneyPattern {
     // Move from conditionEvaluator.ts
   }
 
@@ -1348,7 +1385,10 @@ export function findMatchingVariation(...) {
 try {
   validateStoryData(storyData); // ✅ Change: throw on errors
 } catch (err) {
-  throw new ContentLoadError(`Story validation failed for ${storyId}: ${(err as Error).message}`, err as Error);
+  throw new ContentLoadError(
+    `Story validation failed for ${storyId}: ${(err as Error).message}`,
+    err as Error,
+  );
 }
 ```
 
@@ -1534,14 +1574,14 @@ npx husky add .husky/pre-commit "npm run type-check"
 
 ## 5. Risk Assessment
 
-| Risk                                                  | Probability | Impact | Mitigation                                          |
-| ----------------------------------------------------- | ----------- | ------ | --------------------------------------------------- |
-| **Sprint 1.1 (L3 visit recording) reveals major gap** | Medium      | High   | Allocate 2-day buffer for rework                    |
-| **Variation deduplication exhausts pool**             | Low         | Medium | Fallback to first variation + log warning           |
-| **Migration breaks old saves**                        | Low         | High   | Test with multiple save versions, add rollback      |
-| **Type changes cause widespread breakage**            | Low         | Medium | Make changes in feature branches, incremental merge |
-| **Service layer refactor (Sprint 4) takes longer**    | High        | Low    | Sprint 4 is optional, defer if needed               |
-| **L3 cache invalidation misses edge case**            | Medium      | Low    | Extensive logging, monitor in production            |
+| Risk | Probability | Impact | Mitigation |
+| --- | --- | --- | --- |
+| **Sprint 1.1 (L3 visit recording) reveals major gap** | Medium | High | Allocate 2-day buffer for rework |
+| **Variation deduplication exhausts pool** | Low | Medium | Fallback to first variation + log warning |
+| **Migration breaks old saves** | Low | High | Test with multiple save versions, add rollback |
+| **Type changes cause widespread breakage** | Low | Medium | Make changes in feature branches, incremental merge |
+| **Service layer refactor (Sprint 4) takes longer** | High | Low | Sprint 4 is optional, defer if needed |
+| **L3 cache invalidation misses edge case** | Medium | Low | Extensive logging, monitor in production |
 
 ---
 

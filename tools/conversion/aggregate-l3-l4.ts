@@ -72,7 +72,9 @@ async function aggregateL4(): Promise<void> {
   console.log('📂 Aggregating L4 variations...');
 
   const files = await fs.readdir(l4Dir);
-  const l4Files = files.filter((f) => f.startsWith('final-') && f.endsWith('.json') && !f.endsWith('.tmp'));
+  const l4Files = files.filter(
+    (f) => f.startsWith('final-') && f.endsWith('.json') && !f.endsWith('.tmp'),
+  );
 
   const l4Variations: L4Variation[] = [];
   for (const file of l4Files) {
@@ -103,7 +105,10 @@ async function main(): Promise<void> {
     console.log('   Run "npm run matrix:full" to generate the selection matrix');
     console.log('='.repeat(70) + '\n');
   } catch (error) {
-    console.error('\n❌ Aggregation failed:', error instanceof Error ? error.message : String(error));
+    console.error(
+      '\n❌ Aggregation failed:',
+      error instanceof Error ? error.message : String(error),
+    );
     process.exit(1);
   }
 }

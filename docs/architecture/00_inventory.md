@@ -282,12 +282,12 @@ hooks/useVariationSelection
 
 ## 8. Content Inventory Summary
 
-| Layer | File Pattern                                          | Example Count | Purpose                                           |
-| ----- | ----------------------------------------------------- | ------------- | ------------------------------------------------- |
-| L1    | `{char}-L1-variations.json`                           | ~3 files      | Character introductions                           |
-| L2    | `{char}-L2-{philosophy}-variations.json`              | ~9 files      | Philosophy-based responses (accept/resist/invest) |
-| L3    | `{char}-L3-{id}.json`                                 | ~200+ files   | Reflection fragments for dynamic assembly         |
-| L4    | `final-{philosophy}.json`, `terminal-variations.json` | ~4 files      | Convergence/terminal states                       |
+| Layer | File Pattern | Example Count | Purpose |
+| --- | --- | --- | --- |
+| L1 | `{char}-L1-variations.json` | ~3 files | Character introductions |
+| L2 | `{char}-L2-{philosophy}-variations.json` | ~9 files | Philosophy-based responses (accept/resist/invest) |
+| L3 | `{char}-L3-{id}.json` | ~200+ files | Reflection fragments for dynamic assembly |
+| L4 | `final-{philosophy}.json`, `terminal-variations.json` | ~4 files | Convergence/terminal states |
 
 **Total Content Files:** 292 JSON files **Temporary Files:** `.tmp` suffixes present (likely conversion artifacts)
 

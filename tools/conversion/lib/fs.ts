@@ -37,7 +37,11 @@ export interface Manifest {
 /**
  * Read file with error handling and streaming for large files
  */
-export async function readFileWithLogging(filePath: string, logger?: Logger, useStreaming?: boolean): Promise<string | null> {
+export async function readFileWithLogging(
+  filePath: string,
+  logger?: Logger,
+  useStreaming?: boolean,
+): Promise<string | null> {
   try {
     // Check file size
     const stats = await stat(filePath);
@@ -120,7 +124,11 @@ export async function processBatchConcurrent<T, R>(
 /**
  * Write file atomically with temp file strategy
  */
-export async function writeFileAtomic(filePath: string, content: string, logger?: Logger): Promise<boolean> {
+export async function writeFileAtomic(
+  filePath: string,
+  content: string,
+  logger?: Logger,
+): Promise<boolean> {
   const tempPath = `${filePath}.tmp`;
 
   try {
@@ -154,7 +162,11 @@ export function hashContent(frontmatter: string, content: string): string {
 /**
  * Create backup of output directory
  */
-export async function createBackup(sourceDir: string, backupRoot: string, logger?: Logger): Promise<string | null> {
+export async function createBackup(
+  sourceDir: string,
+  backupRoot: string,
+  logger?: Logger,
+): Promise<string | null> {
   const timestamp = new Date().toISOString().replace(/:/g, '-').split('.')[0];
   if (!timestamp) {
     logger?.error('BACKUP_FAILED', 'Failed to generate timestamp');
@@ -180,7 +192,11 @@ export async function createBackup(sourceDir: string, backupRoot: string, logger
 /**
  * Copy directory recursively (filtered by extension)
  */
-async function copyDirectoryRecursive(src: string, dest: string, extension?: string): Promise<void> {
+async function copyDirectoryRecursive(
+  src: string,
+  dest: string,
+  extension?: string,
+): Promise<void> {
   await mkdir(dest, { recursive: true });
 
   const entries = await readdir(src, { withFileTypes: true });
@@ -207,7 +223,11 @@ async function copyDirectoryRecursive(src: string, dest: string, extension?: str
 /**
  * Create or update manifest
  */
-export async function writeManifest(manifest: Manifest, outputPath: string, logger?: Logger): Promise<boolean> {
+export async function writeManifest(
+  manifest: Manifest,
+  outputPath: string,
+  logger?: Logger,
+): Promise<boolean> {
   try {
     await mkdir(dirname(outputPath), { recursive: true });
     const json = JSON.stringify(manifest, null, 2);
@@ -226,7 +246,10 @@ export async function writeManifest(manifest: Manifest, outputPath: string, logg
 /**
  * Read existing manifest
  */
-export async function readManifest(manifestPath: string, logger?: Logger): Promise<Manifest | null> {
+export async function readManifest(
+  manifestPath: string,
+  logger?: Logger,
+): Promise<Manifest | null> {
   try {
     const content = await readFile(manifestPath, 'utf-8');
     return JSON.parse(content) as Manifest;
@@ -242,7 +265,11 @@ export async function readManifest(manifestPath: string, logger?: Logger): Promi
 /**
  * Discover markdown files by pattern
  */
-export async function discoverMarkdownFiles(rootDir: string, pattern: RegExp, logger?: Logger): Promise<string[]> {
+export async function discoverMarkdownFiles(
+  rootDir: string,
+  pattern: RegExp,
+  logger?: Logger,
+): Promise<string[]> {
   const files: string[] = [];
 
   try {
@@ -261,7 +288,11 @@ export async function discoverMarkdownFiles(rootDir: string, pattern: RegExp, lo
 /**
  * Recursive file discovery
  */
-async function discoverFilesRecursive(dir: string, files: string[], pattern: RegExp): Promise<void> {
+async function discoverFilesRecursive(
+  dir: string,
+  files: string[],
+  pattern: RegExp,
+): Promise<void> {
   const entries = await readdir(dir, { withFileTypes: true });
 
   for (const entry of entries) {

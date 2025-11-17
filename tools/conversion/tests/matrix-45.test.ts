@@ -11,7 +11,10 @@ import { describe, it, expect } from 'vitest';
 describe('Selection Matrix 45-combo property', () => {
   it('has exactly 45 combos with full coverage when fixture set is complete', async () => {
     const projectRoot = resolve(process.cwd(), '../..');
-    const matrixPath = join(projectRoot, 'src/data/stories/eternal-return/content/layer3/selection-matrix.json');
+    const matrixPath = join(
+      projectRoot,
+      'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
+    );
 
     let matrix: any;
     try {

@@ -114,7 +114,10 @@ async function main() {
   const parallelValue = values.parallel ? parseInt(values.parallel, 10) : 4;
   const parallel = Math.min(parallelValue, 10);
 
-  logger.info('CONVERSION_START', `Starting conversion (strict=${options.strict}, parallel=${parallel})`);
+  logger.info(
+    'CONVERSION_START',
+    `Starting conversion (strict=${options.strict}, parallel=${parallel})`,
+  );
 
   const layers = values.layer === 'all' ? ['1', '2', '3', '4'] : [values.layer || '1'];
 
@@ -399,7 +402,11 @@ async function convertL1(
           body = lines.slice(contentStartIndex).join('\n').trim();
 
           // Generate frontmatter for initial state
-          const charPrefix = file.includes('arch-') ? 'arch' : file.includes('algo-') ? 'algo' : 'hum';
+          const charPrefix = file.includes('arch-')
+            ? 'arch'
+            : file.includes('algo-')
+              ? 'algo'
+              : 'hum';
           frontmatter = {
             variation_id: `${charPrefix}-L1-INITIAL-001`,
             variation_type: 'initial',
@@ -563,7 +570,10 @@ async function convertL1(
   }
 
   manifest.counts.totalVariations += manifest.counts.l1Variations;
-  logger.info('L1_COMPLETE', `Layer 1 conversion complete: ${manifest.counts.l1Variations} variations`);
+  logger.info(
+    'L1_COMPLETE',
+    `Layer 1 conversion complete: ${manifest.counts.l1Variations} variations`,
+  );
 }
 
 /**
@@ -644,7 +654,9 @@ async function convertL2(
             body = normalized.trim();
 
             // Extract character and path from filename
-            const m = basename(file).match(/^(arch|algo|hum)-L2-(accept|resist|invest)-INITIAL_STATE\.md$/);
+            const m = basename(file).match(
+              /^(arch|algo|hum)-L2-(accept|resist|invest)-INITIAL_STATE\.md$/,
+            );
             if (!m) {
               return { variation: null, variationText: null };
             }
@@ -663,7 +675,9 @@ async function convertL2(
             parsed = parseFrontmatter(normalized, logger, file);
             if (!parsed) {
               // Salvage minimal L2 frontmatter from filename
-              const m = basename(file).match(/^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)/);
+              const m = basename(file).match(
+                /^(arch|algo|hum)-L2-(accept|resist|invest)-(FR|MA)-(\d+)/,
+              );
               if (!m) {
                 return { variation: null, variationText: null };
               }
@@ -810,7 +824,10 @@ async function convertL2(
   }
 
   manifest.counts.totalVariations += manifest.counts.l2Variations;
-  logger.info('L2_COMPLETE', `Layer 2 conversion complete: ${manifest.counts.l2Variations} variations`);
+  logger.info(
+    'L2_COMPLETE',
+    `Layer 2 conversion complete: ${manifest.counts.l2Variations} variations`,
+  );
 }
 
 /**
@@ -843,7 +860,8 @@ async function convertL3(
 
     // Discover all markdown files (sorted for determinism)
     // Only include variation files (exclude protocol/notes)
-    const namePattern = section.prefix === 'conv-L3' ? /^conv-L3-\d+\.md$/ : /^(arch|algo|hum)-L3-\d+\.md$/;
+    const namePattern =
+      section.prefix === 'conv-L3' ? /^conv-L3-\d+\.md$/ : /^(arch|algo|hum)-L3-\d+\.md$/;
     const files = (await discoverMarkdownFiles(sourceDir, /\.md$/, logger))
       .filter((p) => namePattern.test(p.split(/[/\\]/).pop() || ''))
       .sort();
@@ -886,13 +904,22 @@ async function convertL3(
           );
         }
 
-        if (typeof frontmatter.philosophyDominant === 'string' && frontmatter.philosophyDominant.toLowerCase() === 'investigate') {
+        if (
+          typeof frontmatter.philosophyDominant === 'string' &&
+          frontmatter.philosophyDominant.toLowerCase() === 'investigate'
+        ) {
           frontmatter.philosophyDominant = 'invest';
         }
 
         // Ensure conv-L3 has characterVoices
-        if (typeof frontmatter.variationId === 'string' && /^conv-L3-/.test(frontmatter.variationId)) {
-          if (!Array.isArray((frontmatter as any).characterVoices) || (frontmatter as any).characterVoices.length < 2) {
+        if (
+          typeof frontmatter.variationId === 'string' &&
+          /^conv-L3-/.test(frontmatter.variationId)
+        ) {
+          if (
+            !Array.isArray((frontmatter as any).characterVoices) ||
+            (frontmatter as any).characterVoices.length < 2
+          ) {
             (frontmatter as any).characterVoices = ['archaeologist', 'algorithm', 'last-human'];
           }
         }
@@ -996,7 +1023,10 @@ async function convertL3(
   }
 
   manifest.counts.totalVariations += manifest.counts.l3Variations;
-  logger.info('L3_COMPLETE', `Layer 3 conversion complete: ${manifest.counts.l3Variations} variations`);
+  logger.info(
+    'L3_COMPLETE',
+    `Layer 3 conversion complete: ${manifest.counts.l3Variations} variations`,
+  );
 }
 
 /**
@@ -1123,7 +1153,10 @@ async function convertL4(
   }
 
   manifest.counts.totalVariations += manifest.counts.l4Variations;
-  logger.info('L4_COMPLETE', `Layer 4 conversion complete: ${manifest.counts.l4Variations} variations`);
+  logger.info(
+    'L4_COMPLETE',
+    `Layer 4 conversion complete: ${manifest.counts.l4Variations} variations`,
+  );
 }
 
 main().catch((error) => {

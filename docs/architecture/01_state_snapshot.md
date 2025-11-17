@@ -161,16 +161,16 @@ interface NodeUnlockConfig {
 
 **File:** `src/stores/storyStore.ts`
 
-| Action                      | Line      | Description                                               |
-| --------------------------- | --------- | --------------------------------------------------------- |
-| `loadStory(storyId)`        | 374-451   | Load story content, initialize nodes/connections          |
-| `visitNode(nodeId)`         | 836-1004  | Record visit, update tracking, evaluate unlocks           |
-| `updateTemporalAwareness()` | 462-490   | Calculate awareness from character exploration            |
-| `updateJourneyTracking()`   | 493-555   | Update journey pattern, philosophy, navigation pattern    |
-| `recordL2Choice(choice)`    | 560-568   | Manually record L2 philosophy choice                      |
-| `evaluateUnlocks()`         | 785-812   | Check unlock conditions, populate `recentlyUnlockedNodes` |
-| `saveProgress()`            | 1056-1069 | Persist state to localStorage                             |
-| `loadProgress()`            | 1071-1159 | Restore state from localStorage (includes migrations)     |
+| Action | Line | Description |
+| --- | --- | --- |
+| `loadStory(storyId)` | 374-451 | Load story content, initialize nodes/connections |
+| `visitNode(nodeId)` | 836-1004 | Record visit, update tracking, evaluate unlocks |
+| `updateTemporalAwareness()` | 462-490 | Calculate awareness from character exploration |
+| `updateJourneyTracking()` | 493-555 | Update journey pattern, philosophy, navigation pattern |
+| `recordL2Choice(choice)` | 560-568 | Manually record L2 philosophy choice |
+| `evaluateUnlocks()` | 785-812 | Check unlock conditions, populate `recentlyUnlockedNodes` |
+| `saveProgress()` | 1056-1069 | Persist state to localStorage |
+| `loadProgress()` | 1071-1159 | Restore state from localStorage (includes migrations) |
 
 ### Computed Selectors
 

@@ -52,7 +52,10 @@ Thank you for your interest in contributing to Narramorph Fiction! This document
  * @param visitRecord - The visit history for this node, if any
  * @returns The current transformation state
  */
-export function determineTransformationState(nodeId: string, visitRecord: VisitRecord | undefined): TransformationState {
+export function determineTransformationState(
+  nodeId: string,
+  visitRecord: VisitRecord | undefined,
+): TransformationState {
   // Implementation
 }
 ```

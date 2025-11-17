@@ -107,14 +107,16 @@ const l4VariationFiles = import.meta.glob('/src/data/stories/*/content/layer4/*-
 3. **Journey Pattern (line 128):**
 
    ```typescript
-   if (meta.journeyPattern !== 'unknown' && meta.journeyPattern !== context.journeyPattern) return false;
+   if (meta.journeyPattern !== 'unknown' && meta.journeyPattern !== context.journeyPattern)
+     return false;
    ```
 
    Skip if metadata is `'unknown'`, otherwise must match
 
 4. **Philosophy (line 134):**
    ```typescript
-   if (meta.philosophyDominant !== 'unknown' && meta.philosophyDominant !== context.pathPhilosophy) return false;
+   if (meta.philosophyDominant !== 'unknown' && meta.philosophyDominant !== context.pathPhilosophy)
+     return false;
    ```
    Skip if metadata is `'unknown'`, otherwise must match
 
@@ -532,14 +534,14 @@ visitNode(nodeId)
 
 ## 7. File Naming Convention Summary
 
-| Layer            | Pattern                                  | Example                             |
-| ---------------- | ---------------------------------------- | ----------------------------------- |
-| L1               | `{char}-L1-variations.json`              | `arch-L1-variations.json`           |
-| L2               | `{char}-L2-{philosophy}-variations.json` | `hum-L2-resist-variations.json`     |
-| L3               | `{char}-L3-variations.json`              | `algo-L3-variations.json`           |
-| L4               | `final-{alignment}-variations.json`      | `final-preserve.json`               |
-| Unlock           | `unlock-config.json`                     | `eternal-return/unlock-config.json` |
-| Selection Matrix | `selection-matrix.json`                  | _(Loader exists but unused)_        |
+| Layer | Pattern | Example |
+| --- | --- | --- |
+| L1 | `{char}-L1-variations.json` | `arch-L1-variations.json` |
+| L2 | `{char}-L2-{philosophy}-variations.json` | `hum-L2-resist-variations.json` |
+| L3 | `{char}-L3-variations.json` | `algo-L3-variations.json` |
+| L4 | `final-{alignment}-variations.json` | `final-preserve.json` |
+| Unlock | `unlock-config.json` | `eternal-return/unlock-config.json` |
+| Selection Matrix | `selection-matrix.json` | _(Loader exists but unused)_ |
 
 **Character Prefixes:**
 

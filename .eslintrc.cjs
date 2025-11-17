@@ -29,7 +29,15 @@ module.exports = {
     },
     'import/core-modules': ['three'],
   },
-  plugins: ['@typescript-eslint', 'import', 'unused-imports', 'prettier', 'react', 'react-hooks', 'react-refresh'],
+  plugins: [
+    '@typescript-eslint',
+    'import',
+    'unused-imports',
+    'prettier',
+    'react',
+    'react-hooks',
+    'react-refresh',
+  ],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',

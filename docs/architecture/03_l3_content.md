@@ -51,7 +51,11 @@ storyStore.visitNode(nodeId)
 **File:** `src/utils/l3Assembly.ts:19-46`
 
 ```typescript
-function calculateSynthesisPattern(percentages: { archaeologist: number; algorithm: number; lastHuman: number }): SynthesisPattern {
+function calculateSynthesisPattern(percentages: {
+  archaeologist: number;
+  algorithm: number;
+  lastHuman: number;
+}): SynthesisPattern {
   const max = Math.max(archaeologist, algorithm, lastHuman);
 
   // Single-dominant: One character >60%
@@ -59,7 +63,11 @@ function calculateSynthesisPattern(percentages: { archaeologist: number; algorit
 
   // Triple-balanced: All within 15% of average (33.3%)
   const avg = (archaeologist + algorithm + lastHuman) / 3;
-  const maxDiff = Math.max(Math.abs(archaeologist - avg), Math.abs(algorithm - avg), Math.abs(lastHuman - avg));
+  const maxDiff = Math.max(
+    Math.abs(archaeologist - avg),
+    Math.abs(algorithm - avg),
+    Math.abs(lastHuman - avg),
+  );
   if (maxDiff < 15) return 'triple-balanced'; // Note: Code says "true-triad"
 
   // Dual-balanced: Two characters dominant
@@ -751,12 +759,20 @@ loadStory: async (storyId: string) => {
 ```typescript
 // New: src/services/VariationSelectionService.ts
 export class VariationSelectionService {
-  selectVariation(variations: Variation[], context: ConditionContext, options?: { excludeIds?: string[] }): Variation | null {
+  selectVariation(
+    variations: Variation[],
+    context: ConditionContext,
+    options?: { excludeIds?: string[] },
+  ): Variation | null {
     // Move findMatchingVariation logic here
     // Add deduplication support (from Task 2 gap)
   }
 
-  buildL3Assembly(storyId: string, context: ConditionContext, contentService: ContentService): L3Assembly | null {
+  buildL3Assembly(
+    storyId: string,
+    context: ConditionContext,
+    contentService: ContentService,
+  ): L3Assembly | null {
     // Move buildL3Assembly logic here
   }
 }
@@ -874,7 +890,10 @@ loadVariations(storyId: string, nodeId: string): VariationFile | null {
 ```typescript
 // New: src/services/JourneyTrackingService.ts
 export class JourneyTrackingService {
-  calculateJourneyPattern(startingCharacter: Character, percentages: CharacterPercentages): JourneyPattern {
+  calculateJourneyPattern(
+    startingCharacter: Character,
+    percentages: CharacterPercentages,
+  ): JourneyPattern {
     // Move from conditionEvaluator.ts
   }
 

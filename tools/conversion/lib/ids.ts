@@ -137,7 +137,12 @@ function parseL4VariationId(id: string): L4VariationId | null {
  * Generate aggregated variation ID with zero-padding
  * Examples: arch-L1-001, arch-L2-accept-047
  */
-export function generateAggregatedId(character: Character, layer: 1 | 2, index: number, path?: PathPhilosophy): string {
+export function generateAggregatedId(
+  character: Character,
+  layer: 1 | 2,
+  index: number,
+  path?: PathPhilosophy,
+): string {
   const nodeId = layer === 1 ? `${character}-L1` : `${character}-L2-${path}`;
 
   const paddedNum = index.toString().padStart(3, '0');
@@ -156,7 +161,12 @@ export function generateL3Id(sectionType: string, number: number): string {
 /**
  * Validate ID zero-padding
  */
-export function validateZeroPadding(id: string, layer: Layer, logger?: Logger, file?: string): boolean {
+export function validateZeroPadding(
+  id: string,
+  layer: Layer,
+  logger?: Logger,
+  file?: string,
+): boolean {
   if (layer === 1 || layer === 2) {
     // Check for invalid patterns like -1 instead of -001
     const invalidPattern = /-(?:FR|MA)-(\d{1,2})$/;
