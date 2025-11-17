@@ -73,26 +73,17 @@ export function useVariationSelection(
 
   // Extract reactive values that affect variation selection
   const temporalAwareness = useStoryStore((state) => state.progress.temporalAwarenessLevel);
-  const visitRecord = useStoryStore((state) =>
-    nodeId ? state.progress.visitedNodes[nodeId] : undefined,
+  const visitCount = useStoryStore((state) =>
+    nodeId ? (state.progress.visitedNodes[nodeId]?.visitCount ?? 0) : 0,
   );
-  const journeyTracking = useStoryStore((state) => state.progress.journeyTracking);
-
-  const variationTriggers = useMemo(
-    () => ({
-      temporalAwareness,
-      visitCount: visitRecord?.visitCount ?? 0,
-      currentState: visitRecord?.currentState ?? 'initial',
-      journeyPattern: journeyTracking?.currentJourneyPattern ?? 'unknown',
-      philosophy: journeyTracking?.dominantPhilosophy ?? 'unknown',
-    }),
-    [
-      temporalAwareness,
-      visitRecord?.visitCount,
-      visitRecord?.currentState,
-      journeyTracking?.currentJourneyPattern,
-      journeyTracking?.dominantPhilosophy,
-    ],
+  const currentState = useStoryStore((state) =>
+    nodeId ? (state.progress.visitedNodes[nodeId]?.currentState ?? 'initial') : 'initial',
+  );
+  const currentJourneyPattern = useStoryStore(
+    (state) => state.progress.journeyTracking?.currentJourneyPattern ?? 'unknown',
+  );
+  const dominantPhilosophy = useStoryStore(
+    (state) => state.progress.journeyTracking?.dominantPhilosophy ?? 'unknown',
   );
 
   return useMemo(() => {
@@ -205,5 +196,18 @@ export function useVariationSelection(
         usedFallback: true,
       };
     }
-  }, [nodeId, storyData?.metadata?.id, getConditionContext, fallbackContent, variationTriggers]);
+    // State values must be in deps to trigger re-selection when they change,
+    // even though they're read indirectly via getConditionContext()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    nodeId,
+    storyData?.metadata?.id,
+    getConditionContext,
+    fallbackContent,
+    temporalAwareness,
+    visitCount,
+    currentState,
+    currentJourneyPattern,
+    dominantPhilosophy,
+  ]);
 }

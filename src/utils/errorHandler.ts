@@ -6,7 +6,7 @@ export class NarrativeEngineError extends Error {
   constructor(
     message: string,
     public code: string,
-    public context?: Record<string, any>,
+    public context?: Record<string, unknown>,
   ) {
     super(message);
     this.name = 'NarrativeEngineError';
@@ -16,7 +16,7 @@ export class NarrativeEngineError extends Error {
 /**
  * Handle errors with logging and optional reporting
  */
-export function handleError(error: Error, context?: Record<string, any>): void {
+export function handleError(error: Error, context?: Record<string, unknown>): void {
   // Log to console in development
   if (process.env.NODE_ENV === 'development') {
     console.error('[Error]', error.message, context);

@@ -62,50 +62,57 @@ const allVariationFiles = {
 /**
  * Normalize variation data to ensure all required fields are in metadata
  */
-function normalizeVariation(variation: any, fileNodeId?: string): Variation {
+function normalizeVariation(variation: unknown, fileNodeId?: string): Variation {
+  // Type guard: ensure variation is an object
+  if (typeof variation !== 'object' || variation === null) {
+    throw new Error('Invalid variation data: expected object');
+  }
+
+  const v = variation as Record<string, unknown>;
+
   // Ensure metadata exists
-  if (!variation.metadata) {
-    variation.metadata = {};
+  if (!v.metadata || typeof v.metadata !== 'object') {
+    v.metadata = {};
   }
 
   // Map root-level properties into metadata if they're missing
-  const meta = variation.metadata;
+  const meta = v.metadata as Record<string, unknown>;
 
   // CRITICAL: Copy id to both root-level variationId AND metadata.variationId
-  if (!variation.variationId && variation.id) {
-    variation.variationId = variation.id;
+  if (!v.variationId && v.id) {
+    v.variationId = v.id;
   }
 
-  if (!meta.variationId && variation.id) {
-    meta.variationId = variation.id;
+  if (!meta.variationId && v.id) {
+    meta.variationId = v.id;
   }
 
-  if (!meta.nodeId && (fileNodeId || variation.nodeId)) {
-    meta.nodeId = fileNodeId || variation.nodeId;
+  if (!meta.nodeId && (fileNodeId || v.nodeId)) {
+    meta.nodeId = fileNodeId || v.nodeId;
   }
 
-  if (!meta.awarenessRange && variation.awarenessRange) {
-    meta.awarenessRange = variation.awarenessRange;
+  if (!meta.awarenessRange && v.awarenessRange) {
+    meta.awarenessRange = v.awarenessRange;
   } else if (!meta.awarenessRange) {
     // Set default awarenessRange to match all awareness levels
     // Transformation state is the primary filter, not awareness
     meta.awarenessRange = [0, 100];
   }
 
-  if (!meta.journeyPattern && variation.journeyPattern) {
-    meta.journeyPattern = variation.journeyPattern;
+  if (!meta.journeyPattern && v.journeyPattern) {
+    meta.journeyPattern = v.journeyPattern;
   } else if (!meta.journeyPattern) {
     meta.journeyPattern = 'unknown';
   }
 
-  if (!meta.philosophyDominant && variation.philosophyDominant) {
-    meta.philosophyDominant = variation.philosophyDominant;
+  if (!meta.philosophyDominant && v.philosophyDominant) {
+    meta.philosophyDominant = v.philosophyDominant;
   } else if (!meta.philosophyDominant) {
     meta.philosophyDominant = 'unknown';
   }
 
-  if (!meta.awarenessLevel && variation.awarenessLevel) {
-    meta.awarenessLevel = variation.awarenessLevel;
+  if (!meta.awarenessLevel && v.awarenessLevel) {
+    meta.awarenessLevel = v.awarenessLevel;
   } else if (!meta.awarenessLevel && meta.awarenessRange) {
     // Derive awarenessLevel from awarenessRange if missing
     const midpoint = (meta.awarenessRange[0] + meta.awarenessRange[1]) / 2;
@@ -147,7 +154,7 @@ function normalizeVariation(variation: any, fileNodeId?: string): Variation {
     meta.humanDescription = '';
   }
 
-  return variation as Variation;
+  return v as Variation;
 }
 
 /**
@@ -156,8 +163,9 @@ function normalizeVariation(variation: any, fileNodeId?: string): Variation {
 export function loadVariationFile(storyId: string, nodeId: string): VariationFile | null {
   // Check cache first
   const cacheKey = `${storyId}:${nodeId}`;
-  if (variationCache.has(cacheKey)) {
-    return variationCache.get(cacheKey)!;
+  const cached = variationCache.get(cacheKey);
+  if (cached) {
+    return cached;
   }
 
   // Search for matching file
@@ -170,14 +178,18 @@ export function loadVariationFile(storyId: string, nodeId: string): VariationFil
       if (
         fileData.nodeId === nodeId ||
         (fileData.variations &&
-          fileData.variations.some(
-            (v: any) => v.metadata?.nodeId === nodeId || v.nodeId === nodeId,
-          ))
+          fileData.variations.some((v: unknown) => {
+            const variation = v as Record<string, unknown>;
+            const metadata = variation.metadata as Record<string, unknown> | undefined;
+            return metadata?.nodeId === nodeId || variation.nodeId === nodeId;
+          }))
       ) {
         // Normalize all variations before caching
         const normalizedFile: VariationFile = {
           ...fileData,
-          variations: fileData.variations.map((v: any) => normalizeVariation(v, fileData.nodeId)),
+          variations: fileData.variations.map((v: unknown) =>
+            normalizeVariation(v, fileData.nodeId),
+          ),
         };
 
         variationCache.set(cacheKey, normalizedFile);
@@ -214,7 +226,7 @@ export function loadL3Variations(storyId: string): {
       const normalizedFile: VariationFile = {
         ...fileData,
         variations:
-          fileData.variations?.map((v: any) => normalizeVariation(v, fileData.nodeId)) || [],
+          fileData.variations?.map((v: unknown) => normalizeVariation(v, fileData.nodeId)) || [],
       };
 
       if (path.includes('arch-L3')) {

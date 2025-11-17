@@ -60,19 +60,28 @@ export default function SceneContent() {
       }
 
       const char = node.character;
-      if (!charMap.has(char)) {
-        charMap.set(char, []);
+      const existing = charMap.get(char);
+      if (existing) {
+        existing.push(node);
+      } else {
+        charMap.set(char, [node]);
       }
-      charMap.get(char)!.push(node);
     });
 
     // Convert to array in consistent order
     return charOrder
       .filter((char) => charMap.has(char))
-      .map((char) => ({
-        type: char,
-        nodes: charMap.get(char)!,
-      }));
+      .map((char) => {
+        const nodes = charMap.get(char);
+        if (!nodes) {
+          // This should never happen due to the filter above, but TypeScript can't infer this
+          throw new Error(`Unexpected: character ${char} missing from charMap`);
+        }
+        return {
+          type: char,
+          nodes,
+        };
+      });
   }, [accessibleNodes]);
 
   // Ensure predictable ordering, limit to spec maximum of 19 nodes total
