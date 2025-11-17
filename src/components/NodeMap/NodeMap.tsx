@@ -12,7 +12,8 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { motion } from 'framer-motion';
-import { useCallback, useEffect, useMemo, useState, type MouseEvent } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import type { MouseEvent as ReactMouseEvent } from 'react';
 
 import { useStoryStore } from '@/stores';
 import type { StoryNode, NodeUIState } from '@/types';
@@ -155,7 +156,7 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
 
   // Mouse tracking for parallax
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
+    const handleMouseMove = (e: globalThis.MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
       setTooltipPos({ x: e.clientX, y: e.clientY });
     };
@@ -176,7 +177,7 @@ export default function NodeMap({ className = '' }: NodeMapProps) {
 
   // Handle node click - select and open story view
   const onNodeClick = useCallback(
-    (_event: MouseEvent, node: Node) => {
+    (_event: ReactMouseEvent, node: Node) => {
       const nodeData = node.data as { node: StoryNode };
       const visitRecord = progress.visitedNodes[node.id];
 
