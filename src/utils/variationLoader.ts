@@ -91,6 +91,51 @@ function normalizeVariation(variation: unknown, fileNodeId?: string): Variation 
     meta.nodeId = fileNodeId || v.nodeId;
   }
 
+  // Auto-generate sectionType from nodeId if missing (for Layer 1 and Layer 2 variations)
+  if (!v.sectionType) {
+    const nodeId = (fileNodeId || v.nodeId || meta.nodeId) as string | undefined;
+    if (nodeId) {
+      v.sectionType = nodeId;
+    } else {
+      // Fallback to 'unknown' if we can't determine it
+      v.sectionType = 'unknown';
+    }
+  }
+
+  // Auto-generate schemaVersion if missing
+  if (!v.schemaVersion) {
+    v.schemaVersion = '1.0.0';
+  }
+
+  // Set journeyPattern with priority: root level > metadata > default
+  if (!v.journeyPattern && meta.journeyPattern) {
+    v.journeyPattern = meta.journeyPattern;
+  } else if (!v.journeyPattern) {
+    v.journeyPattern = 'unknown';
+  }
+
+  // Also ensure it's in metadata
+  if (!meta.journeyPattern && v.journeyPattern) {
+    meta.journeyPattern = v.journeyPattern;
+  } else if (!meta.journeyPattern) {
+    meta.journeyPattern = 'unknown';
+  }
+
+  // Set philosophyDominant with priority: root level > metadata > default
+  if (!v.philosophyDominant && meta.philosophyDominant) {
+    v.philosophyDominant = meta.philosophyDominant;
+  } else if (!v.philosophyDominant) {
+    v.philosophyDominant = 'unknown';
+  }
+
+  // Also ensure it's in metadata
+  if (!meta.philosophyDominant && v.philosophyDominant) {
+    meta.philosophyDominant = v.philosophyDominant;
+  } else if (!meta.philosophyDominant) {
+    meta.philosophyDominant = 'unknown';
+  }
+
+  // Handle awarenessRange
   if (!meta.awarenessRange && v.awarenessRange) {
     meta.awarenessRange = v.awarenessRange;
   } else if (!meta.awarenessRange) {
@@ -99,18 +144,19 @@ function normalizeVariation(variation: unknown, fileNodeId?: string): Variation 
     meta.awarenessRange = [0, 100];
   }
 
-  if (!meta.journeyPattern && v.journeyPattern) {
-    meta.journeyPattern = v.journeyPattern;
-  } else if (!meta.journeyPattern) {
-    meta.journeyPattern = 'unknown';
+  // Set awarenessLevel with priority: root level > metadata > derived from range > default
+  if (!v.awarenessLevel && meta.awarenessLevel) {
+    v.awarenessLevel = meta.awarenessLevel;
+  } else if (!v.awarenessLevel && (meta.awarenessRange || v.awarenessRange)) {
+    // Derive awarenessLevel from awarenessRange if missing
+    const range = (meta.awarenessRange || v.awarenessRange) as [number, number];
+    const midpoint = (range[0] + range[1]) / 2;
+    v.awarenessLevel = midpoint < 35 ? 'low' : midpoint < 70 ? 'medium' : 'high';
+  } else if (!v.awarenessLevel) {
+    v.awarenessLevel = 'low';
   }
 
-  if (!meta.philosophyDominant && v.philosophyDominant) {
-    meta.philosophyDominant = v.philosophyDominant;
-  } else if (!meta.philosophyDominant) {
-    meta.philosophyDominant = 'unknown';
-  }
-
+  // Also ensure it's in metadata
   if (!meta.awarenessLevel && v.awarenessLevel) {
     meta.awarenessLevel = v.awarenessLevel;
   } else if (!meta.awarenessLevel && meta.awarenessRange) {
@@ -160,7 +206,11 @@ function normalizeVariation(variation: unknown, fileNodeId?: string): Variation 
     'variationId',
     'id',
     'sectionType',
+    'schemaVersion',
     'transformationState',
+    'journeyPattern',
+    'philosophyDominant',
+    'awarenessLevel',
     'content',
     'metadata',
   ];
