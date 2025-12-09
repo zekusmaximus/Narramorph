@@ -91,60 +91,73 @@ function buildSection(
 
 /**
  * Build a complete L3 assembly with all 4 sections
+ * Async to prevent blocking the main thread
  */
-export function buildL3Assembly(storyId: string, context: ConditionContext): L3Assembly | null {
+export async function buildL3Assembly(
+  storyId: string,
+  context: ConditionContext,
+): Promise<L3Assembly | null> {
   const endTimer = performanceMonitor.startTimer('l3Assembly');
 
-  // Load all L3 variation files
-  const variations = loadL3Variations(storyId);
+  // Simulate non-blocking behavior to allow UI updates
+  await new Promise((resolve) => setTimeout(resolve, 0));
 
-  // Build each section
-  const archSection = buildSection('arch', variations.arch, context);
-  const algoSection = buildSection('algo', variations.algo, context);
-  const humSection = buildSection('hum', variations.hum, context);
+  try {
+    // Load all L3 variation files
+    const variations = loadL3Variations(storyId);
 
-  // For convergence section, we need to adjust context with synthesis pattern
-  const synthesisPattern = calculateSynthesisPattern(context.characterVisitPercentages);
-  const convSection = buildSection('conv', variations.conv, context);
+    // Build each section
+    const archSection = buildSection('arch', variations.arch, context);
+    const algoSection = buildSection('algo', variations.algo, context);
+    const humSection = buildSection('hum', variations.hum, context);
 
-  // Ensure all sections are present
-  if (!archSection || !algoSection || !humSection || !convSection) {
-    console.error('Failed to build all L3 sections');
+    // For convergence section, we need to adjust context with synthesis pattern
+    const synthesisPattern = calculateSynthesisPattern(context.characterVisitPercentages);
+    const convSection = buildSection('conv', variations.conv, context);
+
+    // Ensure all sections are present
+    if (!archSection || !algoSection || !humSection || !convSection) {
+      console.error('Failed to build all L3 sections');
+      endTimer({ success: false });
+      return null;
+    }
+
+    const totalWordCount =
+      archSection.wordCount + algoSection.wordCount + humSection.wordCount + convSection.wordCount;
+
+    const result = {
+      arch: archSection,
+      algo: algoSection,
+      hum: humSection,
+      conv: convSection,
+      totalWordCount,
+      metadata: {
+        journeyPattern: context.journeyPattern,
+        pathPhilosophy: context.pathPhilosophy,
+        awarenessLevel:
+          context.awareness < 35
+            ? ('low' as const)
+            : context.awareness < 70
+              ? ('medium' as const)
+              : ('high' as const),
+        synthesisPattern,
+        convergenceAlignment: convSection.metadata.convergenceAlignment,
+      },
+    };
+
+    endTimer({
+      success: true,
+      journeyPattern: result.metadata.journeyPattern,
+      pathPhilosophy: result.metadata.pathPhilosophy,
+      synthesisPattern: result.metadata.synthesisPattern,
+    });
+
+    return result;
+  } catch (error) {
+    console.error('Error building L3 assembly:', error);
     endTimer({ success: false });
     return null;
   }
-
-  const totalWordCount =
-    archSection.wordCount + algoSection.wordCount + humSection.wordCount + convSection.wordCount;
-
-  const result = {
-    arch: archSection,
-    algo: algoSection,
-    hum: humSection,
-    conv: convSection,
-    totalWordCount,
-    metadata: {
-      journeyPattern: context.journeyPattern,
-      pathPhilosophy: context.pathPhilosophy,
-      awarenessLevel:
-        context.awareness < 35
-          ? ('low' as const)
-          : context.awareness < 70
-            ? ('medium' as const)
-            : ('high' as const),
-      synthesisPattern,
-      convergenceAlignment: convSection.metadata.convergenceAlignment,
-    },
-  };
-
-  endTimer({
-    success: true,
-    journeyPattern: result.metadata.journeyPattern,
-    pathPhilosophy: result.metadata.pathPhilosophy,
-    synthesisPattern: result.metadata.synthesisPattern,
-  });
-
-  return result;
 }
 
 /**

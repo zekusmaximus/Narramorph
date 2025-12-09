@@ -1,5 +1,6 @@
 import { animated, useSpring } from '@react-spring/three';
 import { useState } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 
 import { useStoryStore } from '@/stores';
 import { getNodeAppearance } from '@/utils/getNodeAppearance';
@@ -16,32 +17,45 @@ interface NodeSphereProps {
 export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
   const [isHovered, setIsHovered] = useState(false);
 
-  // Get node data and state from store
+  // Get node data - nodes map is stable, so we can just pick the node
   const node = useStoryStore((state) => state.nodes.get(nodeId));
-  const selectedNode = useStoryStore((state) => state.selectedNode);
-  const progress = useStoryStore((state) => state.progress);
-  const visitedNodes = useStoryStore((state) => state.progress.visitedNodes);
-  const awarenessLevel = useStoryStore((state) => state.progress.temporalAwarenessLevel);
+
+  // Atomic selectors for frequently changing state
+  const isSelected = useStoryStore((state) => state.selectedNode === nodeId);
   const isAnimating = useStoryStore((state) => state.isAnimating);
-  const unlockConfigs = useStoryStore((state) => state.unlockConfigs);
   const openStoryView = useStoryStore((state) => state.openStoryView);
 
-  // Calculate node state - with safe defaults if node doesn't exist
-  const visitRecord = visitedNodes[nodeId];
-  const visitCount = visitRecord?.visitCount || 0;
-  const isActive = selectedNode === nodeId;
-  const isVisited = visitCount > 0;
+  // Use useShallow for the specific visit record to avoid re-renders when other nodes are visited
+  // We handle the case where visitRecord might be undefined
+  const visitRecord = useStoryStore(useShallow((state) => state.progress.visitedNodes[nodeId]));
 
-  // Check if node is available
-  const unlockConfig = unlockConfigs.get(nodeId);
-  const isAvailable = node ? isNodeAvailable(nodeId, progress, unlockConfig) : false;
+  // Primitive value selector - efficient by default
+  const awarenessLevel = useStoryStore((state) => state.progress.temporalAwarenessLevel);
+
+  // Custom selector for availability to avoid subscribing to the entire progress object
+  const isAvailable = useStoryStore((state) => {
+    // If node doesn't exist, it's not available
+    const currentNode = state.nodes.get(nodeId);
+    if (!currentNode) return false;
+
+    // Get the unlock config for this node
+    const config = state.unlockConfigs.get(nodeId);
+
+    // Check availability using the utility function with current state
+    return isNodeAvailable(nodeId, state.progress, config);
+  });
+
+  // Derived state
+  const visitCount = visitRecord?.visitCount || 0;
+  const isVisited = visitCount > 0;
   const isLocked = !isAvailable;
 
   // Get appearance based on state - with default values if node doesn't exist
+  // This calculation is cheap enough to do in render as long as inputs are stable
   const appearance = node
     ? getNodeAppearance({
         character: node.character,
-        isActive,
+        isActive: isSelected,
         isVisited,
         isLocked,
         awarenessLevel,
@@ -51,8 +65,8 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
   // Animated properties - must be called unconditionally (React rules of hooks)
   const baseScale = appearance.scale;
   const { scale, emissiveIntensity, opacity } = useSpring({
-    scale: isActive ? baseScale * 1.3 : isHovered && isAvailable ? baseScale * 1.05 : baseScale,
-    emissiveIntensity: isActive
+    scale: isSelected ? baseScale * 1.3 : isHovered && isAvailable ? baseScale * 1.05 : baseScale,
+    emissiveIntensity: isSelected
       ? appearance.emissiveIntensity
       : isHovered && isAvailable
         ? appearance.emissiveIntensity * 1.2
