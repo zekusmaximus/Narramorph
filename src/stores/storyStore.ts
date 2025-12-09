@@ -438,6 +438,7 @@ export const useStoryStore = create<StoryStore>()(
     // L3 Assembly State
     l3AssemblyCache: new Map(),
     l3AssemblyViewOpen: false,
+    isGeneratingL3: false,
     currentL3Assembly: null,
 
     // Unlock System State
@@ -536,6 +537,7 @@ export const useStoryStore = create<StoryStore>()(
 
     /**
      * Calculates temporal awareness based on cross-temporal exploration.
+     * Also updates transformation states for all visited nodes immediately.
      *
      * Algorithm:
      * - Diversity bonus: 20 points per unique character perspective
@@ -561,11 +563,20 @@ export const useStoryStore = create<StoryStore>()(
         // Temporal awareness formula
         const diversityBonus = perspectivesVisited * 20; // 0, 20, 40, or 60
         const explorationScore = Math.min((total / 10) * 40, 40); // Cap at 40
+        const newLevel = Math.min(diversityBonus + explorationScore, 100);
 
-        draftState.progress.temporalAwarenessLevel = Math.min(
-          diversityBonus + explorationScore,
-          100,
-        );
+        draftState.progress.temporalAwarenessLevel = newLevel;
+
+        // Immediately update transformation states for ALL visited nodes
+        // This ensures nodes transform visually even if the user hasn't moved
+        for (const [visitedNodeId, visitRec] of Object.entries(draftState.progress.visitedNodes)) {
+          visitRec.currentState = determineTransformationState(
+            visitedNodeId,
+            visitRec,
+            draftState.progress.specialTransformations,
+            newLevel,
+          );
+        }
       });
     },
 
@@ -766,7 +777,7 @@ export const useStoryStore = create<StoryStore>()(
     /**
      * Builds an L3 assembly for the current user state
      */
-    buildL3Assembly: (): L3Assembly | null => {
+    buildL3Assembly: async (): Promise<L3Assembly | null> => {
       const state = get();
       if (!state.storyData) {
         devError('Story not loaded');
@@ -774,13 +785,13 @@ export const useStoryStore = create<StoryStore>()(
       }
 
       const context = state.getConditionContext();
-      return buildL3Assembly(state.storyData.metadata.id, context);
+      return await buildL3Assembly(state.storyData.metadata.id, context);
     },
 
     /**
      * Get or build L3 assembly with caching
      */
-    getOrBuildL3Assembly: (): L3Assembly | null => {
+    getOrBuildL3Assembly: async (): Promise<L3Assembly | null> => {
       const state = get();
       if (!state.storyData) {
         devError('[L3Assembly] Story not loaded');
@@ -813,20 +824,29 @@ export const useStoryStore = create<StoryStore>()(
       }
 
       // Build new assembly
+      set({ isGeneratingL3: true });
       devLog('[L3Assembly] Building new assembly:', cacheKey);
-      const assembly = buildL3Assembly(state.storyData.metadata.id, context);
 
-      if (!assembly) {
-        devError('[L3Assembly] Failed to build assembly');
+      try {
+        const assembly = await buildL3Assembly(state.storyData.metadata.id, context);
+
+        if (!assembly) {
+          devError('[L3Assembly] Failed to build assembly');
+          return null;
+        }
+
+        // Cache the assembly
+        set((state) => {
+          state.l3AssemblyCache.set(cacheKey, assembly);
+          state.isGeneratingL3 = false;
+        });
+
+        return assembly;
+      } catch (error) {
+        devError('[L3Assembly] Error building assembly', error);
+        set({ isGeneratingL3: false });
         return null;
       }
-
-      // Cache the assembly
-      set((state) => {
-        state.l3AssemblyCache.set(cacheKey, assembly);
-      });
-
-      return assembly;
     },
 
     /**
@@ -842,7 +862,7 @@ export const useStoryStore = create<StoryStore>()(
     /**
      * Open L3 assembly view
      */
-    openL3AssemblyView: (nodeId?: string) => {
+    openL3AssemblyView: async (nodeId?: string) => {
       const state = get();
 
       // Finalize any existing active visit before starting a new one
@@ -878,8 +898,8 @@ export const useStoryStore = create<StoryStore>()(
         }
       }
 
-      // Build or get cached assembly
-      const assembly = state.getOrBuildL3Assembly();
+      // Build or get cached assembly (async now)
+      const assembly = await state.getOrBuildL3Assembly();
 
       if (!assembly) {
         devError('[L3Assembly] Cannot open view - no assembly available');
@@ -887,7 +907,8 @@ export const useStoryStore = create<StoryStore>()(
       }
 
       // ONE-WAY GATE: Lock L1/L2 nodes after first L3 view (convergence moment)
-      if (!state.progress.l3ConvergenceTriggered) {
+      const currentState = get(); // Re-get state after async call
+      if (!currentState.progress.l3ConvergenceTriggered) {
         devLog('[L3Assembly] ⚠️  CONVERGENCE TRIGGERED - Locking L1/L2 nodes (one-way gate)');
 
         set((draftState) => {
@@ -924,7 +945,7 @@ export const useStoryStore = create<StoryStore>()(
       });
 
       // Track L3 assembly view in progress
-      state.trackL3AssemblyView(assembly);
+      get().trackL3AssemblyView(assembly);
 
       devLog('[L3Assembly] Opened assembly view:', {
         journeyPattern: assembly.metadata.journeyPattern,
@@ -1189,21 +1210,9 @@ export const useStoryStore = create<StoryStore>()(
       });
 
       // Update temporal awareness and journey tracking after visit
+      // Note: updateTemporalAwareness now also handles updating transformation states
       get().updateTemporalAwareness();
       get().updateJourneyTracking();
-
-      // Re-determine transformation states for ALL visited nodes with new awareness
-      const freshState = get();
-      set((draftState) => {
-        for (const [visitedNodeId, visitRec] of Object.entries(draftState.progress.visitedNodes)) {
-          visitRec.currentState = determineTransformationState(
-            visitedNodeId,
-            visitRec,
-            freshState.progress.specialTransformations,
-            freshState.progress.temporalAwarenessLevel,
-          );
-        }
-      });
 
       // Check for special transformations
       const freshStateAgain = get();

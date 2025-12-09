@@ -177,6 +177,7 @@ export interface StoryStore {
   // L3 Assembly State
   l3AssemblyCache: Map<string, L3Assembly>;
   l3AssemblyViewOpen: boolean;
+  isGeneratingL3: boolean; // New flag: prevent blocking UI during assembly
   currentL3Assembly: L3Assembly | null;
 
   // Unlock System State
@@ -198,8 +199,8 @@ export interface StoryStore {
   ) => ConditionContext;
   updateActiveVisitVariation: (variationId: string) => void;
   finalizeActiveVisit: () => void;
-  buildL3Assembly: () => L3Assembly | null;
-  getOrBuildL3Assembly: () => L3Assembly | null;
+  buildL3Assembly: () => Promise<L3Assembly | null>;
+  getOrBuildL3Assembly: () => Promise<L3Assembly | null>;
   clearL3AssemblyCache: () => void;
   openL3AssemblyView: (nodeId?: string) => void;
   closeL3AssemblyView: () => void;
