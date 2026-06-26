@@ -36,7 +36,9 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps) {
   const isAvailable = useStoryStore((state) => {
     // If node doesn't exist, it's not available
     const currentNode = state.nodes.get(nodeId);
-    if (!currentNode) return false;
+    if (!currentNode) {
+      return false;
+    }
 
     // Get the unlock config for this node
     const config = state.unlockConfigs.get(nodeId);

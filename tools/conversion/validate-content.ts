@@ -9,7 +9,7 @@ import { join } from 'node:path';
 import { parseArgs } from 'node:util';
 
 import { writeFileAtomic } from './lib/fs.js';
-import { Logger, type LogEntry, type Severity } from './lib/log.js';
+import { Logger, type LogEntry } from './lib/log.js';
 
 interface CliArgs {
   strict?: boolean;
@@ -58,9 +58,9 @@ async function main() {
 
   // Validate L1 layer
   const l1Dir = join(contentRoot, 'layer1');
-  await validateLayer(l1Dir, logger, 'L1', (file) => {
+  await validateLayer(l1Dir, logger, 'L1', (file, filePath) => {
     totalFiles++;
-    const isValid = validateL1L2File(file, logger, 80);
+    const isValid = validateL1L2File(file, filePath, logger);
     if (isValid) {
       validFiles++;
     }
@@ -69,9 +69,9 @@ async function main() {
 
   // Validate L2 layer
   const l2Dir = join(contentRoot, 'layer2');
-  await validateLayer(l2Dir, logger, 'L2', (file) => {
+  await validateLayer(l2Dir, logger, 'L2', (file, filePath) => {
     totalFiles++;
-    const isValid = validateL1L2File(file, logger, 80);
+    const isValid = validateL1L2File(file, filePath, logger);
     if (isValid) {
       validFiles++;
     }
@@ -80,19 +80,19 @@ async function main() {
 
   // Validate L3 layer
   const l3Dir = join(contentRoot, 'layer3/variations');
-  await validateLayer(l3Dir, logger, 'L3', (file) => {
+  await validateLayer(l3Dir, logger, 'L3', (file, filePath) => {
     totalFiles++;
-    const isValid = validateL3File(file, logger);
+    const isValid = validateL3File(file, filePath, logger);
     if (isValid) {
       validFiles++;
     }
     return isValid;
   });
 
-  // Validate L3 matrix
-  const matrixPath = join(contentRoot, 'layer3/selection-matrix.json');
+  // Validate the runtime selection matrix
+  const matrixPath = join(contentRoot, 'selection-matrix.json');
   try {
-    const matrixValid = await validateL3Matrix(matrixPath, logger, values.strict || false);
+    const matrixValid = await validateSelectionMatrix(matrixPath, logger);
     totalFiles++;
     if (matrixValid) {
       validFiles++;
@@ -103,9 +103,9 @@ async function main() {
 
   // Validate L4 layer
   const l4Dir = join(contentRoot, 'layer4');
-  await validateLayer(l4Dir, logger, 'L4', (file) => {
+  await validateLayer(l4Dir, logger, 'L4', (file, filePath) => {
     totalFiles++;
-    const isValid = validateL4File(file, logger);
+    const isValid = validateL4File(file, filePath, logger);
     if (isValid) {
       validFiles++;
     }
@@ -210,7 +210,7 @@ async function validateLayer(
   dirPath: string,
   logger: Logger,
   layerName: string,
-  validator: (content: string) => boolean,
+  validator: (content: string, filePath: string) => boolean,
 ): Promise<void> {
   try {
     const files = await readdir(dirPath);
@@ -225,7 +225,7 @@ async function validateLayer(
       }
       const filePath = join(dirPath, file);
       const content = await readFile(filePath, 'utf-8');
-      validator(content);
+      validator(content, filePath);
     }
   } catch (error) {
     // Directory doesn't exist - not an error if content hasn't been generated yet
@@ -233,166 +233,176 @@ async function validateLayer(
   }
 }
 
-function validateL1L2File(jsonContent: string, logger: Logger, expectedCount: number): boolean {
+function validateL1L2File(jsonContent: string, filePath: string, logger: Logger): boolean {
   try {
     const data = JSON.parse(jsonContent);
+    let isValid = true;
 
-    // Check schemaVersion
     if (!data.schemaVersion) {
-      logger.blocker('MISSING_SCHEMA_VERSION', 'File missing schemaVersion field');
+      logger.blocker('MISSING_SCHEMA_VERSION', `${filePath}: missing schemaVersion field`);
       return false;
     }
 
-    // Check nodeId
     if (!data.nodeId || typeof data.nodeId !== 'string') {
-      logger.blocker('MISSING_NODE_ID', 'File missing or invalid nodeId field');
+      logger.blocker('MISSING_NODE_ID', `${filePath}: missing or invalid nodeId field`);
       return false;
     }
 
-    // Check totalVariations
-    if (data.totalVariations !== expectedCount) {
+    if (!Array.isArray(data.variations)) {
+      logger.blocker('INVALID_VARIATIONS', `${filePath}: variations field must be an array`);
+      return false;
+    }
+
+    if (data.totalVariations !== data.variations.length) {
       logger.error(
         'COUNT_MISMATCH',
-        `Expected ${expectedCount} variations, found ${data.totalVariations}`,
+        `${filePath}: declares ${data.totalVariations} variations but contains ${data.variations.length}`,
       );
+      isValid = false;
     }
 
-    // Check variations array
-    if (!Array.isArray(data.variations)) {
-      logger.blocker('INVALID_VARIATIONS', 'Variations field must be an array');
-      return false;
-    }
-
-    // Validate each variation
     for (const variation of data.variations) {
       if (!variation.id || typeof variation.id !== 'string') {
-        logger.blocker('MISSING_VARIATION_ID', 'Variation missing id field');
+        logger.blocker('MISSING_VARIATION_ID', `${filePath}: variation missing id field`);
         return false;
       }
 
       if (!variation.transformationState) {
         logger.blocker(
           'MISSING_TRANSFORMATION_STATE',
-          `Variation ${variation.id} missing transformationState`,
+          `${filePath}: variation ${variation.id} missing transformationState`,
         );
         return false;
       }
 
       if (!variation.content || typeof variation.content !== 'string') {
-        logger.blocker('MISSING_CONTENT', `Variation ${variation.id} missing content`);
+        logger.blocker('MISSING_CONTENT', `${filePath}: variation ${variation.id} missing content`);
         return false;
       }
     }
 
-    return !logger.hasBlockers();
+    return isValid;
   } catch (error) {
-    logger.blocker('JSON_PARSE_ERROR', `Failed to parse JSON: ${error}`);
+    logger.blocker('JSON_PARSE_ERROR', `${filePath}: failed to parse JSON: ${error}`);
     return false;
   }
 }
 
-function validateL3File(jsonContent: string, logger: Logger): boolean {
+function validateL3File(jsonContent: string, filePath: string, logger: Logger): boolean {
   try {
     const data = JSON.parse(jsonContent);
 
     if (!data.schemaVersion) {
-      logger.blocker('MISSING_SCHEMA_VERSION', 'L3 file missing schemaVersion');
+      logger.blocker('MISSING_SCHEMA_VERSION', `${filePath}: L3 file missing schemaVersion`);
       return false;
     }
 
     if (!data.id) {
-      logger.blocker('MISSING_ID', 'L3 file missing id field');
+      logger.blocker('MISSING_ID', `${filePath}: L3 file missing id field`);
       return false;
     }
 
     if (!data.sectionType) {
-      logger.blocker('MISSING_SECTION_TYPE', 'L3 file missing sectionType');
+      logger.blocker('MISSING_SECTION_TYPE', `${filePath}: L3 file missing sectionType`);
       return false;
     }
 
     if (!data.content) {
-      logger.blocker('MISSING_CONTENT', 'L3 file missing content');
+      logger.blocker('MISSING_CONTENT', `${filePath}: L3 file missing content`);
       return false;
     }
 
     // Validate conv-L3 has characterVoices
     if (data.sectionType === 'conv-L3') {
       if (!data.metadata?.characterVoices || !Array.isArray(data.metadata.characterVoices)) {
-        logger.blocker('MISSING_CHARACTER_VOICES', 'conv-L3 missing characterVoices array');
+        logger.blocker(
+          'MISSING_CHARACTER_VOICES',
+          `${filePath}: conv-L3 missing characterVoices array`,
+        );
         return false;
       }
       if (data.metadata.characterVoices.length < 2) {
-        logger.blocker('INVALID_CHARACTER_VOICES', 'conv-L3 characterVoices must have ≥2 voices');
+        logger.blocker(
+          'INVALID_CHARACTER_VOICES',
+          `${filePath}: conv-L3 characterVoices must have ≥2 voices`,
+        );
         return false;
       }
     }
 
-    return !logger.hasBlockers();
+    return true;
   } catch (error) {
-    logger.blocker('JSON_PARSE_ERROR', `Failed to parse L3 JSON: ${error}`);
+    logger.blocker('JSON_PARSE_ERROR', `${filePath}: failed to parse L3 JSON: ${error}`);
     return false;
   }
 }
 
-function validateL4File(jsonContent: string, logger: Logger): boolean {
+function validateL4File(jsonContent: string, filePath: string, logger: Logger): boolean {
   try {
     const data = JSON.parse(jsonContent);
-
-    if (!data.schemaVersion) {
-      logger.blocker('MISSING_SCHEMA_VERSION', 'L4 file missing schemaVersion');
+    const entries = Array.isArray(data) ? data : [data];
+    if (entries.length === 0) {
+      logger.blocker('EMPTY_L4_FILE', `${filePath}: L4 file is empty`);
       return false;
     }
-
-    if (!data.id || !data.id.startsWith('final-')) {
-      logger.blocker('INVALID_L4_ID', 'L4 id must start with "final-"');
-      return false;
-    }
-
-    if (!data.philosophy) {
-      logger.blocker('MISSING_PHILOSOPHY', 'L4 file missing philosophy');
-      return false;
-    }
-
-    if (!data.content) {
-      logger.blocker('MISSING_CONTENT', 'L4 file missing content');
-      return false;
-    }
-
-    return !logger.hasBlockers();
+    return entries.every((entry, index) => validateL4Entry(entry, `${filePath}[${index}]`, logger));
   } catch (error) {
-    logger.blocker('JSON_PARSE_ERROR', `Failed to parse L4 JSON: ${error}`);
+    logger.blocker('JSON_PARSE_ERROR', `${filePath}: failed to parse L4 JSON: ${error}`);
     return false;
   }
 }
 
-async function validateL3Matrix(
-  matrixPath: string,
-  logger: Logger,
-  strict: boolean,
-): Promise<boolean> {
+function validateL4Entry(data: unknown, source: string, logger: Logger): boolean {
+  if (!data || typeof data !== 'object') {
+    logger.blocker('INVALID_L4_ENTRY', `${source}: L4 entry must be an object`);
+    return false;
+  }
+  const entry = data as Record<string, unknown>;
+  if (!entry.schemaVersion) {
+    logger.blocker('MISSING_SCHEMA_VERSION', `${source}: missing schemaVersion`);
+    return false;
+  }
+  if (typeof entry.id !== 'string' || !entry.id.startsWith('final-')) {
+    logger.blocker('INVALID_L4_ID', `${source}: id must start with "final-"`);
+    return false;
+  }
+  if (!entry.philosophy) {
+    logger.blocker('MISSING_PHILOSOPHY', `${source}: missing philosophy`);
+    return false;
+  }
+  if (!entry.content) {
+    logger.blocker('MISSING_CONTENT', `${source}: missing content`);
+    return false;
+  }
+  return true;
+}
+
+async function validateSelectionMatrix(matrixPath: string, logger: Logger): Promise<boolean> {
   try {
     const content = await readFile(matrixPath, 'utf-8');
     const matrix = JSON.parse(content);
 
-    if (!matrix.schemaVersion) {
-      logger.blocker('MISSING_SCHEMA_VERSION', 'Matrix missing schemaVersion');
+    if (!Array.isArray(matrix) || matrix.length === 0) {
+      logger.blocker('INVALID_SELECTION_MATRIX', `${matrixPath}: expected a non-empty array`);
       return false;
     }
 
-    // Expect 45 combinations (3 × 3 × 5)
-    const expectedCombos = 45;
-    const actualCombos = Object.keys(matrix.selectionKeys || {}).length;
-
-    if (actualCombos !== expectedCombos) {
-      const severity = strict ? 'ERROR' : 'WARNING';
-      logger.log(
-        'MATRIX_INCOMPLETE',
-        severity as Severity,
-        `Matrix has ${actualCombos} combinations, expected ${expectedCombos}`,
-      );
+    for (const [index, entry] of matrix.entries()) {
+      if (
+        !entry ||
+        typeof entry.fromNode !== 'string' ||
+        typeof entry.toNode !== 'string' ||
+        typeof entry.metadata?.variationId !== 'string'
+      ) {
+        logger.blocker(
+          'INVALID_SELECTION_MATRIX_ENTRY',
+          `${matrixPath}[${index}]: missing fromNode, toNode, or metadata.variationId`,
+        );
+        return false;
+      }
     }
 
-    return !logger.hasBlockers();
+    return true;
   } catch (error) {
     logger.error('MATRIX_READ_ERROR', `Failed to read matrix: ${error}`);
     return false;

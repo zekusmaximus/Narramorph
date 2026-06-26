@@ -10,26 +10,29 @@ import {
   getNodePhilosophy,
   validateL2PhilosophyMappings,
 } from '@/data/stories/eternal-return/nodePhilosophyMapping';
+import { generateL3CacheKey } from '@/domain/l3/cacheKey';
+import {
+  checkSpecialTransformations,
+  classifyNavigationPattern,
+  createInitialPreferences,
+  createInitialProgress,
+  createInitialStats,
+  determineTransformationState,
+  getConnectionKey,
+  normalizeCharacter,
+  shouldRevealConnection,
+} from '@/domain/progress/progressModel';
 import type {
   StoryStore,
-  UserProgress,
   UserPreferences,
   SavedState,
   MapViewport,
   ReadingStats,
   NodeUIState,
   ConnectionUIState,
-  TransformationState,
-  UnlockedTransformation,
-  VisitRecord,
   StoryNode,
-  Connection,
-  JourneyTracking,
   ConditionContext,
   L3Assembly,
-  JourneyPattern,
-  PathPhilosophy,
-  SynthesisPattern,
 } from '@/types';
 import type { UnlockProgress } from '@/types/Unlock';
 import { calculateJourneyPattern, calculatePathPhilosophy } from '@/utils/conditionEvaluator';
@@ -67,349 +70,12 @@ const devError = (...args: unknown[]): void => {
   console.error('[StoryStore:error]', ...args);
 };
 
-/**
- * Creates initial journey tracking
- */
-function createInitialJourneyTracking(): JourneyTracking {
-  return {
-    startingCharacter: null,
-    characterVisitPercentages: {
-      archaeologist: 0,
-      algorithm: 0,
-      lastHuman: 0,
-    },
-    dominantCharacter: null,
-    currentJourneyPattern: 'unknown',
-    l2Choices: {
-      accept: 0,
-      resist: 0,
-      invest: 0,
-    },
-    dominantPhilosophy: 'unknown',
-    crossCharacterConnections: {
-      arch_algo: 0,
-      arch_hum: 0,
-      algo_hum: 0,
-    },
-    navigationPattern: 'undetermined',
-    lastCharacterVisited: null,
-    revisitFrequency: 0,
-    explorationMetrics: {
-      breadth: 0,
-      depth: 0,
-    },
-  };
-}
-
-/**
- * Creates initial empty user progress
- */
-function createInitialProgress(): UserProgress {
-  return {
-    visitedNodes: {},
-    readingPath: [],
-    unlockedConnections: [],
-    specialTransformations: [],
-    totalTimeSpent: 0,
-    lastActiveTimestamp: new Date().toISOString(),
-    temporalAwarenessLevel: 0,
-    characterNodesVisited: {
-      archaeologist: 0,
-      algorithm: 0,
-      lastHuman: 0,
-    },
-    journeyTracking: createInitialJourneyTracking(),
-    unlockedL2Characters: [],
-    l3ConvergenceTriggered: false,
-    lockedNodes: [],
-  };
-}
-
-/**
- * Creates initial user preferences
- */
-function createInitialPreferences(): UserPreferences {
-  return {
-    textSize: 'medium',
-    theme: 'light',
-    reduceMotion: false,
-    showTutorial: true,
-    showReadingStats: true,
-  };
-}
-
-/**
- * Creates initial reading stats
- */
-function createInitialStats(): ReadingStats {
-  return {
-    totalNodesVisited: 0,
-    totalNodes: 0,
-    percentageExplored: 0,
-    totalTimeSpent: 0,
-    averageTimePerNode: 0,
-    transformationsAvailable: 0,
-    criticalPathNodesVisited: 0,
-    criticalPathNodesTotal: 0,
-    characterBreakdown: {
-      archaeologist: { visited: 0, total: 0 },
-      algorithm: { visited: 0, total: 0 },
-      lastHuman: { visited: 0, total: 0 },
-    },
-  };
-}
-
-/**
- * Generate cache key for L3 assembly
- */
-function generateL3CacheKey(
-  journeyPattern: JourneyPattern,
-  pathPhilosophy: PathPhilosophy,
-  awarenessLevel: 'low' | 'medium' | 'high',
-  synthesisPattern: SynthesisPattern,
-): string {
-  return `${journeyPattern}_${pathPhilosophy}_${awarenessLevel}_${synthesisPattern}`;
-}
-
-/**
- * Determines transformation state based on visit count AND temporal awareness.
- *
- * For Eternal Return:
- * - initial: First visit, reader hasn't explored other time periods
- * - firstRevisit (temporal bleeding): Revisit after exploring other perspectives
- * - metaAware: Multiple revisits OR high temporal awareness
- *
- * @param nodeId - Node being evaluated
- * @param visitRecord - Visit history for this node
- * @param unlockedTransformations - Special transformations unlocked
- * @param temporalAwarenessLevel - Current temporal awareness (0-100)
- * @returns Appropriate transformation state
- */
-function determineTransformationState(
-  nodeId: string,
-  visitRecord: VisitRecord | undefined,
-  unlockedTransformations: UnlockedTransformation[],
-  temporalAwarenessLevel: number,
-): TransformationState {
-  // Priority 1: Special transformations always show metaAware
-  const specialUnlocked = unlockedTransformations.find((t) => t.nodeId === nodeId);
-  if (specialUnlocked) {
-    return 'metaAware';
-  }
-
-  const visitCount = visitRecord?.visitCount || 0;
-
-  // First visit ONLY: always initial state
-  if (visitCount === 1) {
-    devLog(`[TransformState] ${nodeId}: visitCount=${visitCount} → initial`);
-    return 'initial';
-  }
-
-  // Second visit: always firstRevisit (never show initial again)
-  if (visitCount === 2) {
-    devLog(
-      `[TransformState] ${nodeId}: visitCount=2, awareness=${temporalAwarenessLevel} → firstRevisit`,
-    );
-    return 'firstRevisit';
-  }
-
-  // Third+ visit OR high awareness: full meta-aware
-  if (visitCount >= 3 || temporalAwarenessLevel > 50) {
-    devLog(
-      `[TransformState] ${nodeId}: visitCount=${visitCount}, awareness=${temporalAwarenessLevel} → metaAware`,
-    );
-    return 'metaAware';
-  }
-
-  // Fallback (shouldn't normally reach here)
-  devLog(`[TransformState] ${nodeId}: fallback → firstRevisit`);
-  return 'firstRevisit';
-}
-
 type DraftStoryNode = WritableDraft<StoryNode>;
 
 function isLayeredStoryNode(
   node: DraftStoryNode | StoryNode | undefined,
 ): node is DraftStoryNode & Pick<StoryNode, 'layer'> {
   return typeof node === 'object' && node !== null && 'layer' in node;
-}
-
-/**
- * Checks if any special transformations should be unlocked after a visit.
- *
- * @param _visitedNodeId - The node that was just visited (unused but kept for future optimization)
- * @param nodes - Array of all story nodes
- * @param progress - Current user progress
- * @returns Array of newly unlocked transformations
- */
-function checkSpecialTransformations(
-  _visitedNodeId: string,
-  nodes: StoryNode[],
-  progress: UserProgress,
-): UnlockedTransformation[] {
-  const newlyUnlocked: UnlockedTransformation[] = [];
-
-  for (const node of nodes) {
-    if (!node.unlockConditions?.specialTransforms) {
-      continue;
-    }
-
-    for (const transform of node.unlockConditions.specialTransforms) {
-      // Check if already unlocked
-      const alreadyUnlocked = progress.specialTransformations.some(
-        (t) => t.nodeId === node.id && t.transformationId === transform.id,
-      );
-
-      if (alreadyUnlocked) {
-        continue;
-      }
-
-      // Check required prior nodes (any order)
-      const hasRequiredNodes = transform.requiredPriorNodes.every(
-        (nodeId) => progress.visitedNodes[nodeId],
-      );
-
-      if (!hasRequiredNodes) {
-        continue;
-      }
-
-      // Check required sequence (if specified)
-      if (transform.requiredSequence) {
-        const pathString = progress.readingPath.join(',');
-        const sequenceString = transform.requiredSequence.join(',');
-        if (!pathString.includes(sequenceString)) {
-          continue;
-        }
-      }
-
-      // All conditions met - unlock!
-      newlyUnlocked.push({
-        nodeId: node.id,
-        transformationId: transform.id,
-        unlockedAt: new Date().toISOString(),
-      });
-    }
-  }
-
-  return newlyUnlocked;
-}
-
-/**
- * Determines if a connection should be visible based on reveal conditions.
- *
- * @param connection - The connection to check
- * @param progress - Current user progress
- * @returns true if the connection should be visible
- */
-function shouldRevealConnection(connection: Connection, progress: UserProgress): boolean {
-  // If no reveal conditions, always visible
-  if (!connection.revealConditions) {
-    return true;
-  }
-
-  const { requiredVisits, requiredSequence } = connection.revealConditions;
-
-  // Check required visits
-  if (requiredVisits) {
-    for (const [nodeId, minCount] of Object.entries(requiredVisits)) {
-      const visitRecord = progress.visitedNodes[nodeId];
-      if (!visitRecord || visitRecord.visitCount < minCount) {
-        return false;
-      }
-    }
-  }
-
-  // Check required sequence
-  if (requiredSequence) {
-    const pathString = progress.readingPath.join(',');
-    const sequenceString = requiredSequence.join(',');
-    if (!pathString.includes(sequenceString)) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-/**
- * Normalize character name to standard format
- */
-function normalizeCharacter(character: string): 'archaeologist' | 'algorithm' | 'lastHuman' {
-  const charLower = character.toLowerCase();
-  if (charLower.includes('arch')) {
-    return 'archaeologist';
-  }
-  if (charLower.includes('algo')) {
-    return 'algorithm';
-  }
-  if (charLower.includes('hum') || charLower.includes('last')) {
-    return 'lastHuman';
-  }
-  return 'archaeologist'; // fallback
-}
-
-/**
- * Get connection key for cross-character tracking
- */
-function getConnectionKey(
-  from: 'archaeologist' | 'algorithm' | 'lastHuman',
-  to: 'archaeologist' | 'algorithm' | 'lastHuman',
-): keyof JourneyTracking['crossCharacterConnections'] | null {
-  if (from === to) {
-    return null;
-  }
-
-  // Sort to ensure bidirectional tracking (arch→algo same as algo→arch)
-  const [first, second] = [from, to].sort();
-
-  if (first === 'algorithm' && second === 'archaeologist') {
-    return 'arch_algo';
-  }
-  if (first === 'archaeologist' && second === 'lastHuman') {
-    return 'arch_hum';
-  }
-  if (first === 'algorithm' && second === 'lastHuman') {
-    return 'algo_hum';
-  }
-
-  return null;
-}
-
-/**
- * Classify navigation pattern based on journey tracking metrics
- */
-function classifyNavigationPattern(
-  tracking: JourneyTracking,
-): 'linear' | 'exploratory' | 'recursive' | 'undetermined' {
-  const { revisitFrequency, explorationMetrics } = tracking;
-  const { breadth, depth } = explorationMetrics;
-
-  // Not enough data yet
-  if (breadth < 10) {
-    return 'undetermined';
-  }
-
-  // Recursive: High revisit rate + high depth
-  if (revisitFrequency > 40 && depth > 2) {
-    return 'recursive';
-  }
-
-  // Exploratory: High breadth + low depth + many cross-character connections
-  const totalConnections = Object.values(tracking.crossCharacterConnections).reduce(
-    (sum, count) => sum + count,
-    0,
-  );
-
-  if (breadth > 50 && depth < 2 && totalConnections > 5) {
-    return 'exploratory';
-  }
-
-  // Linear: Low revisit rate + sequential pattern
-  if (revisitFrequency < 20 && depth < 1.5) {
-    return 'linear';
-  }
-
-  return 'undetermined';
 }
 
 /**
@@ -1299,7 +965,7 @@ export const useStoryStore = create<StoryStore>()(
       // Check if this is an L3 node
       if (isL3Node(nodeId)) {
         devLog('[Navigation] L3 node detected, opening assembly view');
-        state.openL3AssemblyView(nodeId);
+        void state.openL3AssemblyView(nodeId);
         // Clear animation flag after delay
         get().setIsAnimating(false);
         return;

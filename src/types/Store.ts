@@ -202,7 +202,7 @@ export interface StoryStore {
   buildL3Assembly: () => Promise<L3Assembly | null>;
   getOrBuildL3Assembly: () => Promise<L3Assembly | null>;
   clearL3AssemblyCache: () => void;
-  openL3AssemblyView: (nodeId?: string) => void;
+  openL3AssemblyView: (nodeId?: string) => Promise<void>;
   closeL3AssemblyView: () => void;
   trackL3AssemblyView: (assembly: L3Assembly) => void;
   markL3SectionRead: (section: 'arch' | 'algo' | 'hum' | 'conv') => void;

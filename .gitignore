@@ -140,3 +140,6 @@ playwright/.cache/
 # Content conversion artifacts
 *.tmp
 .backups/
+metadata-backups/
+tools/conversion/reports/*
+!tools/conversion/reports/.gitkeep
