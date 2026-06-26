@@ -1,3 +1,4 @@
+import { resolveStoryContentPath } from '@/domain/story/contentPath';
 import type { StoryData, Connection } from '@/types';
 import type { StoryNode } from '@/types/Node';
 
@@ -217,35 +218,7 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
       if (isDefinitionFile(charData)) {
         const characterRaw = charData.character;
         for (const def of charData.nodes) {
-          // Map old content file paths to actual variation file locations
-          // Old: content/archaeologist/arc-L1.json -> New: content/layer1/arch-L1-variations.json
-          let actualContentPath: string | null = null;
-
-          if (def.layer === 1) {
-            // L1: content/archaeologist/arc-L1.json -> content/layer1/arch-L1-variations.json
-            const charPrefix =
-              characterRaw === 'archaeologist' || characterRaw === 'arc'
-                ? 'arch'
-                : characterRaw === 'algorithm' || characterRaw === 'algo'
-                  ? 'algo'
-                  : 'hum';
-            actualContentPath = `/src/data/stories/${storyId}/content/layer1/${charPrefix}-L1-variations.json`;
-          } else if (def.layer === 2) {
-            // L2: Need to determine path philosophy from node ID (accept/resist/invest)
-            const charPrefix =
-              characterRaw === 'archaeologist' || characterRaw === 'arc'
-                ? 'arch'
-                : characterRaw === 'algorithm' || characterRaw === 'algo'
-                  ? 'algo'
-                  : 'hum';
-            // For now, try to find any L2 file for this character
-            const paths = [
-              `/src/data/stories/${storyId}/content/layer2/${charPrefix}-L2-accept-variations.json`,
-              `/src/data/stories/${storyId}/content/layer2/${charPrefix}-L2-resist-variations.json`,
-              `/src/data/stories/${storyId}/content/layer2/${charPrefix}-L2-invest-variations.json`,
-            ];
-            actualContentPath = paths.find((p) => l2VarMap[p]) || null;
-          }
+          const actualContentPath = resolveStoryContentPath(storyId, def.contentFile);
 
           const varData = actualContentPath
             ? l1VarMap[actualContentPath] || l2VarMap[actualContentPath]
@@ -357,7 +330,7 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
       }
     }
 
-    // Build story data (with soft validation ordering)
+    // Build and strictly validate story data before exposing it to the runtime store.
     const storyData: StoryData = {
       metadata: {
         id: metadata.metadata.id,
@@ -376,12 +349,7 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
       },
     };
 
-    // Soft-validate: warn but do not throw to unblock dev
-    try {
-      validateStoryData(storyData);
-    } catch (err) {
-      // Development warning: [contentLoader] Validation warning: ${(err as Error).message}
-    }
+    validateStoryData(storyData);
 
     return storyData;
   } catch (error) {

@@ -8,7 +8,7 @@ import type { VariationFile, Variation, SelectionMatrixEntry } from '@/types';
  * Cache for loaded variation files
  */
 const variationCache = new Map<string, VariationFile>();
-const selectionMatrixCache: SelectionMatrixEntry[] | null = null;
+const selectionMatrixCache = new Map<string, SelectionMatrixEntry[]>();
 
 /**
  * Load all variation files using Vite's glob import
@@ -317,9 +317,9 @@ export function loadL3Variations(storyId: string): {
  * Load the selection matrix
  */
 export function loadSelectionMatrix(storyId: string): SelectionMatrixEntry[] {
-  // Check cache
-  if (selectionMatrixCache) {
-    return selectionMatrixCache;
+  const cachedMatrix = selectionMatrixCache.get(storyId);
+  if (cachedMatrix) {
+    return cachedMatrix;
   }
 
   // Find the selection matrix file for this story
@@ -327,6 +327,7 @@ export function loadSelectionMatrix(storyId: string): SelectionMatrixEntry[] {
     if (path.includes(storyId)) {
       const matrixData: SelectionMatrixEntry[] =
         'default' in module ? module.default : (module as unknown as SelectionMatrixEntry[]);
+      selectionMatrixCache.set(storyId, matrixData);
       return matrixData;
     }
   }
@@ -363,4 +364,5 @@ export function findVariationById(
  */
 export function clearVariationCache(): void {
   variationCache.clear();
+  selectionMatrixCache.clear();
 }
