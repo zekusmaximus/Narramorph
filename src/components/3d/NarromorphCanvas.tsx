@@ -1,7 +1,10 @@
 import { OrbitControls } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import { useRef } from 'react';
+import { useRef, type KeyboardEvent, type ReactElement } from 'react';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
+
+import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
+import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 
 import CameraController from './CameraController';
 import { DEFAULT_CAMERA_POSITION } from './cameraDefaults';
@@ -58,11 +61,27 @@ import SceneContent from './SceneContent';
  * [ ] Safari (WebKit)
  * [ ] Fallback to 2D on unsupported browsers
  */
-export default function NarromorphCanvas() {
+export default function NarromorphCanvas(): ReactElement {
   const controlsRef = useRef<OrbitControlsImpl>(null);
+  const adapter = useMapInteractionAdapter('3d');
+  const reduceMotion = useReducedMotionPreference();
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>): void => {
+    const result = adapter.handleKey(event.key);
+    if (result.handled) {
+      event.preventDefault();
+    }
+  };
 
   return (
-    <div className="absolute inset-0">
+    <div
+      className="absolute inset-0"
+      role="application"
+      aria-label="Three-dimensional story node map"
+      aria-description="Use arrow keys to select nodes, Enter to open, and Escape to close the story panel."
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
+    >
       <Canvas
         className="h-full w-full"
         camera={{
@@ -83,7 +102,7 @@ export default function NarromorphCanvas() {
         <CameraController controlsRef={controlsRef} />
         <OrbitControls
           ref={controlsRef}
-          enableDamping
+          enableDamping={!reduceMotion}
           dampingFactor={0.08}
           enablePan={false}
           enableZoom

@@ -1,8 +1,11 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
-import type { ReactNode } from 'react';
+import { useEffect, useMemo, type ReactElement } from 'react';
 
+import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
+import { MarkdownContent } from '@/components/StoryView/MarkdownContent';
+import { useDialogFocus } from '@/hooks/useDialogFocus';
+import { useReadingTimer } from '@/hooks/useReadingTimer';
 import { useVariationSelection } from '@/hooks/useVariationSelection';
 import { useStoryStore } from '@/stores';
 import type { CharacterType, StoryNode } from '@/types';
@@ -18,60 +21,19 @@ const characterThemes: Record<CharacterType, { accent: string }> = {
 };
 
 /**
- * Parses markdown content for story display
- * Supports bold, italic, and paragraph formatting
- */
-function parseMarkdown(content: string): ReactNode {
-  // Split into paragraphs
-  let paragraphs = content.split('\n\n').filter((p) => p.trim());
-  if (paragraphs.length === 1) {
-    paragraphs = content.split('\n').filter((p) => p.trim());
-  }
-
-  return paragraphs.map((paragraph, pIndex) => {
-    const parts: ReactNode[] = [];
-    let lastIndex = 0;
-
-    // Process bold text (**text**)
-    const boldRegex = /\*\*(.*?)\*\*/g;
-    let match;
-
-    while ((match = boldRegex.exec(paragraph)) !== null) {
-      // Add text before match
-      if (match.index > lastIndex) {
-        parts.push(paragraph.slice(lastIndex, match.index));
-      }
-      // Add bold text
-      parts.push(<strong key={`bold-${pIndex}-${match.index}`}>{match[1]}</strong>);
-      lastIndex = match.index + match[0].length;
-    }
-
-    // Add remaining text
-    if (lastIndex < paragraph.length) {
-      parts.push(paragraph.slice(lastIndex));
-    }
-
-    return (
-      <p key={`p-${pIndex}`} className="mb-4 leading-relaxed">
-        {parts.length > 0 ? parts : paragraph}
-      </p>
-    );
-  });
-}
-
-/**
  * Content panel for 3D mode
  * Fixed-position overlay that slides in from the right
  */
-export default function ContentPanel3D() {
+export default function ContentPanel3D(): ReactElement | null {
+  const adapter = useMapInteractionAdapter('3d');
   const nodes = useStoryStore((state) => state.nodes);
-  const selectedNode = useStoryStore((state) => state.selectedNode);
-  const storyViewOpen = useStoryStore((state) => state.storyViewOpen);
-  const closeStoryView = useStoryStore((state) => state.closeStoryView);
   const getNodeState = useStoryStore((state) => state.getNodeState);
   const updateActiveVisitVariation = useStoryStore((state) => state.updateActiveVisitVariation);
-
-  const [timeSpent, setTimeSpent] = useState(0);
+  const selectedNode = adapter.selectedNodeId;
+  const storyViewOpen = adapter.panel.open;
+  const closeStoryView = adapter.panel.close;
+  const dialogRef = useDialogFocus(storyViewOpen, closeStoryView);
+  const timeSpent = useReadingTimer(storyViewOpen, selectedNode);
 
   const currentNode: StoryNode | null = useMemo(() => {
     if (!selectedNode) {
@@ -111,41 +73,12 @@ export default function ContentPanel3D() {
     return characterThemes[currentNode.character];
   }, [currentNode]);
 
-  // Track reading time
-  useEffect(() => {
-    if (!storyViewOpen || !selectedNode) {
-      return undefined;
-    }
-
-    const startTime = Date.now();
-    const interval = setInterval(() => {
-      setTimeSpent(Math.floor((Date.now() - startTime) / 1000));
-    }, 1000);
-
-    return () => {
-      clearInterval(interval);
-      setTimeSpent(0);
-    };
-  }, [storyViewOpen, selectedNode]);
-
   // Update variation ID
   useEffect(() => {
     if (storyViewOpen && selectedNode && variationId && !usedFallback) {
       updateActiveVisitVariation(variationId);
     }
   }, [storyViewOpen, selectedNode, variationId, usedFallback, updateActiveVisitVariation]);
-
-  // Close on Escape
-  useEffect(() => {
-    const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && storyViewOpen) {
-        closeStoryView();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [storyViewOpen, closeStoryView]);
 
   if (!storyViewOpen || !currentNode || !nodeState) {
     return null;
@@ -154,6 +87,11 @@ export default function ContentPanel3D() {
   return (
     <AnimatePresence>
       <motion.div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="content-panel-title"
+        tabIndex={-1}
         key={`content-panel-${selectedNode}`}
         initial={{ x: '100%' }}
         animate={{ x: 0 }}
@@ -169,7 +107,9 @@ export default function ContentPanel3D() {
                 {currentNode.character[0]?.toUpperCase() ?? '?'}
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-white">{currentNode.title}</h2>
+                <h2 id="content-panel-title" className="text-2xl font-bold text-white">
+                  {currentNode.title}
+                </h2>
                 <div className="flex items-center space-x-3 text-sm text-white/80 mt-1">
                   <span className="capitalize font-medium">{currentNode.character}</span>
                   <span>•</span>
@@ -210,7 +150,9 @@ export default function ContentPanel3D() {
             </div>
           )}
 
-          <div className="prose prose-lg max-w-none">{parseMarkdown(currentContent)}</div>
+          <div className="prose prose-lg max-w-none">
+            <MarkdownContent content={currentContent} />
+          </div>
 
           {/* Reading time tracker */}
           <div className="mt-8 pt-4 border-t border-gray-200 text-sm text-gray-500">

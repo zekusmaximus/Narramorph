@@ -1,6 +1,6 @@
 import type { CharacterType } from '@/types';
 
-interface NodeAppearance {
+export interface NodeAppearance {
   color: string;
   emissiveColor: string;
   emissiveIntensity: number;
@@ -8,7 +8,7 @@ interface NodeAppearance {
   opacity: number;
 }
 
-interface GetNodeAppearanceParams {
+export interface GetNodeAppearanceParams {
   character: CharacterType;
   isActive: boolean;
   isVisited: boolean;
