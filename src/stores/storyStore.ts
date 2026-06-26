@@ -1299,7 +1299,7 @@ export const useStoryStore = create<StoryStore>()(
       // Check if this is an L3 node
       if (isL3Node(nodeId)) {
         devLog('[Navigation] L3 node detected, opening assembly view');
-        state.openL3AssemblyView(nodeId);
+        void state.openL3AssemblyView(nodeId);
         // Clear animation flag after delay
         get().setIsAnimating(false);
         return;
