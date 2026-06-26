@@ -8,6 +8,10 @@ import { join, resolve } from 'node:path';
 
 import { describe, it, expect } from 'vitest';
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
 describe('Selection Matrix 45-combo property', () => {
   it('has exactly 45 combos with full coverage when fixture set is complete', async () => {
     const projectRoot = resolve(process.cwd(), '../..');
@@ -16,10 +20,14 @@ describe('Selection Matrix 45-combo property', () => {
       'src/data/stories/eternal-return/content/layer3/selection-matrix.json',
     );
 
-    let matrix: any;
+    let matrix: Record<string, unknown>;
     try {
       const content = await readFile(matrixPath, 'utf-8');
-      matrix = JSON.parse(content);
+      const parsed: unknown = JSON.parse(content);
+      if (!isRecord(parsed)) {
+        return;
+      }
+      matrix = parsed;
     } catch {
       // Matrix not present; skip strict property in this environment
       return;
@@ -30,12 +38,20 @@ describe('Selection Matrix 45-combo property', () => {
       return;
     }
 
-    expect(Array.isArray(matrix.selections)).toBe(true);
-    expect(matrix.selections.length).toBe(45);
+    const selections = matrix.selections;
+    expect(Array.isArray(selections)).toBe(true);
+    if (!Array.isArray(selections)) {
+      return;
+    }
+    expect(selections.length).toBe(45);
 
     // Exactly one entry per combo key
     const keys = new Set<string>();
-    for (const entry of matrix.selections) {
+    for (const entry of selections) {
+      expect(isRecord(entry)).toBe(true);
+      if (!isRecord(entry)) {
+        continue;
+      }
       const key = `${entry.journeyPattern}|${entry.philosophyDominant}|${entry.awarenessLevel}`;
       expect(keys.has(key)).toBe(false);
       keys.add(key);
@@ -48,13 +64,21 @@ describe('Selection Matrix 45-combo property', () => {
     }
 
     // Coverage totals must be 45 each
-    expect(matrix.coverage.archaeologist).toBe(45);
-    expect(matrix.coverage.algorithm).toBe(45);
-    expect(matrix.coverage.lastHuman).toBe(45);
-    expect(matrix.coverage.convergent).toBe(45);
+    const coverage = matrix.coverage;
+    expect(isRecord(coverage)).toBe(true);
+    if (!isRecord(coverage)) {
+      return;
+    }
+    expect(coverage.archaeologist).toBe(45);
+    expect(coverage.algorithm).toBe(45);
+    expect(coverage.lastHuman).toBe(45);
+    expect(coverage.convergent).toBe(45);
 
     // Missing should be empty when complete
-    expect(Array.isArray(matrix.missing)).toBe(true);
-    expect(matrix.missing.length).toBe(0);
+    const missing = matrix.missing;
+    expect(Array.isArray(missing)).toBe(true);
+    if (Array.isArray(missing)) {
+      expect(missing.length).toBe(0);
+    }
   });
 });

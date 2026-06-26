@@ -64,6 +64,32 @@ Content`;
     expect(logger.hasBlockers()).toBe(true);
   });
 
+  it('repairs an unindented text block without reading past the final line', () => {
+    const markdown = `---
+variation_id: arch-L1-FR-001
+text: >-
+Recovered first line
+Recovered second line
+---
+Body`;
+
+    const result = parseFrontmatter(markdown);
+
+    expect(result?.frontmatter).toMatchObject({
+      variation_id: 'arch-L1-FR-001',
+      text: 'Recovered first line Recovered second line',
+    });
+    expect(result?.content).toBe('Body');
+  });
+
+  it('returns null when YAML parses to a null document', () => {
+    const logger = new Logger();
+    const result = parseFrontmatter('---\nnull\n---\nBody', logger);
+
+    expect(result).toBeNull();
+    expect(logger.hasBlockers()).toBe(true);
+  });
+
   it('should trim content whitespace', () => {
     const markdown = `---
 key: value

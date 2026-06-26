@@ -9,7 +9,7 @@
  */
 
 import { promises as fs } from 'node:fs';
-import { join, resolve, basename, dirname, relative } from 'node:path';
+import { join, resolve, basename, relative } from 'node:path';
 import { parseArgs } from 'node:util';
 
 import YAML from 'yaml';
@@ -17,6 +17,9 @@ import YAML from 'yaml';
 // ============================================================================
 // TYPES & INTERFACES
 // ============================================================================
+
+export type ContentLayer = 'L1' | 'L2' | 'L3' | 'L4';
+type Frontmatter = Record<string, unknown>;
 
 interface LayerConfig {
   // Filename pattern to match
@@ -26,10 +29,10 @@ interface LayerConfig {
   requiredFields: string[];
 
   // Fields that are required conditionally
-  conditionalFields: Map<string, (frontmatter: any) => boolean>;
+  conditionalFields: Map<string, (frontmatter: Frontmatter) => boolean>;
 
   // Function to normalize variation ID from filename and frontmatter
-  idNormalizer: (filename: string, frontmatter: any) => string;
+  idNormalizer: (filename: string) => string;
 
   // Optional function to normalize text content
   textNormalizer?: (text: string) => string;
@@ -42,7 +45,7 @@ interface LayerConfig {
 }
 
 interface NormalizationResult {
-  frontmatter: any;
+  frontmatter: Frontmatter;
   content: string;
   modified: boolean;
   errors: string[];
@@ -50,7 +53,7 @@ interface NormalizationResult {
 }
 
 interface FixerOptions {
-  layer: 'L1' | 'L2' | 'L3' | 'L4' | 'all';
+  layer: ContentLayer | 'all';
   contentRoot: string;
   dryRun?: boolean;
   verbose?: boolean;
@@ -91,19 +94,17 @@ const EXCLUDED_PATTERNS = [
   'node_modules',
 ];
 
-const LAYER_CONFIGS: Record<string, LayerConfig> = {
+const LAYER_CONFIGS: Record<ContentLayer, LayerConfig> = {
   L1: {
     pattern: /^(arch|algo|hum)-L1-(FR|MA)-\d+\.md$/,
     requiredFields: ['variation_id', 'variation_type', 'word_count'],
-    conditionalFields: new Map([
-      ['conditions.awareness', (fm) => true], // Always required for L1
-    ]),
-    idNormalizer: (filename, frontmatter) => {
+    conditionalFields: new Map([['conditions.awareness', () => true]]),
+    idNormalizer: (filename) => {
       const match = filename.match(/^(\w+)-L1-(FR|MA)-(\d+)/);
-      if (!match) {
+      const [, char, phase, num] = match ?? [];
+      if (char === undefined || phase === undefined || num === undefined) {
         throw new Error(`Invalid L1 filename: ${filename}`);
       }
-      const [, char, phase, num] = match;
       // Use 5-digit padding to match current convention (arch-L1-FR-00004)
       return `${char}-L1-${phase}-${num.padStart(5, '0')}`;
     },
@@ -127,15 +128,15 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
       'awarenessRange',
     ],
     conditionalFields: new Map([
-      ['thematicContent', (fm) => true],
-      ['narrativeElements', (fm) => true],
+      ['thematicContent', () => true],
+      ['narrativeElements', () => true],
     ]),
-    idNormalizer: (filename, frontmatter) => {
+    idNormalizer: (filename) => {
       const match = filename.match(/^(\w+)-L2-(\w+)-(FR|MA)-(\d+)/);
-      if (!match) {
+      const [, char, path, phase, num] = match ?? [];
+      if (char === undefined || path === undefined || phase === undefined || num === undefined) {
         throw new Error(`Invalid L2 filename: ${filename}`);
       }
-      const [, char, path, phase, num] = match;
       // L2 uses 2-digit padding in current convention
       return `${char}-L2-${path}-${phase}-${num.padStart(2, '0')}`;
     },
@@ -152,16 +153,16 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
     requiredFields: ['variationId', 'nodeId', 'layer', 'wordCount'],
     conditionalFields: new Map([
       // L3 has these at top-level AND in conditions - check top-level only
-      ['journeyPattern', (fm) => true],
-      ['philosophyDominant', (fm) => true],
-      ['awarenessLevel', (fm) => true],
+      ['journeyPattern', () => true],
+      ['philosophyDominant', () => true],
+      ['awarenessLevel', () => true],
     ]),
-    idNormalizer: (filename, frontmatter) => {
+    idNormalizer: (filename) => {
       const match = filename.match(/^(\w+)-L3-(\d+)/);
-      if (!match) {
+      const [, sectionType, num] = match ?? [];
+      if (sectionType === undefined || num === undefined) {
         throw new Error(`Invalid L3 filename: ${filename}`);
       }
-      const [, sectionType, num] = match;
       // L3 uses 3-digit padding
       return `${sectionType}-L3-${num.padStart(3, '0')}`;
     },
@@ -173,7 +174,7 @@ const LAYER_CONFIGS: Record<string, LayerConfig> = {
     pattern: /^(final-(preserve|release|transform)|L4-(PRESERVE|RELEASE|TRANSFORM))\.md$/i,
     requiredFields: ['id', 'philosophy', 'wordCount'],
     conditionalFields: new Map(),
-    idNormalizer: (filename, frontmatter) => {
+    idNormalizer: (filename) => {
       let m = filename.match(/^final-(preserve|release|transform)/i);
       if (m && m[1]) {
         return `final-${m[1].toLowerCase()}`;
@@ -208,20 +209,22 @@ async function scanDirectory(dirPath: string): Promise<string[]> {
         files.push(fullPath);
       }
     }
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Directory doesn't exist or not accessible
-    if (error.code !== 'ENOENT' && error.code !== 'EACCES') {
-      console.warn(`⚠️  Error scanning ${dirPath}: ${error.message}`);
+    const code =
+      error !== null && typeof error === 'object' && 'code' in error ? error.code : undefined;
+    if (code !== 'ENOENT' && code !== 'EACCES') {
+      console.warn(`⚠️  Error scanning ${dirPath}: ${getErrorMessage(error)}`);
     }
   }
 
   return files;
 }
 
-async function discoverContentFiles(options: FixerOptions): Promise<Map<string, string[]>> {
+async function discoverContentFiles(options: FixerOptions): Promise<Map<ContentLayer, string[]>> {
   const { layer, contentRoot } = options;
-  const layers = layer === 'all' ? ['L1', 'L2', 'L3', 'L4'] : [layer];
-  const filesByLayer = new Map<string, string[]>();
+  const layers: ContentLayer[] = layer === 'all' ? ['L1', 'L2', 'L3', 'L4'] : [layer];
+  const filesByLayer = new Map<ContentLayer, string[]>();
 
   for (const currentLayer of layers) {
     const config = LAYER_CONFIGS[currentLayer];
@@ -264,7 +267,26 @@ async function discoverContentFiles(options: FixerOptions): Promise<Map<string, 
 // YAML NORMALIZATION
 // ============================================================================
 
-function parseFrontmatter(raw: string): { frontmatter: any; content: string } {
+function isRecord(value: unknown): value is Frontmatter {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function getErrorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error);
+}
+
+function parseYamlRecord(yamlText: string): Frontmatter {
+  const parsed: unknown = YAML.parse(yamlText, { strict: false, uniqueKeys: false });
+  if (!isRecord(parsed)) {
+    throw new Error('Frontmatter must be a YAML object');
+  }
+  return parsed;
+}
+
+export function parseFrontmatter(raw: string): {
+  frontmatter: Frontmatter;
+  content: string;
+} {
   const match = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
   if (!match) {
     throw new Error('No frontmatter found');
@@ -272,21 +294,28 @@ function parseFrontmatter(raw: string): { frontmatter: any; content: string } {
 
   const yamlText = match[1];
   const content = match[2];
+  if (yamlText === undefined || content === undefined) {
+    throw new Error('Frontmatter or content missing');
+  }
 
   // Parse YAML with error recovery
   try {
-    const parsed = YAML.parse(yamlText, { strict: false, uniqueKeys: false });
+    const parsed = parseYamlRecord(yamlText);
     return { frontmatter: parsed, content };
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Attempt targeted repair for common patterns (e.g., text: >- without indentation)
     let repaired = yamlText;
     if (/^\s*text:\s*>-\s*$/m.test(repaired)) {
       const lines = repaired.split(/\r?\n/);
       for (let i = 0; i < lines.length; i++) {
-        if (/^\s*text:\s*>-\s*$/.test(lines[i])) {
+        const line = lines[i];
+        if (line !== undefined && /^\s*text:\s*>-\s*$/.test(line)) {
           let j = i + 1;
           for (; j < lines.length; j++) {
             const l = lines[j];
+            if (l === undefined) {
+              break;
+            }
             if (/^---\s*$/.test(l)) {
               break;
             }
@@ -301,10 +330,10 @@ function parseFrontmatter(raw: string): { frontmatter: any; content: string } {
       repaired = lines.join('\n');
     }
     try {
-      const parsed = YAML.parse(repaired, { strict: false, uniqueKeys: false });
+      const parsed = parseYamlRecord(repaired);
       return { frontmatter: parsed, content };
-    } catch (err: any) {
-      throw new Error(`YAML parse error: ${error.message}`);
+    } catch {
+      throw new Error(`YAML parse error: ${getErrorMessage(error)}`);
     }
   }
 }
@@ -319,14 +348,16 @@ function stripMalformedFrontmatter(raw: string): string {
   let i = 1;
   // scan until next '---'; if found, drop everything up to and including it
   for (; i < lines.length; i++) {
-    if (lines[i].trim() === '---') {
+    const line = lines[i];
+    if (line !== undefined && line.trim() === '---') {
       return lines.slice(i + 1).join('\n');
     }
   }
   // no closing fence; drop up to first blank line to avoid swallowing body headings
   i = 1;
   for (; i < lines.length; i++) {
-    if (lines[i].trim() === '') {
+    const line = lines[i];
+    if (line !== undefined && line.trim() === '') {
       return lines.slice(i + 1).join('\n');
     }
   }
@@ -334,16 +365,20 @@ function stripMalformedFrontmatter(raw: string): string {
   return lines.slice(1).join('\n');
 }
 
-function createMinimalFrontmatter(filename: string, layer: string, config: LayerConfig): any {
-  const baseFields: any = {};
+function createMinimalFrontmatter(
+  filename: string,
+  layer: ContentLayer,
+  config: LayerConfig,
+): Frontmatter {
+  const baseFields: Frontmatter = {};
 
   if (layer === 'L1') {
-    baseFields.variation_id = config.idNormalizer(filename, {});
+    baseFields.variation_id = config.idNormalizer(filename);
     baseFields.variation_type = 'firstRevisit';
     baseFields.word_count = 0;
     baseFields.conditions = { awareness: '0-0%' };
   } else if (layer === 'L2') {
-    baseFields.variationId = config.idNormalizer(filename, {});
+    baseFields.variationId = config.idNormalizer(filename);
     const match = filename.match(/^(\w+)-L2-(\w+)-(FR|MA)/);
     if (match) {
       baseFields.character =
@@ -355,7 +390,7 @@ function createMinimalFrontmatter(filename: string, layer: string, config: Layer
     baseFields.awarenessRange = [0, 0];
     baseFields.nodeId = '';
   } else if (layer === 'L3') {
-    baseFields.variationId = config.idNormalizer(filename, {});
+    baseFields.variationId = config.idNormalizer(filename);
     baseFields.layer = 3;
     baseFields.wordCount = 0;
     baseFields.nodeId = '';
@@ -363,7 +398,7 @@ function createMinimalFrontmatter(filename: string, layer: string, config: Layer
     baseFields.philosophyDominant = 'accept';
     baseFields.awarenessLevel = 'low';
   } else if (layer === 'L4') {
-    baseFields.id = config.idNormalizer(filename, {});
+    baseFields.id = config.idNormalizer(filename);
     const match = filename.match(/final-(\w+)/);
     baseFields.philosophy = match ? match[1] : 'preserve';
     baseFields.wordCount = 0;
@@ -372,11 +407,11 @@ function createMinimalFrontmatter(filename: string, layer: string, config: Layer
   return baseFields;
 }
 
-function has(obj: any, path: string): boolean {
+function has(obj: Frontmatter, path: string): boolean {
   const keys = path.split('.');
-  let current = obj;
+  let current: unknown = obj;
   for (const key of keys) {
-    if (current?.[key] === undefined) {
+    if (!isRecord(current) || current[key] === undefined) {
       return false;
     }
     current = current[key];
@@ -384,28 +419,27 @@ function has(obj: any, path: string): boolean {
   return current !== undefined;
 }
 
-function get(obj: any, path: string): any {
+function set(obj: Frontmatter, path: string, value: unknown): void {
   const keys = path.split('.');
-  let current = obj;
-  for (const key of keys) {
-    if (current?.[key] === undefined) {
-      return undefined;
-    }
-    current = current[key];
-  }
-  return current;
-}
-
-function set(obj: any, path: string, value: any): void {
-  const keys = path.split('.');
-  let current = obj;
+  let current: Frontmatter = obj;
   for (let i = 0; i < keys.length - 1; i++) {
-    if (!current[keys[i]]) {
-      current[keys[i]] = {};
+    const key = keys[i];
+    if (key === undefined) {
+      return;
     }
-    current = current[keys[i]];
+    const child = current[key];
+    if (!isRecord(child)) {
+      const next: Frontmatter = {};
+      current[key] = next;
+      current = next;
+    } else {
+      current = child;
+    }
   }
-  current[keys[keys.length - 1]] = value;
+  const finalKey = keys.at(-1);
+  if (finalKey !== undefined) {
+    current[finalKey] = value;
+  }
 }
 
 function countWords(text: string): number {
@@ -417,21 +451,21 @@ function normalizeTextBlocks(content: string): string {
   return content;
 }
 
-function normalizeLists(obj: any): any {
-  if (Array.isArray(obj)) {
-    return obj.map((item) => (typeof item === 'string' ? item.trim() : normalizeLists(item)));
-  } else if (obj && typeof obj === 'object') {
-    const normalized: any = {};
-    for (const [key, value] of Object.entries(obj)) {
-      normalized[key] = normalizeLists(value);
+function normalizeLists(value: unknown): unknown {
+  if (Array.isArray(value)) {
+    return value.map((item) => (typeof item === 'string' ? item.trim() : normalizeLists(item)));
+  } else if (isRecord(value)) {
+    const normalized: Frontmatter = {};
+    for (const [key, child] of Object.entries(value)) {
+      normalized[key] = normalizeLists(child);
     }
     return normalized;
   }
-  return obj;
+  return value;
 }
 
-function getDefaultValue(field: string, layer: string): any {
-  const defaults: Record<string, any> = {
+function getDefaultValue(field: string, layer: ContentLayer): unknown {
+  const defaults: Record<string, unknown> = {
     variation_id: '',
     variationId: '',
     variation_type: 'firstRevisit',
@@ -458,7 +492,7 @@ function getDefaultValue(field: string, layer: string): any {
 
 async function normalizeFile(
   filePath: string,
-  layer: string,
+  layer: ContentLayer,
   config: LayerConfig,
   verbose: boolean = false,
 ): Promise<NormalizationResult> {
@@ -469,16 +503,16 @@ async function normalizeFile(
   let modified = false;
 
   // Parse frontmatter
-  let frontmatter: any;
+  let frontmatter: Frontmatter;
   let content: string;
 
   try {
     const parsed = parseFrontmatter(raw);
     frontmatter = parsed.frontmatter;
     content = parsed.content;
-  } catch (error: any) {
+  } catch (error: unknown) {
     // Parse failure—create minimal valid frontmatter
-    warnings.push(`YAML parse failure: ${error.message}, creating minimal frontmatter`);
+    warnings.push(`YAML parse failure: ${getErrorMessage(error)}, creating minimal frontmatter`);
     frontmatter = createMinimalFrontmatter(filename, layer, config);
     content = stripMalformedFrontmatter(raw); // Strip any malformed frontmatter
     modified = true;
@@ -491,7 +525,7 @@ async function normalizeFile(
       : layer === 'L4'
         ? 'id'
         : 'variationId';
-  const expectedId = config.idNormalizer(filename, frontmatter);
+  const expectedId = config.idNormalizer(filename);
 
   if (frontmatter[idField] !== expectedId) {
     if (verbose) {
@@ -528,6 +562,9 @@ async function normalizeFile(
 
   // Normalize lists in frontmatter
   const normalizedFrontmatter = normalizeLists(frontmatter);
+  if (!isRecord(normalizedFrontmatter)) {
+    throw new Error(`Normalized frontmatter is not an object: ${filename}`);
+  }
   if (JSON.stringify(normalizedFrontmatter) !== JSON.stringify(frontmatter)) {
     frontmatter = normalizedFrontmatter;
     modified = true;
@@ -542,7 +579,7 @@ async function normalizeFile(
       modified = true;
     }
     // Ensure characterVoices for conv-L3 files
-    if (/conv-L3-production[\/]/.test(filePath) || /(^|[\/])conv-L3-\d+\.md$/.test(filePath)) {
+    if (/conv-L3-production[\\/]/.test(filePath) || /(^|[\\/])conv-L3-\d+\.md$/.test(filePath)) {
       if (!Array.isArray(frontmatter.characterVoices) || frontmatter.characterVoices.length < 2) {
         frontmatter.characterVoices = ['archaeologist', 'algorithm', 'last-human'];
         modified = true;
@@ -589,7 +626,7 @@ async function writeNormalizedFile(filePath: string, result: NormalizationResult
 // ============================================================================
 
 export async function fixContent(options: FixerOptions): Promise<FixerReport> {
-  const { layer, contentRoot, dryRun = false, verbose = false } = options;
+  const { layer, dryRun = false, verbose = false } = options;
 
   console.log(`🔧 Fixing content for layer(s): ${layer}`);
   if (dryRun) {
@@ -656,14 +693,15 @@ export async function fixContent(options: FixerOptions): Promise<FixerReport> {
         } else if (verbose) {
           console.log(`   • ${filename} (no changes)`);
         }
-      } catch (error: any) {
+      } catch (error: unknown) {
+        const message = getErrorMessage(error);
         layerReport.errors++;
         report.errors.push({
           file: filename,
           layer: currentLayer,
-          errors: [error.message],
+          errors: [message],
         });
-        console.error(`   ✗ ${filename}: ${error.message}`);
+        console.error(`   ✗ ${filename}: ${message}`);
       }
     }
 
@@ -713,6 +751,16 @@ export async function fixContent(options: FixerOptions): Promise<FixerReport> {
 // CLI ENTRY POINT
 // ============================================================================
 
+export function parseLayerArgument(value: string | undefined): ContentLayer | 'all' {
+  if (value === undefined || value === 'all') {
+    return 'all';
+  }
+  if (value === 'L1' || value === 'L2' || value === 'L3' || value === 'L4') {
+    return value;
+  }
+  throw new Error(`Invalid --layer value "${value}". Expected L1, L2, L3, L4, or all.`);
+}
+
 if (import.meta.url === `file://${process.argv[1]}`) {
   const { values } = parseArgs({
     options: {
@@ -722,7 +770,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     },
   });
 
-  const layer = (values.layer as any) || 'all';
+  const layer = parseLayerArgument(values.layer);
   const dryRun = values['dry-run'] || false;
   const verbose = values.verbose || false;
   const contentRoot = resolve(process.cwd(), '../../docs');

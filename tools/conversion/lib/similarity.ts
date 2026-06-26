@@ -46,7 +46,11 @@ function generateMinHashSignature(shingles: Set<string>, numHashes: number): num
   for (const shingle of shingles) {
     for (let i = 0; i < numHashes; i++) {
       const hash = hashString(shingle, i);
-      signature[i] = Math.min(signature[i], hash);
+      const current = signature[i];
+      if (current === undefined) {
+        throw new Error(`Missing MinHash slot ${i}`);
+      }
+      signature[i] = Math.min(current, hash);
     }
   }
 
@@ -161,13 +165,20 @@ export function detectSimilarVariations(
     // Check similarity for candidate pairs
     for (const pairKey of candidatePairs) {
       const [id1, id2] = pairKey.split('|');
-      const sig1 = signatures.get(id1)!;
-      const sig2 = signatures.get(id2)!;
+      if (id1 === undefined || id2 === undefined) {
+        continue;
+      }
+
+      const sig1 = signatures.get(id1);
+      const sig2 = signatures.get(id2);
+      if (sig1 === undefined || sig2 === undefined) {
+        continue;
+      }
 
       const similarity = estimateSimilarity(sig1, sig2);
 
       if (similarity >= SIMILARITY_THRESHOLD) {
-        results.push({ id1: id1, id2: id2, similarity });
+        results.push({ id1, id2, similarity });
 
         logger?.warning(
           'SIMILARITY_HIGH',
