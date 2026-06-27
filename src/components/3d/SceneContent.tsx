@@ -1,6 +1,6 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, type ReactElement } from 'react';
 
-import { useStoryStore } from '@/stores';
+import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
 import { useSpatialStore } from '@/stores/spatialStore';
 import type { StoryNode, CharacterType } from '@/types';
 
@@ -20,31 +20,9 @@ const CHARACTER_METADATA: Record<string, { color: string; label: string }> = {
  * Scene content for 3D visualization
  * Renders node spheres positioned by character layout
  */
-export default function SceneContent() {
-  const nodeMap = useStoryStore((state) => state.nodes);
-  const visitedNodes = useStoryStore((state) => state.progress.visitedNodes);
-  const canVisitNode = useStoryStore((state) => state.canVisitNode);
-  const nodes = useMemo(() => {
-    // Memoize array conversion so spatial updates don't create new references
-    return Array.from(nodeMap.values());
-  }, [nodeMap]);
-  const accessibleNodes = useMemo(() => {
-    if (nodes.length === 0) {
-      return [];
-    }
-
-    return nodes.filter((node) => {
-      if (node.character === 'multi-perspective') {
-        return false;
-      }
-
-      if (visitedNodes[node.id]) {
-        return true;
-      }
-
-      return canVisitNode(node.id);
-    });
-  }, [canVisitNode, nodes, visitedNodes]);
+export default function SceneContent(): ReactElement {
+  const adapter = useMapInteractionAdapter('3d');
+  const accessibleNodes = useMemo(() => adapter.nodes.map(({ node }) => node), [adapter.nodes]);
   const computeLayout = useSpatialStore((state) => state.computeLayout);
   const positions = useSpatialStore((state) => state.positions);
 

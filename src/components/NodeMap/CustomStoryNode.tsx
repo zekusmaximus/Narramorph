@@ -1,165 +1,31 @@
-import { Handle, Position, type NodeProps } from '@xyflow/react';
+import { Handle, Position, type Node, type NodeProps } from '@xyflow/react';
 import { motion } from 'framer-motion';
-import { Lock } from 'lucide-react';
-import { memo, useState, useMemo, type ReactNode } from 'react';
+import { memo, useMemo, useState, type ReactElement } from 'react';
 
-import type { StoryNode, NodeUIState, CharacterType, TransformationState } from '@/types';
+import type { NodeUIState, StoryNode } from '@/types';
 
+import { STORY_NODE_THEMES, getTransformationBadge } from './nodeTheme';
+import { StoryNodeLabel, StoryNodeParticles, StoryNodeUnlockStatus } from './StoryNodeAncillary';
 import { useStoryStore } from '../../stores/storyStore';
 
 /**
  * Props passed to custom node via React Flow
  */
-export interface CustomStoryNodeData {
+export type CustomStoryNodeData = {
   node: StoryNode;
   nodeState: NodeUIState;
   isSelected: boolean;
-}
+  available: boolean;
+} & Record<string, unknown>;
 
-/**
- * Character-specific visual themes - Dystopian Cyberpunk
- */
-const CHARACTER_THEMES = {
-  archaeologist: {
-    // Cold preservation, frozen memories
-    primary: '#00e5ff',
-    secondary: '#0097a7',
-    tertiary: '#ffa726',
-    accent: '#b0bec5',
-    rgb: '0, 229, 255',
-
-    gradient: 'from-cyan-400 via-cyan-600 to-teal-700',
-    glowColor: '#00e5ff',
-    glowSecondary: '#ffa726',
-
-    glow: `
-      0 0 30px #00e5ff,
-      0 0 60px rgba(0, 229, 255, 0.5),
-      0 0 100px rgba(255, 167, 38, 0.25),
-      inset 0 0 20px #ffa726
-    `,
-    pulseGlow: `
-      0 0 40px #00e5ff,
-      0 0 80px rgba(0, 229, 255, 0.6),
-      0 0 120px rgba(255, 167, 38, 0.3)
-    `,
-  },
-
-  algorithm: {
-    // Electric emergence, living code
-    primary: '#39ff14',
-    secondary: '#76ff03',
-    tertiary: '#7c4dff',
-    accent: '#e8f5e9',
-    rgb: '57, 255, 20',
-
-    gradient: 'from-green-400 via-green-500 to-purple-600',
-    glowColor: '#39ff14',
-    glowSecondary: '#7c4dff',
-
-    glow: `
-      0 0 40px #39ff14,
-      0 0 80px rgba(57, 255, 20, 0.5),
-      0 0 120px rgba(124, 77, 255, 0.25),
-      0 0 5px #ffffff
-    `,
-    pulseGlow: `
-      0 0 50px #39ff14,
-      0 0 100px rgba(57, 255, 20, 0.6),
-      0 0 150px rgba(124, 77, 255, 0.4)
-    `,
-  },
-
-  'last-human': {
-    // Organic warmth, mortality
-    primary: '#d32f2f',
-    secondary: '#b71c1c',
-    tertiary: '#ff6e40',
-    accent: '#fafafa',
-    rgb: '211, 47, 47',
-
-    gradient: 'from-red-600 via-red-700 to-red-900',
-    glowColor: '#d32f2f',
-    glowSecondary: '#ff6e40',
-
-    glow: `
-      0 0 50px #d32f2f,
-      0 0 90px rgba(211, 47, 47, 0.5),
-      0 0 130px rgba(255, 110, 64, 0.25),
-      inset 0 0 30px #fafafa
-    `,
-    pulseGlow: `
-      0 0 60px #d32f2f,
-      0 0 110px rgba(211, 47, 47, 0.6),
-      0 0 160px rgba(255, 110, 64, 0.4)
-    `,
-  },
-  'multi-perspective': {
-    // Convergence, unified consciousness
-    primary: '#9c27b0',
-    secondary: '#7b1fa2',
-    tertiary: '#ce93d8',
-    accent: '#f3e5f5',
-    rgb: '156, 39, 176',
-
-    gradient: 'from-purple-500 via-purple-600 to-purple-800',
-    glowColor: '#9c27b0',
-    glowSecondary: '#ce93d8',
-
-    glow: `
-      0 0 45px #9c27b0,
-      0 0 85px rgba(156, 39, 176, 0.5),
-      0 0 125px rgba(206, 147, 216, 0.25),
-      inset 0 0 25px #f3e5f5
-    `,
-    pulseGlow: `
-      0 0 55px #9c27b0,
-      0 0 105px rgba(156, 39, 176, 0.6),
-      0 0 155px rgba(206, 147, 216, 0.4)
-    `,
-  },
-} as const;
-
-/**
- * Get character icon/emoji for node
- * Currently unused but kept for future feature
- */
-function getCharacterIcon(character: CharacterType): string {
-  switch (character) {
-    case 'archaeologist':
-      return '🔍';
-    case 'algorithm':
-      return '🧠';
-    case 'last-human':
-      return '👤';
-    case 'multi-perspective':
-      return '🔮';
-    default:
-      return '•';
-  }
-}
-
-/**
- * Get transformation state badge
- */
-function getTransformationBadge(state: TransformationState): ReactNode {
-  if (state === 'firstRevisit') {
-    return '◇';
-  }
-
-  if (state === 'metaAware') {
-    return '◈';
-  }
-
-  return null;
-}
+export type CustomStoryFlowNode = Node<CustomStoryNodeData, 'storyNode'>;
 
 /**
  * Custom Story Node Component with dystopian cyberpunk aesthetics
  */
-function CustomStoryNode({ data, selected }: NodeProps) {
-  const { node, nodeState, isSelected } = data as unknown as CustomStoryNodeData;
-  const theme = CHARACTER_THEMES[node.character as CharacterType];
+function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): ReactElement {
+  const { node, nodeState, isSelected, available } = data;
+  const theme = STORY_NODE_THEMES[node.character];
 
   // Hover and interaction states
   const [isHovering, setIsHovering] = useState(false);
@@ -170,7 +36,7 @@ function CustomStoryNode({ data, selected }: NodeProps) {
   const nodes = useStoryStore((state) => state.nodes);
 
   // Unlock system access
-  const canVisit = useStoryStore((state) => state.canVisitNode(node.id));
+  const canVisit = available;
   const getUnlockProgress = useStoryStore((state) => state.getUnlockProgress);
   const unlockConfigs = useStoryStore((state) => state.unlockConfigs);
 
@@ -181,6 +47,7 @@ function CustomStoryNode({ data, selected }: NodeProps) {
     }
     return null;
   }, [node.id, unlockConfigs, getUnlockProgress]);
+  const unlockConfig = unlockConfigs.get(node.id);
 
   // Check if this node is connected to selected node
   const isConnectionTarget = useMemo(() => {
@@ -546,216 +413,25 @@ function CustomStoryNode({ data, selected }: NodeProps) {
             />
           )}
 
-          {/* Lock icon overlay for locked nodes */}
-          {!canVisit && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="absolute inset-0 flex items-center justify-center bg-black/60 rounded-full backdrop-blur-sm"
-            >
-              <Lock className="w-8 h-8 text-white" />
-            </motion.div>
-          )}
-
-          {/* Progress ring for partially unlocked nodes */}
-          {!canVisit && unlockProgress && unlockProgress.progress > 0 && (
-            <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="48"
-                fill="none"
-                stroke={theme.primary}
-                strokeWidth="4"
-                strokeDasharray={`${unlockProgress.progress * 3.01} 301`}
-                opacity="0.6"
-              />
-            </svg>
-          )}
+          <StoryNodeUnlockStatus
+            canVisit={canVisit}
+            isHovering={isHovering}
+            theme={theme}
+            unlockProgress={unlockProgress}
+            unlockConfig={unlockConfig}
+            includeOverlay
+          />
         </div>
 
-        {/* Character-specific particles */}
-        {isVisited && (
-          <>
-            {/* Archaeologist: Crystalline dust particles */}
-            {node.character === 'archaeologist' && (
-              <div className="absolute inset-0 pointer-events-none">
-                {[...Array(6)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-1 h-1 rounded-full"
-                    style={{
-                      background: theme.tertiary,
-                      left: `${20 + Math.random() * 60}%`,
-                      top: `${20 + Math.random() * 60}%`,
-                    }}
-                    animate={{
-                      y: [0, -20, 0],
-                      opacity: [0, 0.6, 0],
-                      scale: [0, 1, 0],
-                    }}
-                    transition={{
-                      duration: 3 + Math.random() * 2,
-                      repeat: Infinity,
-                      delay: i * 0.5,
-                      ease: 'easeInOut',
-                    }}
-                  />
-                ))}
-              </div>
-            )}
-
-            {/* Algorithm: Binary streams */}
-            {node.character === 'algorithm' && (
-              <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-full">
-                {['0', '1', '0', '1'].map((digit, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute text-xs font-mono"
-                    style={{
-                      color: theme.primary,
-                      left: `${25 * i}%`,
-                      textShadow: `0 0 5px ${theme.primary}`,
-                    }}
-                    animate={{
-                      y: [size, -20],
-                      opacity: [0, 1, 0],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: i * 0.3,
-                      ease: 'linear',
-                    }}
-                  >
-                    {digit}
-                  </motion.div>
-                ))}
-              </div>
-            )}
-
-            {/* Human: Rising embers */}
-            {node.character === 'last-human' && (
-              <div className="absolute inset-0 pointer-events-none">
-                {[...Array(4)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-1.5 h-1.5 rounded-full"
-                    style={{
-                      background: theme.tertiary,
-                      boxShadow: `0 0 4px ${theme.tertiary}`,
-                      left: `${30 + Math.random() * 40}%`,
-                    }}
-                    animate={{
-                      y: [size / 2, -size],
-                      opacity: [0.8, 0],
-                      x: [0, (Math.random() - 0.5) * 20],
-                    }}
-                    transition={{
-                      duration: 4 + Math.random(),
-                      repeat: Infinity,
-                      delay: i * 0.8,
-                      ease: 'easeOut',
-                    }}
-                  />
-                ))}
-              </div>
-            )}
-          </>
-        )}
-
-        {/* Node title label - terminal style */}
-        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 text-center pointer-events-none">
-          <div
-            className="bg-black/95 backdrop-blur-sm px-3 py-1.5 rounded border font-mono shadow-lg"
-            style={{
-              borderColor: `${theme.primary}40`,
-              boxShadow: `0 0 10px ${theme.primary}20`,
-            }}
-          >
-            <div
-              className="text-sm font-semibold whitespace-nowrap tracking-wide flex items-center justify-center gap-1"
-              style={{ color: theme.primary }}
-            >
-              <span className="text-[10px] opacity-80">{getCharacterIcon(node.character)}</span>
-              <span>{node.title}</span>
-            </div>
-            <div className="text-xs mt-0.5" style={{ color: theme.accent }}>
-              {node.metadata.estimatedReadTime} MIN • ACT {node.metadata.narrativeAct}
-            </div>
-          </div>
-        </div>
-
-        {/* Unlock requirements tooltip - only visible on hover for locked nodes */}
-        {!canVisit && isHovering && unlockProgress && unlockConfigs.has(node.id) && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="absolute top-full left-1/2 transform -translate-x-1/2 mt-28 w-64 pointer-events-none z-50"
-          >
-            <div
-              className="bg-black/95 backdrop-blur-sm p-3 rounded border font-mono text-xs shadow-2xl"
-              style={{
-                borderColor: `${theme.primary}40`,
-                boxShadow: `0 0 20px ${theme.primary}20`,
-              }}
-            >
-              {/* Header */}
-              <div className="mb-2">
-                <div className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">
-                  Locked
-                </div>
-                <div className="text-white font-semibold text-sm">
-                  {unlockConfigs.get(node.id)?.lockedMessage}
-                </div>
-              </div>
-
-              {/* Progress */}
-              <div className="mb-2">
-                <div className="flex justify-between text-gray-400 text-[10px] mb-1">
-                  <span>Progress</span>
-                  <span>{Math.round(unlockProgress.progress)}%</span>
-                </div>
-                <div className="w-full bg-gray-700 rounded-full h-1">
-                  <div
-                    className="h-1 rounded-full transition-all"
-                    style={{
-                      width: `${unlockProgress.progress}%`,
-                      backgroundColor: theme.primary,
-                    }}
-                  />
-                </div>
-              </div>
-
-              {/* Conditions */}
-              <div className="space-y-1">
-                {unlockConfigs.get(node.id)?.unlockConditions.map((condition) => {
-                  const met = unlockProgress.conditionsMet.includes(condition.id);
-                  return (
-                    <div key={condition.id} className="flex items-start space-x-2">
-                      <span className={met ? 'text-green-400' : 'text-gray-500'}>
-                        {met ? '✓' : '○'}
-                      </span>
-                      <span className={met ? 'text-gray-400 line-through' : 'text-gray-300'}>
-                        {condition.description}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Next action hint */}
-              {unlockProgress.nextConditionHint && (
-                <div className="mt-2 pt-2 border-t border-gray-700">
-                  <div className="text-gray-400 text-[10px] uppercase tracking-wider mb-1">
-                    Next Action
-                  </div>
-                  <div className="text-yellow-400">{unlockProgress.nextConditionHint}</div>
-                </div>
-              )}
-            </div>
-          </motion.div>
-        )}
+        {isVisited && <StoryNodeParticles node={node} theme={theme} size={size} />}
+        <StoryNodeLabel node={node} theme={theme} />
+        <StoryNodeUnlockStatus
+          canVisit={canVisit}
+          isHovering={isHovering}
+          theme={theme}
+          unlockProgress={unlockProgress}
+          unlockConfig={unlockConfig}
+        />
       </motion.div>
     </>
   );

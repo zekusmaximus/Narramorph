@@ -1,9 +1,10 @@
 import { useSpring } from '@react-spring/three';
 import { useThree, useFrame } from '@react-three/fiber';
-import type { RefObject } from 'react';
+import type { ReactElement, RefObject } from 'react';
 import { useEffect, useMemo, useRef } from 'react';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
+import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';
 
@@ -15,7 +16,7 @@ interface CameraControllerProps {
 
 type Vec3 = [number, number, number];
 
-function vec3Equals(a: Vec3, b: Vec3) {
+function vec3Equals(a: Vec3, b: Vec3): boolean {
   return a[0] === b[0] && a[1] === b[1] && a[2] === b[2];
 }
 
@@ -23,11 +24,14 @@ function vec3Equals(a: Vec3, b: Vec3) {
  * Camera controller component
  * Manages camera behavior and controls with smooth transitions
  */
-export default function CameraController({ controlsRef }: CameraControllerProps) {
+export default function CameraController({
+  controlsRef,
+}: CameraControllerProps): ReactElement | null {
   const { camera } = useThree();
   const selectedNode = useStoryStore((state) => state.selectedNode);
   const positions = useSpatialStore((state) => state.positions);
   const setIsAnimating = useStoryStore((state) => state.setIsAnimating);
+  const reduceMotion = useReducedMotionPreference();
 
   const previousTargetRef = useRef<Vec3 | null>(null);
   const previousPositionRef = useRef<Vec3 | null>(null);
@@ -92,6 +96,17 @@ export default function CameraController({ controlsRef }: CameraControllerProps)
     previousTargetRef.current = target;
     previousPositionRef.current = cameraTargetPos;
 
+    if (reduceMotion) {
+      camera.position.set(cameraTargetPos[0], cameraTargetPos[1], cameraTargetPos[2]);
+      if (controlsRef.current) {
+        controlsRef.current.target.set(target[0], target[1], target[2]);
+        controlsRef.current.update();
+      }
+      animationActiveRef.current = false;
+      setIsAnimating(false);
+      return;
+    }
+
     void api.start({
       position: cameraTargetPos,
       target,
@@ -111,7 +126,7 @@ export default function CameraController({ controlsRef }: CameraControllerProps)
         }
       },
     });
-  }, [api, camera, cameraTargetPos, controlsRef, setIsAnimating, target]);
+  }, [api, camera, cameraTargetPos, controlsRef, reduceMotion, setIsAnimating, target]);
 
   // Update camera and controls on each frame
   useFrame(() => {
