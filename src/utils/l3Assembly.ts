@@ -2,17 +2,29 @@
  * L3 Assembly Builder - constructs 4-section convergence assemblies
  */
 
-import type {
-  L3Assembly,
-  L3AssemblySection,
-  ConditionContext,
-  SynthesisPattern,
-  VariationFile,
-} from '@/types';
+import { assembleL3Selection, selectL3Sections } from '@/domain/l3/assembly';
+import type { L3Assembly, L3AssemblySection, ConditionContext, SynthesisPattern } from '@/types';
 
-import { findMatchingVariation } from './conditionEvaluator';
 import { performanceMonitor } from './performanceMonitor';
 import { loadL3Variations } from './variationLoader';
+
+export interface L3AssemblyProfile {
+  loadingMs: number;
+  selectionMs: number;
+  assemblyMs: number;
+  totalMs: number;
+  variationCounts: {
+    arch: number;
+    algo: number;
+    hum: number;
+    conv: number;
+  };
+}
+
+export interface ProfiledL3Assembly {
+  assembly: L3Assembly;
+  profile: L3AssemblyProfile;
+}
 
 /**
  * Calculate synthesis pattern based on character visit percentages
@@ -47,112 +59,77 @@ export function calculateSynthesisPattern(percentages: {
 }
 
 /**
- * Build a single L3 section for a character
+ * Build a complete L3 assembly and expose stage timings for repeatable
+ * profiling. Loading is asynchronous because the aggregate JSON is code-split;
+ * selection and assembly remain synchronous because both are sub-millisecond.
  */
-function buildSection(
-  character: 'arch' | 'algo' | 'hum' | 'conv',
-  variationFile: VariationFile | null,
+export async function buildL3AssemblyWithProfile(
+  storyId: string,
   context: ConditionContext,
-): L3AssemblySection | null {
-  if (!variationFile || !variationFile.variations) {
-    console.warn(`No variation file found for ${character}`);
-    return null;
+): Promise<ProfiledL3Assembly> {
+  const totalStarted = performance.now();
+
+  const loadingStarted = performance.now();
+  const variations = await loadL3Variations(storyId);
+  const loadingMs = performance.now() - loadingStarted;
+
+  const synthesisPattern = calculateSynthesisPattern(context.characterVisitPercentages);
+
+  const selectionStarted = performance.now();
+  const selection = selectL3Sections(variations, context, synthesisPattern);
+  const selectionMs = performance.now() - selectionStarted;
+
+  if (!selection) {
+    throw new Error(`Unable to select all L3 sections for story "${storyId}"`);
   }
 
-  const variation = findMatchingVariation(variationFile.variations, context);
+  const assemblyStarted = performance.now();
+  const assembly = assembleL3Selection(selection, context);
+  const assemblyMs = performance.now() - assemblyStarted;
 
-  if (!variation) {
-    console.warn(`No matching variation found for ${character}`, context);
-    // Fallback to first variation if available
-    if (variationFile.variations.length > 0) {
-      const fallback = variationFile.variations[0];
-      if (!fallback) {
-        return null;
-      }
-      return {
-        character,
-        variationId: fallback.variationId,
-        content: fallback.content,
-        wordCount: fallback.metadata.wordCount,
-        metadata: fallback.metadata,
-      };
-    }
-    return null;
-  }
-
-  return {
-    character,
-    variationId: variation.variationId,
-    content: variation.content,
-    wordCount: variation.metadata.wordCount,
-    metadata: variation.metadata,
+  const profile: L3AssemblyProfile = {
+    loadingMs,
+    selectionMs,
+    assemblyMs,
+    totalMs: performance.now() - totalStarted,
+    variationCounts: {
+      arch: variations.arch.variations.length,
+      algo: variations.algo.variations.length,
+      hum: variations.hum.variations.length,
+      conv: variations.conv.variations.length,
+    },
   };
+
+  const metadata = {
+    storyId,
+    variationCount: Object.values(profile.variationCounts).reduce(
+      (total, count) => total + count,
+      0,
+    ),
+  };
+  performanceMonitor.recordDuration('l3.loading', loadingMs, metadata);
+  performanceMonitor.recordDuration('l3.selection', selectionMs, metadata);
+  performanceMonitor.recordDuration('l3.assembly', assemblyMs, metadata);
+  performanceMonitor.recordDuration('l3.total', profile.totalMs, metadata);
+
+  return { assembly, profile };
 }
 
-/**
- * Build a complete L3 assembly with all 4 sections
- * Async to prevent blocking the main thread
- */
 export async function buildL3Assembly(
   storyId: string,
   context: ConditionContext,
 ): Promise<L3Assembly | null> {
   const endTimer = performanceMonitor.startTimer('l3Assembly');
 
-  // Simulate non-blocking behavior to allow UI updates
-  await new Promise((resolve) => setTimeout(resolve, 0));
-
   try {
-    // Load all L3 variation files
-    const variations = loadL3Variations(storyId);
-
-    // Build each section
-    const archSection = buildSection('arch', variations.arch, context);
-    const algoSection = buildSection('algo', variations.algo, context);
-    const humSection = buildSection('hum', variations.hum, context);
-
-    // For convergence section, we need to adjust context with synthesis pattern
-    const synthesisPattern = calculateSynthesisPattern(context.characterVisitPercentages);
-    const convSection = buildSection('conv', variations.conv, context);
-
-    // Ensure all sections are present
-    if (!archSection || !algoSection || !humSection || !convSection) {
-      console.error('Failed to build all L3 sections');
-      endTimer({ success: false });
-      return null;
-    }
-
-    const totalWordCount =
-      archSection.wordCount + algoSection.wordCount + humSection.wordCount + convSection.wordCount;
-
-    const result = {
-      arch: archSection,
-      algo: algoSection,
-      hum: humSection,
-      conv: convSection,
-      totalWordCount,
-      metadata: {
-        journeyPattern: context.journeyPattern,
-        pathPhilosophy: context.pathPhilosophy,
-        awarenessLevel:
-          context.awareness < 35
-            ? ('low' as const)
-            : context.awareness < 70
-              ? ('medium' as const)
-              : ('high' as const),
-        synthesisPattern,
-        convergenceAlignment: convSection.metadata.convergenceAlignment,
-      },
-    };
-
+    const result = await buildL3AssemblyWithProfile(storyId, context);
     endTimer({
       success: true,
-      journeyPattern: result.metadata.journeyPattern,
-      pathPhilosophy: result.metadata.pathPhilosophy,
-      synthesisPattern: result.metadata.synthesisPattern,
+      journeyPattern: result.assembly.metadata.journeyPattern,
+      pathPhilosophy: result.assembly.metadata.pathPhilosophy,
+      synthesisPattern: result.assembly.metadata.synthesisPattern,
     });
-
-    return result;
+    return result.assembly;
   } catch (error) {
     console.error('Error building L3 assembly:', error);
     endTimer({ success: false });

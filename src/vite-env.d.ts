@@ -12,19 +12,6 @@ interface ImportMetaEnv {
 
 interface ImportMeta {
   readonly env: ImportMetaEnv;
-
-  // Type-safe glob imports
-  glob: {
-    <Module = Record<string, unknown>>(
-      pattern: string | string[],
-      options?: {
-        as?: 'raw' | 'url';
-        eager?: boolean;
-        import?: string;
-        exhaustive?: boolean;
-      },
-    ): Record<string, Module>;
-  };
 }
 
 // Augment Window interface for development-only properties

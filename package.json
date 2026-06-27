@@ -13,6 +13,7 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
+    "profile:l3": "vite-node tools/performance/profile-l3.ts",
     "prepare": "husky",
     "lint": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint . --cache",
     "lint:fix": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint . --cache --fix && npm run format",

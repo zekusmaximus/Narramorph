@@ -2,13 +2,26 @@
  * Variation loader - handles loading and caching of variation JSON files
  */
 
-import type { VariationFile, Variation, SelectionMatrixEntry } from '@/types';
+import type {
+  AwarenessLevel,
+  JourneyPattern,
+  L3ContentSynthesisPattern,
+  L3Variation,
+  L3VariationFile,
+  L3VariationMetadata,
+  L3VariationSet,
+  PathPhilosophy,
+  SelectionMatrixEntry,
+  Variation,
+  VariationFile,
+} from '@/types';
 
 /**
  * Cache for loaded variation files
  */
 const variationCache = new Map<string, VariationFile>();
 const selectionMatrixCache = new Map<string, SelectionMatrixEntry[]>();
+const l3VariationCache = new Map<string, Promise<L3VariationSet>>();
 
 /**
  * Load all variation files using Vite's glob import
@@ -28,11 +41,8 @@ const l2VariationFiles = import.meta.glob<{ default: VariationFile }>(
   },
 );
 
-const l3VariationFiles = import.meta.glob<{ default: VariationFile }>(
+const l3VariationFiles = import.meta.glob<{ default: unknown }>(
   '/src/data/stories/*/content/layer3/*-variations.json',
-  {
-    eager: true,
-  },
 );
 
 const l4VariationFiles = import.meta.glob<{ default: VariationFile }>(
@@ -55,7 +65,6 @@ const selectionMatrixFiles = import.meta.glob<{ default: SelectionMatrixEntry[] 
 const allVariationFiles = {
   ...l1VariationFiles,
   ...l2VariationFiles,
-  ...l3VariationFiles,
   ...l4VariationFiles,
 };
 
@@ -271,46 +280,183 @@ export function loadVariationFile(storyId: string, nodeId: string): VariationFil
 }
 
 /**
- * Load L3 variation files for all characters
+ * L3 aggregate files are large arrays with a deliberately smaller schema than
+ * L1/L2 variations. Parse that boundary once, when the L3 route is requested.
  */
-export function loadL3Variations(storyId: string): {
-  arch: VariationFile | null;
-  algo: VariationFile | null;
-  hum: VariationFile | null;
-  conv: VariationFile | null;
-} {
-  const result = {
-    arch: null as VariationFile | null,
-    algo: null as VariationFile | null,
-    hum: null as VariationFile | null,
-    conv: null as VariationFile | null,
-  };
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
 
-  for (const [path, module] of Object.entries(l3VariationFiles)) {
-    if (path.includes(storyId)) {
-      const fileData: VariationFile =
-        'default' in module ? module.default : (module as unknown as VariationFile);
+function isJourneyPattern(value: unknown): value is JourneyPattern {
+  return (
+    value === 'started-stayed' ||
+    value === 'started-bounced' ||
+    value === 'shifted-dominant' ||
+    value === 'began-lightly' ||
+    value === 'met-later' ||
+    value === 'unknown'
+  );
+}
 
-      // Normalize variations before storing
-      const normalizedFile: VariationFile = {
-        ...fileData,
-        variations:
-          fileData.variations?.map((v: unknown) => normalizeVariation(v, fileData.nodeId)) || [],
-      };
+function isPathPhilosophy(value: unknown): value is PathPhilosophy {
+  return (
+    value === 'accept' ||
+    value === 'resist' ||
+    value === 'invest' ||
+    value === 'mixed' ||
+    value === 'unknown'
+  );
+}
 
-      if (path.includes('arch-L3')) {
-        result.arch = normalizedFile;
-      } else if (path.includes('algo-L3')) {
-        result.algo = normalizedFile;
-      } else if (path.includes('hum-L3')) {
-        result.hum = normalizedFile;
-      } else if (path.includes('conv-L3')) {
-        result.conv = normalizedFile;
-      }
-    }
+function isAwarenessLevel(value: unknown): value is AwarenessLevel {
+  return value === 'low' || value === 'medium' || value === 'high';
+}
+
+function isL3ContentSynthesisPattern(value: unknown): value is L3ContentSynthesisPattern {
+  return value === 'single-dominant' || value === 'dual-balanced' || value === 'triple-balanced';
+}
+
+function isConvergenceAlignment(value: unknown): value is 'preserve' | 'transform' | 'release' {
+  return value === 'preserve' || value === 'transform' || value === 'release';
+}
+
+function parseL3Metadata(value: unknown, variationId: string, path: string): L3VariationMetadata {
+  if (!isRecord(value) || typeof value.wordCount !== 'number') {
+    throw new Error(`Invalid L3 metadata for ${variationId} in ${path}`);
   }
 
-  return result;
+  const metadata: L3VariationMetadata = {
+    ...value,
+    wordCount: value.wordCount,
+  };
+
+  if (isL3ContentSynthesisPattern(value.synthesisPattern)) {
+    metadata.synthesisPattern = value.synthesisPattern;
+  } else {
+    delete metadata.synthesisPattern;
+  }
+
+  if (isConvergenceAlignment(value.convergenceAlignment)) {
+    metadata.convergenceAlignment = value.convergenceAlignment;
+  } else {
+    delete metadata.convergenceAlignment;
+  }
+
+  return metadata;
+}
+
+function parseL3Variation(value: unknown, path: string): L3Variation {
+  if (!isRecord(value)) {
+    throw new Error(`Invalid L3 variation entry in ${path}`);
+  }
+
+  const { variationId, content, journeyPattern, philosophyDominant, awarenessLevel, metadata } =
+    value;
+
+  if (
+    typeof variationId !== 'string' ||
+    typeof content !== 'string' ||
+    !isJourneyPattern(journeyPattern) ||
+    !isPathPhilosophy(philosophyDominant) ||
+    !isAwarenessLevel(awarenessLevel)
+  ) {
+    throw new Error(`Invalid L3 variation contract in ${path}`);
+  }
+
+  return {
+    variationId,
+    content,
+    journeyPattern,
+    philosophyDominant,
+    awarenessLevel,
+    metadata: parseL3Metadata(metadata, variationId, path),
+  };
+}
+
+function getL3Character(path: string): keyof L3VariationSet | null {
+  if (path.includes('arch-L3')) {
+    return 'arch';
+  }
+  if (path.includes('algo-L3')) {
+    return 'algo';
+  }
+  if (path.includes('hum-L3')) {
+    return 'hum';
+  }
+  if (path.includes('conv-L3')) {
+    return 'conv';
+  }
+  return null;
+}
+
+function parseL3VariationFile(
+  value: unknown,
+  character: keyof L3VariationSet,
+  path: string,
+): L3VariationFile {
+  const source = Array.isArray(value)
+    ? value
+    : isRecord(value) && Array.isArray(value.variations)
+      ? value.variations
+      : null;
+
+  if (!source) {
+    throw new Error(`Expected an L3 variation array in ${path}`);
+  }
+
+  return {
+    nodeId: `${character}-L3`,
+    variations: source.map((variation) => parseL3Variation(variation, path)),
+  };
+}
+
+async function importL3Variations(storyId: string): Promise<L3VariationSet> {
+  const loaded = new Map<keyof L3VariationSet, L3VariationFile>();
+
+  await Promise.all(
+    Object.entries(l3VariationFiles).map(async ([path, loadModule]) => {
+      if (!path.includes(`/stories/${storyId}/`)) {
+        return;
+      }
+
+      const character = getL3Character(path);
+      if (!character) {
+        return;
+      }
+
+      const module = await loadModule();
+      loaded.set(character, parseL3VariationFile(module.default, character, path));
+    }),
+  );
+
+  const arch = loaded.get('arch');
+  const algo = loaded.get('algo');
+  const hum = loaded.get('hum');
+  const conv = loaded.get('conv');
+
+  if (!arch || !algo || !hum || !conv) {
+    throw new Error(`Incomplete L3 variation set for story "${storyId}"`);
+  }
+
+  return { arch, algo, hum, conv };
+}
+
+/**
+ * Lazily load and cache all four L3 aggregate files for a story.
+ */
+export function loadL3Variations(storyId: string): Promise<L3VariationSet> {
+  const cached = l3VariationCache.get(storyId);
+  if (cached) {
+    return cached;
+  }
+
+  const loading = importL3Variations(storyId).catch((error: unknown) => {
+    l3VariationCache.delete(storyId);
+    throw error;
+  });
+
+  l3VariationCache.set(storyId, loading);
+  return loading;
 }
 
 /**
@@ -365,4 +511,5 @@ export function findVariationById(
 export function clearVariationCache(): void {
   variationCache.clear();
   selectionMatrixCache.clear();
+  l3VariationCache.clear();
 }
