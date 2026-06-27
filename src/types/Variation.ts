@@ -104,6 +104,41 @@ export interface VariationFile {
 }
 
 /**
+ * L3 content uses a smaller runtime contract than L1/L2 variations.
+ * The aggregate JSON files intentionally omit transformation state and retain
+ * additional character-specific metadata.
+ */
+export type L3ContentSynthesisPattern = 'single-dominant' | 'dual-balanced' | 'triple-balanced';
+
+export interface L3VariationMetadata {
+  wordCount: number;
+  convergenceAlignment?: 'preserve' | 'transform' | 'release';
+  synthesisPattern?: L3ContentSynthesisPattern;
+  [key: string]: unknown;
+}
+
+export interface L3Variation {
+  variationId: string;
+  content: string;
+  journeyPattern: JourneyPattern;
+  philosophyDominant: PathPhilosophy;
+  awarenessLevel: AwarenessLevel;
+  metadata: L3VariationMetadata;
+}
+
+export interface L3VariationFile {
+  nodeId: string;
+  variations: readonly L3Variation[];
+}
+
+export interface L3VariationSet {
+  arch: L3VariationFile;
+  algo: L3VariationFile;
+  hum: L3VariationFile;
+  conv: L3VariationFile;
+}
+
+/**
  * Selection matrix entry for navigation
  */
 export interface SelectionMatrixEntry {
@@ -132,7 +167,7 @@ export interface L3AssemblySection {
   variationId: string;
   content: string;
   wordCount: number;
-  metadata: VariationMetadata;
+  metadata: L3VariationMetadata;
 }
 
 /**

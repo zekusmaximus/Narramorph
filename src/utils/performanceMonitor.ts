@@ -9,14 +9,14 @@
  * - Render performance
  */
 
-interface PerformanceMetric {
+export interface PerformanceMetric {
   operation: string;
   duration: number;
   timestamp: number;
   metadata?: Record<string, unknown>;
 }
 
-class PerformanceMonitor {
+export class PerformanceMonitor {
   private metrics: PerformanceMetric[] = [];
   private readonly maxMetrics = 1000; // Keep last 1000 metrics
 
@@ -29,12 +29,7 @@ class PerformanceMonitor {
     return (metadata?: Record<string, unknown>) => {
       const duration = performance.now() - startTime;
 
-      this.recordMetric({
-        operation,
-        duration,
-        timestamp: Date.now(),
-        metadata,
-      });
+      this.recordDuration(operation, duration, metadata);
 
       // Log slow operations (>100ms)
       if (duration > 100) {
@@ -44,9 +39,19 @@ class PerformanceMonitor {
   }
 
   /**
-   * Record a metric
+   * Record an externally measured duration.
    */
-  private recordMetric(metric: PerformanceMetric): void {
+  recordDuration(operation: string, duration: number, metadata?: Record<string, unknown>): void {
+    const metric: PerformanceMetric = {
+      operation,
+      duration,
+      timestamp: Date.now(),
+    };
+
+    if (metadata) {
+      metric.metadata = metadata;
+    }
+
     this.metrics.push(metric);
 
     // Trim old metrics
