@@ -3,7 +3,6 @@
  * Uses fixtures to test end-to-end conversion
  */
 
-import { execSync } from 'node:child_process';
 import { readFile, mkdir, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 
@@ -106,8 +105,9 @@ describe('L3 Integration Tests', () => {
     const voicesMatch = content.match(/characterVoices:\s*\[([\w,\s-]+)\]/);
     expect(voicesMatch).toBeTruthy();
 
-    if (voicesMatch) {
-      const voices = voicesMatch[1].split(',').map((v) => v.trim());
+    const voicesText = voicesMatch?.[1];
+    if (voicesText !== undefined) {
+      const voices = voicesText.split(',').map((v) => v.trim());
       expect(voices.length).toBeGreaterThanOrEqual(2);
     }
   });
@@ -143,7 +143,7 @@ describe('L3 Integration Tests', () => {
     const parts = content.split('---');
     expect(parts.length).toBeGreaterThanOrEqual(3); // opening ---, frontmatter, closing ---, body
 
-    const body = parts[2].trim();
+    const body = parts[2]?.trim() ?? '';
     expect(body.length).toBeGreaterThan(0);
     expect(body.split(/\s+/).length).toBeGreaterThan(10); // Has substantial content
   });

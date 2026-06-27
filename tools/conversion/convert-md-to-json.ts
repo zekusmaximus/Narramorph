@@ -10,7 +10,8 @@ import { resolve, join, relative } from 'node:path';
 import { basename } from 'node:path';
 import { parseArgs } from 'node:util';
 
-import { parseFrontmatter, countWords } from './lib/frontmatter.js';
+import { parseEnumOption, parseIntegerOption } from './lib/cli.js';
+import { parseFrontmatter, countWords, type FrontmatterResult } from './lib/frontmatter.js';
 import {
   readFileWithLogging,
   writeFileAtomic,
@@ -22,7 +23,7 @@ import {
   createBackup,
   type Manifest,
 } from './lib/fs.js';
-import { generateAggregatedId, generateL3Id, parseVariationId } from './lib/ids.js';
+import { generateAggregatedId, generateL3Id, parseVariationId, type Character } from './lib/ids.js';
 import { Logger } from './lib/log.js';
 import { normalizeText } from './lib/normalize.js';
 import { detectSimilarVariations, type VariationText } from './lib/similarity.js';
@@ -39,18 +40,6 @@ import {
 
 const SCHEMA_VERSION = '1.0.0';
 const GENERATOR_VERSION = '1.0.0';
-
-interface CliArgs {
-  layer?: string;
-  nodes?: string;
-  ids?: string;
-  'dry-run'?: boolean;
-  strict?: boolean;
-  parallel?: number;
-  watch?: boolean;
-  debounce?: number;
-  verbose?: boolean;
-}
 
 interface L1L2Variation {
   id: string;
@@ -99,7 +88,7 @@ async function main() {
       debounce: { type: 'string' },
       verbose: { type: 'boolean', short: 'v' },
     },
-  }) as { values: CliArgs };
+  });
 
   const logger = new Logger(values.verbose);
   const options: ValidationOptions = {
@@ -111,15 +100,20 @@ async function main() {
   const outputRoot = join(projectRoot, 'src/data/stories/eternal-return/content');
 
   // Parse parallelism (default to 4, max 10)
-  const parallelValue = values.parallel ? parseInt(values.parallel, 10) : 4;
-  const parallel = Math.min(parallelValue, 10);
+  const parallel = parseIntegerOption(values.parallel, {
+    name: '--parallel',
+    defaultValue: 4,
+    max: 10,
+  });
 
   logger.info(
     'CONVERSION_START',
     `Starting conversion (strict=${options.strict}, parallel=${parallel})`,
   );
 
-  const layers = values.layer === 'all' ? ['1', '2', '3', '4'] : [values.layer || '1'];
+  const selectedLayer = parseEnumOption(values.layer, ['1', '2', '3', '4', 'all'], '1', '--layer');
+  const layers: ConversionLayer[] =
+    selectedLayer === 'all' ? ['1', '2', '3', '4'] : [selectedLayer];
 
   // Create backup before conversion (unless dry-run)
   if (!values['dry-run']) {
@@ -154,9 +148,9 @@ async function main() {
     } else if (layer === '2') {
       await convertL2(docsRoot, outputRoot, manifest, logger, options, values['dry-run'], parallel);
     } else if (layer === '3') {
-      await convertL3(docsRoot, outputRoot, manifest, logger, options, values['dry-run'], parallel);
+      await convertL3(docsRoot, outputRoot, manifest, logger, values['dry-run'], parallel);
     } else if (layer === '4') {
-      await convertL4(docsRoot, outputRoot, manifest, logger, options, values['dry-run'], parallel);
+      await convertL4(docsRoot, outputRoot, manifest, logger, values['dry-run'], parallel);
     }
   }
 
@@ -193,23 +187,26 @@ async function main() {
 
   // Start watch mode if requested
   if (values.watch) {
-    const debounceValue = values.debounce ? parseInt(values.debounce, 10) : 500;
-    const debounce = debounceValue;
+    const debounce = parseIntegerOption(values.debounce, {
+      name: '--debounce',
+      defaultValue: 500,
+    });
     console.log(`\n👀 Watching ${docsRoot} for changes (debounce=${debounce}ms)...`);
     console.log('Press Ctrl+C to stop\n');
 
-    await startWatchMode(docsRoot, outputRoot, layers, options, debounce, parallel);
+    await startWatchMode(docsRoot, outputRoot, layers, debounce, parallel);
   }
 }
 
 /**
  * Watch mode: Re-convert files on change
  */
+type ConversionLayer = '1' | '2' | '3' | '4';
+
 async function startWatchMode(
   docsRoot: string,
   outputRoot: string,
-  layers: string[],
-  _options: ValidationOptions,
+  layers: ConversionLayer[],
   debounceMs: number,
   parallel: number,
 ): Promise<void> {
@@ -271,9 +268,9 @@ async function startWatchMode(
           } else if (layer === '2') {
             await convertL2(docsRoot, outputRoot, manifest, logger, watchOptions, false, parallel);
           } else if (layer === '3') {
-            await convertL3(docsRoot, outputRoot, manifest, logger, watchOptions, false, parallel);
+            await convertL3(docsRoot, outputRoot, manifest, logger, false, parallel);
           } else if (layer === '4') {
-            await convertL4(docsRoot, outputRoot, manifest, logger, watchOptions, false, parallel);
+            await convertL4(docsRoot, outputRoot, manifest, logger, false, parallel);
           }
 
           if (logger.hasWarnings()) {
@@ -297,7 +294,7 @@ async function startWatchMode(
 /**
  * Detect which layer a file belongs to based on its path
  */
-function detectLayer(relativePath: string): string | null {
+function detectLayer(relativePath: string): ConversionLayer | null {
   if (relativePath.includes('-L1-production')) {
     return '1';
   }
@@ -327,7 +324,7 @@ async function convertL1(
 ): Promise<void> {
   logger.info('L1_START', 'Converting Layer 1...');
 
-  const characters = ['arch', 'algo', 'hum'];
+  const characters: Character[] = ['arch', 'algo', 'hum'];
 
   for (const char of characters) {
     const nodeId = `${char}-L1`;
@@ -369,8 +366,8 @@ async function convertL1(
         const { text: normalized } = normalizeText(content, logger, file);
         const isInitialState = /INITIAL_STATE\.md$/.test(file);
 
-        let parsed: { frontmatter: any; content: string; raw: string } | null;
-        let frontmatter: any;
+        let parsed: FrontmatterResult<Record<string, unknown>> | null;
+        let frontmatter: Record<string, unknown>;
         let body: string;
 
         // Handle INITIAL_STATE files specially (no YAML frontmatter)
@@ -389,9 +386,13 @@ async function convertL1(
 
           for (let i = 0; i < Math.min(lines.length, 10); i++) {
             const line = lines[i];
+            if (line === undefined) {
+              break;
+            }
             const wcMatch = line.match(/\*\*Word Count:\s*([\d,]+)\*\*/);
-            if (wcMatch) {
-              wordCount = parseInt(wcMatch[1].replace(/,/g, ''), 10);
+            const wordCountText = wcMatch?.[1];
+            if (wordCountText !== undefined) {
+              wordCount = parseInt(wordCountText.replace(/,/g, ''), 10);
             }
             if (line.trim() === '---' && i > 0) {
               contentStartIndex = i + 1;
@@ -425,7 +426,7 @@ async function convertL1(
 
           // Normalize missing variation_id from legacy 'id' and filename context
           if (!('variation_id' in frontmatter)) {
-            const base = frontmatter.id as string | undefined;
+            const base = typeof frontmatter.id === 'string' ? frontmatter.id : undefined;
             let num: string | undefined;
             if (base) {
               const m = base.match(/^(FR|MA)[-_]?(\d{1,3})$/i);
@@ -451,8 +452,10 @@ async function convertL1(
 
           // Normalize awareness into conditions.awareness if present as awareness_range
           if (!('conditions' in frontmatter) && 'awareness_range' in frontmatter) {
-            const ar = frontmatter.awareness_range as string;
-            frontmatter.conditions = { awareness: ar.endsWith('%') ? ar : `${ar}%` };
+            const ar = frontmatter.awareness_range;
+            if (typeof ar === 'string') {
+              frontmatter.conditions = { awareness: ar.endsWith('%') ? ar : `${ar}%` };
+            }
           }
         }
 
@@ -460,9 +463,19 @@ async function convertL1(
           return { variation: null, variationText: null };
         }
 
-        const variationId = frontmatter.variation_id as string;
-        const variationType = frontmatter.variation_type as string;
-        const wordCount = frontmatter.word_count as number;
+        const variationId = frontmatter.variation_id;
+        const variationType = frontmatter.variation_type;
+        const wordCount = frontmatter.word_count;
+        if (
+          typeof variationId !== 'string' ||
+          typeof variationType !== 'string' ||
+          typeof wordCount !== 'number'
+        ) {
+          logger.error('INVALID_FIELD_TYPE', 'L1 frontmatter fields have invalid types', {
+            file,
+          });
+          return { variation: null, variationText: null };
+        }
 
         let transformationState: string = variationType;
         if (variationType === 'initial') {
@@ -475,8 +488,14 @@ async function convertL1(
 
         let awarenessRange: [number, number] | undefined;
         if ('conditions' in frontmatter && frontmatter.conditions) {
-          const conditions = frontmatter.conditions as Record<string, unknown>;
-          if ('awareness' in conditions && typeof conditions.awareness === 'string') {
+          const conditions = frontmatter.conditions;
+          if (
+            conditions !== null &&
+            typeof conditions === 'object' &&
+            !Array.isArray(conditions) &&
+            'awareness' in conditions &&
+            typeof conditions.awareness === 'string'
+          ) {
             const match = conditions.awareness.match(/(\d+)-(\d+)%/);
             if (match && match[1] && match[2]) {
               awarenessRange = [parseInt(match[1], 10), parseInt(match[2], 10)];
@@ -529,7 +548,7 @@ async function convertL1(
     // Re-index with zero-padded IDs
     const reindexedVariations = variations.map((v, index) => ({
       ...v,
-      id: generateAggregatedId(char as any, 1, index + 1),
+      id: generateAggregatedId(char, 1, index + 1),
     }));
 
     // Check for duplicates
@@ -554,7 +573,7 @@ async function convertL1(
     };
 
     // Validate schema version
-    validateSchemaVersion(output as unknown as Record<string, unknown>, logger, nodeId);
+    validateSchemaVersion(output, logger, nodeId);
 
     // Write output
     if (!dryRun) {
@@ -590,7 +609,7 @@ async function convertL2(
 ): Promise<void> {
   logger.info('L2_START', 'Converting Layer 2...');
 
-  const characters = ['arch', 'algo', 'hum'];
+  const characters: Character[] = ['arch', 'algo', 'hum'];
   const paths: Array<'accept' | 'resist' | 'invest'> = ['accept', 'resist', 'invest'];
 
   for (const char of characters) {
@@ -645,8 +664,8 @@ async function convertL2(
           const { text: normalized } = normalizeText(content, logger, file);
           const isInitialState = /INITIAL_STATE\.md$/.test(file);
 
-          let parsed: { frontmatter: any; content: string; raw: string } | null;
-          let frontmatter: any;
+          let parsed: FrontmatterResult<Record<string, unknown>> | null;
+          let frontmatter: Record<string, unknown>;
           let body: string;
 
           // Handle INITIAL_STATE files specially (no YAML frontmatter, just raw content)
@@ -661,6 +680,9 @@ async function convertL2(
               return { variation: null, variationText: null };
             }
             const [, sChar, sPath] = m;
+            if (sChar === undefined || sPath === undefined) {
+              return { variation: null, variationText: null };
+            }
 
             // Generate frontmatter for initial state
             frontmatter = {
@@ -682,6 +704,14 @@ async function convertL2(
                 return { variation: null, variationText: null };
               }
               const [, sChar, sPath, sPhase, sNum] = m;
+              if (
+                sChar === undefined ||
+                sPath === undefined ||
+                sPhase === undefined ||
+                sNum === undefined
+              ) {
+                return { variation: null, variationText: null };
+              }
               const varId = `${sChar}-L2-${sPath}-${sPhase}-${sNum.padStart(3, '0')}`;
               frontmatter = {
                 variation_id: varId,
@@ -694,7 +724,8 @@ async function convertL2(
                 const lines = normalized.split(/\r?\n/);
                 let i = 1;
                 for (; i < lines.length; i++) {
-                  if (lines[i].trim() === '') {
+                  const line = lines[i];
+                  if (line !== undefined && line.trim() === '') {
                     i++;
                     break;
                   }
@@ -713,9 +744,19 @@ async function convertL2(
             return { variation: null, variationText: null };
           }
 
-          const variationId = frontmatter.variation_id as string;
-          const variationType = frontmatter.variation_type as string;
-          const wordCount = frontmatter.word_count as number;
+          const variationId = frontmatter.variation_id;
+          const variationType = frontmatter.variation_type;
+          const wordCount = frontmatter.word_count;
+          if (
+            typeof variationId !== 'string' ||
+            typeof variationType !== 'string' ||
+            typeof wordCount !== 'number'
+          ) {
+            logger.error('INVALID_FIELD_TYPE', 'L2 frontmatter fields have invalid types', {
+              file,
+            });
+            return { variation: null, variationText: null };
+          }
 
           let transformationState: string = variationType;
           if (variationType === 'initial') {
@@ -728,8 +769,14 @@ async function convertL2(
 
           let awarenessRange: [number, number] | undefined;
           if ('conditions' in frontmatter && frontmatter.conditions) {
-            const conditions = frontmatter.conditions as Record<string, unknown>;
-            if ('awareness' in conditions && typeof conditions.awareness === 'string') {
+            const conditions = frontmatter.conditions;
+            if (
+              conditions !== null &&
+              typeof conditions === 'object' &&
+              !Array.isArray(conditions) &&
+              'awareness' in conditions &&
+              typeof conditions.awareness === 'string'
+            ) {
               const match = conditions.awareness.match(/(\d+)-(\d+)%/);
               if (match && match[1] && match[2]) {
                 awarenessRange = [parseInt(match[1], 10), parseInt(match[2], 10)];
@@ -782,7 +829,7 @@ async function convertL2(
       // Re-index with zero-padded IDs
       const reindexedVariations = variations.map((v, index) => ({
         ...v,
-        id: generateAggregatedId(char as any, 2, index + 1, path),
+        id: generateAggregatedId(char, 2, index + 1, path),
       }));
 
       // Check for duplicates
@@ -807,7 +854,7 @@ async function convertL2(
       };
 
       // Validate schema version
-      validateSchemaVersion(output as unknown as Record<string, unknown>, logger, nodeId);
+      validateSchemaVersion(output, logger, nodeId);
 
       // Write output
       if (!dryRun) {
@@ -839,7 +886,6 @@ async function convertL3(
   outputRoot: string,
   manifest: Manifest,
   logger: Logger,
-  options: ValidationOptions,
   dryRun?: boolean,
   parallel?: number,
 ): Promise<void> {
@@ -917,10 +963,10 @@ async function convertL3(
           /^conv-L3-/.test(frontmatter.variationId)
         ) {
           if (
-            !Array.isArray((frontmatter as any).characterVoices) ||
-            (frontmatter as any).characterVoices.length < 2
+            !Array.isArray(frontmatter.characterVoices) ||
+            frontmatter.characterVoices.length < 2
           ) {
-            (frontmatter as any).characterVoices = ['archaeologist', 'algorithm', 'last-human'];
+            frontmatter.characterVoices = ['archaeologist', 'algorithm', 'last-human'];
           }
         }
 
@@ -928,11 +974,23 @@ async function convertL3(
           return {};
         }
 
-        const rawVariationId = frontmatter.variationId as string;
-        const journeyPattern = frontmatter.journeyPattern as string;
-        const philosophyDominant = frontmatter.philosophyDominant as string;
-        const awarenessLevel = frontmatter.awarenessLevel as string;
-        const wordCount = frontmatter.wordCount as number;
+        const rawVariationId = frontmatter.variationId;
+        const journeyPattern = frontmatter.journeyPattern;
+        const philosophyDominant = frontmatter.philosophyDominant;
+        const awarenessLevel = frontmatter.awarenessLevel;
+        const wordCount = frontmatter.wordCount;
+        if (
+          typeof rawVariationId !== 'string' ||
+          typeof journeyPattern !== 'string' ||
+          typeof philosophyDominant !== 'string' ||
+          typeof awarenessLevel !== 'string' ||
+          typeof wordCount !== 'number'
+        ) {
+          logger.error('INVALID_FIELD_TYPE', 'L3 frontmatter fields have invalid types', {
+            file,
+          });
+          return {};
+        }
 
         const parsed_id = parseVariationId(rawVariationId, 3);
         if (!parsed_id || !('sectionType' in parsed_id)) {
@@ -949,7 +1007,7 @@ async function convertL3(
         const variationId = generateL3Id(sectionType, number);
 
         const actualWordCount = countWords(body);
-        validateWordCount(actualWordCount, wordCount, variationId, logger, options);
+        validateWordCount(actualWordCount, wordCount, 10, 3, logger, file);
 
         const selectionKey = `${journeyPattern}-${philosophyDominant}-${awarenessLevel}`;
         const output: L3Output = {
@@ -963,7 +1021,7 @@ async function convertL3(
           metadata: { wordCount: actualWordCount, ...frontmatter },
         };
 
-        validateSchemaVersion(output as unknown as Record<string, unknown>, logger, variationId);
+        validateSchemaVersion(output, logger, variationId);
 
         const json = JSON.stringify(output, null, 2);
         const sourceHash = hashContent(parsed.raw, body);
@@ -987,10 +1045,12 @@ async function convertL3(
       const variationId = r.id;
       const selectionKey = r.selectionKey;
       allIds.push(variationId);
-      if (!variationsBySelectionKey.has(selectionKey)) {
-        variationsBySelectionKey.set(selectionKey, []);
+      let variationTexts = variationsBySelectionKey.get(selectionKey);
+      if (variationTexts === undefined) {
+        variationTexts = [];
+        variationsBySelectionKey.set(selectionKey, variationTexts);
       }
-      variationsBySelectionKey.get(selectionKey)!.push({
+      variationTexts.push({
         id: variationId,
         content: r.body ?? r.outputJson,
         groupKey: `${r.sectionType}-${selectionKey}`,
@@ -1037,17 +1097,16 @@ async function convertL4(
   outputRoot: string,
   manifest: Manifest,
   logger: Logger,
-  options: ValidationOptions,
   dryRun?: boolean,
   _parallel?: number, // Reserved for future use (L4 has only 3 files)
 ): Promise<void> {
   logger.info('L4_START', 'Converting Layer 4...');
 
-  const philosophies = ['preserve', 'release', 'transform'];
+  const philosophies = ['preserve', 'release', 'transform'] as const;
   const l4Dir = join(docsRoot, 'L4');
 
-  for (const philosophy of philosophies) {
-    const fileName = `L4-${philosophy.toUpperCase()}.md`;
+  for (const expectedPhilosophy of philosophies) {
+    const fileName = `L4-${expectedPhilosophy.toUpperCase()}.md`;
     const filePath = join(l4Dir, fileName);
 
     // Read file
@@ -1065,11 +1124,12 @@ async function convertL4(
 
     // Parse frontmatter (tolerant). If unavailable, salvage from filename and strip malformed header.
     const parsed = parseFrontmatter(normalized, logger, filePath);
-    let frontmatter: any;
+    let frontmatter: Record<string, unknown>;
     let body: string;
     if (!parsed) {
       const m = fileName.match(/^L4-(PRESERVE|RELEASE|TRANSFORM)\.md$/i);
-      const philosophy = m ? m[1].toLowerCase() : philosophy;
+      const matchedPhilosophy = m?.[1];
+      const philosophy = matchedPhilosophy?.toLowerCase() ?? expectedPhilosophy;
       frontmatter = { id: `final-${philosophy}`, philosophy, wordCount: 0 };
       // Strip malformed frontmatter if file starts with '---'
       if (/^---/.test(normalized)) {
@@ -1077,7 +1137,8 @@ async function convertL4(
         // remove from start until first blank line after the leading fence block
         let i = 1;
         for (; i < lines.length; i++) {
-          if (lines[i].trim() === '') {
+          const line = lines[i];
+          if (line !== undefined && line.trim() === '') {
             i++;
             break;
           }
@@ -1098,7 +1159,7 @@ async function convertL4(
 
     // Ensure philosophy field exists
     if (!('philosophy' in frontmatter)) {
-      frontmatter.philosophy = philosophy;
+      frontmatter.philosophy = expectedPhilosophy;
     }
 
     // Validate frontmatter
@@ -1107,13 +1168,24 @@ async function convertL4(
     }
 
     // Extract fields
-    const id = frontmatter.id as string;
-    const wordCount = frontmatter.wordCount as number | undefined;
+    const id = frontmatter.id;
+    const philosophy = frontmatter.philosophy;
+    const wordCount = frontmatter.wordCount;
+    if (
+      typeof id !== 'string' ||
+      typeof philosophy !== 'string' ||
+      (wordCount !== undefined && typeof wordCount !== 'number')
+    ) {
+      logger.error('INVALID_FIELD_TYPE', 'L4 frontmatter fields have invalid types', {
+        file: filePath,
+      });
+      continue;
+    }
 
     // Validate word count if provided
     if (wordCount) {
       const actualWordCount = countWords(body);
-      validateWordCount(actualWordCount, wordCount, id, logger, options);
+      validateWordCount(actualWordCount, wordCount, 10, 4, logger, filePath);
     }
 
     // Create output
@@ -1129,7 +1201,7 @@ async function convertL4(
     };
 
     // Validate schema version
-    validateSchemaVersion(output as unknown as Record<string, unknown>, logger, id);
+    validateSchemaVersion(output, logger, id);
 
     // Write output
     if (!dryRun) {
@@ -1142,7 +1214,7 @@ async function convertL4(
     }
 
     // Track in manifest
-    const sourceHash = hashContent(parsed.raw, body);
+    const sourceHash = hashContent(parsed?.raw ?? normalized, body);
     manifest.files[filePath] = {
       sourceHash,
       outputPath: `layer4/${id}.json`,

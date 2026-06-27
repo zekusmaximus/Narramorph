@@ -61,10 +61,14 @@ export function parseFrontmatter<T = Record<string, unknown>>(
     if (/^\s*text:\s*>-\s*$/m.test(repaired)) {
       const lines = repaired.split(/\r?\n/);
       for (let i = 0; i < lines.length; i++) {
-        if (/^\s*text:\s*>-\s*$/.test(lines[i])) {
+        const line = lines[i];
+        if (line !== undefined && /^\s*text:\s*>-\s*$/.test(line)) {
           let j = i + 1;
           for (; j < lines.length; j++) {
             const l = lines[j];
+            if (l === undefined) {
+              break;
+            }
             // next top-level key or closing fence
             if (/^---\s*$/.test(l)) {
               break;

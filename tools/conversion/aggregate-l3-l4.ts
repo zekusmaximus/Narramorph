@@ -46,8 +46,9 @@ async function aggregateL3(): Promise<void> {
     };
 
     const prefix = file.split('-')[0];
-    if (grouped[prefix]) {
-      grouped[prefix].push(variation);
+    const group = prefix === undefined ? undefined : grouped[prefix];
+    if (group !== undefined) {
+      group.push(variation);
     }
   }
 

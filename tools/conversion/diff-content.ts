@@ -5,7 +5,7 @@
  */
 
 import { readFile, readdir, stat } from 'node:fs/promises';
-import { resolve, join, relative } from 'node:path';
+import { resolve, join } from 'node:path';
 import { parseArgs } from 'node:util';
 
 import { Logger } from './lib/log.js';
@@ -171,8 +171,14 @@ async function diffManifests(
   // Find modified/unchanged files
   for (const file of afterFiles) {
     if (beforeFiles.has(file)) {
-      const beforeHash = before.files[file].sourceHash;
-      const afterHash = after.files[file].sourceHash;
+      const beforeFile = before.files[file];
+      const afterFile = after.files[file];
+      if (beforeFile === undefined || afterFile === undefined) {
+        continue;
+      }
+
+      const beforeHash = beforeFile.sourceHash;
+      const afterHash = afterFile.sourceHash;
 
       if (beforeHash !== afterHash) {
         filesModified.push(file);
@@ -336,6 +342,10 @@ function jsonStableString(value: unknown): string {
   return JSON.stringify(canonicalize(value));
 }
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
 function deepDiff(before: unknown, after: unknown, path: string[] = []): DirFieldChange[] {
   const changes: DirFieldChange[] = [];
   const pathStr = (p: string[]) => (p.length ? p.join('.') : '(root)');
@@ -357,12 +367,12 @@ function deepDiff(before: unknown, after: unknown, path: string[] = []): DirFiel
     return changes;
   }
 
-  if (before && typeof before === 'object' && after && typeof after === 'object') {
-    const bKeys = Object.keys(before as Record<string, unknown>);
-    const aKeys = Object.keys(after as Record<string, unknown>);
+  if (isRecord(before) && isRecord(after)) {
+    const bKeys = Object.keys(before);
+    const aKeys = Object.keys(after);
     const all = new Set([...bKeys, ...aKeys]);
     for (const k of all) {
-      changes.push(...deepDiff((before as any)[k], (after as any)[k], [...path, k]));
+      changes.push(...deepDiff(before[k], after[k], [...path, k]));
     }
     return changes;
   }

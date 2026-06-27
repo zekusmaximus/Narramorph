@@ -94,10 +94,6 @@ describe('Selection Matrix Properties', () => {
       return;
     }
 
-    // Calculate expected combinations: 8 patterns × 3 philosophies × 5 awareness = 120
-    const expectedCombos =
-      JOURNEY_PATTERNS.length * PATH_PHILOSOPHIES.length * AWARENESS_LEVELS.length;
-
     expect(matrix.totalCombinations).toBeGreaterThanOrEqual(1);
     expect(matrix.selections.length).toBeGreaterThanOrEqual(1);
 

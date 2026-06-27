@@ -4,8 +4,8 @@
  * Restores content from backup snapshots
  */
 
-import { readdir, readFile, copyFile, stat } from 'node:fs/promises';
-import { resolve, join, relative, basename } from 'node:path';
+import { readFile, copyFile, stat } from 'node:fs/promises';
+import { resolve, join, basename } from 'node:path';
 import { parseArgs } from 'node:util';
 
 import { ensureDir } from './lib/fs.js';

@@ -4,7 +4,7 @@
 
 import { validateEnumField, validateArrayField, validateRequiredFields } from './frontmatter.js';
 import { validateZeroPadding, type Layer } from './ids.js';
-import { Logger } from './log.js';
+import { Logger, type Severity } from './log.js';
 
 export interface ValidationOptions {
   strict: boolean;
@@ -238,10 +238,10 @@ export function validateVariationCount(
   options: ValidationOptions,
 ): boolean {
   if (actualCount !== expectedCount) {
-    const severity = options.strict ? 'ERROR' : 'WARNING';
+    const severity: Severity = options.strict ? 'ERROR' : 'WARNING';
     logger.log(
       'COUNT_MISMATCH',
-      severity as any,
+      severity,
       `${nodeId}: Expected ${expectedCount} variations, found ${actualCount}`,
       {
         field: 'totalVariations',
@@ -285,7 +285,7 @@ export function checkDuplicateIds(ids: string[], logger: Logger, context?: strin
  * Validate schemaVersion is present
  */
 export function validateSchemaVersion(
-  output: Record<string, unknown>,
+  output: { schemaVersion?: unknown },
   logger: Logger,
   filePath: string,
 ): boolean {

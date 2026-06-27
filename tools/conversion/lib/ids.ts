@@ -36,7 +36,7 @@ export type VariationId = L1L2VariationId | L3VariationId | L4VariationId;
 /**
  * Parse variation ID from frontmatter
  */
-export function parseVariationId(id: string, layer: Layer): VariationId | null {
+export function parseVariationId(id: string, layer: number): VariationId | null {
   if (layer === 1 || layer === 2) {
     return parseL1L2VariationId(id, layer);
   } else if (layer === 3) {

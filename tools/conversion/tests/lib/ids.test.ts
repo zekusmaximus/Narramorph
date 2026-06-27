@@ -69,7 +69,7 @@ describe('parseVariationId', () => {
 
   it('should return null for invalid format', () => {
     expect(parseVariationId('invalid-id', 1)).toBeNull();
-    expect(parseVariationId('arch-L5-001', 5 as any)).toBeNull();
+    expect(parseVariationId('arch-L5-001', 5)).toBeNull();
   });
 });
 

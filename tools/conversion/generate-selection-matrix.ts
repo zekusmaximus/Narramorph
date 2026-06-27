@@ -29,12 +29,6 @@ interface L3File {
   filePath: string;
 }
 
-interface SelectionKey {
-  journeyPattern: string;
-  philosophyDominant: string;
-  awarenessLevel: string;
-}
-
 interface MatrixEntry {
   journeyPattern: string;
   philosophyDominant: string;
@@ -132,16 +126,19 @@ async function main() {
   for (const file of l3Files) {
     const key = `${file.journeyPattern}|${file.philosophyDominant}|${file.awarenessLevel}`;
 
-    if (!bySelectionKey.has(key)) {
-      bySelectionKey.set(key, new Map());
+    let bySection = bySelectionKey.get(key);
+    if (bySection === undefined) {
+      bySection = new Map();
+      bySelectionKey.set(key, bySection);
     }
 
-    const bySection = bySelectionKey.get(key)!;
-    if (!bySection.has(file.sectionType)) {
-      bySection.set(file.sectionType, []);
+    let sectionFiles = bySection.get(file.sectionType);
+    if (sectionFiles === undefined) {
+      sectionFiles = [];
+      bySection.set(file.sectionType, sectionFiles);
     }
 
-    bySection.get(file.sectionType)!.push(file);
+    sectionFiles.push(file);
   }
 
   // Generate matrix entries
@@ -158,14 +155,16 @@ async function main() {
   const sortedKeys = Array.from(bySelectionKey.keys()).sort();
 
   for (const key of sortedKeys) {
-    const parts = key.split('|');
-    if (parts.length !== 3) {
+    const [journeyPattern, philosophyDominant, awarenessLevel] = key.split('|');
+    const bySection = bySelectionKey.get(key);
+    if (
+      journeyPattern === undefined ||
+      philosophyDominant === undefined ||
+      awarenessLevel === undefined ||
+      bySection === undefined
+    ) {
       continue;
-    } // Skip invalid keys
-    const journeyPattern = parts[0];
-    const philosophyDominant = parts[1];
-    const awarenessLevel = parts[2];
-    const bySection = bySelectionKey.get(key)!;
+    }
 
     // Select one file per section type (deterministic: first after numeric-lex sort)
     const arch = selectFirst(bySection.get('arch-L3') || []);

@@ -6,9 +6,8 @@
  */
 
 import { promises as fs } from 'node:fs';
+import type { Dirent } from 'node:fs';
 import { join, resolve, basename } from 'node:path';
-
-type PathEntry = { path: string; content: string };
 
 async function readFile(path: string): Promise<string | null> {
   try {
@@ -24,7 +23,7 @@ async function writeFile(path: string, content: string): Promise<void> {
 }
 
 async function walk(dir: string, out: string[] = []): Promise<string[]> {
-  let entries: any[] = [];
+  let entries: Dirent[];
   try {
     entries = await fs.readdir(dir, { withFileTypes: true });
   } catch {
@@ -48,7 +47,8 @@ function splitFrontmatter(raw: string): { fm: string | null; body: string } {
   const lines = raw.split(/\r?\n/);
   // find closing fence
   for (let i = 1; i < lines.length; i++) {
-    if (lines[i].trim() === '---') {
+    const line = lines[i];
+    if (line !== undefined && line.trim() === '---') {
       const fm = lines.slice(1, i).join('\n');
       const body = lines.slice(i + 1).join('\n');
       return { fm, body };
@@ -58,6 +58,9 @@ function splitFrontmatter(raw: string): { fm: string | null; body: string } {
   let cut = 1;
   for (let i = 1; i < lines.length; i++) {
     const l = lines[i];
+    if (l === undefined) {
+      break;
+    }
     if (l.trim() === '') {
       continue;
     }
@@ -85,6 +88,9 @@ function deriveL2FrontmatterFromName(fileName: string): {
     throw new Error(`Cannot derive L2 id from ${fileName}`);
   }
   const [, ch, path, phase, num] = m;
+  if (ch === undefined || path === undefined || phase === undefined || num === undefined) {
+    throw new Error(`Cannot derive complete L2 metadata from ${fileName}`);
+  }
   const variation_id = `${ch}-L2-${path}-${phase}-${num.padStart(3, '0')}`;
   const variation_type = phase === 'FR' ? 'firstRevisit' : 'metaAware';
   return { variation_id, variation_type, word_count: 0, conditions: { awareness: '0-100%' } };
@@ -98,26 +104,6 @@ function countWords(text: string): number {
     .replace(/[#!*_~>\-]/g, ' ')
     .trim();
   return t ? t.split(/\s+/).length : 0;
-}
-
-function sanitizeFrontmatterTextBlock(fm: string): string {
-  // If "text: >-" present, indent subsequent lines until next key or fence
-  const lines = fm.split(/\r?\n/);
-  for (let i = 0; i < lines.length; i++) {
-    if (/^\s*text:\s*>-\s*$/.test(lines[i])) {
-      for (let j = i + 1; j < lines.length; j++) {
-        const l = lines[j];
-        if (/^---\s*$/.test(l)) {
-          break;
-        }
-        if (/^[A-Za-z0-9_\-]+\s*:/.test(l)) {
-          break;
-        }
-        lines[j] = l.startsWith('  ') ? l : '  ' + l;
-      }
-    }
-  }
-  return lines.join('\n');
 }
 
 async function repairL2(docRoot: string): Promise<{ files: number; modified: number }> {
@@ -144,7 +130,7 @@ async function repairL2(docRoot: string): Promise<{ files: number; modified: num
         if (!raw) {
           continue;
         }
-        const { fm, body } = splitFrontmatter(raw);
+        const { body } = splitFrontmatter(raw);
         const name = basename(p);
         // Try sanitizing existing fm; if none or unusable, derive minimal
         let header = '';
