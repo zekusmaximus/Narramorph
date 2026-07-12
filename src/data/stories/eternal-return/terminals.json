@@ -1,0 +1,26 @@
+{
+  "character": "multi-perspective",
+  "nodes": [
+    {
+      "id": "final-preserve",
+      "layer": 4,
+      "chapterTitle": "Preserve the Pattern",
+      "connections": [],
+      "contentFile": "content/layer4/final-preserve.json"
+    },
+    {
+      "id": "final-transform",
+      "layer": 4,
+      "chapterTitle": "Transform the Pattern",
+      "connections": [],
+      "contentFile": "content/layer4/final-transform.json"
+    },
+    {
+      "id": "final-release",
+      "layer": 4,
+      "chapterTitle": "Release the Pattern",
+      "connections": [],
+      "contentFile": "content/layer4/final-release.json"
+    }
+  ]
+}

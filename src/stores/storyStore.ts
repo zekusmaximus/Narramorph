@@ -270,6 +270,7 @@ export const useStoryStore = create<StoryStore>()(
      * Called when the reader closes/leaves a node
      */
     finalizeActiveVisit: () => {
+      let finalized = false;
       set((state) => {
         const { activeVisit } = state;
         if (!activeVisit) {
@@ -300,9 +301,12 @@ export const useStoryStore = create<StoryStore>()(
 
         // Clear active visit
         state.activeVisit = null;
+        finalized = true;
       });
 
-      get().saveProgress();
+      if (finalized) {
+        get().saveProgress();
+      }
     },
 
     /**
@@ -550,6 +554,7 @@ export const useStoryStore = create<StoryStore>()(
      * Mark a section as read when user views it
      */
     markL3SectionRead: (section: 'arch' | 'algo' | 'hum' | 'conv') => {
+      let changed = false;
       set((state) => {
         if (!state.progress.l3AssembliesViewed?.length) {
           return;
@@ -561,11 +566,15 @@ export const useStoryStore = create<StoryStore>()(
 
         if (latest && latest.sectionsRead[section] === false) {
           latest.sectionsRead[section] = true;
+          changed = true;
           devLog(`[L3Assembly] Marked section ${section} as read`);
         }
       });
 
-      get().saveProgress();
+      if (changed) {
+        get().evaluateUnlocks();
+        get().saveProgress();
+      }
     },
 
     /**
@@ -761,7 +770,7 @@ export const useStoryStore = create<StoryStore>()(
       }
 
       // Idempotency check: if already viewing this node, don't re-record
-      if (state.activeVisit && state.activeVisit.nodeId === nodeId) {
+      if (state.activeVisit && state.activeVisit.nodeId === nodeId && state.storyViewOpen) {
         devLog('[Navigation] Already viewing', nodeId, '- skipping visit recording');
         // Clear animation flag
         get().setIsAnimating(false);
@@ -807,6 +816,10 @@ export const useStoryStore = create<StoryStore>()(
     },
 
     closeStoryView: () => {
+      const state = get();
+      if (state.activeVisit) {
+        state.finalizeActiveVisit();
+      }
       set((state) => {
         state.storyViewOpen = false;
       });
@@ -1095,6 +1108,10 @@ export const useStoryStore = create<StoryStore>()(
       const node = state.nodes.get(nodeId);
 
       if (!node) {
+        return false;
+      }
+
+      if (state.progress.lockedNodes?.includes(nodeId)) {
         return false;
       }
 

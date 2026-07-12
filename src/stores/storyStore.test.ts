@@ -11,6 +11,10 @@ describe('Visit Tracking System', () => {
     useStoryStore.setState({
       nodes: new Map(),
       connections: new Map(),
+      activeVisit: null,
+      selectedNode: null,
+      storyViewOpen: false,
+      isAnimating: false,
       progress: {
         visitedNodes: {},
         readingPath: [],
@@ -149,6 +153,30 @@ describe('Visit Tracking System', () => {
     state = useStoryStore.getState();
     expect(state.progress.visitedNodes['test-002']!.visitCount).toBe(3);
     expect(state.progress.visitedNodes['test-002']!.currentState).toBe('metaAware');
+  });
+
+  it('finalizes a closed visit so reopening the same node records a revisit', () => {
+    const node: StoryNode = {
+      id: 'arch-L1',
+      character: 'archaeologist',
+      layer: 1,
+      title: 'Test Node',
+      position: { x: 100, y: 100 },
+      content: { initial: 'one', firstRevisit: 'two', metaAware: 'three' },
+      connections: [],
+      visualState: { defaultColor: '#4A90E2', size: 30 },
+      metadata: { estimatedReadTime: 3, thematicTags: [], narrativeAct: 1, criticalPath: true },
+    };
+    useStoryStore.getState().nodes.set(node.id, node);
+
+    useStoryStore.getState().openStoryView(node.id);
+    useStoryStore.getState().closeStoryView();
+    useStoryStore.getState().openStoryView(node.id);
+
+    const state = useStoryStore.getState();
+    expect(state.progress.visitedNodes[node.id]?.visitCount).toBe(2);
+    expect(state.progress.visitedNodes[node.id]?.currentState).toBe('firstRevisit');
+    expect(state.storyViewOpen).toBe(true);
   });
 
   it('should handle non-existent node gracefully', () => {

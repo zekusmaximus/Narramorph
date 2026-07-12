@@ -8,11 +8,13 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
+    "dev:test": "cross-env PLAYWRIGHT_TEST=1 vite --host 127.0.0.1 --port 4174 --strictPort",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
+    "test:e2e": "playwright test",
     "profile:l3": "vite-node tools/performance/profile-l3.ts",
     "prepare": "husky",
     "lint": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint . --cache",
@@ -54,6 +56,7 @@
     "zustand": "^4.5.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.0",
     "@testing-library/user-event": "^14.5.1",

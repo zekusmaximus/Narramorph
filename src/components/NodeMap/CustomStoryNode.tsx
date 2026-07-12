@@ -39,6 +39,7 @@ function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): Re
   const canVisit = available;
   const getUnlockProgress = useStoryStore((state) => state.getUnlockProgress);
   const unlockConfigs = useStoryStore((state) => state.unlockConfigs);
+  const openStoryView = useStoryStore((state) => state.openStoryView);
 
   // Get unlock progress if node has config
   const unlockProgress = useMemo(() => {
@@ -82,6 +83,11 @@ function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): Re
 
       <motion.div
         className="relative"
+        role="button"
+        tabIndex={canVisit ? 0 : -1}
+        aria-disabled={!canVisit}
+        aria-label={`${node.title}, ${node.character}, layer ${node.layer}, ${nodeState.currentState}`}
+        data-testid={`story-node-${node.id}`}
         initial={{ scale: 0, opacity: 0, rotateZ: -180 }}
         animate={{ scale: 1, opacity: 1, rotateZ: 0 }}
         whileHover={
@@ -100,10 +106,18 @@ function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): Re
         }}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
-        onClick={() => {
+        onClick={(event) => {
+          event.stopPropagation();
           if (canVisit) {
             setRipple(true);
             setTimeout(() => setRipple(false), 1000);
+            openStoryView(node.id);
+          }
+        }}
+        onKeyDown={(event) => {
+          if (canVisit && (event.key === 'Enter' || event.key === ' ')) {
+            event.preventDefault();
+            openStoryView(node.id);
           }
         }}
       >

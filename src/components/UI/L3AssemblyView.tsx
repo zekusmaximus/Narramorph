@@ -75,6 +75,23 @@ const characterTextColors = {
   convergence: 'text-purple-400',
 };
 
+type L3SectionKey = 'arch' | 'algo' | 'hum' | 'conv';
+
+const sectionProgressKeys: Record<string, L3SectionKey> = {
+  archaeologist: 'arch',
+  algorithm: 'algo',
+  lastHuman: 'hum',
+  convergence: 'conv',
+};
+
+function getSectionProgressKey(character: string): L3SectionKey {
+  const key = sectionProgressKeys[character];
+  if (!key) {
+    throw new Error(`Unknown L3 section character: ${character}`);
+  }
+  return key;
+}
+
 export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   const markL3SectionRead = useStoryStore((state) => state.markL3SectionRead);
@@ -101,7 +118,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
           if (entry.isIntersecting) {
             // Section visible - start timer
             timer = setTimeout(() => {
-              const sectionKey = currentSection.character as 'arch' | 'algo' | 'hum' | 'conv';
+              const sectionKey = getSectionProgressKey(currentSection.character);
               markL3SectionRead(sectionKey);
             }, 3000); // Mark as read after 3 seconds
           } else {
@@ -134,7 +151,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
 
       const prevSection = sections[currentSectionIndex];
       if (prevSection) {
-        const sectionKey = prevSection.character as 'arch' | 'algo' | 'hum' | 'conv';
+        const sectionKey = getSectionProgressKey(prevSection.character);
         markL3SectionRead(sectionKey);
       }
 
@@ -150,6 +167,14 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
   const handlePrevious = useCallback(() => {
     goToSection(currentSectionIndex - 1);
   }, [currentSectionIndex, goToSection]);
+
+  const handleComplete = useCallback(() => {
+    const section = sections[currentSectionIndex];
+    if (section) {
+      markL3SectionRead(getSectionProgressKey(section.character));
+    }
+    onClose?.();
+  }, [currentSectionIndex, markL3SectionRead, onClose, sections]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -191,6 +216,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
       className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
       onClick={onClose}
       tabIndex={0}
+      data-testid="l3-assembly"
     >
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
@@ -199,12 +225,17 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
         transition={{ duration: 0.2 }}
         className="max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="l3-assembly-title"
       >
         {/* Header */}
         <div className="bg-gradient-to-r from-gray-900 to-black border-b border-cyan-500/30 p-6">
           <div className="flex items-start justify-between">
             <div>
-              <h2 className="text-2xl font-mono text-cyan-400 mb-2">Layer 3: Convergence</h2>
+              <h2 id="l3-assembly-title" className="text-2xl font-mono text-cyan-400 mb-2">
+                Layer 3: Convergence
+              </h2>
               <div className="space-y-1 text-sm font-mono text-gray-400">
                 <div>Journey: {assembly.metadata.journeyPattern}</div>
                 <div>Philosophy: {assembly.metadata.pathPhilosophy}</div>
@@ -214,8 +245,10 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
             </div>
             {onClose && (
               <button
+                type="button"
                 onClick={onClose}
                 className="text-gray-400 hover:text-white transition-colors font-mono text-sm"
+                aria-label="Close convergence"
               >
                 [ESC]
               </button>
@@ -226,13 +259,15 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
           <div className="mt-6 flex gap-2">
             {sections.map((section, index) => {
               const isActive = index === currentSectionIndex;
-              const sectionKey = section.character as 'arch' | 'algo' | 'hum' | 'conv';
+              const sectionKey = getSectionProgressKey(section.character);
               const isRead = l3Progress?.sectionsRead[sectionKey];
 
               return (
                 <button
+                  type="button"
                   key={index}
                   onClick={() => goToSection(index)}
+                  aria-label={`Open convergence section ${index + 1}: ${section.title}`}
                   className={`flex-1 px-3 py-2 rounded font-mono text-xs transition-all ${
                     isActive
                       ? 'bg-cyan-500/20 border border-cyan-500/50 text-cyan-300'
@@ -284,6 +319,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
         <div className="bg-gradient-to-r from-black to-gray-900 border-t border-cyan-500/30 p-4">
           <div className="flex items-center justify-between">
             <button
+              type="button"
               onClick={handlePrevious}
               disabled={currentSectionIndex === 0}
               className={`px-4 py-2 rounded font-mono text-sm transition-colors ${
@@ -299,17 +335,24 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
               Section {currentSectionIndex + 1} of {sections.length}
             </div>
 
-            <button
-              onClick={handleNext}
-              disabled={currentSectionIndex === sections.length - 1}
-              className={`px-4 py-2 rounded font-mono text-sm transition-colors ${
-                currentSectionIndex === sections.length - 1
-                  ? 'text-gray-600 cursor-not-allowed'
-                  : 'text-cyan-400 hover:bg-cyan-500/10 border border-cyan-500/30'
-              }`}
-            >
-              Next →
-            </button>
+            {currentSectionIndex === sections.length - 1 ? (
+              <button
+                type="button"
+                onClick={handleComplete}
+                className="px-4 py-2 rounded font-mono text-sm text-green-300 hover:bg-green-500/10 border border-green-500/40"
+                data-testid="complete-convergence"
+              >
+                Complete Convergence ✓
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={handleNext}
+                className="px-4 py-2 rounded font-mono text-sm transition-colors text-cyan-400 hover:bg-cyan-500/10 border border-cyan-500/30"
+              >
+                Next →
+              </button>
+            )}
           </div>
 
           <div className="mt-4 text-xs text-gray-500 font-mono text-center">

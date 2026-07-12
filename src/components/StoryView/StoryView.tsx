@@ -33,10 +33,7 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
     () => (selectedNode ? (nodes.get(selectedNode) ?? null) : null),
     [nodes, selectedNode],
   );
-  const nodeState = useMemo(
-    () => (selectedNode ? getNodeState(selectedNode) : null),
-    [getNodeState, selectedNode],
-  );
+  const nodeState = selectedNode ? getNodeState(selectedNode) : null;
   const fallbackContent =
     currentNode && nodeState ? currentNode.content[nodeState.currentState] : '';
   const {
@@ -99,7 +96,7 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
             timeSpent={timeSpentOnNode}
             variationId={variationId}
             variationMetadata={variationMetadata}
-            usedFallback={usedFallback}
+            usedFallback={usedFallback && currentNode.layer <= 2}
             variationError={variationError}
             onClose={closeStoryView}
           />

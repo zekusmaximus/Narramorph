@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    open: true,
+    open: process.env.PLAYWRIGHT_TEST !== '1',
   },
   build: {
     target: 'es2020',

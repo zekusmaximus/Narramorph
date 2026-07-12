@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/**/*", "tests/**/*", "tools/**/*", "tools/conversion/**/*"],
+  "include": ["src/**/*", "tests/**/*", "e2e/**/*", "tools/**/*", "tools/conversion/**/*"],
   "exclude": [
     "node_modules",
     "dist",

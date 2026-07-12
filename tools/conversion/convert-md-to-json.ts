@@ -26,6 +26,11 @@ import {
 import { generateAggregatedId, generateL3Id, parseVariationId, type Character } from './lib/ids.js';
 import { Logger } from './lib/log.js';
 import { normalizeText } from './lib/normalize.js';
+import {
+  loadRuntimeProfile,
+  selectRuntimeVariations,
+  type RuntimeProfile,
+} from './lib/runtime-profile.js';
 import { detectSimilarVariations, type VariationText } from './lib/similarity.js';
 import {
   validateL1L2Frontmatter,
@@ -101,6 +106,7 @@ async function main() {
     ? resolve(projectRoot, values['source-root'])
     : join(projectRoot, 'archive', 'source-markdown');
   const outputRoot = join(projectRoot, 'src/data/stories/eternal-return/content');
+  const runtimeProfile = await loadRuntimeProfile(join(outputRoot, 'runtime-profile.json'));
 
   // Parse parallelism (default to 4, max 10)
   const parallel = parseIntegerOption(values.parallel, {
@@ -147,9 +153,27 @@ async function main() {
 
   for (const layer of layers) {
     if (layer === '1') {
-      await convertL1(docsRoot, outputRoot, manifest, logger, options, values['dry-run'], parallel);
+      await convertL1(
+        docsRoot,
+        outputRoot,
+        manifest,
+        logger,
+        options,
+        runtimeProfile,
+        values['dry-run'],
+        parallel,
+      );
     } else if (layer === '2') {
-      await convertL2(docsRoot, outputRoot, manifest, logger, options, values['dry-run'], parallel);
+      await convertL2(
+        docsRoot,
+        outputRoot,
+        manifest,
+        logger,
+        options,
+        runtimeProfile,
+        values['dry-run'],
+        parallel,
+      );
     } else if (layer === '3') {
       await convertL3(docsRoot, outputRoot, manifest, logger, values['dry-run'], parallel);
     } else if (layer === '4') {
@@ -197,7 +221,7 @@ async function main() {
     console.log(`\n👀 Watching ${docsRoot} for changes (debounce=${debounce}ms)...`);
     console.log('Press Ctrl+C to stop\n');
 
-    await startWatchMode(docsRoot, outputRoot, layers, debounce, parallel);
+    await startWatchMode(docsRoot, outputRoot, layers, debounce, parallel, runtimeProfile);
   }
 }
 
@@ -212,6 +236,7 @@ async function startWatchMode(
   layers: ConversionLayer[],
   debounceMs: number,
   parallel: number,
+  runtimeProfile: RuntimeProfile,
 ): Promise<void> {
   const pendingChanges = new Set<string>();
   let debounceTimer: NodeJS.Timeout | null = null;
@@ -267,9 +292,27 @@ async function startWatchMode(
 
         try {
           if (layer === '1') {
-            await convertL1(docsRoot, outputRoot, manifest, logger, watchOptions, false, parallel);
+            await convertL1(
+              docsRoot,
+              outputRoot,
+              manifest,
+              logger,
+              watchOptions,
+              runtimeProfile,
+              false,
+              parallel,
+            );
           } else if (layer === '2') {
-            await convertL2(docsRoot, outputRoot, manifest, logger, watchOptions, false, parallel);
+            await convertL2(
+              docsRoot,
+              outputRoot,
+              manifest,
+              logger,
+              watchOptions,
+              runtimeProfile,
+              false,
+              parallel,
+            );
           } else if (layer === '3') {
             await convertL3(docsRoot, outputRoot, manifest, logger, false, parallel);
           } else if (layer === '4') {
@@ -314,7 +357,7 @@ function detectLayer(relativePath: string): ConversionLayer | null {
 }
 
 /**
- * Convert L1 layer (3 nodes × 80 variations = 240 total)
+ * Convert L1 layer (3 nodes × 81 authored variations, then apply the runtime profile)
  */
 async function convertL1(
   docsRoot: string,
@@ -322,6 +365,7 @@ async function convertL1(
   manifest: Manifest,
   logger: Logger,
   options: ValidationOptions,
+  runtimeProfile: RuntimeProfile,
   dryRun?: boolean,
   parallel?: number,
 ): Promise<void> {
@@ -330,7 +374,7 @@ async function convertL1(
   const characters: Character[] = ['arch', 'algo', 'hum'];
 
   for (const char of characters) {
-    const nodeId = `${char}-L1`;
+    const nodeId = `${char}-L1` as keyof RuntimeProfile['runtimeSelection']['layer1'];
     const sourceDir = join(docsRoot, `${char}-L1-production`);
 
     // Discover all markdown files (sorted for determinism)
@@ -449,7 +493,7 @@ async function convertL1(
             const phase = dirIsFR ? 'FR' : 'MA';
             if (num) {
               const padded = num.padStart(3, '0');
-              frontmatter.variation_id = `arch-L1-${phase}-${padded}`;
+              frontmatter.variation_id = `${char}-L1-${phase}-${padded}`;
             }
           }
 
@@ -562,7 +606,15 @@ async function convertL1(
     );
 
     // Validate count
-    validateVariationCount(reindexedVariations.length, 80, nodeId, logger, options);
+    validateVariationCount(
+      reindexedVariations.length,
+      runtimeProfile.authoredVariationCounts.layer1PerNode,
+      nodeId,
+      logger,
+      options,
+    );
+
+    const runtimeVariations = selectRuntimeVariations(nodeId, reindexedVariations, runtimeProfile);
 
     // Detect similar variations
     detectSimilarVariations(variationTexts, logger);
@@ -571,8 +623,8 @@ async function convertL1(
     const output: L1L2Output = {
       schemaVersion: SCHEMA_VERSION,
       nodeId,
-      totalVariations: reindexedVariations.length,
-      variations: reindexedVariations,
+      totalVariations: runtimeVariations.length,
+      variations: runtimeVariations,
     };
 
     // Validate schema version
@@ -588,7 +640,7 @@ async function convertL1(
       logger.info('L1_WRITTEN', `Wrote ${outputPath}`);
     }
 
-    manifest.counts.l1Variations += reindexedVariations.length;
+    manifest.counts.l1Variations += runtimeVariations.length;
   }
 
   manifest.counts.totalVariations += manifest.counts.l1Variations;
@@ -599,7 +651,7 @@ async function convertL1(
 }
 
 /**
- * Convert L2 layer (9 nodes × 80 variations = 720 total)
+ * Convert L2 layer (9 nodes × 81 authored/runtime variations = 729 total)
  */
 async function convertL2(
   docsRoot: string,
@@ -607,6 +659,7 @@ async function convertL2(
   manifest: Manifest,
   logger: Logger,
   options: ValidationOptions,
+  runtimeProfile: RuntimeProfile,
   dryRun?: boolean,
   parallel?: number,
 ): Promise<void> {
@@ -843,7 +896,13 @@ async function convertL2(
       );
 
       // Validate count
-      validateVariationCount(reindexedVariations.length, 80, nodeId, logger, options);
+      validateVariationCount(
+        reindexedVariations.length,
+        runtimeProfile.authoredVariationCounts.layer2PerNode,
+        nodeId,
+        logger,
+        options,
+      );
 
       // Detect similar variations
       detectSimilarVariations(variationTexts, logger);

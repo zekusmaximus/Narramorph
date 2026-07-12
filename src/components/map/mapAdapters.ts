@@ -110,7 +110,7 @@ export function createMapInteractionAdapter(input: MapAdapterInput): MapInteract
 
   const select = (nodeId: string): boolean => {
     const node = byId.get(nodeId);
-    if (node === undefined || !node.available || input.isAnimating) {
+    if (node === undefined || !node.available) {
       return false;
     }
     input.actions.selectNode(nodeId);

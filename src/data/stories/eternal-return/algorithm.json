@@ -12,22 +12,29 @@
       "id": "algo-L2-accept",
       "layer": 2,
       "chapterTitle": "Acceptance Path",
-      "connections": [],
+      "connections": ["algo-L3"],
       "contentFile": "content/layer2/algo-L2-accept-variations.json"
     },
     {
       "id": "algo-L2-resist",
       "layer": 2,
       "chapterTitle": "Resistance Path",
-      "connections": [],
+      "connections": ["algo-L3"],
       "contentFile": "content/layer2/algo-L2-resist-variations.json"
     },
     {
       "id": "algo-L2-invest",
       "layer": 2,
       "chapterTitle": "Investment Path",
-      "connections": [],
+      "connections": ["algo-L3"],
       "contentFile": "content/layer2/algo-L2-invest-variations.json"
+    },
+    {
+      "id": "algo-L3",
+      "layer": 3,
+      "chapterTitle": "Convergence: The Algorithm",
+      "connections": ["final-preserve", "final-transform", "final-release"],
+      "contentFile": "content/layer3/algo-L3-variations.json"
     }
   ]
 }

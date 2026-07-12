@@ -34,12 +34,13 @@ Do not edit generated narrative JSON directly. Change Markdown source, run conve
 
 The application imports these files directly:
 
-- `story.json`, the three character node-definition files, `layout.json`, and `unlock-config.json`;
+- `story.json`, the three character node-definition files, `terminals.json`, `layout.json`, and `unlock-config.json`;
 - L1 and L2 aggregate variation files;
 - the four L3 aggregate variation files;
+- the three L4 `final-*.json` terminal files;
 - `selection-matrix.json`.
 
-The L3 individual files, L4 individual files, terminal aggregate, and conversion manifest remain checked in as reproducible conversion outputs and are cross-checked against their aggregates even where the current reader path does not import them directly.
+The L3 individual files, terminal aggregate, runtime profile, and conversion manifest remain checked in as reproducible conversion inputs or outputs and are cross-checked against their aggregates where applicable.
 
 ## Commands
 
@@ -75,12 +76,12 @@ npm run content:matrix
 npm run content:diff
 ```
 
-## Current reconciliation boundary
+## Source and runtime profile
 
-The source package contains 243 L1, 729 L2, 270 L3, and 3 L4 records. Every L1/L2 authoring group contains 81 records, while the conversion package still carries an older 80-record strict-count policy. The checked-in runtime deliberately contains a curated 12-record L1 set and the complete 729-record L2 set.
+The source package contains 243 L1, 729 L2, 270 L3, and 3 L4 records. Every L1/L2 authoring group contains 81 records. `content/runtime-profile.json` declares those authored counts and names the stable L1 IDs included in the checked-in reader package: 3 Archaeologist, 4 Algorithm, and 5 Human variations. L2 is not curated and remains complete at 729 records.
 
-Consequently, a full conversion write would change L1 selection outcomes and is not an approved routine regeneration step yet. The dry run is reproducible and exposes the twelve count-policy mismatches; resolving the 80-versus-81 contract and the curated L1 packaging decision is the next content-pipeline change. Do not use a full write merely to make validation green.
+The converter validates and deterministically reindexes all 81 authored records before applying the L1 allowlist, so a missing authored record or selected runtime ID fails instead of silently changing selection outcomes. A strict full dry run reports 12 L1, 729 L2, 270 L3, and 3 L4 runtime records with no blockers or errors. Review generated diffs before any full write because provenance timestamps and narrative normalization warnings remain intentionally visible.
 
 ## Manifest checksum decision
 
-A package-level checksum is deferred. Source-file hashes already exist in conversion provenance, while timestamps, legacy path entries, and the unresolved curated L1 boundary prevent a package checksum from being a stable or useful contract today. Strict structural, count, ordering, aggregate, and reference checks provide the useful reproducibility guarantees before a second story. Revisit deterministic package checksums after the source/runtime reconciliation is complete or when a second story is introduced.
+A package-level checksum is deferred until a second story is introduced. The source/runtime boundary is now resolved, but a checksum designed only around Eternal Return would risk encoding story-specific file assumptions as a platform contract. Source-file hashes already exist in conversion provenance, while strict structural, count, ordering, aggregate, and reference checks cover the current package. When a second story fixture exists, define one timestamp-independent canonical file list and checksum algorithm that both packages can satisfy.
