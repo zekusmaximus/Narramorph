@@ -28,6 +28,7 @@ import {
 import { buildSavedState, serializeSavedState } from '@/domain/progress/saveState';
 import { findNewlyUnlockedNodes, getNodeUnlockProgress } from '@/domain/unlocks/unlockProgress';
 import { buildConditionContext } from '@/domain/variation/conditionContext';
+import { recordVariationSelection } from '@/domain/variation/selection';
 import { progressRepository } from '@/repositories/progressRepository';
 import type {
   StoryStore,
@@ -294,17 +295,10 @@ export const useStoryStore = create<StoryStore>()(
           return;
         }
 
-        // Update the visit record with the variationId
-        visitRecord.variationId = variationId;
-
-        // Track ALL variations ever shown for this node (absolute deduplication)
-        if (!visitRecord.recentVariationIds) {
-          visitRecord.recentVariationIds = [];
-        }
-        // Only add if not already in the list (prevent duplicates in the array itself)
-        if (!visitRecord.recentVariationIds.includes(variationId)) {
-          visitRecord.recentVariationIds.push(variationId);
-        }
+        state.progress.visitedNodes[activeVisit.nodeId] = recordVariationSelection(
+          visitRecord,
+          variationId,
+        );
 
         devLog(`[Visit] Updated ${activeVisit.nodeId} with variationId: ${variationId}`);
       });
