@@ -31,6 +31,7 @@
     "content:convert:all": "cd tools/conversion && npm run convert:all",
     "content:convert:watch": "cd tools/conversion && npm run convert:watch",
     "content:validate": "cd tools/conversion && npm run validate",
+    "content:validate:runtime": "vitest run src/utils/validateRuntimeContent.test.ts",
     "content:matrix": "cd tools/conversion && npm run matrix",
     "content:diff": "cd tools/conversion && npm run diff",
     "content:rollback": "cd tools/conversion && npm run rollback"
