@@ -26,6 +26,7 @@ import {
   findNewlyRevealedConnectionIds,
 } from '@/domain/progress/progressModel';
 import { buildSavedState, serializeSavedState } from '@/domain/progress/saveState';
+import { loadStoryState } from '@/domain/story/loading';
 import { findNewlyUnlockedNodes, getNodeUnlockProgress } from '@/domain/unlocks/unlockProgress';
 import { buildConditionContext } from '@/domain/variation/conditionContext';
 import { recordVariationSelection } from '@/domain/variation/selection';
@@ -42,7 +43,7 @@ import type {
   L3Assembly,
 } from '@/types';
 import type { UnlockProgress } from '@/types/Unlock';
-import { loadStoryContent, ContentLoadError } from '@/utils/contentLoader';
+import { loadStoryContent } from '@/utils/contentLoader';
 import { buildL3Assembly, calculateSynthesisPattern } from '@/utils/l3Assembly';
 import { isL3Node, isL4Node } from '@/utils/nodeUtils';
 import { evaluateNodeUnlock } from '@/utils/unlockEvaluator';
@@ -115,91 +116,49 @@ export const useStoryStore = create<StoryStore>()(
 
     // Actions
     loadStory: async (storyId: string) => {
-      try {
-        // TODO: Add loading indicator
-        // devLog(`Loading story: ${storyId}`);
+      const result = await loadStoryState(storyId, {
+        loadStoryContent,
+        loadUnlockConfig,
+        createInitialProgress,
+      });
 
-        // Load story content from files
-        const storyData = await loadStoryContent(storyId);
+      if (result.status === 'failed') {
+        devError('Failed to load story:', result.cause);
+        throw result.error;
+      }
 
-        set((state) => {
-          // Clear existing state
-          state.nodes.clear();
-          state.connections.clear();
-          state.progress = createInitialProgress();
-
-          // Set story data
-          state.storyData = storyData;
-
-          // Populate nodes map
-          storyData.nodes.forEach((node) => {
-            state.nodes.set(node.id, node);
-          });
-
-          // Populate connections map
-          if (storyData.connections) {
-            storyData.connections.forEach((connection) => {
-              state.connections.set(connection.id, connection);
-            });
-          }
-
-          // Update viewport bounds based on node positions
-          if (storyData.nodes.length > 0) {
-            const positions = storyData.nodes.map((node) => node.position);
-            const minX = Math.min(...positions.map((p) => p.x)) - 100;
-            const maxX = Math.max(...positions.map((p) => p.x)) + 100;
-            const minY = Math.min(...positions.map((p) => p.y)) - 100;
-            const maxY = Math.max(...positions.map((p) => p.y)) + 100;
-
-            state.viewport.bounds = { minX, maxX, minY, maxY };
-            state.viewport.center = {
-              x: (minX + maxX) / 2,
-              y: (minY + maxY) / 2,
-            };
-          }
-        });
-
-        // Load unlock configurations
-        const unlockConfigs = loadUnlockConfig(storyId);
-        set((state) => {
-          state.unlockConfigs = unlockConfigs;
-        });
-
-        // Update reading statistics
-        get().updateStats();
-
-        // Track initialization for StrictMode detection
-        initializationCount++;
-
-        // Validate L2 philosophy mappings
-        const nodeIds = Array.from(get().nodes.keys());
-        const validation = validateL2PhilosophyMappings(nodeIds);
-
-        if (!validation.valid) {
-          devWarn(
-            `[Journey] 🏗️  INIT #${initializationCount}: L2 nodes missing philosophy mappings:`,
-            validation.missing,
-          );
-        } else {
-          devLog(
-            `[Journey] ✓ INIT #${initializationCount}: All L2 nodes have valid philosophy mappings`,
-          );
+      const loaded = result.state;
+      set((state) => {
+        state.storyData = loaded.storyData;
+        state.nodes = loaded.nodes;
+        state.connections = loaded.connections;
+        state.progress = loaded.progress;
+        state.unlockConfigs = loaded.unlockConfigs;
+        if (loaded.viewport) {
+          state.viewport.bounds = loaded.viewport.bounds;
+          state.viewport.center = loaded.viewport.center;
         }
+      });
 
-        // TODO: Add success notification
-        // devLog(`Successfully loaded story: ${storyData.metadata.title}`);
-      } catch (error) {
-        devError('Failed to load story:', error);
+      // Update reading statistics
+      get().updateStats();
 
-        if (error instanceof ContentLoadError) {
-          // Handle content loading errors with user-friendly messages
-          throw new Error(`Story loading failed: ${error.message}`);
-        } else {
-          // Handle unexpected errors
-          throw new Error(
-            `Unexpected error loading story: ${error instanceof Error ? error.message : 'Unknown error'}`,
-          );
-        }
+      // Track initialization for StrictMode detection
+      initializationCount++;
+
+      // Validate L2 philosophy mappings
+      const nodeIds = Array.from(get().nodes.keys());
+      const validation = validateL2PhilosophyMappings(nodeIds);
+
+      if (!validation.valid) {
+        devWarn(
+          `[Journey] 🏗️  INIT #${initializationCount}: L2 nodes missing philosophy mappings:`,
+          validation.missing,
+        );
+      } else {
+        devLog(
+          `[Journey] ✓ INIT #${initializationCount}: All L2 nodes have valid philosophy mappings`,
+        );
       }
     },
 
