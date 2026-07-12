@@ -86,6 +86,7 @@ async function main() {
       parallel: { type: 'string', short: 'p' },
       watch: { type: 'boolean', short: 'w' },
       debounce: { type: 'string' },
+      'source-root': { type: 'string' },
       verbose: { type: 'boolean', short: 'v' },
     },
   });
@@ -96,7 +97,9 @@ async function main() {
   };
 
   const projectRoot = resolve(process.cwd(), '../..');
-  const docsRoot = join(projectRoot, 'docs');
+  const docsRoot = values['source-root']
+    ? resolve(projectRoot, values['source-root'])
+    : join(projectRoot, 'archive', 'source-markdown');
   const outputRoot = join(projectRoot, 'src/data/stories/eternal-return/content');
 
   // Parse parallelism (default to 4, max 10)
@@ -131,7 +134,7 @@ async function main() {
     schemaVersion: SCHEMA_VERSION,
     generatorVersion: GENERATOR_VERSION,
     convertedAt: new Date().toISOString(),
-    sourceRoot: docsRoot,
+    sourceRoot: relative(projectRoot, docsRoot).replaceAll('\\', '/'),
     files: {},
     counts: {
       l1Variations: 0,
@@ -534,7 +537,7 @@ async function convertL1(
       ids.push(r.variation.id);
       variationTexts.push(r.variationText);
       if (r.manifestEntry) {
-        manifest.files[r.manifestEntry.file] = {
+        manifest.files[relative(docsRoot, r.manifestEntry.file).replaceAll('\\', '/')] = {
           sourceHash: r.manifestEntry.sourceHash,
           outputPath: `layer1/${nodeId}-variations.json`,
           convertedAt: new Date().toISOString(),
@@ -815,7 +818,7 @@ async function convertL2(
         ids.push(r.variation.id);
         variationTexts.push(r.variationText);
         if (r.manifestEntry) {
-          manifest.files[r.manifestEntry.file] = {
+          manifest.files[relative(docsRoot, r.manifestEntry.file).replaceAll('\\', '/')] = {
             sourceHash: r.manifestEntry.sourceHash,
             outputPath: `layer2/${nodeId}-variations.json`,
             convertedAt: new Date().toISOString(),
@@ -1063,7 +1066,7 @@ async function convertL3(
         await writeFileAtomic(outputPath, r.outputJson, logger);
       }
 
-      manifest.files[r.file] = {
+      manifest.files[relative(docsRoot, r.file).replaceAll('\\', '/')] = {
         sourceHash: r.sourceHash,
         outputPath: `layer3/variations/${variationId}.json`,
         convertedAt: new Date().toISOString(),
@@ -1215,7 +1218,7 @@ async function convertL4(
 
     // Track in manifest
     const sourceHash = hashContent(parsed?.raw ?? normalized, body);
-    manifest.files[filePath] = {
+    manifest.files[relative(docsRoot, filePath).replaceAll('\\', '/')] = {
       sourceHash,
       outputPath: `layer4/${id}.json`,
       convertedAt: new Date().toISOString(),

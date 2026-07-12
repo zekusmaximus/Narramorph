@@ -4,7 +4,7 @@ Markdown → JSON conversion pipeline for Narramorph content with validation, de
 
 ## Overview
 
-This tooling converts markdown source files (L1/L2/L3/L4) into structured JSON format for the Narramorph Fiction platform, following the canonical plan in `docs/CONVERSION_TOOLING_PLAN.md`.
+This tooling converts the tracked Markdown source package in `archive/source-markdown/` into structured JSON for the Narramorph Fiction platform. See `docs/CONTENT_OWNERSHIP.md` for the current ownership boundary and safe command sequence.
 
 ## Status
 
@@ -42,6 +42,16 @@ npm run convert:l1 -- --strict
 # Verbose logging
 npm run convert:l1 -- --verbose
 ```
+
+The CLI accepts `--source-root=<repository-relative-path>` when validating a temporary source package. The default is `archive/source-markdown`.
+
+Use a dry run before any write:
+
+```bash
+npm run convert:all -- --dry-run
+```
+
+The current dry run intentionally reports the documented 80-versus-81 L1/L2 count-policy mismatch. Do not perform a full write until that policy and the curated L1 runtime package are reconciled.
 
 ### Type Check
 

@@ -4,6 +4,7 @@
 
 import { useMemo } from 'react';
 
+import { selectVariation } from '@/domain/variation/selection';
 import { useStoryStore } from '@/stores/storyStore';
 import type { VariationMetadata } from '@/types';
 import { findMatchingVariation } from '@/utils/conditionEvaluator';
@@ -91,111 +92,31 @@ export function useVariationSelection(
     renderCount++;
     const currentRender = renderCount;
 
-    // Early return if no node
-    if (!nodeId) {
-      return {
-        content: '',
-        variationId: null,
-        metadata: null,
-        isLoading: false,
-        error: null,
-        usedFallback: false,
-      };
+    const context = nodeId ? getConditionContext(nodeId, { includeRecentVariations: true }) : null;
+    const result = selectVariation(
+      {
+        storyId: storyData?.metadata?.id || 'eternal-return',
+        nodeId,
+        fallbackContent,
+        context,
+      },
+      { loadVariationFile, findMatchingVariation },
+    );
+
+    if (nodeId) {
+      devLog(`🎬 RENDER #${currentRender} for ${nodeId}`);
+    }
+    if (result.reason === 'missing-variations') {
+      devWarn(`⚠️  No variation file for ${nodeId}, using fallback content`);
+    } else if (result.reason === 'first-variation-fallback') {
+      devWarn(`⚠️  No matching variation for ${nodeId}, using first available`);
+    } else if (result.reason === 'selection-error') {
+      devError(`❌ Error selecting variation for ${nodeId}: %o`, result.error);
+    } else if (result.reason === 'matched') {
+      devLog(`📝 CHOICE RECORDED: ${nodeId} → ${result.variationId} [render #${currentRender}]`);
     }
 
-    // Log render marker to track StrictMode double-renders
-    devLog(`🎬 RENDER #${currentRender} for ${nodeId}`);
-
-    try {
-      // Step 1: Get current reader state (with recent variations for de-duplication)
-      const context = getConditionContext(nodeId, { includeRecentVariations: true });
-
-      // Step 2: Load variation file
-      const storyId = storyData?.metadata?.id || 'eternal-return';
-      const variationFile = loadVariationFile(storyId, nodeId);
-
-      if (!variationFile || !variationFile.variations || variationFile.variations.length === 0) {
-        // No variations available - use fallback
-        if (fallbackContent) {
-          devWarn(`⚠️  No variation file for ${nodeId}, using fallback content`);
-          return {
-            content: fallbackContent,
-            variationId: null,
-            metadata: null,
-            isLoading: false,
-            error: null,
-            usedFallback: true,
-          };
-        }
-
-        throw new Error(`No variation file found for node: ${nodeId}`);
-      }
-
-      // Step 3: Select matching variation
-      const matchedVariation = findMatchingVariation(variationFile.variations, context);
-
-      if (!matchedVariation) {
-        // No match found - use first variation as fallback
-        devWarn(`⚠️  No matching variation for ${nodeId}, using first available`);
-        const firstVariation = variationFile.variations[0];
-
-        if (!firstVariation) {
-          return {
-            content: '',
-            variationId: null,
-            metadata: null,
-            isLoading: false,
-            error: new Error('No variations available'),
-            usedFallback: true,
-          };
-        }
-
-        const firstVarId =
-          firstVariation.variationId ||
-          firstVariation.id ||
-          firstVariation.metadata?.variationId ||
-          'unknown';
-
-        return {
-          content: firstVariation.content,
-          variationId: firstVarId,
-          metadata: firstVariation.metadata,
-          isLoading: false,
-          error: null,
-          usedFallback: true,
-        };
-      }
-
-      // Step 4: Return matched variation
-      const varId =
-        matchedVariation.variationId ||
-        matchedVariation.id ||
-        matchedVariation.metadata?.variationId ||
-        'unknown';
-
-      // Final selection log - important for tracking choice order for PDF
-      devLog(`📝 CHOICE RECORDED: ${nodeId} → ${varId} [render #${currentRender}]`);
-
-      return {
-        content: matchedVariation.content,
-        variationId: varId,
-        metadata: matchedVariation.metadata,
-        isLoading: false,
-        error: null,
-        usedFallback: false,
-      };
-    } catch (error) {
-      devError(`❌ Error selecting variation for ${nodeId}: %o`, error);
-
-      return {
-        content: fallbackContent || '',
-        variationId: null,
-        metadata: null,
-        isLoading: false,
-        error: error as Error,
-        usedFallback: true,
-      };
-    }
+    return { ...result, isLoading: false };
     // State values must be in deps to trigger re-selection when they change,
     // even though they're read indirectly via getConditionContext()
     // eslint-disable-next-line react-hooks/exhaustive-deps

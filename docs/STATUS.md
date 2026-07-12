@@ -8,7 +8,9 @@ Updated: July 12, 2026
 - _Eternal Return of the Digital Self_ is present as the complete checked-in runtime story across L1-L4.
 - CI-oriented runtime validation checks raw L1/L2 variations, the assembled story graph, L3 aggregate loading, and the selection matrix without relying on migration normalization.
 - The conversion package has its own strict validator and test suite.
-- Progress/journey calculations, L2 progression, connection reveal logic, unlock progress, save-state validation/migration, and variation condition-context construction have begun moving from `storyStore.ts` into pure domain modules; browser storage is accessed through a focused progress repository.
+- Progress/journey calculations, L2 progression, connection reveal logic, unlock progress, save-state validation/migration, variation selection and history, and atomic story-loading transitions now sit behind testable domain or repository boundaries; `storyStore.ts` remains their coordinator.
+- Runtime integrity validation now cross-checks declared story and layer counts, duplicate IDs, runtime-file ownership, L3/L4 aggregates, selection-matrix references, manifest totals, and deterministic record ordering.
+- Content ownership and regeneration commands are documented. The tracked source package is discoverable by the converter, with the legacy 80-versus-81 count policy and curated L1 runtime package recorded as the remaining reconciliation boundary.
 - The 2D and 3D maps now share a map interaction adapter, and reduced-motion behavior has an explicit preference hook.
 - Generated backup snapshots and nested tool dependencies are excluded from version control.
 
@@ -24,9 +26,9 @@ Updated: July 12, 2026
 
 ## Known constraints
 
-- `storyStore.ts` remains the central coordinator and still owns content-loading, variation, visit, and UI orchestration concerns.
+- `storyStore.ts` remains the central coordinator and still owns visit, L3 assembly, unlock, and UI orchestration concerns.
 - Several visual components and atmospheric map effects subscribe directly to broad store state.
-- Runtime JSON ownership versus conversion source ownership is documented imperfectly and remains a content-pipeline risk.
+- Full conversion writes remain intentionally blocked from routine use because the authoring package contains 81 records per L1/L2 group while the converter expects 80, and regenerating L1 would expand the curated runtime selection set.
 - Eager content imports are acceptable for the current single-story scope but will not scale cleanly to a larger catalog.
 - Automated browser-level coverage and accessibility verification remain limited.
 
