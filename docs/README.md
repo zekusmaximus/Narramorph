@@ -17,6 +17,7 @@ This directory separates current project guidance from historical planning recor
 - [Data schema](DATA_SCHEMA.md)
 - [Technical requirements](TECHNICAL_REQUIREMENTS.md)
 - [Codebase conventions](CODEBASE_CONVENTIONS.md)
+- [Content ownership and reproducibility](CONTENT_OWNERSHIP.md)
 - [Framework and voice guides](framework/)
 - [Narrative exemplars](exemplars/)
 
