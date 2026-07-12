@@ -12,7 +12,13 @@ import {
   type Viewport,
 } from '@xyflow/react';
 import { motion } from 'framer-motion';
-import { useEffect, useState, type MouseEvent as ReactMouseEvent, type ReactElement } from 'react';
+import {
+  useEffect,
+  useMemo,
+  useState,
+  type MouseEvent as ReactMouseEvent,
+  type ReactElement,
+} from 'react';
 
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 
@@ -73,16 +79,34 @@ export function NodeMapGraph({
 }: NodeMapGraphProps): ReactElement {
   const reduceMotion = useReducedMotionPreference();
   const [instance, setInstance] = useState<ReactFlowInstance | null>(null);
+  const [compactViewport, setCompactViewport] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(max-width: 639px)').matches,
+  );
+
+  useEffect(() => {
+    const viewportQuery = window.matchMedia('(max-width: 639px)');
+    const updateViewportMode = (): void => setCompactViewport(viewportQuery.matches);
+    viewportQuery.addEventListener('change', updateViewportMode);
+    return () => viewportQuery.removeEventListener('change', updateViewportMode);
+  }, []);
+
+  const fitViewOptions = useMemo(
+    () =>
+      compactViewport
+        ? { padding: 0.08, minZoom: 0.55, maxZoom: 1.2 }
+        : { padding: 0.3, minZoom: 0.3, maxZoom: 1.2 },
+    [compactViewport],
+  );
 
   useEffect(() => {
     if (!instance || nodes.length === 0) {
       return undefined;
     }
     const frame = requestAnimationFrame(() => {
-      void instance.fitView({ padding: 0.3, minZoom: 0.3, maxZoom: 1.2 });
+      void instance.fitView(fitViewOptions);
     });
     return () => cancelAnimationFrame(frame);
-  }, [instance, nodes.length]);
+  }, [fitViewOptions, instance, nodes.length]);
 
   return (
     <motion.div
@@ -109,7 +133,7 @@ export function NodeMapGraph({
           animated: reduceMotion ? false : defaultEdgeOptions.animated,
         }}
         fitView
-        fitViewOptions={{ padding: 0.3, minZoom: 0.3, maxZoom: 1.2 }}
+        fitViewOptions={fitViewOptions}
         minZoom={0.2}
         maxZoom={2}
         className="touch-none"
@@ -129,12 +153,12 @@ export function NodeMapGraph({
           style={{ opacity: 0.15 }}
         />
         <Controls
-          className="bg-black/80 backdrop-blur-sm shadow-lg rounded border border-gray-700/50"
+          className="!bottom-3 !left-3 rounded border border-slate-600/30 bg-[#0b1016]/85 shadow-lg shadow-black/20 backdrop-blur-md"
           showInteractive={false}
         />
         <MiniMap
-          className="bg-black/80 backdrop-blur-sm shadow-lg rounded border border-gray-700/50"
-          style={{ width: 200, height: 150, backgroundColor: '#0a0e12' }}
+          className="hidden rounded border border-slate-600/30 bg-[#0b1016]/85 shadow-lg shadow-black/20 backdrop-blur-md md:block"
+          style={{ width: 168, height: 112, backgroundColor: '#0a0e12' }}
           nodeColor={getNodeColor}
           maskColor="rgba(10, 14, 18, 0.8)"
           pannable

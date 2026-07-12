@@ -136,4 +136,5 @@ test('unavailable WebGL falls back to the 2D reader', async ({ page }) => {
     'The 2D story map is ready instead.',
   );
   await expect(page.getByRole('application', { name: 'Interactive story node map' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Experimental 3D' })).toBeVisible();
 });

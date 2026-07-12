@@ -89,24 +89,36 @@ export function StoryNodeLabel({
   node: StoryNode;
   theme: StoryNodeTheme;
 }): ReactElement {
+  const layerLabel =
+    node.layer === 1
+      ? 'Opening fragment'
+      : node.layer === 2
+        ? 'Branching fragment'
+        : node.layer === 3
+          ? 'Convergence'
+          : 'Final fragment';
+
   return (
-    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 text-center pointer-events-none">
+    <div className="pointer-events-none absolute left-1/2 top-full mt-3 w-40 -translate-x-1/2 transform text-center sm:mt-4 sm:w-48">
       <div
-        className="bg-black/95 backdrop-blur-sm px-3 py-1.5 rounded border font-mono shadow-lg"
+        className="rounded border bg-black/90 px-2.5 py-1.5 shadow-lg backdrop-blur-sm sm:px-3"
         style={{
           borderColor: `${theme.primary}40`,
           boxShadow: `0 0 10px ${theme.primary}20`,
         }}
       >
         <div
-          className="text-sm font-semibold whitespace-nowrap tracking-wide flex items-center justify-center gap-1"
+          className="flex items-start justify-center gap-1.5 font-serif text-[13px] font-semibold leading-tight tracking-wide sm:text-sm"
           style={{ color: theme.primary }}
         >
-          <span className="text-[10px] opacity-80">{getCharacterIcon(node.character)}</span>
+          <span className="mt-0.5 text-[10px] opacity-80">{getCharacterIcon(node.character)}</span>
           <span>{node.title}</span>
         </div>
-        <div className="text-xs mt-0.5" style={{ color: theme.accent }}>
-          {node.metadata.estimatedReadTime} MIN • ACT {node.metadata.narrativeAct}
+        <div
+          className="mt-1 font-mono text-[9px] uppercase tracking-[0.12em] opacity-80"
+          style={{ color: theme.accent }}
+        >
+          {layerLabel}
         </div>
       </div>
     </div>

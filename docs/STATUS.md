@@ -13,6 +13,8 @@ Updated: July 12, 2026
 - Content ownership and regeneration commands are documented. The converter validates all 81 authored records per L1/L2 group, then applies an explicit profile that preserves the stable 12-record L1 runtime package.
 - The 2D and 3D maps now share a map interaction adapter, and reduced-motion behavior has an explicit preference hook.
 - The checked-in story graph reaches three L3 convergence nodes and three authored L4 endings. Chromium coverage protects the full journey, revisit/dedup behavior, unlock notices, persistence reload, missing-story recovery, and WebGL fallback.
+- The reader experience now uses a responsive archive shell, perspective-first opening, simplified mobile map, literary passage typography, actual-text reading estimates, scroll progress, graph-backed continuation actions, narrative progress history, and persisted reader preferences.
+- Browser coverage also protects the 390×844 layout, horizontal-overflow boundary, keyboard return path, reader continuation, and preference persistence; 3D remains available as an explicitly experimental secondary view.
 - Generated backup snapshots and nested tool dependencies are excluded from version control.
 
 ## Recently completed
