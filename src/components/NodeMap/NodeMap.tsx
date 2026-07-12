@@ -14,7 +14,6 @@ import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdap
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import { useStoryStore } from '@/stores';
 
-import { BootSequence } from './BootSequence';
 import type { CustomStoryNodeData } from './CustomStoryNode';
 import { convertToReactFlowEdges } from './edgeUtils';
 import { NodeMapAtmosphere } from './NodeMapAtmosphere';
@@ -55,12 +54,11 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
   const adapter = useMapInteractionAdapter('2d');
   const storyNodes = useStoryStore((state) => state.nodes);
   const progress = useStoryStore((state) => state.progress);
-  const storyData = useStoryStore((state) => state.storyData);
   const reduceMotion = useReducedMotionPreference();
   const activationEffects = useNodeActivationEffects();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
-  const [bootComplete, setBootComplete] = useState(false);
+  const [supportsPrecisePointer, setSupportsPrecisePointer] = useState(false);
   const [viewport, setViewport] = useState<Viewport>({ zoom: 1, x: 0, y: 0 });
 
   const flowNodes = useMemo(() => toFlowNodes(adapter), [adapter]);
@@ -75,17 +73,35 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
   useEffect(() => setEdges(flowEdges), [flowEdges, setEdges]);
 
   useEffect(() => {
-    if (reduceMotion) {
+    if (typeof window.matchMedia !== 'function') {
       return undefined;
     }
+
+    const pointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const updatePointerSupport = (): void => setSupportsPrecisePointer(pointerQuery.matches);
+
+    updatePointerSupport();
+    pointerQuery.addEventListener('change', updatePointerSupport);
+
+    return () => pointerQuery.removeEventListener('change', updatePointerSupport);
+  }, []);
+
+  useEffect(() => {
+    if (!supportsPrecisePointer) {
+      return undefined;
+    }
+
     const handleMouseMove = (event: globalThis.MouseEvent): void => {
       const position = { x: event.clientX, y: event.clientY };
-      setMousePosition(position);
       setTooltipPosition(position);
+      if (!reduceMotion) {
+        setMousePosition(position);
+      }
     };
+
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [reduceMotion]);
+  }, [reduceMotion, supportsPrecisePointer]);
 
   const handleNodeClick = useCallback(
     (_event: ReactMouseEvent, flowNode: Node): void => {
@@ -116,7 +132,6 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
 
   const totalNodes = storyNodes.size;
   const visitedCount = Object.keys(progress.visitedNodes).length;
-  const showBoot = storyData !== null && !bootComplete && !reduceMotion;
 
   return (
     <div
@@ -128,8 +143,6 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
       tabIndex={0}
       onKeyDown={handleKeyDown}
     >
-      {showBoot && <BootSequence onComplete={() => setBootComplete(true)} />}
-
       <NodeMapAtmosphere
         storyNodes={storyNodes}
         mousePosition={mousePosition}
@@ -154,10 +167,9 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
       <NodeMapHud
         totalNodes={totalNodes}
         visitedCount={visitedCount}
-        glitchActive={activationEffects.glitchActive}
-        glitchColor={activationEffects.glitchColor}
         hoveredNodeId={adapter.hoveredNodeId}
         tooltipPosition={tooltipPosition}
+        showTooltip={supportsPrecisePointer}
       />
     </div>
   );

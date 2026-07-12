@@ -49,7 +49,7 @@ export function MarkdownContent({ content }: { content: string }): ReactElement 
         });
 
         return (
-          <p key={`paragraph-${paragraphIndex}`} className="mb-4 leading-relaxed">
+          <p key={`paragraph-${paragraphIndex}`} className="mb-6 last:mb-0">
             {finalParts
               .filter((part) => part !== '')
               .map((part, partIndex) => (

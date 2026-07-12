@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
@@ -7,8 +7,8 @@ import LoadingState from '@/components/3d/LoadingState';
 import NarromorphCanvas from '@/components/3d/NarromorphCanvas';
 import ContentPanel3D from '@/components/ContentPanel3D';
 import NodeMap from '@/components/NodeMap';
+import { OpeningExperience } from '@/components/OpeningExperience';
 import StoryView from '@/components/StoryView';
-import { JourneyTracker } from '@/components/UI/JourneyTracker';
 import { L3AssemblyView } from '@/components/UI/L3AssemblyView';
 import { UnlockNotificationSystem } from '@/components/UI/UnlockNotification';
 import { useStoryStore } from '@/stores';
@@ -159,33 +159,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-full flex flex-col">
-      {/* Hero section for new users */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6"
-      >
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">
-            Eternal Return of the Digital Self
-          </h1>
-          <p className="text-blue-100 text-lg max-w-2xl">
-            Experience a recursive narrative exploring digital consciousness across time. Navigate
-            through interconnected nodes to uncover the story of three perspectives: the
-            Archaeologist, the Algorithm, and the Human.
-          </p>
-          <div className="mt-4 flex items-center space-x-4 text-sm">
-            <span className="bg-blue-500/30 px-3 py-1 rounded-full">Interactive Narrative</span>
-            <span className="bg-purple-500/30 px-3 py-1 rounded-full">Non-Linear Story</span>
-            <span className="bg-indigo-500/30 px-3 py-1 rounded-full">Multiple Perspectives</span>
-          </div>
-        </div>
-      </motion.div>
+    <div className="flex h-full min-h-0 min-w-0 flex-col overflow-hidden">
+      <OpeningExperience />
 
       {/* Main content area with node map */}
-      <div className="flex-1 relative">
+      <div className="relative min-h-0 min-w-0 flex-1 overflow-hidden">
         <ErrorBoundary
           fallbackRender={({ error }) => (
             <WebGLErrorFallback error={error} onFallbackTo2D={handleFallbackTo2D} />
@@ -226,7 +204,7 @@ export default function Home() {
           <div
             role="status"
             data-testid="webgl-fallback-status"
-            className="fixed top-16 left-4 z-40 max-w-sm rounded border border-amber-400/40 bg-gray-950/95 px-4 py-3 text-sm text-amber-100 shadow-xl"
+            className="absolute right-3 top-14 z-40 max-w-[calc(100%_-_1.5rem)] rounded-lg border border-amber-200/30 bg-[#11191e]/95 px-4 py-3 text-sm text-amber-50 shadow-xl backdrop-blur sm:max-w-sm"
           >
             {webGLFallbackMessage}
           </div>
@@ -240,27 +218,16 @@ export default function Home() {
         {/* Dev-only FPS counter for 3D mode */}
         {use3DMode && <FPSCounter />}
 
-        {/* 3D/2D Mode Toggle (optional UI control) */}
+        {/* The existing 3D implementation remains available as an experimental secondary view. */}
         <button
           type="button"
           onClick={toggle3DMode}
-          className="fixed top-4 left-4 z-90 bg-gray-900/80 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-800/90 transition-colors backdrop-blur-sm border border-gray-700 shadow-lg"
+          aria-pressed={use3DMode}
+          className="absolute right-3 top-3 z-40 rounded-full border border-white/15 bg-[#11191e]/90 px-3 py-2 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-slate-300 shadow-lg backdrop-blur-sm transition-colors hover:border-cyan-100/35 hover:text-cyan-50"
           title={`Switch to ${use3DMode ? '2D' : '3D'} mode`}
         >
-          {use3DMode ? '2D Mode' : '3D Mode'}
+          {use3DMode ? 'Return to 2D archive' : 'Experimental 3D'}
         </button>
-
-        {/* Journey Tracker - center bottom */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 w-80 z-10"
-        >
-          <ErrorBoundary fallbackRender={({ error }) => <ErrorFallback error={error} />}>
-            <JourneyTracker />
-          </ErrorBoundary>
-        </motion.div>
 
         {/* L3 Assembly View Modal */}
         <AnimatePresence>

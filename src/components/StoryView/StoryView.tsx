@@ -1,16 +1,19 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect, useMemo, type ReactElement } from 'react';
+import { useCallback, useEffect, useMemo, type ReactElement } from 'react';
 
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
 import { useDialogFocus } from '@/hooks/useDialogFocus';
-import { useReadingTimer } from '@/hooks/useReadingTimer';
 import { useVariationSelection } from '@/hooks/useVariationSelection';
 import { useStoryStore } from '@/stores';
 
 import { StoryContent } from './StoryContent';
 import { StoryFooter } from './StoryFooter';
 import { StoryHeader } from './StoryHeader';
-import { storyCharacterThemes } from './storyPresentation';
+import {
+  formatEstimatedReadingTime,
+  getAvailableContinuationNodes,
+  storyCharacterThemes,
+} from './storyPresentation';
 import { VariationDebugPanel } from './VariationDebugPanel';
 
 interface StoryViewProps {
@@ -22,12 +25,22 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
   const nodes = useStoryStore((state) => state.nodes);
   const preferences = useStoryStore((state) => state.preferences);
   const getNodeState = useStoryStore((state) => state.getNodeState);
+  const canVisitNode = useStoryStore((state) => state.canVisitNode);
+  const openStoryView = useStoryStore((state) => state.openStoryView);
   const updateActiveVisitVariation = useStoryStore((state) => state.updateActiveVisitVariation);
   const finalizeActiveVisit = useStoryStore((state) => state.finalizeActiveVisit);
   const selectedNode = adapter.selectedNodeId;
   const closeStoryView = adapter.panel.close;
   const dialogRef = useDialogFocus(adapter.panel.open, closeStoryView);
-  const timeSpentOnNode = useReadingTimer(adapter.panel.open, selectedNode);
+  const handleContinue = useCallback(
+    (nodeId: string): void => {
+      // The 2D store keeps its animation gate raised while the reader is open.
+      // Closing first also finalizes the current timed visit before the next begins.
+      closeStoryView();
+      openStoryView(nodeId);
+    },
+    [closeStoryView, openStoryView],
+  );
 
   const currentNode = useMemo(
     () => (selectedNode ? (nodes.get(selectedNode) ?? null) : null),
@@ -62,14 +75,16 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
   }
 
   const theme = storyCharacterThemes[currentNode.character];
+  const continuationNodes = getAvailableContinuationNodes(currentNode, nodes, canVisitNode);
+  const estimatedReadingTime = formatEstimatedReadingTime(currentContent);
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       <motion.div
         key={`story-modal-${selectedNode}`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-0 backdrop-blur-sm sm:p-4"
         onClick={closeStoryView}
       >
         <motion.div
@@ -78,22 +93,22 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
           aria-modal="true"
           aria-labelledby="story-view-title"
           tabIndex={-1}
-          initial={{ scale: 0.9, opacity: 0 }}
+          initial={{ y: 12, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.9, opacity: 0 }}
+          exit={{ y: 8, opacity: 0 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className={`relative max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col
+          className={`relative flex h-[100dvh] max-h-[100dvh] w-full max-w-4xl flex-col overflow-hidden sm:h-auto sm:max-h-[92vh]
             ${preferences.theme === 'dark' ? 'bg-gray-900' : ''}
             ${preferences.theme === 'light' ? 'bg-white' : ''}
             ${preferences.theme === 'sepia' ? 'bg-amber-50' : ''}
-            rounded-xl shadow-2xl ${className}`}
+            rounded-none border-white/10 shadow-2xl sm:rounded-xl sm:border ${className}`}
           onClick={(event) => event.stopPropagation()}
         >
           <StoryHeader
             node={currentNode}
             nodeState={nodeState}
             theme={theme}
-            timeSpent={timeSpentOnNode}
+            estimatedReadingTime={estimatedReadingTime}
             variationId={variationId}
             variationMetadata={variationMetadata}
             usedFallback={usedFallback && currentNode.layer <= 2}
@@ -101,15 +116,16 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
             onClose={closeStoryView}
           />
           <StoryContent
+            key={`${currentNode.id}-${variationId ?? nodeState.currentState}`}
             content={currentContent}
             transformationState={nodeState.currentState}
             textSize={preferences.textSize}
             theme={preferences.theme}
           />
           <StoryFooter
-            node={currentNode}
             theme={preferences.theme}
-            timeSpent={timeSpentOnNode}
+            continuationNodes={continuationNodes}
+            onContinue={handleContinue}
             onClose={closeStoryView}
           />
         </motion.div>

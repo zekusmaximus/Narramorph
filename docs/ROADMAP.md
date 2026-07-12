@@ -49,6 +49,8 @@ This milestone is complete: Chromium coverage exercises revisits and variation d
 - Move atmospheric map effects behind narrow props instead of broad store subscriptions.
 - Standardize loading, empty, and error states across 2D, 3D, and story panels.
 
+The first reader-experience foundation is complete: the shell, opening invitation, reader, preferences, and progress history now have focused presentation boundaries; permanent map overlays have been reduced to a quiet status surface; and mobile uses an intentional, pannable map viewport. Deeper atmospheric-effect subscriptions and the remaining `CustomStoryNode`, `Layout`, and tracker orchestration boundaries remain in this milestone.
+
 ### 5. Complete the accessibility pass
 
 - Add keyboard node traversal and reliable focus return for story/L3 panels and modals.
@@ -57,6 +59,8 @@ This milestone is complete: Chromium coverage exercises revisits and variation d
 - Add automated checks, backed by a short manual test checklist.
 
 Success means the complete reading journey is usable without a pointer and without motion effects.
+
+The foundation now includes persisted text-size, reading-surface, and reduced-motion controls; keyboard-operable dialogs and map entry; mobile-safe focusable controls; actual-text reading-time estimates; and passage scroll progress. A complete screen-reader reading-order, contrast, zoom, and continuous-animation audit remains before this milestone is closed.
 
 ## Later: performance and platform growth
 

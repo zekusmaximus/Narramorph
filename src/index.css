@@ -5,11 +5,13 @@
 /* Global styles */
 @layer base {
   html {
-    @apply h-full;
+    @apply h-full bg-[#080d10];
+    color-scheme: dark;
   }
 
   body {
-    @apply h-full font-sans antialiased bg-story-background text-story-text;
+    @apply h-full overflow-hidden bg-[#080d10] font-sans text-slate-200 antialiased;
+    min-width: 320px;
   }
 
   #root {
@@ -18,7 +20,7 @@
 
   /* Focus styles for accessibility */
   *:focus-visible {
-    @apply outline-2 outline-offset-2 outline-blue-500;
+    @apply outline-2 outline-offset-2 outline-cyan-200;
   }
 
   /* Smooth scrolling */
@@ -32,15 +34,15 @@
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-gray-100;
+    @apply bg-[#0b1216];
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300 rounded-full;
+    @apply rounded-full bg-slate-600;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-400;
+    @apply bg-slate-500;
   }
 }
 
@@ -48,15 +50,15 @@
 @layer components {
   /* Button variants */
   .btn-primary {
-    @apply bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply rounded-lg bg-cyan-700 px-4 py-2 font-medium text-white transition-colors duration-200 hover:bg-cyan-600;
   }
 
   .btn-secondary {
-    @apply bg-gray-200 hover:bg-gray-300 text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply rounded-lg bg-slate-700 px-4 py-2 font-medium text-slate-100 transition-colors duration-200 hover:bg-slate-600;
   }
 
   .btn-ghost {
-    @apply text-gray-600 hover:text-gray-900 hover:bg-gray-100 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+    @apply rounded-lg px-4 py-2 font-medium text-slate-300 transition-colors duration-200 hover:bg-white/10 hover:text-white;
   }
 
   /* Character-themed elements */
@@ -102,6 +104,24 @@
     clip: rect(0, 0, 0, 0);
   }
 
+  .archive-shell {
+    background:
+      radial-gradient(circle at 50% -10%, rgb(25 54 62 / 35%), transparent 42rem), #080d10;
+    color: #dbe5e7;
+  }
+
+  .archive-intro-texture {
+    background:
+      linear-gradient(90deg, transparent 0 49.8%, rgb(178 219 225 / 5%) 50%, transparent 50.2%),
+      radial-gradient(circle at 82% 25%, rgb(78 157 168 / 12%), transparent 28rem),
+      radial-gradient(circle at 12% 90%, rgb(168 127 78 / 8%), transparent 24rem);
+    background-size:
+      34px 100%,
+      auto,
+      auto;
+    opacity: 0.9;
+  }
+
   /* Fade transitions */
   .fade-enter {
     @apply opacity-0;
@@ -124,7 +144,7 @@
 @layer utilities {
   /* Text selection colors */
   ::selection {
-    @apply bg-blue-200 text-blue-900;
+    @apply bg-cyan-200 text-slate-950;
   }
 
   /* Gradient text */
