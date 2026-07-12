@@ -117,7 +117,6 @@ export function calculateJourneyTrackingSnapshot(params: {
     dominantPhilosophy: calculatePathPhilosophy(currentTracking.l2Choices),
   };
 }
-
 export interface VisitProgressResult {
   progress: UserProgress;
   visitCount: number;

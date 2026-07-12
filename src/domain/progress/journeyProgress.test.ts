@@ -105,7 +105,6 @@ describe('journey progress domain helpers', () => {
 
     expect(snapshot.startingCharacter).toBeNull();
   });
-
   it('records first visits with character counters and exploration metrics', () => {
     const progress = createInitialProgress('2026-06-26T00:00:00.000Z');
 
