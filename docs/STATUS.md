@@ -8,7 +8,7 @@ Updated: July 12, 2026
 - _Eternal Return of the Digital Self_ is present as the complete checked-in runtime story across L1-L4.
 - CI-oriented runtime validation checks raw L1/L2 variations, the assembled story graph, L3 aggregate loading, and the selection matrix without relying on migration normalization.
 - The conversion package has its own strict validator and test suite.
-- Progress/journey calculations, L2 progression, connection reveal logic, unlock progress, and save-state validation/migration have begun moving from `storyStore.ts` into pure domain modules.
+- Progress/journey calculations, L2 progression, connection reveal logic, unlock progress, and save-state validation/migration have begun moving from `storyStore.ts` into pure domain modules; browser storage is accessed through a focused progress repository.
 - The 2D and 3D maps now share a map interaction adapter, and reduced-motion behavior has an explicit preference hook.
 - Generated backup snapshots and nested tool dependencies are excluded from version control.
 
@@ -24,7 +24,7 @@ Updated: July 12, 2026
 
 ## Known constraints
 
-- `storyStore.ts` remains the central coordinator and still owns the browser-storage persistence boundary plus content-loading, variation, visit, and UI orchestration concerns.
+- `storyStore.ts` remains the central coordinator and still owns content-loading, variation, visit, and UI orchestration concerns.
 - Several visual components and atmospheric map effects subscribe directly to broad store state.
 - Runtime JSON ownership versus conversion source ownership is documented imperfectly and remains a content-pipeline risk.
 - Eager content imports are acceptable for the current single-story scope but will not scale cleanly to a larger catalog.

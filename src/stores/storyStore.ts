@@ -25,12 +25,9 @@ import {
   determineTransformationState,
   findNewlyRevealedConnectionIds,
 } from '@/domain/progress/progressModel';
-import {
-  buildSavedState,
-  prepareSavedState,
-  serializeSavedState,
-} from '@/domain/progress/saveState';
+import { buildSavedState, serializeSavedState } from '@/domain/progress/saveState';
 import { findNewlyUnlockedNodes, getNodeUnlockProgress } from '@/domain/unlocks/unlockProgress';
+import { progressRepository } from '@/repositories/progressRepository';
 import type {
   StoryStore,
   UserPreferences,
@@ -46,7 +43,6 @@ import type { UnlockProgress } from '@/types/Unlock';
 import { loadStoryContent, ContentLoadError } from '@/utils/contentLoader';
 import { buildL3Assembly, calculateSynthesisPattern } from '@/utils/l3Assembly';
 import { isL3Node, isL4Node } from '@/utils/nodeUtils';
-import { saveToStorage, loadFromStorage, STORAGE_KEYS } from '@/utils/storage';
 import { evaluateNodeUnlock } from '@/utils/unlockEvaluator';
 import { loadUnlockConfig } from '@/utils/unlockLoader';
 import { validateSavedState } from '@/utils/validation';
@@ -893,31 +889,30 @@ export const useStoryStore = create<StoryStore>()(
         new Date().toISOString(),
       );
 
-      const success = saveToStorage(STORAGE_KEYS.SAVED_STATE, savedState);
+      const success = progressRepository.save(savedState);
       if (!success) {
         devError('Failed to save progress to localStorage');
       }
     },
 
     loadProgress: () => {
-      const stored = loadFromStorage<unknown>(STORAGE_KEYS.SAVED_STATE);
-      if (!stored) {
+      const result = progressRepository.load(get().nodes);
+      if (result.status === 'empty') {
         return;
       }
 
-      const prepared = prepareSavedState(stored, get().nodes);
-      if (!prepared) {
+      if (result.status === 'invalid') {
         devError('Invalid saved state format');
         return;
       }
 
-      for (const migration of prepared.migrations) {
+      for (const migration of result.migrations) {
         devLog(`Applied saved-state migration: ${migration}`);
       }
 
       set((state) => {
-        state.progress = prepared.savedState.progress;
-        state.preferences = prepared.savedState.preferences;
+        state.progress = result.savedState.progress;
+        state.preferences = result.savedState.preferences;
       });
     },
 
