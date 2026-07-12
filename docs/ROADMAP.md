@@ -17,7 +17,7 @@ This roadmap starts from the merged state of `main`. It favors small, independen
 ### 1. Finish domain/store separation
 
 - Persistence and save migration now sit behind pure save-state logic and a focused progress repository; preserve this boundary as the store is further reduced.
-- Extract variation orchestration and content-loading state transitions from `storyStore.ts`.
+- Continue variation orchestration extraction after moving condition-context construction into the domain; then isolate content-loading state transitions from `storyStore.ts`.
 - Keep the store as a coordinator with narrow actions; do not introduce slices until extracted responsibilities make useful slice boundaries obvious.
 - Add regression tests at each extraction boundary before moving the next responsibility.
 

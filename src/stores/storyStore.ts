@@ -27,6 +27,7 @@ import {
 } from '@/domain/progress/progressModel';
 import { buildSavedState, serializeSavedState } from '@/domain/progress/saveState';
 import { findNewlyUnlockedNodes, getNodeUnlockProgress } from '@/domain/unlocks/unlockProgress';
+import { buildConditionContext } from '@/domain/variation/conditionContext';
 import { progressRepository } from '@/repositories/progressRepository';
 import type {
   StoryStore,
@@ -263,28 +264,7 @@ export const useStoryStore = create<StoryStore>()(
     getConditionContext: (
       nodeId?: string,
       opts?: { includeRecentVariations?: boolean },
-    ): ConditionContext => {
-      const state = get();
-      const tracking = state.progress.journeyTracking;
-      const visitRecord = nodeId ? state.progress.visitedNodes[nodeId] : undefined;
-
-      const context: ConditionContext = {
-        nodeId: nodeId || '',
-        awareness: state.progress.temporalAwarenessLevel,
-        journeyPattern: tracking.currentJourneyPattern,
-        pathPhilosophy: tracking.dominantPhilosophy,
-        visitCount: visitRecord?.visitCount || 0,
-        transformationState: visitRecord?.currentState || 'initial',
-        characterVisitPercentages: tracking.characterVisitPercentages,
-      };
-
-      // Optionally include recent variation IDs for de-duplication
-      if (opts?.includeRecentVariations && visitRecord?.recentVariationIds) {
-        context.recentVariationIds = visitRecord.recentVariationIds;
-      }
-
-      return context;
-    },
+    ): ConditionContext => buildConditionContext(get().progress, nodeId, opts),
 
     /**
      * Check if a node is locked (after L3 convergence)
