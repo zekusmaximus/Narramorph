@@ -203,13 +203,14 @@ See detailed 3D architecture documentation: [src/components/3d/README.md](src/co
 
 ## Documentation
 
-Comprehensive documentation in [`/docs`](docs/):
+Start with the **[documentation index](docs/README.md)**.
 
 ### Overview & Architecture
 
-- **[PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md)** - Vision, scope, and current status (99.8% complete)
+- **[PROJECT_OVERVIEW.md](docs/PROJECT_OVERVIEW.md)** - Product vision, principles, and current scope
+- **[STATUS.md](docs/STATUS.md)** - Verified current technical baseline
+- **[ROADMAP.md](docs/ROADMAP.md)** - Prioritized work from the current state
 - **[NARRATIVE_STRUCTURE.md](docs/NARRATIVE_STRUCTURE.md)** - 12-node architecture, transformation states, L3/L4 systems
-- **[DEVELOPMENT_STATE_TRACKER.md](docs/DEVELOPMENT_STATE_TRACKER.md)** - Phase tracking and completion status
 
 ### Technical Documentation
 
