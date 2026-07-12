@@ -12,6 +12,10 @@ import {
 } from '@/data/stories/eternal-return/nodePhilosophyMapping';
 import { generateL3CacheKey } from '@/domain/l3/cacheKey';
 import {
+  calculateJourneyTrackingSnapshot,
+  calculateTemporalAwarenessLevel,
+} from '@/domain/progress/journeyProgress';
+import {
   checkSpecialTransformations,
   classifyNavigationPattern,
   createInitialPreferences,
@@ -36,7 +40,6 @@ import type {
   L3Assembly,
 } from '@/types';
 import type { UnlockProgress } from '@/types/Unlock';
-import { calculateJourneyPattern, calculatePathPhilosophy } from '@/utils/conditionEvaluator';
 import { loadStoryContent, ContentLoadError } from '@/utils/contentLoader';
 import { buildL3Assembly, calculateSynthesisPattern } from '@/utils/l3Assembly';
 import { isL3Node, isL4Node } from '@/utils/nodeUtils';
@@ -210,24 +213,7 @@ export const useStoryStore = create<StoryStore>()(
      */
     updateTemporalAwareness: () => {
       set((draftState) => {
-        const { archaeologist, algorithm, lastHuman } = draftState.progress.characterNodesVisited;
-
-        const total = archaeologist + algorithm + lastHuman;
-
-        if (total === 0) {
-          draftState.progress.temporalAwarenessLevel = 0;
-          return;
-        }
-
-        // Calculate diversity of exploration
-        const perspectivesVisited = [archaeologist > 0, algorithm > 0, lastHuman > 0].filter(
-          Boolean,
-        ).length;
-
-        // Temporal awareness formula
-        const diversityBonus = perspectivesVisited * 20; // 0, 20, 40, or 60
-        const explorationScore = Math.min((total / 10) * 40, 40); // Cap at 40
-        const newLevel = Math.min(diversityBonus + explorationScore, 100);
+        const newLevel = calculateTemporalAwarenessLevel(draftState.progress.characterNodesVisited);
 
         draftState.progress.temporalAwarenessLevel = newLevel;
 
@@ -249,63 +235,12 @@ export const useStoryStore = create<StoryStore>()(
      */
     updateJourneyTracking: () => {
       set((draftState) => {
-        const { archaeologist, algorithm, lastHuman } = draftState.progress.characterNodesVisited;
-
-        const total = archaeologist + algorithm + lastHuman;
-
-        if (total === 0) {
-          return; // No visits yet
-        }
-
-        // Calculate percentages
-        const percentages = {
-          archaeologist: (archaeologist / total) * 100,
-          algorithm: (algorithm / total) * 100,
-          lastHuman: (lastHuman / total) * 100,
-        };
-
-        const tracking = draftState.progress.journeyTracking;
-        tracking.characterVisitPercentages = percentages;
-
-        // Set starting character based on first visit in reading path
-        if (tracking.startingCharacter === null && draftState.progress.readingPath.length > 0) {
-          const firstNodeId = draftState.progress.readingPath[0];
-          if (firstNodeId) {
-            const firstNode = draftState.nodes.get(firstNodeId);
-            if (firstNode) {
-              if (firstNode.character === 'archaeologist') {
-                tracking.startingCharacter = 'archaeologist';
-              } else if (firstNode.character === 'algorithm') {
-                tracking.startingCharacter = 'algorithm';
-              } else if (firstNode.character === 'last-human') {
-                tracking.startingCharacter = 'lastHuman';
-              }
-            }
-          }
-        }
-
-        // Determine dominant character
-        const maxPercentage = Math.max(
-          percentages.archaeologist,
-          percentages.algorithm,
-          percentages.lastHuman,
-        );
-        if (percentages.archaeologist === maxPercentage) {
-          tracking.dominantCharacter = 'archaeologist';
-        } else if (percentages.algorithm === maxPercentage) {
-          tracking.dominantCharacter = 'algorithm';
-        } else {
-          tracking.dominantCharacter = 'lastHuman';
-        }
-
-        // Calculate journey pattern
-        tracking.currentJourneyPattern = calculateJourneyPattern(
-          tracking.startingCharacter,
-          percentages,
-        );
-
-        // Calculate dominant philosophy
-        tracking.dominantPhilosophy = calculatePathPhilosophy(tracking.l2Choices);
+        draftState.progress.journeyTracking = calculateJourneyTrackingSnapshot({
+          currentTracking: draftState.progress.journeyTracking,
+          characterNodesVisited: draftState.progress.characterNodesVisited,
+          readingPath: draftState.progress.readingPath,
+          nodes: draftState.nodes,
+        });
       });
     },
 
