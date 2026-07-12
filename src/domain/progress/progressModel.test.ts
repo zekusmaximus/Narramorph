@@ -7,6 +7,7 @@ import {
   classifyNavigationPattern,
   createInitialProgress,
   determineTransformationState,
+  findNewlyRevealedConnectionIds,
   getConnectionKey,
   shouldRevealConnection,
 } from './progressModel';
@@ -101,6 +102,36 @@ describe('progress model', () => {
     progress.visitedNodes['arch-L1'] = createVisitRecord(2);
     progress.readingPath = ['arch-L1', 'algo-L1'];
     expect(shouldRevealConnection(connection, progress)).toBe(true);
+  });
+
+  it('finds newly revealed connections without returning already unlocked ids', () => {
+    const progress = createInitialProgress('2026-06-26T00:00:00.000Z');
+    progress.visitedNodes['arch-L1'] = createVisitRecord(2);
+    progress.readingPath = ['arch-L1', 'algo-L1'];
+    progress.unlockedConnections = ['always-visible'];
+
+    const connections = new Map([
+      ['always-visible', createConnection({ id: 'always-visible' })],
+      [
+        'guarded-visible',
+        createConnection({
+          id: 'guarded-visible',
+          revealConditions: {
+            requiredVisits: { 'arch-L1': 2 },
+            requiredSequence: ['arch-L1', 'algo-L1'],
+          },
+        }),
+      ],
+      [
+        'guarded-hidden',
+        createConnection({
+          id: 'guarded-hidden',
+          revealConditions: { requiredVisits: { missing: 1 } },
+        }),
+      ],
+    ]);
+
+    expect(findNewlyRevealedConnectionIds(connections, progress)).toEqual(['guarded-visible']);
   });
 
   it('unlocks a special transformation with deterministic timing', () => {

@@ -189,6 +189,24 @@ export function shouldRevealConnection(connection: Connection, progress: UserPro
   return true;
 }
 
+export function findNewlyRevealedConnectionIds(
+  connections: ReadonlyMap<string, Connection>,
+  progress: UserProgress,
+): string[] {
+  const newlyRevealedConnectionIds: string[] = [];
+
+  for (const [connectionId, connection] of connections) {
+    if (
+      shouldRevealConnection(connection, progress) &&
+      !progress.unlockedConnections.includes(connectionId)
+    ) {
+      newlyRevealedConnectionIds.push(connectionId);
+    }
+  }
+
+  return newlyRevealedConnectionIds;
+}
+
 export function normalizeCharacter(character: string): JourneyCharacter {
   const normalizedCharacter = character.toLowerCase();
   if (normalizedCharacter.includes('arch')) {
