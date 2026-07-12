@@ -16,7 +16,7 @@ This roadmap starts from the merged state of `main`. It favors small, independen
 
 ### 1. Finish domain/store separation
 
-- Extract persistence and save migration behind a focused progress repository/service.
+- Continue the persistence boundary by moving browser-storage access behind a focused progress repository/service; pure save construction, validation, and migration are now extracted.
 - Extract variation orchestration and content-loading state transitions from `storyStore.ts`.
 - Keep the store as a coordinator with narrow actions; do not introduce slices until extracted responsibilities make useful slice boundaries obvious.
 - Add regression tests at each extraction boundary before moving the next responsibility.
