@@ -1,4 +1,4 @@
-import { enableMapSet } from 'immer';
+import { current, enableMapSet } from 'immer';
 import type { WritableDraft } from 'immer';
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
@@ -13,18 +13,17 @@ import {
 import { generateL3CacheKey } from '@/domain/l3/cacheKey';
 import {
   calculateJourneyTrackingSnapshot,
+  calculateProgressAfterNodeVisit,
+  calculateProgressionAfterNodeVisit,
   calculateTemporalAwarenessLevel,
 } from '@/domain/progress/journeyProgress';
 import {
   checkSpecialTransformations,
-  classifyNavigationPattern,
   createInitialPreferences,
   createInitialProgress,
   createInitialStats,
   determineTransformationState,
-  getConnectionKey,
-  normalizeCharacter,
-  shouldRevealConnection,
+  findNewlyRevealedConnectionIds,
 } from '@/domain/progress/progressModel';
 import { findNewlyUnlockedNodes, getNodeUnlockProgress } from '@/domain/unlocks/unlockProgress';
 import type {
@@ -690,108 +689,43 @@ export const useStoryStore = create<StoryStore>()(
       // Update visit record
       set((draftState) => {
         const now = new Date().toISOString();
-        const existingRecord = draftState.progress.visitedNodes[nodeId];
+        const visitProgress = calculateProgressAfterNodeVisit({
+          progress: current(draftState.progress),
+          node,
+          nodeId,
+          totalNodes: get().nodes.size,
+          now,
+        });
 
-        if (existingRecord) {
-          const previousCount = existingRecord.visitCount;
-          existingRecord.visitCount++;
-          existingRecord.visitTimestamps.push(now);
-          existingRecord.lastVisited = now;
-          devLog(`[Visit] ${nodeId}: visit #${existingRecord.visitCount} (was ${previousCount})`);
-        } else {
-          draftState.progress.visitedNodes[nodeId] = {
-            visitCount: 1,
-            visitTimestamps: [now],
-            currentState: 'initial',
-            timeSpent: 0,
-            lastVisited: now,
-          };
+        draftState.progress = visitProgress.progress;
+
+        if (visitProgress.previousVisitCount === null) {
           devLog(`[Visit] ${nodeId}: first visit recorded`);
+        } else {
+          devLog(
+            `[Visit] ${nodeId}: visit #${visitProgress.visitCount} (was ${visitProgress.previousVisitCount})`,
+          );
         }
 
-        // Track character-specific visits
-        if (node.character === 'archaeologist') {
-          draftState.progress.characterNodesVisited.archaeologist++;
-        } else if (node.character === 'algorithm') {
-          draftState.progress.characterNodesVisited.algorithm++;
-        } else if (node.character === 'last-human') {
-          draftState.progress.characterNodesVisited.lastHuman++;
-        }
-        // multi-perspective nodes don't increment character counters
-
-        // === Cross-Character Connection Tracking ===
-        const tracking = draftState.progress.journeyTracking;
-        const currentChar = normalizeCharacter(node.character);
-        const lastChar = tracking.lastCharacterVisited;
-
-        // Detect character switch
-        if (lastChar && lastChar !== currentChar) {
-          const connectionKey = getConnectionKey(lastChar, currentChar);
-
-          if (connectionKey) {
-            tracking.crossCharacterConnections[connectionKey]++;
-            devLog(`[Journey] Character switch detected: ${lastChar} → ${currentChar}`);
-          }
+        if (visitProgress.characterSwitch) {
+          devLog(
+            `[Journey] Character switch detected: ${visitProgress.characterSwitch.from} → ${visitProgress.characterSwitch.to}`,
+          );
         }
 
-        // Update last character
-        tracking.lastCharacterVisited = currentChar;
+        const progression = calculateProgressionAfterNodeVisit({
+          progress: visitProgress.progress,
+          node,
+          nodeId,
+          nodePhilosophy: getNodePhilosophy(nodeId),
+        });
 
-        // === Revisit Tracking ===
-        const totalVisits = Object.keys(draftState.progress.visitedNodes).length;
-        const revisits = Object.values(draftState.progress.visitedNodes).filter(
-          (record) => record.visitCount > 1,
-        ).length;
+        draftState.progress = progression.progress;
 
-        if (totalVisits > 0) {
-          tracking.revisitFrequency = (revisits / totalVisits) * 100;
+        if (progression.shouldClearL3AssemblyCache) {
+          draftState.l3AssemblyCache.clear();
+          devLog('[L3Assembly] Cache cleared due to L2 visit');
         }
-
-        // === Exploration Metrics ===
-        const totalNodes = get().nodes.size;
-        const uniqueVisited = Object.keys(draftState.progress.visitedNodes).length;
-        const totalVisitCount = Object.values(draftState.progress.visitedNodes).reduce(
-          (sum, record) => sum + record.visitCount,
-          0,
-        );
-
-        tracking.explorationMetrics = {
-          breadth: totalNodes > 0 ? (uniqueVisited / totalNodes) * 100 : 0,
-          depth: uniqueVisited > 0 ? totalVisitCount / uniqueVisited : 0,
-        };
-
-        // === Navigation Pattern Classification ===
-        tracking.navigationPattern = classifyNavigationPattern(tracking);
-
-        // Unlock L2 nodes when visiting L1 nodes
-        const layerMatch = nodeId.match(/^(arch|arc|algo|hum|algorithm|human)-L?(\d).*$/);
-        if (layerMatch) {
-          const layer = parseInt(layerMatch[2] || '1', 10);
-          if (layer === 1 && !draftState.progress.unlockedL2Characters.includes(node.character)) {
-            draftState.progress.unlockedL2Characters.push(node.character);
-          }
-          // Clear L3 cache if visiting L2 node (philosophy changes)
-          if (layer === 2) {
-            draftState.l3AssemblyCache.clear();
-            devLog('[L3Assembly] Cache cleared due to L2 visit');
-          }
-        }
-
-        // Track L2 philosophy choice
-        const nodePhilosophy = getNodePhilosophy(nodeId);
-        if (nodePhilosophy) {
-          // Only track if it's one of the three core philosophies
-          if (
-            nodePhilosophy === 'accept' ||
-            nodePhilosophy === 'resist' ||
-            nodePhilosophy === 'invest'
-          ) {
-            draftState.progress.journeyTracking.l2Choices[nodePhilosophy]++;
-          }
-        }
-
-        draftState.progress.readingPath.push(nodeId);
-        draftState.progress.lastActiveTimestamp = now;
       });
 
       // Update temporal awareness and journey tracking after visit
@@ -815,14 +749,10 @@ export const useStoryStore = create<StoryStore>()(
 
       // Update connection visibility
       const finalState = get();
-      const connectionsToAdd: string[] = [];
-      for (const [connId, conn] of finalState.connections) {
-        if (shouldRevealConnection(conn, finalState.progress)) {
-          if (!finalState.progress.unlockedConnections.includes(connId)) {
-            connectionsToAdd.push(connId);
-          }
-        }
-      }
+      const connectionsToAdd = findNewlyRevealedConnectionIds(
+        finalState.connections,
+        finalState.progress,
+      );
 
       if (connectionsToAdd.length > 0) {
         set((draftState) => {
