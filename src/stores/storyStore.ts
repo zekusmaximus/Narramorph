@@ -25,11 +25,15 @@ import {
   determineTransformationState,
   findNewlyRevealedConnectionIds,
 } from '@/domain/progress/progressModel';
+import {
+  buildSavedState,
+  prepareSavedState,
+  serializeSavedState,
+} from '@/domain/progress/saveState';
 import { findNewlyUnlockedNodes, getNodeUnlockProgress } from '@/domain/unlocks/unlockProgress';
 import type {
   StoryStore,
   UserPreferences,
-  SavedState,
   MapViewport,
   ReadingStats,
   NodeUIState,
@@ -883,12 +887,11 @@ export const useStoryStore = create<StoryStore>()(
 
     saveProgress: () => {
       const state = get();
-      const savedState: SavedState = {
-        version: '1.0.0',
-        timestamp: new Date().toISOString(),
-        progress: state.progress,
-        preferences: state.preferences,
-      };
+      const savedState = buildSavedState(
+        state.progress,
+        state.preferences,
+        new Date().toISOString(),
+      );
 
       const success = saveToStorage(STORAGE_KEYS.SAVED_STATE, savedState);
       if (!success) {
@@ -897,117 +900,35 @@ export const useStoryStore = create<StoryStore>()(
     },
 
     loadProgress: () => {
-      const saved = loadFromStorage<SavedState>(STORAGE_KEYS.SAVED_STATE);
-      if (!saved) {
+      const stored = loadFromStorage<unknown>(STORAGE_KEYS.SAVED_STATE);
+      if (!stored) {
         return;
       }
 
-      if (!validateSavedState(saved)) {
+      const prepared = prepareSavedState(stored, get().nodes);
+      if (!prepared) {
         devError('Invalid saved state format');
         return;
       }
 
-      // Migration for old saves without temporal awareness
-      if (saved.progress.temporalAwarenessLevel === undefined) {
-        devLog('Migrating old save to temporal awareness system...');
-
-        // Initialize new fields
-        saved.progress.temporalAwarenessLevel = 0;
-        saved.progress.characterNodesVisited = {
-          archaeologist: 0,
-          algorithm: 0,
-          lastHuman: 0,
-        };
-
-        // Reconstruct character visit counts from existing data
-        const state = get();
-        for (const nodeId of Object.keys(saved.progress.visitedNodes)) {
-          const node = state.nodes.get(nodeId);
-          if (!node) {
-            continue;
-          }
-
-          if (node.character === 'archaeologist') {
-            saved.progress.characterNodesVisited.archaeologist++;
-          } else if (node.character === 'algorithm') {
-            saved.progress.characterNodesVisited.algorithm++;
-          } else if (node.character === 'last-human') {
-            saved.progress.characterNodesVisited.lastHuman++;
-          }
-        }
-
-        // Calculate temporal awareness from migrated data
-        const { archaeologist, algorithm, lastHuman } = saved.progress.characterNodesVisited;
-        const total = archaeologist + algorithm + lastHuman;
-
-        if (total > 0) {
-          const perspectivesVisited = [archaeologist > 0, algorithm > 0, lastHuman > 0].filter(
-            Boolean,
-          ).length;
-
-          const diversityBonus = perspectivesVisited * 20;
-          const explorationScore = Math.min((total / 10) * 40, 40);
-          saved.progress.temporalAwarenessLevel = Math.min(diversityBonus + explorationScore, 100);
-        }
-
-        devLog(`Migration complete. Temporal awareness: ${saved.progress.temporalAwarenessLevel}%`);
-      }
-
-      // Migration for old saves without L2 unlocking system
-      if (!saved.progress.unlockedL2Characters) {
-        devLog('Migrating old save to L2 unlocking system...');
-
-        // Initialize the field
-        saved.progress.unlockedL2Characters = [];
-
-        // Unlock L2 characters based on visited L1 nodes
-        const state = get();
-        for (const nodeId of Object.keys(saved.progress.visitedNodes)) {
-          const node = state.nodes.get(nodeId);
-          if (!node) {
-            continue;
-          }
-
-          const layerMatch = nodeId.match(/^(arch|arc|algo|hum|algorithm|human)-L?(\d).*$/);
-          if (layerMatch) {
-            const layer = parseInt(layerMatch[2] || '1', 10);
-            if (layer === 1 && !saved.progress.unlockedL2Characters.includes(node.character)) {
-              saved.progress.unlockedL2Characters.push(node.character);
-            }
-          }
-        }
-
-        devLog(
-          `Migration complete. Unlocked L2 characters: ${saved.progress.unlockedL2Characters.join(', ')}`,
-        );
-      }
-
-      // Migration for old saves without L3 convergence system
-      if (saved.progress.l3ConvergenceTriggered === undefined) {
-        devLog('Migrating old save to L3 convergence system...');
-
-        // Initialize the fields
-        saved.progress.l3ConvergenceTriggered = false;
-        saved.progress.lockedNodes = [];
-
-        devLog('Migration complete. L3 convergence system initialized.');
+      for (const migration of prepared.migrations) {
+        devLog(`Applied saved-state migration: ${migration}`);
       }
 
       set((state) => {
-        state.progress = saved.progress;
-        state.preferences = saved.preferences;
+        state.progress = prepared.savedState.progress;
+        state.preferences = prepared.savedState.preferences;
       });
     },
 
     exportProgress: () => {
       const state = get();
-      const exportData: SavedState = {
-        version: '1.0.0',
-        timestamp: new Date().toISOString(),
-        progress: state.progress,
-        preferences: state.preferences,
-      };
-      return JSON.stringify(exportData, null, 2);
+      const exportData = buildSavedState(
+        state.progress,
+        state.preferences,
+        new Date().toISOString(),
+      );
+      return serializeSavedState(exportData);
     },
 
     importProgress: (data: string) => {
