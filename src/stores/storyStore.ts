@@ -22,6 +22,7 @@ import {
   normalizeCharacter,
   shouldRevealConnection,
 } from '@/domain/progress/progressModel';
+import { findNewlyUnlockedNodes, getNodeUnlockProgress } from '@/domain/unlocks/unlockProgress';
 import type {
   StoryStore,
   UserPreferences,
@@ -40,10 +41,7 @@ import { loadStoryContent, ContentLoadError } from '@/utils/contentLoader';
 import { buildL3Assembly, calculateSynthesisPattern } from '@/utils/l3Assembly';
 import { isL3Node, isL4Node } from '@/utils/nodeUtils';
 import { saveToStorage, loadFromStorage, STORAGE_KEYS } from '@/utils/storage';
-import {
-  evaluateNodeUnlock,
-  getUnlockProgress as getUnlockProgressUtil,
-} from '@/utils/unlockEvaluator';
+import { evaluateNodeUnlock } from '@/utils/unlockEvaluator';
 import { loadUnlockConfig } from '@/utils/unlockLoader';
 import { validateSavedState } from '@/utils/validation';
 
@@ -709,28 +707,19 @@ export const useStoryStore = create<StoryStore>()(
      */
     evaluateUnlocks: () => {
       const state = get();
-      const newlyUnlocked: string[] = [];
+      const { newlyUnlockedNodeIds } = findNewlyUnlockedNodes(
+        state.unlockConfigs,
+        state.progress,
+        state.recentlyUnlockedNodes,
+      );
 
-      // Check each configured node
-      for (const [nodeId, config] of state.unlockConfigs) {
-        // Skip if already in recently unlocked list
-        if (state.recentlyUnlockedNodes.includes(nodeId)) {
-          continue;
-        }
-
-        // Check if node is now unlocked
-        const wasLocked = config.defaultLocked;
-        const isUnlocked = evaluateNodeUnlock(config, state.progress);
-
-        if (wasLocked && isUnlocked) {
-          newlyUnlocked.push(nodeId);
-          devLog(`[Unlock] Node unlocked: ${nodeId}`);
-        }
+      for (const nodeId of newlyUnlockedNodeIds) {
+        devLog(`[Unlock] Node unlocked: ${nodeId}`);
       }
 
-      if (newlyUnlocked.length > 0) {
+      if (newlyUnlockedNodeIds.length > 0) {
         set((state) => {
-          state.recentlyUnlockedNodes = [...state.recentlyUnlockedNodes, ...newlyUnlocked];
+          state.recentlyUnlockedNodes = [...state.recentlyUnlockedNodes, ...newlyUnlockedNodeIds];
         });
       }
     },
@@ -740,13 +729,8 @@ export const useStoryStore = create<StoryStore>()(
      */
     getUnlockProgress: (nodeId: string): UnlockProgress | null => {
       const state = get();
-      const config = state.unlockConfigs.get(nodeId);
 
-      if (!config) {
-        return null;
-      }
-
-      return getUnlockProgressUtil(config, state.progress);
+      return getNodeUnlockProgress(state.unlockConfigs, state.progress, nodeId);
     },
 
     /**
