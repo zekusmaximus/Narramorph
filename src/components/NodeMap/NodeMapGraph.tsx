@@ -8,10 +8,11 @@ import {
   type Node,
   type OnEdgesChange,
   type OnNodesChange,
+  type ReactFlowInstance,
   type Viewport,
 } from '@xyflow/react';
 import { motion } from 'framer-motion';
-import type { MouseEvent as ReactMouseEvent, ReactElement } from 'react';
+import { useEffect, useState, type MouseEvent as ReactMouseEvent, type ReactElement } from 'react';
 
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 
@@ -71,6 +72,17 @@ export function NodeMapGraph({
   getNodeColor,
 }: NodeMapGraphProps): ReactElement {
   const reduceMotion = useReducedMotionPreference();
+  const [instance, setInstance] = useState<ReactFlowInstance | null>(null);
+
+  useEffect(() => {
+    if (!instance || nodes.length === 0) {
+      return undefined;
+    }
+    const frame = requestAnimationFrame(() => {
+      void instance.fitView({ padding: 0.3, minZoom: 0.3, maxZoom: 1.2 });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [instance, nodes.length]);
 
   return (
     <motion.div
@@ -84,6 +96,7 @@ export function NodeMapGraph({
       <ReactFlow
         nodes={nodes}
         edges={edges}
+        onInit={setInstance}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onNodeClick={onNodeClick}

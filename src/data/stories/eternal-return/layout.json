@@ -28,6 +28,24 @@
         "hum-L2-resist": { "x": 900, "y": 350 },
         "hum-L2-invest": { "x": 1000, "y": 350 }
       }
+    },
+    "layer3": {
+      "y": 600,
+      "spacing": 350,
+      "nodes": {
+        "arch-L3": { "x": 200, "y": 600 },
+        "algo-L3": { "x": 550, "y": 600 },
+        "hum-L3": { "x": 900, "y": 600 }
+      }
+    },
+    "layer4": {
+      "y": 850,
+      "spacing": 250,
+      "nodes": {
+        "final-preserve": { "x": 300, "y": 850 },
+        "final-transform": { "x": 550, "y": 850 },
+        "final-release": { "x": 800, "y": 850 }
+      }
     }
   }
 }

@@ -28,10 +28,10 @@ This milestone is complete: persistence, selection, and content orchestration ar
 - Canonical authoring inputs, generated outputs, checked-in runtime inputs, safe commands, and do-not-edit boundaries are now documented.
 - Strict runtime checks now cover declared story/layer counts, duplicate IDs, orphaned files, required aggregates, selection-matrix references, manifest totals, and deterministic ordering.
 - Keep migration repair/fallback behavior in conversion tooling and fail CI on malformed runtime content.
-- Reconcile the tracked 81-record L1/L2 authoring groups with the converter's older 80-record policy and decide whether the curated 12-record L1 runtime set remains intentional before allowing a full conversion write.
-- Deterministic package checksums are deferred until that reconciliation or a second story; current structural checks provide the useful guarantee now.
+- The tracked 81-record L1/L2 authoring groups are now the strict source contract. An explicit runtime profile selects the stable 12-record L1 package after complete-source validation; L2 remains complete at 729 records.
+- Deterministic package checksums remain deferred until a second story establishes a cross-package contract; current structural checks provide the useful guarantee now.
 
-Success means a contributor can regenerate or validate runtime content without relying on undocumented local history.
+This milestone is complete: a strict full dry run validates 243 L1 source records, 729 L2 records, 270 L3 records, and 3 L4 records, then reports the intended 12/729/270/3 runtime package without count errors.
 
 ### 3. Establish end-to-end reader-path confidence
 
@@ -39,7 +39,7 @@ Success means a contributor can regenerate or validate runtime content without r
 - Verify save/restore, revisit transformation, unlock notifications, and ending selection.
 - Add failure-path coverage for missing content and unavailable WebGL.
 
-Success means the primary reading journey and recovery path are protected above the unit-test layer.
+This milestone is complete: Chromium coverage exercises revisits and variation deduplication, L3/L4 unlock notifications, ending selection, save/restore, missing-story recovery, and WebGL fallback through the real reader UI.
 
 ## Next: simplify and make the UI inclusive
 

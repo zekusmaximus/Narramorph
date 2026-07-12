@@ -36,7 +36,7 @@ export function isL3Node(nodeId: string): boolean {
  * @returns true if node is L4
  */
 export function isL4Node(nodeId: string): boolean {
-  return getNodeLayer(nodeId) === 4;
+  return getNodeLayer(nodeId) === 4 || nodeId.startsWith('final-');
 }
 
 /**

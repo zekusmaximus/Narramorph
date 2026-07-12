@@ -12,22 +12,29 @@
       "id": "arch-L2-accept",
       "layer": 2,
       "chapterTitle": "Acceptance Path",
-      "connections": [],
+      "connections": ["arch-L3"],
       "contentFile": "content/layer2/arch-L2-accept-variations.json"
     },
     {
       "id": "arch-L2-resist",
       "layer": 2,
       "chapterTitle": "Resistance Path",
-      "connections": [],
+      "connections": ["arch-L3"],
       "contentFile": "content/layer2/arch-L2-resist-variations.json"
     },
     {
       "id": "arch-L2-invest",
       "layer": 2,
       "chapterTitle": "Investment Path",
-      "connections": [],
+      "connections": ["arch-L3"],
       "contentFile": "content/layer2/arch-L2-invest-variations.json"
+    },
+    {
+      "id": "arch-L3",
+      "layer": 3,
+      "chapterTitle": "Convergence: The Archaeologist",
+      "connections": ["final-preserve", "final-transform", "final-release"],
+      "contentFile": "content/layer3/arch-L3-variations.json"
     }
   ]
 }

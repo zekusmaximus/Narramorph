@@ -18,25 +18,16 @@
     "saveProgress": true
   },
   "structure": {
-    "totalNodes": 12,
-    "totalConnections": 9,
-    "narrativeActs": 3,
+    "totalNodes": 18,
+    "totalConnections": 27,
+    "narrativeActs": 4,
     "criticalPathNodes": ["arch-L1", "algo-L1", "hum-L1"],
-    "endingNodes": [
-      "arch-L2-accept",
-      "arch-L2-resist",
-      "arch-L2-invest",
-      "algo-L2-accept",
-      "algo-L2-resist",
-      "algo-L2-invest",
-      "hum-L2-accept",
-      "hum-L2-resist",
-      "hum-L2-invest"
-    ],
+    "endingNodes": ["final-preserve", "final-transform", "final-release"],
     "characterDistribution": {
-      "archaeologist": 4,
-      "algorithm": 4,
-      "lastHuman": 4
+      "archaeologist": 5,
+      "algorithm": 5,
+      "lastHuman": 5,
+      "multiPerspective": 3
     }
   },
   "themes": {

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "authoredVariationCounts": {
+    "layer1PerNode": 81,
+    "layer2PerNode": 81
+  },
+  "runtimeSelection": {
+    "layer1": {
+      "arch-L1": ["arch-L1-001", "arch-L1-002", "arch-L1-003"],
+      "algo-L1": ["algo-L1-001", "algo-L1-002", "algo-L1-003", "algo-L1-004"],
+      "hum-L1": ["hum-L1-001", "hum-L1-002", "hum-L1-003", "hum-L1-004", "hum-L1-005"]
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import FPSCounter from '@/components/3d/FPSCounter';
@@ -56,6 +56,20 @@ function WebGLErrorFallback({
   );
 }
 
+function getRequested3DMode(): boolean {
+  const stored = localStorage.getItem('narramorph-3d-mode');
+  return stored !== null ? stored === 'true' : import.meta.env.VITE_ENABLE_3D === 'true';
+}
+
+function supportsWebGL(): boolean {
+  try {
+    const canvas = document.createElement('canvas');
+    return Boolean(canvas.getContext('webgl2') || canvas.getContext('webgl'));
+  } catch {
+    return false;
+  }
+}
+
 /**
  * Main home page component that displays the node map and story view
  */
@@ -66,15 +80,21 @@ export default function Home() {
   const currentL3Assembly = useStoryStore((state) => state.currentL3Assembly);
   const closeL3AssemblyView = useStoryStore((state) => state.closeL3AssemblyView);
   const positions = useSpatialStore((state) => state.positions);
+  const [storyId] = useState(
+    () => new URLSearchParams(window.location.search).get('story') || 'eternal-return',
+  );
+  const [storyError, setStoryError] = useState<string | null>(null);
+  const initializationPromiseRef = useRef<Promise<void> | null>(null);
+  const [webGLFallbackMessage, setWebGLFallbackMessage] = useState<string | null>(() =>
+    getRequested3DMode() && !supportsWebGL()
+      ? '3D view is unavailable in this browser. The 2D story map is ready instead.'
+      : null,
+  );
 
   // Track whether 3D mode should be used
   // Priority: localStorage > environment variable
   const [use3DMode, setUse3DMode] = useState(() => {
-    const stored = localStorage.getItem('narramorph-3d-mode');
-    if (stored !== null) {
-      return stored === 'true';
-    }
-    return import.meta.env.VITE_ENABLE_3D === 'true';
+    return getRequested3DMode() && supportsWebGL();
   });
   const isPositionsLoaded = Object.keys(positions).length > 0;
 
@@ -82,28 +102,61 @@ export default function Home() {
   const toggle3DMode = () => {
     setUse3DMode((prev) => {
       const newValue = !prev;
+      if (newValue && !supportsWebGL()) {
+        setWebGLFallbackMessage(
+          '3D view is unavailable in this browser. The 2D story map is ready instead.',
+        );
+        localStorage.setItem('narramorph-3d-mode', 'false');
+        return false;
+      }
+      setWebGLFallbackMessage(null);
       localStorage.setItem('narramorph-3d-mode', String(newValue));
       return newValue;
     });
   };
 
+  const initializeStory = useCallback(
+    async (force = false) => {
+      if (!force && initializationPromiseRef.current) {
+        return initializationPromiseRef.current;
+      }
+
+      setStoryError(null);
+      const task = (async () => {
+        try {
+          await loadStory(storyId);
+          loadProgress();
+        } catch (error) {
+          console.error('Failed to load story:', error);
+          setStoryError(error instanceof Error ? error.message : 'The story could not be loaded.');
+        }
+      })();
+      initializationPromiseRef.current = task;
+
+      try {
+        await task;
+      } finally {
+        if (initializationPromiseRef.current === task) {
+          initializationPromiseRef.current = null;
+        }
+      }
+    },
+    [loadProgress, loadStory, storyId],
+  );
+
   // Initialize the application
   useEffect(() => {
-    // Load saved progress on app start
-    loadProgress();
-
-    // Load default story (placeholder for now)
-    void loadStory('eternal-return').catch((err) => {
-      console.error('Failed to load story:', err);
-    });
-  }, [loadStory, loadProgress]);
+    void initializeStory();
+  }, [initializeStory]);
 
   // Fallback to 2D mode on WebGL error
-  const handleFallbackTo2D = () => {
-    setTimeout(() => {
-      setUse3DMode(false);
-    }, 2000); // Show error message for 2 seconds before switching
-  };
+  const handleFallbackTo2D = useCallback(() => {
+    setWebGLFallbackMessage(
+      '3D view encountered a graphics error. The 2D story map is ready instead.',
+    );
+    localStorage.setItem('narramorph-3d-mode', 'false');
+    setUse3DMode(false);
+  }, []);
 
   return (
     <div className="h-full flex flex-col">
@@ -138,7 +191,28 @@ export default function Home() {
             <WebGLErrorFallback error={error} onFallbackTo2D={handleFallbackTo2D} />
           )}
         >
-          {use3DMode ? (
+          {storyError ? (
+            <div
+              role="alert"
+              className="absolute inset-0 flex items-center justify-center bg-gray-950 text-white p-8"
+              data-testid="story-load-error"
+            >
+              <div className="max-w-md text-center">
+                <h2 className="text-2xl font-bold mb-3">Story unavailable</h2>
+                <p className="text-gray-300 mb-2">
+                  We couldn&apos;t open this story. Your saved progress has not been changed.
+                </p>
+                <p className="text-sm text-gray-500 mb-6">{storyError}</p>
+                <button
+                  type="button"
+                  onClick={() => void initializeStory(true)}
+                  className="px-4 py-2 rounded bg-cyan-600 hover:bg-cyan-500 font-medium"
+                >
+                  Retry
+                </button>
+              </div>
+            </div>
+          ) : use3DMode ? (
             <>
               <NarromorphCanvas />
               {!isPositionsLoaded && <LoadingState />}
@@ -147,6 +221,16 @@ export default function Home() {
             <NodeMap className="w-full h-full" />
           )}
         </ErrorBoundary>
+
+        {webGLFallbackMessage && (
+          <div
+            role="status"
+            data-testid="webgl-fallback-status"
+            className="fixed top-16 left-4 z-40 max-w-sm rounded border border-amber-400/40 bg-gray-950/95 px-4 py-3 text-sm text-amber-100 shadow-xl"
+          >
+            {webGLFallbackMessage}
+          </div>
+        )}
 
         {/* Content panels - different for 2D vs 3D mode */}
         <ErrorBoundary fallbackRender={({ error }) => <ErrorFallback error={error} />}>

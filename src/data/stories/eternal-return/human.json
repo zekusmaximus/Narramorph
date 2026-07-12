@@ -12,22 +12,29 @@
       "id": "hum-L2-accept",
       "layer": 2,
       "chapterTitle": "Acceptance Path",
-      "connections": [],
+      "connections": ["hum-L3"],
       "contentFile": "content/layer2/hum-L2-accept-variations.json"
     },
     {
       "id": "hum-L2-resist",
       "layer": 2,
       "chapterTitle": "Resistance Path",
-      "connections": [],
+      "connections": ["hum-L3"],
       "contentFile": "content/layer2/hum-L2-resist-variations.json"
     },
     {
       "id": "hum-L2-invest",
       "layer": 2,
       "chapterTitle": "Investment Path",
-      "connections": [],
+      "connections": ["hum-L3"],
       "contentFile": "content/layer2/hum-L2-invest-variations.json"
+    },
+    {
+      "id": "hum-L3",
+      "layer": 3,
+      "chapterTitle": "Convergence: The Last Human",
+      "connections": ["final-preserve", "final-transform", "final-release"],
+      "contentFile": "content/layer3/hum-L3-variations.json"
     }
   ]
 }

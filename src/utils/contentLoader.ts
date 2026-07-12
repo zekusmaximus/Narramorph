@@ -72,6 +72,12 @@ interface VariationFile {
   }>;
 }
 
+interface TerminalContentFile {
+  id: string;
+  philosophy: string;
+  content: string;
+}
+
 interface LayoutFile {
   layers: Record<
     string,
@@ -168,6 +174,13 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
         import: 'default',
       },
     );
+    const terminalMap = import.meta.glob<TerminalContentFile>(
+      '/src/data/stories/*/content/layer4/final-*.json',
+      {
+        eager: true,
+        import: 'default',
+      },
+    );
     const layoutMap = import.meta.glob<LayoutFile>('/src/data/stories/*/layout.json', {
       eager: true,
       import: 'default',
@@ -223,6 +236,7 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
           const varData = actualContentPath
             ? l1VarMap[actualContentPath] || l2VarMap[actualContentPath]
             : undefined;
+          const terminalData = actualContentPath ? terminalMap[actualContentPath] : undefined;
 
           // Development log: Content loading for node ${def.id}
 
@@ -240,11 +254,20 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
               firstRevisit: pick('firstRevisit'),
               metaAware: pick('metaAware'),
             };
+          } else if (terminalData?.content) {
+            content = {
+              initial: terminalData.content,
+              firstRevisit: terminalData.content,
+              metaAware: terminalData.content,
+            };
           } else {
             // Attempt legacy content file with transformationStates via glob (not mapped here); leave empty if missing
             // Development warning: No content found for node ${def.id} at path ${actualContentPath}
             const fallbackContent: LegacyContentStates = {
-              initial: 'Content not found. This node is under development.',
+              initial:
+                def.layer === 3
+                  ? 'Your personalized convergence is assembled when this node opens.'
+                  : 'Content not found. This node is under development.',
               firstRevisit: '',
               metaAware: '',
             };

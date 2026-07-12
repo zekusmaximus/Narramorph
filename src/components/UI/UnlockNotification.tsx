@@ -76,6 +76,16 @@ export function UnlockNotificationSystem() {
                   boxShadow: `0 0 30px ${color}40`,
                 }}
                 onClick={() => openStoryView(nodeId)}
+                role="button"
+                tabIndex={0}
+                aria-label={`Open newly unlocked node: ${node.title}`}
+                data-testid={`unlock-notification-${nodeId}`}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    openStoryView(nodeId);
+                  }
+                }}
               >
                 {/* Header with icon */}
                 <div className="flex items-center space-x-3 mb-2">
