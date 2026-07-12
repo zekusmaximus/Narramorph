@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "generatorVersion": "1.0.0",
   "convertedAt": "2025-11-13T22:52:49.330Z",
-  "sourceRoot": "C:\\Users\\zeke\\Projects\\Narramorph\\docs",
+  "sourceRoot": "archive/source-markdown",
   "files": {
     "C:\\Users\\zeke\\Projects\\Narramorph\\docs\\arch-L2-accept-production\\arch-L2-accept-INITIAL_STATE.md": {
       "sourceHash": "b722cf56a72c9940ba1124561366c3903fc96debcdf2cc435c3be138fee4753e",
@@ -3651,10 +3651,10 @@
     }
   },
   "counts": {
-    "l1Variations": 0,
+    "l1Variations": 12,
     "l2Variations": 729,
-    "l3Variations": 0,
-    "l4Variations": 0,
-    "totalVariations": 729
+    "l3Variations": 270,
+    "l4Variations": 3,
+    "totalVariations": 1014
   }
 }

@@ -16,19 +16,20 @@ This roadmap starts from the merged state of `main`. It favors small, independen
 
 ### 1. Finish domain/store separation
 
-- Persistence and save migration now sit behind pure save-state logic and a focused progress repository; preserve this boundary as the store is further reduced.
-- Continue variation orchestration extraction after moving condition-context construction into the domain; then isolate content-loading state transitions from `storyStore.ts`.
+- Persistence and save migration sit behind pure save-state logic and a focused progress repository.
+- Variation selection, fallback handling, absolute history deduplication, and condition-context construction now sit behind focused domain functions.
+- Story content, unlock configuration, maps, fresh progress, and viewport state are prepared as one injected, atomic loading transition before the store applies them.
 - Keep the store as a coordinator with narrow actions; do not introduce slices until extracted responsibilities make useful slice boundaries obvious.
-- Add regression tests at each extraction boundary before moving the next responsibility.
 
-Success means persistence, selection, and content orchestration can be tested without mounting the store, while existing save behavior remains compatible.
+This milestone is complete: persistence, selection, and content orchestration are tested without mounting the store, while the store remains the coordinator and saved-state compatibility is unchanged.
 
 ### 2. Make content ownership reproducible
 
-- Document which files are canonical authoring inputs and which are generated runtime outputs.
-- Add strict checks for expected story/layer counts, duplicate IDs, orphaned runtime files, and selection-matrix references.
+- Canonical authoring inputs, generated outputs, checked-in runtime inputs, safe commands, and do-not-edit boundaries are now documented.
+- Strict runtime checks now cover declared story/layer counts, duplicate IDs, orphaned files, required aggregates, selection-matrix references, manifest totals, and deterministic ordering.
 - Keep migration repair/fallback behavior in conversion tooling and fail CI on malformed runtime content.
-- Decide whether manifests need deterministic checksums before adding a second story.
+- Reconcile the tracked 81-record L1/L2 authoring groups with the converter's older 80-record policy and decide whether the curated 12-record L1 runtime set remains intentional before allowing a full conversion write.
+- Deterministic package checksums are deferred until that reconciliation or a second story; current structural checks provide the useful guarantee now.
 
 Success means a contributor can regenerate or validate runtime content without relying on undocumented local history.
 
