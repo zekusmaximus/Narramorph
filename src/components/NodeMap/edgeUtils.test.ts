@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import type { StoryNode, UserProgress } from '@/types';
+import type { StoryNode } from '@/types';
 
 import { convertToReactFlowEdges } from './edgeUtils';
 
@@ -39,11 +39,9 @@ describe('convertToReactFlowEdges accessibility', () => {
       ],
       ['beta', storyNode('beta')],
     ]);
-    const progress = {
-      unlockedConnections: ['alpha-beta'],
-    } as unknown as UserProgress;
+    const unlockedConnections = ['alpha-beta'];
 
-    const edges = convertToReactFlowEdges(nodes, progress);
+    const edges = convertToReactFlowEdges(nodes, unlockedConnections);
 
     expect(edges).toHaveLength(2);
     for (const edge of edges) {
@@ -59,8 +57,8 @@ describe('convertToReactFlowEdges accessibility', () => {
       expect(edge.animated).toBe(true);
     }
 
-    expect(convertToReactFlowEdges(nodes, progress, true).every((edge) => !edge.animated)).toBe(
-      true,
-    );
+    expect(
+      convertToReactFlowEdges(nodes, unlockedConnections, true).every((edge) => !edge.animated),
+    ).toBe(true);
   });
 });

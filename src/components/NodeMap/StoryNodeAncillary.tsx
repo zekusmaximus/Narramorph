@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { Lock } from 'lucide-react';
 import type { ReactElement } from 'react';
 
-import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import type { StoryNode } from '@/types';
 import type { NodeUnlockConfig, UnlockProgress } from '@/types/Unlock';
 
@@ -12,15 +11,15 @@ interface StoryNodeParticlesProps {
   node: StoryNode;
   theme: StoryNodeTheme;
   size: number;
+  reduceMotion: boolean;
 }
 
 export function StoryNodeParticles({
   node,
   theme,
   size,
+  reduceMotion,
 }: StoryNodeParticlesProps): ReactElement | null {
-  const reduceMotion = useReducedMotionPreference();
-
   if (reduceMotion) {
     return null;
   }

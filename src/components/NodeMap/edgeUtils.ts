@@ -1,7 +1,7 @@
 import type { Edge, MarkerType } from '@xyflow/react';
 import type { CSSProperties } from 'react';
 
-import type { StoryNode, ConnectionType, UserProgress } from '@/types';
+import type { StoryNode, ConnectionType } from '@/types';
 
 /**
  * Get React Flow edge type based on connection type
@@ -75,7 +75,7 @@ export function getEdgeStyle(connectionType: ConnectionType): CSSProperties {
  */
 export function convertToReactFlowEdges(
   storyNodes: Map<string, StoryNode>,
-  progress: UserProgress,
+  unlockedConnections: readonly string[],
   reduceMotion = false,
 ): Edge[] {
   const edges: Edge[] = [];
@@ -83,7 +83,7 @@ export function convertToReactFlowEdges(
   for (const node of storyNodes.values()) {
     for (const connection of node.connections || []) {
       const edgeId = `${node.id}-${connection.targetId}`;
-      const isUnlocked = progress.unlockedConnections.includes(edgeId);
+      const isUnlocked = unlockedConnections.includes(edgeId);
 
       edges.push({
         id: edgeId,

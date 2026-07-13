@@ -17,7 +17,7 @@ const runtime = vi.hoisted(() => ({
 }));
 const storyStoreState = vi.hoisted(() => ({
   nodes: new Map(),
-  progress: { visitedNodes: {} },
+  progress: { visitedNodes: {}, readingPath: [], unlockedConnections: [] },
 }));
 
 vi.mock('@/components/map/useMapInteractionAdapter', () => ({
@@ -126,9 +126,11 @@ function createAdapter(selectedNodeId: string | null = 'alpha'): {
 } {
   const alpha = storyNode('alpha', 0);
   const beta = storyNode('beta', 10);
+  const locked = storyNode('locked', 20);
   const nodes = new Map([
     [alpha.id, alpha],
     [beta.id, beta],
+    [locked.id, locked],
   ]);
   const selectNode = vi.fn();
   const openPanel = vi.fn();
@@ -141,7 +143,7 @@ function createAdapter(selectedNodeId: string | null = 'alpha'): {
     isAnimating: false,
     awarenessLevel: 0,
     visitedNodes: {},
-    canVisitNode: () => true,
+    canVisitNode: (nodeId) => nodeId !== 'locked',
     getNodeState: (nodeId) => nodeState(nodes.get(nodeId) as StoryNode, nodeId === 'alpha'),
     actions: {
       selectNode,
@@ -223,6 +225,13 @@ describe('NodeMap keyboard interaction', () => {
 
     expect(setup.handleKey).not.toHaveBeenCalled();
     expect(setup.openPanel).not.toHaveBeenCalled();
+  });
+
+  it('preserves the available-only 2D node invariant', () => {
+    runtime.adapter = createAdapter().adapter;
+    render(<NodeMap />);
+
+    expect(screen.queryByTestId('story-node-locked')).toBeNull();
   });
 
   it('preserves pointer activation through the React Flow node wrapper', () => {
