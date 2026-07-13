@@ -15,11 +15,13 @@ import { getCharacterLabel } from '@/components/StoryView/storyPresentation';
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import { useStoryStore } from '@/stores';
 
+import { buildNodeMapAtmosphereModel } from './atmospherePresentation';
 import type { CustomStoryNodeData } from './CustomStoryNode';
 import { convertToReactFlowEdges } from './edgeUtils';
 import { NodeMapAtmosphere } from './NodeMapAtmosphere';
 import { NodeMapGraph } from './NodeMapGraph';
 import { NodeMapHud } from './NodeMapHud';
+import { getConnectionTargetIds } from './storyNodePresentation';
 import { useNodeActivationEffects } from './useNodeActivationEffects';
 
 interface NodeMapProps {
@@ -33,7 +35,11 @@ const MINI_MAP_COLORS = {
   'multi-perspective': '#9c27b0',
 } as const;
 
-function toFlowNodes(adapter: ReturnType<typeof useMapInteractionAdapter>): Node[] {
+function toFlowNodes(
+  adapter: ReturnType<typeof useMapInteractionAdapter>,
+  connectionTargetIds: Set<string>,
+  reduceMotion: boolean,
+): Node[] {
   return adapter.nodes.map(({ node, state, selected, available }) => ({
     id: node.id,
     type: 'storyNode',
@@ -43,6 +49,8 @@ function toFlowNodes(adapter: ReturnType<typeof useMapInteractionAdapter>): Node
       nodeState: state,
       isSelected: selected,
       available,
+      isConnectionTarget: connectionTargetIds.has(node.id),
+      reduceMotion,
     } satisfies CustomStoryNodeData,
     draggable: false,
     deletable: false,
@@ -97,7 +105,9 @@ function focusNodeElement(root: HTMLDivElement, nodeId: string): void {
 export default function NodeMap({ className = '' }: NodeMapProps): ReactElement {
   const adapter = useMapInteractionAdapter('2d');
   const storyNodes = useStoryStore((state) => state.nodes);
-  const progress = useStoryStore((state) => state.progress);
+  const visitedNodes = useStoryStore((state) => state.progress.visitedNodes);
+  const readingPath = useStoryStore((state) => state.progress.readingPath);
+  const unlockedConnections = useStoryStore((state) => state.progress.unlockedConnections);
   const reduceMotion = useReducedMotionPreference();
   const activationEffects = useNodeActivationEffects();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -105,10 +115,21 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
   const [supportsPrecisePointer, setSupportsPrecisePointer] = useState(false);
   const [viewport, setViewport] = useState<Viewport>({ zoom: 1, x: 0, y: 0 });
 
-  const flowNodes = useMemo(() => toFlowNodes(adapter), [adapter]);
+  const connectionTargetIds = useMemo(
+    () => getConnectionTargetIds(storyNodes, adapter.selectedNodeId),
+    [adapter.selectedNodeId, storyNodes],
+  );
+  const flowNodes = useMemo(
+    () => toFlowNodes(adapter, connectionTargetIds, reduceMotion),
+    [adapter, connectionTargetIds, reduceMotion],
+  );
   const flowEdges = useMemo(
-    () => convertToReactFlowEdges(storyNodes, progress, reduceMotion),
-    [progress, reduceMotion, storyNodes],
+    () => convertToReactFlowEdges(storyNodes, unlockedConnections, reduceMotion),
+    [reduceMotion, storyNodes, unlockedConnections],
+  );
+  const atmosphereModel = useMemo(
+    () => buildNodeMapAtmosphereModel({ storyNodes, readingPath, visitedNodes }),
+    [readingPath, storyNodes, visitedNodes],
   );
   const [nodes, setNodes, onNodesChange] = useNodesState(flowNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(flowEdges);
@@ -194,7 +215,7 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
   );
 
   const totalNodes = storyNodes.size;
-  const visitedCount = Object.keys(progress.visitedNodes).length;
+  const visitedCount = Object.keys(visitedNodes).length;
 
   return (
     <div
@@ -208,11 +229,12 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
       onKeyDownCapture={handleKeyDown}
     >
       <NodeMapAtmosphere
-        storyNodes={storyNodes}
+        model={atmosphereModel}
         mousePosition={mousePosition}
         viewportZoom={viewport.zoom}
         showFogOfWar={false}
         showTrail
+        reduceMotion={reduceMotion}
       />
 
       <NodeMapGraph
@@ -226,6 +248,7 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
         onNodeMouseLeave={() => adapter.hover(null)}
         onViewportChange={setViewport}
         getNodeColor={getNodeColor}
+        reduceMotion={reduceMotion}
       />
 
       <NodeMapHud

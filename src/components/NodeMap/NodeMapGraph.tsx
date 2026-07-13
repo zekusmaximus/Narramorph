@@ -21,8 +21,6 @@ import {
   type ReactElement,
 } from 'react';
 
-import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
-
 import CustomStoryNode from './CustomStoryNode';
 
 const nodeTypes = {
@@ -76,6 +74,7 @@ interface NodeMapGraphProps {
   onNodeMouseLeave: () => void;
   onViewportChange: (viewport: Viewport) => void;
   getNodeColor: (node: Node) => string;
+  reduceMotion: boolean;
 }
 
 export function NodeMapGraph({
@@ -89,8 +88,8 @@ export function NodeMapGraph({
   onNodeMouseLeave,
   onViewportChange,
   getNodeColor,
+  reduceMotion,
 }: NodeMapGraphProps): ReactElement {
-  const reduceMotion = useReducedMotionPreference();
   const [instance, setInstance] = useState<ReactFlowInstance | null>(null);
   const [compactViewport, setCompactViewport] = useState(
     () => typeof window !== 'undefined' && window.matchMedia('(max-width: 639px)').matches,

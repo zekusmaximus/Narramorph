@@ -1,26 +1,18 @@
 import { motion } from 'framer-motion';
-import { useMemo } from 'react';
+import type { ReactElement } from 'react';
 
-import { useStoryStore } from '@/stores/storyStore';
+import type { NeuralNetworkPoint } from './atmospherePresentation';
 
-/**
- * Draws neural connections between algorithm nodes
- */
-export function NeuralNetwork() {
-  const nodes = useStoryStore((state) => state.nodes);
-  const progress = useStoryStore((state) => state.progress);
-
-  // Find algorithm nodes that have been visited
-  const algorithmNodes = useMemo(() => {
-    return Array.from(nodes.values()).filter(
-      (node) => node.character === 'algorithm' && progress.visitedNodes[node.id],
-    );
-  }, [nodes, progress.visitedNodes]);
-
-  if (algorithmNodes.length < 2) {
+export function NeuralNetwork({
+  points,
+  reduceMotion,
+}: {
+  points: NeuralNetworkPoint[];
+  reduceMotion: boolean;
+}): ReactElement | null {
+  if (points.length < 2) {
     return null;
   }
-
   return (
     <svg className="absolute inset-0 pointer-events-none">
       <defs>
@@ -32,20 +24,15 @@ export function NeuralNetwork() {
           </feMerge>
         </filter>
       </defs>
-
-      {/* Draw neural connections between all algorithm nodes */}
-      {algorithmNodes.map((node1, i) =>
-        algorithmNodes.slice(i + 1).map((node2, j) => {
-          // Create a curved path
-          const midX = (node1.position.x + node2.position.x) / 2;
-          const midY = (node1.position.y + node2.position.y) / 2;
-          const offset = 50;
-
+      {points.map((node1, i) =>
+        points.slice(i + 1).map((node2, j) => {
+          const midX = (node1.x + node2.x) / 2;
+          const midY = (node1.y + node2.y) / 2;
+          const path = `M ${node1.x} ${node1.y} Q ${midX} ${midY - 50} ${node2.x} ${node2.y}`;
           return (
             <g key={`${node1.id}-${node2.id}`}>
-              {/* Main connection line */}
               <motion.path
-                d={`M ${node1.position.x} ${node1.position.y} Q ${midX} ${midY - offset} ${node2.position.x} ${node2.position.y}`}
+                d={path}
                 fill="none"
                 stroke="#39ff14"
                 strokeWidth="1"
@@ -55,41 +42,31 @@ export function NeuralNetwork() {
                 animate={{ pathLength: 1 }}
                 transition={{ duration: 2, delay: j * 0.2 }}
               />
-
-              {/* Pulse traveling along path */}
-              <circle r="3" fill="#39ff14" filter="url(#glow)">
-                <animateMotion
-                  dur={`${3 + j}s`}
-                  repeatCount="indefinite"
-                  path={`M ${node1.position.x} ${node1.position.y} Q ${midX} ${midY - offset} ${node2.position.x} ${node2.position.y}`}
-                />
-              </circle>
+              {!reduceMotion && (
+                <circle r="3" fill="#39ff14" filter="url(#glow)">
+                  <animateMotion dur={`${3 + j}s`} repeatCount="indefinite" path={path} />
+                </circle>
+              )}
             </g>
           );
         }),
       )}
-
-      {/* Neural nodes at positions */}
-      {algorithmNodes.map((node, i) => (
+      {points.map((node, i) => (
         <motion.circle
           key={node.id}
-          cx={node.position.x}
-          cy={node.position.y}
+          cx={node.x}
+          cy={node.y}
           r={4}
           fill="#39ff14"
           opacity={0.4}
           filter="url(#glow)"
-          initial={{
-            r: 4,
-            opacity: 0.4,
-          }}
-          animate={{
-            r: [4, 6, 4],
-            opacity: [0.4, 0.7, 0.4],
-          }}
+          initial={{ r: 4, opacity: 0.4 }}
+          animate={
+            reduceMotion ? { r: 4, opacity: 0.4 } : { r: [4, 6, 4], opacity: [0.4, 0.7, 0.4] }
+          }
           transition={{
-            duration: 2,
-            repeat: Infinity,
+            duration: reduceMotion ? 0 : 2,
+            repeat: reduceMotion ? 0 : Infinity,
             delay: i * 0.3,
           }}
         />

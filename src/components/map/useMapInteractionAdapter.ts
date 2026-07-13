@@ -14,7 +14,8 @@ export function useMapInteractionAdapter(mode: MapMode): MapInteractionAdapter {
   const hoveredNodeId = useStoryStore((state) => state.hoveredNode);
   const panelOpen = useStoryStore((state) => state.storyViewOpen);
   const isAnimating = useStoryStore((state) => state.isAnimating);
-  const progress = useStoryStore((state) => state.progress);
+  const awarenessLevel = useStoryStore((state) => state.progress.temporalAwarenessLevel);
+  const visitedNodes = useStoryStore((state) => state.progress.visitedNodes);
   const canVisitNode = useStoryStore((state) => state.canVisitNode);
   const getNodeState = useStoryStore((state) => state.getNodeState);
   const selectNode = useStoryStore((state) => state.selectNode);
@@ -31,8 +32,8 @@ export function useMapInteractionAdapter(mode: MapMode): MapInteractionAdapter {
         hoveredNodeId,
         panelOpen,
         isAnimating,
-        awarenessLevel: progress.temporalAwarenessLevel,
-        visitedNodes: progress.visitedNodes,
+        awarenessLevel,
+        visitedNodes,
         canVisitNode,
         getNodeState,
         actions: {
@@ -52,7 +53,8 @@ export function useMapInteractionAdapter(mode: MapMode): MapInteractionAdapter {
       nodes,
       openPanel,
       panelOpen,
-      progress,
+      awarenessLevel,
+      visitedNodes,
       selectNode,
       selectedNodeId,
       setHoveredNode,

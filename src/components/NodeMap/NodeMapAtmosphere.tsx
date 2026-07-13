@@ -1,9 +1,7 @@
 import { motion } from 'framer-motion';
 import type { ReactElement } from 'react';
 
-import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
-import type { StoryNode } from '@/types';
-
+import type { NodeMapAtmosphereModel } from './atmospherePresentation';
 import { DiscoveryOverlay } from './DiscoveryOverlay';
 import { NeuralNetwork } from './NeuralNetwork';
 import { ParallaxBackground } from './ParallaxBackground';
@@ -17,22 +15,22 @@ const ZONE_COLORS = {
 } as const;
 
 interface NodeMapAtmosphereProps {
-  storyNodes: Map<string, StoryNode>;
+  model: NodeMapAtmosphereModel;
   mousePosition: { x: number; y: number };
   viewportZoom: number;
   showFogOfWar: boolean;
   showTrail: boolean;
+  reduceMotion: boolean;
 }
 
 export function NodeMapAtmosphere({
-  storyNodes,
+  model,
   mousePosition,
   viewportZoom,
   showFogOfWar,
   showTrail,
+  reduceMotion,
 }: NodeMapAtmosphereProps): ReactElement {
-  const reduceMotion = useReducedMotionPreference();
-
   return (
     <>
       <div
@@ -54,19 +52,21 @@ export function NodeMapAtmosphere({
             'radial-gradient(ellipse at center, transparent 0%, rgba(10, 14, 18, 0.8) 100%)',
         }}
       />
-      {showFogOfWar && <DiscoveryOverlay />}
+      {showFogOfWar && (
+        <DiscoveryOverlay points={model.discoveryPoints} reduceMotion={reduceMotion} />
+      )}
 
       {!reduceMotion && (
         <div className="pointer-events-none absolute inset-0 hidden md:block">
-          {Array.from(storyNodes.values()).map((node) => (
+          {model.zones.map((node) => (
             <motion.div
               key={`zone-${node.id}`}
               className="absolute rounded-full"
               style={{
                 width: 320,
                 height: 320,
-                left: node.position.x - 160,
-                top: node.position.y - 160,
+                left: node.x - 160,
+                top: node.y - 160,
                 background: `radial-gradient(circle, ${ZONE_COLORS[node.character]} 0%, transparent 72%)`,
                 filter: 'blur(48px)',
               }}
@@ -80,12 +80,12 @@ export function NodeMapAtmosphere({
 
       {!reduceMotion && showTrail && (
         <div className="hidden lg:block">
-          <ReadingPathTrail />
+          <ReadingPathTrail points={model.readingPathPoints} />
         </div>
       )}
       {!reduceMotion && viewportZoom > 0.55 && (
         <div className="hidden xl:block">
-          <NeuralNetwork />
+          <NeuralNetwork points={model.neuralNetworkPoints} reduceMotion={reduceMotion} />
         </div>
       )}
 
