@@ -1,0 +1,38 @@
+# Feature extraction matrix
+
+Status values: `migrate`, `reimplement`, `reject`, `defer`, `complete`.
+
+No reference repository may be archived until every row for that repository is `complete` or has an owner-approved rejection/defer record.
+
+## Project-Leibniz
+
+| Capability | Source | Decision | Narramorph target | Required proof | Archive dependency |
+|---|---|---|---|---|---|
+| Serializable order-aware conditions | `client/src/services/conditionDSL.ts` | Reimplement missing semantics | Story Package condition schema and pure domain evaluator | Unit/property tests for start/end, relative order, adjacency, recency, visit counts, flags, boolean composition, saves | Yes |
+| Plain-language selection explanations | `client/src/pages/NarrativePage.tsx`, condition descriptions | Migrate concept | `SelectionReason`, “Why this version?”, journey ledger | Keyboard/mobile/screen-reader tests; no spoiler leakage; explanations persist after reload | Yes |
+| Compositional prose beats | `client/src/context/StoryTypes.ts`, `client/src/services/StoryLogicService.ts` | Reimplement incrementally | Optional story-package `proseBeats` and deterministic renderer | One reference node per perspective; exact-save replay; editorial approval | Yes |
+| Condition-aware edge prose | `client/src/data/storyGraph.json`, `StoryLogicService.ts` | Reimplement with limits | Optional edge bridge schema/render/export | State, accessibility, provenance, export tests | Yes |
+| Exact experienced-journey Markdown export | `client/src/services/narrativeExport.ts` | Reimplement after immutable visit log | Journey export service and accessible UI | Full L1–L4 export; repeats/order/Unicode/migration tests | Yes |
+| Adaptation ledger UX | Narrative page controls | Migrate behavior, redesign visuals | Progress/history surface | Usability and accessibility review | Yes |
+| Express/Mongo backend | `server/` | Reject for v1 | None; future backend requires separate ADR | Owner-approved backend decision; credential revocation confirmed | Yes |
+| React Context/reducer state architecture | `client/src/context/` | Reject | Existing Zustand/domain boundaries remain authoritative | ADR/gap review confirms no unique required state | Yes |
+| D3 force-map visual design | `client/src/components/NodeMap.tsx` | Reject as product visual; retain behavior tests where useful | Existing accessible 2D map | No loss of graph behavior | No |
+
+## eternal-return-digital-self
+
+| Capability | Source | Decision | Narramorph target | Required proof | Archive dependency |
+|---|---|---|---|---|---|
+| Cinematic first-run overlay | `src/components/Onboarding/IntroductionOverlay.tsx` | Clean-room reimplementation | Accessible first-run experience | Skip/replay, keyboard, focus, reduced motion, 200% text, mobile, comprehension testing | Yes |
+| Animated node demonstration | Onboarding components/styles | Reimplement with semantic equivalent | Onboarding illustration plus text alternative | Reduced-motion static equivalent; not canvas-only | Yes |
+| Help entry and replayable guidance | `HelpIcon.tsx`, `Onboarding.tsx` | Migrate concept | Narramorph Help/settings | Focus and screen-reader tests | Yes |
+| Cosmic visual atmosphere | `app.css`, constellation styles/components | Selectively reimplement | Design tokens and decorative layers | Contrast, motion, prose readability, performance | Yes |
+| Instanced/batched 3D rendering | `NodesInstanced.tsx`, `ConnectionsBatched.tsx` | Defer pending profiling | Experimental 3D only | Measured improvement on representative hardware; WebGL fallback | Yes |
+| Mini constellation | `MiniConstellation.tsx` | Compare with current progress/map context | Reader context if user testing supports it | Mobile and accessibility proof | Yes |
+| Marginalia sidebar | `MarginaliaSidebar.tsx` | Defer to product/editorial decision | Optional explanation/annotation surface | Does not duplicate adaptation ledger or crowd prose | Yes |
+| Duplicate Redux/domain/infrastructure stacks | `src/store`, `src/domain`, `src/infrastructure` | Reject | None | Architecture record | Yes |
+| Current node reader/transform renderer | `src/components/NodeView`, transformation services | Reject as implementation | Existing Narramorph reader/selection architecture | The tested blank-content and first-visit/revisit defects are absent | Yes |
+| Checked-in `dist` output | `dist/` | Reject as source practice | CI-built release artifacts | Release pipeline produces artifacts without tracking build output | No |
+
+## Issue disposition
+
+GitHub reported no open issues in either reference repository on July 13, 2026. Future extraction work is tracked only in Narramorph.

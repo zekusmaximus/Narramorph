@@ -5,6 +5,18 @@
 **Canonical literary/editorial source:** `zekusmaximus/Eternal_Return_Manuscript`  
 **Temporary reference repositories:** `zekusmaximus/Project-Leibniz`, `zekusmaximus/eternal-return-digital-self`
 
+## Execution status
+
+Updated: July 13, 2026
+
+| Batch | Status | Evidence / remaining gate |
+|---|---|---|
+| 0.1 — Product charter and repository roles | In progress | Charter, boundary ADR, freeze notices, milestone, and tracking issues are implemented; coordinated PR review and merge remain. |
+| 0.2 — Licensing and provenance | Awaiting owner decision while non-license work proceeds | Proposed split: MIT software code; narrative/story content all rights reserved with explicit permission for approved manuscript-derived material to ship in Narramorph. External confirmation of the historical Leibniz credential revocation is also required. |
+| 0.3 — Baselines and extraction inventory | In progress | `pre-consolidation-2026-07-13` is published in all four repositories; verified baseline records and the extraction matrix are implemented; no legacy issues require migration. Coordinated PR review and merge remain. |
+
+The detailed evidence and PR links are maintained in [the Phase 0 execution record](consolidation/PHASE_0_EXECUTION.md).
+
 ## 1. Executive decision
 
 The final product should be built and shipped from **Narramorph**. It already has the strongest product shell, the complete runtime story, the most mature data-validation pipeline, the best accessibility posture, and the only full end-to-end browser suite. It should not be replaced by a merged monorepo or rewritten around either older implementation.
