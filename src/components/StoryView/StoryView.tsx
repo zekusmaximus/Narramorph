@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, type ReactElement } from 'react';
 
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
 import { useDialogFocus } from '@/hooks/useDialogFocus';
+import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import { useVariationSelection } from '@/hooks/useVariationSelection';
 import { useStoryStore } from '@/stores';
 
@@ -24,6 +25,7 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
   const adapter = useMapInteractionAdapter('2d');
   const nodes = useStoryStore((state) => state.nodes);
   const preferences = useStoryStore((state) => state.preferences);
+  const reduceMotion = useReducedMotionPreference();
   const getNodeState = useStoryStore((state) => state.getNodeState);
   const canVisitNode = useStoryStore((state) => state.canVisitNode);
   const openStoryView = useStoryStore((state) => state.openStoryView);
@@ -31,7 +33,15 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
   const finalizeActiveVisit = useStoryStore((state) => state.finalizeActiveVisit);
   const selectedNode = adapter.selectedNodeId;
   const closeStoryView = adapter.panel.close;
-  const dialogRef = useDialogFocus(adapter.panel.open, closeStoryView);
+  const dialogRef = useDialogFocus(adapter.panel.open, closeStoryView, {
+    focusKey: selectedNode,
+    initialFocusSelector: '#story-view-title',
+    restoreFocus: () =>
+      (selectedNode
+        ? document.querySelector<HTMLElement>(`.react-flow__node[data-id="${selectedNode}"]`)
+        : null) ??
+      document.querySelector<HTMLElement>('[role="region"][aria-label="Archive passage map"]'),
+  });
   const handleContinue = useCallback(
     (nodeId: string): void => {
       // The 2D store keeps its animation gate raised while the reader is open.
@@ -80,10 +90,10 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={`story-modal-${selectedNode}`}
-        initial={{ opacity: 0 }}
+        key="story-modal"
+        initial={reduceMotion ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+        exit={reduceMotion ? undefined : { opacity: 0 }}
         className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-0 backdrop-blur-sm sm:p-4"
         onClick={closeStoryView}
       >
@@ -92,11 +102,14 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
           role="dialog"
           aria-modal="true"
           aria-labelledby="story-view-title"
+          data-variation-id={variationId ?? undefined}
           tabIndex={-1}
-          initial={{ y: 12, opacity: 0 }}
+          initial={reduceMotion ? false : { y: 12, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          exit={{ y: 8, opacity: 0 }}
-          transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+          exit={reduceMotion ? undefined : { y: 8, opacity: 0 }}
+          transition={
+            reduceMotion ? { duration: 0 } : { type: 'spring', damping: 25, stiffness: 300 }
+          }
           className={`relative flex h-[100dvh] max-h-[100dvh] w-full max-w-4xl flex-col overflow-hidden sm:h-auto sm:max-h-[92vh]
             ${preferences.theme === 'dark' ? 'bg-gray-900' : ''}
             ${preferences.theme === 'light' ? 'bg-white' : ''}
@@ -109,8 +122,6 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
             nodeState={nodeState}
             theme={theme}
             estimatedReadingTime={estimatedReadingTime}
-            variationId={variationId}
-            variationMetadata={variationMetadata}
             usedFallback={usedFallback && currentNode.layer <= 2}
             variationError={variationError}
             onClose={closeStoryView}

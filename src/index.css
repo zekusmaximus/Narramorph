@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.react-flow__node[role='button']:focus-visible {
+  outline: 3px solid rgb(165 243 252) !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 0 6px rgb(8 13 16 / 85%);
+}
+
 /* Global styles */
 @layer base {
   html {
@@ -176,6 +182,18 @@
   }
 
   /* Reduced motion */
+  [data-reduced-motion='true'],
+  [data-reduced-motion='true'] *,
+  [data-reduced-motion='true']::before,
+  [data-reduced-motion='true']::after,
+  [data-reduced-motion='true'] *::before,
+  [data-reduced-motion='true'] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

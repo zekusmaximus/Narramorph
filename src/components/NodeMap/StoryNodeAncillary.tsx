@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Lock } from 'lucide-react';
 import type { ReactElement } from 'react';
 
+import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import type { StoryNode } from '@/types';
 import type { NodeUnlockConfig, UnlockProgress } from '@/types/Unlock';
 
@@ -13,10 +14,24 @@ interface StoryNodeParticlesProps {
   size: number;
 }
 
-export function StoryNodeParticles({ node, theme, size }: StoryNodeParticlesProps): ReactElement {
+export function StoryNodeParticles({
+  node,
+  theme,
+  size,
+}: StoryNodeParticlesProps): ReactElement | null {
+  const reduceMotion = useReducedMotionPreference();
+
+  if (reduceMotion) {
+    return null;
+  }
+
   if (node.character === 'algorithm') {
     return (
-      <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-full">
+      <div
+        className="absolute inset-0 pointer-events-none overflow-hidden rounded-full"
+        data-testid="story-node-particles"
+        aria-hidden="true"
+      >
         {['0', '1', '0', '1'].map((digit, index) => (
           <motion.div
             key={index}
@@ -43,7 +58,11 @@ export function StoryNodeParticles({ node, theme, size }: StoryNodeParticlesProp
 
   const particleCount = node.character === 'archaeologist' ? 6 : 4;
   return (
-    <div className="absolute inset-0 pointer-events-none">
+    <div
+      className="absolute inset-0 pointer-events-none"
+      data-testid="story-node-particles"
+      aria-hidden="true"
+    >
       {Array.from({ length: particleCount }, (_, index) => (
         <motion.div
           key={index}

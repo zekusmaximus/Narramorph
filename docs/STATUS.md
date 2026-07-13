@@ -1,6 +1,6 @@
 # Narramorph status
 
-Updated: July 12, 2026
+Updated: July 13, 2026
 
 ## Current baseline
 
@@ -14,7 +14,10 @@ Updated: July 12, 2026
 - The 2D and 3D maps now share a map interaction adapter, and reduced-motion behavior has an explicit preference hook.
 - The checked-in story graph reaches three L3 convergence nodes and three authored L4 endings. Chromium coverage protects the full journey, revisit/dedup behavior, unlock notices, persistence reload, missing-story recovery, and WebGL fallback.
 - The reader experience now uses a responsive archive shell, perspective-first opening, simplified mobile map, literary passage typography, actual-text reading estimates, scroll progress, graph-backed continuation actions, narrative progress history, and persisted reader preferences.
-- Browser coverage also protects the 390×844 layout, horizontal-overflow boundary, keyboard return path, reader continuation, and preference persistence; 3D remains available as an explicitly experimental secondary view.
+- Available map passages now have literary accessible names, stable selected/focus states, arrow-key traversal, Enter/Space activation, and reliable focus return; unavailable passages remain summarized outside the tab order.
+- Story, settings, progress, and L3 convergence surfaces now share initial-focus, containment, Escape, background-isolation, duplicate-dialog, and focus-restoration behavior. Unlock notices wait while a reading panel is active and announce surfaced passages politely.
+- Effective reduced motion honors either the system preference or the persisted reader setting across map atmosphere, nodes, particles, notifications, reader transitions, progress surfaces, and convergence presentation.
+- Browser coverage protects the complete keyboard-only perspective-to-reader-to-map-to-settings/progress path, representative L3 keyboard interaction, 390×844 layout, all three reader text sizes, 200% layout pressure, app and system reduced motion, horizontal-overflow boundaries, preference persistence, and unavailable-WebGL fallback; 3D remains an explicitly experimental secondary view.
 - Generated backup snapshots and nested tool dependencies are excluded from version control.
 
 ## Recently completed
@@ -24,6 +27,7 @@ Updated: July 12, 2026
 - L3 profiling and targeted assembly optimization.
 - Unlock, journey-progress, progress-model, and L2 progression extraction from the central store.
 - Strict runtime content validation suitable for CI.
+- Accessible navigation and interaction confidence across the complete primary reader path.
 - Removal of the deprecated TypeScript `baseUrl` option.
 - Consolidation of current documentation and archival of superseded assessments and plans.
 
@@ -33,6 +37,6 @@ Updated: July 12, 2026
 - Several visual components and atmospheric map effects subscribe directly to broad store state.
 - Package-level checksums remain deferred until a second story can establish a timestamp-independent, cross-package checksum contract.
 - Eager content imports are acceptable for the current single-story scope but will not scale cleanly to a larger catalog.
-- Automated accessibility verification remains limited beyond the primary reader controls exercised by the browser suite.
+- Cross-screen-reader, device-specific contrast, and assistive-technology combinations remain release-QA checks rather than a fully automated matrix.
 
 See [the roadmap](ROADMAP.md) for the prioritized response to these constraints.

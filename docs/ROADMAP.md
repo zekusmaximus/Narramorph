@@ -1,6 +1,6 @@
 # Narramorph roadmap
 
-Updated: July 12, 2026
+Updated: July 13, 2026
 
 This roadmap starts from the merged state of `main`. It favors small, independently reviewable changes and does not assume a rewrite or a server backend.
 
@@ -60,7 +60,7 @@ The first reader-experience foundation is complete: the shell, opening invitatio
 
 Success means the complete reading journey is usable without a pointer and without motion effects.
 
-The foundation now includes persisted text-size, reading-surface, and reduced-motion controls; keyboard-operable dialogs and map entry; mobile-safe focusable controls; actual-text reading-time estimates; and passage scroll progress. A complete screen-reader reading-order, contrast, zoom, and continuous-animation audit remains before this milestone is closed.
+This milestone is complete for the primary reader journey: available map passages support stable keyboard traversal and activation; story, settings, progress, and convergence dialogs isolate the background, contain and restore focus, and avoid duplicate accessible shells; effective system-or-reader reduced motion removes nonessential continuous effects; and automated plus in-app browser checks cover the keyboard path, announcements, 390×844 layout, all reader text sizes, 200% layout pressure, experimental 3D fallback, and horizontal-overflow boundaries. Cross-screen-reader and device-specific contrast validation remains part of release QA rather than a reason to hold this focused milestone open.
 
 ## Later: performance and platform growth
 

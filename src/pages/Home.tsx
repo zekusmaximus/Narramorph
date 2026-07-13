@@ -9,22 +9,11 @@ import ContentPanel3D from '@/components/ContentPanel3D';
 import NodeMap from '@/components/NodeMap';
 import { OpeningExperience } from '@/components/OpeningExperience';
 import StoryView from '@/components/StoryView';
+import { ErrorRecoveryDialog } from '@/components/UI/ErrorRecoveryDialog';
 import { L3AssemblyView } from '@/components/UI/L3AssemblyView';
 import { UnlockNotificationSystem } from '@/components/UI/UnlockNotification';
 import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';
-
-/**
- * Error fallback component for ErrorBoundary
- */
-function ErrorFallback({ error }: { error: Error }) {
-  return (
-    <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
-      <h2 className="text-red-800 font-semibold mb-2">Something went wrong</h2>
-      <pre className="text-sm text-red-600">{error.message}</pre>
-    </div>
-  );
-}
 
 /**
  * WebGL error fallback component
@@ -43,14 +32,18 @@ function WebGLErrorFallback({
   }, [onFallbackTo2D]);
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-white p-8 z-30">
+    <div
+      role="status"
+      aria-live="polite"
+      className="absolute inset-0 z-30 flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white"
+    >
       <div className="max-w-md text-center">
         <div className="text-6xl mb-4">⚠️</div>
-        <h2 className="text-2xl font-bold mb-4">WebGL Not Supported</h2>
+        <h2 className="mb-4 text-2xl font-bold">Three-dimensional view unavailable</h2>
         <p className="text-gray-300 mb-4">
-          Your browser or device doesn&apos;t support WebGL, which is required for 3D visualization.
+          This browser or device could not open the experimental three-dimensional archive.
         </p>
-        <p className="text-sm text-gray-400">Automatically switching to 2D view...</p>
+        <p className="text-sm text-gray-400">Returning to the two-dimensional story map…</p>
       </div>
     </div>
   );
@@ -76,6 +69,8 @@ function supportsWebGL(): boolean {
 export default function Home() {
   const loadStory = useStoryStore((state) => state.loadStory);
   const loadProgress = useStoryStore((state) => state.loadProgress);
+  const closeStoryView = useStoryStore((state) => state.closeStoryView);
+  const storyViewOpen = useStoryStore((state) => state.storyViewOpen);
   const l3AssemblyViewOpen = useStoryStore((state) => state.l3AssemblyViewOpen);
   const currentL3Assembly = useStoryStore((state) => state.currentL3Assembly);
   const closeL3AssemblyView = useStoryStore((state) => state.closeL3AssemblyView);
@@ -165,6 +160,7 @@ export default function Home() {
       {/* Main content area with node map */}
       <div className="relative min-h-0 min-w-0 flex-1 overflow-hidden">
         <ErrorBoundary
+          resetKeys={[use3DMode]}
           fallbackRender={({ error }) => (
             <WebGLErrorFallback error={error} onFallbackTo2D={handleFallbackTo2D} />
           )}
@@ -180,11 +176,10 @@ export default function Home() {
                 <p className="text-gray-300 mb-2">
                   We couldn&apos;t open this story. Your saved progress has not been changed.
                 </p>
-                <p className="text-sm text-gray-500 mb-6">{storyError}</p>
                 <button
                   type="button"
                   onClick={() => void initializeStory(true)}
-                  className="px-4 py-2 rounded bg-cyan-600 hover:bg-cyan-500 font-medium"
+                  className="min-h-11 rounded bg-cyan-600 px-4 py-2 font-medium hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-100"
                 >
                   Retry
                 </button>
@@ -211,28 +206,57 @@ export default function Home() {
         )}
 
         {/* Content panels - different for 2D vs 3D mode */}
-        <ErrorBoundary fallbackRender={({ error }) => <ErrorFallback error={error} />}>
+        <ErrorBoundary
+          onError={(error) => console.error('Reader surface failed:', error)}
+          fallbackRender={({ resetErrorBoundary }) => (
+            <ErrorRecoveryDialog
+              onReturnToMap={() => {
+                closeStoryView();
+                resetErrorBoundary();
+              }}
+            />
+          )}
+        >
           {use3DMode ? <ContentPanel3D /> : <StoryView />}
         </ErrorBoundary>
 
         {/* Dev-only FPS counter for 3D mode */}
         {use3DMode && <FPSCounter />}
 
-        {/* The existing 3D implementation remains available as an experimental secondary view. */}
-        <button
-          type="button"
-          onClick={toggle3DMode}
-          aria-pressed={use3DMode}
-          className="absolute right-3 top-3 z-40 rounded-full border border-white/15 bg-[#11191e]/90 px-3 py-2 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-slate-300 shadow-lg backdrop-blur-sm transition-colors hover:border-cyan-100/35 hover:text-cyan-50"
-          title={`Switch to ${use3DMode ? '2D' : '3D'} mode`}
-        >
-          {use3DMode ? 'Return to 2D archive' : 'Experimental 3D'}
-        </button>
+        {/* The mode switch stays out of the reading panel's covered tab order. */}
+        {(!use3DMode || !storyViewOpen) && (
+          <>
+            <button
+              type="button"
+              onClick={toggle3DMode}
+              aria-pressed={use3DMode}
+              aria-describedby="experimental-3d-description"
+              className="absolute right-3 top-3 z-40 min-h-11 rounded-full border border-white/15 bg-[#11191e]/90 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-slate-300 shadow-lg backdrop-blur-sm transition-colors hover:border-cyan-100/35 hover:text-cyan-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-100"
+              title={`Switch to ${use3DMode ? '2D' : '3D'} mode`}
+            >
+              {use3DMode ? 'Return to 2D archive' : 'Experimental 3D'}
+            </button>
+            <p id="experimental-3d-description" className="sr-only">
+              An optional spatial view. If graphics support is unavailable, the story remains ready
+              in the two-dimensional map.
+            </p>
+          </>
+        )}
 
         {/* L3 Assembly View Modal */}
         <AnimatePresence>
           {l3AssemblyViewOpen && currentL3Assembly && (
-            <ErrorBoundary fallbackRender={({ error }) => <ErrorFallback error={error} />}>
+            <ErrorBoundary
+              onError={(error) => console.error('Convergence surface failed:', error)}
+              fallbackRender={({ resetErrorBoundary }) => (
+                <ErrorRecoveryDialog
+                  onReturnToMap={() => {
+                    closeL3AssemblyView();
+                    resetErrorBoundary();
+                  }}
+                />
+              )}
+            >
               <L3AssemblyView assembly={currentL3Assembly} onClose={closeL3AssemblyView} />
             </ErrorBoundary>
           )}

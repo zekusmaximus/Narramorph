@@ -36,6 +36,19 @@ export const storyCharacterThemes: Record<CharacterType, StoryCharacterTheme> = 
   },
 };
 
+export function getCharacterLabel(character: CharacterType): string {
+  switch (character) {
+    case 'archaeologist':
+      return 'The Archaeologist';
+    case 'algorithm':
+      return 'The Algorithm';
+    case 'last-human':
+      return 'The Last Human';
+    case 'multi-perspective':
+      return 'The Convergence';
+  }
+}
+
 export function getStateLabel(state: TransformationState): string {
   switch (state) {
     case 'initial':

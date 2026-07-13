@@ -18,7 +18,7 @@ export function StoryFooter({
   const hasChoices = continuationNodes.length > 1;
   return (
     <footer
-      className={`border-t px-4 py-4 sm:px-7 ${
+      className={`min-w-0 overflow-x-hidden border-t px-4 py-4 sm:px-7 ${
         theme === 'dark' ? 'border-white/10 bg-[#080c10]' : 'border-black/10 bg-white/85'
       }`}
     >
@@ -37,14 +37,14 @@ export function StoryFooter({
                 <button
                   key={continuationNode.id}
                   type="button"
-                  className={`min-h-11 rounded-md border px-4 py-2.5 text-left font-serif text-sm transition-colors sm:text-base ${
+                  className={`min-h-11 min-w-0 break-words rounded-md border px-4 py-2.5 text-left font-serif text-sm transition-colors [overflow-wrap:anywhere] sm:text-base ${
                     theme === 'dark'
                       ? 'border-cyan-800/60 bg-cyan-950/30 text-cyan-100 hover:border-cyan-600 hover:bg-cyan-950/60'
                       : 'border-slate-300 bg-slate-900 text-white hover:bg-slate-800'
                   }`}
                   onClick={() => onContinue(continuationNode.id)}
                 >
-                  <span className="block text-[0.6rem] font-sans uppercase tracking-[0.18em] opacity-60">
+                  <span className="block break-words text-[0.6rem] font-sans uppercase tracking-[0.18em] opacity-60 [overflow-wrap:anywhere]">
                     {hasChoices ? 'Follow' : 'Continue'}
                   </span>
                   {continuationNode.title}

@@ -5,6 +5,7 @@ import {
   MiniMap,
   ReactFlow,
   type Edge,
+  type AriaLabelConfig,
   type Node,
   type OnEdgesChange,
   type OnNodesChange,
@@ -26,6 +27,18 @@ import CustomStoryNode from './CustomStoryNode';
 
 const nodeTypes = {
   storyNode: CustomStoryNode,
+};
+
+const STORY_MAP_NODE_INSTRUCTIONS =
+  'Use the arrow keys to move between available passages. Press Enter or Space to open the selected passage.';
+const STORY_MAP_KEYBOARD_DESCRIPTION =
+  'Use the arrow keys to move between available passages. Press Enter or Space to open the selected passage, and Escape to close it.';
+
+const storyMapAriaLabelConfig: Partial<AriaLabelConfig> = {
+  'node.a11yDescription.default': STORY_MAP_NODE_INSTRUCTIONS,
+  'node.a11yDescription.keyboardDisabled': STORY_MAP_NODE_INSTRUCTIONS,
+  'node.a11yDescription.ariaLiveMessage': ({ direction }) =>
+    `Selected the available passage ${direction}.`,
 };
 
 const defaultEdgeOptions = {
@@ -118,6 +131,9 @@ export function NodeMapGraph({
       transition={{ duration: 0.3 }}
     >
       <ReactFlow
+        aria-label="Interactive passage constellation"
+        aria-description={STORY_MAP_KEYBOARD_DESCRIPTION}
+        ariaLabelConfig={storyMapAriaLabelConfig}
         nodes={nodes}
         edges={edges}
         onInit={setInstance}
@@ -139,6 +155,8 @@ export function NodeMapGraph({
         className="touch-none"
         nodesDraggable={false}
         nodesConnectable={false}
+        deleteKeyCode={null}
+        edgesFocusable={false}
         elementsSelectable
         elevateEdgesOnSelect
         zoomOnDoubleClick={false}
@@ -153,7 +171,8 @@ export function NodeMapGraph({
           style={{ opacity: 0.15 }}
         />
         <Controls
-          className="!bottom-3 !left-3 rounded border border-slate-600/30 bg-[#0b1016]/85 shadow-lg shadow-black/20 backdrop-blur-md"
+          className="!bottom-3 !left-3 rounded border border-slate-600/30 bg-[#0b1016]/85 shadow-lg shadow-black/20 backdrop-blur-md [&>button]:!h-11 [&>button]:!w-11"
+          orientation={compactViewport ? 'horizontal' : 'vertical'}
           showInteractive={false}
         />
         <MiniMap
