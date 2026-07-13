@@ -6,7 +6,7 @@
 
 ## Context
 
-Four repositories developed related versions of *Eternal Return of the Digital Self*:
+Four repositories developed related versions of _Eternal Return of the Digital Self_:
 
 - Narramorph contains the most complete application, runtime content, validation, accessibility behavior, and browser coverage.
 - Project-Leibniz concentrates order-dependent prose, explanation, compositional beat, edge-prose, and journey-export experiments.

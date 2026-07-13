@@ -5,7 +5,7 @@ Updated: July 13, 2026
 ## Status
 
 | Batch | Status | Completion evidence / blocker |
-|---|---|---|
+| --- | --- | --- |
 | 0.1 | Implementation complete; awaiting acceptance | Charter, ADR, freeze notices, and the authoritative Narramorph backlog are implemented in the coordinated draft PRs; review and merge remain. |
 | 0.2 | Blocked on owner decisions while implementation proceeds | Software/content licensing choice and confirmation of external MongoDB credential revocation are required. |
 | 0.3 | Implementation complete; awaiting acceptance | Baseline tags, verified records, extraction matrix, and issue disposition are implemented; review and merge remain. |
@@ -22,7 +22,7 @@ The annotated tag `pre-consolidation-2026-07-13` has been published to:
 ## Implementation branches
 
 | Repository | Branch | Draft PR |
-|---|---|---|
+| --- | --- | --- |
 | Narramorph | `agent/consolidation-batches-0-1-to-0-3` | [#97](https://github.com/zekusmaximus/Narramorph/pull/97) |
 | Project-Leibniz | `agent/consolidation-freeze-and-baseline` | [#11](https://github.com/zekusmaximus/Project-Leibniz/pull/11) |
 | eternal-return-digital-self | `agent/consolidation-freeze-and-baseline` | [#6](https://github.com/zekusmaximus/eternal-return-digital-self/pull/6) |

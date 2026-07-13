@@ -7,7 +7,7 @@ No reference repository may be archived until every row for that repository is `
 ## Project-Leibniz
 
 | Capability | Source | Decision | Narramorph target | Required proof | Archive dependency |
-|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- |
 | Serializable order-aware conditions | `client/src/services/conditionDSL.ts` | Reimplement missing semantics | Story Package condition schema and pure domain evaluator | Unit/property tests for start/end, relative order, adjacency, recency, visit counts, flags, boolean composition, saves | Yes |
 | Plain-language selection explanations | `client/src/pages/NarrativePage.tsx`, condition descriptions | Migrate concept | `SelectionReason`, “Why this version?”, journey ledger | Keyboard/mobile/screen-reader tests; no spoiler leakage; explanations persist after reload | Yes |
 | Compositional prose beats | `client/src/context/StoryTypes.ts`, `client/src/services/StoryLogicService.ts` | Reimplement incrementally | Optional story-package `proseBeats` and deterministic renderer | One reference node per perspective; exact-save replay; editorial approval | Yes |
@@ -21,7 +21,7 @@ No reference repository may be archived until every row for that repository is `
 ## eternal-return-digital-self
 
 | Capability | Source | Decision | Narramorph target | Required proof | Archive dependency |
-|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- |
 | Cinematic first-run overlay | `src/components/Onboarding/IntroductionOverlay.tsx` | Clean-room reimplementation | Accessible first-run experience | Skip/replay, keyboard, focus, reduced motion, 200% text, mobile, comprehension testing | Yes |
 | Animated node demonstration | Onboarding components/styles | Reimplement with semantic equivalent | Onboarding illustration plus text alternative | Reduced-motion static equivalent; not canvas-only | Yes |
 | Help entry and replayable guidance | `HelpIcon.tsx`, `Onboarding.tsx` | Migrate concept | Narramorph Help/settings | Focus and screen-reader tests | Yes |

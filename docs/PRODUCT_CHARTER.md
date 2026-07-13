@@ -4,7 +4,7 @@ Status: Accepted for Phase 0 implementation on July 13, 2026
 
 ## Mission
 
-Narramorph will ship *Eternal Return of the Digital Self* as an accessible interactive literary experience in which a reader's order of exploration, revisits, and philosophical choices materially affect the prose and ending they encounter.
+Narramorph will ship _Eternal Return of the Digital Self_ as an accessible interactive literary experience in which a reader's order of exploration, revisits, and philosophical choices materially affect the prose and ending they encounter.
 
 The product should support two complementary reading goals:
 
@@ -23,7 +23,7 @@ Developers and authors are important secondary users, but v1 decisions must prio
 
 V1 is a production-hosted, static client-side application with:
 
-- one complete supported story package: *Eternal Return of the Digital Self*;
+- one complete supported story package: _Eternal Return of the Digital Self_;
 - three perspective entry points;
 - path-sensitive initial, revisit, and meta-aware content;
 - deterministic L3 convergence and three reachable L4 endings;
@@ -51,7 +51,7 @@ The following are not on the v1 critical path unless the owner changes this char
 ## Repository responsibilities
 
 | Repository | Phase 0 role | Intended final role |
-|---|---|---|
+| --- | --- | --- |
 | `Narramorph` | Active integration target | Sole shippable application and runtime-story repository |
 | `Eternal_Return_Manuscript` | Active canonical source | Canonical long-form prose, story bible, editorial records, and literary release source |
 | `Project-Leibniz` | Feature-frozen reference | Archived after its condition, explanation, prose-beat, edge-prose, and export decisions pass the Phase 4 gate |

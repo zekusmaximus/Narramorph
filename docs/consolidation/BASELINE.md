@@ -17,12 +17,12 @@ Tagged Narramorph commit: `cbd840c0de2d11752fb37b1c7c60399c36549eb6`
 
 The comparison run used a clean dependency install against the reviewed lockfile.
 
-| Check | Result |
-|---|---|
-| `npm run build` | Passed |
-| `npm test -- --run` | 37 files, 163 tests passed |
-| `npm run lint:ci` | Passed with 29 warnings and no errors |
-| `npm run test:e2e` | Nine Chromium journeys passed |
+| Check               | Result                                |
+| ------------------- | ------------------------------------- |
+| `npm run build`     | Passed                                |
+| `npm test -- --run` | 37 files, 163 tests passed            |
+| `npm run lint:ci`   | Passed with 29 warnings and no errors |
+| `npm run test:e2e`  | Nine Chromium journeys passed         |
 
 The browser suite covered the complete reader journey, save/restore, missing-story recovery, WebGL fallback, keyboard use, 390×844 layout, text sizing, 200% root text, and reduced motion.
 

@@ -1,6 +1,6 @@
 # Product consolidation program
 
-This directory is the authoritative implementation record for bringing the four *Eternal Return* repositories into one shippable product.
+This directory is the authoritative implementation record for bringing the four _Eternal Return_ repositories into one shippable product.
 
 ## Current Phase 0 scope
 
@@ -20,7 +20,7 @@ This directory is the authoritative implementation record for bringing the four 
 ## Repository status
 
 | Repository | Current status | Routine work permitted |
-|---|---|---|
+| --- | --- | --- |
 | Narramorph | Active | Product implementation and consolidation |
 | Eternal_Return_Manuscript | Active | Canonical manuscript/editorial work under its approval rules; release-contract work |
 | Project-Leibniz | Feature frozen | Security, provenance, extraction support, archive preparation |
