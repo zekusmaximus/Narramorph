@@ -6,9 +6,9 @@ Updated: July 13, 2026
 
 | Batch | Status | Completion evidence / blocker |
 |---|---|---|
-| 0.1 | In progress | Charter, ADR, freeze notices, and the authoritative Narramorph backlog are implemented on coordinated branches; PR review and merge remain. |
+| 0.1 | Implementation complete; awaiting acceptance | Charter, ADR, freeze notices, and the authoritative Narramorph backlog are implemented in the coordinated draft PRs; review and merge remain. |
 | 0.2 | Blocked on owner decisions while implementation proceeds | Software/content licensing choice and confirmation of external MongoDB credential revocation are required. |
-| 0.3 | In progress | Baseline tags, verified records, extraction matrix, and issue disposition are implemented; PR review and merge remain. |
+| 0.3 | Implementation complete; awaiting acceptance | Baseline tags, verified records, extraction matrix, and issue disposition are implemented; review and merge remain. |
 
 ## Immutable baseline tags
 
