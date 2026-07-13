@@ -1,15 +1,22 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState, type ReactElement } from 'react';
 
-import { useStoryStore } from '@/stores';
-
 import { ConnectionHeatmap } from './JourneyTracker/ConnectionHeatmap';
 import { JourneyMetrics } from './JourneyTracker/JourneyMetrics';
+import type { JourneyTrackerPresentationModel } from './JourneyTracker/journeyTrackerPresentation';
 import { NavigationPatternInsight } from './JourneyTracker/NavigationPatternInsight';
 import { NextUnlockPreview } from './JourneyTracker/NextUnlockPreview';
+import { useJourneyTrackerAdapter } from './JourneyTracker/useJourneyTrackerAdapter';
+
+interface JourneyTrackerPanelProps {
+  model: JourneyTrackerPresentationModel;
+}
 
 export function JourneyTracker(): ReactElement {
-  const progress = useStoryStore((state) => state.progress);
+  return <JourneyTrackerPanel model={useJourneyTrackerAdapter()} />;
+}
+
+export function JourneyTrackerPanel({ model }: JourneyTrackerPanelProps): ReactElement {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -45,10 +52,13 @@ export function JourneyTracker(): ReactElement {
             className="overflow-hidden"
           >
             <div className="p-4 pt-0 space-y-4">
-              <JourneyMetrics progress={progress} />
-              <ConnectionHeatmap />
-              <NavigationPatternInsight />
-              <NextUnlockPreview />
+              <JourneyMetrics progress={model.progress} />
+              <ConnectionHeatmap
+                rows={model.connectionRows}
+                hasFullNetwork={model.hasFullConsciousnessNetwork}
+              />
+              <NavigationPatternInsight model={model.navigationPattern} />
+              <NextUnlockPreview items={model.nextUnlocks} />
             </div>
           </motion.div>
         )}

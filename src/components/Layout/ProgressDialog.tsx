@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import type { ReactElement } from 'react';
 
 import { useDialogFocus } from '@/hooks/useDialogFocus';
-import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import type { ReadingStats, StoryNode, UserProgress } from '@/types';
 
 import { buildNarrativePath } from './progressPresentation';
@@ -16,6 +15,7 @@ interface ProgressDialogProps {
   totalNodes: number;
   progressPercent: number;
   nodes: ReadonlyMap<string, StoryNode>;
+  reduceMotion: boolean;
 }
 
 export function ProgressDialog({
@@ -27,8 +27,8 @@ export function ProgressDialog({
   totalNodes,
   progressPercent,
   nodes,
+  reduceMotion,
 }: ProgressDialogProps): ReactElement | null {
-  const reduceMotion = useReducedMotionPreference();
   const dialogRef = useDialogFocus(open, onClose, {
     initialFocusSelector: '#reading-progress-title',
   });

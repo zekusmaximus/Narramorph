@@ -49,7 +49,7 @@ This milestone is complete: Chromium coverage exercises revisits and variation d
 - Move atmospheric map effects behind narrow props instead of broad store subscriptions.
 - Standardize loading, empty, and error states across 2D, 3D, and story panels.
 
-The first reader-experience foundation is complete: the shell, opening invitation, reader, preferences, and progress history now have focused presentation boundaries; permanent map overlays have been reduced to a quiet status surface; and mobile uses an intentional, pannable map viewport. `CustomStoryNode` and the mounted 2D atmospheric effects now receive narrow presentation data from the map boundary instead of reading the story store directly. Remaining `Layout`, tracker orchestration, StoryView follow-up, and loading/empty/error-state boundaries remain in this milestone.
+The first reader-experience foundation is complete: the shell, opening invitation, reader, preferences, and progress history now have focused presentation boundaries; permanent map overlays have been reduced to a quiet status surface; and mobile uses an intentional, pannable map viewport. `CustomStoryNode` and the mounted 2D atmospheric effects now receive narrow presentation data from the map boundary instead of reading the story store directly. The application shell and journey tracker now also have narrow adapters plus store-free presentation models for shell metadata, dialogs, and tracker rows. Remaining StoryView follow-up and loading/empty/error-state boundaries remain in this milestone.
 
 ### 5. Complete the accessibility pass
 

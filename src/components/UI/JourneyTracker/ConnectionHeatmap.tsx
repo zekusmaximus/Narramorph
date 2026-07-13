@@ -1,41 +1,21 @@
 import { motion } from 'framer-motion';
 import type { ReactElement } from 'react';
 
-import { useStoryStore } from '@/stores';
+import type { ConnectionHeatmapRow } from './journeyTrackerPresentation';
 
-export function ConnectionHeatmap(): ReactElement {
-  const crossCharacterConnections = useStoryStore(
-    (state) => state.progress.journeyTracking.crossCharacterConnections,
-  );
-  const maxConnections = Math.max(...Object.values(crossCharacterConnections), 1);
-  const connections = [
-    {
-      from: 'Archaeologist',
-      to: 'Algorithm',
-      count: crossCharacterConnections.arch_algo,
-      color: 'from-blue-500 to-green-500',
-    },
-    {
-      from: 'Archaeologist',
-      to: 'Last Human',
-      count: crossCharacterConnections.arch_hum,
-      color: 'from-blue-500 to-red-500',
-    },
-    {
-      from: 'Algorithm',
-      to: 'Last Human',
-      count: crossCharacterConnections.algo_hum,
-      color: 'from-green-500 to-red-500',
-    },
-  ];
+interface ConnectionHeatmapProps {
+  rows: ConnectionHeatmapRow[];
+  hasFullNetwork: boolean;
+}
 
+export function ConnectionHeatmap({ rows, hasFullNetwork }: ConnectionHeatmapProps): ReactElement {
   return (
     <div className="mt-4 p-3 bg-gray-900/40 border border-cyan-500/20 rounded">
       <div className="text-xs text-cyan-400 mb-3 font-mono uppercase tracking-wider">
         Cross-Character Connections
       </div>
       <div className="space-y-2">
-        {connections.map((connection) => (
+        {rows.map((connection) => (
           <div key={`${connection.from}-${connection.to}`} className="space-y-1">
             <div className="flex items-center justify-between text-[10px] font-mono">
               <span className="text-gray-400">
@@ -47,7 +27,7 @@ export function ConnectionHeatmap(): ReactElement {
               <motion.div
                 initial={{ width: 0 }}
                 animate={{
-                  width: `${(connection.count / maxConnections) * 100}%`,
+                  width: `${connection.widthPercent}%`,
                 }}
                 transition={{ duration: 0.5 }}
                 className={`h-full bg-gradient-to-r ${connection.color}`}
@@ -56,7 +36,7 @@ export function ConnectionHeatmap(): ReactElement {
           </div>
         ))}
       </div>
-      {Object.values(crossCharacterConnections).every((count) => count > 0) && (
+      {hasFullNetwork && (
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
