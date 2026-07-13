@@ -3,13 +3,14 @@ import { Check, Moon, Settings, Sun, X } from 'lucide-react';
 import { useCallback, useRef, type ReactElement } from 'react';
 
 import { useDialogFocus } from '@/hooks/useDialogFocus';
-import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
-import { useStoryStore } from '@/stores/storyStore';
-import type { TextSize, Theme } from '@/types';
+import type { TextSize, Theme, UserPreferences } from '@/types';
 
 interface SettingsDialogProps {
   open: boolean;
   onClose: () => void;
+  preferences: UserPreferences;
+  onUpdatePreferences: (preferences: Partial<UserPreferences>) => void;
+  reduceMotion: boolean;
 }
 
 const TEXT_SIZE_OPTIONS: ReadonlyArray<{
@@ -32,10 +33,13 @@ const THEME_OPTIONS: ReadonlyArray<{
   { value: 'sepia', label: 'Archive', description: 'Warm, weathered paper' },
 ];
 
-export function SettingsDialog({ open, onClose }: SettingsDialogProps): ReactElement | null {
-  const preferences = useStoryStore((state) => state.preferences);
-  const updatePreferences = useStoryStore((state) => state.updatePreferences);
-  const reduceMotion = useReducedMotionPreference();
+export function SettingsDialog({
+  open,
+  onClose,
+  preferences,
+  onUpdatePreferences,
+  reduceMotion,
+}: SettingsDialogProps): ReactElement | null {
   const onCloseRef = useRef(onClose);
   onCloseRef.current = onClose;
   const handleClose = useCallback(() => onCloseRef.current(), []);
@@ -119,7 +123,7 @@ export function SettingsDialog({ open, onClose }: SettingsDialogProps): ReactEle
                       name="reader-text-size"
                       value={option.value}
                       checked={selected}
-                      onChange={() => updatePreferences({ textSize: option.value })}
+                      onChange={() => onUpdatePreferences({ textSize: option.value })}
                       className="sr-only"
                     />
                     <span className="text-sm">{option.label}</span>
@@ -155,7 +159,7 @@ export function SettingsDialog({ open, onClose }: SettingsDialogProps): ReactEle
                       name="reader-theme"
                       value={option.value}
                       checked={selected}
-                      onChange={() => updatePreferences({ theme: option.value })}
+                      onChange={() => onUpdatePreferences({ theme: option.value })}
                       className="sr-only"
                     />
                     <ThemeIcon className="h-4 w-4 shrink-0 text-cyan-200/70" aria-hidden="true" />
@@ -177,7 +181,7 @@ export function SettingsDialog({ open, onClose }: SettingsDialogProps): ReactEle
               <input
                 type="checkbox"
                 checked={preferences.reduceMotion}
-                onChange={(event) => updatePreferences({ reduceMotion: event.target.checked })}
+                onChange={(event) => onUpdatePreferences({ reduceMotion: event.target.checked })}
                 className="mt-1 h-4 w-4 shrink-0 accent-cyan-200"
               />
               <span className="min-w-0">
