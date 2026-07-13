@@ -50,7 +50,8 @@ export function OpeningExperience(): ReactElement {
   return (
     <section
       aria-labelledby="opening-title"
-      className="relative flex-none overflow-hidden border-b border-cyan-100/10 bg-[#0d151a] px-4 py-4 text-stone-100 sm:px-6 sm:py-5"
+      tabIndex={-1}
+      className="relative max-h-[50dvh] flex-none overflow-x-hidden overflow-y-auto overscroll-contain border-b border-cyan-100/10 bg-[#0d151a] px-4 py-4 text-stone-100 sm:px-6 sm:py-5"
     >
       <div
         className="pointer-events-none absolute inset-0 archive-intro-texture"
@@ -77,11 +78,11 @@ export function OpeningExperience(): ReactElement {
           </p>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <p className="mb-2 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-amber-100/70">
             {hasBegun ? 'Continue through a perspective' : 'Begin with a perspective'}
           </p>
-          <div className="grid grid-cols-3 gap-2 sm:gap-3">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,6.5rem),1fr))] gap-2 sm:gap-3">
             {entryNodes.map(({ node }) => {
               const presentation = PERSPECTIVE_PRESENTATION[node.character];
               return (
@@ -105,7 +106,7 @@ export function OpeningExperience(): ReactElement {
                   <span className="mt-2 block min-h-9 font-serif text-sm leading-tight text-stone-100 sm:min-h-0 sm:text-base">
                     {presentation.label}
                   </span>
-                  <span className="mt-0.5 block font-mono text-[0.6rem] uppercase tracking-[0.18em] text-stone-400">
+                  <span className="mt-0.5 block break-words font-mono text-[0.6rem] uppercase tracking-[0.18em] text-stone-400 [overflow-wrap:anywhere]">
                     transmission {presentation.era}
                   </span>
                 </button>
@@ -114,7 +115,7 @@ export function OpeningExperience(): ReactElement {
             {entryNodes.length === 0 && (
               <div
                 role="status"
-                className="col-span-3 rounded-lg border border-white/10 bg-black/20 px-4 py-5 text-center text-sm text-slate-400"
+                className="col-span-full rounded-lg border border-white/10 bg-black/20 px-4 py-5 text-center text-sm text-slate-400"
               >
                 Recovering the first voices…
               </div>

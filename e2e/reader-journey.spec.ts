@@ -14,9 +14,9 @@ async function prepare2DReader(page: Page): Promise<void> {
 }
 
 async function openNode(page: Page, nodeId: string): Promise<void> {
-  const node = page.getByTestId(`story-node-${nodeId}`);
+  const node = page.locator(`.react-flow__node[data-id="${nodeId}"]`);
   await expect(node).toBeVisible();
-  await expect(node).toHaveAttribute('aria-disabled', 'false');
+  await expect(node).toHaveAttribute('role', 'button');
   await node.click();
   await expect(page.getByRole('dialog')).toBeVisible();
 }
@@ -37,7 +37,7 @@ test('reader completes L1 through L4, avoids repeat variations, and restores pro
   await prepare2DReader(page);
   await page.goto('/');
 
-  await expect(page.getByRole('application', { name: 'Interactive story node map' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Archive passage map' })).toBeVisible();
 
   await visitAndClose(page, 'arch-L1');
   await visitAndClose(page, 'algo-L1');
@@ -55,12 +55,14 @@ test('reader completes L1 through L4, avoids repeat variations, and restores pro
 
   await openNode(page, 'arch-L1');
   await expect(page.getByRole('dialog')).toContainText('Returning');
-  const archReturningVariation = await page.getByText(/^Variation:/).textContent();
+  const archReturningVariation = await page.getByRole('dialog').getAttribute('data-variation-id');
+  expect(archReturningVariation).not.toBeNull();
   await closeStory(page);
 
   await openNode(page, 'arch-L1');
   await expect(page.getByRole('dialog')).toContainText('Meta-Aware');
-  const archMetaVariation = await page.getByText(/^Variation:/).textContent();
+  const archMetaVariation = await page.getByRole('dialog').getAttribute('data-variation-id');
+  expect(archMetaVariation).not.toBeNull();
   expect(archMetaVariation).not.toBe(archReturningVariation);
   await closeStory(page);
 
@@ -70,15 +72,48 @@ test('reader completes L1 through L4, avoids repeat variations, and restores pro
   await closeStory(page);
 
   const l3Unlock = page.getByTestId('unlock-notification-arch-L3');
+  const storyMap = page.locator('[role="region"][aria-label="Archive passage map"]');
   await expect(l3Unlock).toBeVisible();
-  await l3Unlock.click();
-  await expect(page.getByTestId('l3-assembly')).toBeVisible();
+  await l3Unlock.focus();
+  await expect(l3Unlock).toBeFocused();
+  await page.keyboard.press('Enter');
 
-  await page.getByRole('button', { name: 'Next →' }).click();
-  await page.getByRole('button', { name: 'Next →' }).click();
-  await page.getByRole('button', { name: 'Next →' }).click();
-  await page.getByTestId('complete-convergence').click();
+  const convergenceDialog = page.getByRole('dialog', { name: 'The Convergence' });
+  await expect(convergenceDialog).toHaveCount(1);
+  await expect(page.getByRole('dialog')).toHaveCount(1);
+  await expect(page.getByRole('heading', { name: 'The Convergence' })).toBeFocused();
+  await expect(storyMap).toHaveAttribute('inert', '');
+  await expect(storyMap).toHaveAttribute('aria-hidden', 'true');
+  await expect(l3Unlock).toBeHidden();
+  await expect(page.locator('[data-testid^="unlock-notification-"]:visible')).toHaveCount(0);
+
+  for (let section = 2; section <= 4; section += 1) {
+    await page.keyboard.press('ArrowRight');
+    await expect(
+      convergenceDialog.getByRole('button', {
+        name: new RegExp(`^Current convergence section ${section}:`),
+      }),
+    ).toHaveAttribute('aria-current', 'step');
+  }
+
+  const completeConvergence = page.getByTestId('complete-convergence');
+  await completeConvergence.focus();
+  await expect(completeConvergence).toBeFocused();
+  await page.keyboard.press('Enter');
   await expect(page.getByTestId('l3-assembly')).toBeHidden();
+  await expect(storyMap).not.toHaveAttribute('inert', '');
+  await expect(storyMap).not.toHaveAttribute('aria-hidden', 'true');
+
+  const l3MapReturnTargets = page.locator(
+    '.react-flow__node[data-id="arch-L3"], [role="region"][aria-label="Archive passage map"]',
+  );
+  await expect
+    .poll(() =>
+      l3MapReturnTargets.evaluateAll((targets) =>
+        targets.some((target) => target === document.activeElement),
+      ),
+    )
+    .toBe(true);
 
   const endingUnlock = page.getByTestId('unlock-notification-final-preserve');
   await expect(endingUnlock).toBeVisible();
@@ -135,6 +170,6 @@ test('unavailable WebGL falls back to the 2D reader', async ({ page }) => {
   await expect(page.getByTestId('webgl-fallback-status')).toContainText(
     'The 2D story map is ready instead.',
   );
-  await expect(page.getByRole('application', { name: 'Interactive story node map' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Archive passage map' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Experimental 3D' })).toBeVisible();
 });

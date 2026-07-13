@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useEffect, useRef, useState, type ReactElement } from 'react';
 
+import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import type { TextSize, Theme, TransformationState } from '@/types';
 
 import { MarkdownContent } from './MarkdownContent';
@@ -20,6 +21,7 @@ export function StoryContent({
 }: StoryContentProps): ReactElement {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [readingProgress, setReadingProgress] = useState(0);
+  const reduceMotion = useReducedMotionPreference();
 
   const updateReadingProgress = useCallback((): void => {
     const scrollRegion = scrollRef.current;
@@ -68,7 +70,10 @@ export function StoryContent({
     <div
       ref={scrollRef}
       data-testid="story-scroll-region"
-      className={`relative min-h-0 flex-1 overflow-y-auto ${surfaceClass}`}
+      role="region"
+      aria-label="Story passage"
+      tabIndex={0}
+      className={`relative min-h-0 min-w-0 flex-1 overflow-x-hidden overflow-y-auto overscroll-contain ${surfaceClass}`}
       onScroll={updateReadingProgress}
     >
       <div
@@ -78,42 +83,53 @@ export function StoryContent({
             : 'border-black/5 bg-white/80 text-slate-500'
         }`}
       >
-        <div className="mx-auto flex max-w-[44rem] items-center gap-3">
-          <span className="text-[0.65rem] uppercase tracking-[0.2em]">Passage progress</span>
+        <div className="mx-auto flex min-w-0 max-w-[44rem] flex-wrap items-center gap-x-3 gap-y-2">
+          <span className="min-w-0 text-[0.65rem] uppercase tracking-[0.2em]">
+            Passage progress
+          </span>
           <div
             role="progressbar"
             aria-label="Passage reading progress"
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={readingProgress}
-            className="h-px flex-1 overflow-hidden bg-current opacity-40"
+            className="h-px min-w-16 flex-1 basis-24 overflow-hidden bg-current opacity-40"
           >
             <div
               className="h-full bg-cyan-500 transition-[width] duration-150"
               style={{ width: `${readingProgress}%` }}
             />
           </div>
-          <span className="w-8 text-right text-xs tabular-nums">{readingProgress}%</span>
+          <span className="min-w-8 shrink-0 text-right text-xs tabular-nums">
+            {readingProgress}%
+          </span>
         </div>
       </div>
       <div
-        className={`mx-auto w-full max-w-[44rem] px-5 pb-14 pt-8 font-serif tracking-[0.01em] sm:px-8 sm:pb-16 sm:pt-10
+        className={`mx-auto w-full min-w-0 max-w-[44rem] break-words px-5 pb-14 pt-8 font-serif tracking-[0.01em] [overflow-wrap:anywhere] sm:px-8 sm:pb-16 sm:pt-10
           ${textSize === 'small' ? 'text-base leading-[1.8]' : ''}
           ${textSize === 'medium' ? 'text-lg leading-[1.85]' : ''}
           ${textSize === 'large' ? 'text-xl leading-[1.9]' : ''}`}
       >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={transformationState}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="max-w-none"
-          >
+        {reduceMotion ? (
+          <div className="max-w-none" data-testid="story-passage">
             <MarkdownContent content={content} />
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        ) : (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={transformationState}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="max-w-none"
+              data-testid="story-passage"
+            >
+              <MarkdownContent content={content} />
+            </motion.div>
+          </AnimatePresence>
+        )}
       </div>
     </div>
   );

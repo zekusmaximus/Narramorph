@@ -2,6 +2,7 @@ import { Handle, Position, type Node, type NodeProps } from '@xyflow/react';
 import { motion } from 'framer-motion';
 import { memo, useMemo, useState, type ReactElement } from 'react';
 
+import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import type { NodeUIState, StoryNode } from '@/types';
 
 import { STORY_NODE_THEMES, getTransformationBadge } from './nodeTheme';
@@ -26,6 +27,7 @@ export type CustomStoryFlowNode = Node<CustomStoryNodeData, 'storyNode'>;
 function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): ReactElement {
   const { node, nodeState, isSelected, available } = data;
   const theme = STORY_NODE_THEMES[node.character];
+  const reduceMotion = useReducedMotionPreference();
 
   // Hover and interaction states
   const [isHovering, setIsHovering] = useState(false);
@@ -39,7 +41,6 @@ function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): Re
   const canVisit = available;
   const getUnlockProgress = useStoryStore((state) => state.getUnlockProgress);
   const unlockConfigs = useStoryStore((state) => state.unlockConfigs);
-  const openStoryView = useStoryStore((state) => state.openStoryView);
 
   // Get unlock progress if node has config
   const unlockProgress = useMemo(() => {
@@ -83,10 +84,6 @@ function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): Re
 
       <motion.div
         className="relative"
-        role="button"
-        tabIndex={canVisit ? 0 : -1}
-        aria-disabled={!canVisit}
-        aria-label={`${node.title}, ${node.character}, layer ${node.layer}, ${nodeState.currentState}`}
         data-testid={`story-node-${node.id}`}
         initial={{ scale: 0, opacity: 0, rotateZ: -180 }}
         animate={{ scale: 1, opacity: 1, rotateZ: 0 }}
@@ -106,18 +103,10 @@ function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): Re
         }}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
-        onClick={(event) => {
-          event.stopPropagation();
+        onClick={() => {
           if (canVisit) {
             setRipple(true);
             setTimeout(() => setRipple(false), 1000);
-            openStoryView(node.id);
-          }
-        }}
-        onKeyDown={(event) => {
-          if (canVisit && (event.key === 'Enter' || event.key === ' ')) {
-            event.preventDefault();
-            openStoryView(node.id);
           }
         }}
       >
@@ -133,20 +122,21 @@ function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): Re
               background: `radial-gradient(circle, ${theme.primary}40 0%, transparent 70%)`,
               filter: 'blur(20px)',
             }}
-            animate={{
-              scale: [1, 1.15, 1],
-              opacity: [0.4, 0.7, 0.4],
-            }}
+            animate={
+              reduceMotion
+                ? { scale: 1, opacity: 0.55 }
+                : { scale: [1, 1.15, 1], opacity: [0.4, 0.7, 0.4] }
+            }
             transition={{
-              duration: isMetaAware ? 1.5 : 2,
-              repeat: Infinity,
+              duration: reduceMotion ? 0 : isMetaAware ? 1.5 : 2,
+              repeat: reduceMotion ? 0 : Infinity,
               ease: 'easeInOut',
             }}
           />
         )}
 
         {/* Chromatic aberration for meta-aware state */}
-        {isMetaAware && isHovering && (
+        {isMetaAware && isHovering && !reduceMotion && (
           <>
             <motion.div
               className="absolute inset-0 rounded-full"
@@ -184,7 +174,7 @@ function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): Re
         )}
 
         {/* Ripple effect on click */}
-        {ripple && (
+        {ripple && !reduceMotion && (
           <motion.div
             className="absolute inset-0 rounded-full border-2"
             style={{
@@ -197,7 +187,7 @@ function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): Re
         )}
 
         {/* Connection indicators on hover */}
-        {isHovering && node.connections && node.connections.length > 0 && (
+        {isHovering && !reduceMotion && node.connections && node.connections.length > 0 && (
           <div className="absolute inset-0 pointer-events-none">
             {node.connections.map((conn, idx) => {
               const connectionsLength = node.connections?.length ?? 1;
@@ -234,13 +224,14 @@ function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): Re
             style={{
               borderColor: theme.primary,
             }}
-            animate={{
-              scale: [1, 1.1, 1],
-              opacity: [0.6, 1, 0.6],
-            }}
+            animate={
+              reduceMotion
+                ? { scale: 1, opacity: 0.85 }
+                : { scale: [1, 1.1, 1], opacity: [0.6, 1, 0.6] }
+            }
             transition={{
-              duration: 1.5,
-              repeat: Infinity,
+              duration: reduceMotion ? 0 : 1.5,
+              repeat: reduceMotion ? 0 : Infinity,
             }}
           />
         )}
@@ -288,12 +279,10 @@ function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): Re
                   ${theme.accent} 4px
                 )`,
               }}
-              animate={{
-                y: [0, -8, 0],
-              }}
+              animate={reduceMotion ? { y: 0 } : { y: [0, -8, 0] }}
               transition={{
-                duration: 2,
-                repeat: Infinity,
+                duration: reduceMotion ? 0 : 2,
+                repeat: reduceMotion ? 0 : Infinity,
                 ease: 'linear',
               }}
             />
@@ -308,12 +297,10 @@ function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): Re
                 mixBlendMode: 'overlay',
                 opacity: 0.2,
               }}
-              animate={{
-                opacity: [0.1, 0.3, 0.1],
-              }}
+              animate={reduceMotion ? { opacity: 0.2 } : { opacity: [0.1, 0.3, 0.1] }}
               transition={{
-                duration: 0.15,
-                repeat: Infinity,
+                duration: reduceMotion ? 0 : 0.15,
+                repeat: reduceMotion ? 0 : Infinity,
                 ease: 'linear',
               }}
             />
@@ -326,13 +313,14 @@ function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): Re
               style={{
                 background: `radial-gradient(circle, ${theme.glowSecondary}20 0%, transparent 70%)`,
               }}
-              animate={{
-                scale: [0.95, 1.05, 0.95],
-                opacity: [0.5, 0.8, 0.5],
-              }}
+              animate={
+                reduceMotion
+                  ? { scale: 1, opacity: 0.65 }
+                  : { scale: [0.95, 1.05, 0.95], opacity: [0.5, 0.8, 0.5] }
+              }
               transition={{
-                duration: 3,
-                repeat: Infinity,
+                duration: reduceMotion ? 0 : 3,
+                repeat: reduceMotion ? 0 : Infinity,
                 ease: 'easeInOut',
               }}
             />
@@ -415,13 +403,12 @@ function CustomStoryNode({ data, selected }: NodeProps<CustomStoryFlowNode>): Re
             <motion.div
               className="absolute inset-0 rounded-full border-4"
               style={{ borderColor: theme.primary }}
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [1, 0, 1],
-              }}
+              animate={
+                reduceMotion ? { scale: 1, opacity: 1 } : { scale: [1, 1.2, 1], opacity: [1, 0, 1] }
+              }
               transition={{
-                duration: 1.5,
-                repeat: Infinity,
+                duration: reduceMotion ? 0 : 1.5,
+                repeat: reduceMotion ? 0 : Infinity,
                 ease: 'easeInOut',
               }}
             />

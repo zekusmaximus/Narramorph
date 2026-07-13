@@ -15,20 +15,26 @@ export function AppHeader({
 }: AppHeaderProps): ReactElement {
   return (
     <header className="relative z-50 shrink-0 border-b border-cyan-300/15 bg-[#090d11]/95 shadow-[0_8px_30px_rgba(0,0,0,0.28)] backdrop-blur-md">
+      <a
+        href="#main-content"
+        className="sr-only z-[60] rounded-md bg-cyan-100 px-3 py-2 font-medium text-slate-950 shadow-lg focus:not-sr-only focus:absolute focus:left-3 focus:top-2"
+      >
+        Skip to story
+      </a>
       <div className="mx-auto flex max-w-screen-2xl items-center justify-between gap-3 px-3 py-2 sm:px-5">
         <div className="flex min-w-0 items-center gap-3">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-cyan-300/20 bg-cyan-300/[0.04] text-cyan-200">
             <Archive className="h-4 w-4" aria-hidden="true" />
           </div>
           <div className="min-w-0">
-            <motion.h1
+            <motion.p
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.35 }}
               className="truncate font-serif text-base font-semibold tracking-[0.08em] text-slate-100 sm:text-lg"
             >
               Narramorph Fiction
-            </motion.h1>
+            </motion.p>
             <p className="hidden truncate text-[0.65rem] uppercase tracking-[0.22em] text-slate-500 md:block">
               The archive remembers differently each time
             </p>

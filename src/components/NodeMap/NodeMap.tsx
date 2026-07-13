@@ -11,6 +11,7 @@ import {
 } from 'react';
 
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
+import { getCharacterLabel } from '@/components/StoryView/storyPresentation';
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import { useStoryStore } from '@/stores';
 
@@ -44,10 +45,53 @@ function toFlowNodes(adapter: ReturnType<typeof useMapInteractionAdapter>): Node
       available,
     } satisfies CustomStoryNodeData,
     draggable: false,
-    selectable: true,
-    focusable: true,
-    ariaLabel: `${node.title}, ${available ? 'available' : 'locked'}`,
+    deletable: false,
+    selectable: available,
+    selected,
+    focusable: available,
+    ariaRole: available ? 'button' : 'img',
+    ariaLabel: [
+      node.title,
+      getCharacterLabel(node.character),
+      node.layer === 1
+        ? 'opening passage'
+        : node.layer === 2
+          ? 'branching passage'
+          : node.layer === 3
+            ? 'convergence passage'
+            : 'final passage',
+      state.visited ? `visited ${state.visitCount} times` : 'not yet visited',
+      state.currentState === 'metaAware'
+        ? 'the passage has fully awakened'
+        : state.currentState === 'firstRevisit'
+          ? 'the passage changed on return'
+          : 'the passage is in its first form',
+      selected ? 'selected' : 'not selected',
+      available ? 'available' : 'locked',
+    ].join(', '),
+    domAttributes: {
+      'aria-current': selected ? 'true' : undefined,
+      'aria-roledescription': 'passage',
+    },
   }));
+}
+
+function getKeyboardNodeElement(
+  root: HTMLDivElement,
+  target: EventTarget | null,
+): HTMLElement | null {
+  if (!(target instanceof Element)) {
+    return null;
+  }
+  const nodeElement = target.closest<HTMLElement>('.react-flow__node[data-id]');
+  return nodeElement && root.contains(nodeElement) ? nodeElement : null;
+}
+
+function focusNodeElement(root: HTMLDivElement, nodeId: string): void {
+  const nodeElement = Array.from(
+    root.querySelectorAll<HTMLElement>('.react-flow__node[data-id]'),
+  ).find((element) => element.dataset.id === nodeId);
+  nodeElement?.focus();
 }
 
 export default function NodeMap({ className = '' }: NodeMapProps): ReactElement {
@@ -63,8 +107,8 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
 
   const flowNodes = useMemo(() => toFlowNodes(adapter), [adapter]);
   const flowEdges = useMemo(
-    () => convertToReactFlowEdges(storyNodes, progress),
-    [progress, storyNodes],
+    () => convertToReactFlowEdges(storyNodes, progress, reduceMotion),
+    [progress, reduceMotion, storyNodes],
   );
   const [nodes, setNodes, onNodesChange] = useNodesState(flowNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(flowEdges);
@@ -106,7 +150,7 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
   const handleNodeClick = useCallback(
     (_event: ReactMouseEvent, flowNode: Node): void => {
       const node = adapter.getNode(flowNode.id);
-      if (node === undefined) {
+      if (node === undefined || !node.available) {
         return;
       }
       activationEffects.trigger(node.node.character, node.visited);
@@ -116,9 +160,28 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
   );
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>): void => {
-    const result = adapter.handleKey(event.key);
-    if (result.handled) {
-      event.preventDefault();
+    const root = event.currentTarget;
+    const nodeElement = getKeyboardNodeElement(root, event.target);
+    const originatedOnMap = event.target === root;
+
+    // React Flow's controls are nested inside the map. Leave their keyboard
+    // activation alone instead of treating Enter or Space as node activation.
+    if (!originatedOnMap && nodeElement === null) {
+      return;
+    }
+
+    const currentNodeId = nodeElement?.dataset.id ?? adapter.selectedNodeId;
+    const result = adapter.handleKey(event.key, currentNodeId);
+    if (!result.handled) {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (event.key.startsWith('Arrow') && result.targetId !== null) {
+      const targetId = result.targetId;
+      requestAnimationFrame(() => focusNodeElement(root, targetId));
     }
   };
 
@@ -137,11 +200,12 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
     <div
       className={`relative w-full h-full bg-[#0a0e12] ${className}`}
       style={{ minHeight: '100%' }}
-      role="application"
-      aria-label="Interactive story node map"
-      aria-description="Use arrow keys to select nodes, Enter to open, and Escape to close the story panel."
+      role="region"
+      aria-label="Archive passage map"
+      aria-description="Use the arrow keys to move between available passages. Press Enter or Space to open the selected passage, and Escape to close it."
+      data-story-map-focus-target="true"
       tabIndex={0}
-      onKeyDown={handleKeyDown}
+      onKeyDownCapture={handleKeyDown}
     >
       <NodeMapAtmosphere
         storyNodes={storyNodes}
@@ -167,6 +231,7 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
       <NodeMapHud
         totalNodes={totalNodes}
         visitedCount={visitedCount}
+        availableCount={adapter.nodes.filter((node) => node.available).length}
         hoveredNodeId={adapter.hoveredNodeId}
         tooltipPosition={tooltipPosition}
         showTooltip={supportsPrecisePointer}

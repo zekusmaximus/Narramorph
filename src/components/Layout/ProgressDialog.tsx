@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import type { ReactElement } from 'react';
 
 import { useDialogFocus } from '@/hooks/useDialogFocus';
+import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import type { ReadingStats, StoryNode, UserProgress } from '@/types';
 
 import { buildNarrativePath } from './progressPresentation';
@@ -27,7 +28,10 @@ export function ProgressDialog({
   progressPercent,
   nodes,
 }: ProgressDialogProps): ReactElement | null {
-  const dialogRef = useDialogFocus(open, onClose);
+  const reduceMotion = useReducedMotionPreference();
+  const dialogRef = useDialogFocus(open, onClose, {
+    initialFocusSelector: '#reading-progress-title',
+  });
   if (!open) {
     return null;
   }
@@ -35,9 +39,9 @@ export function ProgressDialog({
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
+      initial={reduceMotion ? false : { opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      exit={reduceMotion ? undefined : { opacity: 0 }}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-0 backdrop-blur-sm sm:p-4"
       onClick={onClose}
     >
@@ -47,20 +51,25 @@ export function ProgressDialog({
         aria-modal="true"
         aria-labelledby="reading-progress-title"
         tabIndex={-1}
-        initial={{ scale: 0.9, opacity: 0 }}
+        initial={reduceMotion ? false : { scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        className="max-h-[100dvh] w-full max-w-2xl overflow-y-auto rounded-none border border-cyan-900/50 bg-[#090e13] p-5 shadow-2xl shadow-cyan-950/40 sm:max-h-[90vh] sm:rounded-lg sm:p-7"
+        exit={reduceMotion ? undefined : { scale: 0.9, opacity: 0 }}
+        transition={{ duration: reduceMotion ? 0 : 0.2 }}
+        className="max-h-[100dvh] w-full max-w-2xl min-w-0 overflow-x-hidden overflow-y-auto rounded-none border border-cyan-900/50 bg-[#090e13] p-5 shadow-2xl shadow-cyan-950/40 sm:max-h-[90vh] sm:rounded-lg sm:p-7"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="mb-5 flex items-start justify-between gap-4">
-          <h2 id="reading-progress-title" className="font-serif text-2xl text-cyan-100 sm:text-3xl">
+        <div className="mb-5 flex min-w-0 items-start justify-between gap-3">
+          <h2
+            id="reading-progress-title"
+            tabIndex={-1}
+            className="min-w-0 break-words font-serif text-2xl text-cyan-100 [overflow-wrap:anywhere] sm:text-3xl"
+          >
             Your path through the archive
           </h2>
           <button
             onClick={onClose}
             type="button"
-            className="rounded-full border border-white/10 px-2.5 py-1.5 text-xl text-gray-400 transition-colors hover:bg-white/5 hover:text-cyan-300"
+            className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full border border-white/10 px-2.5 py-1.5 text-xl text-gray-400 transition-colors hover:bg-white/5 hover:text-cyan-300"
             aria-label="Close reading progress"
           >
             ✕
@@ -68,7 +77,7 @@ export function ProgressDialog({
         </div>
 
         <div className="space-y-4">
-          <div className="grid grid-cols-2 gap-2 sm:gap-4">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-4">
             {[
               {
                 label: 'Fragments encountered',
@@ -95,11 +104,13 @@ export function ProgressDialog({
                 valueClass: 'text-amber-400',
               },
             ].map(({ label, value, containerClass, valueClass }) => (
-              <div key={label} className={`${containerClass} rounded-lg border p-3 sm:p-4`}>
+              <div key={label} className={`${containerClass} min-w-0 rounded-lg border p-3 sm:p-4`}>
                 <div className="mb-1 text-[0.6rem] uppercase tracking-[0.16em] text-gray-400 sm:text-xs">
                   {label}
                 </div>
-                <div className={`${valueClass} text-2xl font-light tabular-nums sm:text-3xl`}>
+                <div
+                  className={`${valueClass} break-words text-2xl font-light tabular-nums sm:text-3xl`}
+                >
                   {value}
                 </div>
               </div>

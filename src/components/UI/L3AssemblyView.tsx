@@ -3,8 +3,19 @@
  */
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useRef, useCallback, useMemo, type ReactNode } from 'react';
+import {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  useMemo,
+  type KeyboardEvent,
+  type ReactElement,
+  type ReactNode,
+} from 'react';
 
+import { useDialogFocus } from '@/hooks/useDialogFocus';
+import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import { useStoryStore } from '@/stores/storyStore';
 import type { L3Assembly } from '@/types';
 import { getL3AssemblySections } from '@/utils/l3Assembly';
@@ -92,8 +103,29 @@ function getSectionProgressKey(character: string): L3SectionKey {
   return key;
 }
 
-export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
+function getMapReturnTarget(nodeId: string | null): HTMLElement | null {
+  const storyMap = document.querySelector<HTMLElement>(
+    '[role="region"][aria-label="Archive passage map"]',
+  );
+  const selectedNode = nodeId
+    ? Array.from(storyMap?.querySelectorAll<HTMLElement>('.react-flow__node[data-id]') ?? []).find(
+        (element) => element.dataset.id === nodeId,
+      )
+    : null;
+
+  return (
+    selectedNode ??
+    storyMap ??
+    document.querySelector<HTMLElement>(
+      '[role="application"][aria-label="Interactive passage constellation"]',
+    )
+  );
+}
+
+export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps): ReactElement | null {
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+  const selectedNode = useStoryStore((state) => state.selectedNode);
+  const reduceMotion = useReducedMotionPreference();
   const markL3SectionRead = useStoryStore((state) => state.markL3SectionRead);
   const finalizeActiveVisit = useStoryStore((state) => state.finalizeActiveVisit);
   const l3Progress = useStoryStore(
@@ -103,10 +135,18 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
 
   const sections = useMemo(() => getL3AssemblySections(assembly), [assembly]);
   const currentSection = sections[currentSectionIndex];
+  const handleClose = useCallback(() => onClose?.(), [onClose]);
+  const restoreMapFocus = useCallback(() => getMapReturnTarget(selectedNode), [selectedNode]);
+  const dialogRef = useDialogFocus(true, handleClose, {
+    focusKey: selectedNode ?? assembly.arch.variationId,
+    initialFocusSelector: '#l3-assembly-title',
+    preferFallback: true,
+    restoreFocus: restoreMapFocus,
+  });
 
   // Track section reads using IntersectionObserver
   useEffect(() => {
-    if (!sectionRef.current || !currentSection) {
+    if (!sectionRef.current || !currentSection || typeof IntersectionObserver === 'undefined') {
       return undefined;
     }
 
@@ -176,24 +216,21 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
     onClose?.();
   }, [currentSectionIndex, markL3SectionRead, onClose, sections]);
 
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') {
-        handleNext();
-      } else if (e.key === 'ArrowLeft') {
-        handlePrevious();
-      } else if (e.key === 'Escape' && onClose) {
-        onClose();
-      } else if (['1', '2', '3', '4'].includes(e.key)) {
-        const index = parseInt(e.key) - 1;
-        goToSection(index);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [goToSection, handleNext, handlePrevious, onClose]);
+  const handleDialogKeyDown = (event: KeyboardEvent<HTMLDivElement>): void => {
+    if (event.altKey || event.ctrlKey || event.metaKey) {
+      return;
+    }
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      handleNext();
+    } else if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      handlePrevious();
+    } else if (['1', '2', '3', '4'].includes(event.key)) {
+      event.preventDefault();
+      goToSection(Number(event.key) - 1);
+    }
+  };
 
   // Finalize active visit on unmount
   useEffect(() => {
@@ -210,53 +247,59 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
+      initial={reduceMotion ? false : { opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+      exit={reduceMotion ? undefined : { opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-black/95 p-0 sm:p-4"
       onClick={onClose}
-      tabIndex={0}
       data-testid="l3-assembly"
     >
       <motion.div
-        initial={{ scale: 0.95, opacity: 0 }}
+        ref={dialogRef}
+        initial={reduceMotion ? false : { scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.95, opacity: 0 }}
-        transition={{ duration: 0.2 }}
-        className="max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col"
+        exit={reduceMotion ? undefined : { scale: 0.95, opacity: 0 }}
+        transition={{ duration: reduceMotion ? 0 : 0.2 }}
+        className="flex h-full max-h-[100dvh] w-full min-w-0 max-w-4xl flex-col overflow-y-auto bg-black sm:h-auto sm:max-h-[90dvh] sm:rounded-lg"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
         aria-labelledby="l3-assembly-title"
+        tabIndex={-1}
+        onKeyDown={handleDialogKeyDown}
       >
         {/* Header */}
-        <div className="bg-gradient-to-r from-gray-900 to-black border-b border-cyan-500/30 p-6">
-          <div className="flex items-start justify-between">
-            <div>
-              <h2 id="l3-assembly-title" className="text-2xl font-mono text-cyan-400 mb-2">
-                Layer 3: Convergence
+        <div className="shrink-0 border-b border-cyan-500/30 bg-gradient-to-r from-gray-900 to-black p-4 sm:p-6">
+          <div className="flex min-w-0 items-start justify-between gap-4">
+            <div className="min-w-0">
+              <h2
+                id="l3-assembly-title"
+                tabIndex={-1}
+                className="mb-2 break-words font-serif text-2xl text-cyan-100"
+              >
+                The Convergence
               </h2>
-              <div className="space-y-1 text-sm font-mono text-gray-400">
-                <div>Journey: {assembly.metadata.journeyPattern}</div>
-                <div>Philosophy: {assembly.metadata.pathPhilosophy}</div>
-                <div>Awareness: {assembly.metadata.awarenessLevel}</div>
-                <div>Synthesis: {assembly.metadata.synthesisPattern}</div>
-              </div>
+              <p className="max-w-2xl text-sm leading-relaxed text-gray-400">
+                Four recovered voices meet in a single assembled passage.
+              </p>
             </div>
             {onClose && (
               <button
                 type="button"
                 onClick={onClose}
-                className="text-gray-400 hover:text-white transition-colors font-mono text-sm"
+                className="min-h-11 shrink-0 rounded-md px-3 py-2 text-sm text-gray-300 transition-colors hover:bg-white/5 hover:text-white"
                 aria-label="Close convergence"
               >
-                [ESC]
+                Close
               </button>
             )}
           </div>
 
           {/* Section Navigation */}
-          <div className="mt-6 flex gap-2">
+          <div
+            className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4"
+            aria-label="Convergence sections"
+          >
             {sections.map((section, index) => {
               const isActive = index === currentSectionIndex;
               const sectionKey = getSectionProgressKey(section.character);
@@ -267,26 +310,40 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
                   type="button"
                   key={index}
                   onClick={() => goToSection(index)}
-                  aria-label={`Open convergence section ${index + 1}: ${section.title}`}
-                  className={`flex-1 px-3 py-2 rounded font-mono text-xs transition-all ${
+                  aria-current={isActive ? 'step' : undefined}
+                  aria-controls="l3-current-section"
+                  aria-label={`${isActive ? 'Current' : 'Open'} convergence section ${index + 1}: ${section.title}${isRead ? ', read' : ''}`}
+                  className={`min-h-11 min-w-0 rounded px-3 py-2 text-left text-xs transition-colors ${
                     isActive
                       ? 'bg-cyan-500/20 border border-cyan-500/50 text-cyan-300'
                       : 'bg-gray-800/50 border border-gray-700/50 text-gray-500 hover:text-gray-300'
                   }`}
                 >
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="truncate">{section.title}</span>
-                    {isRead && <span className="text-green-400 text-xs flex-shrink-0">✓</span>}
+                  <div className="flex min-w-0 items-center justify-between gap-2">
+                    <span className="min-w-0 break-words">{section.title}</span>
+                    {isRead && (
+                      <span className="text-green-400 text-xs flex-shrink-0" aria-hidden="true">
+                        ✓
+                      </span>
+                    )}
                   </div>
                 </button>
               );
             })}
           </div>
+          <p className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+            Convergence section {currentSectionIndex + 1} of {sections.length}:{' '}
+            {currentSection.title}
+          </p>
         </div>
 
         {/* Content */}
         <div
-          className={`flex-1 overflow-y-auto bg-gradient-to-b ${
+          id="l3-current-section"
+          role="region"
+          aria-labelledby={`l3-section-title-${currentSectionIndex}`}
+          tabIndex={0}
+          className={`min-h-48 min-w-0 flex-1 overflow-x-hidden overflow-y-auto bg-gradient-to-b ${
             characterColors[currentSection.character as keyof typeof characterColors]
           } border-2 ${characterColors[currentSection.character as keyof typeof characterColors]}`}
         >
@@ -294,20 +351,18 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
             <motion.div
               key={currentSectionIndex}
               ref={sectionRef}
-              initial={{ opacity: 0, x: 20 }}
+              initial={reduceMotion ? false : { opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              transition={{ duration: 0.3 }}
-              className="p-8"
+              exit={reduceMotion ? undefined : { opacity: 0, x: -20 }}
+              transition={{ duration: reduceMotion ? 0 : 0.3 }}
+              className="min-w-0 break-words p-4 [overflow-wrap:anywhere] sm:p-8"
             >
               <h3
+                id={`l3-section-title-${currentSectionIndex}`}
                 className={`text-xl font-mono mb-4 ${characterTextColors[currentSection.character as keyof typeof characterTextColors]}`}
               >
                 {currentSection.title}
               </h3>
-              <div className="text-xs text-gray-400 font-mono mb-6">
-                {currentSection.wordCount} words
-              </div>
               <div className="prose prose-invert prose-cyan max-w-none text-gray-200">
                 {parseMarkdown(currentSection.content)}
               </div>
@@ -316,13 +371,13 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
         </div>
 
         {/* Footer Navigation */}
-        <div className="bg-gradient-to-r from-black to-gray-900 border-t border-cyan-500/30 p-4">
-          <div className="flex items-center justify-between">
+        <div className="shrink-0 border-t border-cyan-500/30 bg-gradient-to-r from-black to-gray-900 p-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
             <button
               type="button"
               onClick={handlePrevious}
               disabled={currentSectionIndex === 0}
-              className={`px-4 py-2 rounded font-mono text-sm transition-colors ${
+              className={`min-h-11 rounded px-4 py-2 text-sm transition-colors ${
                 currentSectionIndex === 0
                   ? 'text-gray-600 cursor-not-allowed'
                   : 'text-cyan-400 hover:bg-cyan-500/10 border border-cyan-500/30'
@@ -331,15 +386,15 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
               ← Previous
             </button>
 
-            <div className="text-sm font-mono text-gray-400">
-              Section {currentSectionIndex + 1} of {sections.length}
+            <div className="order-first w-full text-center text-sm text-gray-400 sm:order-none sm:w-auto">
+              Passage {currentSectionIndex + 1} of {sections.length}
             </div>
 
             {currentSectionIndex === sections.length - 1 ? (
               <button
                 type="button"
                 onClick={handleComplete}
-                className="px-4 py-2 rounded font-mono text-sm text-green-300 hover:bg-green-500/10 border border-green-500/40"
+                className="min-h-11 rounded border border-green-500/40 px-4 py-2 text-sm text-green-300 hover:bg-green-500/10"
                 data-testid="complete-convergence"
               >
                 Complete Convergence ✓
@@ -348,7 +403,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps) {
               <button
                 type="button"
                 onClick={handleNext}
-                className="px-4 py-2 rounded font-mono text-sm transition-colors text-cyan-400 hover:bg-cyan-500/10 border border-cyan-500/30"
+                className="min-h-11 rounded border border-cyan-500/30 px-4 py-2 text-sm text-cyan-400 transition-colors hover:bg-cyan-500/10"
               >
                 Next →
               </button>

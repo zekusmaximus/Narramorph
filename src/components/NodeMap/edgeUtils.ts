@@ -76,6 +76,7 @@ export function getEdgeStyle(connectionType: ConnectionType): CSSProperties {
 export function convertToReactFlowEdges(
   storyNodes: Map<string, StoryNode>,
   progress: UserProgress,
+  reduceMotion = false,
 ): Edge[] {
   const edges: Edge[] = [];
 
@@ -88,8 +89,19 @@ export function convertToReactFlowEdges(
         id: edgeId,
         source: node.id,
         target: connection.targetId,
+        ariaRole: 'presentation',
+        // React Flow's runtime treats null as the explicit opt-out for its
+        // generated "Edge from …" label, though its public type omits null.
+        ariaLabel: null as unknown as string,
+        domAttributes: {
+          'aria-hidden': true,
+          'aria-roledescription': undefined,
+        },
+        deletable: false,
+        focusable: false,
+        selectable: false,
         type: getEdgeType(connection.type),
-        animated: isUnlocked && connection.type === 'recursive',
+        animated: !reduceMotion && isUnlocked && connection.type === 'recursive',
         label: connection.label,
         style: isUnlocked
           ? getEdgeStyle(connection.type)
@@ -127,8 +139,18 @@ export function convertToReactFlowEdges(
           id: `${connection.targetId}-${node.id}`,
           source: connection.targetId,
           target: node.id,
+          ariaRole: 'presentation',
+          // See the forward-edge accessibility note above.
+          ariaLabel: null as unknown as string,
+          domAttributes: {
+            'aria-hidden': true,
+            'aria-roledescription': undefined,
+          },
+          deletable: false,
+          focusable: false,
+          selectable: false,
           type: getEdgeType(connection.type),
-          animated: isUnlocked && connection.type === 'recursive',
+          animated: !reduceMotion && isUnlocked && connection.type === 'recursive',
           style: isUnlocked
             ? getEdgeStyle(connection.type)
             : ({

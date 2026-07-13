@@ -1,5 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 
+import { getCharacterLabel, getStateLabel } from '@/components/StoryView/storyPresentation';
+import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import { useStoryStore } from '@/stores/storyStore';
 
 interface NodeTooltipProps {
@@ -13,6 +15,7 @@ interface NodeTooltipProps {
 export function NodeTooltip({ nodeId, position }: NodeTooltipProps) {
   const nodes = useStoryStore((state) => state.nodes);
   const getNodeState = useStoryStore((state) => state.getNodeState);
+  const reduceMotion = useReducedMotionPreference();
 
   if (!nodeId) {
     return null;
@@ -31,19 +34,19 @@ export function NodeTooltip({ nodeId, position }: NodeTooltipProps) {
     'last-human': '#d32f2f',
     'multi-perspective': '#9c27b0',
   };
-
   return (
     <AnimatePresence>
       <motion.div
+        aria-hidden="true"
         className="fixed pointer-events-none z-50"
         style={{
           left: position.x + 20,
           top: position.y + 20,
         }}
-        initial={{ opacity: 0, scale: 0.9, y: 10 }}
+        initial={reduceMotion ? false : { opacity: 0, scale: 0.9, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.9, y: 10 }}
-        transition={{ duration: 0.15 }}
+        exit={reduceMotion ? undefined : { opacity: 0, scale: 0.9, y: 10 }}
+        transition={{ duration: reduceMotion ? 0 : 0.15 }}
       >
         <div
           className="bg-black/95 backdrop-blur-sm px-4 py-3 rounded border shadow-lg font-mono text-xs max-w-xs"
@@ -61,24 +64,24 @@ export function NodeTooltip({ nodeId, position }: NodeTooltipProps) {
 
           <div className="space-y-1 text-gray-400">
             <div className="flex justify-between">
-              <span>Character:</span>
-              <span className="text-gray-300">{node.character}</span>
+              <span>Voice:</span>
+              <span className="text-gray-300">{getCharacterLabel(node.character)}</span>
             </div>
             <div className="flex justify-between">
-              <span>State:</span>
-              <span className="text-gray-300">{state.currentState}</span>
+              <span>Passage:</span>
+              <span className="text-gray-300">{getStateLabel(state.currentState)}</span>
             </div>
             <div className="flex justify-between">
-              <span>Visits:</span>
+              <span>Encounters:</span>
               <span className="text-gray-300">{state.visitCount}</span>
             </div>
             <div className="flex justify-between">
-              <span>Read Time:</span>
+              <span>Reading time:</span>
               <span className="text-gray-300">{node.metadata.estimatedReadTime}m</span>
             </div>
             {node.metadata.criticalPath && (
               <div className="text-yellow-400 text-[10px] mt-2 pt-2 border-t border-yellow-900/30">
-                ⚠ CRITICAL PATH NODE
+                Part of the essential thread
               </div>
             )}
           </div>

@@ -476,6 +476,7 @@ export const useStoryStore = create<StoryStore>()(
 
       set((state) => {
         state.currentL3Assembly = assembly;
+        state.storyViewOpen = false;
         state.l3AssemblyViewOpen = true;
       });
 
@@ -805,6 +806,7 @@ export const useStoryStore = create<StoryStore>()(
       // Normal node: open StoryView
       set((state) => {
         state.selectedNode = nodeId;
+        state.l3AssemblyViewOpen = false;
         state.storyViewOpen = true;
       });
 

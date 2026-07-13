@@ -3,6 +3,7 @@ import { Check, Moon, Settings, Sun, X } from 'lucide-react';
 import { useCallback, useRef, type ReactElement } from 'react';
 
 import { useDialogFocus } from '@/hooks/useDialogFocus';
+import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import { useStoryStore } from '@/stores/storyStore';
 import type { TextSize, Theme } from '@/types';
 
@@ -34,10 +35,13 @@ const THEME_OPTIONS: ReadonlyArray<{
 export function SettingsDialog({ open, onClose }: SettingsDialogProps): ReactElement | null {
   const preferences = useStoryStore((state) => state.preferences);
   const updatePreferences = useStoryStore((state) => state.updatePreferences);
+  const reduceMotion = useReducedMotionPreference();
   const onCloseRef = useRef(onClose);
   onCloseRef.current = onClose;
   const handleClose = useCallback(() => onCloseRef.current(), []);
-  const dialogRef = useDialogFocus(open, handleClose);
+  const dialogRef = useDialogFocus(open, handleClose, {
+    initialFocusSelector: '#settings-title',
+  });
 
   if (!open) {
     return null;
@@ -45,9 +49,9 @@ export function SettingsDialog({ open, onClose }: SettingsDialogProps): ReactEle
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
+      initial={reduceMotion ? false : { opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      exit={reduceMotion ? undefined : { opacity: 0 }}
       className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/85 p-3 backdrop-blur-sm sm:items-center sm:p-6"
       onClick={handleClose}
     >
@@ -57,23 +61,27 @@ export function SettingsDialog({ open, onClose }: SettingsDialogProps): ReactEle
         aria-modal="true"
         aria-labelledby="settings-title"
         tabIndex={-1}
-        initial={{ scale: 0.97, opacity: 0, y: 10 }}
+        initial={reduceMotion ? false : { scale: 0.97, opacity: 0, y: 10 }}
         animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.97, opacity: 0, y: 8 }}
-        transition={{ duration: 0.2 }}
-        className="my-auto max-h-[calc(100dvh-1.5rem)] w-full max-w-lg overflow-y-auto rounded-xl border border-cyan-200/20 bg-[#0b1015] p-4 text-slate-200 shadow-2xl shadow-black/60 sm:max-h-[calc(100dvh-3rem)] sm:p-6"
+        exit={reduceMotion ? undefined : { scale: 0.97, opacity: 0, y: 8 }}
+        transition={{ duration: reduceMotion ? 0 : 0.2 }}
+        className="my-auto max-h-[calc(100dvh-1.5rem)] w-full max-w-lg min-w-0 overflow-x-hidden overflow-y-auto rounded-xl border border-cyan-200/20 bg-[#0b1015] p-4 text-slate-200 shadow-2xl shadow-black/60 sm:max-h-[calc(100dvh-3rem)] sm:p-6"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="mb-6 flex items-start justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cyan-200/20 bg-cyan-200/[0.05] text-cyan-200">
+        <div className="mb-6 grid min-w-0 grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
+          <div className="flex min-w-0 items-center gap-3">
+            <div className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cyan-200/20 bg-cyan-200/[0.05] text-cyan-200 sm:flex">
               <Settings className="h-4 w-4" aria-hidden="true" />
             </div>
-            <div>
-              <p className="text-[0.65rem] uppercase tracking-[0.22em] text-cyan-200/60">
+            <div className="min-w-0">
+              <p className="break-words text-[0.65rem] uppercase tracking-[0.22em] text-cyan-200/60 [overflow-wrap:anywhere]">
                 Reader preferences
               </p>
-              <h2 id="settings-title" className="font-serif text-2xl font-semibold text-slate-100">
+              <h2
+                id="settings-title"
+                tabIndex={-1}
+                className="break-words font-serif text-2xl font-semibold text-slate-100 [overflow-wrap:anywhere]"
+              >
                 Shape the reading room
               </h2>
             </div>
@@ -172,7 +180,7 @@ export function SettingsDialog({ open, onClose }: SettingsDialogProps): ReactEle
                 onChange={(event) => updatePreferences({ reduceMotion: event.target.checked })}
                 className="mt-1 h-4 w-4 shrink-0 accent-cyan-200"
               />
-              <span>
+              <span className="min-w-0">
                 <span className="block font-serif text-lg text-slate-100">Reduce motion</span>
                 <span className="mt-0.5 block text-sm leading-5 text-slate-500">
                   Soften transitions and pause nonessential atmospheric movement.
