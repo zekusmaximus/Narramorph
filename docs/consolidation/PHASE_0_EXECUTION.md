@@ -21,12 +21,12 @@ The annotated tag `pre-consolidation-2026-07-13` has been published to:
 
 ## Implementation branches
 
-| Repository | Branch |
-|---|---|
-| Narramorph | `agent/consolidation-batches-0-1-to-0-3` |
-| Project-Leibniz | `agent/consolidation-freeze-and-baseline` |
-| eternal-return-digital-self | `agent/consolidation-freeze-and-baseline` |
-| Eternal_Return_Manuscript | `agent/consolidation-governance-and-baseline` |
+| Repository | Branch | Draft PR |
+|---|---|---|
+| Narramorph | `agent/consolidation-batches-0-1-to-0-3` | [#97](https://github.com/zekusmaximus/Narramorph/pull/97) |
+| Project-Leibniz | `agent/consolidation-freeze-and-baseline` | [#11](https://github.com/zekusmaximus/Project-Leibniz/pull/11) |
+| eternal-return-digital-self | `agent/consolidation-freeze-and-baseline` | [#6](https://github.com/zekusmaximus/eternal-return-digital-self/pull/6) |
+| Eternal_Return_Manuscript | `agent/consolidation-governance-and-baseline` | [#41](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/41) |
 
 ## Owner decisions
 
@@ -49,8 +49,8 @@ Issue #95 carries the `blocked-owner` label until the license/copyright decision
 
 ## Merge order
 
-1. Merge the Narramorph governance/baseline PR after charter and license approval.
-2. Merge the Manuscript role/baseline/license PR.
-3. Merge the Project-Leibniz freeze/baseline/security PR.
-4. Merge the older-prototype freeze/baseline PR.
+1. Merge Narramorph [PR #97](https://github.com/zekusmaximus/Narramorph/pull/97) after charter and license approval.
+2. Merge Manuscript [PR #41](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/41).
+3. Merge Project-Leibniz [PR #11](https://github.com/zekusmaximus/Project-Leibniz/pull/11).
+4. Merge older-prototype [PR #6](https://github.com/zekusmaximus/eternal-return-digital-self/pull/6).
 5. Update this record with merged PR links and mark each batch complete only after its acceptance gate is satisfied.
