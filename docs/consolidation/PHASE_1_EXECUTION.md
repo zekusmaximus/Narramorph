@@ -118,9 +118,9 @@ The Phase C validator failures are pre-existing tooling/configuration drift, not
 
 ## Delivery record
 
-| Batch | Repository                | Branch                    | Pull request | Merge commit |
-| ----- | ------------------------- | ------------------------- | ------------ | ------------ |
-| 1.1   | Narramorph                | `agent/phase-1-batch-1-1` | Pending      | Pending      |
-| 1.1   | Eternal_Return_Manuscript | `agent/phase-1-batch-1-1` | Pending      | Pending      |
+| Batch | Repository | Branch | Pull request | Merge commit |
+| --- | --- | --- | --- | --- |
+| 1.1 | Narramorph | `agent/phase-1-batch-1-1` | [#103](https://github.com/zekusmaximus/Narramorph/pull/103) | Pending |
+| 1.1 | Eternal_Return_Manuscript | `agent/phase-1-batch-1-1` | [#42](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/42) | Pending |
 
 Later batch branches, PRs, required-check names, merge commits, protection settings, performance measurements, budgets, accepted risks, and owner-approved variances will be appended as they become reproducible facts.
