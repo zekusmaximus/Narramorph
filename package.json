@@ -94,6 +94,17 @@
     "node": ">=22.0.0 <25.0.0",
     "npm": ">=10.0.0 <12.0.0"
   },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "last 2 versions",
+      "Firefox ESR",
+      "not dead"
+    ],
+    "development": [
+      "last 1 Chrome version"
+    ]
+  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --cache --fix",
