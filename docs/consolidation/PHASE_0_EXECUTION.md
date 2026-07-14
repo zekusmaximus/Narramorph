@@ -7,7 +7,7 @@ Updated: July 13, 2026
 | Batch | Status | Completion evidence / blocker |
 | --- | --- | --- |
 | 0.1 | Implementation complete; awaiting acceptance | Charter, ADR, freeze notices, and the authoritative Narramorph backlog are implemented in the coordinated draft PRs; review and merge remain. |
-| 0.2 | Blocked on owner decisions while implementation proceeds | Software/content licensing choice and confirmation of external MongoDB credential revocation are required. |
+| 0.2 | Licensing implemented; external security confirmation pending | MIT software terms, reserved-content terms, manuscript interactive-use permission, AI/generated provenance, and repository notices are implemented. Confirmation of external MongoDB credential revocation is still required. |
 | 0.3 | Implementation complete; awaiting acceptance | Baseline tags, verified records, extraction matrix, and issue disposition are implemented; review and merge remain. |
 
 ## Immutable baseline tags
@@ -30,8 +30,8 @@ The annotated tag `pre-consolidation-2026-07-13` has been published to:
 
 ## Owner decisions
 
-1. Proposed licensing split: MIT for software code in Narramorph, Project-Leibniz, and the older prototype; all rights reserved for story/narrative content in Narramorph and the Manuscript repository, with a narrow explicit permission for approved manuscript-derived material to ship in Narramorph.
-2. Confirm whether the historical Project-Leibniz MongoDB credential has been rotated or revoked. Repository inspection can confirm that no `.env` file is currently tracked, but cannot verify external Atlas state.
+1. **Resolved July 13, 2026:** `zekusmaximus` confirmed sole ownership and authorized the recommended split. Software is MIT-licensed; copyrightable narrative, story-data, worldbuilding, editorial, generated literary, and media content is all rights reserved. Approved manuscript releases receive a release-specific Narramorph distribution permission.
+2. **Still required:** confirm whether the historical Project-Leibniz MongoDB credential has been rotated or revoked. Repository inspection can confirm that no `.env` file is currently tracked, but cannot verify external Atlas state.
 
 ## Issue audit
 
@@ -45,7 +45,7 @@ The connected GitHub issue search returned no open issues in any repository on J
 - [#95 — Batch 0.2: resolve licensing, provenance, and credential remediation](https://github.com/zekusmaximus/Narramorph/issues/95)
 - [#96 — Batch 0.3: preserve baselines and approve the extraction inventory](https://github.com/zekusmaximus/Narramorph/issues/96)
 
-Issue #95 carries the `blocked-owner` label until the license/copyright decision and external credential-revocation confirmation are recorded.
+Issue #95 carries the `blocked-owner` label only until external credential-revocation confirmation is recorded. The license/copyright decision is complete.
 
 ## Merge order
 

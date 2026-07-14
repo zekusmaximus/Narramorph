@@ -14,6 +14,9 @@ This directory is the authoritative implementation record for bringing the four 
 - [Verified pre-consolidation baseline](BASELINE.md)
 - [Feature extraction matrix](FEATURE_EXTRACTION_MATRIX.md)
 - [Provenance policy](../PROVENANCE.md)
+- [Software license](../../LICENSE)
+- [Narrative and media content license](../../CONTENT_LICENSE.md)
+- [Cross-repository notices](../../THIRD_PARTY_NOTICES.md)
 - [Product charter](../PRODUCT_CHARTER.md)
 - [Repository-boundary ADR](../adr/0001-repository-boundaries.md)
 
