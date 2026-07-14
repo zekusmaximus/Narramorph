@@ -375,11 +375,10 @@ function buildRuntimeInventory(
   const storyPath = `/stories/${storyId}/`;
   const variationFiles = Object.entries(runtimeVariationFiles)
     .filter(([path]) => path.includes(storyPath))
-    .map(([path, data]) => ({
-      path,
-      layer: (path.includes('/layer1/') ? 1 : 2) as 1 | 2,
-      data,
-    }));
+    .map(([path, data]) => {
+      const layer: 1 | 2 = path.includes('/layer1/') ? 1 : 2;
+      return { path, layer, data };
+    });
 
   const l3Aggregates = Object.fromEntries(
     Object.entries(runtimeL3Aggregates)
@@ -408,7 +407,7 @@ export async function validateRuntimeContent(): Promise<void> {
     try {
       const storyData = await loadStoryContent(storyId);
       await loadL3Variations(storyId);
-      const selectionMatrix = loadSelectionMatrix(storyId);
+      const selectionMatrix = await loadSelectionMatrix(storyId);
       errors.push(
         ...validateRuntimePackageInventory(
           buildRuntimeInventory(storyId, storyData, selectionMatrix),

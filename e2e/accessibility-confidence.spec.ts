@@ -77,6 +77,7 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   await expect(page.getByRole('dialog')).toHaveCount(1);
   await expect(storyTitle).toHaveText('First Documentation');
   await expect(storyTitle).toBeFocused();
+  await expect(page.getByTestId('story-passage')).toBeVisible();
 
   await page.keyboard.press('Tab');
   await expect(page.getByRole('button', { name: 'Close story view' })).toBeFocused();
@@ -90,6 +91,7 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   await expect(page.getByRole('dialog')).toHaveCount(1);
   await expect(storyTitle).toHaveText('Acceptance Path');
   await expect(storyTitle).toBeFocused();
+  await expect(page.getByTestId('story-passage')).toBeVisible();
 
   await page.keyboard.press('Tab');
   await expect(page.getByRole('button', { name: 'Close story view' })).toBeFocused();

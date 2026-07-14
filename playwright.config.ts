@@ -3,6 +3,8 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: false,
+  // Performance budgets require an uncontended browser/CPU profile.
+  workers: 1,
   timeout: 120_000,
   expect: { timeout: 30_000 },
   outputDir: 'output/playwright/test-results',
@@ -20,7 +22,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run dev:test',
+    command: 'npm run preview:test',
     url: 'http://127.0.0.1:4174',
     reuseExistingServer: false,
     timeout: 120_000,

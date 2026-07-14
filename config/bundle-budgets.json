@@ -10,10 +10,17 @@
     "totalCssGzipBytes": 11958
   },
   "budgets": {
+    "initialJsBytes": 700000,
+    "initialJsGzipBytes": 220000,
+    "largestStoryChunkBytes": 2350000,
+    "largestStoryChunkGzipBytes": 335000,
+    "storyPackageBytes": 15000000,
+    "storyPackageGzipBytes": 2800000,
+    "publicSourceMapCount": 0,
     "totalJsBytes": 16250000,
     "totalJsGzipBytes": 3320000,
-    "largestJsBytes": 11870000,
-    "largestJsGzipBytes": 2590000,
+    "largestJsBytes": 2350000,
+    "largestJsGzipBytes": 335000,
     "totalCssBytes": 68800,
     "totalCssGzipBytes": 12600
   }

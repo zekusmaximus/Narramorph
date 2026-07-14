@@ -19,44 +19,38 @@ import type {
 /**
  * Cache for loaded variation files
  */
-const variationCache = new Map<string, VariationFile>();
-const selectionMatrixCache = new Map<string, SelectionMatrixEntry[]>();
+const variationCache = new Map<string, Promise<VariationFile | null>>();
+const selectionMatrixCache = new Map<string, Promise<SelectionMatrixEntry[]>>();
 const l3VariationCache = new Map<string, Promise<L3VariationSet>>();
 
 /**
- * Load all variation files using Vite's glob import
- * Note: Vite wraps imports in { default: T } structure
+ * Keep passage bodies behind exact-file dynamic imports. The import functions
+ * are tiny registry entries; Vite emits the JSON payloads as separate chunks.
  */
 const l1VariationFiles = import.meta.glob<{ default: VariationFile }>(
   '/src/data/stories/*/content/layer1/*-variations.json',
-  {
-    eager: true,
-  },
 );
 
 const l2VariationFiles = import.meta.glob<{ default: VariationFile }>(
   '/src/data/stories/*/content/layer2/*-variations.json',
-  {
-    eager: true,
-  },
 );
 
 const l3VariationFiles = import.meta.glob<{ default: unknown }>(
   '/src/data/stories/*/content/layer3/*-variations.json',
 );
 
-const l4VariationFiles = import.meta.glob<{ default: VariationFile }>(
-  '/src/data/stories/*/content/layer4/*-variations.json',
-  {
-    eager: true,
-  },
+interface TerminalContentFile {
+  id: string;
+  philosophy: string;
+  content: string;
+}
+
+const terminalContentFiles = import.meta.glob<{ default: TerminalContentFile }>(
+  '/src/data/stories/*/content/layer4/final-*.json',
 );
 
 const selectionMatrixFiles = import.meta.glob<{ default: SelectionMatrixEntry[] }>(
   '/src/data/stories/*/content/selection-matrix.json',
-  {
-    eager: true,
-  },
 );
 
 /**
@@ -65,7 +59,6 @@ const selectionMatrixFiles = import.meta.glob<{ default: SelectionMatrixEntry[] 
 const allVariationFiles = {
   ...l1VariationFiles,
   ...l2VariationFiles,
-  ...l4VariationFiles,
 };
 
 /**
@@ -235,48 +228,98 @@ function normalizeVariation(variation: unknown, fileNodeId?: string): Variation 
   return v as unknown as Variation;
 }
 
-/**
- * Load a specific variation file by node ID
- */
-export function loadVariationFile(storyId: string, nodeId: string): VariationFile | null {
-  // Check cache first
+function createTerminalVariation(file: TerminalContentFile): VariationFile {
+  const variationId = `${file.id}-terminal`;
+  const convergenceAlignment =
+    file.philosophy === 'preserve' ||
+    file.philosophy === 'transform' ||
+    file.philosophy === 'release'
+      ? file.philosophy
+      : undefined;
+
+  return {
+    nodeId: file.id,
+    totalVariations: 1,
+    variations: [
+      {
+        variationId,
+        schemaVersion: '1.0.0',
+        id: variationId,
+        sectionType: file.id,
+        transformationState: 'initial',
+        journeyPattern: 'unknown',
+        philosophyDominant: 'unknown',
+        awarenessLevel: 'low',
+        content: file.content,
+        metadata: {
+          variationId,
+          nodeId: file.id,
+          section: file.id,
+          layer: 4,
+          wordCount: file.content.trim().split(/\s+/).length,
+          createdDate: 'runtime-source',
+          journeyPattern: 'unknown',
+          journeyCode: 'unknown',
+          philosophyDominant: 'unknown',
+          philosophyCode: file.philosophy,
+          awarenessLevel: 'low',
+          awarenessCode: 'low',
+          awarenessRange: [0, 100],
+          readableLabel: file.id,
+          humanDescription: 'Terminal story passage',
+          ...(convergenceAlignment ? { convergenceAlignment } : {}),
+        },
+      },
+    ],
+  };
+}
+
+async function importVariationFile(storyId: string, nodeId: string): Promise<VariationFile | null> {
+  const storyPath = `/stories/${storyId}/`;
+  const variationSuffix = `/${nodeId}-variations.json`;
+  const variationEntry = Object.entries(allVariationFiles).find(
+    ([path]) => path.includes(storyPath) && path.endsWith(variationSuffix),
+  );
+
+  if (variationEntry) {
+    const [, loadModule] = variationEntry;
+    const module = await loadModule();
+    const fileData = module.default;
+    return {
+      ...fileData,
+      variations: fileData.variations.map((variation: unknown) =>
+        normalizeVariation(variation, fileData.nodeId ?? nodeId),
+      ),
+    };
+  }
+
+  const terminalSuffix = `/layer4/${nodeId}.json`;
+  const terminalEntry = Object.entries(terminalContentFiles).find(
+    ([path]) => path.includes(storyPath) && path.endsWith(terminalSuffix),
+  );
+  if (!terminalEntry) {
+    return null;
+  }
+
+  const [, loadTerminalModule] = terminalEntry;
+  const terminalModule = await loadTerminalModule();
+  return createTerminalVariation(terminalModule.default);
+}
+
+/** Lazily load and cache the exact L1/L2 or L4 passage requested by the reader. */
+export function loadVariationFile(storyId: string, nodeId: string): Promise<VariationFile | null> {
   const cacheKey = `${storyId}:${nodeId}`;
   const cached = variationCache.get(cacheKey);
   if (cached) {
     return cached;
   }
 
-  // Search for matching file
-  for (const [path, module] of Object.entries(allVariationFiles)) {
-    if (path.includes(storyId)) {
-      const fileData: VariationFile =
-        'default' in module ? module.default : (module as unknown as VariationFile);
-
-      // Check if this file contains the node we're looking for
-      if (
-        fileData.nodeId === nodeId ||
-        (fileData.variations &&
-          fileData.variations.some((v: unknown) => {
-            const variation = v as Record<string, unknown>;
-            const metadata = variation.metadata as Record<string, unknown> | undefined;
-            return metadata?.nodeId === nodeId || variation.nodeId === nodeId;
-          }))
-      ) {
-        // Normalize all variations before caching
-        const normalizedFile: VariationFile = {
-          ...fileData,
-          variations: fileData.variations.map((v: unknown) =>
-            normalizeVariation(v, fileData.nodeId),
-          ),
-        };
-
-        variationCache.set(cacheKey, normalizedFile);
-        return normalizedFile;
-      }
-    }
-  }
-
-  return null;
+  const loading = importVariationFile(storyId, nodeId).catch((error: unknown) => {
+    variationCache.delete(cacheKey);
+    throw error;
+  });
+  variationCache.set(cacheKey, loading);
+  return loading;
 }
 
 /**
@@ -459,26 +502,19 @@ export function loadL3Variations(storyId: string): Promise<L3VariationSet> {
   return loading;
 }
 
-/**
- * Load the selection matrix
- */
-export function loadSelectionMatrix(storyId: string): SelectionMatrixEntry[] {
+/** Lazily load the story's selection matrix outside the application shell. */
+export function loadSelectionMatrix(storyId: string): Promise<SelectionMatrixEntry[]> {
   const cachedMatrix = selectionMatrixCache.get(storyId);
   if (cachedMatrix) {
     return cachedMatrix;
   }
 
-  // Find the selection matrix file for this story
-  for (const [path, module] of Object.entries(selectionMatrixFiles)) {
-    if (path.includes(storyId)) {
-      const matrixData: SelectionMatrixEntry[] =
-        'default' in module ? module.default : (module as unknown as SelectionMatrixEntry[]);
-      selectionMatrixCache.set(storyId, matrixData);
-      return matrixData;
-    }
-  }
-
-  return [];
+  const entry = Object.entries(selectionMatrixFiles).find(([path]) =>
+    path.includes(`/stories/${storyId}/`),
+  );
+  const loading = entry ? entry[1]().then((module) => module.default) : Promise.resolve([]);
+  selectionMatrixCache.set(storyId, loading);
+  return loading;
 }
 
 /**
