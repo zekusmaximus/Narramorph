@@ -191,7 +191,7 @@ The optimized initial request list is exactly the application entry, React, stat
 
 The focused production Playwright regression passes both profiles. It proves story and 3D assets are absent initially, observes the focus-preserving passage loading state, verifies the exact L1 request and completed passage, observes the focus-preserving 3D loading state, and verifies the delayed 3D request and working spatial surface. Playwright runs one worker so the performance profile is not distorted by other repository tests competing for CPU.
 
-The complete local validation passed: type checking; formatting; lint with 33 warnings and no errors; 37 files / 165 product tests; 68.08% statements/lines, 72.93% branches, and 31.22% functions in the focused coverage gate; 8 runtime-content tests; strict validation of all 288 content files; conversion-tool type checking and 11 files / 110 tests; the production build; every manifest-aware bundle budget; and all 11 Chromium accessibility, responsive, reader-journey, fallback, and performance tests. The implementation PR and post-merge protected `main` run will be appended before issue #102 and Phase 1 are closed.
+The complete local validation passed: type checking; formatting; lint with 33 warnings and no errors; 37 files / 165 product tests; 68.08% statements/lines, 72.93% branches, and 31.22% functions in the focused coverage gate; 8 runtime-content tests; strict validation of all 288 content files; conversion-tool type checking and 11 files / 110 tests; the production build; every manifest-aware bundle budget; and all 11 Chromium accessibility, responsive, reader-journey, fallback, and performance tests. Implementation PR [#123](https://github.com/zekusmaximus/Narramorph/pull/123) carries these changes. Its merge SHA and the post-merge protected `main` run will be appended before issue #102 and Phase 1 are closed.
 
 ## Delivery record
 
@@ -208,5 +208,6 @@ The complete local validation passed: type checking; formatting; lint with 33 wa
 | 1.3 | Narramorph | `dependabot/github_actions/actions/setup-node-7` | [#110](https://github.com/zekusmaximus/Narramorph/pull/110) | `9a7398c078f000507c5fe1a8ce1d80233940844c` |
 | 1.3 | Narramorph | `dependabot/github_actions/actions/dependency-review-action-5` | [#111](https://github.com/zekusmaximus/Narramorph/pull/111) | `545bdd203eecc8194d5a9209a39f04ea49672c14` |
 | 1.3 | Narramorph | `dependabot/github_actions/gitleaks/gitleaks-action-3` | [#112](https://github.com/zekusmaximus/Narramorph/pull/112) | `9f294bed565b0025c52af38f4588a5e56ac5b459` |
+| 1.4 | Narramorph | `agent/phase-1-batch-1-4-performance` | [#123](https://github.com/zekusmaximus/Narramorph/pull/123) | Pending |
 
 Later batch branches, PRs, required-check names, merge commits, protection settings, performance measurements, budgets, accepted risks, and owner-approved variances will be appended as they become reproducible facts.
