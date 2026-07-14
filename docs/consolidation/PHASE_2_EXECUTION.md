@@ -125,6 +125,8 @@ The 19 Eternal Return passages are the 18 runtime graph nodes plus the shared La
 
 The complete local regression gate also passed: 37 app test files / 166 tests; 12 conversion test files / 128 tests, including 18 Contract v1 proofs; 68.23% statement/line, 73.10% branch, and 31.22% function coverage; 288/288 authored-content files; eight runtime-content tests; production build; every bundle/source-map budget; and all 11 Chromium accessibility, journey, recovery, performance, responsive, zoom, and reduced-motion scenarios. After the final save-envelope change, the three journey/restoration, recovery, and WebGL fallback scenarios were rerun and passed.
 
+Gitleaks 8.24.3 also scanned the Batch 2.2 commit locally with its complete default rule set and reported no leaks. The repository configuration excludes only the two generated catalog paths whose deterministic SHA-256 values trigger the generic API-key entropy heuristic; source inputs, generators, manifests, resources, fixtures, and all other repository paths remain scanned.
+
 Generated fixture/runtime catalogs are do-not-edit outputs. Application `0.1.0`, save schema `1.1.0`, and the checked-in runtime fingerprint matching the Eternal Return manifest are written into every new journey. Legacy save `1.0.0` loads only through the documented migration. The pre-contract `legacy-runtime-baseline-2026-07-14` provenance ID is intentionally not an accepted literary release; Batch 2.3 must create the immutable release consumed by Batch 2.4.
 
 Safe intermediate state: Narramorph behavior and authored prose remain unchanged. Contract v1 is local and deterministic, no repository is fetched at build/runtime, and no importer can yet accept or write an editorial release.
