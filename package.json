@@ -42,7 +42,7 @@
     "content:rollback": "npm --prefix tools/conversion run rollback --"
   },
   "dependencies": {
-    "@react-spring/three": "^9.7.3",
+    "@react-spring/three": "^10.1.2",
     "@react-three/drei": "^9.92.0",
     "@react-three/fiber": "^8.15.0",
     "@xyflow/react": "^12.0.0",
