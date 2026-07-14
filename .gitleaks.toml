@@ -7,8 +7,16 @@ title = "Narramorph Gitleaks configuration"
 useDefault = true
 
 [allowlist]
-description = "Reproducible generated Story Package catalogs"
+description = "Reproducible Story Package metadata false positives"
 paths = [
   '''^story-packages/eternal-return/catalog\.json$''',
   '''^story-packages/fixtures/tidal-signals/catalog\.json$''',
+]
+# These exact runtime branch IDs trigger the generic-api-key entropy heuristic
+# when assigned to passageStableKey. No other concordance values are exempted.
+regexTarget = "secret"
+regexes = [
+  '''^algo-L2-invest$''',
+  '''^algo-L2-resist$''',
+  '''^hum-L2-invest$''',
 ]
