@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "releases": [
+    {
+      "releaseId": "eternal-return-literary-v1.0.0",
+      "storyId": "eternal-return",
+      "storyVersion": "1.0.0",
+      "releaseSchemaVersion": "1.0.0",
+      "sourceCommit": "5c968c287eea71be40ca7ee3234e0d62153f1b4e",
+      "contentLicense": "LicenseRef-Eternal-Return-All-Rights-Reserved",
+      "supportedAppRange": ">=0.1.0 <0.2.0",
+      "contentSha256": "4fc7ce7f55e359ed5c25abe8a399ceeb60c45ee965d722d6a8e83d200909d7ad",
+      "assetSha256": "d1f10baadeb89bddbbde95fe5359c9669261fe69b8d65c4b9378a8f53410c6f5",
+      "sourcePath": "literary-releases/source/eternal-return-literary-v1.0.0.json",
+      "sourceUrl": "https://github.com/zekusmaximus/Eternal_Return_Manuscript/releases/download/literary-release-v1.0.0/eternal-return-literary-v1.0.0.json"
+    }
+  ]
+}

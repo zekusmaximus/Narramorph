@@ -18,6 +18,7 @@ archive/
 tools/conversion/**/generated/
 story-packages/fixtures/
 story-packages/eternal-return/
+literary-releases/source/
 **/*.min.js
 **/*.min.css
 

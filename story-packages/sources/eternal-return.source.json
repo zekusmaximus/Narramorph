@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "storyId": "eternal-return",
-  "storyVersion": "1.0.0",
+  "storyVersion": "1.0.1",
   "title": "Eternal Return of the Digital Self",
   "sourceRoot": "../..",
   "storyFile": "src/data/stories/eternal-return/story.json",
@@ -24,10 +24,10 @@
     "L4-release": "final-release",
     "L4-transform": "final-transform"
   },
-  "sourceManuscriptCommit": "47d2453cb7b895569ccb7398dcf40dc304422ba9",
-  "editorialReleaseId": "legacy-runtime-baseline-2026-07-14",
+  "sourceManuscriptCommit": "5c968c287eea71be40ca7ee3234e0d62153f1b4e",
+  "editorialReleaseId": "eternal-return-literary-v1.0.0",
   "supportedAppRange": ">=0.1.0 <0.2.0",
-  "sourceDateEpoch": "2026-07-14T20:40:00.000Z",
+  "sourceDateEpoch": "2026-07-14T22:21:34.000Z",
   "licenses": [
     {
       "spdx": "LicenseRef-Narramorph-All-Rights-Reserved",
@@ -44,9 +44,16 @@
     {
       "relation": "canonical-manuscript",
       "repository": "https://github.com/zekusmaximus/Eternal_Return_Manuscript",
-      "commit": "47d2453cb7b895569ccb7398dcf40dc304422ba9",
-      "releaseId": "legacy-runtime-baseline-2026-07-14",
+      "commit": "5c968c287eea71be40ca7ee3234e0d62153f1b4e",
+      "releaseId": "eternal-return-literary-v1.0.0",
       "path": "manuscript"
+    },
+    {
+      "relation": "accepted-literary-release",
+      "repository": "https://github.com/zekusmaximus/Eternal_Return_Manuscript",
+      "commit": "5c968c287eea71be40ca7ee3234e0d62153f1b4e",
+      "releaseId": "eternal-return-literary-v1.0.0",
+      "path": "eternal-return-literary-v1.0.0.json"
     },
     {
       "relation": "authored-runtime",
@@ -63,6 +70,13 @@
       "subjectStableKey": "arch-L1",
       "kind": "contract-scope",
       "summary": "The catalog records stable identity and content digests; authored runtime prose remains in its existing source files."
+    },
+    {
+      "stableKey": "literary-release-intake-v1",
+      "subjectType": "passage",
+      "subjectStableKey": "arch-L1",
+      "kind": "provenance-boundary",
+      "summary": "Canonical literary claims are resolved through the accepted release and complete concordance; separately authored runtime prose is never overwritten."
     }
   ]
 }

@@ -46,7 +46,11 @@
     "content:rollback": "npm --prefix tools/conversion run rollback --",
     "story:package:build": "npm --prefix tools/conversion run story-package:build",
     "story:package:validate": "npm --prefix tools/conversion run story-package:validate",
-    "story:package:test": "npm --prefix tools/conversion run story-package:test"
+    "story:package:test": "npm --prefix tools/conversion run story-package:test",
+    "literary:stage": "npm --prefix tools/conversion run literary:stage --",
+    "literary:validate": "npm --prefix tools/conversion run literary:validate",
+    "literary:explain": "npm --prefix tools/conversion run literary:explain --",
+    "literary:test": "npm --prefix tools/conversion run literary:test"
   },
   "dependencies": {
     "@react-spring/three": "^9.7.3",
