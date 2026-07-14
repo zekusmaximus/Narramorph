@@ -63,8 +63,18 @@ jobs:
       - run: npm --prefix tools/conversion test
       - run: npm run content:validate:runtime
       - run: npm run content:validate
+      - run: npm run literary:stage -- eternal-return-literary-v1.0.0
+      - run: npm run literary:validate
       - run: npm run build
       - run: npm run bundle:check
+      - name: Upload literary release intake report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: literary-release-intake-report
+          path: build/literary-import-staging/
+          if-no-files-found: warn
+          retention-days: 7
       - name: Upload bundle report
         if: always()
         uses: actions/upload-artifact@v4

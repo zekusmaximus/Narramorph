@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "acceptedReleaseId": "eternal-return-literary-v1.0.0",
+  "acceptedContentSha256": "4fc7ce7f55e359ed5c25abe8a399ceeb60c45ee965d722d6a8e83d200909d7ad",
+  "acceptedAssetSha256": "d1f10baadeb89bddbbde95fe5359c9669261fe69b8d65c4b9378a8f53410c6f5",
+  "sourceCommit": "5c968c287eea71be40ca7ee3234e0d62153f1b4e",
+  "sourcePath": "literary-releases/source/eternal-return-literary-v1.0.0.json",
+  "sourceUrl": "https://github.com/zekusmaximus/Eternal_Return_Manuscript/releases/download/literary-release-v1.0.0/eternal-return-literary-v1.0.0.json",
+  "contentLicense": "LicenseRef-Eternal-Return-All-Rights-Reserved",
+  "acceptedAt": "2026-07-14T22:49:00Z",
+  "acceptanceAuthority": {
+    "scope": "Phase 2 literary-to-runtime handoff authorized by the repository owner request",
+    "permissionArtifact": "INTERACTIVE_USE_PERMISSION.md",
+    "deploymentAuthorized": false
+  },
+  "concordancePath": "story-packages/concordance/eternal-return.v1.json",
+  "concordanceSha256": "202ecc2f2ef35d6f79b71327061ea85e247f047b55b7df4c8edf0fa8d74b44b7",
+  "storyPackage": {
+    "storyId": "eternal-return",
+    "storyVersion": "1.0.1",
+    "schemaVersion": "1.0.0",
+    "contentHash": "25978ded017ccb5b6536d576b2e6a02f4b218a5d6b62b4eb35a82864eb7837f4",
+    "editorialReleaseId": "eternal-return-literary-v1.0.0",
+    "sourceManuscriptCommit": "5c968c287eea71be40ca7ee3234e0d62153f1b4e"
+  },
+  "runtimeProsePolicy": "metadata-only; never overwrite runtime prose",
+  "runtimeContentProof": {
+    "trackedFileCount": 577,
+    "beforeTreeSha256": "af4cea821626bbd0a92b119bbbb27f0f92aa03abbee7b112a1a6794cc3cb6f60",
+    "afterTreeSha256": "af4cea821626bbd0a92b119bbbb27f0f92aa03abbee7b112a1a6794cc3cb6f60"
+  },
+  "reviewedSemanticDiff": {
+    "baselineReleaseId": null,
+    "classification": "initial-intake",
+    "reportSha256": "d96e283538413bcd81ef3c531e6c48b7bc69ef935e4b474d749ba859b3a5acf9"
+  }
+}

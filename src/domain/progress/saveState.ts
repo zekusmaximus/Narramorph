@@ -15,6 +15,7 @@ export const CURRENT_APP_VERSION = '0.1.0';
 export type SaveMigration =
   | 'app-version'
   | 'story-package-identity'
+  | 'story-package-provenance'
   | 'temporal-awareness'
   | 'l2-unlocks'
   | 'l3-convergence';
@@ -22,6 +23,25 @@ export type SaveMigration =
 export interface PreparedSavedState {
   savedState: SavedState;
   migrations: SaveMigration[];
+}
+
+const PROVENANCE_ONLY_PREDECESSORS: ReadonlyArray<Readonly<StoryPackageIdentity>> = [
+  {
+    storyId: 'eternal-return',
+    storyVersion: '1.0.0',
+    schemaVersion: '1.0.0',
+    contentHash: 'f5239eceba8d443e74ed7ffa70ee1a28a4886bc54cdc5b2a428b4ed705d07e02',
+  },
+];
+
+function isProvenanceOnlyPredecessor(identity: Readonly<StoryPackageIdentity>): boolean {
+  return PROVENANCE_ONLY_PREDECESSORS.some(
+    (candidate) =>
+      candidate.storyId === identity.storyId &&
+      candidate.storyVersion === identity.storyVersion &&
+      candidate.schemaVersion === identity.schemaVersion &&
+      candidate.contentHash === identity.contentHash,
+  );
 }
 
 /**
@@ -74,7 +94,7 @@ export function prepareSavedState(
   const progress: UserProgress = { ...savedState.progress };
   const migrations: SaveMigration[] = [];
   const appVersion = savedState.appVersion || CURRENT_APP_VERSION;
-  const storyPackage = savedState.storyPackage
+  let storyPackage = savedState.storyPackage
     ? { ...savedState.storyPackage }
     : { ...CURRENT_STORY_PACKAGE };
 
@@ -84,6 +104,9 @@ export function prepareSavedState(
 
   if (!savedState.storyPackage) {
     migrations.push('story-package-identity');
+  } else if (isProvenanceOnlyPredecessor(savedState.storyPackage)) {
+    storyPackage = { ...CURRENT_STORY_PACKAGE };
+    migrations.push('story-package-provenance');
   }
 
   if (progress.temporalAwarenessLevel === undefined) {

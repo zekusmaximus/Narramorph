@@ -158,6 +158,29 @@ describe('saved-state persistence boundary', () => {
     expect(legacy.appVersion).toBeUndefined();
   });
 
+  it('migrates the exact pre-release package identity without losing journey progress', () => {
+    const progress = createInitialProgress();
+    addVisit(progress, 'arch-L1', 2);
+    const predecessor = buildSavedState(
+      progress,
+      createInitialPreferences(),
+      '2026-07-12T12:00:00.000Z',
+      {
+        storyId: 'eternal-return',
+        storyVersion: '1.0.0',
+        schemaVersion: '1.0.0',
+        contentHash: 'f5239eceba8d443e74ed7ffa70ee1a28a4886bc54cdc5b2a428b4ed705d07e02',
+      },
+    );
+
+    const result = prepareSavedState(predecessor, new Map());
+
+    expect(result?.migrations).toEqual(['story-package-provenance']);
+    expect(result?.savedState.storyPackage).toEqual(CURRENT_STORY_PACKAGE);
+    expect(result?.savedState.progress).toEqual(progress);
+    expect(predecessor.storyPackage.storyVersion).toBe('1.0.0');
+  });
+
   it('leaves current saved-state values intact when no migration is needed', () => {
     const savedState = buildSavedState(
       createInitialProgress(),
