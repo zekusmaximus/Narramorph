@@ -9,7 +9,7 @@ Updated: July 14, 2026
 | Batch | Status | Acceptance evidence / remaining gate |
 | --- | --- | --- |
 | 1.1 — Documentation and package metadata | Complete | PRs #103 and Eternal_Return_Manuscript#42 merged; supported-environment, live-count, UTF-8 regression, and post-merge `main` gates passed. |
-| 1.2 — Release-quality CI and required checks | Not started | Clean-clone workflows, negative fixtures, stable check names, and safe protection pending. |
+| 1.2 — Release-quality CI and required checks | In progress | Product PR #105 and manuscript PR #43 are open; stable checks are being observed before protection. |
 | 1.3 — Dependency and security stabilization | Not started | Audit path review, upgrades, security policy, automated updates, and final scans pending. |
 | 1.4 — Performance budgets and lazy boundaries | Not started | Must begin after major dependency upgrades merge. |
 
@@ -122,11 +122,23 @@ The Narramorph branch passed formatting, type checking, all 163 unit tests, seve
 
 The manuscript branch reproduced 28 canonical chapters and 85,114 counted words, assembled 28 chapters and 85,138 words with every ending present, completed `edit_status.py` under Windows, and passed the UTF-8 subprocess regression while forcing CP1252 as the inherited console encoding. PR #42 passed its available GitGuardian check. No canonical manuscript prose changed.
 
+## Batch 1.2 measured gates
+
+Narramorph PR #105 defines these stable product checks: `PR / fast`, `Quality / coverage`, `Release / content-build`, `Release / browser`, `Compatibility / node-24`, `Security / dependency-review`, and `Security / secret-scan`. The Playwright job installs the Chromium revision locked by `@playwright/test` and retains failure-only traces, screenshots, and video for five days. Coverage and bundle reports are retained for seven days.
+
+Focused V8 coverage over domain logic, the progress repository/story store, content/variation validators, and critical map/reader presentation boundaries measured 64.65% statements/lines, 73.85% branches, and 28.72% functions after the synthetic malformed-package test was added. Enforced regression floors are 60%, 70%, and 25% respectively.
+
+The production baseline at `7a6c53df5219282038e989455bb541c67a00eb0d` measured 15,458,162 raw / 3,159,421 gzip JavaScript bytes, an 11,301,850 raw / 2,462,315 gzip largest JavaScript asset, and 65,512 raw / 11,958 gzip CSS bytes. `config/bundle-budgets.json` records approximately 5% headroom for each metric and `npm run bundle:check` emits both JSON and Markdown evidence.
+
+Manuscript PR #43 defines `Manuscript / linux` and `Manuscript / windows-utf8`. Both run the four unit/regression tests plus stats, assembly and ending verification, deterministic continuity checking, UTF-8 status, every Movement Two voice/philosophy/genre/phrase/rhyme check, the Movement Two rhyme sequence, and the applicable Movement Three rhyme/alternation/dissolution checks. The deliberately truncated synthetic ending is detected as a missing ending. Canonical prose remains unchanged.
+
 ## Delivery record
 
 | Batch | Repository | Branch | Pull request | Merge commit |
 | --- | --- | --- | --- | --- |
 | 1.1 | Narramorph | `agent/phase-1-batch-1-1` | [#103](https://github.com/zekusmaximus/Narramorph/pull/103) | `893e15ada136677f79cf269bb90fbaf23fef09dc` |
 | 1.1 | Eternal_Return_Manuscript | `agent/phase-1-batch-1-1` | [#42](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/42) | `161dc64b472cf157b2c7ecf85f150961e6d4828d` |
+| 1.2 | Narramorph | `agent/phase-1-batch-1-2` | [#105](https://github.com/zekusmaximus/Narramorph/pull/105) | Pending |
+| 1.2 | Eternal_Return_Manuscript | `agent/phase-1-batch-1-2` | [#43](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/43) | Pending |
 
 Later batch branches, PRs, required-check names, merge commits, protection settings, performance measurements, budgets, accepted risks, and owner-approved variances will be appended as they become reproducible facts.

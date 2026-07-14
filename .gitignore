@@ -137,6 +137,7 @@ test-results/
 playwright-report/
 playwright/.cache/
 output/playwright/
+output/bundle/
 
 # Content conversion artifacts
 *.tmp
