@@ -27,6 +27,18 @@ npm install
 
 ## Usage
 
+### Story Package Contract v1
+
+The same generic builder and validator process the two synthetic fixtures and Eternal Return. The contract inventory hashes authored runtime prose but never writes it.
+
+```bash
+npm run story-package:build
+npm run story-package:validate
+npm run story-package:test
+```
+
+See [`docs/contracts/story-package-v1.md`](../../docs/contracts/story-package-v1.md) for identity, canonicalization, hash coverage, compatibility, and generated-file boundaries.
+
 ### Convert L1 (Week 1)
 
 ```bash

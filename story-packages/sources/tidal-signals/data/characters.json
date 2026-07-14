@@ -1,0 +1,26 @@
+{
+  "character": "signal-keeper",
+  "nodes": [
+    {
+      "id": "signal-shore",
+      "layer": 1,
+      "chapterTitle": "Synthetic Shore",
+      "connections": ["signal-crossing"],
+      "contentFile": "content/shore.json"
+    },
+    {
+      "id": "signal-crossing",
+      "layer": 2,
+      "chapterTitle": "Synthetic Crossing",
+      "connections": ["signal-harbor"],
+      "contentFile": "content/crossing.json"
+    },
+    {
+      "id": "signal-harbor",
+      "layer": 4,
+      "chapterTitle": "Synthetic Harbor",
+      "connections": [],
+      "contentFile": "content/harbor.json"
+    }
+  ]
+}

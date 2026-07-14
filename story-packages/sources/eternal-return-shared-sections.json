@@ -1,0 +1,12 @@
+{
+  "character": "convergence-section",
+  "nodes": [
+    {
+      "id": "conv-L3",
+      "layer": 3,
+      "chapterTitle": "Shared Convergence Section",
+      "connections": [],
+      "contentFile": "content/layer3/conv-L3-variations.json"
+    }
+  ]
+}

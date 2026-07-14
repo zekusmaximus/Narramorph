@@ -1,0 +1,15 @@
+{
+  "nodeId": "garden-start",
+  "variations": [
+    {
+      "id": "garden-start-v1",
+      "transformationState": "initial",
+      "content": "A paper bird tests a brass seed under an invented violet sun.",
+      "metadata": {
+        "conditions": {
+          "fixtureChoice": "wind"
+        }
+      }
+    }
+  ]
+}

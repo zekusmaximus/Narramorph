@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://narramorph.example/schemas/story-package/v1/variation.schema.json",
+  "title": "Story Package Variation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "stableKey",
+    "legacyId",
+    "passageId",
+    "proseBeatIds",
+    "conditionIds",
+    "sourcePath",
+    "contentDigest"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^spv1_var_[0-9a-f]{24}$" },
+    "stableKey": { "type": "string", "minLength": 1 },
+    "legacyId": { "type": "string", "minLength": 1 },
+    "passageId": { "type": "string", "pattern": "^spv1_psg_[0-9a-f]{24}$" },
+    "proseBeatIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^spv1_bet_[0-9a-f]{24}$" }
+    },
+    "conditionIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^spv1_cnd_[0-9a-f]{24}$" }
+    },
+    "sourcePath": { "type": "string", "minLength": 1 },
+    "contentDigest": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+  }
+}

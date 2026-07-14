@@ -1,0 +1,9 @@
+{
+  "metadata": {
+    "id": "fixture-tidal-signals",
+    "title": "Tidal Signals Contract Fixture"
+  },
+  "structure": {
+    "endingNodes": ["signal-harbor"]
+  }
+}

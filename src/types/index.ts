@@ -27,6 +27,7 @@ export type {
   UnlockedTransformation,
   UserProgress,
   UserPreferences,
+  StoryPackageIdentity,
   SavedState,
   ReadingStats,
   ValidationResult,

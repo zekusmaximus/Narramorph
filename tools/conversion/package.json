@@ -36,7 +36,10 @@
     "diff": "tsx diff-content.ts",
     "rollback": "tsx rollback.ts",
     "type-check": "tsc --noEmit",
-    "repair:l2l3": "tsx repair-l2-l3-source.ts"
+    "repair:l2l3": "tsx repair-l2-l3-source.ts",
+    "story-package:build": "tsx story-package.ts build-all",
+    "story-package:validate": "tsx story-package.ts validate-all",
+    "story-package:test": "vitest run tests/story-package.test.ts"
   },
   "dependencies": {
     "yaml": "2.9.0",

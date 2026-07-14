@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "eternal-return",
+  "storyVersion": "1.0.0",
+  "title": "Eternal Return of the Digital Self",
+  "sourceRoot": "../..",
+  "storyFile": "src/data/stories/eternal-return/story.json",
+  "characterFiles": [
+    "src/data/stories/eternal-return/algorithm.json",
+    "src/data/stories/eternal-return/archaeologist.json",
+    "src/data/stories/eternal-return/human.json",
+    "src/data/stories/eternal-return/terminals.json",
+    "story-packages/sources/eternal-return-shared-sections.json"
+  ],
+  "variationGlobs": [
+    "src/data/stories/eternal-return/content/layer1/*-variations.json",
+    "src/data/stories/eternal-return/content/layer2/*-variations.json",
+    "src/data/stories/eternal-return/content/layer3/variations/*.json",
+    "src/data/stories/eternal-return/content/layer4/terminal-variations.json"
+  ],
+  "passageAliases": {
+    "L3-conv": "conv-L3",
+    "L4-preserve": "final-preserve",
+    "L4-release": "final-release",
+    "L4-transform": "final-transform"
+  },
+  "sourceManuscriptCommit": "47d2453cb7b895569ccb7398dcf40dc304422ba9",
+  "editorialReleaseId": "legacy-runtime-baseline-2026-07-14",
+  "supportedAppRange": ">=0.1.0 <0.2.0",
+  "sourceDateEpoch": "2026-07-14T20:40:00.000Z",
+  "licenses": [
+    {
+      "spdx": "LicenseRef-Narramorph-All-Rights-Reserved",
+      "scope": "eternal-return-story-content",
+      "attribution": "Copyright (c) 2026 zekusmaximus. Eternal Return of the Digital Self; see CONTENT_LICENSE.md and THIRD_PARTY_NOTICES.md."
+    },
+    {
+      "spdx": "MIT",
+      "scope": "package-contract-metadata-and-tooling",
+      "attribution": "Narramorph contributors; see LICENSE."
+    }
+  ],
+  "provenance": [
+    {
+      "relation": "canonical-manuscript",
+      "repository": "https://github.com/zekusmaximus/Eternal_Return_Manuscript",
+      "commit": "47d2453cb7b895569ccb7398dcf40dc304422ba9",
+      "releaseId": "legacy-runtime-baseline-2026-07-14",
+      "path": "manuscript"
+    },
+    {
+      "relation": "authored-runtime",
+      "repository": "https://github.com/zekusmaximus/Narramorph",
+      "commit": "cea183de6766715f92527fcd12b2c19c81d3c29a",
+      "releaseId": "narramorph-main-cea183d",
+      "path": "src/data/stories/eternal-return"
+    }
+  ],
+  "explanations": [
+    {
+      "stableKey": "runtime-catalog-scope-v1",
+      "subjectType": "passage",
+      "subjectStableKey": "arch-L1",
+      "kind": "contract-scope",
+      "summary": "The catalog records stable identity and content digests; authored runtime prose remains in its existing source files."
+    }
+  ]
+}

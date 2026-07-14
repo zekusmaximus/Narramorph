@@ -1,0 +1,9 @@
+{
+  "metadata": {
+    "id": "fixture-clockwork-garden",
+    "title": "Clockwork Garden Contract Fixture"
+  },
+  "structure": {
+    "endingNodes": ["garden-return"]
+  }
+}

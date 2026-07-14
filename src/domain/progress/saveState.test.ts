@@ -3,10 +3,12 @@ import { describe, expect, it, vi } from 'vitest';
 vi.unmock('@/utils/validation');
 
 import { createInitialPreferences, createInitialProgress } from '@/domain/progress/progressModel';
+import { CURRENT_STORY_PACKAGE } from '@/domain/progress/storyPackageIdentity';
 import type { StoryNode, UserProgress } from '@/types';
 
 import {
   buildSavedState,
+  CURRENT_APP_VERSION,
   CURRENT_SAVE_VERSION,
   prepareSavedState,
   serializeSavedState,
@@ -48,7 +50,7 @@ function addVisit(progress: UserProgress, nodeId: string, visitCount = 1): void 
 }
 
 describe('saved-state persistence boundary', () => {
-  it('builds and serializes the existing 1.0.0 save envelope', () => {
+  it('builds and serializes the 1.1.0 save envelope with exact story-package identity', () => {
     const progress = createInitialProgress();
     const preferences = createInitialPreferences();
     const timestamp = '2026-07-12T12:00:00.000Z';
@@ -57,6 +59,8 @@ describe('saved-state persistence boundary', () => {
 
     expect(savedState).toEqual({
       version: CURRENT_SAVE_VERSION,
+      appVersion: CURRENT_APP_VERSION,
+      storyPackage: CURRENT_STORY_PACKAGE,
       timestamp,
       progress,
       preferences,
@@ -88,7 +92,7 @@ describe('saved-state persistence boundary', () => {
     expect(prepareSavedState(data, new Map())).toBeNull();
   });
 
-  it('migrates missing legacy fields without changing the schema version or input object', () => {
+  it('migrates missing legacy progress fields without mutating the input object', () => {
     const progress = createInitialProgress();
     addVisit(progress, 'arch-L1', 2);
     addVisit(progress, 'algo-L1', 1);
@@ -132,6 +136,26 @@ describe('saved-state persistence boundary', () => {
     expect(result?.savedState.progress.lockedNodes).toEqual([]);
     expect(legacyProgress.temporalAwarenessLevel).toBeUndefined();
     expect(legacyProgress.unlockedL2Characters).toBeUndefined();
+  });
+
+  it('migrates a 1.0.0 journey to the current Eternal Return package identity', () => {
+    const current = buildSavedState(
+      createInitialProgress(),
+      createInitialPreferences(),
+      '2026-07-12T12:00:00.000Z',
+    );
+    const legacy = { ...current, version: '1.0.0' } as Partial<typeof current>;
+    delete legacy.appVersion;
+    delete legacy.storyPackage;
+
+    const result = prepareSavedState(legacy, new Map());
+
+    expect(result?.migrations).toEqual(['app-version', 'story-package-identity']);
+    expect(result?.savedState.version).toBe(CURRENT_SAVE_VERSION);
+    expect(result?.savedState.appVersion).toBe(CURRENT_APP_VERSION);
+    expect(result?.savedState.storyPackage).toEqual(CURRENT_STORY_PACKAGE);
+    expect(legacy.storyPackage).toBeUndefined();
+    expect(legacy.appVersion).toBeUndefined();
   });
 
   it('leaves current saved-state values intact when no migration is needed', () => {

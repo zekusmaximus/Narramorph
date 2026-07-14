@@ -8,6 +8,7 @@ import type {
   VisitRecord,
   Theme,
   TextSize,
+  StoryPackageIdentity,
 } from '@/types';
 
 /**
@@ -124,6 +125,14 @@ export function isStoryNode(data: unknown): data is StoryNode {
  * Type guard for SavedState
  */
 export function isSavedState(data: unknown): data is SavedState {
+  return (
+    isSavedStateEnvelope(data) &&
+    isApplicationVersion(data.appVersion) &&
+    isStoryPackageIdentity(data.storyPackage)
+  );
+}
+
+function isSavedStateEnvelope(data: unknown): data is Record<string, unknown> {
   if (!data || typeof data !== 'object') {
     return false;
   }
@@ -134,9 +143,27 @@ export function isSavedState(data: unknown): data is SavedState {
     typeof state.timestamp === 'string' &&
     state.progress &&
     typeof state.progress === 'object' &&
-    state.preferences &&
+    !!state.preferences &&
     typeof state.preferences === 'object'
   );
+}
+
+export function isStoryPackageIdentity(data: unknown): data is StoryPackageIdentity {
+  if (!data || typeof data !== 'object') {
+    return false;
+  }
+  const identity = data as Record<string, unknown>;
+  return (
+    typeof identity.storyId === 'string' &&
+    typeof identity.storyVersion === 'string' &&
+    typeof identity.schemaVersion === 'string' &&
+    typeof identity.contentHash === 'string' &&
+    /^[0-9a-f]{64}$/.test(identity.contentHash)
+  );
+}
+
+function isApplicationVersion(data: unknown): data is string {
+  return typeof data === 'string' && /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.test(data);
 }
 
 /**
@@ -145,12 +172,20 @@ export function isSavedState(data: unknown): data is SavedState {
  * @returns true if valid SavedState
  */
 export function validateSavedState(data: unknown): boolean {
-  if (!isSavedState(data)) {
+  if (!isSavedStateEnvelope(data)) {
+    return false;
+  }
+
+  const hasCurrentIdentity = isStoryPackageIdentity(data.storyPackage);
+  const hasApplicationVersion = isApplicationVersion(data.appVersion);
+  const isMigratableLegacySave =
+    data.version === '1.0.0' && data.appVersion === undefined && data.storyPackage === undefined;
+  if ((!hasCurrentIdentity || !hasApplicationVersion) && !isMigratableLegacySave) {
     return false;
   }
 
   // Check required progress fields
-  const progress = data.progress;
+  const progress = data.progress as SavedState['progress'];
   if (
     !progress.visitedNodes ||
     !Array.isArray(progress.readingPath) ||
@@ -161,7 +196,7 @@ export function validateSavedState(data: unknown): boolean {
   }
 
   // Check preferences
-  const preferences = data.preferences;
+  const preferences = data.preferences as SavedState['preferences'];
   const validThemes: Theme[] = ['light', 'dark', 'sepia'];
   const validSizes: TextSize[] = ['small', 'medium', 'large'];
 

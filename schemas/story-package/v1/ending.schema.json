@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://narramorph.example/schemas/story-package/v1/ending.schema.json",
+  "title": "Story Package Ending v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "stableKey", "passageId"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^spv1_end_[0-9a-f]{24}$" },
+    "stableKey": { "type": "string", "minLength": 1 },
+    "passageId": { "type": "string", "pattern": "^spv1_psg_[0-9a-f]{24}$" }
+  }
+}

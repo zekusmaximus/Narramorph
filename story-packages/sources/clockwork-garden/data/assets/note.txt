@@ -1,0 +1,1 @@
+This is a synthetic resource used only to test package path and hash validation.

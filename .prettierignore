@@ -16,6 +16,8 @@ out/
 # Archives and generated code
 archive/
 tools/conversion/**/generated/
+story-packages/fixtures/
+story-packages/eternal-return/
 **/*.min.js
 **/*.min.css
 

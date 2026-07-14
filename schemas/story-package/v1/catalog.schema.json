@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://narramorph.example/schemas/story-package/v1/catalog.schema.json",
+  "title": "Narramorph Story Package Catalog v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "characters",
+    "passages",
+    "variations",
+    "conditions",
+    "proseBeats",
+    "edges",
+    "endings",
+    "explanations",
+    "resources"
+  ],
+  "properties": {
+    "characters": { "type": "array", "items": { "$ref": "character.schema.json" } },
+    "passages": { "type": "array", "items": { "$ref": "passage.schema.json" } },
+    "variations": { "type": "array", "items": { "$ref": "variation.schema.json" } },
+    "conditions": { "type": "array", "items": { "$ref": "condition.schema.json" } },
+    "proseBeats": { "type": "array", "items": { "$ref": "prose-beat.schema.json" } },
+    "edges": { "type": "array", "items": { "$ref": "edge.schema.json" } },
+    "endings": { "type": "array", "items": { "$ref": "ending.schema.json" } },
+    "explanations": { "type": "array", "items": { "$ref": "explanation.schema.json" } },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256", "byteLength", "mediaType", "purpose"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "byteLength": { "type": "integer", "minimum": 0 },
+          "mediaType": { "type": "string", "minLength": 1 },
+          "purpose": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

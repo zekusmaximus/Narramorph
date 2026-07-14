@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://narramorph.example/schemas/story-package/v1/edge.schema.json",
+  "title": "Story Package Edge v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "stableKey", "fromPassageId", "toPassageId"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^spv1_edg_[0-9a-f]{24}$" },
+    "stableKey": { "type": "string", "minLength": 1 },
+    "fromPassageId": { "type": "string", "pattern": "^spv1_psg_[0-9a-f]{24}$" },
+    "toPassageId": { "type": "string", "pattern": "^spv1_psg_[0-9a-f]{24}$" }
+  }
+}
