@@ -1,6 +1,6 @@
 # Content ownership and reproducibility
 
-Updated: July 12, 2026
+Updated: July 14, 2026
 
 This document defines which story files are authored, generated, or consumed directly by the application. It describes the current repository boundary; `docs/archive/` remains historical context only.
 
@@ -41,6 +41,19 @@ The application imports these files directly:
 - `selection-matrix.json`.
 
 The L3 individual files, terminal aggregate, runtime profile, and conversion manifest remain checked in as reproducible conversion inputs or outputs and are cross-checked against their aggregates where applicable.
+
+## Cross-repository literary release boundary
+
+`Eternal_Return_Manuscript` is the canonical long-form literary/editorial source. Narramorph's checked-in story graph and runtime passages are a separately authored interactive edition. The authority and approval workflow is defined by [ADR 0002](adr/0002-content-authority-and-edition-semantics.md).
+
+- A manuscript literary release may supply versioned structured context, constraints, provenance, and explicitly approved excerpts. It is not an authoring tree for Narramorph.
+- Import is staging-only until a reviewed pull request accepts release metadata and concordance changes.
+- No importer may create, replace, normalize, or edit narrative content beneath `src/data/stories/`. Runtime prose changes remain authored diffs.
+- No Narramorph build, test, runtime, or reader export may fetch another repository or depend on GitHub credentials.
+- No Narramorph command may write into a manuscript checkout.
+- Generated staging/output declares its source and do-not-edit boundary and remains separate from checked-in authored inputs.
+
+A reader-specific journey export is derived from an identified application/save version and story-package version. It is never an authoring input for the manuscript or runtime edition.
 
 ## Commands
 

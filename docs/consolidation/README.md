@@ -4,7 +4,7 @@ This directory is the authoritative implementation record for bringing the four 
 
 ## Current phase
 
-Phases 0 and 1 are complete. Phase 2 is the next roadmap phase and has not started. Reproducible Phase 1 evidence is recorded in [the Phase 1 execution record](PHASE_1_EXECUTION.md).
+Phases 0 and 1 are complete. Phase 2 is in progress through Batches 2.1–2.5 under issues #125–#129. Reproducible evidence is maintained in [the Phase 2 execution record](PHASE_2_EXECUTION.md).
 
 ## Phase 0 scope
 
@@ -16,6 +16,7 @@ Phases 0 and 1 are complete. Phase 2 is the next roadmap phase and has not start
 
 - [Phase 0 execution record](PHASE_0_EXECUTION.md)
 - [Phase 1 execution record](PHASE_1_EXECUTION.md)
+- [Phase 2 execution record](PHASE_2_EXECUTION.md)
 - [Verified pre-consolidation baseline](BASELINE.md)
 - [Feature extraction matrix](FEATURE_EXTRACTION_MATRIX.md)
 - [Provenance policy](../PROVENANCE.md)
