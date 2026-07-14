@@ -8,7 +8,7 @@ Updated: July 14, 2026
 
 | Batch | Status | Acceptance evidence / remaining gate |
 | --- | --- | --- |
-| 1.1 — Documentation and package metadata | In progress | Baseline captured; Narramorph and Manuscript implementation PRs pending. |
+| 1.1 — Documentation and package metadata | Complete | PRs #103 and Eternal_Return_Manuscript#42 merged; supported-environment, live-count, UTF-8 regression, and post-merge `main` gates passed. |
 | 1.2 — Release-quality CI and required checks | Not started | Clean-clone workflows, negative fixtures, stable check names, and safe protection pending. |
 | 1.3 — Dependency and security stabilization | Not started | Audit path review, upgrades, security policy, automated updates, and final scans pending. |
 | 1.4 — Performance budgets and lazy boundaries | Not started | Must begin after major dependency upgrades merge. |
@@ -116,11 +116,17 @@ The tracked-path/content and database-URL history scans found no sensitive filen
 
 The Phase C validator failures are pre-existing tooling/configuration drift, not authorization to change canonical prose. Batch 1.2 must decide which validators are applicable release gates and update synthetic/tooling expectations without rewriting the manuscript.
 
+## Batch 1.1 completion evidence
+
+The Narramorph branch passed formatting, type checking, all 163 unit tests, seven runtime-content tests, strict validation of all 288 content documents, and all 110 conversion-tool tests. PR #103 and post-merge `main` [workflow run 29341477018](https://github.com/zekusmaximus/Narramorph/actions/runs/29341477018) for `893e15ada136677f79cf269bb90fbaf23fef09dc` completed successfully.
+
+The manuscript branch reproduced 28 canonical chapters and 85,114 counted words, assembled 28 chapters and 85,138 words with every ending present, completed `edit_status.py` under Windows, and passed the UTF-8 subprocess regression while forcing CP1252 as the inherited console encoding. PR #42 passed its available GitGuardian check. No canonical manuscript prose changed.
+
 ## Delivery record
 
 | Batch | Repository | Branch | Pull request | Merge commit |
 | --- | --- | --- | --- | --- |
-| 1.1 | Narramorph | `agent/phase-1-batch-1-1` | [#103](https://github.com/zekusmaximus/Narramorph/pull/103) | Pending |
-| 1.1 | Eternal_Return_Manuscript | `agent/phase-1-batch-1-1` | [#42](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/42) | Pending |
+| 1.1 | Narramorph | `agent/phase-1-batch-1-1` | [#103](https://github.com/zekusmaximus/Narramorph/pull/103) | `893e15ada136677f79cf269bb90fbaf23fef09dc` |
+| 1.1 | Eternal_Return_Manuscript | `agent/phase-1-batch-1-1` | [#42](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/42) | `161dc64b472cf157b2c7ecf85f150961e6d4828d` |
 
 Later batch branches, PRs, required-check names, merge commits, protection settings, performance measurements, budgets, accepted risks, and owner-approved variances will be appended as they become reproducible facts.
