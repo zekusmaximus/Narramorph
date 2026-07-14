@@ -52,6 +52,26 @@ updates:
           - minor
           - patch
 
+  - package-ecosystem: npm
+    directory: /tools
+    schedule:
+      interval: weekly
+      day: monday
+      time: '09:45'
+      timezone: America/New_York
+    open-pull-requests-limit: 3
+    groups:
+      legacy-tools-security:
+        applies-to: security-updates
+        patterns:
+          - '*'
+      legacy-tools-runtime-minor:
+        applies-to: version-updates
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+
   - package-ecosystem: github-actions
     directory: /
     schedule:
