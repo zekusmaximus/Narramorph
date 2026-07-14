@@ -4,16 +4,16 @@ Updated: July 14, 2026
 
 ## Status
 
-**In progress.** Phase 0 is complete. Phase 1 work is tracked in Narramorph issues [#99](https://github.com/zekusmaximus/Narramorph/issues/99), [#100](https://github.com/zekusmaximus/Narramorph/issues/100), [#101](https://github.com/zekusmaximus/Narramorph/issues/101), and [#102](https://github.com/zekusmaximus/Narramorph/issues/102), under epic [#93](https://github.com/zekusmaximus/Narramorph/issues/93).
+**Complete.** Phase 1 established Narramorph as the stable product integration target. Narramorph issues [#99](https://github.com/zekusmaximus/Narramorph/issues/99), [#100](https://github.com/zekusmaximus/Narramorph/issues/100), [#101](https://github.com/zekusmaximus/Narramorph/issues/101), and [#102](https://github.com/zekusmaximus/Narramorph/issues/102) satisfy their acceptance gates under the still-open consolidation epic [#93](https://github.com/zekusmaximus/Narramorph/issues/93).
 
 | Batch | Status | Acceptance evidence / remaining gate |
 | --- | --- | --- |
 | 1.1 — Documentation and package metadata | Complete | PRs #103 and Eternal_Return_Manuscript#42 merged; supported-environment, live-count, UTF-8 regression, and post-merge `main` gates passed. |
 | 1.2 — Release-quality CI and required checks | Complete | PRs #105 and Eternal_Return_Manuscript#43 merged; all current `main` checks passed and are protected. |
 | 1.3 — Dependency and security stabilization | Complete | PRs #107–#112, Eternal_Return_Manuscript#44, zero-audit/zero-alert evidence, private reporting, protected secret scans, and updater dispositions recorded below. |
-| 1.4 — Performance budgets and lazy boundaries | Implementation complete; merge and closure pending | Production opening graph is 578.16 KiB raw / 183.75 KiB gzip, story and 3D requests are deferred, desktop/mobile performance checks pass, and the complete protected validation suite remains to be recorded on `main`. |
+| 1.4 — Performance budgets and lazy boundaries | Complete | PR #123 merged; the production opening graph is 578.16 KiB raw / 183.75 KiB gzip, story and 3D requests are deferred, desktop/mobile budgets pass, and post-merge `main` run 29363302455 passed all seven protected checks. |
 
-Phase 1 is not complete until every batch gate is met, all implementation PRs are merged, current `main` checks are green and enforced, and the closure PR records final evidence.
+Every batch gate is met, all implementation PRs are merged, current `main` checks are green and enforced, and this closure record contains the final reproducible evidence. Epic #93 remains open for the later consolidation phases.
 
 ## Scope and authority
 
@@ -191,7 +191,7 @@ The optimized initial request list is exactly the application entry, React, stat
 
 The focused production Playwright regression passes both profiles. It proves story and 3D assets are absent initially, observes the focus-preserving passage loading state, verifies the exact L1 request and completed passage, observes the focus-preserving 3D loading state, and verifies the delayed 3D request and working spatial surface. Playwright runs one worker so the performance profile is not distorted by other repository tests competing for CPU.
 
-The complete local validation passed: type checking; formatting; lint with 33 warnings and no errors; 37 files / 165 product tests; 68.08% statements/lines, 72.93% branches, and 31.22% functions in the focused coverage gate; 8 runtime-content tests; strict validation of all 288 content files; conversion-tool type checking and 11 files / 110 tests; the production build; every manifest-aware bundle budget; and all 11 Chromium accessibility, responsive, reader-journey, fallback, and performance tests. Implementation PR [#123](https://github.com/zekusmaximus/Narramorph/pull/123) carries these changes. Its merge SHA and the post-merge protected `main` run will be appended before issue #102 and Phase 1 are closed.
+The complete local validation passed: type checking; formatting; lint with 33 warnings and no errors; 37 files / 165 product tests; 68.08% statements/lines, 72.93% branches, and 31.22% functions in the focused coverage gate; 8 runtime-content tests; strict validation of all 288 content files; conversion-tool type checking and 11 files / 110 tests; the production build; every manifest-aware bundle budget; and all 11 Chromium accessibility, responsive, reader-journey, fallback, and performance tests. Implementation PR [#123](https://github.com/zekusmaximus/Narramorph/pull/123) merged as `44096d99d558f97ca209ef26be3e599f0cceb44e`. Post-merge `main` [run 29363302455](https://github.com/zekusmaximus/Narramorph/actions/runs/29363302455) passed `PR / fast`, `Quality / coverage`, `Release / content-build`, `Release / browser`, `Compatibility / node-24`, `Security / dependency-review`, and `Security / secret-scan`.
 
 ## Delivery record
 
@@ -208,6 +208,6 @@ The complete local validation passed: type checking; formatting; lint with 33 wa
 | 1.3 | Narramorph | `dependabot/github_actions/actions/setup-node-7` | [#110](https://github.com/zekusmaximus/Narramorph/pull/110) | `9a7398c078f000507c5fe1a8ce1d80233940844c` |
 | 1.3 | Narramorph | `dependabot/github_actions/actions/dependency-review-action-5` | [#111](https://github.com/zekusmaximus/Narramorph/pull/111) | `545bdd203eecc8194d5a9209a39f04ea49672c14` |
 | 1.3 | Narramorph | `dependabot/github_actions/gitleaks/gitleaks-action-3` | [#112](https://github.com/zekusmaximus/Narramorph/pull/112) | `9f294bed565b0025c52af38f4588a5e56ac5b459` |
-| 1.4 | Narramorph | `agent/phase-1-batch-1-4-performance` | [#123](https://github.com/zekusmaximus/Narramorph/pull/123) | Pending |
+| 1.4 | Narramorph | `agent/phase-1-batch-1-4-performance` | [#123](https://github.com/zekusmaximus/Narramorph/pull/123) | `44096d99d558f97ca209ef26be3e599f0cceb44e` |
 
-Later batch branches, PRs, required-check names, merge commits, protection settings, performance measurements, budgets, accepted risks, and owner-approved variances will be appended as they become reproducible facts.
+Phase 1 closes with no accepted critical/high advisory, no undisclosed security finding, no canonical-prose change, and no change to the approved license model. The documented single-maintainer review variance remains: required independent approval must be enabled when a second trusted maintainer joins. Required CI, PR-only changes for non-admins, conversation resolution, linear history, and force-push/deletion blocks remain enforced.

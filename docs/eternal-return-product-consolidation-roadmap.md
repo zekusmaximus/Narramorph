@@ -188,6 +188,8 @@ The product is ready for general availability only when all of the following are
 
 **Dependencies:** Phase 0 complete.
 
+**Status:** Complete as of July 14, 2026. Batches 1.1–1.4 met their acceptance gates; implementation PRs and post-merge protected checks are recorded in [`docs/consolidation/PHASE_1_EXECUTION.md`](consolidation/PHASE_1_EXECUTION.md). Epic #93 remains open for later phases.
+
 ## Batch 1.1 — Correct current documentation and package metadata
 
 **Work**
