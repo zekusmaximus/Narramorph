@@ -7,6 +7,9 @@ This directory separates current project guidance from historical planning recor
 - [Project overview](PROJECT_OVERVIEW.md): product vision, system shape, and scope.
 - [Current status](STATUS.md): the verified technical baseline as of July 12, 2026.
 - [Roadmap](ROADMAP.md): prioritized work from the current baseline.
+- [Product charter](PRODUCT_CHARTER.md): v1 audience, scope, non-goals, and repository roles.
+- [Product consolidation roadmap](eternal-return-product-consolidation-roadmap.md): ordered cross-repository implementation and archive gates.
+- [Consolidation program](consolidation/README.md): live execution status, baselines, and feature extraction.
 - [Contributing](../CONTRIBUTING.md): development workflow and review expectations.
 
 ## Durable references

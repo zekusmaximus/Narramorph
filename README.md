@@ -267,7 +267,12 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for:
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) file for details.
+Narramorph uses separate terms for software and creative content:
+
+- Software source code is available under the [MIT License](LICENSE).
+- Narrative prose, expressive story data, character/world material, editorial material, generated literary content, and first-party media are **all rights reserved** under the [content license](CONTENT_LICENSE.md).
+
+The MIT License does not grant permission to republish or create a separate derivative work from the reserved content.
 
 ---
 
