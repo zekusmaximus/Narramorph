@@ -2,7 +2,7 @@
  * Hook for selecting and displaying state-dependent narrative variations
  */
 
-import { useMemo } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { selectVariation } from '@/domain/variation/selection';
 import { useStoryStore } from '@/stores/storyStore';
@@ -49,6 +49,8 @@ export interface UseVariationSelectionResult {
   error: Error | null;
   /** Whether fallback content is being used */
   usedFallback: boolean;
+  /** Retry the exact passage import after an error */
+  retry: () => void;
 }
 
 /**
@@ -87,39 +89,85 @@ export function useVariationSelection(
     (state) => state.progress.journeyTracking?.dominantPhilosophy ?? 'unknown',
   );
 
-  return useMemo(() => {
-    // Increment render counter for tracking
+  const [requestVersion, setRequestVersion] = useState(0);
+  const retry = useCallback(() => setRequestVersion((version) => version + 1), []);
+  const [result, setResult] = useState<Omit<UseVariationSelectionResult, 'retry'>>({
+    content: '',
+    variationId: null,
+    metadata: null,
+    isLoading: false,
+    error: null,
+    usedFallback: false,
+  });
+
+  useEffect(() => {
+    let active = true;
     renderCount++;
     const currentRender = renderCount;
 
-    const context = nodeId ? getConditionContext(nodeId, { includeRecentVariations: true }) : null;
-    const result = selectVariation(
-      {
-        storyId: storyData?.metadata?.id || 'eternal-return',
-        nodeId,
-        fallbackContent,
-        context,
-      },
-      { loadVariationFile, findMatchingVariation },
-    );
-
-    if (nodeId) {
-      devLog(`🎬 RENDER #${currentRender} for ${nodeId}`);
-    }
-    if (result.reason === 'missing-variations') {
-      devWarn(`⚠️  No variation file for ${nodeId}, using fallback content`);
-    } else if (result.reason === 'first-variation-fallback') {
-      devWarn(`⚠️  No matching variation for ${nodeId}, using first available`);
-    } else if (result.reason === 'selection-error') {
-      devError(`❌ Error selecting variation for ${nodeId}: %o`, result.error);
-    } else if (result.reason === 'matched') {
-      devLog(`📝 CHOICE RECORDED: ${nodeId} → ${result.variationId} [render #${currentRender}]`);
+    if (!nodeId) {
+      setResult({
+        content: '',
+        variationId: null,
+        metadata: null,
+        isLoading: false,
+        error: null,
+        usedFallback: false,
+      });
+      return () => {
+        active = false;
+      };
     }
 
-    return { ...result, isLoading: false };
-    // State values must be in deps to trigger re-selection when they change,
-    // even though they're read indirectly via getConditionContext()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const storyId = storyData?.metadata?.id || 'eternal-return';
+    const context = getConditionContext(nodeId, { includeRecentVariations: true });
+    setResult((previous) => ({ ...previous, isLoading: true, error: null }));
+    devLog(`🎬 ASYNC LOAD #${currentRender} for ${nodeId}`);
+
+    void loadVariationFile(storyId, nodeId)
+      .then((variationFile) => {
+        const selection = selectVariation(
+          { storyId, nodeId, fallbackContent, context },
+          { loadVariationFile: () => variationFile, findMatchingVariation },
+        );
+        if (!active) {
+          return;
+        }
+
+        if (selection.reason === 'missing-variations') {
+          devWarn(`⚠️  No variation file for ${nodeId}, using fallback content`);
+        } else if (selection.reason === 'first-variation-fallback') {
+          devWarn(`⚠️  No matching variation for ${nodeId}, using first available`);
+        } else if (selection.reason === 'selection-error') {
+          devError(`❌ Error selecting variation for ${nodeId}: %o`, selection.error);
+        } else if (selection.reason === 'matched') {
+          devLog(
+            `📝 CHOICE RECORDED: ${nodeId} → ${selection.variationId} [load #${currentRender}]`,
+          );
+        }
+        setResult({ ...selection, isLoading: false });
+      })
+      .catch((error: unknown) => {
+        if (!active) {
+          return;
+        }
+        const normalizedError = error instanceof Error ? error : new Error(String(error));
+        devError(`❌ Error loading variation for ${nodeId}: %o`, normalizedError);
+        setResult({
+          content: fallbackContent ?? '',
+          variationId: null,
+          metadata: null,
+          isLoading: false,
+          error: normalizedError,
+          usedFallback: true,
+        });
+      });
+
+    return () => {
+      active = false;
+    };
+    // State values trigger re-selection even though they are read through
+    // getConditionContext inside the effect.
   }, [
     nodeId,
     storyData?.metadata?.id,
@@ -130,5 +178,8 @@ export function useVariationSelection(
     currentState,
     currentJourneyPattern,
     dominantPhilosophy,
+    requestVersion,
   ]);
+
+  return { ...result, retry };
 }

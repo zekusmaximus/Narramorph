@@ -12,18 +12,37 @@ export default defineConfig({
   build: {
     target: 'es2020',
     outDir: 'dist',
-    sourcemap: true,
+    manifest: true,
+    // Public releases omit maps. A future monitoring integration must upload
+    // private maps during CI and remove them before publishing dist.
+    sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Split React and React DOM into separate chunk
-          'react-vendor': ['react', 'react-dom'],
-          // Split Zustand and Immer into state management chunk
-          'state-vendor': ['zustand', 'immer'],
-          // Split React Flow into separate chunk for better caching
-          'flow-vendor': ['@xyflow/react'],
-          // Split Framer Motion into separate chunk
-          'animation-vendor': ['framer-motion'],
+        manualChunks(id) {
+          const modulePath = id.replace(/\\/g, '/');
+          if (!modulePath.includes('/node_modules/')) {
+            return undefined;
+          }
+          if (
+            modulePath.includes('/node_modules/react/') ||
+            modulePath.includes('/node_modules/react-dom/') ||
+            modulePath.includes('/node_modules/scheduler/')
+          ) {
+            return 'react-vendor';
+          }
+          if (
+            modulePath.includes('/node_modules/zustand/') ||
+            modulePath.includes('/node_modules/immer/')
+          ) {
+            return 'state-vendor';
+          }
+          if (modulePath.includes('/node_modules/framer-motion/')) {
+            return 'animation-vendor';
+          }
+          if (modulePath.includes('/node_modules/@xyflow/')) {
+            return 'flow-vendor';
+          }
+          return undefined;
         },
       },
     },

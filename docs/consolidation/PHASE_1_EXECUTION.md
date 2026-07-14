@@ -11,7 +11,7 @@ Updated: July 14, 2026
 | 1.1 — Documentation and package metadata | Complete | PRs #103 and Eternal_Return_Manuscript#42 merged; supported-environment, live-count, UTF-8 regression, and post-merge `main` gates passed. |
 | 1.2 — Release-quality CI and required checks | Complete | PRs #105 and Eternal_Return_Manuscript#43 merged; all current `main` checks passed and are protected. |
 | 1.3 — Dependency and security stabilization | Complete | PRs #107–#112, Eternal_Return_Manuscript#44, zero-audit/zero-alert evidence, private reporting, protected secret scans, and updater dispositions recorded below. |
-| 1.4 — Performance budgets and lazy boundaries | Not started | Must begin after major dependency upgrades merge. |
+| 1.4 — Performance budgets and lazy boundaries | Implementation complete; merge and closure pending | Production opening graph is 578.16 KiB raw / 183.75 KiB gzip, story and 3D requests are deferred, desktop/mobile performance checks pass, and the complete protected validation suite remains to be recorded on `main`. |
 
 Phase 1 is not complete until every batch gate is met, all implementation PRs are merged, current `main` checks are green and enforced, and the closure PR records final evidence.
 
@@ -149,6 +149,49 @@ PR #109 added `SECURITY.md`, enabled private vulnerability reporting and automat
 Tracked-path scans found no sensitive tracked filename beyond the intended `.env.example`, no generated database/archive artifact, and no credential-pattern file. Full-history scans found no database URL or live credential match, and no value was printed. Narramorph and Manuscript both run full-history Gitleaks checks. Manuscript PR #44 added `Security / secret-scan` to its release workflow without touching canonical prose; `main` protection now strictly requires `Manuscript / linux`, `Manuscript / windows-utf8`, and `Security / secret-scan`.
 
 Narramorph post-merge `main` run [29351093329](https://github.com/zekusmaximus/Narramorph/actions/runs/29351093329) passed all seven protected product checks at `9f294bed565b0025c52af38f4588a5e56ac5b459`. Manuscript post-merge `main` run [29350511502](https://github.com/zekusmaximus/Eternal_Return_Manuscript/actions/runs/29350511502) passed all three protected manuscript checks at `9709fd5401b61c8f651d81acadf45e4566c5a16b`. No advisory is accepted or left unreviewed.
+
+## Batch 1.4 performance and lazy-boundary evidence
+
+### Method
+
+The pre-change production build was measured from Batch 1.3 `main` at `d2c01d80b81abcff7e8f5369d11803ed0e7edf86`. Measurements used Vite `7.3.6`, Chrome `150.0.0.0` through Chrome DevTools MCP, and Playwright `1.61.1`. The route was `/` with local storage cleared and the two-dimensional reader selected. Each LCP/CLS profile used three cold loads in isolated browser contexts; tables report all samples and the median. The representative network and main-thread records came from separate cold, instrumented loads.
+
+Desktop used a 1440×900 viewport, 1× CPU, and an unthrottled local network. Mid-range mobile used a 412×915 viewport at 2.625 device-pixel ratio with touch/mobile emulation, 4× CPU slowdown, and Chrome's Slow 4G profile. The interaction samples used trusted pointer/keyboard input on the mobile profile. Event Timing duration was recorded for opening the first Archaeologist passage and moving the 2D map selection with ArrowRight.
+
+Long-task totals include parse, evaluation, rendering, and layout work and are recorded as the reproducible main-thread proxy rather than attributing every task exclusively to JavaScript parsing. Chrome trace breakdowns found LCP dominated by render delay rather than server latency.
+
+### Before and after
+
+| Metric | Batch 1.3 baseline | Batch 1.4 optimized | Result |
+| --- | --: | --: | --: |
+| Opening/main JavaScript, raw | 11,116.35 KiB | 578.16 KiB opening graph | 94.8% lower |
+| Opening/main JavaScript, gzip | 2,410.34 KiB | 183.75 KiB opening graph | 92.4% lower |
+| Representative first-load transfer | 2,636,111 bytes | 205,735 bytes total; 190,549 bytes JavaScript | 92.2% lower total |
+| Desktop LCP samples | 3,030 / 3,147 / 3,002 ms | 1,805 / 2,236 / 2,290 ms | median 3,030 → 2,236 ms |
+| Desktop CLS | 0.00 | 0.00 | unchanged |
+| Desktop long tasks | 8 tasks, 1,057 ms total, 247 ms max | 2 tasks, 236 ms total, 139 ms max | 77.7% lower total |
+| Desktop DOMContentLoaded / load | about 1,575 ms representative | 272 / 503 ms representative | earlier interactive shell |
+| Mobile LCP samples | 24,675 / 22,637 / 21,931 ms | 4,467 / 4,626 / 6,384 ms | median 22,637 → 4,626 ms |
+| Mobile CLS | 0.00 | 0.00 | unchanged |
+| Mobile long tasks | 17–20 tasks, 4,987–5,863 ms total, 981–1,038 ms max | 15 tasks, 2,937 ms total, 750 ms max | lower total and worst task |
+| Mobile DOM interactive / DOMContentLoaded / load | DOMContentLoaded about 18,200 ms | 724 / 2,231 / 3,502 ms | earlier usable shell |
+| Mobile first-passage Event Timing | 984 ms | 712 ms, including its requested story chunk | 27.6% lower |
+| Mobile 2D-map ArrowRight Event Timing | 592 ms | 440 ms | 25.7% lower |
+
+The optimized initial request list is exactly the application entry, React, state, animation, NodeMap, React Flow, and the small story-presentation helper. It contains no story-content chunk, Three/React Three dependency, or 3D component. Opening `arch-L1` then requested only `arch-L1-variations` (11,365 transferred bytes in the representative mobile run). The 967.22 KiB raw / 277.04 KiB gzip `NarromorphCanvas` chunk was absent until the reader selected Experimental 3D, at which point it loaded successfully and exposed the named three-dimensional map application.
+
+### Boundaries and budgets
+
+- `Home` now lazy-loads the 2D map, reader, L3 convergence view, optional 3D canvas/panel, and development FPS tool. A stored preference cannot trigger a 3D download on a fresh session; the reader must request it.
+- Story topology and small presentation metadata remain in the shell, while L1, each L2 branch, each L3 perspective/convergence aggregate, and each L4 ending are exact lazy imports. Only the selected node's content is requested. The sole current story package measures 13,450.25 KiB raw / 2,581.07 KiB gzip across 19 deferred assets; its largest asset is 2,174.36 KiB raw / 306.26 KiB gzip.
+- The production variation-debug panel and FPS counter are excluded by `import.meta.env.DEV`. Public production source maps are disabled. When production monitoring is introduced, the documented build path is to generate maps only in private CI, upload them to the selected monitoring provider, and remove them before publishing `dist`.
+- Reader and 3D Suspense boundaries expose quiet polite status messages. Passage loading sets `aria-busy`, keeps focus on the dialog title, has a retryable error state, and does not mutate progress until content resolves.
+- `config/bundle-budgets.json` enforces a 700,000-byte raw / 220,000-byte gzip opening graph, 2,350,000-byte raw / 335,000-byte gzip largest story chunk, 15,000,000-byte raw / 2,800,000-byte gzip per-story package, zero public source maps, and existing total-JS/CSS caps. The manifest-aware checker fails if story content or 3D enters the opening graph.
+- `config/performance-budgets.json` enforces desktop LCP ≤3,000 ms, CLS ≤0.1, passage interaction ≤750 ms, and map interaction ≤300 ms. The noise-tolerant mobile profile enforces LCP ≤8,000 ms, CLS ≤0.1, passage interaction ≤1,500 ms, and map interaction ≤600 ms.
+
+The focused production Playwright regression passes both profiles. It proves story and 3D assets are absent initially, observes the focus-preserving passage loading state, verifies the exact L1 request and completed passage, observes the focus-preserving 3D loading state, and verifies the delayed 3D request and working spatial surface. Playwright runs one worker so the performance profile is not distorted by other repository tests competing for CPU.
+
+The complete local validation passed: type checking; formatting; lint with 33 warnings and no errors; 37 files / 165 product tests; 68.08% statements/lines, 72.93% branches, and 31.22% functions in the focused coverage gate; 8 runtime-content tests; strict validation of all 288 content files; conversion-tool type checking and 11 files / 110 tests; the production build; every manifest-aware bundle budget; and all 11 Chromium accessibility, responsive, reader-journey, fallback, and performance tests. The implementation PR and post-merge protected `main` run will be appended before issue #102 and Phase 1 are closed.
 
 ## Delivery record
 

@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import { useCallback, useEffect, useMemo, type ReactElement } from 'react';
+import { lazy, useCallback, useEffect, useMemo, type ReactElement } from 'react';
 
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
 import { useDialogFocus } from '@/hooks/useDialogFocus';
@@ -15,7 +15,14 @@ import {
   getAvailableContinuationNodes,
   storyCharacterThemes,
 } from './storyPresentation';
-import { VariationDebugPanel } from './VariationDebugPanel';
+
+const LazyVariationDebugPanel = import.meta.env.DEV
+  ? lazy(() =>
+      import('./VariationDebugPanel').then((module) => ({
+        default: module.VariationDebugPanel,
+      })),
+    )
+  : null;
 
 interface StoryViewProps {
   className?: string;
@@ -65,6 +72,8 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
     metadata: variationMetadata,
     usedFallback,
     error: variationError,
+    isLoading: variationLoading,
+    retry: retryVariation,
   } = useVariationSelection(currentNode?.id ?? null, fallbackContent);
 
   useEffect(() => {
@@ -102,6 +111,7 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
           role="dialog"
           aria-modal="true"
           aria-labelledby="story-view-title"
+          aria-busy={variationLoading}
           data-variation-id={variationId ?? undefined}
           tabIndex={-1}
           initial={reduceMotion ? false : { y: 12, opacity: 0 }}
@@ -126,24 +136,52 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
             variationError={variationError}
             onClose={closeStoryView}
           />
-          <StoryContent
-            key={`${currentNode.id}-${variationId ?? nodeState.currentState}`}
-            content={currentContent}
-            transformationState={nodeState.currentState}
-            textSize={preferences.textSize}
-            theme={preferences.theme}
-          />
-          <StoryFooter
-            theme={preferences.theme}
-            continuationNodes={continuationNodes}
-            onContinue={handleContinue}
-            onClose={closeStoryView}
-          />
+          {variationLoading ? (
+            <div
+              role="status"
+              aria-live="polite"
+              data-testid="story-passage-loading"
+              className="flex min-h-48 flex-1 items-center justify-center bg-[#0b1015] px-6 text-center text-sm text-slate-300"
+            >
+              Recovering this passage…
+            </div>
+          ) : variationError ? (
+            <div
+              role="alert"
+              data-testid="story-passage-error"
+              className="flex min-h-48 flex-1 flex-col items-center justify-center gap-4 bg-[#0b1015] px-6 text-center text-slate-200"
+            >
+              <p>This passage could not be recovered. Your reading progress is unchanged.</p>
+              <button
+                type="button"
+                onClick={retryVariation}
+                className="min-h-11 rounded border border-cyan-100/30 bg-cyan-950/60 px-4 py-2 font-medium text-cyan-50 hover:border-cyan-100/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-100"
+              >
+                Retry passage
+              </button>
+            </div>
+          ) : (
+            <>
+              <StoryContent
+                key={`${currentNode.id}-${variationId ?? nodeState.currentState}`}
+                content={currentContent}
+                transformationState={nodeState.currentState}
+                textSize={preferences.textSize}
+                theme={preferences.theme}
+              />
+              <StoryFooter
+                theme={preferences.theme}
+                continuationNodes={continuationNodes}
+                onContinue={handleContinue}
+                onClose={closeStoryView}
+              />
+            </>
+          )}
         </motion.div>
       </motion.div>
 
-      {process.env.NODE_ENV === 'development' && (
-        <VariationDebugPanel
+      {LazyVariationDebugPanel && (
+        <LazyVariationDebugPanel
           key="variation-debug-panel"
           nodeId={currentNode.id}
           variationId={variationId}

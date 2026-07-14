@@ -1,8 +1,7 @@
-import { resolveStoryContentPath } from '@/domain/story/contentPath';
 import type { StoryData, Connection } from '@/types';
 import type { StoryNode } from '@/types/Node';
 
-// Glob imports (Vite) — eager for metadata/nodes, lazy for heavy L3 sections
+// Glob imports (Vite) — eager only for the small metadata/topology shell.
 // We keep types inline here to avoid cross-file coupling during migration
 interface StoryMetadataFile {
   metadata: {
@@ -51,31 +50,6 @@ interface NodeDefinition {
 interface CharacterNodeDefinitionFile {
   character: string;
   nodes: NodeDefinition[];
-}
-
-// Legacy content file format kept for reference
-interface LegacyContentFile {
-  transformationStates: { initial: string; firstRevisit: string; metaAware: string };
-}
-type LegacyContentStates = LegacyContentFile['transformationStates'];
-
-// External variations file (Pattern B)
-interface VariationFile {
-  nodeId: string;
-  totalVariations: number;
-  distribution?: { initial: number; firstRevisit: number; metaAware: number };
-  variations: Array<{
-    id: string;
-    transformationState: 'initial' | 'firstRevisit' | 'metaAware';
-    awarenessRange?: [number, number];
-    content: string;
-  }>;
-}
-
-interface TerminalContentFile {
-  id: string;
-  philosophy: string;
-  content: string;
 }
 
 interface LayoutFile {
@@ -160,27 +134,6 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
         import: 'default',
       },
     );
-    const l1VarMap = import.meta.glob<VariationFile>(
-      '/src/data/stories/*/content/layer1/*-variations.json',
-      {
-        eager: true,
-        import: 'default',
-      },
-    );
-    const l2VarMap = import.meta.glob<VariationFile>(
-      '/src/data/stories/*/content/layer2/*-variations.json',
-      {
-        eager: true,
-        import: 'default',
-      },
-    );
-    const terminalMap = import.meta.glob<TerminalContentFile>(
-      '/src/data/stories/*/content/layer4/final-*.json',
-      {
-        eager: true,
-        import: 'default',
-      },
-    );
     const layoutMap = import.meta.glob<LayoutFile>('/src/data/stories/*/layout.json', {
       eager: true,
       import: 'default',
@@ -231,48 +184,14 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
       if (isDefinitionFile(charData)) {
         const characterRaw = charData.character;
         for (const def of charData.nodes) {
-          const actualContentPath = resolveStoryContentPath(storyId, def.contentFile);
-
-          const varData = actualContentPath
-            ? l1VarMap[actualContentPath] || l2VarMap[actualContentPath]
-            : undefined;
-          const terminalData = actualContentPath ? terminalMap[actualContentPath] : undefined;
-
-          // Development log: Content loading for node ${def.id}
-
-          let content: StoryNode['content'];
-
-          if (varData && varData.variations?.length) {
-            // Materialize one representative per state for now (selector will refine later)
-            const pick = (state: 'initial' | 'firstRevisit' | 'metaAware') =>
-              varData.variations.find((v) => v.transformationState === state)?.content || '';
-
-            // Fallback: if no 'initial' state exists, use 'firstRevisit' as initial
-            const initialContent = pick('initial') || pick('firstRevisit');
-            content = {
-              initial: initialContent,
-              firstRevisit: pick('firstRevisit'),
-              metaAware: pick('metaAware'),
-            };
-          } else if (terminalData?.content) {
-            content = {
-              initial: terminalData.content,
-              firstRevisit: terminalData.content,
-              metaAware: terminalData.content,
-            };
-          } else {
-            // Attempt legacy content file with transformationStates via glob (not mapped here); leave empty if missing
-            // Development warning: No content found for node ${def.id} at path ${actualContentPath}
-            const fallbackContent: LegacyContentStates = {
-              initial:
-                def.layer === 3
-                  ? 'Your personalized convergence is assembled when this node opens.'
-                  : 'Content not found. This node is under development.',
-              firstRevisit: '',
-              metaAware: '',
-            };
-            content = fallbackContent;
-          }
+          const content: StoryNode['content'] = {
+            initial:
+              def.layer === 3
+                ? 'Your personalized convergence is assembled when this node opens.'
+                : 'This passage loads when you open it.',
+            firstRevisit: '',
+            metaAware: '',
+          };
 
           // Build node
           const node: StoryNode = {

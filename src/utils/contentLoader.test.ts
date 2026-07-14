@@ -21,31 +21,11 @@ describe('loadStoryContent', () => {
     }
   });
 
-  it.each(['arch', 'algo', 'hum'])(
-    'loads distinct accept, resist, and invest content for %s L2 nodes',
-    async (characterPrefix) => {
-      const story = await loadStoryContent('eternal-return');
-      const initialContent = ['accept', 'resist', 'invest'].map((philosophy) => {
-        const node = story.nodes.find(
-          (candidate) => candidate.id === `${characterPrefix}-L2-${philosophy}`,
-        );
-        expect(node).toBeDefined();
-        expect(node?.content.initial).not.toContain('Content not found');
-        return node?.content.initial;
-      });
-
-      expect(new Set(initialContent).size).toBe(3);
-    },
-  );
-
-  it('loads authored terminal content for every ending', async () => {
+  it('keeps L1, L2, and ending prose out of the topology shell', async () => {
     const story = await loadStoryContent('eternal-return');
 
-    for (const endingId of story.configuration.endingNodeIds) {
-      const ending = story.nodes.find((node) => node.id === endingId);
-      expect(ending?.layer).toBe(4);
-      expect(ending?.content.initial.length).toBeGreaterThan(1_000);
-      expect(ending?.content.initial).not.toContain('Content not found');
+    for (const node of story.nodes.filter((candidate) => candidate.layer !== 3)) {
+      expect(node.content.initial).toBe('This passage loads when you open it.');
     }
   });
 });

@@ -1,0 +1,22 @@
+{
+  "protocol": {
+    "runs": 3,
+    "aggregation": "median",
+    "desktop": "1440x900, 1x CPU, unthrottled network",
+    "midRangeMobile": "412x915 at 2.625 DPR, 4x CPU, Slow 4G"
+  },
+  "budgets": {
+    "desktop": {
+      "lcpMs": 3000,
+      "cls": 0.1,
+      "storyInteractionMs": 750,
+      "mapInteractionMs": 300
+    },
+    "midRangeMobile": {
+      "lcpMs": 8000,
+      "cls": 0.1,
+      "storyInteractionMs": 1500,
+      "mapInteractionMs": 600
+    }
+  }
+}

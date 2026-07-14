@@ -1,19 +1,38 @@
 import { AnimatePresence } from 'framer-motion';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useRef, useState, type ReactElement } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import FPSCounter from '@/components/3d/FPSCounter';
-import LoadingState from '@/components/3d/LoadingState';
-import NarromorphCanvas from '@/components/3d/NarromorphCanvas';
-import ContentPanel3D from '@/components/ContentPanel3D';
-import NodeMap from '@/components/NodeMap';
 import { OpeningExperience } from '@/components/OpeningExperience';
-import StoryView from '@/components/StoryView';
 import { ErrorRecoveryDialog } from '@/components/UI/ErrorRecoveryDialog';
-import { L3AssemblyView } from '@/components/UI/L3AssemblyView';
 import { UnlockNotificationSystem } from '@/components/UI/UnlockNotification';
 import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';
+
+const LazyNodeMap = lazy(() => import('@/components/NodeMap'));
+const LazyStoryView = lazy(() => import('@/components/StoryView'));
+const LazyNarromorphCanvas = lazy(() => import('@/components/3d/NarromorphCanvas'));
+const LazyContentPanel3D = lazy(() => import('@/components/ContentPanel3D'));
+const LazyL3AssemblyView = lazy(() =>
+  import('@/components/UI/L3AssemblyView').then((module) => ({
+    default: module.L3AssemblyView,
+  })),
+);
+const LazyFPSCounter = import.meta.env.DEV
+  ? lazy(() => import('@/components/3d/FPSCounter'))
+  : null;
+
+function AsyncSurfaceStatus({ label, testId }: { label: string; testId: string }): ReactElement {
+  return (
+    <div
+      role="status"
+      aria-live="polite"
+      data-testid={testId}
+      className="absolute inset-0 z-30 flex items-center justify-center bg-[#0b1015] px-6 text-center text-sm text-slate-300"
+    >
+      {label}
+    </div>
+  );
+}
 
 /**
  * WebGL error fallback component
@@ -49,7 +68,7 @@ function WebGLErrorFallback({
   );
 }
 
-function getRequested3DMode(): boolean {
+function was3DPreviouslyRequested(): boolean {
   const stored = localStorage.getItem('narramorph-3d-mode');
   return stored !== null ? stored === 'true' : import.meta.env.VITE_ENABLE_3D === 'true';
 }
@@ -81,16 +100,14 @@ export default function Home() {
   const [storyError, setStoryError] = useState<string | null>(null);
   const initializationPromiseRef = useRef<Promise<void> | null>(null);
   const [webGLFallbackMessage, setWebGLFallbackMessage] = useState<string | null>(() =>
-    getRequested3DMode() && !supportsWebGL()
+    was3DPreviouslyRequested() && !supportsWebGL()
       ? '3D view is unavailable in this browser. The 2D story map is ready instead.'
       : null,
   );
 
-  // Track whether 3D mode should be used
-  // Priority: localStorage > environment variable
-  const [use3DMode, setUse3DMode] = useState(() => {
-    return getRequested3DMode() && supportsWebGL();
-  });
+  // The optional engine is requested explicitly in each browser session. A
+  // previous preference may explain a fallback, but never downloads 3D at boot.
+  const [use3DMode, setUse3DMode] = useState(false);
   const isPositionsLoaded = Object.keys(positions).length > 0;
 
   // Toggle 3D mode and persist to localStorage
@@ -186,12 +203,33 @@ export default function Home() {
               </div>
             </div>
           ) : use3DMode ? (
-            <>
-              <NarromorphCanvas />
-              {!isPositionsLoaded && <LoadingState />}
-            </>
+            <Suspense
+              fallback={
+                <AsyncSurfaceStatus
+                  label="Opening the three-dimensional archive…"
+                  testId="three-dimensional-loading"
+                />
+              }
+            >
+              <LazyNarromorphCanvas />
+              {!isPositionsLoaded && (
+                <AsyncSurfaceStatus
+                  label="Arranging the three-dimensional archive…"
+                  testId="three-dimensional-layout-loading"
+                />
+              )}
+            </Suspense>
           ) : (
-            <NodeMap className="w-full h-full" />
+            <Suspense
+              fallback={
+                <AsyncSurfaceStatus
+                  label="Recovering the two-dimensional archive…"
+                  testId="two-dimensional-loading"
+                />
+              }
+            >
+              <LazyNodeMap className="w-full h-full" />
+            </Suspense>
           )}
         </ErrorBoundary>
 
@@ -217,11 +255,38 @@ export default function Home() {
             />
           )}
         >
-          {use3DMode ? <ContentPanel3D /> : <StoryView />}
+          {storyViewOpen &&
+            (use3DMode ? (
+              <Suspense
+                fallback={
+                  <AsyncSurfaceStatus
+                    label="Recovering the spatial passage…"
+                    testId="spatial-reader-loading"
+                  />
+                }
+              >
+                <LazyContentPanel3D />
+              </Suspense>
+            ) : (
+              <Suspense
+                fallback={
+                  <AsyncSurfaceStatus
+                    label="Recovering the selected passage…"
+                    testId="reader-loading"
+                  />
+                }
+              >
+                <LazyStoryView />
+              </Suspense>
+            ))}
         </ErrorBoundary>
 
-        {/* Dev-only FPS counter for 3D mode */}
-        {use3DMode && <FPSCounter />}
+        {/* Development diagnostics never enter the production graph. */}
+        {use3DMode && LazyFPSCounter && (
+          <Suspense fallback={null}>
+            <LazyFPSCounter />
+          </Suspense>
+        )}
 
         {/* The mode switch stays out of the reading panel's covered tab order. */}
         {(!use3DMode || !storyViewOpen) && (
@@ -257,7 +322,16 @@ export default function Home() {
                 />
               )}
             >
-              <L3AssemblyView assembly={currentL3Assembly} onClose={closeL3AssemblyView} />
+              <Suspense
+                fallback={
+                  <AsyncSurfaceStatus
+                    label="Assembling the convergence…"
+                    testId="convergence-loading"
+                  />
+                }
+              >
+                <LazyL3AssemblyView assembly={currentL3Assembly} onClose={closeL3AssemblyView} />
+              </Suspense>
             </ErrorBoundary>
           )}
         </AnimatePresence>

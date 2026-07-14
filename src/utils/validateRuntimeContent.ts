@@ -377,7 +377,7 @@ function buildRuntimeInventory(
     .filter(([path]) => path.includes(storyPath))
     .map(([path, data]) => ({
       path,
-      layer: (path.includes('/layer1/') ? 1 : 2) as 1 | 2,
+      layer: path.includes('/layer1/') ? 1 : 2,
       data,
     }));
 
@@ -408,7 +408,7 @@ export async function validateRuntimeContent(): Promise<void> {
     try {
       const storyData = await loadStoryContent(storyId);
       await loadL3Variations(storyId);
-      const selectionMatrix = loadSelectionMatrix(storyId);
+      const selectionMatrix = await loadSelectionMatrix(storyId);
       errors.push(
         ...validateRuntimePackageInventory(
           buildRuntimeInventory(storyId, storyData, selectionMatrix),
