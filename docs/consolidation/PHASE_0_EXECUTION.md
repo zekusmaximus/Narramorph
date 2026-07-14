@@ -6,9 +6,9 @@ Updated: July 13, 2026
 
 | Batch | Status | Completion evidence / blocker |
 | --- | --- | --- |
-| 0.1 | Implementation complete; awaiting acceptance | Charter, ADR, freeze notices, and the authoritative Narramorph backlog are implemented in the coordinated draft PRs; review and merge remain. |
-| 0.2 | Licensing implemented; Atlas remediation required | MIT software terms, reserved-content terms, manuscript interactive-use permission, AI/generated provenance, and repository notices are implemented. The owner confirmed that the free-tier Atlas project and cluster still exist and appear active, but credential revocation or rotation has not been confirmed. |
-| 0.3 | Implementation complete; awaiting acceptance | Baseline tags, verified records, extraction matrix, and issue disposition are implemented; review and merge remain. |
+| 0.1 | Ready to merge | Charter, ADR, freeze notices, and the authoritative Narramorph backlog are implemented in the coordinated PRs. |
+| 0.2 | Ready to merge | Licensing/provenance is implemented. The owner deleted the compromised Atlas database user and both IP access-list entries, making the historical connection credential unusable. |
+| 0.3 | Ready to merge | Baseline tags, verified records, extraction matrix, and issue disposition are implemented. |
 
 ## Immutable baseline tags
 
@@ -31,7 +31,7 @@ The annotated tag `pre-consolidation-2026-07-13` has been published to:
 ## Owner decisions
 
 1. **Resolved July 13, 2026:** `zekusmaximus` confirmed sole ownership and authorized the recommended split. Software is MIT-licensed; copyrightable narrative, story-data, worldbuilding, editorial, generated literary, and media content is all rights reserved. Approved manuscript releases receive a release-specific Narramorph distribution permission.
-2. **Updated July 13, 2026:** the owner signed in to Atlas and confirmed that the Project-Leibniz project and free-tier cluster still exist, appear to be running, and show no recent use. The historical database user/password must still be deleted or reset; cluster availability and inactivity do not prove the credential is unusable. Repository inspection confirms that no `.env` file is currently tracked but cannot remediate Atlas.
+2. **Resolved July 13, 2026:** after confirming the free-tier Atlas project/cluster still existed, the owner deleted the compromised SCRAM database user and both IP access-list entries. The historical connection string can no longer authenticate, and the cluster has no retained project IP access entry from this prototype. No credential, username, host, or IP address is recorded in the public issue or repository documentation.
 
 ## Issue audit
 
@@ -45,7 +45,7 @@ The connected GitHub issue search returned no open issues in any repository on J
 - [#95 — Batch 0.2: resolve licensing, provenance, and credential remediation](https://github.com/zekusmaximus/Narramorph/issues/95)
 - [#96 — Batch 0.3: preserve baselines and approve the extraction inventory](https://github.com/zekusmaximus/Narramorph/issues/96)
 
-Issue #95 carries the `blocked-owner` label until the historical Atlas database user/password is deleted or reset and that action is confirmed. The license/copyright decision is complete.
+Issue #95 is no longer owner-blocked. Close it after the coordinated license, provenance, and security PRs merge.
 
 ## Merge order
 

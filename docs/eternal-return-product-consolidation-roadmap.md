@@ -11,9 +11,9 @@ Updated: July 13, 2026
 
 | Batch | Status | Evidence / remaining gate |
 | --- | --- | --- |
-| 0.1 — Product charter and repository roles | Implementation complete; awaiting acceptance | Charter, boundary ADR, freeze notices, milestone, and tracking issues are implemented in coordinated draft PRs; review and merge remain. |
-| 0.2 — Licensing and provenance | Licensing implemented; Atlas remediation required | MIT software terms, reserved-content terms, cross-repository provenance, generated/AI-assisted disclosure rules, and the manuscript interactive-use permission are implemented. The owner confirmed the free-tier Atlas project/cluster still exists and appears active; the historical database user/password must be deleted or reset before this batch can close. |
-| 0.3 — Baselines and extraction inventory | Implementation complete; awaiting acceptance | `pre-consolidation-2026-07-13` is published in all four repositories; verified baseline records and the extraction matrix are implemented; no legacy issues require migration. Coordinated PR review and merge remain. |
+| 0.1 — Product charter and repository roles | Ready to merge | Charter, boundary ADR, freeze notices, milestone, and tracking issues are implemented in coordinated PRs. |
+| 0.2 — Licensing and provenance | Ready to merge | MIT software terms, reserved-content terms, provenance/disclosure rules, and manuscript permission are implemented. The owner deleted the compromised Atlas database user and both IP access-list entries. |
+| 0.3 — Baselines and extraction inventory | Ready to merge | `pre-consolidation-2026-07-13` is published in all four repositories; verified baseline records and the extraction matrix are implemented; no legacy issues require migration. |
 
 The detailed evidence and PR links are maintained in [the Phase 0 execution record](consolidation/PHASE_0_EXECUTION.md).
 
