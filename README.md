@@ -76,9 +76,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for code and pull-request conventions.
 
 ## Browser support
 
-The current automated browser gate uses the Playwright-pinned Chromium build on Windows and GitHub Actions. The suite covers the complete reader journey, keyboard focus, reduced motion, WebGL fallback, 390×844 layout, and 200% root text.
+The current automated browser gate uses the Playwright-pinned Chromium build locally and in GitHub Actions. The suite covers the complete reader journey, keyboard focus, reduced motion, WebGL fallback, 390×844 layout, and 200% root text.
 
-Firefox, Safari/WebKit, iOS Safari, Android browsers, and manual screen-reader combinations are release-QA targets, not yet claimed as supported alpha browsers. The tested matrix and promotion gates are maintained in [docs/RELEASE_STATUS.md](docs/RELEASE_STATUS.md).
+Firefox, Safari/WebKit, iOS Safari, Android browsers, and manual screen-reader combinations are release-QA targets, not yet claimed as supported alpha browsers. See the [browser support policy](docs/BROWSER_SUPPORT.md) and [release gates](docs/RELEASE_STATUS.md).
 
 ## Deployment status
 
@@ -94,6 +94,8 @@ The optional `.env.local` setting below is a local build-time feature flag; it m
 Set-Content -Path .env.local -Value 'VITE_ENABLE_3D=true'
 npm run dev
 ```
+
+Report suspected vulnerabilities through the private channel described in [SECURITY.md](SECURITY.md), not through a public issue.
 
 The 3D view requires WebGL and falls back to the 2D reader when WebGL is unavailable. It remains experimental and secondary to the accessible 2D experience.
 
