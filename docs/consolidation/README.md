@@ -4,7 +4,7 @@ This directory is the authoritative implementation record for bringing the four 
 
 ## Current phase
 
-Phase 0 is complete. Phase 1 is in progress and tracked in [the Phase 1 execution record](PHASE_1_EXECUTION.md).
+Phases 0 and 1 are complete. Phase 2 is the next roadmap phase and has not started. Reproducible Phase 1 evidence is recorded in [the Phase 1 execution record](PHASE_1_EXECUTION.md).
 
 ## Phase 0 scope
 
