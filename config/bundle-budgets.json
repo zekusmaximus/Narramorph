@@ -1,0 +1,20 @@
+{
+  "baseline": {
+    "commit": "7a6c53df5219282038e989455bb541c67a00eb0d",
+    "measuredOn": "2026-07-14",
+    "totalJsBytes": 15458162,
+    "totalJsGzipBytes": 3159421,
+    "largestJsBytes": 11301850,
+    "largestJsGzipBytes": 2462315,
+    "totalCssBytes": 65512,
+    "totalCssGzipBytes": 11958
+  },
+  "budgets": {
+    "totalJsBytes": 16250000,
+    "totalJsGzipBytes": 3320000,
+    "largestJsBytes": 11870000,
+    "largestJsGzipBytes": 2590000,
+    "totalCssBytes": 68800,
+    "totalCssGzipBytes": 12600
+  }
+}

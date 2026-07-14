@@ -160,6 +160,15 @@ describe('validateRuntimePackageInventory', () => {
     expect(errors.some((error) => error.includes('references missing variation'))).toBe(true);
     expect(errors.some((error) => error.includes('manifest totalVariations'))).toBe(true);
   });
+
+  it('rejects a deliberately malformed synthetic story package for the intended reason', () => {
+    const malformed = inventory();
+    malformed.variationFiles = [];
+
+    const errors = validateRuntimePackageInventory(malformed);
+
+    expect(errors).toContain('fixture: node arch-L1 is missing its runtime variation file');
+  });
 });
 
 describe('validateRuntimeContent', () => {
