@@ -1,0 +1,15 @@
+{
+  "nodeId": "signal-shore",
+  "variations": [
+    {
+      "id": "signal-shore-v1",
+      "transformationState": "initial",
+      "content": "Three blue lanterns answer a tide that exists only in the fixture.",
+      "metadata": {
+        "conditions": {
+          "fixtureBand": [1, 3]
+        }
+      }
+    }
+  ]
+}

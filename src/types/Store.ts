@@ -101,8 +101,17 @@ export interface UserPreferences {
 /**
  * Complete saved state (localStorage format)
  */
+export interface StoryPackageIdentity {
+  storyId: string;
+  storyVersion: string;
+  schemaVersion: string;
+  contentHash: string;
+}
+
 export interface SavedState {
-  version: string; // Schema version (e.g., "1.0.0")
+  version: string; // Save schema version (e.g., "1.1.0")
+  appVersion: string; // Narramorph application version that wrote the journey
+  storyPackage: StoryPackageIdentity; // Exact story package used by this journey
   timestamp: string; // ISO-8601 timestamp of last save
   progress: UserProgress;
   preferences: UserPreferences;

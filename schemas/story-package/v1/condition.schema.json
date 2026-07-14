@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://narramorph.example/schemas/story-package/v1/condition.schema.json",
+  "title": "Story Package Condition v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "stableKey", "variationId", "kind", "value"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^spv1_cnd_[0-9a-f]{24}$" },
+    "stableKey": { "type": "string", "minLength": 1 },
+    "variationId": { "type": "string", "pattern": "^spv1_var_[0-9a-f]{24}$" },
+    "kind": { "type": "string", "minLength": 1 },
+    "value": true
+  }
+}

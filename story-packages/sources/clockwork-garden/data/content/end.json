@@ -1,0 +1,10 @@
+{
+  "nodeId": "garden-return",
+  "variations": [
+    {
+      "id": "garden-return-v1",
+      "philosophy": "fixture-complete",
+      "content": "The synthetic gate clicks once, and the paper bird carries the seed home."
+    }
+  ]
+}

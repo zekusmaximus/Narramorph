@@ -43,7 +43,10 @@
     "content:aggregate": "npm --prefix tools/conversion run aggregate --",
     "content:matrix": "npm --prefix tools/conversion run matrix --",
     "content:diff": "npm --prefix tools/conversion run diff --",
-    "content:rollback": "npm --prefix tools/conversion run rollback --"
+    "content:rollback": "npm --prefix tools/conversion run rollback --",
+    "story:package:build": "npm --prefix tools/conversion run story-package:build",
+    "story:package:validate": "npm --prefix tools/conversion run story-package:validate",
+    "story:package:test": "npm --prefix tools/conversion run story-package:test"
   },
   "dependencies": {
     "@react-spring/three": "^9.7.3",

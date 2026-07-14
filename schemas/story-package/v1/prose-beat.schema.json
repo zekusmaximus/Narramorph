@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://narramorph.example/schemas/story-package/v1/prose-beat.schema.json",
+  "title": "Story Package Prose Beat v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "stableKey", "variationId", "ordinal", "contentDigest", "byteLength"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^spv1_bet_[0-9a-f]{24}$" },
+    "stableKey": { "type": "string", "minLength": 1 },
+    "variationId": { "type": "string", "pattern": "^spv1_var_[0-9a-f]{24}$" },
+    "ordinal": { "type": "integer", "minimum": 0 },
+    "contentDigest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "byteLength": { "type": "integer", "minimum": 0 }
+  }
+}

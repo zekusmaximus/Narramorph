@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "fixture-clockwork-garden",
+  "storyVersion": "1.0.0",
+  "title": "Clockwork Garden Contract Fixture",
+  "sourceRoot": "data",
+  "storyFile": "story.json",
+  "characterFiles": ["characters.json"],
+  "variationGlobs": ["content/*.json"],
+  "sourceManuscriptCommit": "0000000000000000000000000000000000000000",
+  "editorialReleaseId": "fixture-clockwork-garden-1",
+  "supportedAppRange": ">=0.1.0 <0.2.0",
+  "sourceDateEpoch": "2026-01-01T00:00:00.000Z",
+  "licenses": [
+    {
+      "spdx": "LicenseRef-Narramorph-All-Rights-Reserved",
+      "scope": "synthetic-fixture-content",
+      "attribution": "Copyright (c) 2026 zekusmaximus. Synthetic contract fixture; see CONTENT_LICENSE.md. Contains no Eternal Return manuscript prose."
+    }
+  ],
+  "provenance": [
+    {
+      "relation": "synthetic-fixture",
+      "repository": "fixture://narramorph/clockwork-garden",
+      "commit": "0000000000000000000000000000000000000000",
+      "releaseId": "fixture-clockwork-garden-1"
+    }
+  ],
+  "resources": [
+    {
+      "sourcePath": "assets/note.txt",
+      "packagePath": "assets/note.txt",
+      "mediaType": "text/plain",
+      "purpose": "validator resource-integrity fixture"
+    }
+  ],
+  "explanations": [
+    {
+      "stableKey": "clockwork-opening-note",
+      "subjectType": "passage",
+      "subjectStableKey": "garden-start",
+      "kind": "fixture-note",
+      "summary": "Opens the synthetic two-passage fixture."
+    }
+  ]
+}

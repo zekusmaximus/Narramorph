@@ -1,0 +1,10 @@
+{
+  "nodeId": "signal-harbor",
+  "variations": [
+    {
+      "id": "signal-harbor-v1",
+      "philosophy": "fixture-complete",
+      "content": "The test lanterns dim after the final schema assertion passes."
+    }
+  ]
+}

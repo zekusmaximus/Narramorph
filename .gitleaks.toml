@@ -1,0 +1,14 @@
+title = "Narramorph Gitleaks configuration"
+
+# Preserve every built-in rule. The generated Story Package catalogs contain
+# deterministic SHA-256 integrity values that match the generic API-key
+# heuristic; their source inputs and generator remain scanned.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Reproducible generated Story Package catalogs"
+paths = [
+  '''^story-packages/eternal-return/catalog\.json$''',
+  '''^story-packages/fixtures/tidal-signals/catalog\.json$''',
+]

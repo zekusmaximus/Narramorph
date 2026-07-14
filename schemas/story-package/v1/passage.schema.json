@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://narramorph.example/schemas/story-package/v1/passage.schema.json",
+  "title": "Story Package Passage v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "stableKey", "legacyId", "characterId", "layer", "title", "sourcePath"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^spv1_psg_[0-9a-f]{24}$" },
+    "stableKey": { "type": "string", "minLength": 1 },
+    "legacyId": { "type": "string", "minLength": 1 },
+    "characterId": { "type": "string", "pattern": "^spv1_chr_[0-9a-f]{24}$" },
+    "layer": { "type": "integer", "minimum": 0 },
+    "title": { "type": "string", "minLength": 1 },
+    "sourcePath": { "type": "string", "minLength": 1 }
+  }
+}

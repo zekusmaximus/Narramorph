@@ -1,0 +1,1 @@
+This second synthetic resource proves that the same validator accepts another package shape.

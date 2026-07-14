@@ -17,6 +17,7 @@ Phases 0 and 1 are complete. Phase 2 is in progress through Batches 2.1–2.5 un
 - [Phase 0 execution record](PHASE_0_EXECUTION.md)
 - [Phase 1 execution record](PHASE_1_EXECUTION.md)
 - [Phase 2 execution record](PHASE_2_EXECUTION.md)
+- [Story Package Contract v1](../contracts/story-package-v1.md)
 - [Verified pre-consolidation baseline](BASELINE.md)
 - [Feature extraction matrix](FEATURE_EXTRACTION_MATRIX.md)
 - [Provenance policy](../PROVENANCE.md)

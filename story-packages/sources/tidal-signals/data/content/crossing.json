@@ -1,0 +1,15 @@
+{
+  "nodeId": "signal-crossing",
+  "variations": [
+    {
+      "id": "signal-crossing-v1",
+      "transformationState": "revisit",
+      "content": "A numbered buoy replies with a harmless sequence of copper chimes."
+    },
+    {
+      "id": "signal-crossing-v2",
+      "transformationState": "meta",
+      "content": "The same invented buoy returns a different, equally synthetic rhythm."
+    }
+  ]
+}

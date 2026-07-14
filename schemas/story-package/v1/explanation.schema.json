@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://narramorph.example/schemas/story-package/v1/explanation.schema.json",
+  "title": "Story Package Explanation Metadata v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "stableKey", "subjectType", "subjectId", "kind", "summary"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^spv1_exp_[0-9a-f]{24}$" },
+    "stableKey": { "type": "string", "minLength": 1 },
+    "subjectType": { "enum": ["character", "passage", "variation", "ending"] },
+    "subjectId": { "type": "string", "pattern": "^spv1_(?:chr|psg|var|end)_[0-9a-f]{24}$" },
+    "kind": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 }
+  }
+}

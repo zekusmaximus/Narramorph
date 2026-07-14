@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://narramorph.example/schemas/story-package/v1/character.schema.json",
+  "title": "Story Package Character v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "stableKey", "slug", "displayName"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^spv1_chr_[0-9a-f]{24}$" },
+    "stableKey": { "type": "string", "minLength": 1 },
+    "slug": { "type": "string", "minLength": 1 },
+    "displayName": { "type": "string", "minLength": 1 }
+  }
+}

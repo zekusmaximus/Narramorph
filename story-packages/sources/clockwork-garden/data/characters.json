@@ -1,0 +1,19 @@
+{
+  "character": "clockmaker",
+  "nodes": [
+    {
+      "id": "garden-start",
+      "layer": 1,
+      "chapterTitle": "Synthetic Opening",
+      "connections": ["garden-return"],
+      "contentFile": "content/start.json"
+    },
+    {
+      "id": "garden-return",
+      "layer": 4,
+      "chapterTitle": "Synthetic Ending",
+      "connections": [],
+      "contentFile": "content/end.json"
+    }
+  ]
+}

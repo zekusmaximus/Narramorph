@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "fixture-tidal-signals",
+  "storyVersion": "1.2.0",
+  "title": "Tidal Signals Contract Fixture",
+  "sourceRoot": "data",
+  "storyFile": "story.json",
+  "characterFiles": ["characters.json"],
+  "variationGlobs": ["content/*.json"],
+  "sourceManuscriptCommit": "1111111111111111111111111111111111111111",
+  "editorialReleaseId": "fixture-tidal-signals-1",
+  "supportedAppRange": ">=0.1.0 <0.2.0",
+  "sourceDateEpoch": "2026-01-02T00:00:00.000Z",
+  "licenses": [
+    {
+      "spdx": "LicenseRef-Narramorph-All-Rights-Reserved",
+      "scope": "synthetic-fixture-content",
+      "attribution": "Copyright (c) 2026 zekusmaximus. Synthetic contract fixture; see CONTENT_LICENSE.md. Contains no Eternal Return manuscript prose."
+    }
+  ],
+  "provenance": [
+    {
+      "relation": "synthetic-fixture",
+      "repository": "fixture://narramorph/tidal-signals",
+      "commit": "1111111111111111111111111111111111111111",
+      "releaseId": "fixture-tidal-signals-1"
+    }
+  ],
+  "resources": [
+    {
+      "sourcePath": "assets/note.txt",
+      "packagePath": "assets/note.txt",
+      "mediaType": "text/plain",
+      "purpose": "validator resource-integrity fixture"
+    }
+  ],
+  "explanations": [
+    {
+      "stableKey": "tidal-middle-note",
+      "subjectType": "passage",
+      "subjectStableKey": "signal-crossing",
+      "kind": "fixture-note",
+      "summary": "Marks the synthetic branch between opening and ending."
+    }
+  ]
+}
