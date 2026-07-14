@@ -7,7 +7,7 @@ Updated: July 13, 2026
 | Batch | Status | Completion evidence / blocker |
 | --- | --- | --- |
 | 0.1 | Implementation complete; awaiting acceptance | Charter, ADR, freeze notices, and the authoritative Narramorph backlog are implemented in the coordinated draft PRs; review and merge remain. |
-| 0.2 | Licensing implemented; external security confirmation pending | MIT software terms, reserved-content terms, manuscript interactive-use permission, AI/generated provenance, and repository notices are implemented. Confirmation of external MongoDB credential revocation is still required. |
+| 0.2 | Licensing implemented; Atlas remediation required | MIT software terms, reserved-content terms, manuscript interactive-use permission, AI/generated provenance, and repository notices are implemented. The owner confirmed that the free-tier Atlas project and cluster still exist and appear active, but credential revocation or rotation has not been confirmed. |
 | 0.3 | Implementation complete; awaiting acceptance | Baseline tags, verified records, extraction matrix, and issue disposition are implemented; review and merge remain. |
 
 ## Immutable baseline tags
@@ -31,7 +31,7 @@ The annotated tag `pre-consolidation-2026-07-13` has been published to:
 ## Owner decisions
 
 1. **Resolved July 13, 2026:** `zekusmaximus` confirmed sole ownership and authorized the recommended split. Software is MIT-licensed; copyrightable narrative, story-data, worldbuilding, editorial, generated literary, and media content is all rights reserved. Approved manuscript releases receive a release-specific Narramorph distribution permission.
-2. **Still required:** confirm whether the historical Project-Leibniz MongoDB credential has been rotated or revoked. Repository inspection can confirm that no `.env` file is currently tracked, but cannot verify external Atlas state.
+2. **Updated July 13, 2026:** the owner signed in to Atlas and confirmed that the Project-Leibniz project and free-tier cluster still exist, appear to be running, and show no recent use. The historical database user/password must still be deleted or reset; cluster availability and inactivity do not prove the credential is unusable. Repository inspection confirms that no `.env` file is currently tracked but cannot remediate Atlas.
 
 ## Issue audit
 
@@ -45,7 +45,7 @@ The connected GitHub issue search returned no open issues in any repository on J
 - [#95 — Batch 0.2: resolve licensing, provenance, and credential remediation](https://github.com/zekusmaximus/Narramorph/issues/95)
 - [#96 — Batch 0.3: preserve baselines and approve the extraction inventory](https://github.com/zekusmaximus/Narramorph/issues/96)
 
-Issue #95 carries the `blocked-owner` label only until external credential-revocation confirmation is recorded. The license/copyright decision is complete.
+Issue #95 carries the `blocked-owner` label until the historical Atlas database user/password is deleted or reset and that action is confirmed. The license/copyright decision is complete.
 
 ## Merge order
 
