@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "description": "Interactive narrative platform for creating node-based story experiences",
-  "author": "Your Name",
+  "author": "zekusmaximus",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
@@ -88,8 +88,8 @@
     "vitest": "^3.2.4"
   },
   "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0"
+    "node": ">=22.0.0 <25.0.0",
+    "npm": ">=10.0.0 <12.0.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
