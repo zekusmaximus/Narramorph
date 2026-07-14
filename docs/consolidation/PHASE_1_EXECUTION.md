@@ -10,7 +10,7 @@ Updated: July 14, 2026
 | --- | --- | --- |
 | 1.1 — Documentation and package metadata | Complete | PRs #103 and Eternal_Return_Manuscript#42 merged; supported-environment, live-count, UTF-8 regression, and post-merge `main` gates passed. |
 | 1.2 — Release-quality CI and required checks | Complete | PRs #105 and Eternal_Return_Manuscript#43 merged; all current `main` checks passed and are protected. |
-| 1.3 — Dependency and security stabilization | Not started | Audit path review, upgrades, security policy, automated updates, and final scans pending. |
+| 1.3 — Dependency and security stabilization | Complete | PRs #107–#112, Eternal_Return_Manuscript#44, zero-audit/zero-alert evidence, private reporting, protected secret scans, and updater dispositions recorded below. |
 | 1.4 — Performance budgets and lazy boundaries | Not started | Must begin after major dependency upgrades merge. |
 
 Phase 1 is not complete until every batch gate is met, all implementation PRs are merged, current `main` checks are green and enforced, and the closure PR records final evidence.
@@ -138,6 +138,18 @@ Post-merge `main` runs [29343882911](https://github.com/zekusmaximus/Narramorph/
 
 `zekusmaximus` remains the sole collaborator/admin, so independent approval is not satisfiable. Required approval count is therefore zero and admin enforcement is disabled as the documented emergency bypass; all non-admin changes remain subject to PRs and required checks. Add one required approval and enable stale-review dismissal when a second trusted maintainer joins.
 
+## Batch 1.3 dependency and security evidence
+
+Narramorph PR #107 upgraded the root build/test/lint toolchain and the isolated conversion tool without changing React, Three/React Three, React Flow, or other product-runtime libraries. Root Vitest/Vite and their vulnerable transitive form-data, WebSocket, jsdom, Rollup, glob/minimatch, flatted, picomatch, and related paths were development/test/build reachable only. TypeScript ESLint was lint-only. The conversion tool parses maintainer-controlled source packages in a local CLI; its old Vitest/Vite/glob paths did not execute in the deployed application. PR #108 then upgraded the separate `tools` lockfile's `js-yaml`; that parser consumes maintainer-controlled Markdown metadata and had no browser-runtime path. All identified critical/high paths were remediated, so no finding required a risk owner or deadline.
+
+After the upgrades, `npm audit` reported zero vulnerabilities in the root, `tools/conversion`, and `tools` lockfiles, and GitHub reported zero open Dependabot alerts. The complete regression net remained green: 164 product tests, 110 conversion tests, focused coverage, 288 strict content validations, production build and bundle budgets, and all nine Chromium journeys. The build no longer injects the host's complete `process.env` object into client code; a benign sentinel value was absent from production output. Browser-compatibility data was refreshed, `docs/BROWSER_SUPPORT.md` ties the maintained browser policy to the Node 22/24 and Playwright Chromium CI matrix, and stale browser data is now handled through scheduled maintenance rather than ad hoc warnings.
+
+PR #109 added `SECURITY.md`, enabled private vulnerability reporting and automated security fixes, and configured weekly grouped Dependabot updates for the root, conversion tool, separate tools lockfile, and GitHub Actions with bounded pull-request limits. Actions #110, #111, and #112 then upgraded `setup-node`, `dependency-review-action`, and `gitleaks-action`; each passed all protected checks. Non-security major updates were kept isolated and closed with explicit rationale: #113 `js-yaml` 5 needs a dedicated legacy-tool behavior gate; #114 Node 26 types are outside the Node 22/24 support matrix; #115 Vitest 4 must keep root and conversion runners aligned; #116 TypeScript 7 requires a coordinated compiler/linter migration; #118 lint-staged 17 changes the hook toolchain; #119 React Spring 10, #120 Vite 8, and #121 React Three Fiber 9 require separate runtime or performance review. PR #117's maintenance group was closed rather than bypassing a required check: React Refresh 0.5 requires ESLint 9/10, while Prettier 3.9 changes the formatting contract across seven existing files. Dependabot acknowledged targeted deferrals for both lines; the remaining compatible non-security updates stay eligible for a later scheduled group.
+
+Tracked-path scans found no sensitive tracked filename beyond the intended `.env.example`, no generated database/archive artifact, and no credential-pattern file. Full-history scans found no database URL or live credential match, and no value was printed. Narramorph and Manuscript both run full-history Gitleaks checks. Manuscript PR #44 added `Security / secret-scan` to its release workflow without touching canonical prose; `main` protection now strictly requires `Manuscript / linux`, `Manuscript / windows-utf8`, and `Security / secret-scan`.
+
+Narramorph post-merge `main` run [29351093329](https://github.com/zekusmaximus/Narramorph/actions/runs/29351093329) passed all seven protected product checks at `9f294bed565b0025c52af38f4588a5e56ac5b459`. Manuscript post-merge `main` run [29350511502](https://github.com/zekusmaximus/Eternal_Return_Manuscript/actions/runs/29350511502) passed all three protected manuscript checks at `9709fd5401b61c8f651d81acadf45e4566c5a16b`. No advisory is accepted or left unreviewed.
+
 ## Delivery record
 
 | Batch | Repository | Branch | Pull request | Merge commit |
@@ -146,5 +158,12 @@ Post-merge `main` runs [29343882911](https://github.com/zekusmaximus/Narramorph/
 | 1.1 | Eternal_Return_Manuscript | `agent/phase-1-batch-1-1` | [#42](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/42) | `161dc64b472cf157b2c7ecf85f150961e6d4828d` |
 | 1.2 | Narramorph | `agent/phase-1-batch-1-2` | [#105](https://github.com/zekusmaximus/Narramorph/pull/105) | `97b31036c6d09c03d0d6363cd5c0fa292bcffd42` |
 | 1.2 | Eternal_Return_Manuscript | `agent/phase-1-batch-1-2` | [#43](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/43) | `23797d3d918ec4d859e1fe21ee258351d3d61e51` |
+| 1.3 | Narramorph | `agent/phase-1-batch-1-3-dependencies` | [#107](https://github.com/zekusmaximus/Narramorph/pull/107) | `bcf59eca8418d86adfbcb4a49e6c04dfa1dc77be` |
+| 1.3 | Narramorph | `dependabot/npm_and_yarn/tools/js-yaml-4.2.0` | [#108](https://github.com/zekusmaximus/Narramorph/pull/108) | `76ab6375a13609a32b642750019cadef2f83507a` |
+| 1.3 | Narramorph | `agent/phase-1-batch-1-3-security` | [#109](https://github.com/zekusmaximus/Narramorph/pull/109) | `d730b6e85a95edfb31d26b475d077454e4a10181` |
+| 1.3 | Eternal_Return_Manuscript | `agent/phase-1-batch-1-3-security` | [#44](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/44) | `9709fd5401b61c8f651d81acadf45e4566c5a16b` |
+| 1.3 | Narramorph | `dependabot/github_actions/actions/setup-node-7` | [#110](https://github.com/zekusmaximus/Narramorph/pull/110) | `9a7398c078f000507c5fe1a8ce1d80233940844c` |
+| 1.3 | Narramorph | `dependabot/github_actions/actions/dependency-review-action-5` | [#111](https://github.com/zekusmaximus/Narramorph/pull/111) | `545bdd203eecc8194d5a9209a39f04ea49672c14` |
+| 1.3 | Narramorph | `dependabot/github_actions/gitleaks/gitleaks-action-3` | [#112](https://github.com/zekusmaximus/Narramorph/pull/112) | `9f294bed565b0025c52af38f4588a5e56ac5b459` |
 
 Later batch branches, PRs, required-check names, merge commits, protection settings, performance measurements, budgets, accepted risks, and owner-approved variances will be appended as they become reproducible facts.
