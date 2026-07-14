@@ -2,7 +2,11 @@
 
 This directory is the authoritative implementation record for bringing the four _Eternal Return_ repositories into one shippable product.
 
-## Current Phase 0 scope
+## Current phase
+
+Phase 0 is complete. Phase 1 is in progress and tracked in [the Phase 1 execution record](PHASE_1_EXECUTION.md).
+
+## Phase 0 scope
 
 - [Batch 0.1](../eternal-return-product-consolidation-roadmap.md#batch-01--approve-the-product-charter-and-repository-roles): charter, repository-boundary ADR, feature freeze, and authoritative backlog.
 - [Batch 0.2](../eternal-return-product-consolidation-roadmap.md#batch-02--resolve-code-content-and-cross-repository-licensing): software/content licensing, provenance, notices, and credential remediation.
@@ -11,6 +15,7 @@ This directory is the authoritative implementation record for bringing the four 
 ## Documents
 
 - [Phase 0 execution record](PHASE_0_EXECUTION.md)
+- [Phase 1 execution record](PHASE_1_EXECUTION.md)
 - [Verified pre-consolidation baseline](BASELINE.md)
 - [Feature extraction matrix](FEATURE_EXTRACTION_MATRIX.md)
 - [Provenance policy](../PROVENANCE.md)
@@ -33,4 +38,4 @@ This directory is the authoritative implementation record for bringing the four 
 
 Narramorph issues are the authoritative product backlog. Reference-repository issues must be migrated with source links or explicitly closed before archival. The Phase 0 audit found no open issues in any of the four repositories on July 13, 2026.
 
-Phase and batch issues created during execution are linked from [PHASE_0_EXECUTION.md](PHASE_0_EXECUTION.md).
+Phase and batch issues are linked from their applicable execution record.
