@@ -8,7 +8,7 @@ Updated: July 14, 2026
 
 | Batch | Tracking issue | Status | Acceptance evidence / remaining gate |
 | --- | --- | --- | --- |
-| 2.1 — Content authority and edition semantics | [#125](https://github.com/zekusmaximus/Narramorph/issues/125) | In progress | ADR and matching M workflow change are under review; both repositories must expose no silent prose-overwrite path. |
+| 2.1 — Content authority and edition semantics | [#125](https://github.com/zekusmaximus/Narramorph/issues/125) | Complete | M PR #45 and N PR #130 merged; both protected `main` runs passed and both workflows prohibit silent prose overwrite. |
 | 2.2 — Story Package Contract v1 | [#126](https://github.com/zekusmaximus/Narramorph/issues/126) | Not started | Two synthetic fixtures and Eternal Return must pass the same validator; identical builds must have identical IDs, order, bytes, and content hash. |
 | 2.3 — Non-mutating literary release exporter | [#127](https://github.com/zekusmaximus/Narramorph/issues/127) | Not started | M exporter/release must be deterministic, stdlib-only, non-mutating, and merged before N acceptance. |
 | 2.4 — Staged importer and concordance | [#128](https://github.com/zekusmaximus/Narramorph/issues/128) | Not started | Every runtime passage must have explainable provenance; changed releases must yield semantic diffs without prose rewrites. |
@@ -93,6 +93,16 @@ No command modified canonical manuscript prose. The tracked `manuscript/` tree r
 - M ordinary exporter output will be git-ignored; N imports will be staging-only. Neither tool may write the other repository or overwrite prose.
 - No build/runtime command may fetch another repository or require GitHub credentials.
 
+## Batch 2.1 completion evidence
+
+- `Eternal_Return_Manuscript` [PR #45](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/45) merged first as `47d2453cb7b895569ccb7398dcf40dc304422ba9`. It added the matching proposal, release, review, rollback, and do-not-overwrite workflow. No file beneath `manuscript/` changed, and the tracked manuscript tree remained `47d1d952785b7133f89fd31369baa6bd899a6e8f`.
+- Manuscript post-merge [run 29366924468](https://github.com/zekusmaximus/Eternal_Return_Manuscript/actions/runs/29366924468) passed `Manuscript / linux`, `Manuscript / windows-utf8`, and `Security / secret-scan`.
+- Narramorph [PR #130](https://github.com/zekusmaximus/Narramorph/pull/130) merged second as `e66e3392622b0ce9a233963a26256594cd2ded2c`. It added ADR 0002, the explicit content-ownership boundary, the Phase 2 execution record, and the in-progress consolidation index.
+- Narramorph post-merge [run 29366975337](https://github.com/zekusmaximus/Narramorph/actions/runs/29366975337) passed all seven protected checks: `PR / fast`, `Quality / coverage`, `Release / content-build`, `Release / browser`, `Compatibility / node-24`, `Security / dependency-review`, and `Security / secret-scan`.
+- Safe intermediate state: the manuscript and runtime prose are unchanged, no exporter/importer exists yet, and Narramorph continues using its checked-in runtime package without a cross-repository build or runtime dependency.
+
+Batch 2.1's gate is satisfied: neither repository documents or implements a workflow that can silently overwrite the other's prose.
+
 ## Required merge order and safe intermediate states
 
 1. **Batch 2.1:** M workflow cross-reference and N authority ADR/execution record. Documentation changes do not alter either edition.
@@ -106,7 +116,7 @@ No command modified canonical manuscript prose. The tracked `manuscript/` tree r
 
 | Batch | Repository | Branch | Pull request | Merge commit | Evidence |
 | --- | --- | --- | --- | --- | --- |
-| 2.1 | Eternal_Return_Manuscript | `agent/phase-2-batch-2-1` | Pending | Pending | Workflow/provenance cross-reference; no prose change. |
-| 2.1 | Narramorph | `agent/phase-2-batch-2-1` | Pending | Pending | ADR, ownership boundary, and this execution record. |
+| 2.1 | Eternal_Return_Manuscript | `agent/phase-2-batch-2-1` | [#45](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/45) | `47d2453cb7b895569ccb7398dcf40dc304422ba9` | Main run 29366924468; no prose change. |
+| 2.1 | Narramorph | `agent/phase-2-batch-2-1` | [#130](https://github.com/zekusmaximus/Narramorph/pull/130) | `e66e3392622b0ce9a233963a26256594cd2ded2c` | Main run 29366975337; ADR and ownership boundary. |
 
 Later rows are added only when their branches and pull requests exist. Every accepted variance, deterministic hash, release/package ID, check result, and merge SHA must be recorded here before Phase 2 closes.
