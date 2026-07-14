@@ -9,7 +9,7 @@ Updated: July 14, 2026
 | Batch | Tracking issue | Status | Acceptance evidence / remaining gate |
 | --- | --- | --- | --- |
 | 2.1 — Content authority and edition semantics | [#125](https://github.com/zekusmaximus/Narramorph/issues/125) | Complete | M PR #45 and N PR #130 merged; both protected `main` runs passed and both workflows prohibit silent prose overwrite. |
-| 2.2 — Story Package Contract v1 | [#126](https://github.com/zekusmaximus/Narramorph/issues/126) | Implemented; merge evidence pending | Both synthetic fixtures and the 1,014-variation Eternal Return catalog pass one generic validator; deterministic, rename-stability, compatibility, malformed-input, license, duplicate-ID, unsafe-path, and tamper proofs pass locally. |
+| 2.2 — Story Package Contract v1 | [#126](https://github.com/zekusmaximus/Narramorph/issues/126) | Complete | Both synthetic fixtures and the 1,014-variation Eternal Return catalog pass one generic validator; deterministic, rename-stability, compatibility, malformed-input, license, duplicate-ID, unsafe-path, and tamper proofs passed locally and in protected CI. |
 | 2.3 — Non-mutating literary release exporter | [#127](https://github.com/zekusmaximus/Narramorph/issues/127) | Not started | M exporter/release must be deterministic, stdlib-only, non-mutating, and merged before N acceptance. |
 | 2.4 — Staged importer and concordance | [#128](https://github.com/zekusmaximus/Narramorph/issues/128) | Not started | Every runtime passage must have explainable provenance; changed releases must yield semantic diffs without prose rewrites. |
 | 2.5 — Vertical slice | [#129](https://github.com/zekusmaximus/Narramorph/issues/129) | Not started | A second agent must reproduce the slice with no provenance-free manual step. |
@@ -105,7 +105,7 @@ Batch 2.1's gate is satisfied: neither repository documents or implements a work
 
 ## Batch 2.2 implementation evidence
 
-[Story Package Contract v1](../contracts/story-package-v1.md) defines the manifest, eight record schemas, aggregate catalog, opaque identity, deterministic serialization, SHA-256 coverage, compatibility policy, and authored/generated boundaries. The implementation branch is `agent/phase-2-batch-2-2`; its pull request and protected-`main` evidence are added before the batch closes.
+[Story Package Contract v1](../contracts/story-package-v1.md) defines the manifest, eight record schemas, aggregate catalog, opaque identity, deterministic serialization, SHA-256 coverage, compatibility policy, and authored/generated boundaries. Implementation branch `agent/phase-2-batch-2-2` was merged through [Narramorph PR #132](https://github.com/zekusmaximus/Narramorph/pull/132).
 
 | Package | Story ID / version | Passages | Variations | Deterministic content hash |
 | --- | --- | --: | --: | --- |
@@ -127,6 +127,10 @@ The complete local regression gate also passed: 37 app test files / 166 tests; 1
 
 Gitleaks 8.24.3 also scanned the Batch 2.2 commit locally with its complete default rule set and reported no leaks. The repository configuration excludes only the two generated catalog paths whose deterministic SHA-256 values trigger the generic API-key entropy heuristic; source inputs, generators, manifests, resources, fixtures, and all other repository paths remain scanned.
 
+- PR [#132](https://github.com/zekusmaximus/Narramorph/pull/132) head `c1399ca47fb31a209d5982f5f6fd9e3ec6eb1c03` passed all seven protected contexts in [run 29371275537](https://github.com/zekusmaximus/Narramorph/actions/runs/29371275537), including the exact-path Gitleaks proof.
+- Squash merge `af7cd6835c2e9395652d2e83c8f394b78585ebe9` landed on `main`; post-merge [run 29371394439](https://github.com/zekusmaximus/Narramorph/actions/runs/29371394439) passed `PR / fast`, `Quality / coverage`, `Release / content-build`, `Release / browser`, `Compatibility / node-24`, `Security / dependency-review`, and `Security / secret-scan`.
+- The merge changed no file under `src/data/stories/eternal-return/content/`; the manuscript repository and both frozen reference repositories remained unchanged.
+
 Generated fixture/runtime catalogs are do-not-edit outputs. Application `0.1.0`, save schema `1.1.0`, and the checked-in runtime fingerprint matching the Eternal Return manifest are written into every new journey. Legacy save `1.0.0` loads only through the documented migration. The pre-contract `legacy-runtime-baseline-2026-07-14` provenance ID is intentionally not an accepted literary release; Batch 2.3 must create the immutable release consumed by Batch 2.4.
 
 Safe intermediate state: Narramorph behavior and authored prose remain unchanged. Contract v1 is local and deterministic, no repository is fetched at build/runtime, and no importer can yet accept or write an editorial release.
@@ -146,6 +150,6 @@ Safe intermediate state: Narramorph behavior and authored prose remain unchanged
 | --- | --- | --- | --- | --- | --- |
 | 2.1 | Eternal_Return_Manuscript | `agent/phase-2-batch-2-1` | [#45](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/45) | `47d2453cb7b895569ccb7398dcf40dc304422ba9` | Main run 29366924468; no prose change. |
 | 2.1 | Narramorph | `agent/phase-2-batch-2-1` | [#130](https://github.com/zekusmaximus/Narramorph/pull/130) | `e66e3392622b0ce9a233963a26256594cd2ded2c` | Main run 29366975337; ADR and ownership boundary. |
-| 2.2 | Narramorph | `agent/phase-2-batch-2-2` | Pending | Pending | Contract, fixtures, generic proof suite, and save identity implemented locally. |
+| 2.2 | Narramorph | `agent/phase-2-batch-2-2` | [#132](https://github.com/zekusmaximus/Narramorph/pull/132) | `af7cd6835c2e9395652d2e83c8f394b78585ebe9` | PR run 29371275537 and main run 29371394439 passed all seven protected checks; no prose change. |
 
 Later rows are added only when their branches and pull requests exist. Every accepted variance, deterministic hash, release/package ID, check result, and merge SHA must be recorded here before Phase 2 closes.
