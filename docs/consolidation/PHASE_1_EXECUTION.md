@@ -9,7 +9,7 @@ Updated: July 14, 2026
 | Batch | Status | Acceptance evidence / remaining gate |
 | --- | --- | --- |
 | 1.1 — Documentation and package metadata | Complete | PRs #103 and Eternal_Return_Manuscript#42 merged; supported-environment, live-count, UTF-8 regression, and post-merge `main` gates passed. |
-| 1.2 — Release-quality CI and required checks | In progress | Product PR #105 and manuscript PR #43 are open; stable checks are being observed before protection. |
+| 1.2 — Release-quality CI and required checks | Complete | PRs #105 and Eternal_Return_Manuscript#43 merged; all current `main` checks passed and are protected. |
 | 1.3 — Dependency and security stabilization | Not started | Audit path review, upgrades, security policy, automated updates, and final scans pending. |
 | 1.4 — Performance budgets and lazy boundaries | Not started | Must begin after major dependency upgrades merge. |
 
@@ -132,13 +132,19 @@ The production baseline at `7a6c53df5219282038e989455bb541c67a00eb0d` measured 1
 
 Manuscript PR #43 defines `Manuscript / linux` and `Manuscript / windows-utf8`. Both run the four unit/regression tests plus stats, assembly and ending verification, deterministic continuity checking, UTF-8 status, every Movement Two voice/philosophy/genre/phrase/rhyme check, the Movement Two rhyme sequence, and the applicable Movement Three rhyme/alternation/dissolution checks. The deliberately truncated synthetic ending is detected as a missing ending. Canonical prose remains unchanged.
 
+The dependency-review action initially failed because the repository dependency graph was disabled. Vulnerability alerts were enabled, the generated SBOM endpoint became available, and dependency review then passed without weakening its high-severity policy. A pre-existing 200%-zoom Playwright predicate also timed out under Linux CI load even though the diagnostic screenshot showed the map rendered; the test now asserts the visible node plus the subsequent keyboard activation outcome. That focused path passed three consecutive local runs before the complete PR and `main` browser jobs passed.
+
+Post-merge `main` runs [29343882911](https://github.com/zekusmaximus/Narramorph/actions/runs/29343882911) and [29343182872](https://github.com/zekusmaximus/Eternal_Return_Manuscript/actions/runs/29343182872) completed successfully. Narramorph `main` strictly requires all seven recorded product checks; Manuscript `main` strictly requires both manuscript checks. Both branches require PRs, conversation resolution, and linear history and block force-pushes and deletion.
+
+`zekusmaximus` remains the sole collaborator/admin, so independent approval is not satisfiable. Required approval count is therefore zero and admin enforcement is disabled as the documented emergency bypass; all non-admin changes remain subject to PRs and required checks. Add one required approval and enable stale-review dismissal when a second trusted maintainer joins.
+
 ## Delivery record
 
 | Batch | Repository | Branch | Pull request | Merge commit |
 | --- | --- | --- | --- | --- |
 | 1.1 | Narramorph | `agent/phase-1-batch-1-1` | [#103](https://github.com/zekusmaximus/Narramorph/pull/103) | `893e15ada136677f79cf269bb90fbaf23fef09dc` |
 | 1.1 | Eternal_Return_Manuscript | `agent/phase-1-batch-1-1` | [#42](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/42) | `161dc64b472cf157b2c7ecf85f150961e6d4828d` |
-| 1.2 | Narramorph | `agent/phase-1-batch-1-2` | [#105](https://github.com/zekusmaximus/Narramorph/pull/105) | Pending |
-| 1.2 | Eternal_Return_Manuscript | `agent/phase-1-batch-1-2` | [#43](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/43) | Pending |
+| 1.2 | Narramorph | `agent/phase-1-batch-1-2` | [#105](https://github.com/zekusmaximus/Narramorph/pull/105) | `97b31036c6d09c03d0d6363cd5c0fa292bcffd42` |
+| 1.2 | Eternal_Return_Manuscript | `agent/phase-1-batch-1-2` | [#43](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/43) | `23797d3d918ec4d859e1fe21ee258351d3d61e51` |
 
 Later batch branches, PRs, required-check names, merge commits, protection settings, performance measurements, budgets, accepted risks, and owner-approved variances will be appended as they become reproducible facts.
