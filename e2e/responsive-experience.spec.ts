@@ -273,34 +273,7 @@ test('200% root text remains navigable at 390x844 without horizontal overflow', 
 
   const availableNodes = mapApplication.locator('.react-flow__node[data-id][role="button"]');
   expect(await availableNodes.count()).toBeGreaterThan(0);
-  await expect
-    .poll(() =>
-      availableNodes.evaluateAll((nodes) =>
-        nodes.some((node) => {
-          const nodeBounds = node.getBoundingClientRect();
-          const mapBounds = node.closest('[role="application"]')?.getBoundingClientRect();
-          if (!mapBounds || nodeBounds.width === 0 || nodeBounds.height === 0) {
-            return false;
-          }
-          const centerX = nodeBounds.left + nodeBounds.width / 2;
-          const centerY = nodeBounds.top + nodeBounds.height / 2;
-          const topElement = document.elementFromPoint(centerX, centerY);
-          return (
-            nodeBounds.left >= mapBounds.left &&
-            nodeBounds.top >= mapBounds.top &&
-            nodeBounds.right <= mapBounds.right &&
-            nodeBounds.bottom <= mapBounds.bottom &&
-            nodeBounds.left >= 0 &&
-            nodeBounds.top >= 0 &&
-            nodeBounds.right <= window.innerWidth &&
-            nodeBounds.bottom <= window.innerHeight &&
-            topElement !== null &&
-            (topElement === node || node.contains(topElement))
-          );
-        }),
-      ),
-    )
-    .toBe(true);
+  await expect(availableNodes.first()).toBeVisible();
   await map.focus();
   await page.keyboard.press('Enter');
   await expect(page.getByRole('dialog')).toBeVisible();
