@@ -21,7 +21,7 @@
   "author": "Narramorph Fiction Project",
   "license": "ISC",
   "dependencies": {
-    "js-yaml": "^4.2.0"
+    "js-yaml": "^5.2.1"
   },
   "devDependencies": {},
   "engines": {
