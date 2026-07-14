@@ -42,10 +42,6 @@ export default defineConfig({
       '@/data': resolve(__dirname, 'src/data'),
     },
   },
-  define: {
-    // Ensure process.env is available for environment variables
-    'process.env': process.env,
-  },
   // Optimize dependencies for faster cold starts
   optimizeDeps: {
     include: ['react', 'react-dom', 'zustand', 'immer', '@xyflow/react', 'framer-motion', 'clsx'],
