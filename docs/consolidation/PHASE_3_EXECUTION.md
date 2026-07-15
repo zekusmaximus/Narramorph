@@ -1,6 +1,6 @@
 # Phase 3 execution record
 
-Phase 3 ports Project-Leibniz's condition and explanation strengths into Narramorph while keeping Narramorph as the sole application and journey-state authority.
+Phase 3 is complete as of July 15, 2026. It ports Project-Leibniz's condition and explanation strengths into Narramorph while keeping Narramorph as the sole application and journey-state authority. Phase 4 is the next roadmap phase.
 
 ## Scope and immutable inputs
 
@@ -39,7 +39,7 @@ Run July 15, 2026 on Node `22.18.0` and npm `11.16.0` after clean root and conve
 | 3.1 semantic gap and contract design | #139 | `agent/phase-3-batch-3-1` | #143 | Complete; merged at `4024002a5288b32938d4d003e4f437051f4f54c9` |
 | 3.2 condition and reason compiler | #140 | `agent/phase-3-batch-3-2` | #144 | Complete; merged at `c646e81328ad7b8c097c519e9f644603992bda87` |
 | 3.3 reader disclosure and ledger | #141 | `agent/phase-3-batch-3-3` | #145 | Complete; merged at `d672a4a0afa263c4c06b0efcfa8114ca2c3d3826` |
-| 3.4 explanation coverage and journey audits | #142 | `agent/phase-3-batch-3-4` | #146 | In review |
+| 3.4 explanation coverage and journey audits | #142 | `agent/phase-3-batch-3-4` | #146 | Complete; merged at `68fb261a1d175f591118adf35caffaac50dcd4d0` |
 
 ## Batch 3.1 decisions
 
@@ -80,4 +80,10 @@ Run July 15, 2026 on Node `22.18.0` and npm `11.16.0` after clean root and conve
 
 ## Closure evidence
 
-This section is completed only from merged protected main after all four batch PRs land.
+- Issues [#139](https://github.com/zekusmaximus/Narramorph/issues/139), [#140](https://github.com/zekusmaximus/Narramorph/issues/140), [#141](https://github.com/zekusmaximus/Narramorph/issues/141), and [#142](https://github.com/zekusmaximus/Narramorph/issues/142) are closed. Their protected-main implementation PRs merged in dependency order: [#143](https://github.com/zekusmaximus/Narramorph/pull/143) at `4024002a5288b32938d4d003e4f437051f4f54c9`, [#144](https://github.com/zekusmaximus/Narramorph/pull/144) at `c646e81328ad7b8c097c519e9f644603992bda87`, [#145](https://github.com/zekusmaximus/Narramorph/pull/145) at `d672a4a0afa263c4c06b0efcfa8114ca2c3d3826`, and [#146](https://github.com/zekusmaximus/Narramorph/pull/146) at `68fb261a1d175f591118adf35caffaac50dcd4d0`.
+- [Protected-main run `29451517540`](https://github.com/zekusmaximus/Narramorph/actions/runs/29451517540) passed at the Batch 3.4 merge commit. The required fast, coverage, content, browser, Node 24, dependency-review, and secret-scanning contexts were green before this closure update began.
+- The completed contract identities are SelectionReason `org.narramorph.selection-reason@1.0.0`, Story Package schema `1.1.0`, save schema `1.2.0`, interactive package `eternal-return@1.1.0`, and package hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062`. Literary release `eternal-return-literary-v1.0.1` remains unchanged.
+- Coverage spans all 12 L1/L2 groups and 741 variations, all 270 L3 variations and the complete 135-context L3 assembly matrix, every L3 selection tier, every L4 ending, and three production-browser journeys covering acceptance/preserve, investigation/transform, and resistance/release. Automated audits cover missing explanations, raw/internal IDs, raw conditions or JSON, contradictions, spoiler terms, determinism, and selection independence.
+- Every supported adaptive selection can emit a stable, optional reader explanation. Persisted snapshots survive reload, and compatibility tests prove that reason collection, rendering, and auditing do not alter selection outcomes.
+- The canonical manuscript, authored runtime story data, generated package prose, and literary digests did not change. Eternal_Return_Manuscript remained read-only at main `6720e76202951e24102997e2b8ef23e08445ab33`; Project-Leibniz remained frozen, unarchived, and read-only at `4f3f4600b8782aac5000b45dd64378baf318e1df`; eternal-return-digital-self remained unarchived and unchanged at `392eef6c6f87b8064c8cc51d91b6f029b0e32d5b`.
+- Phase 3 performed no deployment, production release, archive action, canonical prose edit, or authored runtime-prose edit. Phase 4 is next, and consolidation epic [#93](https://github.com/zekusmaximus/Narramorph/issues/93) remains open.

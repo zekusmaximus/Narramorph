@@ -4,7 +4,7 @@ This directory is the authoritative implementation record for bringing the four 
 
 ## Current phase
 
-Phases 0–2 are complete. Phase 2's five batch issues (#125–#129) satisfy their acceptance gates, and its immutable release/package/check evidence is recorded in [the Phase 2 execution record](PHASE_2_EXECUTION.md). Phase 3 is in progress through issues #139–#142; its evidence is recorded in [the Phase 3 execution record](PHASE_3_EXECUTION.md).
+Phases 0–3 are complete. Phase 3's four batch issues (#139–#142) satisfy their acceptance gates, and its condition, explanation, reader-disclosure, audit, browser, immutable-input, and protected-main evidence is recorded in [the Phase 3 execution record](PHASE_3_EXECUTION.md). Phase 4 is next; Project-Leibniz remains frozen and unarchived until that phase completes its remaining extraction and archival gates.
 
 ## Phase 0 scope
 
