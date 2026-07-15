@@ -8,6 +8,7 @@ import type {
 } from '@/types';
 import type { VariationMatchResult } from '@/utils/conditionEvaluator';
 
+import { resolveProseBeats } from './proseBeats';
 import { compileVariationSelectionReason } from './selectionReason';
 
 export type VariationSelectionReason =
@@ -25,6 +26,8 @@ export interface VariationSelectionResult {
   usedFallback: boolean;
   reason: VariationSelectionReason;
   selectionReason: SelectionReason | null;
+  /** Ordered IDs of the selected prose-beat alternatives; empty when the passage has no beats. */
+  selectedBeatIds: string[];
 }
 
 export interface VariationSelectionDependencies {
@@ -70,6 +73,7 @@ export function selectVariation(
       usedFallback: false,
       reason: 'no-node',
       selectionReason: null,
+      selectedBeatIds: [],
     };
   }
 
@@ -89,6 +93,7 @@ export function selectVariation(
           usedFallback: true,
           reason: 'missing-variations',
           selectionReason: null,
+          selectedBeatIds: [],
         };
       }
 
@@ -102,8 +107,9 @@ export function selectVariation(
         throw new Error('No variations available');
       }
 
+      const firstResolved = resolveProseBeats(firstVariation, context);
       return {
-        content: firstVariation.content,
+        content: firstResolved.content,
         variationId: getVariationId(firstVariation),
         metadata: firstVariation.metadata,
         error: null,
@@ -114,19 +120,22 @@ export function selectVariation(
           context,
           'deterministic-any',
         ),
+        selectedBeatIds: firstResolved.selectedBeatIds,
       };
     }
 
     const matchedVariation = match.variation;
+    const matchedResolved = resolveProseBeats(matchedVariation, context);
 
     return {
-      content: matchedVariation.content,
+      content: matchedResolved.content,
       variationId: getVariationId(matchedVariation),
       metadata: matchedVariation.metadata,
       error: null,
       usedFallback: false,
       reason: 'matched',
       selectionReason: compileVariationSelectionReason(matchedVariation, context, match.tier),
+      selectedBeatIds: matchedResolved.selectedBeatIds,
     };
   } catch (error) {
     return {
@@ -137,6 +146,7 @@ export function selectVariation(
       usedFallback: true,
       reason: 'selection-error',
       selectionReason: null,
+      selectedBeatIds: [],
     };
   }
 }

@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://narramorph.example/schemas/story-package/v1/prose-beat.schema.json",
   "title": "Story Package Prose Beat v1",
+  "description": "One prose-beat slot for a variation. Multiple beats may share an ordinal to represent ordered alternative phrasings for the same slot; the runtime resolver selects one alternative deterministically by condition and priority. The compositional fields (conditionId, priority, omitWhenUnmatched) are optional and additive: a beat without them is a fixed segment, so existing single-beat variations remain valid and byte-identical.",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "stableKey", "variationId", "ordinal", "contentDigest", "byteLength"],
@@ -11,6 +12,19 @@
     "variationId": { "type": "string", "pattern": "^spv1_var_[0-9a-f]{24}$" },
     "ordinal": { "type": "integer", "minimum": 0 },
     "contentDigest": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
-    "byteLength": { "type": "integer", "minimum": 0 }
+    "byteLength": { "type": "integer", "minimum": 0 },
+    "conditionId": {
+      "description": "Optional reference to a condition record that gates this alternative. Absent means the alternative always qualifies.",
+      "type": "string",
+      "pattern": "^spv1_cnd_[0-9a-f]{24}$"
+    },
+    "priority": {
+      "description": "Optional tie-break weight among qualifying alternatives at the same ordinal; higher wins, default 0.",
+      "type": "integer"
+    },
+    "omitWhenUnmatched": {
+      "description": "Optional. When true and no alternative at this ordinal qualifies, the slot is omitted instead of using the deterministic fallback.",
+      "type": "boolean"
+    }
   }
 }

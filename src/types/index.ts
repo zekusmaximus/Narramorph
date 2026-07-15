@@ -62,6 +62,8 @@ export type {
   VariationMetadata,
   Variation,
   VariationFile,
+  ProseBeatAlternative,
+  ProseBeat,
   L3ContentSynthesisPattern,
   L3VariationMetadata,
   L3Variation,

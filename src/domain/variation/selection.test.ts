@@ -85,6 +85,51 @@ describe('selectVariation', () => {
     });
   });
 
+  it('leaves a beatless variation byte-identical and reports no selected beats', () => {
+    const result = selectVariation(
+      { storyId: 'eternal-return', nodeId: 'arch-L1', context },
+      dependencies({ nodeId: 'arch-L1', variations: [variation] }),
+    );
+
+    expect(result.content).toBe('Selected content');
+    expect(result.selectedBeatIds).toEqual([]);
+  });
+
+  it('composes prose beats into the passage and threads the selected beat IDs', () => {
+    const beatVariation: Variation = {
+      ...variation,
+      content: 'Whole-passage fallback',
+      proseBeats: [
+        { id: 'b0', ordinal: 0, alternatives: [{ id: 'b0a', content: 'You arrive.' }] },
+        {
+          id: 'b1',
+          ordinal: 1,
+          alternatives: [
+            {
+              id: 'returning',
+              content: 'You have been here before.',
+              condition: { kind: 'visitCount', passageId: 'arch-L1', comparison: 'gte', value: 2 },
+            },
+            { id: 'first', content: 'The archive is new to you.' },
+          ],
+        },
+      ],
+    };
+
+    const result = selectVariation(
+      {
+        storyId: 'eternal-return',
+        nodeId: 'arch-L1',
+        context: { ...context, visitCounts: { 'arch-L1': 3 } },
+      },
+      dependencies({ nodeId: 'arch-L1', variations: [beatVariation] }, beatVariation),
+    );
+
+    expect(result.content).toBe('You arrive.\n\nYou have been here before.');
+    expect(result.selectedBeatIds).toEqual(['b0a', 'returning']);
+    expect(result.variationId).toBe('arch-L1-001');
+  });
+
   it('returns the static fallback for a missing or empty variation file', () => {
     const result = selectVariation(
       {

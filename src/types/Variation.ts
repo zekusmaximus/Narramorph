@@ -112,6 +112,38 @@ export interface VariationMetadata {
 }
 
 /**
+ * Optional compositional prose beats (Phase 4.1).
+ *
+ * A variation's prose may optionally be composed from an ordered list of beats instead of a single
+ * whole-passage `content` string. Each beat is one slot in the passage and offers one or more
+ * ordered alternative phrasings; the resolver deterministically selects exactly one alternative per
+ * beat (or omits the slot) and joins the results into one continuous passage before Markdown
+ * rendering. A variation without `proseBeats` renders `content` byte-for-byte unchanged, so the
+ * feature is additive and migration is incremental.
+ */
+export interface ProseBeatAlternative {
+  /** Stable identifier for this phrasing; recorded as a selected beat ID in the visit-event log. */
+  id: string;
+  /** Markdown fragment contributed when this alternative is selected. */
+  content: string;
+  /** Optional journey condition; when absent the alternative always qualifies. */
+  condition?: JourneyConditionExpression;
+  /** Higher value wins among qualifying alternatives (default 0); ties break to author order. */
+  priority?: number;
+}
+
+export interface ProseBeat {
+  /** Stable identifier for the beat slot. */
+  id: string;
+  /** Position within the passage; beats resolve in ascending ordinal order (stable on ties). */
+  ordinal: number;
+  /** Ordered alternative phrasings for this slot; at least one is required. */
+  alternatives: ProseBeatAlternative[];
+  /** When no alternative qualifies, omit the slot instead of using the deterministic fallback. */
+  omitWhenUnmatched?: boolean;
+}
+
+/**
  * Full variation structure
  */
 export interface Variation {
@@ -125,6 +157,10 @@ export interface Variation {
   awarenessLevel: AwarenessLevel;
   content: string;
   metadata: VariationMetadata;
+  /** Optional compositional prose beats. When present, they resolve into the rendered passage. */
+  proseBeats?: ProseBeat[];
+  /** Separator inserted between resolved beats; defaults to a paragraph break (`\n\n`). */
+  beatJoiner?: string;
 }
 
 /**

@@ -40,7 +40,7 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 | Batch | Issue | Branch | Pull request | Status |
 | --- | --- | --- | --- | --- |
 | 4.0 contract lock (ADR 0004, VisitEvent shape) | [#149](https://github.com/zekusmaximus/Narramorph/issues/149) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Complete (branch) |
-| 4.1 optional compositional prose beats | _TBD_ | _TBD_ | _TBD_ | Pending |
+| 4.1 optional compositional prose beats | [#150](https://github.com/zekusmaximus/Narramorph/issues/150) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Mechanism landed; node conversion pending approval |
 | 4.2 condition-aware edge prose | _TBD_ | _TBD_ | _TBD_ | Pending |
 | 4.3 export-grade visit event log | _TBD_ | _TBD_ | _TBD_ | Pending |
 | 4.4 accessible journey export (Markdown + print HTML) | _TBD_ | _TBD_ | _TBD_ | Pending |
@@ -69,17 +69,30 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 
 ## Batch 4.1 — optional compositional prose beats
 
+**Status: mechanism landed; reference-node conversion pending content approval.**
+
 **Acceptance gate**
 
 - Authors can choose between whole-passage variations and compositional beats without duplicating state logic.
 - A saved journey reopens with the exact same resolved prose.
 
+**Mechanism delivered**
+
+- `src/types/Variation.ts` adds an optional `proseBeats` representation to the runtime `Variation`: an ordered list of beat slots, each with ordered alternative phrasings that carry an optional journey condition (reusing the Phase 3 `JourneyConditionExpression`), a `priority`, and per-slot `omitWhenUnmatched` behavior, plus an optional `beatJoiner`. Whole-passage variations remain fully supported; a variation without beats is unchanged, so migration is incremental.
+- `src/domain/variation/proseBeats.ts` resolves beats into one continuous passage before Markdown rendering. It reuses the pure `evaluateJourneyCondition` evaluator, selects one alternative per slot by condition then highest priority (ties break to author order), applies the deterministic first-alternative fallback or omits the slot, and returns the ordered selected beat IDs for the visit-event log. A beatless variation returns its `content` byte-for-byte unchanged.
+- `src/domain/variation/selection.ts` composes the resolved prose inside `selectVariation` and threads `selectedBeatIds` through the result without duplicating any state logic; selection order and matched variation are unchanged.
+- `schemas/story-package/v1/prose-beat.schema.json` is extended additively with optional `conditionId`, `priority`, and `omitWhenUnmatched`. Existing single-beat catalogs omit these fields and remain valid; the conversion emitter is unchanged, so the package hash is unaffected.
+
 **Evidence**
 
-- Schema extension (ordered alternatives, conditions, priority, omission behavior, deterministic fallback) and runtime resolver: _TBD_.
-- Byte-invariant selection proof and exact-save replay: _TBD_.
-- One reference node per perspective converted and editorially reviewed (content approval): _TBD_.
-- Local verification and identities: _TBD_.
+- `src/domain/variation/proseBeats.test.ts` (11 tests): byte-identical identity path, empty-beats identity, ordinal ordering, custom joiner, condition-based selection, priority preference, author-order tie-break, omission, deterministic fallback, and determinism (identical inputs → identical output).
+- `src/domain/variation/selection.test.ts` adds a byte-invariance case (beatless variation unchanged, `selectedBeatIds` empty) and a composition case (beats compose into the passage; selected beat IDs threaded).
+- Local verification on Node `22.22.2`: `type-check` pass; `lint:ci` 0 errors / 32 warnings (baseline held); `test:run` 48 files / 258 tests passed (was 245; +13); `story:package:validate` all valid with `eternal-return@1.1.0` hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062` unchanged; `build` pass. Core adaptive Chromium journeys (`reader-journey`, `phase-3-path-coverage`) pass against the installed browser (the pinned headless-shell revision is absent in this sandbox; the full matrix runs in protected-main CI).
+
+**Deferred (content-approval gated)**
+
+- Converting one reference node per perspective into beats — the roadmap's editorial-quality comparison — is an authored-prose change requiring the operator's explicit sign-off on the exact wording, recorded with provenance per ADR 0002. No authored runtime prose or manuscript prose changed in this batch.
+- Exact reopen replay of a _conditional_ beat resolution is guaranteed once Batch 4.3 snapshots the resolved text in the `VisitEvent` log. Every shipped passage stays on the byte-invariant identity path until a node opts into beats, so no saved journey changes today.
 
 ## Batch 4.2 — condition-aware edge prose
 
