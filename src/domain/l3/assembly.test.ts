@@ -13,6 +13,7 @@ import {
   getL3AwarenessLevel,
   selectL3Sections,
   selectL3Variation,
+  selectL3VariationWithTier,
   toContentSynthesisPattern,
 } from './assembly';
 
@@ -91,6 +92,36 @@ describe('L3 assembly domain', () => {
     ]);
 
     expect(selectL3Variation(file, context, 'medium')?.variationId).toBe('journey-and-philosophy');
+    expect(selectL3VariationWithTier(file, context, 'medium')?.tier).toBe('journey-philosophy');
+  });
+
+  it.each([
+    [
+      'journey',
+      createVariation('journey', {
+        philosophyDominant: 'resist',
+        awarenessLevel: 'low',
+      }),
+    ],
+    [
+      'philosophy',
+      createVariation('philosophy', {
+        journeyPattern: 'met-later',
+        awarenessLevel: 'low',
+      }),
+    ],
+    [
+      'deterministic-any',
+      createVariation('any', {
+        journeyPattern: 'met-later',
+        philosophyDominant: 'resist',
+        awarenessLevel: 'low',
+      }),
+    ],
+  ] as const)('reports the %s L3 fallback criterion', (expectedTier, candidate) => {
+    const result = selectL3VariationWithTier(createFile('arch-L3', [candidate]), context, 'medium');
+
+    expect(result?.tier).toBe(expectedTier);
   });
 
   it('assembles the selected source content without transforming it', () => {
@@ -106,6 +137,7 @@ describe('L3 assembly domain', () => {
 
     expect(assembly.arch.content).toBe('arch-exact content');
     expect(assembly.conv.variationId).toBe('conv-exact');
+    expect(assembly.conv.matchTier).toBe('exact-synthesis');
     expect(assembly.totalWordCount).toBe(500);
     expect(assembly.metadata).toMatchObject({
       awarenessLevel: getL3AwarenessLevel(context.awareness),

@@ -14,6 +14,7 @@ function createSection(character: L3AssemblySection['character']): L3AssemblySec
     variationId: `${character}-section`,
     content: `${character} remembers the convergence.`,
     wordCount: 4,
+    matchTier: 'exact-context',
     metadata: { wordCount: 4 },
   };
 }
