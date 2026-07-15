@@ -38,7 +38,7 @@ Run July 15, 2026 on Node `22.18.0` and npm `11.16.0` after clean root and conve
 | --- | --- | --- | --- | --- |
 | 3.1 semantic gap and contract design | #139 | `agent/phase-3-batch-3-1` | #143 | Complete; merged at `4024002a5288b32938d4d003e4f437051f4f54c9` |
 | 3.2 condition and reason compiler | #140 | `agent/phase-3-batch-3-2` | #144 | Complete; merged at `c646e81328ad7b8c097c519e9f644603992bda87` |
-| 3.3 reader disclosure and ledger | #141 | `agent/phase-3-batch-3-3` | Pending | In progress |
+| 3.3 reader disclosure and ledger | #141 | `agent/phase-3-batch-3-3` | #145 | In review |
 | 3.4 explanation coverage and journey audits | #142 | Pending | Pending | Not started |
 
 ## Batch 3.1 decisions
