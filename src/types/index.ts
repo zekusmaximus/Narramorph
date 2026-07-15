@@ -25,6 +25,7 @@ export type {
 export type {
   VisitRecord,
   UnlockedTransformation,
+  SelectionRecord,
   UserProgress,
   UserPreferences,
   StoryPackageIdentity,
@@ -50,6 +51,11 @@ export type {
 // Variation system types
 export type {
   JourneyPattern,
+  JourneyCharacter,
+  NumericComparison,
+  JourneyConditionExpression,
+  ConditionEvidence,
+  ConditionEvaluation,
   PathPhilosophy,
   AwarenessLevel,
   SynthesisPattern,
@@ -67,3 +73,15 @@ export type {
   JourneyTracking,
   ConditionContext,
 } from './Variation';
+
+export { SELECTION_REASON_CONTRACT, SELECTION_REASON_SCHEMA_VERSION } from './SelectionReason';
+export type {
+  SelectionKind,
+  SelectionOutcome,
+  SelectionReasonTemplateKey,
+  SelectionTriggerKind,
+  SelectionTriggerValue,
+  SelectionTrigger,
+  SelectionReason,
+  VariationMatchTier,
+} from './SelectionReason';

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import type { ConditionContext, Variation, VariationMetadata } from '@/types/Variation';
 
-import { findMatchingVariation } from './conditionEvaluator';
+import { findMatchingVariation, findMatchingVariationWithReason } from './conditionEvaluator';
 
 const createVariation = (
   overrides: Partial<Omit<Variation, 'metadata'>> & {
@@ -58,6 +58,9 @@ const baseContext: ConditionContext = {
     algorithm: 30,
     lastHuman: 30,
   },
+  readingPath: ['arch-L1', 'algo-L1', 'arch-L1'],
+  visitCounts: { 'arch-L1': 2, 'algo-L1': 1 },
+  startingCharacter: 'archaeologist',
 };
 
 describe('findMatchingVariation fallback selection', () => {
@@ -115,5 +118,24 @@ describe('findMatchingVariation fallback selection', () => {
     });
 
     expect(selection?.variationId).toBe('arch-L1-010');
+  });
+
+  it('reports matching tiers without changing the selected variation', () => {
+    const variations = [
+      createVariation({
+        variationId: 'arch-L1-exact',
+        metadata: { journeyPattern: 'shifted-dominant', philosophyDominant: 'invest' },
+      }),
+      createVariation({ variationId: 'arch-L1-second' }),
+    ];
+
+    const legacySelection = findMatchingVariation(variations, baseContext);
+    const explainedSelection = findMatchingVariationWithReason(variations, baseContext);
+
+    expect(explainedSelection).toMatchObject({
+      variation: { variationId: legacySelection?.variationId },
+      tier: 'exact-journey-philosophy',
+      poolExhausted: false,
+    });
   });
 });

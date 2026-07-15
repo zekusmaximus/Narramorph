@@ -20,6 +20,7 @@ describe('Visit Tracking System', () => {
       progress: {
         visitedNodes: {},
         readingPath: [],
+        selectionRecords: [],
         unlockedConnections: [],
         specialTransformations: [],
         totalTimeSpent: 0,
@@ -334,6 +335,7 @@ describe('Temporal Awareness System', () => {
       progress: {
         visitedNodes: {},
         readingPath: [],
+        selectionRecords: [],
         unlockedConnections: [],
         specialTransformations: [],
         totalTimeSpent: 0,

@@ -50,7 +50,7 @@ function addVisit(progress: UserProgress, nodeId: string, visitCount = 1): void 
 }
 
 describe('saved-state persistence boundary', () => {
-  it('builds and serializes the 1.1.0 save envelope with exact story-package identity', () => {
+  it('builds and serializes the 1.2.0 save envelope with exact story-package identity', () => {
     const progress = createInitialProgress();
     const preferences = createInitialPreferences();
     const timestamp = '2026-07-12T12:00:00.000Z';
@@ -205,6 +205,29 @@ describe('saved-state persistence boundary', () => {
     expect(predecessor.storyPackage.storyVersion).toBe('1.0.1');
   });
 
+  it('migrates the Phase 2 package identity to schema 1.1 without changing journey facts', () => {
+    const progress = createInitialProgress();
+    addVisit(progress, 'arch-L1', 2);
+    const predecessor = buildSavedState(
+      progress,
+      createInitialPreferences(),
+      '2026-07-15T19:00:00.000Z',
+      {
+        storyId: 'eternal-return',
+        storyVersion: '1.0.2',
+        schemaVersion: '1.0.0',
+        contentHash: '656b5b6bacbc0ca69a9eb0ddc7a089219b8218c7a78fabf1d6c788ea5f075566',
+      },
+    );
+
+    const result = prepareSavedState(predecessor, new Map());
+
+    expect(result?.migrations).toEqual(['story-package-provenance']);
+    expect(result?.savedState.storyPackage).toEqual(CURRENT_STORY_PACKAGE);
+    expect(result?.savedState.progress.readingPath).toEqual(progress.readingPath);
+    expect(result?.savedState.progress.visitedNodes).toEqual(progress.visitedNodes);
+  });
+
   it('leaves current saved-state values intact when no migration is needed', () => {
     const savedState = buildSavedState(
       createInitialProgress(),
@@ -215,5 +238,23 @@ describe('saved-state persistence boundary', () => {
     const result = prepareSavedState(savedState, new Map());
 
     expect(result).toEqual({ savedState, migrations: [] });
+  });
+
+  it('migrates a 1.1.0 save with no historical ledger without recomputing decisions', () => {
+    const progress = createInitialProgress();
+    addVisit(progress, 'arch-L1', 2);
+    const legacyProgress = progress as Partial<UserProgress>;
+    delete legacyProgress.selectionRecords;
+    const legacy = {
+      ...buildSavedState(progress, createInitialPreferences(), '2026-07-12T12:00:00.000Z'),
+      version: '1.1.0',
+    };
+
+    const result = prepareSavedState(legacy, new Map());
+
+    expect(result?.migrations).toContain('selection-records');
+    expect(result?.savedState.progress.selectionRecords).toEqual([]);
+    expect(legacyProgress.selectionRecords).toBeUndefined();
+    expect(result?.savedState.progress.readingPath).toEqual(['arch-L1', 'arch-L1']);
   });
 });

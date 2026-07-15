@@ -28,6 +28,9 @@ describe('buildConditionContext', () => {
         algorithm: 30,
         lastHuman: 20,
       },
+      readingPath: [],
+      visitCounts: {},
+      startingCharacter: null,
     });
   });
 
@@ -46,6 +49,7 @@ describe('buildConditionContext', () => {
       nodeId: 'arch-L1',
       visitCount: 2,
       transformationState: 'firstRevisit',
+      visitCounts: { 'arch-L1': 2 },
     });
   });
 

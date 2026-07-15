@@ -196,6 +196,32 @@ describe('Story Package Contract v1', () => {
     );
   });
 
+  it('serializes and validates recursive condition expressions', async () => {
+    const { catalog } = await loadPackage(fromRoot('story-packages/fixtures/clockwork-garden'));
+    const expression = catalog.conditions.find((condition) => condition.kind === 'expression');
+
+    expect(expression?.value).toMatchObject({
+      kind: 'all',
+      conditions: [
+        { kind: 'historyStartsWith', passageIds: ['garden-start'] },
+        { kind: 'not', condition: { kind: 'visitCount', passageId: 'garden-return' } },
+      ],
+    });
+  });
+
+  it('rejects malformed recursive condition expressions', async () => {
+    const fixture = await mutableFixture();
+    const { catalog } = await loadPackage(fixture);
+    const expression = catalog.conditions.find((condition) => condition.kind === 'expression');
+    expect(expression).toBeDefined();
+    expression!.value = { kind: 'any', conditions: [] };
+    await writeCanonical(join(fixture, 'catalog.json'), catalog);
+
+    const result = await validateStoryPackage(fixture);
+
+    expect(result.errors).toContain(`Condition expression is malformed: ${expression!.id}`);
+  });
+
   it('rejects malformed package JSON', async () => {
     const fixture = await mutableFixture();
     await writeFile(join(fixture, 'manifest.json'), '{broken', 'utf8');

@@ -6,8 +6,8 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { selectVariation } from '@/domain/variation/selection';
 import { useStoryStore } from '@/stores/storyStore';
-import type { VariationMetadata } from '@/types';
-import { findMatchingVariation } from '@/utils/conditionEvaluator';
+import type { SelectionReason, VariationMetadata } from '@/types';
+import { findMatchingVariationWithReason } from '@/utils/conditionEvaluator';
 import { loadVariationFile } from '@/utils/variationLoader';
 
 const isDevEnv = process.env.NODE_ENV !== 'production';
@@ -49,6 +49,8 @@ export interface UseVariationSelectionResult {
   error: Error | null;
   /** Whether fallback content is being used */
   usedFallback: boolean;
+  /** Stable machine-readable and reader-safe explanation for this selection */
+  selectionReason: SelectionReason | null;
   /** Retry the exact passage import after an error */
   retry: () => void;
 }
@@ -98,6 +100,7 @@ export function useVariationSelection(
     isLoading: false,
     error: null,
     usedFallback: false,
+    selectionReason: null,
   });
 
   useEffect(() => {
@@ -113,6 +116,7 @@ export function useVariationSelection(
         isLoading: false,
         error: null,
         usedFallback: false,
+        selectionReason: null,
       });
       return () => {
         active = false;
@@ -128,7 +132,10 @@ export function useVariationSelection(
       .then((variationFile) => {
         const selection = selectVariation(
           { storyId, nodeId, fallbackContent, context },
-          { loadVariationFile: () => variationFile, findMatchingVariation },
+          {
+            loadVariationFile: () => variationFile,
+            findMatchingVariation: findMatchingVariationWithReason,
+          },
         );
         if (!active) {
           return;
@@ -160,6 +167,7 @@ export function useVariationSelection(
           isLoading: false,
           error: normalizedError,
           usedFallback: true,
+          selectionReason: null,
         });
       });
 

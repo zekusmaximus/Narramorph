@@ -1,10 +1,10 @@
 # Story Package Contract v1
 
-Status: stable for Phase 2 implementation
+Status: stable for Phase 3 implementation
 
 Contract identifier: `org.narramorph.story-package`
 
-Schema version: `1.0.0`
+Schema version: `1.1.0`
 
 ## Purpose and boundary
 
@@ -59,10 +59,14 @@ Contract v1 defines separate schemas for:
 - [passages](../../schemas/story-package/v1/passage.schema.json);
 - [variations](../../schemas/story-package/v1/variation.schema.json);
 - [conditions](../../schemas/story-package/v1/condition.schema.json);
+- [recursive journey-condition expressions](../../schemas/story-package/v1/condition-expression.schema.json);
 - [prose beats](../../schemas/story-package/v1/prose-beat.schema.json);
 - [edges](../../schemas/story-package/v1/edge.schema.json);
 - [endings](../../schemas/story-package/v1/ending.schema.json); and
 - [explanation metadata](../../schemas/story-package/v1/explanation.schema.json).
+- [selection reasons](../../schemas/story-package/v1/selection-reason.schema.json).
+
+Schema 1.1 retains every 1.0 catalog record and adds `kind: "expression"` conditions for history prefix/suffix, ordered occurrence, immediate adjacency, recency, visit counts, cross-passage visit sums, and recursive `all`/`any`/`not`. It also defines the independent `org.narramorph.selection-reason@1.0.0` explanation object. Generic mutable flags are not part of the contract; product facts remain named and typed.
 
 The aggregate [catalog schema](../../schemas/story-package/v1/catalog.schema.json) fixes collection names. The executable validator additionally enforces cross-record references, globally unique IDs, safe paths, catalog/manifest agreement, resource bytes, compatibility, canonical bytes, and both hash layers.
 
@@ -133,7 +137,7 @@ Unknown schema majors, malformed semantic versions/ranges, or packages outside t
 
 ## Saved journeys
 
-Save schema `1.1.0` adds required `appVersion` and `storyPackage` identity. The latter contains `storyId`, `storyVersion`, `schemaVersion`, and `contentHash`. New saves therefore identify the application, save schema, and exact story package together. Save `1.0.0` remains loadable through a deterministic migration that assigns the checked-in current application/package identity without mutating the input. Later import/concordance work must decide whether a journey can migrate between differing package identities; it must never silently claim an old journey used new content.
+Save schema `1.1.0` added required `appVersion` and `storyPackage` identity. Save schema `1.2.0` adds an append-only collection of historical selection records for reader explanations. New saves identify the application, save schema, and exact story package together. Save `1.0.0` remains loadable through a deterministic migration that assigns the checked-in current application/package identity; save `1.1.0` migrates with an empty explanation ledger rather than inventing past reasons. Migrations do not mutate their input.
 
 ## Reproduction
 

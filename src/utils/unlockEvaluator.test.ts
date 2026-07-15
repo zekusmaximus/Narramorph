@@ -63,6 +63,7 @@ const defaultCharacterVisits: CharacterVisits = {
 const createProgress = (overrides: Partial<UserProgress> = {}): UserProgress => ({
   visitedNodes: {},
   readingPath: [],
+  selectionRecords: [],
   unlockedConnections: [],
   specialTransformations: [],
   totalTimeSpent: 0,

@@ -4,6 +4,39 @@
 
 import type { TransformationState } from './Node';
 
+export type JourneyCharacter = 'archaeologist' | 'algorithm' | 'lastHuman';
+
+export type NumericComparison = 'eq' | 'ne' | 'gt' | 'gte' | 'lt' | 'lte';
+
+export type JourneyConditionExpression =
+  | { kind: 'historyStartsWith'; passageIds: string[] }
+  | { kind: 'historyEndsWith'; passageIds: string[] }
+  | { kind: 'orderSeen'; passageIds: string[] }
+  | { kind: 'visitedImmediatelyAfter'; beforePassageId: string; afterPassageId: string }
+  | { kind: 'withinSteps'; passageId: string; steps: number }
+  | { kind: 'visitCount'; passageId: string; comparison: NumericComparison; value: number }
+  | {
+      kind: 'visitedCountAcross';
+      passageIds: string[];
+      comparison: NumericComparison;
+      value: number;
+    }
+  | { kind: 'all'; conditions: JourneyConditionExpression[] }
+  | { kind: 'any'; conditions: JourneyConditionExpression[] }
+  | { kind: 'not'; condition: JourneyConditionExpression };
+
+export interface ConditionEvidence {
+  kind: JourneyConditionExpression['kind'];
+  matched: boolean;
+  actual: string | number | boolean | string[];
+  expected: string | number | boolean | string[];
+}
+
+export interface ConditionEvaluation {
+  matched: boolean;
+  evidence: ConditionEvidence[];
+}
+
 /**
  * Journey patterns track which character the reader started with and whether they stayed
  */
@@ -266,5 +299,8 @@ export interface ConditionContext {
     algorithm: number;
     lastHuman: number;
   };
+  readingPath: readonly string[];
+  visitCounts: Readonly<Record<string, number>>;
+  startingCharacter: JourneyCharacter | null;
   recentVariationIds?: string[]; // ALL variation IDs ever shown for this node (absolute deduplication - never repeat)
 }

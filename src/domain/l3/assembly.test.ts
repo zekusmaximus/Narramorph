@@ -28,6 +28,9 @@ const context: ConditionContext = {
     algorithm: 20,
     lastHuman: 10,
   },
+  readingPath: ['arch-L1', 'arch-L2-accept', 'arch-L3'],
+  visitCounts: { 'arch-L1': 1, 'arch-L2-accept': 1, 'arch-L3': 1 },
+  startingCharacter: 'archaeologist',
 };
 
 function createVariation(variationId: string, overrides: Partial<L3Variation> = {}): L3Variation {

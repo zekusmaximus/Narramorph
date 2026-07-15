@@ -7,7 +7,25 @@
       "content": "A paper bird tests a brass seed under an invented violet sun.",
       "metadata": {
         "conditions": {
-          "fixtureChoice": "wind"
+          "fixtureChoice": "wind",
+          "expression": {
+            "kind": "all",
+            "conditions": [
+              {
+                "kind": "historyStartsWith",
+                "passageIds": ["garden-start"]
+              },
+              {
+                "kind": "not",
+                "condition": {
+                  "kind": "visitCount",
+                  "passageId": "garden-return",
+                  "comparison": "gte",
+                  "value": 1
+                }
+              }
+            ]
+          }
         }
       }
     }
