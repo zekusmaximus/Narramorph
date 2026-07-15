@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0.0",
+  "acceptedSliceId": "archaeologist-opening-accept",
+  "acceptedSliceVersion": "1.0.0",
+  "acceptedContentSha256": "e1ecf6812a2246c188c940fc6646745625b577a971cbf71db5cd6f2274a4c79e",
+  "acceptedAssetSha256": "6c47118a7d5f349c071b8656f69fac94ecea68f4cee45cea4509ce618c257d79",
+  "sourceCommit": "6720e76202951e24102997e2b8ef23e08445ab33",
+  "sourcePath": "literary-releases/source/eternal-return-literary-slice-archaeologist-opening-accept-v1.0.0.json",
+  "sourceUrl": "https://github.com/zekusmaximus/Eternal_Return_Manuscript/releases/download/literary-release-v1.0.1/eternal-return-literary-slice-archaeologist-opening-accept-v1.0.0.json",
+  "baseReleaseId": "eternal-return-literary-v1.0.1",
+  "baseReleaseContentSha256": "667dd8d971352c8665fdac97fefdf258bb71489d21853a2a87e5ac236912747f",
+  "runtimeGraphPath": "src/data/stories/eternal-return/archaeologist.json",
+  "passageStableKeys": ["arch-L1", "arch-L2-accept"],
+  "concordancePath": "story-packages/concordance/eternal-return.v1.json",
+  "concordanceSha256": "2db68576f02ea5e05e6fcd0d32d6f0f989f16a874a2c334f9684ba1c2e021ef8",
+  "storyPackage": {
+    "storyId": "eternal-return",
+    "storyVersion": "1.0.2",
+    "schemaVersion": "1.0.0",
+    "contentHash": "656b5b6bacbc0ca69a9eb0ddc7a089219b8218c7a78fabf1d6c788ea5f075566",
+    "editorialReleaseId": "eternal-return-literary-v1.0.1",
+    "sourceManuscriptCommit": "6720e76202951e24102997e2b8ef23e08445ab33"
+  },
+  "runtimeProsePolicy": "metadata-only; never overwrite runtime prose",
+  "reviewedStage": {
+    "classification": "initial-intake",
+    "reportSha256": "43992a86f66872cc255ae15714221bce3327638ff69001ed831dc9db6c4dfffc"
+  },
+  "runtimeContentProof": {
+    "trackedFileCount": 577,
+    "beforeTreeSha256": "af4cea821626bbd0a92b119bbbb27f0f92aa03abbee7b112a1a6794cc3cb6f60",
+    "afterTreeSha256": "af4cea821626bbd0a92b119bbbb27f0f92aa03abbee7b112a1a6794cc3cb6f60"
+  }
+}

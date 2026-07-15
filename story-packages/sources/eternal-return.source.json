@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "storyId": "eternal-return",
-  "storyVersion": "1.0.1",
+  "storyVersion": "1.0.2",
   "title": "Eternal Return of the Digital Self",
   "sourceRoot": "../..",
   "storyFile": "src/data/stories/eternal-return/story.json",
@@ -24,10 +24,10 @@
     "L4-release": "final-release",
     "L4-transform": "final-transform"
   },
-  "sourceManuscriptCommit": "5c968c287eea71be40ca7ee3234e0d62153f1b4e",
-  "editorialReleaseId": "eternal-return-literary-v1.0.0",
+  "sourceManuscriptCommit": "6720e76202951e24102997e2b8ef23e08445ab33",
+  "editorialReleaseId": "eternal-return-literary-v1.0.1",
   "supportedAppRange": ">=0.1.0 <0.2.0",
-  "sourceDateEpoch": "2026-07-14T22:21:34.000Z",
+  "sourceDateEpoch": "2026-07-15T01:01:31.000Z",
   "licenses": [
     {
       "spdx": "LicenseRef-Narramorph-All-Rights-Reserved",
@@ -44,22 +44,22 @@
     {
       "relation": "canonical-manuscript",
       "repository": "https://github.com/zekusmaximus/Eternal_Return_Manuscript",
-      "commit": "5c968c287eea71be40ca7ee3234e0d62153f1b4e",
-      "releaseId": "eternal-return-literary-v1.0.0",
+      "commit": "6720e76202951e24102997e2b8ef23e08445ab33",
+      "releaseId": "eternal-return-literary-v1.0.1",
       "path": "manuscript"
     },
     {
       "relation": "accepted-literary-release",
       "repository": "https://github.com/zekusmaximus/Eternal_Return_Manuscript",
-      "commit": "5c968c287eea71be40ca7ee3234e0d62153f1b4e",
-      "releaseId": "eternal-return-literary-v1.0.0",
-      "path": "eternal-return-literary-v1.0.0.json"
+      "commit": "6720e76202951e24102997e2b8ef23e08445ab33",
+      "releaseId": "eternal-return-literary-v1.0.1",
+      "path": "eternal-return-literary-v1.0.1.json"
     },
     {
       "relation": "authored-runtime",
       "repository": "https://github.com/zekusmaximus/Narramorph",
-      "commit": "cea183de6766715f92527fcd12b2c19c81d3c29a",
-      "releaseId": "narramorph-main-cea183d",
+      "commit": "aac23228c997ebd7792574d019f4148d2a4eeb40",
+      "releaseId": "narramorph-main-aac2322",
       "path": "src/data/stories/eternal-return"
     }
   ],

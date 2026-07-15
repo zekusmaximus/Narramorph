@@ -1,5 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 
+import { createInitialPreferences, createInitialProgress } from '@/domain/progress/progressModel';
+import { CURRENT_STORY_PACKAGE } from '@/domain/progress/storyPackageIdentity';
 import type { StoryNode } from '@/types';
 import type * as StorageModule from '@/utils/storage';
 
@@ -286,6 +288,41 @@ describe('Visit Tracking System', () => {
     expect(stats.characterBreakdown.archaeologist.visited).toBe(1);
     expect(stats.characterBreakdown.algorithm.total).toBe(1);
     expect(stats.characterBreakdown.algorithm.visited).toBe(0);
+  });
+});
+
+describe('Journey export contract', () => {
+  it('exports the vertical-slice path with exact application and Story Package provenance', () => {
+    const progress = createInitialProgress();
+    const timestamp = '2026-07-15T01:15:00.000Z';
+    progress.visitedNodes['arch-L1'] = {
+      visitCount: 1,
+      visitTimestamps: [timestamp],
+      currentState: 'initial',
+      timeSpent: 90,
+      lastVisited: timestamp,
+    };
+    progress.visitedNodes['arch-L2-accept'] = {
+      visitCount: 1,
+      visitTimestamps: [timestamp],
+      currentState: 'initial',
+      timeSpent: 120,
+      lastVisited: timestamp,
+    };
+    progress.readingPath = ['arch-L1', 'arch-L2-accept'];
+    useStoryStore.setState({ progress, preferences: createInitialPreferences() });
+
+    const exported = JSON.parse(useStoryStore.getState().exportProgress()) as {
+      appVersion: string;
+      storyPackage: typeof CURRENT_STORY_PACKAGE;
+      progress: typeof progress;
+    };
+
+    expect(exported.appVersion).toBe('0.1.0');
+    expect(exported.storyPackage).toEqual(CURRENT_STORY_PACKAGE);
+    expect(exported.progress.readingPath).toEqual(['arch-L1', 'arch-L2-accept']);
+    expect(exported.progress.visitedNodes['arch-L1']?.visitCount).toBe(1);
+    expect(exported.progress.visitedNodes['arch-L2-accept']?.visitCount).toBe(1);
   });
 });
 

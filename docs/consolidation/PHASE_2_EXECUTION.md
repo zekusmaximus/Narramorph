@@ -1,6 +1,6 @@
 # Phase 2 execution record
 
-Updated: July 14, 2026
+Updated: July 15, 2026
 
 ## Status
 
@@ -12,7 +12,7 @@ Updated: July 14, 2026
 | 2.2 — Story Package Contract v1 | [#126](https://github.com/zekusmaximus/Narramorph/issues/126) | Complete | Both synthetic fixtures and the 1,014-variation Eternal Return catalog pass one generic validator; deterministic, rename-stability, compatibility, malformed-input, license, duplicate-ID, unsafe-path, and tamper proofs passed locally and in protected CI. |
 | 2.3 — Non-mutating literary release exporter | [#127](https://github.com/zekusmaximus/Narramorph/issues/127) | Complete | M PR #46 merged; the protected merge commit deterministically produced the approved `literary-release-v1.0.0` prerelease and hash-verified artifact without changing manuscript prose. |
 | 2.4 — Staged importer and concordance | [#128](https://github.com/zekusmaximus/Narramorph/issues/128) | Complete | N PR #135 merged with exact-hash staging, explicit acceptance, all 19 passage mappings, explain output, semantic-diff and negative-path proofs, and no runtime prose change. |
-| 2.5 — Vertical slice | [#129](https://github.com/zekusmaximus/Narramorph/issues/129) | Not started | A second agent must reproduce the slice with no provenance-free manual step. |
+| 2.5 — Vertical slice | [#129](https://github.com/zekusmaximus/Narramorph/issues/129) | In progress | M PR #47 and the v1.0.1 prerelease provide deterministic full/slice artifacts; N acceptance, runtime, browser, protected-CI, and merge evidence are being verified. |
 
 Do not mark this record complete until every implementation PR is merged in dependency order, current protected `main` checks are green in both active repositories, all five issues satisfy their gates, and the closure PR records immutable release/package evidence.
 
@@ -187,6 +187,31 @@ Local final verification passed 167 application tests and 137 conversion tests, 
 The initial secret scan correctly blocked three `generic-api-key` entropy false positives for the deterministic stable IDs `algo-L2-invest`, `algo-L2-resist`, and `hum-L2-invest`. The follow-up commit allowlisted only those exact secret values; all default rules, every other concordance value, and every other repository path remain scanned. The rerun passed both repository secret scanning and GitGuardian.
 
 Safe intermediate state: Narramorph consumes the deliberately transferred immutable artifact entirely offline, records release/package identities without credentials, and can explain every shipped passage. Runtime prose, canonical manuscript prose, Project-Leibniz, and eternal-return-digital-self are unchanged. No deployment occurred. Batch 2.5 can now prove a connected L1→L2 journey against this accepted boundary.
+
+## Batch 2.5 implementation evidence
+
+`Eternal_Return_Manuscript` [PR #47](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/47) added the policy-driven vertical-slice exporter and negative-path coverage. Squash merge `6720e76202951e24102997e2b8ef23e08445ab33` produced both the full v1.0.1 release and an exact structured subset for the approved archaeologist opening-to-acceptance journey.
+
+| Identity | Value |
+| --- | --- |
+| Manuscript prerelease | [`literary-release-v1.0.1`](https://github.com/zekusmaximus/Eternal_Return_Manuscript/releases/tag/literary-release-v1.0.1) — non-production prerelease |
+| Full release content / asset SHA-256 | `667dd8d971352c8665fdac97fefdf258bb71489d21853a2a87e5ac236912747f` / `19ffeffc1cf0de6440b16f1e9335d7c738edbf178e1a71f8e875d8960cb8d58e` |
+| Slice ID / version | `archaeologist-opening-accept@1.0.0` |
+| Slice content / asset SHA-256 | `e1ecf6812a2246c188c940fc6646745625b577a971cbf71db5cd6f2274a4c79e` / `6c47118a7d5f349c071b8656f69fac94ecea68f4cee45cea4509ce618c257d79` |
+| Runtime path | `arch-L1` → `arch-L2-accept` |
+| Accepted Story Package | `eternal-return@1.0.2`, hash `656b5b6bacbc0ca69a9eb0ddc7a089219b8218c7a78fabf1d6c788ea5f075566` |
+| Accepted concordance | 19/19 passages, hash `2db68576f02ea5e05e6fcd0d32d6f0f989f16a874a2c334f9684ba1c2e021ef8` |
+| Runtime content proof | 577 tracked files; aggregate SHA-256 `af4cea821626bbd0a92b119bbbb27f0f92aa03abbee7b112a1a6794cc3cb6f60` |
+
+The path is the smallest connected opening-to-decision journey that proves Layer 1 rendering, a real choice, Layer 2 navigation, save identity, reload restoration, mobile layout, and keyboard operation. The slice verifier rejects unknown or tampered assets, a disconnected runtime path, and any mapping that diverges from the accepted full concordance. It confirms the slice is an exact subset of the verified full release and contains no excerpt or runtime prose.
+
+Two exports from the exact manuscript commit produced identical bytes. The full v1.0.1 intake first classified the reviewed change from v1.0.0 as `changed-release`; the slice first classified as `initial-intake`. Their reviewed report SHA-256 values are `6984d5b78bf1a761cd3569755463e5e6d7bbddb94321be5a7d121da3b998c243` and `43992a86f66872cc255ae15714221bce3327638ff69001ed831dc9db6c4dfffc`. After explicit acceptance, both must reproduce `no-semantic-change` in local and protected CI.
+
+The [reproduction runbook](PHASE_2_VERTICAL_SLICE_REPRODUCTION.md) records the exact second-agent export, release download, staging, review, validation, browser, and rollback sequence. Transfer uses named assets from the immutable M prerelease; no JSON is pasted or manually reconstructed. The browser proof traverses both target stable IDs on desktop and at `390×844`, records the exact package/path in the save, reloads it, and checks horizontal overflow.
+
+Local final verification passed 169 application tests and 141 conversion tests, including 18 Story Package proofs and 13 literary-release/slice proofs. Both TypeScript projects, formatting, lint with the existing 32 warnings and zero errors, 288/288 strict authored-content validation, eight runtime-content tests, deterministic package build/validation, accepted full-release and slice validation, production build, coverage (68.70% statements/lines, 73.44% branches, 31.57% functions), and every bundle/source-map budget passed. All 13 Chromium scenarios passed, including the two new desktop/mobile slice profiles plus accessibility, full-journey restoration, recovery, WebGL fallback, performance boundaries, responsive layout, 200% zoom, and reduced motion. Protected-PR and post-merge results will be added after the Narramorph implementation PR passes and merges.
+
+No file under M `manuscript/` changed; its tree remains `47d1d952785b7133f89fd31369baa6bd899a6e8f`. No file under N `src/data/stories/eternal-return/content/` changes. Project-Leibniz and eternal-return-digital-self remain frozen, public, unarchived, and unchanged. No deployment occurs.
 
 ## Required merge order and safe intermediate states
 

@@ -181,6 +181,30 @@ describe('saved-state persistence boundary', () => {
     expect(predecessor.storyPackage.storyVersion).toBe('1.0.0');
   });
 
+  it('migrates the accepted 1.0.1 provenance package without losing journey progress', () => {
+    const progress = createInitialProgress();
+    addVisit(progress, 'arch-L1', 1);
+    addVisit(progress, 'arch-L2-accept', 1);
+    const predecessor = buildSavedState(
+      progress,
+      createInitialPreferences(),
+      '2026-07-15T01:15:00.000Z',
+      {
+        storyId: 'eternal-return',
+        storyVersion: '1.0.1',
+        schemaVersion: '1.0.0',
+        contentHash: '25978ded017ccb5b6536d576b2e6a02f4b218a5d6b62b4eb35a82864eb7837f4',
+      },
+    );
+
+    const result = prepareSavedState(predecessor, new Map());
+
+    expect(result?.migrations).toEqual(['story-package-provenance']);
+    expect(result?.savedState.storyPackage).toEqual(CURRENT_STORY_PACKAGE);
+    expect(result?.savedState.progress).toEqual(progress);
+    expect(predecessor.storyPackage.storyVersion).toBe('1.0.1');
+  });
+
   it('leaves current saved-state values intact when no migration is needed', () => {
     const savedState = buildSavedState(
       createInitialProgress(),

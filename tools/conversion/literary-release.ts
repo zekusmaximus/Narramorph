@@ -5,8 +5,11 @@ import { fileURLToPath } from 'node:url';
 
 import {
   createLiteraryStageReport,
+  createLiterarySliceStageReport,
+  explainAcceptedLiterarySlice,
   explainShippedPassage,
   validateAcceptedLiteraryRelease,
+  validateAcceptedLiterarySlice,
 } from './lib/literary-release';
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
@@ -43,12 +46,50 @@ async function main(): Promise<void> {
     );
     return;
   }
+  if (command === 'stage-slice' && argument) {
+    const result = await createLiterarySliceStageReport(repositoryRoot, argument);
+    console.log(
+      'staged slice=' +
+        argument +
+        ' report=' +
+        relative(repositoryRoot, result.reportPath) +
+        ' review=' +
+        relative(repositoryRoot, result.markdownPath) +
+        ' classification=' +
+        result.report.review.classification +
+        ' reportSha256=' +
+        result.reportSha256,
+    );
+    return;
+  }
+  if (command === 'validate-slice') {
+    const intake = await validateAcceptedLiterarySlice(repositoryRoot);
+    console.log(
+      'valid accepted literary slice=' +
+        intake.slice.known.sliceId +
+        '@' +
+        intake.slice.known.sliceVersion +
+        ' release=' +
+        intake.release.known.releaseId +
+        ' package=' +
+        intake.packageManifest.storyId +
+        '@' +
+        intake.packageManifest.storyVersion +
+        ' path=' +
+        intake.slice.known.passageStableKeys.join('->'),
+    );
+    return;
+  }
+  if (command === 'explain-slice') {
+    console.log(JSON.stringify(await explainAcceptedLiterarySlice(repositoryRoot), null, 2));
+    return;
+  }
   if (command === 'explain' && argument) {
     console.log(JSON.stringify(await explainShippedPassage(repositoryRoot, argument), null, 2));
     return;
   }
   throw new Error(
-    'Usage: literary-release.ts stage <release-id> | validate-accepted | explain <passage-id-or-stable-key>',
+    'Usage: literary-release.ts stage <release-id> | validate-accepted | explain <passage-id-or-stable-key> | stage-slice <slice-id> | validate-slice | explain-slice',
   );
 }
 

@@ -43,6 +43,9 @@
     "literary:stage": "tsx literary-release.ts stage",
     "literary:validate": "tsx literary-release.ts validate-accepted",
     "literary:explain": "tsx literary-release.ts explain",
+    "literary:slice:stage": "tsx literary-release.ts stage-slice",
+    "literary:slice:validate": "tsx literary-release.ts validate-slice",
+    "literary:slice:explain": "tsx literary-release.ts explain-slice",
     "literary:test": "vitest run tests/literary-release.test.ts"
   },
   "dependencies": {
