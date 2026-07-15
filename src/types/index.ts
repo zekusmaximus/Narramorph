@@ -75,6 +75,20 @@ export type {
   ConditionContext,
 } from './Variation';
 
+export {
+  VISIT_EVENT_CONTRACT,
+  VISIT_EVENT_SCHEMA_VERSION,
+  isVisitEvent,
+  isResolvedTextHash,
+} from './VisitEvent';
+export type {
+  ReaderChoiceKind,
+  ReaderChoice,
+  VisitEventSelection,
+  ResolvedText,
+  VisitEvent,
+} from './VisitEvent';
+
 export { SELECTION_REASON_CONTRACT, SELECTION_REASON_SCHEMA_VERSION } from './SelectionReason';
 export type {
   SelectionKind,
