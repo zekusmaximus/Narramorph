@@ -7,15 +7,17 @@
 
 ## Execution status
 
-Updated: July 13, 2026
+Updated: July 15, 2026
 
-| Batch | Status | Evidence / remaining gate |
+| Batch / phase | Status | Evidence / remaining gate |
 | --- | --- | --- |
 | 0.1 — Product charter and repository roles | Complete | Charter, boundary ADR, freeze notices, milestone, and tracking issues merged through Narramorph #97 and the coordinated reference-repository PRs. |
 | 0.2 — Licensing and provenance | Complete | MIT software terms, reserved-content terms, provenance/disclosure rules, and manuscript permission are merged. The owner deleted the compromised Atlas database user and both IP access-list entries. |
 | 0.3 — Baselines and extraction inventory | Complete | `pre-consolidation-2026-07-13` is published in all four repositories; verified baseline records and the extraction matrix are merged; no legacy issues required migration. |
+| Phase 1 — Product baseline | Complete | Batches 1.1–1.4, their implementation PRs, protected checks, and closure record are complete. |
+| Phase 2 — Manuscript-to-runtime contract | Complete | Batches 2.1–2.5, issues #125–#129, deterministic M release/export, N intake/concordance, vertical-slice reproduction, and current protected checks are complete. |
 
-The detailed evidence and PR links are maintained in [the Phase 0 execution record](consolidation/PHASE_0_EXECUTION.md).
+Detailed evidence and PR links are maintained in the [Phase 0](consolidation/PHASE_0_EXECUTION.md), [Phase 1](consolidation/PHASE_1_EXECUTION.md), and [Phase 2](consolidation/PHASE_2_EXECUTION.md) execution records.
 
 ## 1. Executive decision
 
@@ -283,6 +285,8 @@ The product is ready for general availability only when all of the following are
 
 **Dependencies:** Phases 0–1 complete. This phase must precede a large editorial/content rewrite in N.
 
+**Status:** Complete as of July 15, 2026. Batches 2.1–2.5 and issues #125–#129 met their acceptance gates. Deterministic release/package identities, coordinated PRs, no-prose-change proofs, reproduction commands, and protected checks are recorded in [`docs/consolidation/PHASE_2_EXECUTION.md`](consolidation/PHASE_2_EXECUTION.md). Epic #93 remains open for later phases.
+
 ## Batch 2.1 — Define content authority and edition semantics
 
 **Work**
@@ -390,6 +394,8 @@ The product is ready for general availability only when all of the following are
 **Purpose:** Preserve the best conceptual contribution from L: readers can understand how their path changed the prose.
 
 **Dependencies:** Story Package Contract v1 and provenance policy complete.
+
+**Status:** Not started. Phase 2's dependency gates are complete, so Phase 3 is the next roadmap phase; Project-Leibniz remains frozen and unarchived until its later extraction and archival gates are satisfied.
 
 ## Batch 3.1 — Produce the Leibniz-to-Narramorph semantic gap analysis
 
