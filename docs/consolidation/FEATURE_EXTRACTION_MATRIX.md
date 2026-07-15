@@ -8,14 +8,14 @@ No reference repository may be archived until every row for that repository is `
 
 | Capability | Source | Decision | Narramorph target | Required proof | Archive dependency |
 | --- | --- | --- | --- | --- | --- |
-| Serializable order-aware conditions | `client/src/services/conditionDSL.ts` | Reimplement missing semantics | Story Package condition schema and pure domain evaluator | Unit/property tests for start/end, relative order, adjacency, recency, visit counts, flags, boolean composition, saves | Yes |
-| Plain-language selection explanations | `client/src/pages/NarrativePage.tsx`, condition descriptions | Migrate concept | `SelectionReason`, “Why this version?”, journey ledger | Keyboard/mobile/screen-reader tests; no spoiler leakage; explanations persist after reload | Yes |
+| Serializable order-aware conditions | `client/src/services/conditionDSL.ts` | Reimplement missing semantics; Batch 3.1 design complete | Story Package condition schema and pure domain evaluator | Unit/property tests for start/end, relative order, adjacency, recency, visit counts, named facts, boolean composition, saves | Yes |
+| Plain-language selection explanations | `client/src/pages/NarrativePage.tsx`, condition descriptions | Migrate concept; Batch 3.1 contract complete | `SelectionReason`, “Why this version?”, journey ledger | Keyboard/mobile/screen-reader tests; no spoiler leakage; explanations persist after reload | Yes |
 | Compositional prose beats | `client/src/context/StoryTypes.ts`, `client/src/services/StoryLogicService.ts` | Reimplement incrementally | Optional story-package `proseBeats` and deterministic renderer | One reference node per perspective; exact-save replay; editorial approval | Yes |
 | Condition-aware edge prose | `client/src/data/storyGraph.json`, `StoryLogicService.ts` | Reimplement with limits | Optional edge bridge schema/render/export | State, accessibility, provenance, export tests | Yes |
 | Exact experienced-journey Markdown export | `client/src/services/narrativeExport.ts` | Reimplement after immutable visit log | Journey export service and accessible UI | Full L1–L4 export; repeats/order/Unicode/migration tests | Yes |
 | Adaptation ledger UX | Narrative page controls | Migrate behavior, redesign visuals | Progress/history surface | Usability and accessibility review | Yes |
 | Express/Mongo backend | `server/` | Reject for v1 | None; future backend requires separate ADR | Owner-approved backend decision; credential revocation confirmed | Yes |
-| React Context/reducer state architecture | `client/src/context/` | Reject | Existing Zustand/domain boundaries remain authoritative | ADR/gap review confirms no unique required state | Yes |
+| React Context/reducer state architecture | `client/src/context/` | Reject; confirmed by ADR 0003 | Existing Zustand/domain boundaries remain authoritative | ADR/gap review confirms no unique required state | Yes |
 | D3 force-map visual design | `client/src/components/NodeMap.tsx` | Reject as product visual; retain behavior tests where useful | Existing accessible 2D map | No loss of graph behavior | No |
 
 ## eternal-return-digital-self
