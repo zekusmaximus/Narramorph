@@ -1,27 +1,27 @@
 {
   "schemaVersion": "1.0.0",
-  "acceptedReleaseId": "eternal-return-literary-v1.0.0",
-  "acceptedContentSha256": "4fc7ce7f55e359ed5c25abe8a399ceeb60c45ee965d722d6a8e83d200909d7ad",
-  "acceptedAssetSha256": "d1f10baadeb89bddbbde95fe5359c9669261fe69b8d65c4b9378a8f53410c6f5",
-  "sourceCommit": "5c968c287eea71be40ca7ee3234e0d62153f1b4e",
-  "sourcePath": "literary-releases/source/eternal-return-literary-v1.0.0.json",
-  "sourceUrl": "https://github.com/zekusmaximus/Eternal_Return_Manuscript/releases/download/literary-release-v1.0.0/eternal-return-literary-v1.0.0.json",
+  "acceptedReleaseId": "eternal-return-literary-v1.0.1",
+  "acceptedContentSha256": "667dd8d971352c8665fdac97fefdf258bb71489d21853a2a87e5ac236912747f",
+  "acceptedAssetSha256": "19ffeffc1cf0de6440b16f1e9335d7c738edbf178e1a71f8e875d8960cb8d58e",
+  "sourceCommit": "6720e76202951e24102997e2b8ef23e08445ab33",
+  "sourcePath": "literary-releases/source/eternal-return-literary-v1.0.1.json",
+  "sourceUrl": "https://github.com/zekusmaximus/Eternal_Return_Manuscript/releases/download/literary-release-v1.0.1/eternal-return-literary-v1.0.1.json",
   "contentLicense": "LicenseRef-Eternal-Return-All-Rights-Reserved",
-  "acceptedAt": "2026-07-14T22:49:00Z",
+  "acceptedAt": "2026-07-15T18:03:11Z",
   "acceptanceAuthority": {
     "scope": "Phase 2 literary-to-runtime handoff authorized by the repository owner request",
     "permissionArtifact": "INTERACTIVE_USE_PERMISSION.md",
     "deploymentAuthorized": false
   },
   "concordancePath": "story-packages/concordance/eternal-return.v1.json",
-  "concordanceSha256": "202ecc2f2ef35d6f79b71327061ea85e247f047b55b7df4c8edf0fa8d74b44b7",
+  "concordanceSha256": "2db68576f02ea5e05e6fcd0d32d6f0f989f16a874a2c334f9684ba1c2e021ef8",
   "storyPackage": {
     "storyId": "eternal-return",
-    "storyVersion": "1.0.1",
+    "storyVersion": "1.0.2",
     "schemaVersion": "1.0.0",
-    "contentHash": "25978ded017ccb5b6536d576b2e6a02f4b218a5d6b62b4eb35a82864eb7837f4",
-    "editorialReleaseId": "eternal-return-literary-v1.0.0",
-    "sourceManuscriptCommit": "5c968c287eea71be40ca7ee3234e0d62153f1b4e"
+    "contentHash": "656b5b6bacbc0ca69a9eb0ddc7a089219b8218c7a78fabf1d6c788ea5f075566",
+    "editorialReleaseId": "eternal-return-literary-v1.0.1",
+    "sourceManuscriptCommit": "6720e76202951e24102997e2b8ef23e08445ab33"
   },
   "runtimeProsePolicy": "metadata-only; never overwrite runtime prose",
   "runtimeContentProof": {
@@ -30,8 +30,8 @@
     "afterTreeSha256": "af4cea821626bbd0a92b119bbbb27f0f92aa03abbee7b112a1a6794cc3cb6f60"
   },
   "reviewedSemanticDiff": {
-    "baselineReleaseId": null,
-    "classification": "initial-intake",
-    "reportSha256": "d96e283538413bcd81ef3c531e6c48b7bc69ef935e4b474d749ba859b3a5acf9"
+    "baselineReleaseId": "eternal-return-literary-v1.0.0",
+    "classification": "changed-release",
+    "reportSha256": "6984d5b78bf1a761cd3569755463e5e6d7bbddb94321be5a7d121da3b998c243"
   }
 }

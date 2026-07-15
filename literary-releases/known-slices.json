@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "slices": [
+    {
+      "sliceId": "archaeologist-opening-accept",
+      "sliceVersion": "1.0.0",
+      "storyId": "eternal-return",
+      "releaseId": "eternal-return-literary-v1.0.1",
+      "sourceCommit": "6720e76202951e24102997e2b8ef23e08445ab33",
+      "contentSha256": "e1ecf6812a2246c188c940fc6646745625b577a971cbf71db5cd6f2274a4c79e",
+      "assetSha256": "6c47118a7d5f349c071b8656f69fac94ecea68f4cee45cea4509ce618c257d79",
+      "sourcePath": "literary-releases/source/eternal-return-literary-slice-archaeologist-opening-accept-v1.0.0.json",
+      "sourceUrl": "https://github.com/zekusmaximus/Eternal_Return_Manuscript/releases/download/literary-release-v1.0.1/eternal-return-literary-slice-archaeologist-opening-accept-v1.0.0.json",
+      "runtimeGraphPath": "src/data/stories/eternal-return/archaeologist.json",
+      "passageStableKeys": ["arch-L1", "arch-L2-accept"]
+    }
+  ]
+}

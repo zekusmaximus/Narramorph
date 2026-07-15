@@ -50,6 +50,9 @@
     "literary:stage": "npm --prefix tools/conversion run literary:stage --",
     "literary:validate": "npm --prefix tools/conversion run literary:validate",
     "literary:explain": "npm --prefix tools/conversion run literary:explain --",
+    "literary:slice:stage": "npm --prefix tools/conversion run literary:slice:stage --",
+    "literary:slice:validate": "npm --prefix tools/conversion run literary:slice:validate",
+    "literary:slice:explain": "npm --prefix tools/conversion run literary:slice:explain --",
     "literary:test": "npm --prefix tools/conversion run literary:test"
   },
   "dependencies": {

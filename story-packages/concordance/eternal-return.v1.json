@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0.0",
   "storyId": "eternal-return",
-  "literaryReleaseId": "eternal-return-literary-v1.0.0",
-  "literaryReleaseContentSha256": "4fc7ce7f55e359ed5c25abe8a399ceeb60c45ee965d722d6a8e83d200909d7ad",
+  "literaryReleaseId": "eternal-return-literary-v1.0.1",
+  "literaryReleaseContentSha256": "667dd8d971352c8665fdac97fefdf258bb71489d21853a2a87e5ac236912747f",
   "relationshipDefinitions": {
     "direct-adaptation": "Runtime prose directly adapts an approved manuscript excerpt or scene; no v1 passage currently claims this relationship because the release contains no approved excerpts.",
     "thematic-derivative": "Separately authored runtime prose derives themes, voice constraints, chronology, or promise/payoff structure from canonical editorial context without copying manuscript prose.",

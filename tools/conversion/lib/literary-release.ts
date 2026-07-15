@@ -15,6 +15,8 @@ import {
 
 export const LITERARY_RELEASE_SCHEMA_VERSION = '1.0.0';
 export const LITERARY_INTAKE_SCHEMA_VERSION = '1.0.0';
+export const LITERARY_SLICE_SCHEMA_VERSION = '1.0.0';
+export const LITERARY_SLICE_INTAKE_SCHEMA_VERSION = '1.0.0';
 
 const RELATIONSHIPS = [
   'direct-adaptation',
@@ -80,6 +82,121 @@ export interface VerifiedLiteraryIntake {
   concordance: LiteraryConcordance;
   catalog: StoryPackageCatalog;
   packageManifest: StoryPackageManifest;
+}
+
+export interface KnownLiterarySlice {
+  sliceId: string;
+  sliceVersion: string;
+  storyId: string;
+  releaseId: string;
+  sourceCommit: string;
+  contentSha256: string;
+  assetSha256: string;
+  sourcePath: string;
+  sourceUrl: string;
+  runtimeGraphPath: string;
+  passageStableKeys: string[];
+}
+
+export interface LiterarySliceTarget {
+  passageId: string;
+  passageStableKey: string;
+  layer: number;
+  connections: string[];
+}
+
+export interface LiterarySliceMapping {
+  passageStableKey: string;
+  relationship: LiteraryRelationship;
+  chapterIds: string[];
+  voiceIds: string[];
+  chronologyIds: string[];
+  philosophicalConstraintIds: string[];
+  promiseIds: string[];
+  themeClaims: string[];
+}
+
+export interface VerifiedLiterarySlice {
+  known: KnownLiterarySlice;
+  artifact: Record<string, unknown>;
+  payload: Record<string, unknown>;
+  manifest: Record<string, unknown>;
+  baseRelease: Record<string, unknown>;
+  context: Record<string, unknown[]>;
+  runtimeTargets: LiterarySliceTarget[];
+  mappings: LiterarySliceMapping[];
+  assetBytes: Uint8Array;
+}
+
+export interface VerifiedLiterarySliceIntake extends VerifiedLiteraryIntake {
+  slice: VerifiedLiterarySlice;
+}
+
+interface LiterarySliceAcceptance {
+  schemaVersion: string;
+  acceptedSliceId: string;
+  acceptedSliceVersion: string;
+  acceptedContentSha256: string;
+  acceptedAssetSha256: string;
+  sourceCommit: string;
+  sourcePath: string;
+  baseReleaseId: string;
+  baseReleaseContentSha256: string;
+  runtimeGraphPath: string;
+  passageStableKeys: string[];
+  concordancePath: string;
+  concordanceSha256: string;
+  storyPackage: AcceptanceRecord['storyPackage'];
+  runtimeProsePolicy: string;
+  reviewedStage: {
+    classification: string;
+    reportSha256: string;
+  };
+  runtimeContentProof: {
+    trackedFileCount: number;
+    beforeTreeSha256: string;
+    afterTreeSha256: string;
+  };
+}
+
+export interface LiterarySliceStageReport {
+  schemaVersion: string;
+  sliceId: string;
+  sliceVersion: string;
+  baseReleaseId: string;
+  generatedFrom: {
+    sourceCommit: string;
+    contentSha256: string;
+    assetSha256: string;
+  };
+  validation: {
+    status: 'passed';
+    applicationVersion: string;
+    storyPackageVersion: string;
+    runtimeGraphPath: string;
+    passageStableKeys: string[];
+    canonicalContextCounts: Record<string, number>;
+  };
+  constraintChecks: Array<{
+    passageStableKey: string;
+    relationship: LiteraryRelationship;
+    voiceIds: string[];
+    philosophicalConstraintIds: string[];
+    status: 'passed';
+  }>;
+  review: {
+    baselineSliceId: string | null;
+    classification: 'initial-intake' | 'no-semantic-change' | 'changed-slice';
+  };
+  provenance: {
+    everyTransferredFieldMachineReadable: true;
+    manualCopyPasteRequired: false;
+  };
+  writeBoundary: {
+    stagingOnly: true;
+    runtimeProseMutation: 'forbidden';
+    checkedInMetadataMutation: 'requires-separate-human-acceptance';
+  };
 }
 
 interface AcceptanceRecord {
@@ -968,4 +1085,752 @@ export function passageByStableKey(
   stableKey: string,
 ): PassageRecord | undefined {
   return catalog.passages.find((passage) => passage.stableKey === stableKey);
+}
+
+function parseKnownSlice(value: unknown, index: number): KnownLiterarySlice {
+  const item = requireRecord(value, 'Known literary slice ' + index);
+  const passageStableKeys = requireStringArray(
+    item.passageStableKeys,
+    'Known literary slice passage stable keys',
+  );
+  if (passageStableKeys.length !== 2) {
+    throw new Error('Known literary slice must identify exactly two passages.');
+  }
+  return {
+    sliceId: requireStableId(item.sliceId, 'Known literary slice ID'),
+    sliceVersion: requireString(item.sliceVersion, 'Known literary slice version'),
+    storyId: requireStableId(item.storyId, 'Known literary slice story ID'),
+    releaseId: requireStableId(item.releaseId, 'Known literary slice release ID'),
+    sourceCommit: requireString(item.sourceCommit, 'Known literary slice source commit'),
+    contentSha256: requireSha256(item.contentSha256, 'Known literary slice content hash'),
+    assetSha256: requireSha256(item.assetSha256, 'Known literary slice asset hash'),
+    sourcePath: requireSafePath(item.sourcePath, 'Known literary slice source path'),
+    sourceUrl: requireString(item.sourceUrl, 'Known literary slice source URL'),
+    runtimeGraphPath: requireSafePath(
+      item.runtimeGraphPath,
+      'Known literary slice runtime graph path',
+    ),
+    passageStableKeys,
+  };
+}
+
+export async function loadKnownLiterarySlice(
+  repositoryRoot: string,
+  sliceId: string,
+): Promise<KnownLiterarySlice> {
+  const registry = requireRecord(
+    await readJson(resolve(repositoryRoot, 'literary-releases/known-slices.json')),
+    'Known literary-slice registry',
+  );
+  if (registry.schemaVersion !== LITERARY_SLICE_INTAKE_SCHEMA_VERSION) {
+    throw new Error(
+      'Unsupported known literary-slice registry schema: ' + String(registry.schemaVersion),
+    );
+  }
+  const slices = requireArray(registry.slices, 'Known literary-slice registry slices').map(
+    parseKnownSlice,
+  );
+  if (new Set(slices.map((slice) => slice.sliceId)).size !== slices.length) {
+    throw new Error('Duplicate known literary slice ID.');
+  }
+  const result = slices.find((slice) => slice.sliceId === sliceId);
+  if (!result) {
+    throw new Error('Unknown literary slice: ' + sliceId);
+  }
+  if (!/^[0-9a-f]{40}$/.test(result.sourceCommit)) {
+    throw new Error('Known literary slice source commit is malformed.');
+  }
+  return result;
+}
+
+function sameOrderedStrings(actual: string[], expected: string[]): boolean {
+  return (
+    actual.length === expected.length && actual.every((value, index) => value === expected[index])
+  );
+}
+
+function requirePossiblyEmptyStringArray(value: unknown, label: string): string[] {
+  const items = requireArray(value, label).map((item, index) =>
+    requireStableId(item, label + ' item ' + index),
+  );
+  if (new Set(items).size !== items.length) {
+    throw new Error(label + ' contains duplicate IDs.');
+  }
+  return items;
+}
+
+function requireSliceContext(
+  rawContext: unknown,
+  release: VerifiedLiteraryRelease,
+): Record<string, unknown[]> {
+  const context = requireRecord(rawContext, 'Literary slice context');
+  const descriptors = [
+    ['chapters', 'chapterId'],
+    ['chronology', 'chronologyId'],
+    ['philosophicalConstraints', 'constraintId'],
+    ['promisePayoffs', 'promiseId'],
+    ['voices', 'voiceId'],
+  ] as const;
+  const result: Record<string, unknown[]> = {};
+  for (const [group, idKey] of descriptors) {
+    const values = requireArray(context[group], 'Literary slice context.' + group);
+    if (values.length === 0) {
+      throw new Error('Literary slice context.' + group + ' must not be empty.');
+    }
+    const ids = new Set<string>();
+    const releaseById = new Map(
+      release.context[group]!.map((raw) => {
+        const record = requireRecord(raw, 'Released context.' + group);
+        return [requireStableId(record[idKey], 'Released context ID'), record] as const;
+      }),
+    );
+    for (const raw of values) {
+      const record = requireRecord(raw, 'Literary slice context.' + group + ' record');
+      const id = requireStableId(record[idKey], 'Literary slice context ID');
+      if (ids.has(id)) {
+        throw new Error('Duplicate literary slice context ID: ' + id);
+      }
+      ids.add(id);
+      const released = releaseById.get(id);
+      if (!released || canonicalJson(released) !== canonicalJson(record)) {
+        throw new Error('Literary slice context is not an exact base-release subset: ' + id);
+      }
+    }
+    result[group] = values;
+  }
+  return result;
+}
+
+export function validateLiterarySliceArtifact(
+  value: unknown,
+  assetBytes: Uint8Array,
+  known: KnownLiterarySlice,
+  intake: VerifiedLiteraryIntake,
+): VerifiedLiterarySlice {
+  if (sha256(assetBytes) !== known.assetSha256) {
+    throw new Error('Literary slice asset hash mismatch.');
+  }
+  const artifact = requireRecord(value, 'Literary slice artifact');
+  if (artifact.schemaVersion !== LITERARY_SLICE_SCHEMA_VERSION) {
+    throw new Error('Unsupported literary slice schema: ' + String(artifact.schemaVersion));
+  }
+  const declaredContentHash = requireSha256(artifact.contentSha256, 'Literary slice content hash');
+  if (declaredContentHash !== known.contentSha256) {
+    throw new Error('Literary slice content hash is not allowlisted.');
+  }
+  const payload = requireRecord(artifact.payload, 'Literary slice payload');
+  if (sha256(literaryCanonicalJson(payload)) !== declaredContentHash) {
+    throw new Error('Literary slice payload hash mismatch.');
+  }
+  if (payload.format !== 'eternal-return-literary-slice') {
+    throw new Error('Unknown literary slice format: ' + String(payload.format));
+  }
+  requireString(payload.doNotEdit, 'Literary slice do-not-edit notice');
+
+  const baseRelease = requireRecord(payload.baseRelease, 'Literary slice base release');
+  const expectedBase: Record<string, string> = {
+    artifactFile: known.releaseId + '.json',
+    contentSha256: intake.release.known.contentSha256,
+    editorialReleaseId: known.releaseId,
+    schemaVersion: LITERARY_RELEASE_SCHEMA_VERSION,
+    sourceCommit: known.sourceCommit,
+  };
+  for (const [field, expected] of Object.entries(expectedBase)) {
+    if (baseRelease[field] !== expected) {
+      throw new Error('Literary slice base-release ' + field + ' mismatch.');
+    }
+  }
+
+  const manifest = requireRecord(payload.manifest, 'Literary slice manifest');
+  const exactManifest: Record<string, string> = {
+    sliceId: known.sliceId,
+    sliceVersion: known.sliceVersion,
+    storyId: known.storyId,
+    sourceCommit: known.sourceCommit,
+    targetRepository: 'zekusmaximus/Narramorph',
+    contentLicense: intake.release.known.contentLicense,
+  };
+  for (const [field, expected] of Object.entries(exactManifest)) {
+    if (manifest[field] !== expected) {
+      throw new Error('Literary slice manifest ' + field + ' mismatch.');
+    }
+  }
+  for (const sourceName of ['selectionSource', 'schemaSource']) {
+    const source = requireRecord(manifest[sourceName], 'Literary slice ' + sourceName);
+    requireSafePath(source.path, 'Literary slice ' + sourceName + ' path');
+    requireSha256(source.sha256, 'Literary slice ' + sourceName + ' hash');
+  }
+
+  const context = requireSliceContext(payload.context, intake.release);
+  const runtimeTargets = requireArray(payload.runtimeTargets, 'Literary slice runtime targets').map(
+    (raw, index): LiterarySliceTarget => {
+      const target = requireRecord(raw, 'Literary slice runtime target ' + index);
+      const passageStableKey = requireStableId(
+        target.passageStableKey,
+        'Literary slice passage stable key',
+      );
+      const passageId = requireStableId(target.passageId, 'Literary slice passage ID');
+      const layer = Number(target.layer);
+      if (!Number.isInteger(layer) || ![1, 2].includes(layer)) {
+        throw new Error('Literary slice passage layer must be 1 or 2.');
+      }
+      const passage = intake.catalog.passages.find((candidate) => candidate.id === passageId);
+      if (!passage || passage.stableKey !== passageStableKey || passage.layer !== layer) {
+        throw new Error('Literary slice target does not match the shipped passage catalog.');
+      }
+      return {
+        passageId,
+        passageStableKey,
+        layer,
+        connections: requirePossiblyEmptyStringArray(
+          target.connections,
+          'Literary slice target connections',
+        ),
+      };
+    },
+  );
+  if (
+    runtimeTargets.length !== 2 ||
+    !sameOrderedStrings(
+      runtimeTargets.map((target) => target.passageStableKey),
+      known.passageStableKeys,
+    ) ||
+    !runtimeTargets[0]!.connections.includes(runtimeTargets[1]!.passageStableKey)
+  ) {
+    throw new Error('Literary slice targets are not the allowlisted connected L1-to-L2 pair.');
+  }
+
+  const contextIds = {
+    chapters: new Set(
+      context.chapters!.map((raw) =>
+        requireString(requireRecord(raw, 'Chapter').chapterId, 'chapter ID'),
+      ),
+    ),
+    chronology: new Set(
+      context.chronology!.map((raw) =>
+        requireString(requireRecord(raw, 'Chronology').chronologyId, 'chronology ID'),
+      ),
+    ),
+    philosophicalConstraints: new Set(
+      context.philosophicalConstraints!.map((raw) =>
+        requireString(requireRecord(raw, 'Constraint').constraintId, 'constraint ID'),
+      ),
+    ),
+    promisePayoffs: new Set(
+      context.promisePayoffs!.map((raw) =>
+        requireString(requireRecord(raw, 'Promise').promiseId, 'promise ID'),
+      ),
+    ),
+    voices: new Set(
+      context.voices!.map((raw) => requireString(requireRecord(raw, 'Voice').voiceId, 'voice ID')),
+    ),
+  };
+  const mappings = requireArray(payload.mappings, 'Literary slice mappings').map(
+    (raw, index): LiterarySliceMapping => {
+      const mapping = requireRecord(raw, 'Literary slice mapping ' + index);
+      const passageStableKey = requireStableId(
+        mapping.passageStableKey,
+        'Literary slice mapping passage key',
+      );
+      const relationship = requireString(
+        mapping.relationship,
+        'Literary slice relationship',
+      ) as LiteraryRelationship;
+      if (!RELATIONSHIPS.includes(relationship)) {
+        throw new Error('Unknown literary slice relationship: ' + relationship);
+      }
+      const result: LiterarySliceMapping = {
+        passageStableKey,
+        relationship,
+        chapterIds: requireStringArray(mapping.chapterIds, 'Literary slice chapter IDs'),
+        voiceIds: requireStringArray(mapping.voiceIds, 'Literary slice voice IDs'),
+        chronologyIds: requireStringArray(mapping.chronologyIds, 'Literary slice chronology IDs'),
+        philosophicalConstraintIds: requireStringArray(
+          mapping.philosophicalConstraintIds,
+          'Literary slice philosophical constraint IDs',
+        ),
+        promiseIds: requireStringArray(mapping.promiseIds, 'Literary slice promise IDs'),
+        themeClaims: requireStringArray(mapping.themeClaims, 'Literary slice theme claims'),
+      };
+      assertIdsExist(result.chapterIds, contextIds.chapters, 'Literary slice chapter IDs');
+      assertIdsExist(result.voiceIds, contextIds.voices, 'Literary slice voice IDs');
+      assertIdsExist(result.chronologyIds, contextIds.chronology, 'Literary slice chronology IDs');
+      assertIdsExist(
+        result.philosophicalConstraintIds,
+        contextIds.philosophicalConstraints,
+        'Literary slice philosophical constraint IDs',
+      );
+      assertIdsExist(result.promiseIds, contextIds.promisePayoffs, 'Literary slice promise IDs');
+
+      const concordance = intake.concordance.mappings.find(
+        (candidate) => candidate.passageStableKey === passageStableKey,
+      );
+      if (!concordance) {
+        throw new Error('Literary slice target has no shipped concordance mapping.');
+      }
+      const concordanceChapterIds = concordance.canonicalReferences.map(
+        (reference) => reference.chapterId,
+      );
+      if (
+        concordance.relationship !== relationship ||
+        !sameOrderedStrings(concordanceChapterIds, result.chapterIds) ||
+        !sameOrderedStrings(concordance.voiceIds, result.voiceIds) ||
+        !sameOrderedStrings(concordance.chronologyIds, result.chronologyIds) ||
+        !sameOrderedStrings(
+          concordance.philosophicalConstraintIds,
+          result.philosophicalConstraintIds,
+        ) ||
+        !sameOrderedStrings(concordance.promiseIds, result.promiseIds)
+      ) {
+        throw new Error(
+          'Literary slice voice/philosophy/provenance mapping does not match the concordance.',
+        );
+      }
+      return result;
+    },
+  );
+  if (
+    mappings.length !== runtimeTargets.length ||
+    !sameOrderedStrings(
+      mappings.map((mapping) => mapping.passageStableKey),
+      runtimeTargets.map((target) => target.passageStableKey),
+    )
+  ) {
+    throw new Error('Literary slice mappings do not match its ordered runtime targets.');
+  }
+
+  const validation = requireRecord(manifest.validation, 'Literary slice validation summary');
+  const selectedCounts = requireRecord(
+    validation.selectedContextCounts,
+    'Literary slice selected-context counts',
+  );
+  if (
+    validation.mappingCount !== mappings.length ||
+    validation.runtimeTargetCount !== runtimeTargets.length ||
+    Object.entries(context).some(([group, values]) => selectedCounts[group] !== values.length)
+  ) {
+    throw new Error('Literary slice validation summary does not match the artifact.');
+  }
+  return {
+    known,
+    artifact,
+    payload,
+    manifest,
+    baseRelease,
+    context,
+    runtimeTargets,
+    mappings,
+    assetBytes,
+  };
+}
+
+async function validateLiterarySliceRuntimeGraph(
+  repositoryRoot: string,
+  slice: VerifiedLiterarySlice,
+): Promise<void> {
+  const graphPath = resolve(repositoryRoot, slice.known.runtimeGraphPath);
+  requireInside(repositoryRoot, graphPath, 'Literary slice runtime graph');
+  const graph = requireRecord(await readJson(graphPath), 'Literary slice runtime graph');
+  const nodes = requireArray(graph.nodes, 'Literary slice runtime graph nodes').map((raw) =>
+    requireRecord(raw, 'Literary slice runtime graph node'),
+  );
+  for (const target of slice.runtimeTargets) {
+    const node = nodes.find((candidate) => candidate.id === target.passageStableKey);
+    if (!node || node.layer !== target.layer) {
+      throw new Error('Literary slice target does not match its runtime graph node.');
+    }
+    const graphConnections = requirePossiblyEmptyStringArray(
+      node.connections,
+      'Literary slice runtime graph connections',
+    );
+    if (target.connections.some((connection) => !graphConnections.includes(connection))) {
+      throw new Error('Literary slice connection does not exist in the runtime graph.');
+    }
+  }
+  if (
+    !requirePossiblyEmptyStringArray(
+      nodes.find((node) => node.id === slice.runtimeTargets[0]!.passageStableKey)!.connections,
+      'Literary slice opening connections',
+    ).includes(slice.runtimeTargets[1]!.passageStableKey)
+  ) {
+    throw new Error('Literary slice L1-to-L2 edge is absent from the runtime graph.');
+  }
+}
+
+export async function loadAndVerifyLiterarySlice(
+  repositoryRoot: string,
+  sliceId: string,
+): Promise<VerifiedLiterarySliceIntake> {
+  const known = await loadKnownLiterarySlice(repositoryRoot, sliceId);
+  const intake = await verifyLiteraryIntake(repositoryRoot, known.releaseId);
+  if (
+    known.storyId !== intake.release.known.storyId ||
+    known.sourceCommit !== intake.release.known.sourceCommit
+  ) {
+    throw new Error('Known literary slice does not match its verified base release.');
+  }
+  const sourcePath = resolve(repositoryRoot, known.sourcePath);
+  requireInside(repositoryRoot, sourcePath, 'Known literary slice source');
+  const assetBytes = await readFile(sourcePath);
+  let value: unknown;
+  try {
+    value = JSON.parse(assetBytes.toString('utf8')) as unknown;
+  } catch (error) {
+    throw new Error('Malformed literary slice JSON: ' + String(error));
+  }
+  const slice = validateLiterarySliceArtifact(value, assetBytes, known, intake);
+  await validateLiterarySliceRuntimeGraph(repositoryRoot, slice);
+  return { ...intake, slice };
+}
+
+function requireSliceAcceptance(value: unknown): LiterarySliceAcceptance {
+  const record = requireRecord(value, 'Literary slice acceptance');
+  const storyPackage = requireRecord(record.storyPackage, 'Accepted slice Story Package');
+  const reviewedStage = requireRecord(record.reviewedStage, 'Reviewed literary slice stage');
+  const runtimeContentProof = requireRecord(
+    record.runtimeContentProof,
+    'Literary slice runtime content proof',
+  );
+  const trackedFileCount = Number(runtimeContentProof.trackedFileCount);
+  if (!Number.isInteger(trackedFileCount) || trackedFileCount < 1) {
+    throw new Error('Literary slice runtime content proof file count is invalid.');
+  }
+  return {
+    schemaVersion: requireString(record.schemaVersion, 'Literary slice acceptance schema'),
+    acceptedSliceId: requireStableId(record.acceptedSliceId, 'Accepted literary slice ID'),
+    acceptedSliceVersion: requireString(
+      record.acceptedSliceVersion,
+      'Accepted literary slice version',
+    ),
+    acceptedContentSha256: requireSha256(
+      record.acceptedContentSha256,
+      'Accepted literary slice content hash',
+    ),
+    acceptedAssetSha256: requireSha256(
+      record.acceptedAssetSha256,
+      'Accepted literary slice asset hash',
+    ),
+    sourceCommit: requireString(record.sourceCommit, 'Accepted literary slice source commit'),
+    sourcePath: requireSafePath(record.sourcePath, 'Accepted literary slice source path'),
+    baseReleaseId: requireStableId(record.baseReleaseId, 'Accepted slice base release ID'),
+    baseReleaseContentSha256: requireSha256(
+      record.baseReleaseContentSha256,
+      'Accepted slice base release hash',
+    ),
+    runtimeGraphPath: requireSafePath(
+      record.runtimeGraphPath,
+      'Accepted literary slice runtime graph path',
+    ),
+    passageStableKeys: requireStringArray(
+      record.passageStableKeys,
+      'Accepted literary slice passage keys',
+    ),
+    concordancePath: requireSafePath(
+      record.concordancePath,
+      'Accepted literary slice concordance path',
+    ),
+    concordanceSha256: requireSha256(
+      record.concordanceSha256,
+      'Accepted literary slice concordance hash',
+    ),
+    storyPackage: {
+      storyId: requireStableId(storyPackage.storyId, 'Accepted slice Story Package ID'),
+      storyVersion: requireString(
+        storyPackage.storyVersion,
+        'Accepted slice Story Package version',
+      ),
+      schemaVersion: requireString(
+        storyPackage.schemaVersion,
+        'Accepted slice Story Package schema',
+      ),
+      contentHash: requireSha256(storyPackage.contentHash, 'Accepted slice Story Package hash'),
+      editorialReleaseId: requireStableId(
+        storyPackage.editorialReleaseId,
+        'Accepted slice Story Package release',
+      ),
+      sourceManuscriptCommit: requireString(
+        storyPackage.sourceManuscriptCommit,
+        'Accepted slice Story Package source commit',
+      ),
+    },
+    runtimeProsePolicy: requireString(
+      record.runtimeProsePolicy,
+      'Accepted literary slice runtime prose policy',
+    ),
+    reviewedStage: {
+      classification: requireString(
+        reviewedStage.classification,
+        'Accepted literary slice stage classification',
+      ),
+      reportSha256: requireSha256(
+        reviewedStage.reportSha256,
+        'Accepted literary slice stage report hash',
+      ),
+    },
+    runtimeContentProof: {
+      trackedFileCount,
+      beforeTreeSha256: requireSha256(
+        runtimeContentProof.beforeTreeSha256,
+        'Literary slice before runtime tree hash',
+      ),
+      afterTreeSha256: requireSha256(
+        runtimeContentProof.afterTreeSha256,
+        'Literary slice after runtime tree hash',
+      ),
+    },
+  };
+}
+
+async function readOptionalSliceAcceptance(
+  repositoryRoot: string,
+): Promise<LiterarySliceAcceptance | null> {
+  try {
+    return requireSliceAcceptance(
+      await readJson(
+        resolve(repositoryRoot, 'literary-releases/accepted/eternal-return-vertical-slice.json'),
+      ),
+    );
+  } catch (error) {
+    const code = isRecord(error) ? error.code : undefined;
+    if (code === 'ENOENT') {
+      return null;
+    }
+    throw error;
+  }
+}
+
+export function renderLiterarySliceReview(report: LiterarySliceStageReport): string {
+  const lines = [
+    '# Literary vertical-slice review',
+    '',
+    '- Slice: `' + report.sliceId + '@' + report.sliceVersion + '`',
+    '- Base literary release: `' + report.baseReleaseId + '`',
+    '- Classification: `' + report.review.classification + '`',
+    '- Runtime path: `' + report.validation.passageStableKeys.join(' → ') + '`',
+    '- Runtime prose mutation: `forbidden`',
+    '- Manual copy/paste required: `false`',
+    '',
+    '| Passage | Relationship | Voice constraints | Philosophy constraints | Status |',
+    '| --- | --- | --- | --- | --- |',
+  ];
+  for (const check of report.constraintChecks) {
+    lines.push(
+      '| ' +
+        check.passageStableKey +
+        ' | ' +
+        check.relationship +
+        ' | ' +
+        check.voiceIds.join(', ') +
+        ' | ' +
+        check.philosophicalConstraintIds.join(', ') +
+        ' | passed |',
+    );
+  }
+  lines.push(
+    '',
+    'All transferred fields resolve through checked-in machine-readable provenance.',
+    '',
+  );
+  return lines.join('\n');
+}
+
+export async function createLiterarySliceStageReport(
+  repositoryRoot: string,
+  sliceId: string,
+): Promise<{
+  report: LiterarySliceStageReport;
+  reportPath: string;
+  markdownPath: string;
+  reportSha256: string;
+}> {
+  const intake = await loadAndVerifyLiterarySlice(repositoryRoot, sliceId);
+  const acceptance = await readOptionalSliceAcceptance(repositoryRoot);
+  const sameIdentity =
+    acceptance?.acceptedSliceId === intake.slice.known.sliceId &&
+    acceptance.acceptedSliceVersion === intake.slice.known.sliceVersion &&
+    acceptance.acceptedContentSha256 === intake.slice.known.contentSha256 &&
+    acceptance.acceptedAssetSha256 === intake.slice.known.assetSha256 &&
+    acceptance.baseReleaseId === intake.release.known.releaseId &&
+    acceptance.storyPackage.contentHash === intake.packageManifest.contentHash;
+  const classification = acceptance
+    ? sameIdentity
+      ? 'no-semantic-change'
+      : 'changed-slice'
+    : 'initial-intake';
+  const report: LiterarySliceStageReport = {
+    schemaVersion: LITERARY_SLICE_INTAKE_SCHEMA_VERSION,
+    sliceId: intake.slice.known.sliceId,
+    sliceVersion: intake.slice.known.sliceVersion,
+    baseReleaseId: intake.release.known.releaseId,
+    generatedFrom: {
+      sourceCommit: intake.slice.known.sourceCommit,
+      contentSha256: intake.slice.known.contentSha256,
+      assetSha256: intake.slice.known.assetSha256,
+    },
+    validation: {
+      status: 'passed',
+      applicationVersion: CURRENT_APP_VERSION,
+      storyPackageVersion: intake.packageManifest.storyVersion,
+      runtimeGraphPath: intake.slice.known.runtimeGraphPath,
+      passageStableKeys: [...intake.slice.known.passageStableKeys],
+      canonicalContextCounts: Object.fromEntries(
+        Object.entries(intake.slice.context).map(([group, values]) => [group, values.length]),
+      ),
+    },
+    constraintChecks: intake.slice.mappings.map((mapping) => ({
+      passageStableKey: mapping.passageStableKey,
+      relationship: mapping.relationship,
+      voiceIds: mapping.voiceIds,
+      philosophicalConstraintIds: mapping.philosophicalConstraintIds,
+      status: 'passed',
+    })),
+    review: {
+      baselineSliceId: acceptance?.acceptedSliceId ?? null,
+      classification,
+    },
+    provenance: {
+      everyTransferredFieldMachineReadable: true,
+      manualCopyPasteRequired: false,
+    },
+    writeBoundary: {
+      stagingOnly: true,
+      runtimeProseMutation: 'forbidden',
+      checkedInMetadataMutation: 'requires-separate-human-acceptance',
+    },
+  };
+  const outputRoot = resolve(
+    repositoryRoot,
+    'build/literary-import-staging',
+    intake.release.known.releaseId,
+    'slices',
+    sliceId,
+  );
+  requireInside(
+    resolve(repositoryRoot, 'build/literary-import-staging'),
+    outputRoot,
+    'Literary slice staging output',
+  );
+  await mkdir(outputRoot, { recursive: true });
+  const reportPath = resolve(outputRoot, 'report.json');
+  const markdownPath = resolve(outputRoot, 'review.md');
+  const reportBytes = canonicalJson(report) + '\n';
+  await writeFile(reportPath, reportBytes, 'utf8');
+  await writeFile(markdownPath, renderLiterarySliceReview(report), 'utf8');
+  return { report, reportPath, markdownPath, reportSha256: sha256(reportBytes) };
+}
+
+export async function validateAcceptedLiterarySlice(
+  repositoryRoot: string,
+): Promise<VerifiedLiterarySliceIntake> {
+  const acceptance = requireSliceAcceptance(
+    await readJson(
+      resolve(repositoryRoot, 'literary-releases/accepted/eternal-return-vertical-slice.json'),
+    ),
+  );
+  if (acceptance.schemaVersion !== LITERARY_SLICE_INTAKE_SCHEMA_VERSION) {
+    throw new Error('Unsupported literary slice acceptance schema: ' + acceptance.schemaVersion);
+  }
+  const intake = await loadAndVerifyLiterarySlice(repositoryRoot, acceptance.acceptedSliceId);
+  const checks: Array<[string, string, string]> = [
+    ['slice version', acceptance.acceptedSliceVersion, intake.slice.known.sliceVersion],
+    ['slice content hash', acceptance.acceptedContentSha256, intake.slice.known.contentSha256],
+    ['slice asset hash', acceptance.acceptedAssetSha256, intake.slice.known.assetSha256],
+    ['slice source commit', acceptance.sourceCommit, intake.slice.known.sourceCommit],
+    ['slice source path', acceptance.sourcePath, intake.slice.known.sourcePath],
+    ['base release ID', acceptance.baseReleaseId, intake.release.known.releaseId],
+    [
+      'base release content hash',
+      acceptance.baseReleaseContentSha256,
+      intake.release.known.contentSha256,
+    ],
+    ['runtime graph path', acceptance.runtimeGraphPath, intake.slice.known.runtimeGraphPath],
+    ['Story Package ID', acceptance.storyPackage.storyId, intake.packageManifest.storyId],
+    [
+      'Story Package version',
+      acceptance.storyPackage.storyVersion,
+      intake.packageManifest.storyVersion,
+    ],
+    [
+      'Story Package schema',
+      acceptance.storyPackage.schemaVersion,
+      intake.packageManifest.schemaVersion,
+    ],
+    ['Story Package hash', acceptance.storyPackage.contentHash, intake.packageManifest.contentHash],
+    [
+      'Story Package release',
+      acceptance.storyPackage.editorialReleaseId,
+      intake.packageManifest.editorialReleaseId,
+    ],
+    [
+      'Story Package source commit',
+      acceptance.storyPackage.sourceManuscriptCommit,
+      intake.packageManifest.sourceManuscriptCommit,
+    ],
+  ];
+  for (const [label, actual, expected] of checks) {
+    if (actual !== expected) {
+      throw new Error('Accepted literary slice ' + label + ' does not match verified intake.');
+    }
+  }
+  if (!sameOrderedStrings(acceptance.passageStableKeys, intake.slice.known.passageStableKeys)) {
+    throw new Error('Accepted literary slice passage keys do not match verified intake.');
+  }
+  const concordancePath = resolve(repositoryRoot, acceptance.concordancePath);
+  requireInside(repositoryRoot, concordancePath, 'Accepted literary slice concordance');
+  if (sha256(await readFile(concordancePath)) !== acceptance.concordanceSha256) {
+    throw new Error('Accepted literary slice concordance hash mismatch.');
+  }
+  if (acceptance.runtimeProsePolicy !== 'metadata-only; never overwrite runtime prose') {
+    throw new Error('Accepted literary slice runtime prose policy is not restrictive enough.');
+  }
+  if (
+    acceptance.reviewedStage.classification !== 'initial-intake' ||
+    acceptance.runtimeContentProof.beforeTreeSha256 !==
+      acceptance.runtimeContentProof.afterTreeSha256
+  ) {
+    throw new Error('Accepted literary slice review or no-prose proof is invalid.');
+  }
+  return intake;
+}
+
+export async function explainAcceptedLiterarySlice(
+  repositoryRoot: string,
+): Promise<Record<string, unknown>> {
+  const intake = await validateAcceptedLiterarySlice(repositoryRoot);
+  return {
+    slice: {
+      id: intake.slice.known.sliceId,
+      version: intake.slice.known.sliceVersion,
+      rationale: intake.slice.manifest.rationale,
+    },
+    path: intake.slice.mappings.map((sliceMapping) => {
+      const concordance = intake.concordance.mappings.find(
+        (mapping) => mapping.passageStableKey === sliceMapping.passageStableKey,
+      )!;
+      return {
+        passageStableKey: sliceMapping.passageStableKey,
+        passageId: intake.slice.runtimeTargets.find(
+          (target) => target.passageStableKey === sliceMapping.passageStableKey,
+        )!.passageId,
+        relationship: sliceMapping.relationship,
+        themeClaims: sliceMapping.themeClaims,
+        voiceIds: sliceMapping.voiceIds,
+        philosophicalConstraintIds: sliceMapping.philosophicalConstraintIds,
+        canonicalChapterIds: sliceMapping.chapterIds,
+        promiseIds: sliceMapping.promiseIds,
+        explanation: concordance.explanation,
+      };
+    }),
+    provenance: {
+      literaryReleaseId: intake.release.known.releaseId,
+      sourceCommit: intake.slice.known.sourceCommit,
+      releaseContentSha256: intake.release.known.contentSha256,
+      sliceContentSha256: intake.slice.known.contentSha256,
+      sliceAssetSha256: intake.slice.known.assetSha256,
+      storyPackageVersion: intake.packageManifest.storyVersion,
+      storyPackageContentHash: intake.packageManifest.contentHash,
+      everyTransferredFieldMachineReadable: true,
+      manualCopyPasteRequired: false,
+    },
+  };
 }

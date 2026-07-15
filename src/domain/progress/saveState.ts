@@ -32,6 +32,12 @@ const PROVENANCE_ONLY_PREDECESSORS: ReadonlyArray<Readonly<StoryPackageIdentity>
     schemaVersion: '1.0.0',
     contentHash: 'f5239eceba8d443e74ed7ffa70ee1a28a4886bc54cdc5b2a428b4ed705d07e02',
   },
+  {
+    storyId: 'eternal-return',
+    storyVersion: '1.0.1',
+    schemaVersion: '1.0.0',
+    contentHash: '25978ded017ccb5b6536d576b2e6a02f4b218a5d6b62b4eb35a82864eb7837f4',
+  },
 ];
 
 function isProvenanceOnlyPredecessor(identity: Readonly<StoryPackageIdentity>): boolean {
