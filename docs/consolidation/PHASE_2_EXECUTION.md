@@ -11,7 +11,7 @@ Updated: July 14, 2026
 | 2.1 — Content authority and edition semantics | [#125](https://github.com/zekusmaximus/Narramorph/issues/125) | Complete | M PR #45 and N PR #130 merged; both protected `main` runs passed and both workflows prohibit silent prose overwrite. |
 | 2.2 — Story Package Contract v1 | [#126](https://github.com/zekusmaximus/Narramorph/issues/126) | Complete | Both synthetic fixtures and the 1,014-variation Eternal Return catalog pass one generic validator; deterministic, rename-stability, compatibility, malformed-input, license, duplicate-ID, unsafe-path, and tamper proofs passed locally and in protected CI. |
 | 2.3 — Non-mutating literary release exporter | [#127](https://github.com/zekusmaximus/Narramorph/issues/127) | Complete | M PR #46 merged; the protected merge commit deterministically produced the approved `literary-release-v1.0.0` prerelease and hash-verified artifact without changing manuscript prose. |
-| 2.4 — Staged importer and concordance | [#128](https://github.com/zekusmaximus/Narramorph/issues/128) | Not started | Every runtime passage must have explainable provenance; changed releases must yield semantic diffs without prose rewrites. |
+| 2.4 — Staged importer and concordance | [#128](https://github.com/zekusmaximus/Narramorph/issues/128) | Complete | N PR #135 merged with exact-hash staging, explicit acceptance, all 19 passage mappings, explain output, semantic-diff and negative-path proofs, and no runtime prose change. |
 | 2.5 — Vertical slice | [#129](https://github.com/zekusmaximus/Narramorph/issues/129) | Not started | A second agent must reproduce the slice with no provenance-free manual step. |
 
 Do not mark this record complete until every implementation PR is merged in dependency order, current protected `main` checks are green in both active repositories, all five issues satisfy their gates, and the closure PR records immutable release/package evidence.
@@ -160,6 +160,34 @@ The release contains 28 stable chapter records and editorial summaries, three ch
 
 Safe intermediate state: the literary artifact is immutable and deliberately transferable, but Narramorph has not accepted it. Narramorph still uses its existing checked-in runtime edition and has no cross-repository build/runtime or credential dependency. Batch 2.4 must stage, validate, semantically diff, and explicitly accept this exact artifact before changing provenance metadata.
 
+## Batch 2.4 completion evidence
+
+Narramorph [PR #135](https://github.com/zekusmaximus/Narramorph/pull/135) added the staged literary-release intake, exact artifact allowlist, explicit acceptance record, complete concordance, provenance explanation command, semantic-diff report, provenance-only save migration, negative-path suite, and protected-CI report upload. Squash merge `fb3835b00c4963566ddd5a1a10fe4558fccc6bbb` landed only after every required check passed.
+
+| Accepted identity | Value |
+| --- | --- |
+| Literary release | `eternal-return-literary-v1.0.0` |
+| Manuscript source commit | `5c968c287eea71be40ca7ee3234e0d62153f1b4e` |
+| Literary content / asset SHA-256 | `4fc7ce7f55e359ed5c25abe8a399ceeb60c45ee965d722d6a8e83d200909d7ad` / `d1f10baadeb89bddbbde95fe5359c9669261fe69b8d65c4b9378a8f53410c6f5` |
+| Accepted Story Package | `eternal-return@1.0.1`, schema `1.0.0` |
+| Story Package content hash | `25978ded017ccb5b6536d576b2e6a02f4b218a5d6b62b4eb35a82864eb7837f4` |
+| Concordance | 19/19 shipped passages, SHA-256 `202ecc2f2ef35d6f79b71327061ea85e247f047b55b7df4c8edf0fa8d74b44b7` |
+| Runtime content proof | 577 tracked files; before/after aggregate SHA-256 `af4cea821626bbd0a92b119bbbb27f0f92aa03abbee7b112a1a6794cc3cb6f60` |
+
+The importer recognizes only release IDs in `literary-releases/known-releases.json`, validates application and release schema compatibility, permission/license metadata, the published asset hash, the release's canonical payload hash, the presence and digest shape of every declared source hash, stable unique context IDs, and safe repository-relative paths. It writes only `report.json` and `semantic-diff.md` beneath ignored `build/literary-import-staging/<release-id>/`. It has no command that writes runtime content or checked-in acceptance metadata.
+
+The first reviewed stage classified this as `initial-intake`, with baseline `none`, and recorded the release/source/package identities, 28 canonical chapters, and 19 shipped passages. The reviewed machine report hash is `d96e283538413bcd81ef3c531e6c48b7bc69ef935e4b474d749ba859b3a5acf9`. After explicit acceptance and the provenance-only package revision, the same CI command reproduced `no-semantic-change`. A synthetic changed-release test produces a human-readable `changed-release` diff and retains `runtimeProseMutation: forbidden`; it never invokes a prose writer.
+
+Every catalog passage has exactly one mapping to released chapter scene-summary references, voice IDs, chronology IDs, philosophical constraints, and promise/payoff IDs. Eighteen passages declare `thematic-derivative`; the shared `conv-L3` passage declares `interactive-only-connective`. No passage declares `direct-adaptation` because the approved literary release contains zero excerpt markers. `npm run literary:explain -- arch-L1` resolved the opening to stable passage `spv1_psg_6a8e3511627df7d650fb4647`, five archaeologist chapters/scenes, voice, chronology, two philosophical constraints, six promises, the exact M commit/release hash, and the accepted package hash.
+
+Nine importer tests pass the approved artifact and reject unknown releases, incompatible application versions, corrupted asset hashes, a missing content license, unsafe paths, duplicate canonical IDs, unstable IDs, and incomplete concordance. The exact `eternal-return@1.0.0` predecessor hash migrates to the provenance-only `1.0.1` identity without losing any journey progress; arbitrary identities are not migrated.
+
+Local final verification passed 167 application tests and 137 conversion tests, including 18 Story Package proofs and nine literary-intake proofs. Type checks, formatting, lint with the 32 known warnings/zero errors, 288/288 strict authored-content validation, eight runtime-content tests, deterministic package validation, accepted-release validation, production build, and every bundle/source-map budget passed. PR [run 29374921787](https://github.com/zekusmaximus/Narramorph/actions/runs/29374921787) and post-merge `main` [run 29375061154](https://github.com/zekusmaximus/Narramorph/actions/runs/29375061154) passed all seven required contexts.
+
+The initial secret scan correctly blocked three `generic-api-key` entropy false positives for the deterministic stable IDs `algo-L2-invest`, `algo-L2-resist`, and `hum-L2-invest`. The follow-up commit allowlisted only those exact secret values; all default rules, every other concordance value, and every other repository path remain scanned. The rerun passed both repository secret scanning and GitGuardian.
+
+Safe intermediate state: Narramorph consumes the deliberately transferred immutable artifact entirely offline, records release/package identities without credentials, and can explain every shipped passage. Runtime prose, canonical manuscript prose, Project-Leibniz, and eternal-return-digital-self are unchanged. No deployment occurred. Batch 2.5 can now prove a connected L1→L2 journey against this accepted boundary.
+
 ## Required merge order and safe intermediate states
 
 1. **Batch 2.1:** M workflow cross-reference and N authority ADR/execution record. Documentation changes do not alter either edition.
@@ -177,5 +205,6 @@ Safe intermediate state: the literary artifact is immutable and deliberately tra
 | 2.1 | Narramorph | `agent/phase-2-batch-2-1` | [#130](https://github.com/zekusmaximus/Narramorph/pull/130) | `e66e3392622b0ce9a233963a26256594cd2ded2c` | Main run 29366975337; ADR and ownership boundary. |
 | 2.2 | Narramorph | `agent/phase-2-batch-2-2` | [#132](https://github.com/zekusmaximus/Narramorph/pull/132) | `af7cd6835c2e9395652d2e83c8f394b78585ebe9` | PR run 29371275537 and main run 29371394439 passed all seven protected checks; no prose change. |
 | 2.3 | Eternal_Return_Manuscript | `agent/phase-2-batch-2-3` | [#46](https://github.com/zekusmaximus/Eternal_Return_Manuscript/pull/46) | `5c968c287eea71be40ca7ee3234e0d62153f1b4e` | PR run 29372663866; main run 29372722549; prerelease `literary-release-v1.0.0`; no prose change. |
+| 2.4 | Narramorph | `agent/phase-2-batch-2-4` | [#135](https://github.com/zekusmaximus/Narramorph/pull/135) | `fb3835b00c4963566ddd5a1a10fe4558fccc6bbb` | PR run 29374921787 and main run 29375061154 passed all seven protected checks; accepted release/package/concordance; 577-file runtime content hash unchanged. |
 
 Later rows are added only when their branches and pull requests exist. Every accepted variance, deterministic hash, release/package ID, check result, and merge SHA must be recorded here before Phase 2 closes.
