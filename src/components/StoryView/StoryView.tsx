@@ -2,11 +2,13 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { lazy, useCallback, useEffect, useMemo, type ReactElement } from 'react';
 
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
+import { compileEndingSelectionReason } from '@/domain/variation/selectionReason';
 import { useDialogFocus } from '@/hooks/useDialogFocus';
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import { useVariationSelection } from '@/hooks/useVariationSelection';
 import { useStoryStore } from '@/stores';
 
+import { SelectionDisclosure } from './SelectionDisclosure';
 import { StoryContent } from './StoryContent';
 import { StoryFooter } from './StoryFooter';
 import { StoryHeader } from './StoryHeader';
@@ -36,7 +38,7 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
   const getNodeState = useStoryStore((state) => state.getNodeState);
   const canVisitNode = useStoryStore((state) => state.canVisitNode);
   const openStoryView = useStoryStore((state) => state.openStoryView);
-  const updateActiveVisitVariation = useStoryStore((state) => state.updateActiveVisitVariation);
+  const recordActiveVisitSelection = useStoryStore((state) => state.recordActiveVisitSelection);
   const finalizeActiveVisit = useStoryStore((state) => state.finalizeActiveVisit);
   const selectedNode = adapter.selectedNodeId;
   const closeStoryView = adapter.panel.close;
@@ -71,16 +73,48 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
     variationId,
     metadata: variationMetadata,
     usedFallback,
+    selectionReason,
     error: variationError,
     isLoading: variationLoading,
     retry: retryVariation,
   } = useVariationSelection(currentNode?.id ?? null, fallbackContent);
 
-  useEffect(() => {
-    if (adapter.panel.open && selectedNode && variationId && !usedFallback) {
-      updateActiveVisitVariation(variationId);
+  const readerSelectionReason = useMemo(() => {
+    if (!currentNode) {
+      return null;
     }
-  }, [adapter.panel.open, selectedNode, updateActiveVisitVariation, usedFallback, variationId]);
+    return currentNode.layer === 4
+      ? compileEndingSelectionReason(currentNode.title)
+      : selectionReason;
+  }, [currentNode, selectionReason]);
+
+  useEffect(() => {
+    if (
+      adapter.panel.open &&
+      selectedNode &&
+      currentNode &&
+      readerSelectionReason &&
+      !variationLoading &&
+      !variationError
+    ) {
+      recordActiveVisitSelection({
+        variationId,
+        passageTitle: currentNode.title,
+        content: currentContent,
+        reason: readerSelectionReason,
+      });
+    }
+  }, [
+    adapter.panel.open,
+    currentContent,
+    currentNode,
+    readerSelectionReason,
+    recordActiveVisitSelection,
+    selectedNode,
+    variationError,
+    variationId,
+    variationLoading,
+  ]);
 
   useEffect(
     () => () => {
@@ -169,6 +203,7 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
                 textSize={preferences.textSize}
                 theme={preferences.theme}
               />
+              <SelectionDisclosure reason={readerSelectionReason} theme={preferences.theme} />
               <StoryFooter
                 theme={preferences.theme}
                 continuationNodes={continuationNodes}

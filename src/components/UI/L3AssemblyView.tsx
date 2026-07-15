@@ -14,6 +14,8 @@ import {
   type ReactNode,
 } from 'react';
 
+import { SelectionDisclosure } from '@/components/StoryView/SelectionDisclosure';
+import { compileL3SelectionReason } from '@/domain/variation/selectionReason';
 import { useDialogFocus } from '@/hooks/useDialogFocus';
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import { useStoryStore } from '@/stores/storyStore';
@@ -127,6 +129,7 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps): Reac
   const selectedNode = useStoryStore((state) => state.selectedNode);
   const reduceMotion = useReducedMotionPreference();
   const markL3SectionRead = useStoryStore((state) => state.markL3SectionRead);
+  const recordActiveVisitSelection = useStoryStore((state) => state.recordActiveVisitSelection);
   const finalizeActiveVisit = useStoryStore((state) => state.finalizeActiveVisit);
   const l3Progress = useStoryStore(
     (state) => state.progress.l3AssembliesViewed?.[state.progress.l3AssembliesViewed.length - 1],
@@ -135,6 +138,13 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps): Reac
 
   const sections = useMemo(() => getL3AssemblySections(assembly), [assembly]);
   const currentSection = sections[currentSectionIndex];
+  const selectedAssemblySection = [assembly.arch, assembly.algo, assembly.hum, assembly.conv][
+    currentSectionIndex
+  ];
+  const selectionReason = useMemo(
+    () => (currentSection ? compileL3SelectionReason(assembly, currentSection.title) : null),
+    [assembly, currentSection],
+  );
   const handleClose = useCallback(() => onClose?.(), [onClose]);
   const restoreMapFocus = useCallback(() => getMapReturnTarget(selectedNode), [selectedNode]);
   const dialogRef = useDialogFocus(true, handleClose, {
@@ -143,6 +153,19 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps): Reac
     preferFallback: true,
     restoreFocus: restoreMapFocus,
   });
+
+  useEffect(() => {
+    if (!currentSection || !selectedAssemblySection || !selectionReason) {
+      return;
+    }
+    recordActiveVisitSelection({
+      variationId: selectedAssemblySection.variationId,
+      passageTitle: 'The Convergence',
+      fragmentLabel: currentSection.title,
+      content: currentSection.content,
+      reason: selectionReason,
+    });
+  }, [currentSection, recordActiveVisitSelection, selectedAssemblySection, selectionReason]);
 
   // Track section reads using IntersectionObserver
   useEffect(() => {
@@ -365,6 +388,9 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps): Reac
               </h3>
               <div className="prose prose-invert prose-cyan max-w-none text-gray-200">
                 {parseMarkdown(currentSection.content)}
+              </div>
+              <div className="-mx-4 mt-6 sm:-mx-6">
+                <SelectionDisclosure reason={selectionReason} />
               </div>
             </motion.div>
           </AnimatePresence>

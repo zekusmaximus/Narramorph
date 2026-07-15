@@ -4,7 +4,9 @@ import { useEffect, useMemo, useState, type ReactElement } from 'react';
 
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
 import { MarkdownContent } from '@/components/StoryView/MarkdownContent';
+import { SelectionDisclosure } from '@/components/StoryView/SelectionDisclosure';
 import { getCharacterLabel } from '@/components/StoryView/storyPresentation';
+import { compileEndingSelectionReason } from '@/domain/variation/selectionReason';
 import { useDialogFocus } from '@/hooks/useDialogFocus';
 import { useReadingTimer } from '@/hooks/useReadingTimer';
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
@@ -37,7 +39,7 @@ export default function ContentPanel3D(): ReactElement | null {
   const nodes = useStoryStore((state) => state.nodes);
   const getNodeState = useStoryStore((state) => state.getNodeState);
   const preferences = useStoryStore((state) => state.preferences);
-  const updateActiveVisitVariation = useStoryStore((state) => state.updateActiveVisitVariation);
+  const recordActiveVisitSelection = useStoryStore((state) => state.recordActiveVisitSelection);
   const selectedNode = adapter.selectedNodeId;
   const storyViewOpen = adapter.panel.open;
   const closeStoryView = adapter.panel.close;
@@ -93,8 +95,19 @@ export default function ContentPanel3D(): ReactElement | null {
     content: currentContent,
     variationId,
     usedFallback,
+    selectionReason,
+    isLoading: variationLoading,
     error: variationError,
   } = useVariationSelection(currentNode?.id || null, fallbackContent);
+
+  const readerSelectionReason = useMemo(() => {
+    if (!currentNode) {
+      return null;
+    }
+    return currentNode.layer === 4
+      ? compileEndingSelectionReason(currentNode.title)
+      : selectionReason;
+  }, [currentNode, selectionReason]);
 
   // Get theme
   const theme = useMemo(() => {
@@ -106,10 +119,32 @@ export default function ContentPanel3D(): ReactElement | null {
 
   // Update variation ID
   useEffect(() => {
-    if (storyViewOpen && selectedNode && variationId && !usedFallback) {
-      updateActiveVisitVariation(variationId);
+    if (
+      storyViewOpen &&
+      selectedNode &&
+      currentNode &&
+      readerSelectionReason &&
+      !variationLoading &&
+      !variationError
+    ) {
+      recordActiveVisitSelection({
+        variationId,
+        passageTitle: currentNode.title,
+        content: currentContent,
+        reason: readerSelectionReason,
+      });
     }
-  }, [storyViewOpen, selectedNode, variationId, usedFallback, updateActiveVisitVariation]);
+  }, [
+    currentContent,
+    currentNode,
+    readerSelectionReason,
+    recordActiveVisitSelection,
+    selectedNode,
+    storyViewOpen,
+    variationError,
+    variationId,
+    variationLoading,
+  ]);
 
   if (!storyViewOpen || !currentNode || !nodeState) {
     return null;
@@ -211,6 +246,10 @@ export default function ContentPanel3D(): ReactElement | null {
           }`}
         >
           <MarkdownContent content={currentContent} />
+        </div>
+
+        <div className="-mx-4 mt-6 sm:-mx-6">
+          <SelectionDisclosure reason={readerSelectionReason} theme={preferences.theme} />
         </div>
 
         {/* Reading time tracker */}

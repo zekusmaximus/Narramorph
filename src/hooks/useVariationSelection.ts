@@ -55,6 +55,10 @@ export interface UseVariationSelectionResult {
   retry: () => void;
 }
 
+type VariationSelectionState = Omit<UseVariationSelectionResult, 'retry'> & {
+  selectedForNodeId: string | null;
+};
+
 /**
  * Hook for selecting and displaying state-dependent narrative variations.
  *
@@ -93,7 +97,8 @@ export function useVariationSelection(
 
   const [requestVersion, setRequestVersion] = useState(0);
   const retry = useCallback(() => setRequestVersion((version) => version + 1), []);
-  const [result, setResult] = useState<Omit<UseVariationSelectionResult, 'retry'>>({
+  const [result, setResult] = useState<VariationSelectionState>({
+    selectedForNodeId: null,
     content: '',
     variationId: null,
     metadata: null,
@@ -110,6 +115,7 @@ export function useVariationSelection(
 
     if (!nodeId) {
       setResult({
+        selectedForNodeId: null,
         content: '',
         variationId: null,
         metadata: null,
@@ -125,7 +131,16 @@ export function useVariationSelection(
 
     const storyId = storyData?.metadata?.id || 'eternal-return';
     const context = getConditionContext(nodeId, { includeRecentVariations: true });
-    setResult((previous) => ({ ...previous, isLoading: true, error: null }));
+    setResult({
+      selectedForNodeId: nodeId,
+      content: fallbackContent ?? '',
+      variationId: null,
+      metadata: null,
+      isLoading: true,
+      error: null,
+      usedFallback: false,
+      selectionReason: null,
+    });
     devLog(`🎬 ASYNC LOAD #${currentRender} for ${nodeId}`);
 
     void loadVariationFile(storyId, nodeId)
@@ -152,7 +167,7 @@ export function useVariationSelection(
             `📝 CHOICE RECORDED: ${nodeId} → ${selection.variationId} [load #${currentRender}]`,
           );
         }
-        setResult({ ...selection, isLoading: false });
+        setResult({ selectedForNodeId: nodeId, ...selection, isLoading: false });
       })
       .catch((error: unknown) => {
         if (!active) {
@@ -161,6 +176,7 @@ export function useVariationSelection(
         const normalizedError = error instanceof Error ? error : new Error(String(error));
         devError(`❌ Error loading variation for ${nodeId}: %o`, normalizedError);
         setResult({
+          selectedForNodeId: nodeId,
           content: fallbackContent ?? '',
           variationId: null,
           metadata: null,
@@ -189,5 +205,19 @@ export function useVariationSelection(
     requestVersion,
   ]);
 
-  return { ...result, retry };
+  if (result.selectedForNodeId !== nodeId) {
+    return {
+      content: fallbackContent ?? '',
+      variationId: null,
+      metadata: null,
+      isLoading: nodeId !== null,
+      error: null,
+      usedFallback: false,
+      selectionReason: null,
+      retry,
+    };
+  }
+
+  const { selectedForNodeId: _selectedForNodeId, ...currentResult } = result;
+  return { ...currentResult, retry };
 }

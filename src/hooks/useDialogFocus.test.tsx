@@ -44,6 +44,10 @@ function DialogHarness({
           <button type="button" onClick={() => setShowDynamicControl(true)}>
             Add control
           </button>
+          <details>
+            <summary>Why this version?</summary>
+            <p>A reader-safe explanation.</p>
+          </details>
           <button type="button">Last</button>
           {showDynamicControl && <button type="button">Dynamic</button>}
         </div>
@@ -174,6 +178,18 @@ describe('useDialogFocus', () => {
     fireEvent.keyDown(document, { key: 'Tab' });
 
     expect(document.activeElement).toBe(view.getByRole('button', { name: 'First' }));
+  });
+
+  it('keeps native disclosure summaries inside the focusable sequence', () => {
+    const view = render(<DialogHarness initiallyOpen onClose={vi.fn()} />);
+    const summary = view.getByText('Why this version?');
+
+    summary.focus();
+    fireEvent.keyDown(document, { key: 'Tab' });
+
+    // JSDOM does not perform Tab navigation, but the focus trap must leave a
+    // recognized summary alone so the browser can advance naturally.
+    expect(document.activeElement).toBe(summary);
   });
 
   it('uses a connected fallback when the original opener disappears', () => {

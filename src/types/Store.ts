@@ -63,6 +63,17 @@ export interface SelectionRecord {
   selectedAt: string;
   visitNumber: number;
   reason: SelectionReason;
+  /** Reader-facing text captured when the selection was made. */
+  explanation: string;
+}
+
+/** Reader-safe inputs used to snapshot one decision during the active visit. */
+export interface ActiveVisitSelection {
+  variationId: string | null;
+  passageTitle: string;
+  content: string;
+  reason: SelectionReason;
+  fragmentLabel?: string;
 }
 
 /**
@@ -221,7 +232,7 @@ export interface StoryStore {
     nodeId?: string,
     opts?: { includeRecentVariations?: boolean },
   ) => ConditionContext;
-  updateActiveVisitVariation: (variationId: string) => void;
+  recordActiveVisitSelection: (selection: ActiveVisitSelection) => void;
   finalizeActiveVisit: () => void;
   buildL3Assembly: () => Promise<L3Assembly | null>;
   getOrBuildL3Assembly: () => Promise<L3Assembly | null>;

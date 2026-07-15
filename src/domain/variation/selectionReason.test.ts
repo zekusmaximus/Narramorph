@@ -1,8 +1,13 @@
 import { describe, expect, it } from 'vitest';
 
-import type { ConditionContext, Variation } from '@/types';
+import type { ConditionContext, L3Assembly, Variation } from '@/types';
 
-import { compileVariationSelectionReason, renderSelectionReason } from './selectionReason';
+import {
+  compileEndingSelectionReason,
+  compileL3SelectionReason,
+  compileVariationSelectionReason,
+  renderSelectionReason,
+} from './selectionReason';
 
 const context: ConditionContext = {
   nodeId: 'arch-L1',
@@ -80,6 +85,33 @@ describe('SelectionReason compiler', () => {
     expect(reason.templateKey).toBe('selection.fallback');
     expect(renderSelectionReason(reason)).toBe(
       'This is the stable version used when no more specific path match is available.',
+    );
+  });
+
+  it('explains an opened L3 section from assembly metadata without its variation ID', () => {
+    const assembly = {
+      metadata: {
+        journeyPattern: 'started-bounced',
+        pathPhilosophy: 'accept',
+        awarenessLevel: 'medium',
+        synthesisPattern: 'true-triad',
+      },
+    } as L3Assembly;
+    const reason = compileL3SelectionReason(assembly, 'Archaeologist Perspective');
+    const rendered = renderSelectionReason(reason);
+
+    expect(reason.selectionKind).toBe('l3-section');
+    expect(rendered).toContain('movement between perspectives');
+    expect(rendered).toContain('acceptance');
+    expect(rendered).not.toContain('variation');
+  });
+
+  it('uses the reader-facing title for a reached ending', () => {
+    const reason = compileEndingSelectionReason('Release into the Pattern');
+
+    expect(reason).toMatchObject({ selectionKind: 'ending', outcome: 'fixed' });
+    expect(renderSelectionReason(reason)).toBe(
+      'This is the ending you chose: Release into the Pattern.',
     );
   });
 });

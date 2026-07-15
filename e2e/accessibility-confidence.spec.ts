@@ -84,7 +84,14 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   await page.keyboard.press('Tab');
   await expect(page.getByTestId('story-scroll-region')).toBeFocused();
   await page.keyboard.press('Tab');
+  const firstDisclosure = page.getByRole('dialog').locator('summary', {
+    hasText: 'Why this version?',
+  });
+  await expect(firstDisclosure).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.getByTestId('selection-disclosure')).toHaveAttribute('open', '');
   const acceptancePath = page.getByRole('button', { name: 'Follow Acceptance Path' });
+  await tabUntilFocused(page, acceptancePath, { limit: 5 });
   await expect(acceptancePath).toBeFocused();
   await page.keyboard.press('Enter');
 
@@ -98,7 +105,11 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   await page.keyboard.press('Tab');
   await expect(page.getByTestId('story-scroll-region')).toBeFocused();
   await page.keyboard.press('Tab');
+  await expect(
+    page.getByRole('dialog').locator('summary', { hasText: 'Why this version?' }),
+  ).toBeFocused();
   const returnToMap = page.getByRole('button', { name: 'Return to map' });
+  await tabUntilFocused(page, returnToMap, { limit: 5 });
   await expect(returnToMap).toBeFocused();
   await page.keyboard.press('Enter');
 
@@ -182,6 +193,9 @@ test('reader completes the primary journey with keyboard focus kept visible and 
 
   const progressTitle = page.locator('#reading-progress-title');
   const closeProgress = page.getByRole('button', { name: 'Close reading progress' });
+  const adaptationLedgerSummary = page.locator('summary', {
+    hasText: 'How your journey adapted',
+  });
   await expect(page.getByRole('dialog', { name: 'Your path through the archive' })).toHaveCount(1);
   await expect(progressTitle).toBeFocused();
   await expect(mainContent).toHaveAttribute('inert', '');
@@ -189,6 +203,10 @@ test('reader completes the primary journey with keyboard focus kept visible and 
 
   await page.keyboard.press('Tab');
   await expect(closeProgress).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(adaptationLedgerSummary).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.getByTestId('adaptation-ledger')).toHaveAttribute('open', '');
   await page.keyboard.press('Tab');
   await expect(closeProgress).toBeFocused();
   await page.keyboard.press('Escape');
