@@ -142,8 +142,15 @@ export function L3AssemblyView({ assembly, onClose }: L3AssemblyViewProps): Reac
     currentSectionIndex
   ];
   const selectionReason = useMemo(
-    () => (currentSection ? compileL3SelectionReason(assembly, currentSection.title) : null),
-    [assembly, currentSection],
+    () =>
+      currentSection && selectedAssemblySection
+        ? compileL3SelectionReason(
+            assembly,
+            currentSection.title,
+            selectedAssemblySection.matchTier,
+          )
+        : null,
+    [assembly, currentSection, selectedAssemblySection],
   );
   const handleClose = useCallback(() => onClose?.(), [onClose]);
   const restoreMapFocus = useCallback(() => getMapReturnTarget(selectedNode), [selectedNode]);

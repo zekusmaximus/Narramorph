@@ -42,6 +42,9 @@ describe('loadVariationFile', () => {
       const cached = await loadVariationFile('eternal-return', endingId);
 
       expect(ending?.variations[0]?.content.length).toBeGreaterThan(1_000);
+      expect(ending?.variations[0]?.content.slice(0, 1_000)).not.toMatch(
+        /(?:variationId|nodeId|terminalEndpoint|Content Architecture)/,
+      );
       expect(cached).toBe(ending);
     }
   });

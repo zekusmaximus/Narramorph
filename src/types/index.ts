@@ -68,6 +68,7 @@ export type {
   L3VariationFile,
   L3VariationSet,
   SelectionMatrixEntry,
+  L3VariationMatchTier,
   L3AssemblySection,
   L3Assembly,
   JourneyTracking,

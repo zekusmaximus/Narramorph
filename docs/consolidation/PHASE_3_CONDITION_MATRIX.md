@@ -54,6 +54,8 @@ The machine contract is defined by ADR 0003. The initial reader template catalog
 
 Passage titles and perspective/philosophy labels are resolved before rendering. Stable keys and opaque identifiers may remain in machine/debug evidence, but only whitelisted labels and numbers may enter `parameters` or persisted reader snapshots.
 
+The finite reviewed language for every serialized condition category and its exhaustive runtime audit are recorded in the [Phase 3 explanation coverage audit](PHASE_3_EXPLANATION_AUDIT.md).
+
 ## Architecture boundary
 
 `UserProgress` remains authoritative. `ConditionContext` is a pure projection and `selectionRecords` is an append-only historical output. Neither can mutate the other. Project-Leibniz's server, Mongo storage, Context/reducer, mutable singleton service, visual design, and final-state ledger algorithm are not imported.

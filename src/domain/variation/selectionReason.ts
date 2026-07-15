@@ -2,6 +2,7 @@ import type {
   AwarenessLevel,
   ConditionContext,
   L3Assembly,
+  L3VariationMatchTier,
   JourneyCharacter,
   JourneyPattern,
   PathPhilosophy,
@@ -165,21 +166,33 @@ export function compileVariationSelectionReason(
 export function compileL3SelectionReason(
   assembly: L3Assembly,
   fragmentLabel: string,
+  matchTier: L3VariationMatchTier = 'exact-context',
 ): SelectionReason {
+  const isFallback = matchTier === 'deterministic-any';
+  const journey =
+    matchTier === 'philosophy'
+      ? journeyLabels.unknown
+      : journeyLabels[assembly.metadata.journeyPattern];
+  const philosophy =
+    matchTier === 'journey'
+      ? philosophyLabels.unknown
+      : philosophyLabels[assembly.metadata.pathPhilosophy];
+
   return {
     contract: SELECTION_REASON_CONTRACT,
     schemaVersion: SELECTION_REASON_SCHEMA_VERSION,
     selectionKind: 'l3-section',
-    outcome: 'exact',
-    templateKey: 'selection.l3_assembly',
+    outcome: isFallback ? 'fallback' : matchTier.startsWith('exact') ? 'exact' : 'relaxed',
+    templateKey: isFallback ? 'selection.fallback' : 'selection.l3_assembly',
     parameters: {
-      journey: journeyLabels[assembly.metadata.journeyPattern],
-      philosophy: philosophyLabels[assembly.metadata.pathPhilosophy],
+      journey,
+      philosophy,
     },
     triggers: [
       { kind: 'l3-section', actual: fragmentLabel },
       { kind: 'journey-pattern', actual: assembly.metadata.journeyPattern },
       { kind: 'path-philosophy', actual: assembly.metadata.pathPhilosophy },
+      { kind: 'fallback-tier', actual: matchTier },
     ],
   };
 }

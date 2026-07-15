@@ -38,8 +38,8 @@ Run July 15, 2026 on Node `22.18.0` and npm `11.16.0` after clean root and conve
 | --- | --- | --- | --- | --- |
 | 3.1 semantic gap and contract design | #139 | `agent/phase-3-batch-3-1` | #143 | Complete; merged at `4024002a5288b32938d4d003e4f437051f4f54c9` |
 | 3.2 condition and reason compiler | #140 | `agent/phase-3-batch-3-2` | #144 | Complete; merged at `c646e81328ad7b8c097c519e9f644603992bda87` |
-| 3.3 reader disclosure and ledger | #141 | `agent/phase-3-batch-3-3` | #145 | In review |
-| 3.4 explanation coverage and journey audits | #142 | Pending | Pending | Not started |
+| 3.3 reader disclosure and ledger | #141 | `agent/phase-3-batch-3-3` | #145 | Complete; merged at `d672a4a0afa263c4c06b0efcfa8114ca2c3d3826` |
+| 3.4 explanation coverage and journey audits | #142 | `agent/phase-3-batch-3-4` | Pending | Implementation and local verification |
 
 ## Batch 3.1 decisions
 
@@ -66,6 +66,17 @@ Run July 15, 2026 on Node `22.18.0` and npm `11.16.0` after clean root and conve
 - The shared modal focus trap now recognizes native `summary` controls. Keyboard containment, mobile `390x844`, 200% root text, reduced motion, and horizontal-overflow behavior are covered in Chromium.
 - Local verification passes type-check, lint with the same 32 baseline warnings and no errors, formatting, 43 files / 199 app tests, 20 Story Package tests, 13 literary-release tests, strict validation of all 288 runtime content files, accepted full/slice literary validation, production build, and all 14 Chromium browser scenarios.
 - Story Package identity remains `eternal-return@1.1.0`, schema `1.1.0`, hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062`. No authored story file, canonical prose, literary release ID, or source-repository input changed.
+
+## Batch 3.4 implementation evidence
+
+- The [explanation coverage audit](PHASE_3_EXPLANATION_AUDIT.md) records one reviewed, non-interpolating phrase for every Story Package 1.1 condition category and audits every closed `SelectionReason` template.
+- Repository-backed tests cover all 12 L1/L2 groups and 741 variations, all 270 L3 variations plus the complete 135-context assembly matrix, every L3 match/fallback criterion, and all three ending titles.
+- Automated audits reject missing text, internal IDs, raw conditions/JSON, contradictions, and configured future-content terms. Behavioral tests separately prove deterministic selection and prove explanation rendering/auditing cannot influence the selected result.
+- L3 assembly sections now retain the criterion that actually selected them. Exact, relaxed, and deterministic fallback wording cannot overclaim an unmatched journey or philosophy dimension; the selector order and selected prose remain unchanged.
+- A loader boundary excludes recognized editorial preambles from two legacy ending files before reader rendering and ledger excerpt creation. The underlying story JSON and authored prose are untouched.
+- Three production-build Chromium journeys cover acceptance/preserve, investigation/transform, and resistance/release. Each proves four L3 snapshots, safe ending disclosure/excerpt, dominant philosophy, and byte-identical saved explanations after reload.
+- Local verification passes type-check, lint with the unchanged 32-warning baseline and no errors, formatting, 46 files / 233 app tests, coverage (73.38% statements/lines, 76.98% branches, 36.12% functions), 143 conversion tests including 20 Story Package and 13 literary-release proofs, strict validation of all 288 runtime content files, accepted full/slice literary validation, production build, every bundle/source-map budget, and all 17 Chromium scenarios.
+- Story Package identity remains `eternal-return@1.1.0`, schema `1.1.0`, hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062`. Literary release `eternal-return-literary-v1.0.1`, all authored-content files, and all package/literary digests remain unchanged.
 
 ## Closure evidence
 

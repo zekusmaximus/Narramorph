@@ -106,6 +106,34 @@ describe('SelectionReason compiler', () => {
     expect(rendered).not.toContain('variation');
   });
 
+  it('does not overclaim dimensions that an L3 fallback did not match', () => {
+    const assembly = {
+      metadata: {
+        journeyPattern: 'started-bounced',
+        pathPhilosophy: 'accept',
+        awarenessLevel: 'medium',
+        synthesisPattern: 'true-triad',
+      },
+    } as L3Assembly;
+
+    const journeyOnly = renderSelectionReason(
+      compileL3SelectionReason(assembly, 'Convergence', 'journey'),
+    );
+    const philosophyOnly = renderSelectionReason(
+      compileL3SelectionReason(assembly, 'Convergence', 'philosophy'),
+    );
+    const deterministic = compileL3SelectionReason(assembly, 'Convergence', 'deterministic-any');
+
+    expect(journeyOnly).toContain('movement between perspectives');
+    expect(journeyOnly).toContain('choices made so far');
+    expect(philosophyOnly).toContain('path you have taken so far');
+    expect(philosophyOnly).toContain('acceptance');
+    expect(deterministic).toMatchObject({
+      outcome: 'fallback',
+      templateKey: 'selection.fallback',
+    });
+  });
+
   it('uses the reader-facing title for a reached ending', () => {
     const reason = compileEndingSelectionReason('Release into the Pattern');
 

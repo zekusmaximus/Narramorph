@@ -20,6 +20,7 @@ Phases 0–2 are complete. Phase 2's five batch issues (#125–#129) satisfy the
 - [Phase 2 vertical-slice reproduction](PHASE_2_VERTICAL_SLICE_REPRODUCTION.md)
 - [Phase 3 execution record](PHASE_3_EXECUTION.md)
 - [Phase 3 condition and journey-state matrix](PHASE_3_CONDITION_MATRIX.md)
+- [Phase 3 explanation coverage audit](PHASE_3_EXPLANATION_AUDIT.md)
 - [Adaptive-selection ADR](../adr/0003-adaptive-selection-explanations.md)
 - [Story Package Contract v1](../contracts/story-package-v1.md)
 - [Verified pre-consolidation baseline](BASELINE.md)

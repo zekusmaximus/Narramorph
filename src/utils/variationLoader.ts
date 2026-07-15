@@ -228,8 +228,20 @@ function normalizeVariation(variation: unknown, fileNodeId?: string): Variation 
   return v as unknown as Variation;
 }
 
+function toReaderTerminalContent(content: string): string {
+  if (!content.trimStart().startsWith('variationId:')) {
+    return content;
+  }
+
+  // Some legacy L4 files embed an editorial specification before a Markdown
+  // thematic break. Keep the package bytes intact while excluding that private
+  // preamble from the reader, disclosure excerpt, and adaptation ledger.
+  return content.replace(/^\s*variationId:[\s\S]*?\r?\n---(?:\r?\n)+/, '');
+}
+
 function createTerminalVariation(file: TerminalContentFile): VariationFile {
   const variationId = `${file.id}-terminal`;
+  const readerContent = toReaderTerminalContent(file.content);
   const convergenceAlignment =
     file.philosophy === 'preserve' ||
     file.philosophy === 'transform' ||
@@ -250,13 +262,13 @@ function createTerminalVariation(file: TerminalContentFile): VariationFile {
         journeyPattern: 'unknown',
         philosophyDominant: 'unknown',
         awarenessLevel: 'low',
-        content: file.content,
+        content: readerContent,
         metadata: {
           variationId,
           nodeId: file.id,
           section: file.id,
           layer: 4,
-          wordCount: file.content.trim().split(/\s+/).length,
+          wordCount: readerContent.trim().split(/\s+/).length,
           createdDate: 'runtime-source',
           journeyPattern: 'unknown',
           journeyCode: 'unknown',

@@ -195,11 +195,20 @@ export interface SelectionMatrixEntry {
 /**
  * L3 assembly section (one of the 4 parts)
  */
+export type L3VariationMatchTier =
+  | 'exact-synthesis'
+  | 'exact-context'
+  | 'journey-philosophy'
+  | 'journey'
+  | 'philosophy'
+  | 'deterministic-any';
+
 export interface L3AssemblySection {
   character: 'arch' | 'algo' | 'hum' | 'conv';
   variationId: string;
   content: string;
   wordCount: number;
+  matchTier: L3VariationMatchTier;
   metadata: L3VariationMetadata;
 }
 
