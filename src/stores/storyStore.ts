@@ -30,6 +30,8 @@ import { loadStoryState } from '@/domain/story/loading';
 import { findNewlyUnlockedNodes, getNodeUnlockProgress } from '@/domain/unlocks/unlockProgress';
 import { buildConditionContext } from '@/domain/variation/conditionContext';
 import { recordVariationSelection } from '@/domain/variation/selection';
+import { renderSelectionReason } from '@/domain/variation/selectionReason';
+import { appendSelectionRecord, createSelectionExcerpt } from '@/domain/variation/selectionRecords';
 import { progressRepository } from '@/repositories/progressRepository';
 import type {
   StoryStore,
@@ -237,14 +239,13 @@ export const useStoryStore = create<StoryStore>()(
       return state.progress.lockedNodes?.includes(nodeId) || false;
     },
 
-    /**
-     * Update the active visit with a variationId after it's been determined
-     */
-    updateActiveVisitVariation: (variationId: string) => {
+    /** Snapshot one adaptive decision against the active visit. */
+    recordActiveVisitSelection: (selection) => {
+      let changed = false;
       set((state) => {
         const { activeVisit } = state;
         if (!activeVisit) {
-          devWarn('[Visit] updateActiveVisitVariation called with no active visit');
+          devWarn('[Visit] recordActiveVisitSelection called with no active visit');
           return;
         }
 
@@ -254,15 +255,37 @@ export const useStoryStore = create<StoryStore>()(
           return;
         }
 
-        state.progress.visitedNodes[activeVisit.nodeId] = recordVariationSelection(
-          visitRecord,
-          variationId,
-        );
+        if (selection.reason.selectionKind !== 'l3-section' && selection.variationId) {
+          state.progress.visitedNodes[activeVisit.nodeId] = recordVariationSelection(
+            visitRecord,
+            selection.variationId,
+          );
+        }
 
-        devLog(`[Visit] Updated ${activeVisit.nodeId} with variationId: ${variationId}`);
+        const nextRecord = {
+          sequence: state.progress.readingPath.length,
+          nodeId: activeVisit.nodeId,
+          passageTitle: selection.passageTitle,
+          excerpt: createSelectionExcerpt(selection.content),
+          variationId: selection.variationId,
+          ...(selection.fragmentLabel ? { fragmentLabel: selection.fragmentLabel } : {}),
+          selectedAt: visitRecord.lastVisited,
+          visitNumber: visitRecord.visitCount,
+          reason: selection.reason,
+          explanation: renderSelectionReason(selection.reason),
+        };
+        const nextRecords = appendSelectionRecord(state.progress.selectionRecords, nextRecord);
+        changed = nextRecords.length !== state.progress.selectionRecords.length;
+        state.progress.selectionRecords = nextRecords;
+
+        if (changed) {
+          devLog(`[Visit] Recorded adaptive selection for ${activeVisit.nodeId}`);
+        }
       });
 
-      get().saveProgress();
+      if (changed) {
+        get().saveProgress();
+      }
     },
 
     /**

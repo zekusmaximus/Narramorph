@@ -1,6 +1,7 @@
 import type {
   AwarenessLevel,
   ConditionContext,
+  L3Assembly,
   JourneyCharacter,
   JourneyPattern,
   PathPhilosophy,
@@ -157,6 +158,42 @@ export function compileVariationSelectionReason(
       awareness: awarenessLabels[variation.metadata.awarenessLevel],
     },
     triggers: buildTriggers(variation, context, tier),
+  };
+}
+
+/** Builds an explanation for one L3 section without exposing its variation ID. */
+export function compileL3SelectionReason(
+  assembly: L3Assembly,
+  fragmentLabel: string,
+): SelectionReason {
+  return {
+    contract: SELECTION_REASON_CONTRACT,
+    schemaVersion: SELECTION_REASON_SCHEMA_VERSION,
+    selectionKind: 'l3-section',
+    outcome: 'exact',
+    templateKey: 'selection.l3_assembly',
+    parameters: {
+      journey: journeyLabels[assembly.metadata.journeyPattern],
+      philosophy: philosophyLabels[assembly.metadata.pathPhilosophy],
+    },
+    triggers: [
+      { kind: 'l3-section', actual: fragmentLabel },
+      { kind: 'journey-pattern', actual: assembly.metadata.journeyPattern },
+      { kind: 'path-philosophy', actual: assembly.metadata.pathPhilosophy },
+    ],
+  };
+}
+
+/** Builds a fixed, reader-safe explanation for a reached ending. */
+export function compileEndingSelectionReason(endingTitle: string): SelectionReason {
+  return {
+    contract: SELECTION_REASON_CONTRACT,
+    schemaVersion: SELECTION_REASON_SCHEMA_VERSION,
+    selectionKind: 'ending',
+    outcome: 'fixed',
+    templateKey: 'selection.ending_choice',
+    parameters: { ending: endingTitle },
+    triggers: [{ kind: 'ending-choice', actual: endingTitle }],
   };
 }
 

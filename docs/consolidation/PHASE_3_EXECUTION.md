@@ -37,8 +37,8 @@ Run July 15, 2026 on Node `22.18.0` and npm `11.16.0` after clean root and conve
 | Batch | Issue | Branch | Pull request | Status |
 | --- | --- | --- | --- | --- |
 | 3.1 semantic gap and contract design | #139 | `agent/phase-3-batch-3-1` | #143 | Complete; merged at `4024002a5288b32938d4d003e4f437051f4f54c9` |
-| 3.2 condition and reason compiler | #140 | `agent/phase-3-batch-3-2` | Pending | In progress |
-| 3.3 reader disclosure and ledger | #141 | Pending | Pending | Not started |
+| 3.2 condition and reason compiler | #140 | `agent/phase-3-batch-3-2` | #144 | Complete; merged at `c646e81328ad7b8c097c519e9f644603992bda87` |
+| 3.3 reader disclosure and ledger | #141 | `agent/phase-3-batch-3-3` | Pending | In progress |
 | 3.4 explanation coverage and journey audits | #142 | Pending | Pending | Not started |
 
 ## Batch 3.1 decisions
@@ -56,6 +56,16 @@ Run July 15, 2026 on Node `22.18.0` and npm `11.16.0` after clean root and conve
 - Save schema `1.2.0` adds the empty historical selection ledger and migrates `1.1.0` without inventing past reasons. The prior `eternal-return@1.0.2` package is an explicit compatible predecessor.
 - The generated interactive package is `eternal-return@1.1.0`, schema `1.1.0`, hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062`. Its catalog and all authored prose digests are unchanged from Phase 2; literary release `eternal-return-literary-v1.0.1` and source manuscript commit remain unchanged.
 - Local verification passes type-check, lint with the same 32 baseline warnings and no errors, formatting, 187 coverage tests, 20 Story Package tests, 13 literary-release tests, strict runtime-content validation, accepted full/slice literary validation, production build, and all 13 Chromium browser scenarios.
+
+## Batch 3.3 implementation evidence
+
+- Both the two-dimensional and three-dimensional readers use the same quiet native “Why this version?” disclosure and closed reader-safe renderer. L3 records and explains only a convergence section the reader actually opens; L4 uses the reached ending title rather than an internal identifier.
+- Every adaptive record snapshots passage title, visited prose excerpt, rendered explanation, selection contract, visit number, and encounter sequence. The ledger is historical output only and is never read by selection, unlocking, or progression code.
+- The active visit sequence plus optional fragment label is the idempotency boundary. Duplicate React Strict Mode effects cannot add records, while separate L3 sections and later visits remain distinct.
+- The progress dialog’s native “How your journey adapted” ledger renders only visited snapshots and never renders node IDs, variation IDs, debug tiers, machine triggers, or future-node data. Reload verification proves the displayed explanation comes from the saved snapshot rather than recomputation.
+- The shared modal focus trap now recognizes native `summary` controls. Keyboard containment, mobile `390x844`, 200% root text, reduced motion, and horizontal-overflow behavior are covered in Chromium.
+- Local verification passes type-check, lint with the same 32 baseline warnings and no errors, formatting, 43 files / 199 app tests, 20 Story Package tests, 13 literary-release tests, strict validation of all 288 runtime content files, accepted full/slice literary validation, production build, and all 14 Chromium browser scenarios.
+- Story Package identity remains `eternal-return@1.1.0`, schema `1.1.0`, hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062`. No authored story file, canonical prose, literary release ID, or source-repository input changed.
 
 ## Closure evidence
 
