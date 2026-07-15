@@ -395,7 +395,7 @@ The product is ready for general availability only when all of the following are
 
 **Dependencies:** Story Package Contract v1 and provenance policy complete.
 
-**Status:** Not started. Phase 2's dependency gates are complete, so Phase 3 is the next roadmap phase; Project-Leibniz remains frozen and unarchived until its later extraction and archival gates are satisfied.
+**Status:** Complete as of July 15, 2026. Batches 3.1–3.4 and issues #139–#142 met their acceptance gates. The merged design decisions, condition/reason contracts, optional reader disclosure, immutable adaptation ledger, full-story explanation audit, representative browser journeys, unchanged-selection proofs, protected-main checks, and repository-boundary verification are recorded in [`docs/consolidation/PHASE_3_EXECUTION.md`](consolidation/PHASE_3_EXECUTION.md). Project-Leibniz remains frozen and unarchived until Phase 4 completes its remaining extraction and archival gates; epic #93 remains open for that work.
 
 ## Batch 3.1 — Produce the Leibniz-to-Narramorph semantic gap analysis
 
@@ -477,6 +477,8 @@ The product is ready for general availability only when all of the following are
 **Purpose:** Capture L's remaining valuable reader-facing ideas and then eliminate it as an active maintenance surface.
 
 **Dependencies:** Phase 3 explanation model stable.
+
+**Status:** Next roadmap phase. No Phase 4 implementation, deployment, release publication, or archive action was performed during Phase 3 closure.
 
 ## Batch 4.1 — Introduce optional compositional prose beats
 
