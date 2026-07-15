@@ -1,7 +1,7 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "storyId": "fixture-clockwork-garden",
-  "storyVersion": "1.0.0",
+  "storyVersion": "1.1.0",
   "title": "Clockwork Garden Contract Fixture",
   "sourceRoot": "data",
   "storyFile": "story.json",

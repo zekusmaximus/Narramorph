@@ -49,12 +49,17 @@ const context: ConditionContext = {
   visitCount: 1,
   transformationState: 'initial',
   characterVisitPercentages: { archaeologist: 100, algorithm: 0, lastHuman: 0 },
+  readingPath: ['arch-L1'],
+  visitCounts: { 'arch-L1': 1 },
+  startingCharacter: 'archaeologist',
 };
 
 function dependencies(file: VariationFile | null, match: Variation | null = variation) {
   return {
     loadVariationFile: vi.fn(() => file),
-    findMatchingVariation: vi.fn(() => match),
+    findMatchingVariation: vi.fn(() =>
+      match ? { variation: match, tier: 'strict' as const, poolExhausted: false } : null,
+    ),
   };
 }
 
@@ -72,6 +77,11 @@ describe('selectVariation', () => {
       error: null,
       usedFallback: false,
       reason: 'matched',
+      selectionReason: {
+        contract: 'org.narramorph.selection-reason',
+        schemaVersion: '1.0.0',
+        selectionKind: 'passage-variation',
+      },
     });
   });
 
@@ -92,6 +102,7 @@ describe('selectVariation', () => {
       error: null,
       usedFallback: true,
       reason: 'missing-variations',
+      selectionReason: null,
     });
   });
 
@@ -107,6 +118,7 @@ describe('selectVariation', () => {
       error: null,
       usedFallback: true,
       reason: 'first-variation-fallback',
+      selectionReason: { outcome: 'fallback', templateKey: 'selection.fallback' },
     });
   });
 
@@ -131,6 +143,7 @@ describe('selectVariation', () => {
       variationId: null,
       usedFallback: true,
       reason: 'selection-error',
+      selectionReason: null,
     });
     expect(result.error?.message).toBe('Malformed runtime variation');
   });

@@ -11,5 +11,15 @@
     "variationId": { "type": "string", "pattern": "^spv1_var_[0-9a-f]{24}$" },
     "kind": { "type": "string", "minLength": 1 },
     "value": true
-  }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "kind": { "const": "expression" } } },
+      "then": {
+        "properties": {
+          "value": { "$ref": "condition-expression.schema.json" }
+        }
+      }
+    }
+  ]
 }

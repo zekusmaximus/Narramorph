@@ -4,7 +4,11 @@ import type {
   VariationFile,
   VariationMetadata,
   VisitRecord,
+  SelectionReason,
 } from '@/types';
+import type { VariationMatchResult } from '@/utils/conditionEvaluator';
+
+import { compileVariationSelectionReason } from './selectionReason';
 
 export type VariationSelectionReason =
   | 'matched'
@@ -20,11 +24,15 @@ export interface VariationSelectionResult {
   error: Error | null;
   usedFallback: boolean;
   reason: VariationSelectionReason;
+  selectionReason: SelectionReason | null;
 }
 
 export interface VariationSelectionDependencies {
   loadVariationFile: (storyId: string, nodeId: string) => VariationFile | null;
-  findMatchingVariation: (variations: Variation[], context: ConditionContext) => Variation | null;
+  findMatchingVariation: (
+    variations: Variation[],
+    context: ConditionContext,
+  ) => VariationMatchResult | null;
 }
 
 export interface VariationSelectionRequest {
@@ -61,6 +69,7 @@ export function selectVariation(
       error: null,
       usedFallback: false,
       reason: 'no-node',
+      selectionReason: null,
     };
   }
 
@@ -79,14 +88,15 @@ export function selectVariation(
           error: null,
           usedFallback: true,
           reason: 'missing-variations',
+          selectionReason: null,
         };
       }
 
       throw new Error(`No variation file found for node: ${nodeId}`);
     }
 
-    const matchedVariation = dependencies.findMatchingVariation(variationFile.variations, context);
-    if (!matchedVariation) {
+    const match = dependencies.findMatchingVariation(variationFile.variations, context);
+    if (!match) {
       const firstVariation = variationFile.variations[0];
       if (!firstVariation) {
         throw new Error('No variations available');
@@ -99,8 +109,15 @@ export function selectVariation(
         error: null,
         usedFallback: true,
         reason: 'first-variation-fallback',
+        selectionReason: compileVariationSelectionReason(
+          firstVariation,
+          context,
+          'deterministic-any',
+        ),
       };
     }
+
+    const matchedVariation = match.variation;
 
     return {
       content: matchedVariation.content,
@@ -109,6 +126,7 @@ export function selectVariation(
       error: null,
       usedFallback: false,
       reason: 'matched',
+      selectionReason: compileVariationSelectionReason(matchedVariation, context, match.tier),
     };
   } catch (error) {
     return {
@@ -118,6 +136,7 @@ export function selectVariation(
       error: asError(error),
       usedFallback: true,
       reason: 'selection-error',
+      selectionReason: null,
     };
   }
 }

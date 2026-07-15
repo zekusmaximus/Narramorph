@@ -5,7 +5,7 @@ import { dirname, isAbsolute, relative, resolve, sep } from 'node:path';
 import { glob } from 'glob';
 
 export const STORY_PACKAGE_CONTRACT = 'org.narramorph.story-package';
-export const STORY_PACKAGE_SCHEMA_VERSION = '1.0.0';
+export const STORY_PACKAGE_SCHEMA_VERSION = '1.1.0';
 export const CURRENT_APP_VERSION = '0.1.0';
 
 type JsonPrimitive = boolean | number | string | null;
@@ -304,6 +304,65 @@ async function readJson(path: string): Promise<unknown> {
 
 function asJsonValue(value: unknown): JsonValue {
   return JSON.parse(canonicalJson(value)) as JsonValue;
+}
+
+const NUMERIC_COMPARISONS = new Set(['eq', 'ne', 'gt', 'gte', 'lt', 'lte']);
+
+function isNonEmptyString(value: unknown): value is string {
+  return typeof value === 'string' && value.length > 0;
+}
+
+function isPassageIdArray(value: unknown, unique = false): value is string[] {
+  return (
+    Array.isArray(value) &&
+    value.length > 0 &&
+    value.every(isNonEmptyString) &&
+    (!unique || new Set(value).size === value.length)
+  );
+}
+
+function isConditionExpression(value: unknown, depth = 0): boolean {
+  if (!isRecord(value) || depth > 32 || typeof value.kind !== 'string') {
+    return false;
+  }
+  if (['historyStartsWith', 'historyEndsWith', 'orderSeen'].includes(value.kind)) {
+    return isPassageIdArray(value.passageIds);
+  }
+  if (value.kind === 'visitedImmediatelyAfter') {
+    return isNonEmptyString(value.beforePassageId) && isNonEmptyString(value.afterPassageId);
+  }
+  if (value.kind === 'withinSteps') {
+    return (
+      isNonEmptyString(value.passageId) && Number.isInteger(value.steps) && Number(value.steps) >= 0
+    );
+  }
+  if (value.kind === 'visitCount') {
+    return (
+      isNonEmptyString(value.passageId) &&
+      NUMERIC_COMPARISONS.has(String(value.comparison)) &&
+      Number.isInteger(value.value) &&
+      Number(value.value) >= 0
+    );
+  }
+  if (value.kind === 'visitedCountAcross') {
+    return (
+      isPassageIdArray(value.passageIds, true) &&
+      NUMERIC_COMPARISONS.has(String(value.comparison)) &&
+      Number.isInteger(value.value) &&
+      Number(value.value) >= 0
+    );
+  }
+  if (value.kind === 'all' || value.kind === 'any') {
+    return (
+      Array.isArray(value.conditions) &&
+      value.conditions.length > 0 &&
+      value.conditions.every((condition) => isConditionExpression(condition, depth + 1))
+    );
+  }
+  if (value.kind === 'not') {
+    return isConditionExpression(value.condition, depth + 1);
+  }
+  return false;
 }
 
 function titleCase(value: string): string {
@@ -728,7 +787,7 @@ export async function buildStoryPackage(
     generatedAt: source.sourceDateEpoch,
     generation: {
       generator: '@narramorph/conversion-tools',
-      generatorVersion: '1.1.0',
+      generatorVersion: '1.2.0',
       sourceDateEpoch: source.sourceDateEpoch,
       canonicalization: 'narramorph-canonical-json-v1',
     },
@@ -918,6 +977,9 @@ function validateReferences(
   for (const condition of catalog.conditions) {
     if (!variationIds.has(condition.variationId)) {
       errors.push('Condition references unknown variation: ' + condition.id);
+    }
+    if (condition.kind === 'expression' && !isConditionExpression(condition.value)) {
+      errors.push('Condition expression is malformed: ' + condition.id);
     }
   }
   for (const beat of catalog.proseBeats) {

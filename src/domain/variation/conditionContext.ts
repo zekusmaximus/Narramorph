@@ -24,6 +24,14 @@ export function buildConditionContext(
     visitCount: visitRecord?.visitCount || 0,
     transformationState: visitRecord?.currentState || 'initial',
     characterVisitPercentages: tracking.characterVisitPercentages,
+    readingPath: [...progress.readingPath],
+    visitCounts: Object.fromEntries(
+      Object.entries(progress.visitedNodes).map(([visitedNodeId, record]) => [
+        visitedNodeId,
+        record.visitCount,
+      ]),
+    ),
+    startingCharacter: tracking.startingCharacter,
   };
 
   if (options?.includeRecentVariations && visitRecord?.recentVariationIds) {

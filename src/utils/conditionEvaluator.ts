@@ -9,6 +9,7 @@ import type {
   AwarenessLevel,
   JourneyPattern,
   PathPhilosophy,
+  VariationMatchTier,
 } from '@/types';
 
 import { performanceMonitor } from './performanceMonitor';
@@ -156,10 +157,16 @@ export function evaluateConditions(
 /**
  * Find matching variations based on condition context
  */
-export function findMatchingVariation(
+export interface VariationMatchResult {
+  variation: Variation;
+  tier: VariationMatchTier;
+  poolExhausted: boolean;
+}
+
+export function findMatchingVariationWithReason(
   variations: Variation[],
   context: ConditionContext,
-): Variation | null {
+): VariationMatchResult | null {
   const endTimer = performanceMonitor.startTimer('variationSelection');
 
   // Summary log: context and what we're looking for
@@ -255,9 +262,10 @@ export function findMatchingVariation(
     (v) => v.metadata?.philosophyDominant === context.pathPhilosophy,
   );
 
-  const selectionPipeline: { label: string; pool: Variation[] }[] = [
+  const selectionPipeline: { label: string; tier: VariationMatchTier; pool: Variation[] }[] = [
     {
       label: 'exact match: journey+philosophy',
+      tier: 'exact-journey-philosophy',
       pool: matches.filter(
         (v) =>
           v.metadata.journeyPattern === context.journeyPattern &&
@@ -266,23 +274,30 @@ export function findMatchingVariation(
     },
     {
       label: 'journey match',
+      tier: 'journey',
       pool: matches.filter((v) => v.metadata.journeyPattern === context.journeyPattern),
     },
     {
       label: 'philosophy match',
+      tier: 'philosophy',
       pool: matches.filter((v) => v.metadata.philosophyDominant === context.pathPhilosophy),
     },
-    { label: 'any strict match', pool: matches },
+    { label: 'any strict match', tier: 'strict', pool: matches },
     {
       label: 'state + awareness relaxed',
+      tier: 'state-awareness-relaxed',
       pool: stateAwareMatches,
     },
-    { label: 'state-only relaxed', pool: stateOnlyMatches },
-    { label: 'philosophy-only relaxed', pool: philosophyAligned },
-    { label: 'deterministic any', pool: variations },
+    { label: 'state-only relaxed', tier: 'state-relaxed', pool: stateOnlyMatches },
+    {
+      label: 'philosophy-only relaxed',
+      tier: 'philosophy-relaxed',
+      pool: philosophyAligned,
+    },
+    { label: 'deterministic any', tier: 'deterministic-any', pool: variations },
   ];
 
-  for (const { label, pool } of selectionPipeline) {
+  for (const { label, tier, pool } of selectionPipeline) {
     if (pool.length === 0) {
       continue;
     }
@@ -296,7 +311,7 @@ export function findMatchingVariation(
         matchFound: true,
         variationId: selected.variationId,
       });
-      return selected;
+      return { variation: selected, tier, poolExhausted: false };
     }
 
     debugLog(`[VariationSelection] ⚠️  ${label} pool exhausted (${pool.length})`);
@@ -324,7 +339,15 @@ export function findMatchingVariation(
     variationId: fallback.variationId,
     exhausted: true,
   });
-  return fallback;
+  return { variation: fallback, tier: 'pool-exhausted', poolExhausted: true };
+}
+
+/** Backward-compatible selector for callers that do not need explanation evidence. */
+export function findMatchingVariation(
+  variations: Variation[],
+  context: ConditionContext,
+): Variation | null {
+  return findMatchingVariationWithReason(variations, context)?.variation ?? null;
 }
 
 /**

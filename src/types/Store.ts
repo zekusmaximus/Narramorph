@@ -7,6 +7,7 @@ import type {
   NodeUIState,
   ConnectionUIState,
 } from './Node';
+import type { SelectionReason } from './SelectionReason';
 import type { Connection, StoryData } from './Story';
 import type { NodeUnlockConfig, UnlockProgress } from './Unlock';
 import type { JourneyTracking, ConditionContext, L3Assembly } from './Variation';
@@ -51,12 +52,26 @@ export interface L3AssemblyViewRecord {
   };
 }
 
+/** Historical snapshot of one adaptive decision. It never drives future selection. */
+export interface SelectionRecord {
+  sequence: number;
+  nodeId: string;
+  passageTitle: string;
+  excerpt: string;
+  variationId: string | null;
+  fragmentLabel?: string;
+  selectedAt: string;
+  visitNumber: number;
+  reason: SelectionReason;
+}
+
 /**
  * Complete user progress through the story
  */
 export interface UserProgress {
   visitedNodes: Record<string, VisitRecord>; // nodeId -> VisitRecord
   readingPath: string[]; // Ordered array of visited node IDs
+  selectionRecords: SelectionRecord[]; // Immutable adaptive decisions, ordered by selection time
   unlockedConnections: string[]; // IDs of connections that have been revealed
   specialTransformations: UnlockedTransformation[];
   currentNode?: string; // ID of currently active node (if in session)

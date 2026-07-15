@@ -36,8 +36,8 @@ Run July 15, 2026 on Node `22.18.0` and npm `11.16.0` after clean root and conve
 
 | Batch | Issue | Branch | Pull request | Status |
 | --- | --- | --- | --- | --- |
-| 3.1 semantic gap and contract design | #139 | `agent/phase-3-batch-3-1` | Pending | In progress |
-| 3.2 condition and reason compiler | #140 | Pending | Pending | Not started |
+| 3.1 semantic gap and contract design | #139 | `agent/phase-3-batch-3-1` | #143 | Complete; merged at `4024002a5288b32938d4d003e4f437051f4f54c9` |
+| 3.2 condition and reason compiler | #140 | `agent/phase-3-batch-3-2` | Pending | In progress |
 | 3.3 reader disclosure and ledger | #141 | Pending | Pending | Not started |
 | 3.4 explanation coverage and journey audits | #142 | Pending | Pending | Not started |
 
@@ -47,6 +47,15 @@ Run July 15, 2026 on Node `22.18.0` and npm `11.16.0` after clean root and conve
 - ADR 0003 keeps Narramorph's Zustand/domain state authoritative, rejects the mutable singleton and generic flags, and defines `org.narramorph.selection-reason@1.0.0`.
 - Package schema `1.1.0`, interactive story `1.1.0`, and save schema `1.2.0` are deliberate technical versions. Literary release identity and prose digests must remain unchanged.
 - Selection outcomes must remain byte-for-byte invariant when explanation collection is enabled.
+
+## Batch 3.2 implementation evidence
+
+- Story Package schema `1.1.0` adds validated recursive history, adjacency, recency, visit-count, and boolean expressions. The synthetic fixture proves serialization and malformed-expression rejection.
+- `org.narramorph.selection-reason@1.0.0` carries a match outcome, stable template key, reader-safe parameters, and machine evidence. Its closed renderer never interpolates raw identifiers or fallback diagnostics.
+- The variation matcher reports its existing deterministic tier while the compatibility wrapper returns the same selected variation. Tests compare both paths directly.
+- Save schema `1.2.0` adds the empty historical selection ledger and migrates `1.1.0` without inventing past reasons. The prior `eternal-return@1.0.2` package is an explicit compatible predecessor.
+- The generated interactive package is `eternal-return@1.1.0`, schema `1.1.0`, hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062`. Its catalog and all authored prose digests are unchanged from Phase 2; literary release `eternal-return-literary-v1.0.1` and source manuscript commit remain unchanged.
+- Local verification passes type-check, lint with the same 32 baseline warnings and no errors, formatting, 187 coverage tests, 20 Story Package tests, 13 literary-release tests, strict runtime-content validation, accepted full/slice literary validation, production build, and all 13 Chromium browser scenarios.
 
 ## Closure evidence
 

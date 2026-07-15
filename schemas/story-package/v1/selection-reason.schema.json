@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://narramorph.example/schemas/story-package/v1/selection-reason.schema.json",
+  "title": "Narramorph SelectionReason 1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract",
+    "schemaVersion",
+    "selectionKind",
+    "outcome",
+    "templateKey",
+    "parameters",
+    "triggers"
+  ],
+  "properties": {
+    "contract": { "const": "org.narramorph.selection-reason" },
+    "schemaVersion": { "const": "1.0.0" },
+    "selectionKind": { "enum": ["passage-variation", "l3-section", "ending"] },
+    "outcome": { "enum": ["exact", "relaxed", "fallback", "fixed"] },
+    "templateKey": {
+      "enum": [
+        "selection.first_visit",
+        "selection.return_visit",
+        "selection.started_with",
+        "selection.journey_pattern",
+        "selection.philosophy",
+        "selection.awareness",
+        "selection.combined",
+        "selection.l3_assembly",
+        "selection.ending_choice",
+        "selection.fallback"
+      ]
+    },
+    "parameters": {
+      "type": "object",
+      "additionalProperties": { "type": ["string", "number"] }
+    },
+    "triggers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "actual"],
+        "properties": {
+          "kind": {
+            "enum": [
+              "transformation-state",
+              "awareness-range",
+              "journey-pattern",
+              "path-philosophy",
+              "visit-count",
+              "starting-character",
+              "fallback-tier",
+              "l3-section",
+              "ending-choice"
+            ]
+          },
+          "actual": { "$ref": "#/$defs/triggerValue" },
+          "expected": { "$ref": "#/$defs/triggerValue" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "triggerValue": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "boolean" },
+        {
+          "type": "array",
+          "prefixItems": [{ "type": "number" }, { "type": "number" }],
+          "minItems": 2,
+          "maxItems": 2
+        }
+      ]
+    }
+  }
+}

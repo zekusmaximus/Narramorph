@@ -47,6 +47,7 @@ export function createInitialProgress(now = new Date().toISOString()): UserProgr
   return {
     visitedNodes: {},
     readingPath: [],
+    selectionRecords: [],
     unlockedConnections: [],
     specialTransformations: [],
     totalTimeSpent: 0,

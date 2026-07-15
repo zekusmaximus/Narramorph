@@ -9,7 +9,7 @@ import { validateSavedState } from '@/utils/validation';
 
 import { CURRENT_STORY_PACKAGE } from './storyPackageIdentity';
 
-export const CURRENT_SAVE_VERSION = '1.1.0';
+export const CURRENT_SAVE_VERSION = '1.2.0';
 export const CURRENT_APP_VERSION = '0.1.0';
 
 export type SaveMigration =
@@ -18,7 +18,8 @@ export type SaveMigration =
   | 'story-package-provenance'
   | 'temporal-awareness'
   | 'l2-unlocks'
-  | 'l3-convergence';
+  | 'l3-convergence'
+  | 'selection-records';
 
 export interface PreparedSavedState {
   savedState: SavedState;
@@ -37,6 +38,12 @@ const PROVENANCE_ONLY_PREDECESSORS: ReadonlyArray<Readonly<StoryPackageIdentity>
     storyVersion: '1.0.1',
     schemaVersion: '1.0.0',
     contentHash: '25978ded017ccb5b6536d576b2e6a02f4b218a5d6b62b4eb35a82864eb7837f4',
+  },
+  {
+    storyId: 'eternal-return',
+    storyVersion: '1.0.2',
+    schemaVersion: '1.0.0',
+    contentHash: '656b5b6bacbc0ca69a9eb0ddc7a089219b8218c7a78fabf1d6c788ea5f075566',
   },
 ];
 
@@ -78,7 +85,8 @@ export function serializeSavedState(savedState: SavedState): string {
  * Validates and migrates data loaded from persistence.
  *
  * Compatibility assumptions preserved from the original store implementation:
- * - Save 1.0.0 lacked application and story-package identity and migrates to 1.1.0.
+ * - Save 1.0.0 lacked application and story-package identity and migrates to 1.2.0.
+ * - Save 1.1.0 lacked historical selection records and migrates with an empty ledger.
  * - Temporal-awareness reconstruction counts unique visited-node records, not total visits.
  * - L2 unlock reconstruction uses only visited L1 nodes that still exist in the loaded story.
  * - Unknown or removed node IDs are ignored rather than invalidating an otherwise valid save.
@@ -175,6 +183,11 @@ export function prepareSavedState(
     progress.l3ConvergenceTriggered = false;
     progress.lockedNodes = [];
     migrations.push('l3-convergence');
+  }
+
+  if (!Array.isArray(progress.selectionRecords)) {
+    progress.selectionRecords = [];
+    migrations.push('selection-records');
   }
 
   return {
