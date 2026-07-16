@@ -24,6 +24,7 @@ Phases 0–3 are complete. Phase 3's four batch issues (#139–#142) satisfy the
 - [Phase 4 execution record](PHASE_4_EXECUTION.md)
 - [Adaptive-selection ADR](../adr/0003-adaptive-selection-explanations.md)
 - [Journey visit-event log ADR](../adr/0004-journey-visit-event-log.md)
+- [Local visit-history privacy](../VISIT_HISTORY_PRIVACY.md)
 - [Story Package Contract v1](../contracts/story-package-v1.md)
 - [Verified pre-consolidation baseline](BASELINE.md)
 - [Feature extraction matrix](FEATURE_EXTRACTION_MATRIX.md)

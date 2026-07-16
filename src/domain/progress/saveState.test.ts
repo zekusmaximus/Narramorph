@@ -50,7 +50,7 @@ function addVisit(progress: UserProgress, nodeId: string, visitCount = 1): void 
 }
 
 describe('saved-state persistence boundary', () => {
-  it('builds and serializes the 1.2.0 save envelope with exact story-package identity', () => {
+  it('builds and serializes the 1.3.0 save envelope with exact story-package identity', () => {
     const progress = createInitialProgress();
     const preferences = createInitialPreferences();
     const timestamp = '2026-07-12T12:00:00.000Z';
@@ -256,5 +256,23 @@ describe('saved-state persistence boundary', () => {
     expect(result?.savedState.progress.selectionRecords).toEqual([]);
     expect(legacyProgress.selectionRecords).toBeUndefined();
     expect(result?.savedState.progress.readingPath).toEqual(['arch-L1', 'arch-L1']);
+  });
+
+  it('migrates a 1.2.0 save with no visit-event log to an empty export-grade log', () => {
+    const progress = createInitialProgress();
+    addVisit(progress, 'arch-L1', 1);
+    const legacyProgress = progress as Partial<UserProgress>;
+    delete legacyProgress.visitEvents;
+    const legacy = {
+      ...buildSavedState(progress, createInitialPreferences(), '2026-07-12T12:00:00.000Z'),
+      version: '1.2.0',
+    };
+
+    const result = prepareSavedState(legacy, new Map());
+
+    expect(result?.migrations).toContain('visit-events');
+    expect(result?.savedState.progress.visitEvents).toEqual([]);
+    expect(result?.savedState.version).toBe(CURRENT_SAVE_VERSION);
+    expect(legacyProgress.visitEvents).toBeUndefined();
   });
 });

@@ -64,6 +64,7 @@ const createProgress = (overrides: Partial<UserProgress> = {}): UserProgress => 
   visitedNodes: {},
   readingPath: [],
   selectionRecords: [],
+  visitEvents: [],
   unlockedConnections: [],
   specialTransformations: [],
   totalTimeSpent: 0,

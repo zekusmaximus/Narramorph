@@ -20,7 +20,7 @@ Preserved Phase 3 contract identities (unchanged unless a versioned change is de
 - SelectionReason `org.narramorph.selection-reason@1.0.0`
 - Story Package schema `1.1.0`; interactive package `eternal-return@1.1.0`
 - Package content hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062`
-- Save schema `1.2.0`
+- Save schema `1.2.0` → **`1.3.0`** in Batch 4.3 (deliberate; adds the persisted `visitEvents` log with an explicit migration)
 - Literary release `eternal-return-literary-v1.0.1`
 
 ## Guardrails carried into Phase 4
@@ -42,7 +42,7 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 | 4.0 contract lock (ADR 0004, VisitEvent shape) | [#149](https://github.com/zekusmaximus/Narramorph/issues/149) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Complete (branch) |
 | 4.1 optional compositional prose beats | [#150](https://github.com/zekusmaximus/Narramorph/issues/150) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Mechanism landed; node conversion pending approval |
 | 4.2 condition-aware edge prose | [#151](https://github.com/zekusmaximus/Narramorph/issues/151) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Mechanism landed; authored prose pending approval |
-| 4.3 export-grade visit event log | _TBD_ | _TBD_ | _TBD_ | Pending |
+| 4.3 export-grade visit event log | [#152](https://github.com/zekusmaximus/Narramorph/issues/152) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Complete (branch) |
 | 4.4 accessible journey export (Markdown + print HTML) | _TBD_ | _TBD_ | _TBD_ | Pending |
 | 4.5 Leibniz parity/rejection review (archive gate) | _TBD_ | _TBD_ | _TBD_ | Pending |
 | 4.6 archive Project-Leibniz | _TBD_ | _TBD_ | _TBD_ | Pending |
@@ -91,7 +91,7 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 
 **Deferred (content-approval gated) — owner elected the batched editorial pass**
 
-- Converting one reference node per perspective into beats — the roadmap's editorial-quality comparison — is an authored-prose change requiring the operator's explicit sign-off on the exact wording, recorded with provenance per ADR 0002. The owner has elected to defer this to a later batched editorial pass (alongside the Phase 5 editorial audit) rather than convert a node now; the 4.1 acceptance gate is met by the mechanism plus the byte-invariance proof, and no downstream batch depends on the conversion. No authored runtime prose or manuscript prose changed in this batch.
+- Converting one reference node per perspective into beats — the roadmap's editorial-quality comparison — is an authored-prose change requiring the operator's explicit sign-off on the exact wording, recorded with provenance per ADR 0002. The owner has elected to run this authored-prose conversion in one batched editorial pass **together with Batch 4.6**, rather than convert a node now; the 4.1 acceptance gate is met by the mechanism plus the byte-invariance proof, and no downstream batch depends on the conversion. No authored runtime prose or manuscript prose changed in this batch.
 - Exact reopen replay of a _conditional_ beat resolution is guaranteed once Batch 4.3 snapshots the resolved text in the `VisitEvent` log. Every shipped passage stays on the byte-invariant identity path until a node opts into beats, so no saved journey changes today.
 
 ## Batch 4.2 — condition-aware edge prose
@@ -118,9 +118,11 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 
 **Deferred (content-approval gated)**
 
-- Authoring the bridge prose that makes at least one journey "read more smoothly" is an authored-prose change requiring the operator's explicit sign-off with provenance per ADR 0002; the owner has elected the batched editorial pass. Provenance, explanation, and export coverage for authored bridges complete alongside that content and Batches 4.3/4.4, which persist and export the resolved `bridgeId`. No authored runtime prose or manuscript prose changed in this batch.
+- Authoring the bridge prose that makes at least one journey "read more smoothly" is an authored-prose change requiring the operator's explicit sign-off with provenance per ADR 0002; the owner has elected to run it in the batched editorial pass **together with Batch 4.6**. Provenance, explanation, and export coverage for authored bridges complete alongside that content and Batches 4.3/4.4, which persist and export the resolved `bridgeId`. No authored runtime prose or manuscript prose changed in this batch.
 
 ## Batch 4.3 — export-grade visit event log
+
+**Status: complete.**
 
 **Why before export:** replaying the current story against final state can produce text different from what the reader saw. Export must use an immutable record of the experienced journey.
 
@@ -129,11 +131,19 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 - Exported text exactly matches the text observed at each visit, including revisits.
 - Old saves remain readable and are clearly labeled when exact reconstruction is impossible.
 
+**Delivered**
+
+- `UserProgress.visitEvents` is a persisted, append-only log of the locked `org.narramorph.visit-event@1.0.0` shape. The store writes one event per experienced passage in `recordActiveVisitSelection`, snapshotting the **exact resolved prose** the reader saw plus the selected variation, the 4.1 `selectedBeatIds`, the 4.2 `bridgeId`, the selection reason, the reader choice (e.g. the ending reached), and a timestamp taken from the persisted visit — never `Date.now()`. Storing the snapshot is what makes a saved or exported journey reproducible even after later content changes.
+- `src/domain/hash/sha256.ts` is a compact synchronous SHA-256 (verified against FIPS 180-4 vectors) used for the `sha256:<hex>` resolved-text integrity hash; `src/domain/progress/visitEvents.ts` builds events and appends them idempotently on the `(sequence, nodeId, fragmentLabel)` triple, matching the selection ledger so Strict Mode cannot double-log.
+- **Migration:** save schema is now `1.3.0`. `prepareSavedState` appends a `visit-events` migration that gives pre-`1.3.0` saves an empty log rather than reconstructing prose; those earlier visits carry no snapshot and are labeled not-exactly-reproducible at export time.
+- **Size limits:** `VISIT_EVENT_LOG_LIMITS` caps the log (1,000 events / ~2 MB resolved prose) and drops the oldest events past the cap; a full L1→L4 journey uses tens of events, so the caps only engage under pathological revisiting.
+- **Privacy:** [`docs/VISIT_HISTORY_PRIVACY.md`](../VISIT_HISTORY_PRIVACY.md) documents what the log stores, that it stays on-device and is never transmitted, its bounds, and that reset clears it.
+
 **Evidence**
 
-- Persisted `visitEvents` log, resolved-text snapshot + deterministic hash, save schema `1.3.0` migration, size limits, and privacy documentation: _TBD_.
-- Old-save migration and reconstruction labeling: _TBD_.
-- Local verification and identities: _TBD_.
+- `src/domain/hash/sha256.test.ts` (4): empty, `abc`, multi-block, and UTF-8 vectors. `src/domain/progress/visitEvents.test.ts` (8): guard-valid build, sha256 hash format, beats/bridge/choice threading, idempotency, distinct L3 fragments, and both size-limit trims. `src/domain/progress/saveState.test.ts` adds the `1.3.0` visit-events migration case.
+- Local verification on Node `22.22.2`: `type-check` pass; `lint:ci` 0 errors / 32 warnings (baseline held); `test:run` 52 files / 288 tests passed (was 275; +13); `story:package:validate` all valid with `eternal-return@1.1.0` hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062` unchanged; `build` pass. Save/reload Chromium journeys (`reader-journey`, `phase-3-path-coverage`) pass against the installed browser, including the byte-identical saved-state reload proof.
+- New identity: save schema `1.3.0` (deliberate, migrated from `1.2.0`). Story Package, SelectionReason, literary release, and all prose digests unchanged. No authored runtime prose or manuscript prose changed.
 
 ## Batch 4.4 — accessible journey export
 
@@ -171,6 +181,8 @@ Project-Leibniz may be archived only when all seven are proven **and** the owner
 ## Batch 4.6 — archive Project-Leibniz
 
 **Precondition:** Batch 4.5 gate fully satisfied and owner acceptance recorded. Not started.
+
+**Bundled editorial pass:** by owner decision, the deferred authored-prose work from Batches 4.1 (one reference beat conversion per perspective) and 4.2 (bridge prose that makes a journey read more smoothly) is authored and approved here, together with the archive, rather than earlier. Each authored change follows the ADR 0002 approval workflow with recorded provenance.
 
 **Evidence**
 

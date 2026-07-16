@@ -76,6 +76,7 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
     metadata: variationMetadata,
     usedFallback,
     selectionReason,
+    selectedBeatIds,
     error: variationError,
     isLoading: variationLoading,
     retry: retryVariation,
@@ -106,14 +107,19 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
         passageTitle: currentNode.title,
         content: currentContent,
         reason: readerSelectionReason,
+        selectedBeatIds: selectedBeatIds ?? [],
+        bridgeId: entryBridge?.bridgeId ?? null,
+        readerChoice: currentNode.layer === 4 ? { kind: 'ending', value: currentNode.title } : null,
       });
     }
   }, [
     adapter.panel.open,
     currentContent,
     currentNode,
+    entryBridge,
     readerSelectionReason,
     recordActiveVisitSelection,
+    selectedBeatIds,
     selectedNode,
     variationError,
     variationId,

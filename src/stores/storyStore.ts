@@ -26,6 +26,8 @@ import {
   findNewlyRevealedConnectionIds,
 } from '@/domain/progress/progressModel';
 import { buildSavedState, serializeSavedState } from '@/domain/progress/saveState';
+import { CURRENT_STORY_PACKAGE } from '@/domain/progress/storyPackageIdentity';
+import { appendVisitEvent, buildVisitEvent } from '@/domain/progress/visitEvents';
 import { loadStoryState } from '@/domain/story/loading';
 import { findNewlyUnlockedNodes, getNodeUnlockProgress } from '@/domain/unlocks/unlockProgress';
 import { buildConditionContext } from '@/domain/variation/conditionContext';
@@ -277,6 +279,27 @@ export const useStoryStore = create<StoryStore>()(
         const nextRecords = appendSelectionRecord(state.progress.selectionRecords, nextRecord);
         changed = nextRecords.length !== state.progress.selectionRecords.length;
         state.progress.selectionRecords = nextRecords;
+
+        // Export-grade log (ADR 0004): snapshot the exact resolved prose so a saved or exported
+        // journey reopens byte-identically even if content later changes.
+        const visitEvent = buildVisitEvent({
+          sequence: state.progress.readingPath.length,
+          nodeId: activeVisit.nodeId,
+          storyPackage: CURRENT_STORY_PACKAGE,
+          visitNumber: visitRecord.visitCount,
+          variationId: selection.variationId,
+          selectedBeatIds: selection.selectedBeatIds ?? [],
+          ...(selection.fragmentLabel ? { fragmentLabel: selection.fragmentLabel } : {}),
+          bridgeId: selection.bridgeId ?? null,
+          content: selection.content,
+          reason: selection.reason,
+          readerChoice: selection.readerChoice ?? null,
+          recordedAt: visitRecord.lastVisited,
+        });
+        state.progress.visitEvents = appendVisitEvent(
+          current(state.progress.visitEvents),
+          visitEvent,
+        );
 
         if (changed) {
           devLog(`[Visit] Recorded adaptive selection for ${activeVisit.nodeId}`);
