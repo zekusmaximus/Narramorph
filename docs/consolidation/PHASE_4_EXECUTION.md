@@ -2,7 +2,7 @@
 
 Phase 4 ports Project-Leibniz's last reader-facing strengths into Narramorph — optional compositional prose beats, condition-aware edge prose, an export-grade visit-event log, and an accessible journey export — then archives Project-Leibniz once its parity/rejection gate passes and the owner accepts the Narramorph implementations. Narramorph remains the sole implementation target and the only journey-state authority.
 
-**Status: in progress.** Batches 4.0–4.4 are complete on the feature branch (contract lock, prose beats, edge prose, the persisted visit-event log, and the accessible journey export). Batches 4.1 and 4.2 left their authored-prose work for the batched editorial pass bundled with 4.6. Batch 4.5 (Leibniz parity/archive gate) and Batch 4.6 (archive) remain, and require owner acceptance. No deployment, production release, repository archive, canonical prose change, or authored runtime-prose change has occurred.
+**Status: in progress.** Batches 4.0–4.5 are complete on the feature branch (contract lock, prose beats, edge prose, the persisted visit-event log, the accessible journey export, and the Leibniz parity/archive-gate review). The owner has accepted the Narramorph implementations, so the archive gate's conditions 1–7 are satisfied. Batches 4.1 and 4.2 shipped their **mechanisms**; the actual authored-prose conversions are decoupled into a dedicated content-release effort ([#156](https://github.com/zekusmaximus/Narramorph/issues/156)) driven top-down against the canonical manuscript, so Batch 4.6 stays focused on archiving Project-Leibniz. Batch 4.6 (archive) remains, with the archive execution/toggle deferred by owner decision. No deployment, production release, repository archive, canonical prose change, or authored runtime-prose change has occurred.
 
 ## Scope and immutable inputs
 
@@ -44,7 +44,7 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 | 4.2 condition-aware edge prose | [#151](https://github.com/zekusmaximus/Narramorph/issues/151) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Mechanism landed; authored prose pending approval |
 | 4.3 export-grade visit event log | [#152](https://github.com/zekusmaximus/Narramorph/issues/152) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Complete (branch) |
 | 4.4 accessible journey export (Markdown + print HTML) | [#153](https://github.com/zekusmaximus/Narramorph/issues/153) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Complete (branch) |
-| 4.5 Leibniz parity/rejection review (archive gate) | [#154](https://github.com/zekusmaximus/Narramorph/issues/154) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Gate 1–6 satisfied; owner acceptance (7) pending |
+| 4.5 Leibniz parity/rejection review (archive gate) | [#154](https://github.com/zekusmaximus/Narramorph/issues/154) | `claude/eternal-return-phase-4-tbrhvp` | [#155](https://github.com/zekusmaximus/Narramorph/pull/155) | Complete; all 7 gate conditions satisfied (owner accepted) |
 | 4.6 archive Project-Leibniz | _TBD_ | _TBD_ | _TBD_ | Pending |
 
 ## Batch 4.0 — contract lock (VisitEvent record shape)
@@ -89,9 +89,9 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 - `src/domain/variation/selection.test.ts` adds a byte-invariance case (beatless variation unchanged, `selectedBeatIds` empty) and a composition case (beats compose into the passage; selected beat IDs threaded).
 - Local verification on Node `22.22.2`: `type-check` pass; `lint:ci` 0 errors / 32 warnings (baseline held); `test:run` 48 files / 258 tests passed (was 245; +13); `story:package:validate` all valid with `eternal-return@1.1.0` hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062` unchanged; `build` pass. Core adaptive Chromium journeys (`reader-journey`, `phase-3-path-coverage`) pass against the installed browser (the pinned headless-shell revision is absent in this sandbox; the full matrix runs in protected-main CI).
 
-**Deferred (content-approval gated) — owner elected the batched editorial pass**
+**Deferred (content-approval gated) — decoupled into a content-release effort ([#156](https://github.com/zekusmaximus/Narramorph/issues/156))**
 
-- Converting one reference node per perspective into beats — the roadmap's editorial-quality comparison — is an authored-prose change requiring the operator's explicit sign-off on the exact wording, recorded with provenance per ADR 0002. The owner has elected to run this authored-prose conversion in one batched editorial pass **together with Batch 4.6**, rather than convert a node now; the 4.1 acceptance gate is met by the mechanism plus the byte-invariance proof, and no downstream batch depends on the conversion. No authored runtime prose or manuscript prose changed in this batch.
+- Converting one reference node per perspective into beats — the roadmap's editorial-quality comparison — is an authored-prose change requiring the operator's explicit sign-off on the exact wording, recorded with provenance per ADR 0002. The owner reviewed and approved candidate wording, then elected to run the authored conversion as a dedicated content release (a top-down content review coordinated with the canonical manuscript), rather than bundle it with the archive. Applying authored beats is a versioned content release (bumps `eternal-return@1.1.0 → 1.2.0` and extends the conversion tool to ingest authored beats), tracked in [#156](https://github.com/zekusmaximus/Narramorph/issues/156). The 4.1 acceptance gate is met by the mechanism plus the byte-invariance proof, and no downstream batch depends on the conversion. No authored runtime prose or manuscript prose changed in this batch.
 - Exact reopen replay of a _conditional_ beat resolution is guaranteed once Batch 4.3 snapshots the resolved text in the `VisitEvent` log. Every shipped passage stays on the byte-invariant identity path until a node opts into beats, so no saved journey changes today.
 
 ## Batch 4.2 — condition-aware edge prose
@@ -118,7 +118,7 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 
 **Deferred (content-approval gated)**
 
-- Authoring the bridge prose that makes at least one journey "read more smoothly" is an authored-prose change requiring the operator's explicit sign-off with provenance per ADR 0002; the owner has elected to run it in the batched editorial pass **together with Batch 4.6**. Provenance, explanation, and export coverage for authored bridges complete alongside that content and Batches 4.3/4.4, which persist and export the resolved `bridgeId`. No authored runtime prose or manuscript prose changed in this batch.
+- Authoring the bridge prose that makes at least one journey "read more smoothly" is an authored-prose change requiring the operator's explicit sign-off with provenance per ADR 0002; it is decoupled into the content-release effort ([#156](https://github.com/zekusmaximus/Narramorph/issues/156)). A finding from the editorial review: cross-perspective moves are map selections, not graph edges, so a bridge must attach to a real traversed edge (within-perspective L1→L2) rather than a fabricated connection. Provenance, explanation, and export coverage (storing resolved bridge text in the snapshot) complete with that content release. No authored runtime prose or manuscript prose changed in this batch.
 
 ## Batch 4.3 — export-grade visit event log
 
@@ -162,7 +162,7 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
   - `journeyExportFilename` — deterministic, diacritic- and unsafe-character-sanitized filenames; `buildJourneyTitleMap` joins reader-safe passage titles from the aligned selection ledger by the shared `(sequence, nodeId, fragmentLabel)` key.
 - Store actions `exportJourneyMarkdown` / `exportJourneyPrintHtml` build from persisted state with an injected timestamp; `src/utils/journeyDownload.ts` performs the browser-only download / new-tab open (isolated from the pure builders). `JourneyExportActions` adds accessible, user-initiated "Export journey (Markdown)" and "Print-friendly view" controls inside the focus-trapped progress dialog, disabled until a journey exists, explaining that history stays on-device.
 - EPUB/PDF deferred per the roadmap until Markdown and print HTML are stable.
-- Known limitation: faithful export of authored _edge prose_ additionally requires storing the resolved bridge text in the snapshot; this lands with the 4.6 editorial pass that authors bridges (no bridges ship today, so no edge prose is omitted).
+- Known limitation: faithful export of authored _edge prose_ additionally requires storing the resolved bridge text in the snapshot; this lands with the content-release effort ([#156](https://github.com/zekusmaximus/Narramorph/issues/156)) that authors bridges (no bridges ship today, so no edge prose is omitted).
 
 **Evidence**
 
@@ -172,7 +172,7 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 
 ## Batch 4.5 — Leibniz parity/rejection review (archive gate)
 
-**Status: gate satisfied except owner acceptance.** Conditions 1–6 are met and evidenced; condition 7 (owner acceptance) is the pending gate that blocks Batch 4.6. No archive action taken.
+**Status: complete — all seven gate conditions satisfied.** Conditions 1–6 are met and evidenced; the owner has accepted the Narramorph implementations (condition 7). Batch 4.6 (archive) is unblocked; its execution is owner-scheduled and no archive action has been taken.
 
 **Explicit rejections recorded** in [ADR 0005](../adr/0005-project-leibniz-rejected-architectures.md): Project-Leibniz's Express/Mongoose/MongoDB backend, the React Context/reducer journey-state tree, the mutable module-singleton rule engine, and the D3 force-map visual — each with rationale and the Narramorph replacement.
 
@@ -188,7 +188,7 @@ Project-Leibniz may be archived only when all seven are proven **and** the owner
 4. source attribution and licensing are complete — **SATISFIED** (clean-room reimplementations; extraction matrix, ADR 0003/0005, `docs/PROVENANCE.md`, licenses; Project-Leibniz frozen with its own license/notice);
 5. Project-Leibniz's credential has been rotated/revoked — **SATISFIED** (Batch 0.2: compromised Atlas user and both IP access-list entries deleted; no credential in-repo);
 6. open issues have been migrated or closed — **SATISFIED** (Project-Leibniz has zero open issues; authoritative backlog is in Narramorph);
-7. the owner has accepted the Narramorph implementations — **PENDING** (owner action; blocks Batch 4.6).
+7. the owner has accepted the Narramorph implementations — **SATISFIED** (owner accepted; Batch 4.6 archive is unblocked, execution owner-scheduled).
 
 **Evidence**
 
@@ -197,13 +197,15 @@ Project-Leibniz may be archived only when all seven are proven **and** the owner
 
 ## Batch 4.6 — archive Project-Leibniz
 
-**Precondition:** Batch 4.5 gate fully satisfied and owner acceptance recorded. Not started.
+**Precondition:** Batch 4.5 gate satisfied and owner acceptance recorded — both done. The archive is unblocked.
 
-**Bundled editorial pass:** by owner decision, the deferred authored-prose work from Batches 4.1 (one reference beat conversion per perspective) and 4.2 (bridge prose that makes a journey read more smoothly) is authored and approved here, together with the archive, rather than earlier. Each authored change follows the ADR 0002 approval workflow with recorded provenance.
+**Scope:** archive Project-Leibniz only. By owner decision, the authored-prose editorial work is **decoupled** from the archive into a dedicated content-release effort ([#156](https://github.com/zekusmaximus/Narramorph/issues/156)); Batch 4.6 does not author prose.
+
+**Execution deferred by owner:** the archive execution — final `reference-final` tag, README archive notice, issue disposition, secret/deploy-hook removal, and the GitHub archive toggle — is a Project-Leibniz-side, admin-gated action the owner has elected to schedule later ("prep only, decide later"). No archive action has been taken; Project-Leibniz remains frozen, unarchived, and read-only.
 
 **Evidence**
 
-- Final `reference-final` tag, README archive notice, issue disposition, secret/deploy-hook removal, and GitHub archive toggle (history preserved): _TBD_.
+- Final `reference-final` tag, README archive notice, issue disposition, secret/deploy-hook removal, and GitHub archive toggle (history preserved): _pending owner-scheduled execution_.
 
 ## Closure evidence
 

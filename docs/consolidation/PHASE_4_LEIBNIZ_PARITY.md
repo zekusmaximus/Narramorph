@@ -2,7 +2,7 @@
 
 This is the Batch 4.5 archive-gate review. It re-runs Project-Leibniz's conceptual feature inventory against Narramorph, records the dispositions and the deliberate divergences, points to the explicit architecture rejections, and assesses the seven Project-Leibniz archive-gate conditions.
 
-**Status: gate satisfied except owner acceptance.** Six of the seven conditions are met and evidenced below; condition 7 (owner acceptance of the Narramorph implementations) is pending and is the gate that blocks Batch 4.6. No archive action has been taken.
+**Status: gate satisfied; owner has accepted.** All seven conditions are met — the owner accepted the Narramorph implementations, satisfying condition 7. Batch 4.6 (archive) is unblocked; its execution is owner-scheduled ("prep only, decide later") and no archive action has been taken. The authored-prose editorial work is decoupled into a dedicated content-release effort ([#156](https://github.com/zekusmaximus/Narramorph/issues/156)).
 
 ## Scope and immutable inputs
 
@@ -41,7 +41,7 @@ The verified review disclosed differences where Narramorph deliberately does not
 - **Per-fragment "Why this text?" enumeration.** Project-Leibniz listed every active variant fragment with its own condition-derived reason. Narramorph surfaces one reader-safe explanation per selection through a closed template catalog, avoiding raw predicate/ID leakage. The finer multi-fragment breakdown is intentionally not reproduced.
 - **Multi-beat weaving on edges.** Project-Leibniz wove multiple beats per edge; Narramorph's edge bridge selects a single bounded alternative to prevent an unbounded second content system (4.2).
 - **Beat authoring defaults and joining.** Narramorph falls back to the first authored alternative and joins beats with a paragraph break (byte-preservation), where Project-Leibniz omitted by default and joined with spaces. Both are deterministic; the authoring defaults differ.
-- **Connective transition prose in export.** The resolved bridge _text_ is not yet stored in the visit-event snapshot, so authored edge prose is not interleaved into the export. This is the known limitation carried from 4.2/4.4; it is addressed when bridges are authored in the 4.6 editorial pass.
+- **Connective transition prose in export.** The resolved bridge _text_ is not yet stored in the visit-event snapshot, so authored edge prose is not interleaved into the export. This is the known limitation carried from 4.2/4.4; it is addressed by the content-release effort ([#156](https://github.com/zekusmaximus/Narramorph/issues/156)) that authors bridges.
 - **Map presentation.** Narramorph re-derives graph semantics (visit order, trail, recency) in its own accessible modules rather than porting the D3 badge/arrow styling 1:1.
 
 ## Explicit architecture rejections
@@ -58,8 +58,8 @@ Project-Leibniz may be archived (Batch 4.6) only when all seven conditions hold:
 4. **Source attribution and licensing are complete — SATISFIED.** The ported capabilities are clean-room reimplementations (no Project-Leibniz code copied), recorded in the extraction matrix, ADR 0003, and ADR 0005; `docs/PROVENANCE.md` and the software/content licenses are in place; Project-Leibniz carries its own license and freeze notice.
 5. **Project-Leibniz's credential has been rotated/revoked — SATISFIED.** Batch 0.2 recorded that the compromised MongoDB Atlas database user and both IP access-list entries were deleted. No credential or host is stored in-repo.
 6. **Open issues have been migrated or closed — SATISFIED.** Project-Leibniz has zero open issues; the authoritative backlog is in Narramorph.
-7. **The owner has accepted the Narramorph implementations — PENDING.** This is the remaining gate. It requires the owner's explicit acceptance of the dispositions above. Batch 4.6 (archive) does not proceed until this is recorded.
+7. **The owner has accepted the Narramorph implementations — SATISFIED.** The owner reviewed the dispositions above and accepted the Narramorph implementations. Batch 4.6 (archive) is unblocked; its execution is owner-scheduled.
 
 ## Conclusion
 
-Conditions 1–6 are satisfied and evidenced. The Project-Leibniz archive gate is therefore blocked solely on **owner acceptance (condition 7)**. On acceptance, Batch 4.6 archives Project-Leibniz and authors the bundled editorial prose (the deferred 4.1 beat conversions and 4.2 bridge prose). Until then, Project-Leibniz remains frozen, unarchived, and read-only.
+All seven conditions are satisfied: conditions 1–6 are evidenced above, and the owner has accepted the Narramorph implementations (condition 7). The Project-Leibniz archive gate is therefore fully met, and Batch 4.6 (archive) is unblocked. By owner decision the archive execution is scheduled later, and the authored-prose conversions are a separate content release ([#156](https://github.com/zekusmaximus/Narramorph/issues/156)) rather than bundled with the archive. Until the owner executes 4.6, Project-Leibniz remains frozen, unarchived, and read-only.
