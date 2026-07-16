@@ -33,9 +33,9 @@ Contract identities preserved through Batch 5.1 (verified by the gate runs below
 | Batch | Issue | Branch | Pull request | Status |
 | --- | --- | --- | --- | --- |
 | Phase tracking | [#157](https://github.com/zekusmaximus/Narramorph/issues/157) | — | — | Open |
-| 5.1 complete the content concordance | [#158](https://github.com/zekusmaximus/Narramorph/issues/158) | `claude/eternal-return-phase-5-07y5q0` | _not opened_ | Complete on branch (CTR-001…012 registered; 5 open sev-1 awaiting owner decisions); owner review pending |
-| 5.2 manuscript voice/philosophy checks | [#159](https://github.com/zekusmaximus/Narramorph/issues/159) | `claude/eternal-return-phase-5-07y5q0` | _not opened_ | Complete on branch; strict mode now gates CI |
-| 5.3 editorial runtime audit (+ content release #156) | [#160](https://github.com/zekusmaximus/Narramorph/issues/160) | `claude/eternal-return-phase-5-07y5q0` | _not opened_ | Decisions D1–D10 executed; release 1.2.0 cut; #156 beats/bridge remain the follow-up authored-content release |
+| 5.1 complete the content concordance | [#158](https://github.com/zekusmaximus/Narramorph/issues/158) | `claude/eternal-return-phase-5-07y5q0` | [#161](https://github.com/zekusmaximus/Narramorph/pull/161) | Complete on branch (CTR-001…012 registered; 5 open sev-1 awaiting owner decisions); owner review pending |
+| 5.2 manuscript voice/philosophy checks | [#159](https://github.com/zekusmaximus/Narramorph/issues/159) | `claude/eternal-return-phase-5-07y5q0` | [#161](https://github.com/zekusmaximus/Narramorph/pull/161) | Complete on branch; strict mode now gates CI |
+| 5.3 editorial runtime audit (+ content release #156) | [#160](https://github.com/zekusmaximus/Narramorph/issues/160) | `claude/eternal-return-phase-5-07y5q0` | [#161](https://github.com/zekusmaximus/Narramorph/pull/161) | Decisions D1–D10 executed; release 1.2.0 cut; #156 beats/bridge remain the follow-up authored-content release |
 | 5.4 canonical linear edition | — | — | — | Post-v1 decision recorded (see Batch 5.4 section) |
 
 Phase bookkeeping: epic #93 gained a "Phase 5 — in progress" section; the stale Phase 4 section was reconciled to the merged reality (4.0–4.5 complete via PR #155, merge `1ab4689…`; 4.6 archive owner-scheduled) and batch issues #149–#154 were closed as completed.
