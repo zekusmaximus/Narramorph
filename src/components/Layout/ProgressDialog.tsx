@@ -5,6 +5,7 @@ import { useDialogFocus } from '@/hooks/useDialogFocus';
 import type { ReadingStats, StoryNode, UserProgress } from '@/types';
 
 import { AdaptationLedger } from './AdaptationLedger';
+import { JourneyExportActions } from './JourneyExportActions';
 import { buildNarrativePath } from './progressPresentation';
 
 interface ProgressDialogProps {
@@ -149,6 +150,8 @@ export function ProgressDialog({
           )}
 
           <AdaptationLedger records={progress.selectionRecords} />
+
+          <JourneyExportActions />
 
           <div className="bg-gray-900/50 border border-gray-700/50 rounded-lg p-4">
             <div className="mb-3 text-[0.65rem] uppercase tracking-[0.18em] text-gray-400">

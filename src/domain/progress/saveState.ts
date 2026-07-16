@@ -9,7 +9,7 @@ import { validateSavedState } from '@/utils/validation';
 
 import { CURRENT_STORY_PACKAGE } from './storyPackageIdentity';
 
-export const CURRENT_SAVE_VERSION = '1.2.0';
+export const CURRENT_SAVE_VERSION = '1.3.0';
 export const CURRENT_APP_VERSION = '0.1.0';
 
 export type SaveMigration =
@@ -19,7 +19,8 @@ export type SaveMigration =
   | 'temporal-awareness'
   | 'l2-unlocks'
   | 'l3-convergence'
-  | 'selection-records';
+  | 'selection-records'
+  | 'visit-events';
 
 export interface PreparedSavedState {
   savedState: SavedState;
@@ -85,8 +86,9 @@ export function serializeSavedState(savedState: SavedState): string {
  * Validates and migrates data loaded from persistence.
  *
  * Compatibility assumptions preserved from the original store implementation:
- * - Save 1.0.0 lacked application and story-package identity and migrates to 1.2.0.
+ * - Save 1.0.0 lacked application and story-package identity and migrates to the current version.
  * - Save 1.1.0 lacked historical selection records and migrates with an empty ledger.
+ * - Save 1.2.0 lacked the export-grade visit-event log and migrates with an empty log.
  * - Temporal-awareness reconstruction counts unique visited-node records, not total visits.
  * - L2 unlock reconstruction uses only visited L1 nodes that still exist in the loaded story.
  * - Unknown or removed node IDs are ignored rather than invalidating an otherwise valid save.
@@ -188,6 +190,14 @@ export function prepareSavedState(
   if (!Array.isArray(progress.selectionRecords)) {
     progress.selectionRecords = [];
     migrations.push('selection-records');
+  }
+
+  if (!Array.isArray(progress.visitEvents)) {
+    // Saves written before 1.3.0 have no export-grade snapshots. We migrate with an empty log
+    // rather than reconstruct prose against later content; the export labels those visits as not
+    // reproducible instead of inventing text.
+    progress.visitEvents = [];
+    migrations.push('visit-events');
   }
 
   return {

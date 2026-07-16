@@ -51,6 +51,8 @@ export interface UseVariationSelectionResult {
   usedFallback: boolean;
   /** Stable machine-readable and reader-safe explanation for this selection */
   selectionReason: SelectionReason | null;
+  /** Ordered IDs of the resolved prose beats (Phase 4.1); absent until a passage has beats. */
+  selectedBeatIds?: string[];
   /** Retry the exact passage import after an error */
   retry: () => void;
 }

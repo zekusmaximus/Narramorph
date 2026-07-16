@@ -39,6 +39,8 @@ export type {
 
 // Story types
 export type {
+  EdgeBridgeAlternative,
+  EdgeBridge,
   Connection,
   StoryMetadata,
   StoryConfiguration,
@@ -62,6 +64,8 @@ export type {
   VariationMetadata,
   Variation,
   VariationFile,
+  ProseBeatAlternative,
+  ProseBeat,
   L3ContentSynthesisPattern,
   L3VariationMetadata,
   L3Variation,
@@ -74,6 +78,20 @@ export type {
   JourneyTracking,
   ConditionContext,
 } from './Variation';
+
+export {
+  VISIT_EVENT_CONTRACT,
+  VISIT_EVENT_SCHEMA_VERSION,
+  isVisitEvent,
+  isResolvedTextHash,
+} from './VisitEvent';
+export type {
+  ReaderChoiceKind,
+  ReaderChoice,
+  VisitEventSelection,
+  ResolvedText,
+  VisitEvent,
+} from './VisitEvent';
 
 export { SELECTION_REASON_CONTRACT, SELECTION_REASON_SCHEMA_VERSION } from './SelectionReason';
 export type {

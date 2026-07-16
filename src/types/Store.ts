@@ -11,6 +11,7 @@ import type { SelectionReason } from './SelectionReason';
 import type { Connection, StoryData } from './Story';
 import type { NodeUnlockConfig, UnlockProgress } from './Unlock';
 import type { JourneyTracking, ConditionContext, L3Assembly } from './Variation';
+import type { ReaderChoice, VisitEvent } from './VisitEvent';
 
 /**
  * Record of a single visit to a node
@@ -74,6 +75,12 @@ export interface ActiveVisitSelection {
   content: string;
   reason: SelectionReason;
   fragmentLabel?: string;
+  /** Ordered IDs of the resolved prose beats (Phase 4.1); omitted when the passage has no beats. */
+  selectedBeatIds?: string[];
+  /** ID of the edge bridge shown on entry (Phase 4.2); null when no bridge was shown. */
+  bridgeId?: string | null;
+  /** An explicit reader decision at this passage (e.g. the ending reached), if any. */
+  readerChoice?: ReaderChoice | null;
 }
 
 /**
@@ -83,6 +90,7 @@ export interface UserProgress {
   visitedNodes: Record<string, VisitRecord>; // nodeId -> VisitRecord
   readingPath: string[]; // Ordered array of visited node IDs
   selectionRecords: SelectionRecord[]; // Immutable adaptive decisions, ordered by selection time
+  visitEvents: VisitEvent[]; // Export-grade, immutable log of experienced passages (ADR 0004)
   unlockedConnections: string[]; // IDs of connections that have been revealed
   specialTransformations: UnlockedTransformation[];
   currentNode?: string; // ID of currently active node (if in session)
@@ -253,6 +261,8 @@ export interface StoryStore {
   saveProgress: () => void;
   loadProgress: () => void;
   exportProgress: () => string;
+  exportJourneyMarkdown: (exportedAt: string) => string;
+  exportJourneyPrintHtml: (exportedAt: string) => string;
   importProgress: (data: string) => boolean;
   clearProgress: () => void;
 

@@ -6,17 +6,19 @@ No reference repository may be archived until every row for that repository is `
 
 ## Project-Leibniz
 
+Project-Leibniz dispositions were re-verified in the [Batch 4.5 parity review](PHASE_4_LEIBNIZ_PARITY.md) (all nine adversarially confirmed). Archive is blocked only on owner acceptance (gate condition 7).
+
 | Capability | Source | Decision | Narramorph target | Required proof | Archive dependency |
 | --- | --- | --- | --- | --- | --- |
-| Serializable order-aware conditions | `client/src/services/conditionDSL.ts` | Reimplement missing semantics; Batch 3.1 design complete | Story Package condition schema and pure domain evaluator | Unit/property tests for start/end, relative order, adjacency, recency, visit counts, named facts, boolean composition, saves | Yes |
-| Plain-language selection explanations | `client/src/pages/NarrativePage.tsx`, condition descriptions | Migrate concept; Batch 3.1 contract complete | `SelectionReason`, “Why this version?”, journey ledger | Keyboard/mobile/screen-reader tests; no spoiler leakage; explanations persist after reload | Yes |
-| Compositional prose beats | `client/src/context/StoryTypes.ts`, `client/src/services/StoryLogicService.ts` | Reimplement incrementally | Optional story-package `proseBeats` and deterministic renderer | One reference node per perspective; exact-save replay; editorial approval | Yes |
-| Condition-aware edge prose | `client/src/data/storyGraph.json`, `StoryLogicService.ts` | Reimplement with limits | Optional edge bridge schema/render/export | State, accessibility, provenance, export tests | Yes |
-| Exact experienced-journey Markdown export | `client/src/services/narrativeExport.ts` | Reimplement after immutable visit log | Journey export service and accessible UI | Full L1–L4 export; repeats/order/Unicode/migration tests | Yes |
-| Adaptation ledger UX | Narrative page controls | Migrate behavior, redesign visuals | Progress/history surface | Usability and accessibility review | Yes |
-| Express/Mongo backend | `server/` | Reject for v1 | None; future backend requires separate ADR | Owner-approved backend decision; credential revocation confirmed | Yes |
-| React Context/reducer state architecture | `client/src/context/` | Reject; confirmed by ADR 0003 | Existing Zustand/domain boundaries remain authoritative | ADR/gap review confirms no unique required state | Yes |
-| D3 force-map visual design | `client/src/components/NodeMap.tsx` | Reject as product visual; retain behavior tests where useful | Existing accessible 2D map | No loss of graph behavior | No |
+| Serializable order-aware conditions | `client/src/services/conditionDSL.ts` | Complete — reimplemented (Phase 3.2) | Story Package condition schema and pure domain evaluator | Met: `conditions.test.ts` covers start/end, relative order, adjacency, recency, visit counts, boolean composition, fail-closed | Yes |
+| Plain-language selection explanations | `client/src/pages/NarrativePage.tsx`, condition descriptions | Complete — migrated (Phase 3) | `SelectionReason`, “Why this version?”, journey ledger | Met: reader-safe closed templates, no spoiler leakage, persist after reload | Yes |
+| Compositional prose beats | `client/src/context/StoryTypes.ts`, `client/src/services/StoryLogicService.ts` | Complete — reimplemented (Batch 4.1) | Optional story-package `proseBeats` and deterministic renderer | Met: `proseBeats.test.ts`, byte-invariant identity path, exact-save replay via snapshot. Reference-node conversion deferred to the content-release effort (#156) | Yes |
+| Condition-aware edge prose | `client/src/data/storyGraph.json`, `StoryLogicService.ts` | Complete — reimplemented (Batch 4.2) | Optional edge bridge schema/render/export | Met: `edgeBridge.test.ts` + `StoryBridge.test.tsx`, bounds, accessibility. Authored bridge prose deferred to the content-release effort (#156) | Yes |
+| Exact experienced-journey Markdown export | `client/src/services/narrativeExport.ts` | Complete — reimplemented (Batches 4.3–4.4) | Journey export service and accessible UI | Met: `journeyExport.test.ts` covers repeats/order/Unicode/migration; exact snapshot export | Yes |
+| Adaptation ledger UX | Narrative page controls | Complete — migrated (Phase 3.3) | Progress/history surface | Met: `AdaptationLedger.test.tsx` + browser progress-dialog journeys | Yes |
+| Express/Mongo backend | `server/` | Reject (complete) — ADR 0005 | None; future backend requires separate ADR | Met: no mongo/express dependency; credential revocation confirmed (Batch 0.2) | Yes |
+| React Context/reducer state architecture | `client/src/context/` | Reject (complete) — ADR 0003/0005 | Existing Zustand/domain boundaries remain authoritative | Met: single authoritative journey state; no imported Context/reducer | Yes |
+| D3 force-map visual design | `client/src/components/NodeMap.tsx` | Reject (complete) — ADR 0005 | Existing accessible 2D map | Met: graph behavior preserved; accessible map retained | No |
 
 ## eternal-return-digital-self
 

@@ -4,7 +4,7 @@ This directory is the authoritative implementation record for bringing the four 
 
 ## Current phase
 
-Phases 0–3 are complete. Phase 3's four batch issues (#139–#142) satisfy their acceptance gates, and its condition, explanation, reader-disclosure, audit, browser, immutable-input, and protected-main evidence is recorded in [the Phase 3 execution record](PHASE_3_EXECUTION.md). Phase 4 is next; Project-Leibniz remains frozen and unarchived until that phase completes its remaining extraction and archival gates.
+Phases 0–3 are complete. Phase 3's four batch issues (#139–#142) satisfy their acceptance gates, and its condition, explanation, reader-disclosure, audit, browser, immutable-input, and protected-main evidence is recorded in [the Phase 3 execution record](PHASE_3_EXECUTION.md). Phase 4 is in progress: the `VisitEvent` record shape is locked in [ADR 0004](../adr/0004-journey-visit-event-log.md) before prose-beat work begins, and progress is tracked in [the Phase 4 execution record](PHASE_4_EXECUTION.md). Project-Leibniz remains frozen and unarchived until Phase 4 completes its remaining extraction and archival gates.
 
 ## Phase 0 scope
 
@@ -21,7 +21,12 @@ Phases 0–3 are complete. Phase 3's four batch issues (#139–#142) satisfy the
 - [Phase 3 execution record](PHASE_3_EXECUTION.md)
 - [Phase 3 condition and journey-state matrix](PHASE_3_CONDITION_MATRIX.md)
 - [Phase 3 explanation coverage audit](PHASE_3_EXPLANATION_AUDIT.md)
+- [Phase 4 execution record](PHASE_4_EXECUTION.md)
+- [Phase 4 Leibniz parity review](PHASE_4_LEIBNIZ_PARITY.md)
 - [Adaptive-selection ADR](../adr/0003-adaptive-selection-explanations.md)
+- [Journey visit-event log ADR](../adr/0004-journey-visit-event-log.md)
+- [Project-Leibniz rejected-architectures ADR](../adr/0005-project-leibniz-rejected-architectures.md)
+- [Local visit-history privacy](../VISIT_HISTORY_PRIVACY.md)
 - [Story Package Contract v1](../contracts/story-package-v1.md)
 - [Verified pre-consolidation baseline](BASELINE.md)
 - [Feature extraction matrix](FEATURE_EXTRACTION_MATRIX.md)
