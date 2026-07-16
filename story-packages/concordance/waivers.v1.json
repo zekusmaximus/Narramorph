@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "eternal-return",
+  "description": "Approved interactive deviations from the canonical rule set (roadmap 5.2). Each waiver names the rule it waives, the scope it covers, the human approver, a rationale, and an expiry date. Unexpired waivers downgrade matching findings to reported-waived without disabling the validator; an expired waiver is itself an error until renewed or removed. Waivers are granted only by the editorial owner, normally during Batch 5.3 triage of the contradiction register.",
+  "waivers": []
+}
