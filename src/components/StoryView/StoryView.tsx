@@ -109,6 +109,7 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
         reason: readerSelectionReason,
         selectedBeatIds: selectedBeatIds ?? [],
         bridgeId: entryBridge?.bridgeId ?? null,
+        bridgeContent: entryBridge?.content ?? null,
         readerChoice: currentNode.layer === 4 ? { kind: 'ending', value: currentNode.title } : null,
       });
     }

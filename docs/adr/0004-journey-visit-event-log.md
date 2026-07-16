@@ -95,6 +95,22 @@ Batch 4.3 extends the save schema to `1.3.0` by appending a `visit-events` migra
 
 The decision is implemented when: the `VisitEvent` type and its guards exist and are shape-locked by tests; Batch 4.1 writes `selection.beatIds` into this shape; Batch 4.3 adds the persisted `visitEvents` log with a `1.3.0` migration and a deterministic resolved-text hash; Batch 4.4 exports from stored snapshots and reopen/re-export is byte-identical; and behavioral tests prove selection outcomes are unchanged by the log.
 
+## Addendum (2026-07-16, content release #156): resolved bridge-text snapshot
+
+Batch 4.4 stored only `bridgeId` for a crossed edge, not the bridge prose the reader actually saw, so an exported journey could not reproduce the bridge text after a later content update rewrote it — the same drift this ADR eliminated for passage prose. The #156 content release closes that gap by adding an **optional** resolved-text snapshot for the bridge:
+
+```ts
+interface VisitEvent {
+  // …unchanged…
+  bridgeId: string | null;
+  bridgeText?: ResolvedText | null; // resolved bridge prose the reader saw; null when none showed
+}
+```
+
+`bridgeText` reuses the `ResolvedText` shape (`format`/`content`/`hash`/`byteLength`) so the bridge is snapshotted exactly like the passage and re-exports byte-identically. It is the export source of truth for edge prose; `bridgeId` remains provenance, not the reproduction path.
+
+**Versioning decision — additive, no migration.** The contract identity stays `org.narramorph.visit-event@1.0.0`. The field is optional and strictly backward-compatible: it is `null` when no bridge showed and **absent** on events persisted before it existed — and because no authored bridge had shipped, every such legacy event had `bridgeId: null` and therefore no bridge prose to lose. The `isVisitEvent` guard accepts an absent, `null`, or well-formed `bridgeText` and rejects a malformed one, so no `SaveMigration` and no save-schema bump are required. Had any legacy event carried a real bridge, this would instead be a minor version bump with a backfilling migration; the owner may still request that stricter form. Selection outcomes remain unaffected — the bridge snapshot is evidence, never an input.
+
 ## Related records
 
 - [ADR 0001: repository boundaries](0001-repository-boundaries.md)

@@ -23,6 +23,8 @@ export interface VisitEventInput {
   selectedBeatIds: string[];
   fragmentLabel?: string;
   bridgeId: string | null;
+  /** The exact resolved bridge Markdown the reader saw at entry, or null when no bridge showed. */
+  bridgeContent?: string | null;
   /** The exact resolved Markdown the reader saw. */
   content: string;
   reason: SelectionReason | null;
@@ -50,6 +52,15 @@ export function buildVisitEvent(input: VisitEventInput): VisitEvent {
       ...(input.fragmentLabel ? { fragmentLabel: input.fragmentLabel } : {}),
     },
     bridgeId: input.bridgeId,
+    bridgeText:
+      input.bridgeContent == null
+        ? null
+        : {
+            format: 'markdown',
+            content: input.bridgeContent,
+            hash: `sha256:${sha256Hex(input.bridgeContent)}`,
+            byteLength: utf8ByteLength(input.bridgeContent),
+          },
     resolvedText: {
       format: 'markdown',
       content: input.content,

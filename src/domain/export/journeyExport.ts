@@ -231,6 +231,15 @@ export function buildJourneyMarkdown(
       );
       lines.push('');
     }
+    // The resolved bridge prose the reader saw entering this passage (#156). Rendered as a
+    // blockquote transition before the passage, from the stored snapshot, so it exports even after
+    // the underlying bridge text changes. Absent/null on events where no bridge showed.
+    if (event.bridgeText) {
+      stripDisplayFrontmatter(event.bridgeText.content)
+        .split('\n')
+        .forEach((line) => lines.push(line.length ? `> ${line}` : '>'));
+      lines.push('');
+    }
     lines.push(stripDisplayFrontmatter(event.resolvedText.content));
     lines.push('');
   });
@@ -320,6 +329,9 @@ const PRINT_STYLES = `
   .journey-meta li { margin: 0.15rem 0; }
   .adaptation-note { border-left: 3px solid #8a8a8a; margin: 0 0 1rem; padding: 0.35rem 0 0.35rem 1rem;
     font-style: italic; color: #444; }
+  .passage-transition { border-left: 2px solid #b8b8b8; margin: 0 0 1rem; padding: 0.35rem 0 0.35rem 1rem;
+    font-style: italic; color: #555; }
+  .passage-transition p { margin: 0 0 0.5rem; }
   .passage p { margin: 0 0 1rem; }
   hr { border: 0; border-top: 1px solid #d8d8d8; margin: 2.5rem 0 0; }
   .journey-license { margin-top: 2.5rem; font-size: 0.8rem; color: #555; }
@@ -386,6 +398,16 @@ export function buildJourneyPrintHtml(
         )}${escapeHtml(beats)}${escapeHtml(bridge)} visit=${event.visitNumber} hash=${escapeHtml(
           shortHash(event.resolvedText.hash),
         )} -->`,
+      );
+    }
+    // The resolved bridge prose shown entering this passage (#156), mirroring the app's
+    // role="note" transition block so the print export keeps the reader's experience and the same
+    // assistive-technology semantics. Rendered from the stored snapshot; absent when no bridge showed.
+    if (event.bridgeText) {
+      body.push(
+        `<blockquote class="passage-transition" role="note" aria-label="Passage transition">${markdownToHtml(
+          event.bridgeText.content,
+        )}</blockquote>`,
       );
     }
     body.push(markdownToHtml(event.resolvedText.content));

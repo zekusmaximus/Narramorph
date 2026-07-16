@@ -318,6 +318,7 @@ export const useStoryStore = create<StoryStore>()(
           selectedBeatIds: selection.selectedBeatIds ?? [],
           ...(selection.fragmentLabel ? { fragmentLabel: selection.fragmentLabel } : {}),
           bridgeId: selection.bridgeId ?? null,
+          bridgeContent: selection.bridgeContent ?? null,
           content: selection.content,
           reason: selection.reason,
           readerChoice: selection.readerChoice ?? null,

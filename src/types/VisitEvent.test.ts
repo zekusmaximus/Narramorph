@@ -120,6 +120,45 @@ describe('isVisitEvent guard', () => {
     expect(isVisitEvent(makeValidEvent({ bridgeId: 123 as never }))).toBe(false);
   });
 
+  it('accepts an absent, null, or well-formed bridgeText snapshot', () => {
+    // Legacy events persisted before the field existed omit it entirely.
+    const legacy = makeValidEvent();
+    delete (legacy as { bridgeText?: unknown }).bridgeText;
+    expect(isVisitEvent(legacy)).toBe(true);
+    expect(isVisitEvent(makeValidEvent({ bridgeText: null }))).toBe(true);
+    expect(
+      isVisitEvent(
+        makeValidEvent({
+          bridgeId: 'spv1_edg_000000000000000000000009',
+          bridgeText: {
+            format: 'markdown',
+            content: 'You cross into the Algorithm.',
+            hash: 'sha256:' + '0'.repeat(64),
+            byteLength: 29,
+          },
+        }),
+      ),
+    ).toBe(true);
+  });
+
+  it('rejects a malformed bridgeText snapshot', () => {
+    expect(isVisitEvent(makeValidEvent({ bridgeText: { format: 'markdown' } as never }))).toBe(
+      false,
+    );
+    expect(
+      isVisitEvent(
+        makeValidEvent({
+          bridgeText: {
+            format: 'markdown',
+            content: 'x',
+            hash: 'not-a-hash',
+            byteLength: 1,
+          } as never,
+        }),
+      ),
+    ).toBe(false);
+  });
+
   it('rejects non-objects', () => {
     expect(isVisitEvent(null)).toBe(false);
     expect(isVisitEvent('event')).toBe(false);

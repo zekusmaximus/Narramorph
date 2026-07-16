@@ -52,6 +52,7 @@ function event(overrides: {
   variationId?: string | null;
   beatIds?: string[];
   bridgeId?: string | null;
+  bridgeContent?: string | null;
   fragmentLabel?: string;
   readerChoice?: VisitEvent['readerChoice'];
   withReason?: boolean;
@@ -65,6 +66,7 @@ function event(overrides: {
     selectedBeatIds: overrides.beatIds ?? [],
     ...(overrides.fragmentLabel ? { fragmentLabel: overrides.fragmentLabel } : {}),
     bridgeId: overrides.bridgeId ?? null,
+    bridgeContent: overrides.bridgeContent ?? null,
     content: overrides.content,
     reason: overrides.withReason === false ? null : reason(),
     readerChoice: overrides.readerChoice ?? null,
@@ -109,6 +111,31 @@ describe('buildJourneyMarkdown', () => {
 
   it('is deterministic: identical inputs produce byte-identical output', () => {
     expect(buildJourneyMarkdown(events, metadata)).toBe(buildJourneyMarkdown(events, metadata));
+  });
+
+  it('renders the resolved bridge prose as a blockquote before its passage', () => {
+    const withBridge = [
+      event({ sequence: 0, nodeId: 'arch-L1', content: 'The archive remembers.' }),
+      event({
+        sequence: 1,
+        nodeId: 'algo-L2-invest',
+        content: 'Seven processes examine.',
+        bridgeId: 'edge-1',
+        bridgeContent: 'You cross into the Algorithm’s arithmetic.',
+      }),
+    ];
+    const md = buildJourneyMarkdown(withBridge, metadata);
+    expect(md).toContain('> You cross into the Algorithm’s arithmetic.');
+    // The bridge precedes the passage prose it introduced.
+    expect(md.indexOf('> You cross into the Algorithm')).toBeLessThan(
+      md.indexOf('Seven processes examine.'),
+    );
+
+    const html = buildJourneyPrintHtml(withBridge, metadata);
+    expect(html).toContain(
+      '<blockquote class="passage-transition" role="note" aria-label="Passage transition">',
+    );
+    expect(html).toContain('You cross into the Algorithm');
   });
 
   it('emits ordinal passage labels and no internal IDs by default', () => {
