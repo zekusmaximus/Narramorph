@@ -148,6 +148,103 @@ describe('Story Package Contract v1', () => {
     30_000,
   );
 
+  it('ingests authored multi-beat variations into per-alternative beat and expression records', async () => {
+    const root = await makeTemporaryRoot();
+    const copiedSource = join(root, 'clockwork-garden');
+    await cp(fromRoot('story-packages/sources/clockwork-garden'), copiedSource, {
+      recursive: true,
+    });
+
+    const startPath = join(copiedSource, 'data', 'content', 'start.json');
+    const startSource = JSON.parse(await readFile(startPath, 'utf8')) as {
+      variations: Array<Record<string, unknown> & { id: string; content: string }>;
+    };
+    const variation = startSource.variations[0]!;
+    const bodyContent = variation.content;
+    variation.beatJoiner = '\n\n';
+    variation.proseBeats = [
+      {
+        id: 'garden-start-v1-b0-return',
+        ordinal: 0,
+        omitWhenUnmatched: true,
+        alternatives: [
+          {
+            id: 'garden-start-v1-b0-return-alt',
+            content: 'The paper bird has done this before.',
+            condition: {
+              kind: 'visitCount',
+              passageId: 'garden-start',
+              comparison: 'gte',
+              value: 3,
+            },
+          },
+        ],
+      },
+      {
+        id: 'garden-start-v1-b1-body',
+        ordinal: 1,
+        alternatives: [{ id: 'garden-start-v1-b1-body-alt', content: bodyContent }],
+      },
+    ];
+    await writeFile(startPath, JSON.stringify(startSource, null, 2) + '\n', 'utf8');
+
+    const output = join(root, 'built');
+    const built = await buildStoryPackage(join(copiedSource, 'source.json'), output);
+
+    const variationRecord = built.catalog.variations.find(
+      (record) => record.legacyId === 'garden-start-v1',
+    );
+    expect(variationRecord).toBeDefined();
+    expect(variationRecord!.proseBeatIds).toHaveLength(2);
+
+    const returnBeat = built.catalog.proseBeats.find(
+      (record) => record.stableKey === 'garden-start-v1-b0-return-alt',
+    );
+    const bodyBeat = built.catalog.proseBeats.find(
+      (record) => record.stableKey === 'garden-start-v1-b1-body-alt',
+    );
+    expect(returnBeat).toBeDefined();
+    expect(bodyBeat).toBeDefined();
+    expect(returnBeat!.ordinal).toBe(0);
+    expect(returnBeat!.omitWhenUnmatched).toBe(true);
+    expect(returnBeat!.conditionId).toBeDefined();
+    expect(bodyBeat!.ordinal).toBe(1);
+    expect(bodyBeat!.omitWhenUnmatched).toBeUndefined();
+    expect(bodyBeat!.conditionId).toBeUndefined();
+
+    const expressionCondition = built.catalog.conditions.find(
+      (record) => record.id === returnBeat!.conditionId,
+    );
+    expect(expressionCondition).toBeDefined();
+    expect(expressionCondition!.kind).toBe('expression');
+    expect((expressionCondition!.value as { kind: string }).kind).toBe('visitCount');
+    expect(variationRecord!.conditionIds).toContain(returnBeat!.conditionId);
+
+    const validation = await validateStoryPackage(output);
+    expect(validation.errors).toEqual([]);
+    expect(validation.valid).toBe(true);
+  });
+
+  it('rejects an authored beat alternative that is missing a stable id', async () => {
+    const root = await makeTemporaryRoot();
+    const copiedSource = join(root, 'clockwork-garden');
+    await cp(fromRoot('story-packages/sources/clockwork-garden'), copiedSource, {
+      recursive: true,
+    });
+    const startPath = join(copiedSource, 'data', 'content', 'start.json');
+    const startSource = JSON.parse(await readFile(startPath, 'utf8')) as {
+      variations: Array<Record<string, unknown> & { content: string }>;
+    };
+    startSource.variations[0]!.proseBeats = [
+      { ordinal: 0, alternatives: [{ content: 'no id here' }] },
+    ];
+    await writeFile(startPath, JSON.stringify(startSource, null, 2) + '\n', 'utf8');
+
+    await expect(
+      buildStoryPackage(join(copiedSource, 'source.json'), join(root, 'built')),
+    ).rejects.toThrow(/missing a stable id/);
+  });
+
   it('keeps opaque identities stable when titles and source files are renamed', async () => {
     const root = await makeTemporaryRoot();
     const copiedSource = join(root, 'clockwork-garden');

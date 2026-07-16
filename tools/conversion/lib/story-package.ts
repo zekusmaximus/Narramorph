@@ -103,6 +103,16 @@ export interface ProseBeatRecord {
   ordinal: number;
   contentDigest: string;
   byteLength: number;
+  /**
+   * Optional reference to the condition record gating this beat alternative (authored multi-beat
+   * content only). Absent means the alternative always qualifies. Multiple records may share an
+   * `ordinal` to represent ordered alternative phrasings for one slot.
+   */
+  conditionId?: string;
+  /** Optional tie-break weight among qualifying alternatives at the same ordinal; higher wins. */
+  priority?: number;
+  /** Optional. When true and no alternative at this ordinal qualifies, the slot is omitted. */
+  omitWhenUnmatched?: boolean;
 }
 
 export interface EdgeRecord {
@@ -472,6 +482,102 @@ function conditionValues(raw: Record<string, unknown>): Record<string, JsonValue
   return values;
 }
 
+interface AuthoredBeatAlternative {
+  stableKey: string;
+  content: string;
+  condition?: JsonValue;
+  priority?: number;
+}
+
+interface AuthoredBeat {
+  ordinal: number;
+  omitWhenUnmatched: boolean;
+  alternatives: AuthoredBeatAlternative[];
+}
+
+/**
+ * Validates and normalizes a variation's authored `proseBeats` (the runtime shape: an ordered list
+ * of beat slots, each with one or more alternative phrasings). Returns `null` when the variation
+ * declares no beats, so the caller keeps the one-implicit-beat-per-variation default. Throws on a
+ * malformed structure so a bad authored beat fails the build rather than shipping silently.
+ *
+ * Each alternative's `id` becomes the catalog stable key (and is what the runtime records in the
+ * visit-event `beatIds`), so ids must be unique, non-empty strings. A gating `condition` must be a
+ * well-formed journey-condition expression.
+ */
+function extractAuthoredBeats(
+  value: unknown,
+  path: string,
+  legacyId: string,
+): AuthoredBeat[] | null {
+  if (value === undefined || value === null) {
+    return null;
+  }
+  if (!Array.isArray(value) || value.length === 0) {
+    throw new Error('Variation ' + legacyId + ' has a malformed proseBeats list in ' + path);
+  }
+  const seenStableKeys = new Set<string>();
+  return value.map((rawBeat) => {
+    if (!isRecord(rawBeat) || !Number.isInteger(rawBeat.ordinal) || Number(rawBeat.ordinal) < 0) {
+      throw new Error(
+        'Variation ' + legacyId + ' has a beat with a missing/invalid ordinal in ' + path,
+      );
+    }
+    if (rawBeat.omitWhenUnmatched !== undefined && typeof rawBeat.omitWhenUnmatched !== 'boolean') {
+      throw new Error(
+        'Variation ' + legacyId + ' beat omitWhenUnmatched must be a boolean in ' + path,
+      );
+    }
+    if (!Array.isArray(rawBeat.alternatives) || rawBeat.alternatives.length === 0) {
+      throw new Error('Variation ' + legacyId + ' has a beat with no alternatives in ' + path);
+    }
+    const alternatives = rawBeat.alternatives.map((rawAlternative) => {
+      if (!isRecord(rawAlternative)) {
+        throw new Error('Variation ' + legacyId + ' has a malformed beat alternative in ' + path);
+      }
+      const stableKey = rawAlternative.id;
+      if (typeof stableKey !== 'string' || stableKey.length === 0) {
+        throw new Error(
+          'Variation ' + legacyId + ' beat alternative is missing a stable id in ' + path,
+        );
+      }
+      if (seenStableKeys.has(stableKey)) {
+        throw new Error('Duplicate beat alternative id ' + stableKey + ' in ' + path);
+      }
+      seenStableKeys.add(stableKey);
+      if (typeof rawAlternative.content !== 'string') {
+        throw new Error('Beat alternative ' + stableKey + ' is missing content in ' + path);
+      }
+      const alternative: AuthoredBeatAlternative = {
+        stableKey,
+        content: rawAlternative.content,
+      };
+      if (rawAlternative.condition !== undefined) {
+        if (!isConditionExpression(rawAlternative.condition)) {
+          throw new Error(
+            'Beat alternative ' + stableKey + ' has a malformed condition in ' + path,
+          );
+        }
+        alternative.condition = asJsonValue(rawAlternative.condition);
+      }
+      if (rawAlternative.priority !== undefined) {
+        if (!Number.isInteger(rawAlternative.priority)) {
+          throw new Error(
+            'Beat alternative ' + stableKey + ' priority must be an integer in ' + path,
+          );
+        }
+        alternative.priority = Number(rawAlternative.priority);
+      }
+      return alternative;
+    });
+    return {
+      ordinal: Number(rawBeat.ordinal),
+      omitWhenUnmatched: rawBeat.omitWhenUnmatched === true,
+      alternatives,
+    };
+  });
+}
+
 function sourcePathFrom(root: string, absolutePath: string): string {
   const value = relative(root, absolutePath).split(sep).join('/');
   assertSafePackagePath(value, 'Source path');
@@ -669,8 +775,6 @@ export async function buildStoryPackage(
       }
 
       const variationId = deriveOpaqueId('variation', source.storyId, legacyId);
-      const beatStableKey = legacyId + ':0';
-      const beatId = deriveOpaqueId('proseBeat', source.storyId, beatStableKey);
       const content = normalizeText(raw.content);
       const values = conditionValues(raw);
       const conditionIds: string[] = [];
@@ -682,20 +786,69 @@ export async function buildStoryPackage(
         conditionIds.push(id);
         conditions.push({ id, stableKey, variationId, kind, value });
       }
-      proseBeats.push({
-        id: beatId,
-        stableKey: beatStableKey,
-        variationId,
-        ordinal: 0,
-        contentDigest: sha256(content),
-        byteLength: Buffer.byteLength(content, 'utf8'),
-      });
+
+      // Authored compositional prose beats (Batch 4.1 / content release #156). When a variation
+      // declares `proseBeats`, each alternative becomes one catalog beat record (records sharing an
+      // ordinal are alternative phrasings for one slot), and each gating journey condition becomes an
+      // `expression` condition. Otherwise the whole passage is one implicit beat, exactly as before.
+      const authoredBeats = extractAuthoredBeats(raw.proseBeats, relativePath, legacyId);
+      const variationProseBeatIds: string[] = [];
+      if (authoredBeats) {
+        for (const beat of authoredBeats) {
+          for (const alternative of beat.alternatives) {
+            const beatContent = normalizeText(alternative.content);
+            const beatId = deriveOpaqueId('proseBeat', source.storyId, alternative.stableKey);
+            const record: ProseBeatRecord = {
+              id: beatId,
+              stableKey: alternative.stableKey,
+              variationId,
+              ordinal: beat.ordinal,
+              contentDigest: sha256(beatContent),
+              byteLength: Buffer.byteLength(beatContent, 'utf8'),
+            };
+            if (beat.omitWhenUnmatched) {
+              record.omitWhenUnmatched = true;
+            }
+            if (alternative.priority !== undefined) {
+              record.priority = alternative.priority;
+            }
+            if (alternative.condition !== undefined) {
+              const conditionStableKey = alternative.stableKey + ':condition';
+              const conditionId = deriveOpaqueId('condition', source.storyId, conditionStableKey);
+              record.conditionId = conditionId;
+              conditionIds.push(conditionId);
+              conditions.push({
+                id: conditionId,
+                stableKey: conditionStableKey,
+                variationId,
+                kind: 'expression',
+                value: alternative.condition,
+              });
+            }
+            proseBeats.push(record);
+            variationProseBeatIds.push(beatId);
+          }
+        }
+      } else {
+        const beatStableKey = legacyId + ':0';
+        const beatId = deriveOpaqueId('proseBeat', source.storyId, beatStableKey);
+        proseBeats.push({
+          id: beatId,
+          stableKey: beatStableKey,
+          variationId,
+          ordinal: 0,
+          contentDigest: sha256(content),
+          byteLength: Buffer.byteLength(content, 'utf8'),
+        });
+        variationProseBeatIds.push(beatId);
+      }
+
       variations.push({
         id: variationId,
         stableKey: legacyId,
         legacyId,
         passageId: passage.id,
-        proseBeatIds: [beatId],
+        proseBeatIds: variationProseBeatIds.sort(),
         conditionIds: conditionIds.sort(),
         sourcePath: sourcePathFrom(sourceRoot, absolutePath),
         contentDigest: sha256(content),
@@ -988,6 +1141,9 @@ function validateReferences(
     }
     if (!/^[0-9a-f]{64}$/.test(beat.contentDigest)) {
       errors.push('Prose beat contains malformed content digest: ' + beat.id);
+    }
+    if (beat.conditionId !== undefined && !conditionIds.has(beat.conditionId)) {
+      errors.push('Prose beat references unknown condition: ' + beat.id);
     }
   }
   for (const edge of catalog.edges) {
