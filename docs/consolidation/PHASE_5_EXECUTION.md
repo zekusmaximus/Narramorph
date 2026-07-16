@@ -2,7 +2,7 @@
 
 Phase 5 reconciles the interactive edition with the canonical manuscript: `Eternal_Return_Manuscript` becomes the governed literary source for Narramorph while legitimate interactive differences stay preserved and reviewable (roadmap Phase 5; ADR 0002). The phase is editorial analysis plus validation engineering — complete the runtime→canonical concordance (5.1), enforce manuscript voice/philosophy/continuity rules in content validation (5.2), audit the full interactive runtime against those enforced rules (5.3, which also hosts the #156 authored-content release), and make the linear-edition product decision (5.4).
 
-**Status: in progress.** Batch 5.1 is implemented on the feature branch: the concordance now accounts for every shipped identity class, a canon contradiction register exists with named owners, the literary validator enforces both, and all local gates pass with every contract identity unchanged. The sampled editorial audit is recorded in [PHASE_5_CONCORDANCE_AUDIT.md](PHASE_5_CONCORDANCE_AUDIT.md). No canonical manuscript prose, authored runtime prose, package identity, save schema, deployment, release, or archive action has changed.
+**Status: in progress.** Batch 5.1 is implemented on the feature branch: the concordance now accounts for every shipped identity class, a canon contradiction register exists with named owners, the literary validator enforces both, and all local gates pass with every contract identity unchanged. The sampled editorial audit behind the family-level claims completed 5 of 19 families and was then **deferred by owner decision on token/time cost** — method, interim findings, cached-resume path, and its relationship to the 5.3 gate are recorded in [PHASE_5_CONCORDANCE_AUDIT.md](PHASE_5_CONCORDANCE_AUDIT.md). No canonical manuscript prose, authored runtime prose, package identity, save schema, deployment, release, or archive action has changed.
 
 ## Scope and immutable inputs
 
@@ -33,7 +33,7 @@ Contract identities preserved through Batch 5.1 (verified by the gate runs below
 | Batch | Issue | Branch | Pull request | Status |
 | --- | --- | --- | --- | --- |
 | Phase tracking | [#157](https://github.com/zekusmaximus/Narramorph/issues/157) | — | — | Open |
-| 5.1 complete the content concordance | [#158](https://github.com/zekusmaximus/Narramorph/issues/158) | `claude/eternal-return-phase-5-07y5q0` | _not opened_ | Implemented on branch; audit incorporated; owner review pending |
+| 5.1 complete the content concordance | [#158](https://github.com/zekusmaximus/Narramorph/issues/158) | `claude/eternal-return-phase-5-07y5q0` | _not opened_ | Implemented on branch; sampled audit 5/19 families then owner-deferred; owner review pending |
 | 5.2 manuscript voice/philosophy checks | _TBD_ | _TBD_ | _TBD_ | Pending |
 | 5.3 editorial runtime audit (+ content release #156) | _TBD_ | _TBD_ | _TBD_ | Pending |
 | 5.4 canonical linear edition | _TBD_ | _TBD_ | _TBD_ | Pending; product/rights decision |
@@ -83,7 +83,7 @@ Both acceptance records — `literary-releases/accepted/eternal-return.json` and
 
 ### Editorial audit
 
-Method and full results: [PHASE_5_CONCORDANCE_AUDIT.md](PHASE_5_CONCORDANCE_AUDIT.md). Sampled per-family audit (84 variations + all 3 endings across all 19 families) against the Four Shackles, forbidden narrative moves, per-voice fingerprints, chronology/era rules, controlled terminology, canonical names, and the designed-repetition allowlist, with every candidate finding adversarially verified by an independent skeptic before entering the register. Confirmed findings are recorded in the contradiction register with owners and await decisions; none was silently fixed.
+Method, interim findings, and resume path: [PHASE_5_CONCORDANCE_AUDIT.md](PHASE_5_CONCORDANCE_AUDIT.md). Sampled per-family audit (84 variations + all 3 endings across all 19 families) against the Four Shackles, forbidden narrative moves, per-voice fingerprints, chronology/era rules, controlled terminology, canonical names, and the designed-repetition allowlist, with every candidate finding adversarially verified by an independent skeptic before entering the register. Five of 19 family audits completed before the owner deferred the remainder on token/time cost; the completed audits are cached so the eventual resume re-runs nothing already done. Candidate findings stay out of the register until verified; none was or will be silently fixed.
 
 ### Evidence (local verification on Node 22)
 
