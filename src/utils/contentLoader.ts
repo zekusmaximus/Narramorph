@@ -1,5 +1,17 @@
-import type { StoryData, Connection } from '@/types';
+import { validateEdgeBridges } from '@/domain/bridges/edgeBridge';
+import type { EdgeBridge, StoryData, Connection } from '@/types';
 import type { StoryNode } from '@/types/Node';
+
+/**
+ * Authored condition-aware edge prose (Phase 4.2 / content release #156), kept in a dedicated file
+ * so bridge prose stays out of the graph/topology files and out of the hashed story package (the
+ * builder reads only the listed character files). Each entry attaches a bridge to a real edge by
+ * its source/target node ids; the runtime loader resolves and shows it on entry.
+ */
+interface EdgeBridgeFile {
+  storyId?: string;
+  edges: Array<{ sourceId: string; targetId: string; bridge: EdgeBridge }>;
+}
 
 // Glob imports (Vite) — eager only for the small metadata/topology shell.
 // We keep types inline here to avoid cross-file coupling during migration
@@ -138,6 +150,10 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
       eager: true,
       import: 'default',
     });
+    const bridgesMap = import.meta.glob<EdgeBridgeFile>('/src/data/stories/*/bridges.json', {
+      eager: true,
+      import: 'default',
+    });
 
     const metaEntry = Object.entries(metaMap).find(([p]) => p.includes(`/${storyId}/story.json`));
     if (!metaEntry) {
@@ -156,9 +172,15 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
           !p.endsWith('/story.json') &&
           !p.endsWith('/layout.json') &&
           !p.endsWith('/unlock-config.json') &&
+          !p.endsWith('/bridges.json') &&
           !p.includes('/content/'),
       )
       .map(([, data]) => data);
+
+    const bridgesEntry = Object.entries(bridgesMap).find(([p]) =>
+      p.includes(`/${storyId}/bridges.json`),
+    );
+    const bridgeDefinitions = bridgesEntry ? (bridgesEntry[1].edges ?? []) : [];
 
     // Development log: Loaded character files for ${storyId}
 
@@ -272,6 +294,20 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
       }
     }
 
+    // Attach authored edge bridges to their real edges. A bridge must reference a traversed edge,
+    // so an unknown source/target is a content error rather than a silently ignored bridge.
+    for (const definition of bridgeDefinitions) {
+      const connection = allConnections.find(
+        (c) => c.sourceId === definition.sourceId && c.targetId === definition.targetId,
+      );
+      if (!connection) {
+        throw new ContentLoadError(
+          `Edge bridge references unknown edge ${definition.sourceId}->${definition.targetId}`,
+        );
+      }
+      connection.bridge = definition.bridge;
+    }
+
     // Build and strictly validate story data before exposing it to the runtime store.
     const storyData: StoryData = {
       metadata: {
@@ -313,6 +349,14 @@ function validateStoryData(storyData: StoryData): void {
   if (!startNodeExists) {
     throw new ContentLoadError(
       `Start node ${storyData.configuration.startNodeId} not found in story nodes`,
+    );
+  }
+  const bridgeIssues = validateEdgeBridges(storyData.connections ?? []);
+  if (bridgeIssues.length > 0) {
+    throw new ContentLoadError(
+      `Invalid edge bridges: ${bridgeIssues
+        .map((issue) => `${issue.connectionId}: ${issue.message}`)
+        .join('; ')}`,
     );
   }
   const nodeIds = new Set(storyData.nodes.map((n) => n.id));
