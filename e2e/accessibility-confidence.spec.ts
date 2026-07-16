@@ -207,6 +207,11 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   await expect(adaptationLedgerSummary).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.getByTestId('adaptation-ledger')).toHaveAttribute('open', '');
+  // The journey-export controls sit after the ledger and remain inside the focus trap.
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Export journey (Markdown)' })).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Print-friendly view' })).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(closeProgress).toBeFocused();
   await page.keyboard.press('Escape');
