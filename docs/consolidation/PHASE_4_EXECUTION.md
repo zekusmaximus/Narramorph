@@ -41,7 +41,7 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 | --- | --- | --- | --- | --- |
 | 4.0 contract lock (ADR 0004, VisitEvent shape) | [#149](https://github.com/zekusmaximus/Narramorph/issues/149) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Complete (branch) |
 | 4.1 optional compositional prose beats | [#150](https://github.com/zekusmaximus/Narramorph/issues/150) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Mechanism landed; node conversion pending approval |
-| 4.2 condition-aware edge prose | _TBD_ | _TBD_ | _TBD_ | Pending |
+| 4.2 condition-aware edge prose | [#151](https://github.com/zekusmaximus/Narramorph/issues/151) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Mechanism landed; authored prose pending approval |
 | 4.3 export-grade visit event log | _TBD_ | _TBD_ | _TBD_ | Pending |
 | 4.4 accessible journey export (Markdown + print HTML) | _TBD_ | _TBD_ | _TBD_ | Pending |
 | 4.5 Leibniz parity/rejection review (archive gate) | _TBD_ | _TBD_ | _TBD_ | Pending |
@@ -89,23 +89,36 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 - `src/domain/variation/selection.test.ts` adds a byte-invariance case (beatless variation unchanged, `selectedBeatIds` empty) and a composition case (beats compose into the passage; selected beat IDs threaded).
 - Local verification on Node `22.22.2`: `type-check` pass; `lint:ci` 0 errors / 32 warnings (baseline held); `test:run` 48 files / 258 tests passed (was 245; +13); `story:package:validate` all valid with `eternal-return@1.1.0` hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062` unchanged; `build` pass. Core adaptive Chromium journeys (`reader-journey`, `phase-3-path-coverage`) pass against the installed browser (the pinned headless-shell revision is absent in this sandbox; the full matrix runs in protected-main CI).
 
-**Deferred (content-approval gated)**
+**Deferred (content-approval gated) — owner elected the batched editorial pass**
 
-- Converting one reference node per perspective into beats — the roadmap's editorial-quality comparison — is an authored-prose change requiring the operator's explicit sign-off on the exact wording, recorded with provenance per ADR 0002. No authored runtime prose or manuscript prose changed in this batch.
+- Converting one reference node per perspective into beats — the roadmap's editorial-quality comparison — is an authored-prose change requiring the operator's explicit sign-off on the exact wording, recorded with provenance per ADR 0002. The owner has elected to defer this to a later batched editorial pass (alongside the Phase 5 editorial audit) rather than convert a node now; the 4.1 acceptance gate is met by the mechanism plus the byte-invariance proof, and no downstream batch depends on the conversion. No authored runtime prose or manuscript prose changed in this batch.
 - Exact reopen replay of a _conditional_ beat resolution is guaranteed once Batch 4.3 snapshots the resolved text in the `VisitEvent` log. Every shipped passage stays on the byte-invariant identity path until a node opts into beats, so no saved journey changes today.
 
 ## Batch 4.2 — condition-aware edge prose
+
+**Status: mechanism landed; authored bridge prose pending content approval.**
 
 **Acceptance gate**
 
 - At least one journey reads more smoothly without changing graph progression.
 - Edge prose has provenance, validation, explanation, and export coverage.
 
+**Mechanism delivered**
+
+- `src/types/Story.ts` adds an optional `bridge` to `Connection`: ordered alternative phrasings, each with an optional Phase 3 journey condition and `priority`, plus per-edge `omitWhenUnmatched`. Bridges are optional, so every existing connection is unchanged.
+- `src/domain/bridges/edgeBridge.ts` provides `resolveEdgeBridge` (deterministic selection mirroring prose beats: condition → highest priority → author-order tie-break → first-alternative fallback or omission) and `resolveEntryBridge`, which finds the connection for the crossed edge (forward, or reverse when bidirectional) and resolves its bridge. The resolved `bridgeId` feeds the locked `VisitEvent.bridgeId` (Batch 4.3) and journey export (Batch 4.4).
+- **Bounds:** `EDGE_BRIDGE_LIMITS` (max 6 alternatives per edge, max 400 characters per fragment) and `validateEdgeBridges` enforce them, so edge prose cannot become an unbounded second content system. Over-limit bridges are a content error, not a silent truncation.
+- **Render at entry, accessibly:** `useEdgeBridge` derives the "from" node from the reading path (correct across revisits) and resolves the bridge; `StoryBridge` renders it as a static `role="note"` block ("Passage transition") inside the reading flow above the passage — never a timed or auto-dismissed element, so assistive technology can always read it, and it carries no interactive controls. It is not treated as a separate visited node. Wired into `StoryView` and guarded, so with no authored bridges the shipped reader is byte-for-byte unchanged.
+
 **Evidence**
 
-- Bridge schema, render-at-entry behavior, accessibility/animation rules, and bounds: _TBD_.
-- Provenance, validation, explanation, and export coverage: _TBD_.
-- Local verification and identities: _TBD_.
+- `src/domain/bridges/edgeBridge.test.ts` (15 tests): no-bridge null, author-order and priority selection with tie-break, omission, deterministic fallback, determinism, forward/reverse/one-way edge matching, and all three bound violations.
+- `src/components/StoryView/StoryBridge.test.tsx` (2 tests): static labelled note renders the prose; no interactive controls (cannot trap focus).
+- Local verification on Node `22.22.2`: `type-check` pass; `lint:ci` 0 errors / 32 warnings (baseline held); `test:run` 50 files / 275 tests passed (was 258; +17); `story:package:validate` all valid with `eternal-return@1.1.0` hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062` unchanged; `build` pass. Core `reader-journey` and `accessibility-confidence` Chromium specs pass against the installed browser (the pinned headless-shell revision is absent in this sandbox; the full matrix runs in protected-main CI).
+
+**Deferred (content-approval gated)**
+
+- Authoring the bridge prose that makes at least one journey "read more smoothly" is an authored-prose change requiring the operator's explicit sign-off with provenance per ADR 0002; the owner has elected the batched editorial pass. Provenance, explanation, and export coverage for authored bridges complete alongside that content and Batches 4.3/4.4, which persist and export the resolved `bridgeId`. No authored runtime prose or manuscript prose changed in this batch.
 
 ## Batch 4.3 — export-grade visit event log
 

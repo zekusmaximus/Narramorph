@@ -39,6 +39,8 @@ export type {
 
 // Story types
 export type {
+  EdgeBridgeAlternative,
+  EdgeBridge,
   Connection,
   StoryMetadata,
   StoryConfiguration,

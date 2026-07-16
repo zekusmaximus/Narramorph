@@ -4,11 +4,13 @@ import { lazy, useCallback, useEffect, useMemo, type ReactElement } from 'react'
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
 import { compileEndingSelectionReason } from '@/domain/variation/selectionReason';
 import { useDialogFocus } from '@/hooks/useDialogFocus';
+import { useEdgeBridge } from '@/hooks/useEdgeBridge';
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import { useVariationSelection } from '@/hooks/useVariationSelection';
 import { useStoryStore } from '@/stores';
 
 import { SelectionDisclosure } from './SelectionDisclosure';
+import { StoryBridge } from './StoryBridge';
 import { StoryContent } from './StoryContent';
 import { StoryFooter } from './StoryFooter';
 import { StoryHeader } from './StoryHeader';
@@ -87,6 +89,8 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
       ? compileEndingSelectionReason(currentNode.title)
       : selectionReason;
   }, [currentNode, selectionReason]);
+
+  const entryBridge = useEdgeBridge(currentNode?.id ?? null);
 
   useEffect(() => {
     if (
@@ -196,6 +200,11 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
             </div>
           ) : (
             <>
+              {entryBridge && (
+                <div className="shrink-0 pt-4">
+                  <StoryBridge bridge={entryBridge} theme={preferences.theme} />
+                </div>
+              )}
               <StoryContent
                 key={`${currentNode.id}-${variationId ?? nodeState.currentState}`}
                 content={currentContent}
