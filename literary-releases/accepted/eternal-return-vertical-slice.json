@@ -12,7 +12,7 @@
   "runtimeGraphPath": "src/data/stories/eternal-return/archaeologist.json",
   "passageStableKeys": ["arch-L1", "arch-L2-accept"],
   "concordancePath": "story-packages/concordance/eternal-return.v1.json",
-  "concordanceSha256": "83785ea9273173c54146f75dd26a168a04b597db9e6f0ab79ddf88669829a9fd",
+  "concordanceSha256": "fc61b84cc1a41916c6bdb4453c108520601e81ec95c8dd93bb520125fee0822b",
   "storyPackage": {
     "storyId": "eternal-return",
     "storyVersion": "1.1.0",
