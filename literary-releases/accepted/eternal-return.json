@@ -14,12 +14,12 @@
     "deploymentAuthorized": false
   },
   "concordancePath": "story-packages/concordance/eternal-return.v1.json",
-  "concordanceSha256": "c4cc0aaa4b21c4787767ec8394dd351c0287bb9f51b97c54db51ff749cef8ced",
+  "concordanceSha256": "b2640b4b181172ad6e34bf7661d9ec18b31b2bc85094199ed8999c4bfa489189",
   "storyPackage": {
     "storyId": "eternal-return",
-    "storyVersion": "1.2.0",
+    "storyVersion": "1.3.0",
     "schemaVersion": "1.1.0",
-    "contentHash": "cc437cdb62dae2eaed0dc5030a9e672487bb9d7a6be8175ce59b9d719a203213",
+    "contentHash": "80f3d5a210c5d2814b224c86ec6d47fe8b418408f7133ee337b66b8d535efb50",
     "editorialReleaseId": "eternal-return-literary-v1.0.1",
     "sourceManuscriptCommit": "6720e76202951e24102997e2b8ef23e08445ab33"
   },

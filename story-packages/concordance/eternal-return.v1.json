@@ -15,13 +15,13 @@
     "exemptions": [
       {
         "identityClass": "conditions",
-        "count": 3012,
-        "rule": "Mechanical selection predicates (transformationState / awareness / awarenessRange / journeyPattern / philosophyDominant / awarenessLevel / philosophy). They carry no prose, derive their identity from the variation they select, and inherit that variation family’s mapping."
+        "count": 3021,
+        "rule": "Mechanical selection predicates (transformationState / awareness / awarenessRange / journeyPattern / philosophyDominant / awarenessLevel / philosophy), plus the nine journey-expression predicates (kind 'expression') that gate the #156 return-reader beats on visitCount. They carry no prose, derive their identity from the variation they select, and inherit that variation family’s mapping."
       },
       {
         "identityClass": "proseBeats",
-        "count": 1014,
-        "rule": "Exactly one beat per variation today; beat stable keys embed the beat ordinal and are re-minted by any re-segmentation, so beats are never mapped per-item and inherit their parent variation family’s mapping. A future multi-beat content release re-states this rule or maps its beats."
+        "count": 1023,
+        "rule": "One implicit beat per variation for 1,005 variations; the nine visitCount>=3 return-reader variations (content release #156) each carry a two-beat structure — a gated return-reader alternative (omitWhenUnmatched) prepended to the always-qualifying body beat that preserves the original passage byte-for-byte (1,005 + 9×2 = 1,023). Beat stable keys embed the authored alternative id and are re-minted by any re-segmentation, so beats are never mapped per-item and inherit their parent variation family’s mapping."
       },
       {
         "identityClass": "resources",
@@ -903,6 +903,16 @@
       "hum-L3->final-preserve",
       "hum-L3->final-release",
       "hum-L3->final-transform"
+    ],
+    "authoredBridges": [
+      {
+        "edgeStableKey": "algo-L1->algo-L2-invest",
+        "bridgeId": "algo-L1__algo-L2-invest__from-archaeologist",
+        "relationship": "interactive-only-connective",
+        "sourcePath": "src/data/stories/eternal-return/bridges.json",
+        "gatingCondition": "orderSeen[arch-L1, algo-L1]",
+        "rationale": "Content release #156. Owner-approved wording sited on a genuinely traversed within-perspective L1->L2 edge; the pre-approved cross-perspective phrasing is gated on the reader having seen the archaeologist before the Algorithm, so it never renders on a path that did not make that crossing. Interactive-only connective material under ADR 0002; no prose-equivalent canonical scene."
+      }
     ]
   },
   "explanations": [

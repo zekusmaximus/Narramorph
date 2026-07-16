@@ -232,7 +232,7 @@ describe('literary release intake', () => {
   it('validates the accepted release, package identity, and full concordance together', async () => {
     const intake = await validateAcceptedLiteraryRelease(repositoryRoot);
 
-    expect(intake.packageManifest.storyVersion).toBe('1.2.0');
+    expect(intake.packageManifest.storyVersion).toBe('1.3.0');
     expect(intake.packageManifest.editorialReleaseId).toBe(releaseId);
     expect(intake.concordance.mappings).toHaveLength(intake.catalog.passages.length);
   });
@@ -356,7 +356,7 @@ describe('literary release intake', () => {
     const intake = await validateAcceptedLiterarySlice(repositoryRoot);
 
     expect(intake.slice.known.sliceId).toBe(sliceId);
-    expect(intake.packageManifest.storyVersion).toBe('1.2.0');
+    expect(intake.packageManifest.storyVersion).toBe('1.3.0');
   });
 });
 
