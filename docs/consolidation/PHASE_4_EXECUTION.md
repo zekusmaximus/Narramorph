@@ -2,7 +2,7 @@
 
 Phase 4 ports Project-Leibniz's last reader-facing strengths into Narramorph — optional compositional prose beats, condition-aware edge prose, an export-grade visit-event log, and an accessible journey export — then archives Project-Leibniz once its parity/rejection gate passes and the owner accepts the Narramorph implementations. Narramorph remains the sole implementation target and the only journey-state authority.
 
-**Status: in progress.** The contract-lock groundwork is complete; Batches 4.1–4.6 are pending. No deployment, production release, repository archive, canonical prose change, or authored runtime-prose change has occurred.
+**Status: in progress.** Batches 4.0–4.4 are complete on the feature branch (contract lock, prose beats, edge prose, the persisted visit-event log, and the accessible journey export). Batches 4.1 and 4.2 left their authored-prose work for the batched editorial pass bundled with 4.6. Batch 4.5 (Leibniz parity/archive gate) and Batch 4.6 (archive) remain, and require owner acceptance. No deployment, production release, repository archive, canonical prose change, or authored runtime-prose change has occurred.
 
 ## Scope and immutable inputs
 
@@ -13,7 +13,7 @@ Phase 4 ports Project-Leibniz's last reader-facing strengths into Narramorph —
 | Project-Leibniz | Frozen conceptual reference | `4f3f4600b8782aac5000b45dd64378baf318e1df` | Read-only until the Batch 4.5 gate passes and the owner accepts; archived in 4.6 |
 | eternal-return-digital-self | Frozen control repository | `392eef6c6f87b8064c8cc51d91b6f029b0e32d5b` | Read-only and expected unchanged (archived in Phase 6) |
 
-New Phase 4 contract identity (design-locked, not yet persisted): journey visit-event log `org.narramorph.visit-event@1.0.0` (ADR 0004). The persisted `visitEvents` log and save schema `1.3.0` land in Batch 4.3.
+New Phase 4 contract identity: journey visit-event log `org.narramorph.visit-event@1.0.0` (ADR 0004), locked in Batch 4.0 and persisted as the `visitEvents` log with save schema `1.3.0` in Batch 4.3.
 
 Preserved Phase 3 contract identities (unchanged unless a versioned change is deliberate and recorded):
 
@@ -43,7 +43,7 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 | 4.1 optional compositional prose beats | [#150](https://github.com/zekusmaximus/Narramorph/issues/150) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Mechanism landed; node conversion pending approval |
 | 4.2 condition-aware edge prose | [#151](https://github.com/zekusmaximus/Narramorph/issues/151) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Mechanism landed; authored prose pending approval |
 | 4.3 export-grade visit event log | [#152](https://github.com/zekusmaximus/Narramorph/issues/152) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Complete (branch) |
-| 4.4 accessible journey export (Markdown + print HTML) | _TBD_ | _TBD_ | _TBD_ | Pending |
+| 4.4 accessible journey export (Markdown + print HTML) | [#153](https://github.com/zekusmaximus/Narramorph/issues/153) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Complete (branch) |
 | 4.5 Leibniz parity/rejection review (archive gate) | _TBD_ | _TBD_ | _TBD_ | Pending |
 | 4.6 archive Project-Leibniz | _TBD_ | _TBD_ | _TBD_ | Pending |
 
@@ -147,16 +147,28 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 
 ## Batch 4.4 — accessible journey export
 
+**Status: complete.**
+
 **Acceptance gate**
 
 - A complete L1→L4 journey exports without omissions or reordering.
 - Export works offline and contains no internal IDs unless a diagnostic option is chosen.
 
+**Delivered**
+
+- `src/domain/export/journeyExport.ts` — pure, deterministic builders that read the `visitEvents` log (ADR 0004) and render the exact resolved prose in experienced order, never re-running selection or reading current content:
+  - `buildJourneyMarkdown` — title page (story title/author, package identity, app + save versions, endings reached, injected export timestamp), passages in order with ordinal or ledger-title headings, optional adaptation notes (from the Phase 3 reason), and the content-license notice. No internal IDs unless `diagnostic` is set.
+  - `markdownToHtml` + `buildJourneyPrintHtml` — a self-contained, offline, accessible print-friendly HTML document (document language, semantic headings, print `@media` CSS, no external references or scripts). `markdownToHtml` mirrors `MarkdownContent` exactly (frontmatter strip, paragraph split, bold-then-italic with italic only on non-bold segments) and HTML-escapes every emitted segment, so the print view matches the on-screen reading.
+  - `journeyExportFilename` — deterministic, diacritic- and unsafe-character-sanitized filenames; `buildJourneyTitleMap` joins reader-safe passage titles from the aligned selection ledger by the shared `(sequence, nodeId, fragmentLabel)` key.
+- Store actions `exportJourneyMarkdown` / `exportJourneyPrintHtml` build from persisted state with an injected timestamp; `src/utils/journeyDownload.ts` performs the browser-only download / new-tab open (isolated from the pure builders). `JourneyExportActions` adds accessible, user-initiated "Export journey (Markdown)" and "Print-friendly view" controls inside the focus-trapped progress dialog, disabled until a journey exists, explaining that history stays on-device.
+- EPUB/PDF deferred per the roadmap until Markdown and print HTML are stable.
+- Known limitation: faithful export of authored _edge prose_ additionally requires storing the resolved bridge text in the snapshot; this lands with the 4.6 editorial pass that authors bridges (no bridges ship today, so no edge prose is omitted).
+
 **Evidence**
 
-- Markdown export (title page, versions, journey metadata, passages in experienced order, edge prose, optional adaptation notes, content-license notice), filename sanitization, deterministic fixtures, and a print-friendly HTML view (EPUB/PDF deferred): _TBD_.
-- Tests for repeats, branching, endings, migration, Unicode, long passages, and content updates: _TBD_.
-- Local verification and identities: _TBD_.
+- `src/domain/export/journeyExport.test.ts` (23) covers ordering with L3 fragments, revisits, endings, empty/migrated labeling, snapshot-over-current-content, Unicode + long passages, no-IDs-by-default vs diagnostic, title enrichment, determinism/byte-identity, `markdownToHtml` bold/italic/escape/frontmatter and no-live-tags, print-HTML offline/self-contained, and filename sanitization. `src/components/Layout/JourneyExportActions.test.tsx` (3) covers the accessible download/print actions and the disabled empty state.
+- Adversarial multi-lens review workflow (determinism, ID-leak/injection, ordering/omissions/migration, on-screen parity, accessibility/offline) with independent per-finding verification confirmed four issues, all fixed: a WCAG 2.5.3 label-in-name mismatch on the export buttons (accessible name now equals the visible label); per-passage `<section aria-label>` region-landmark proliferation (now `<article>`); two independent export-timestamp clock reads (now one click-time timestamp threaded through filename and document); and a partially-migrated/size-trimmed log that renumbered from 1 with no warning (now emits an "earlier passages not captured" notice, covered by tests). The determinism-in-builder, on-screen-parity, and HTML-injection lenses found nothing.
+- Local verification on Node `22.22.2`: `type-check` pass; `lint:ci` 0 errors / 32 warnings (baseline held); `test:run` 54 files / 316 tests passed (was 288; +28); `story:package:validate` all valid with `eternal-return@1.1.0` hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062` unchanged; `build` pass. Save/reload and progress-dialog Chromium journeys (`reader-journey`, `responsive-experience`) pass against the installed browser. No authored prose, Story Package, save schema, or literary release change.
 
 ## Batch 4.5 — Leibniz parity/rejection review (archive gate)
 

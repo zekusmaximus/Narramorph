@@ -261,6 +261,8 @@ export interface StoryStore {
   saveProgress: () => void;
   loadProgress: () => void;
   exportProgress: () => string;
+  exportJourneyMarkdown: (exportedAt: string) => string;
+  exportJourneyPrintHtml: (exportedAt: string) => string;
   importProgress: (data: string) => boolean;
   clearProgress: () => void;
 

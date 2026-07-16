@@ -10,6 +10,12 @@ import {
   getNodePhilosophy,
   validateL2PhilosophyMappings,
 } from '@/data/stories/eternal-return/nodePhilosophyMapping';
+import {
+  buildJourneyMarkdown,
+  buildJourneyPrintHtml,
+  buildJourneyTitleMap,
+  type JourneyExportMetadata,
+} from '@/domain/export/journeyExport';
 import { generateL3CacheKey } from '@/domain/l3/cacheKey';
 import {
   calculateJourneyTrackingSnapshot,
@@ -25,7 +31,12 @@ import {
   determineTransformationState,
   findNewlyRevealedConnectionIds,
 } from '@/domain/progress/progressModel';
-import { buildSavedState, serializeSavedState } from '@/domain/progress/saveState';
+import {
+  buildSavedState,
+  CURRENT_APP_VERSION,
+  CURRENT_SAVE_VERSION,
+  serializeSavedState,
+} from '@/domain/progress/saveState';
 import { CURRENT_STORY_PACKAGE } from '@/domain/progress/storyPackageIdentity';
 import { appendVisitEvent, buildVisitEvent } from '@/domain/progress/visitEvents';
 import { loadStoryState } from '@/domain/story/loading';
@@ -37,6 +48,7 @@ import { appendSelectionRecord, createSelectionExcerpt } from '@/domain/variatio
 import { progressRepository } from '@/repositories/progressRepository';
 import type {
   StoryStore,
+  StoryData,
   UserPreferences,
   MapViewport,
   ReadingStats,
@@ -55,6 +67,21 @@ import { loadUnlockConfig } from '@/utils/unlockLoader';
 import { validateSavedState } from '@/utils/validation';
 
 const isDevEnv = process.env.NODE_ENV !== 'production';
+
+/** Reader-safe title-page metadata for a journey export, drawn from loaded content and constants. */
+function buildJourneyExportMetadata(
+  storyData: StoryData | null,
+  exportedAt: string,
+): JourneyExportMetadata {
+  return {
+    storyTitle: storyData?.metadata?.title ?? 'Narramorph',
+    ...(storyData?.metadata?.author ? { author: storyData.metadata.author } : {}),
+    storyPackage: CURRENT_STORY_PACKAGE,
+    appVersion: CURRENT_APP_VERSION,
+    saveVersion: CURRENT_SAVE_VERSION,
+    exportedAt,
+  };
+}
 
 // Track initialization count for StrictMode detection
 let initializationCount = 0;
@@ -918,6 +945,24 @@ export const useStoryStore = create<StoryStore>()(
         new Date().toISOString(),
       );
       return serializeSavedState(exportData);
+    },
+
+    exportJourneyMarkdown: (exportedAt: string) => {
+      const state = get();
+      return buildJourneyMarkdown(
+        state.progress.visitEvents,
+        buildJourneyExportMetadata(state.storyData, exportedAt),
+        { titles: buildJourneyTitleMap(state.progress.selectionRecords) },
+      );
+    },
+
+    exportJourneyPrintHtml: (exportedAt: string) => {
+      const state = get();
+      return buildJourneyPrintHtml(
+        state.progress.visitEvents,
+        buildJourneyExportMetadata(state.storyData, exportedAt),
+        { titles: buildJourneyTitleMap(state.progress.selectionRecords) },
+      );
     },
 
     importProgress: (data: string) => {
