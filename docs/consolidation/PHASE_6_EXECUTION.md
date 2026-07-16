@@ -56,9 +56,26 @@ The content loader attaches it to the real edge and fails closed on an unknown e
 - **word_count metadata.** `arch-L1-003` `6142 → 2712`; `algo-L1-004` `6089 → 2851` (reconciled to the `wordCount` convention shared by every other variation).
 - **Awareness regression — NOT attempted.** The initial variations reach deeper recognition than the revisits that follow; correcting the arc is a narrative revision requiring the editorial owner's authoring and exact-wording sign-off. Recorded in the register; CTR-012 stays open.
 
-### A3 — CTR-010 M-side slice re-issue (prepared; **paused for owner go-ahead on M**)
+### A3 — CTR-010 M-side slice re-issue (prepared + verified; **paused for owner go-ahead on M**)
 
-Requires editing `Eternal_Return_Manuscript` `editorial/vertical-slices/ archaeologist-opening-accept.json` (`arch-L2-accept` chronologyIds `er-chronology-phase-2 → er-chronology-phase-1`; prune the audited-absent Martinez P12/P41 and Lena P33/P40 chains on the slice-pinned mappings and the unplanted arch-L1 promises), re-running `export_vertical_slice.py`, re-accepting in N, and re-pinning. **M pushes are owner-gated — not executed.** _(status: pending)_
+The exact M-side edit to `editorial/vertical-slices/archaeologist-opening-accept.json` is prepared in a read-only M clone (pinned at `6720e76…`) and **verified** by running `export_vertical_slice.py` against it (exit 0 — the corrected `expectedContextCounts` validate and a well-formed slice artifact is produced). The change is **not committed and not pushed to M** (owner-gated). Clean patch (5 insertions / 5 deletions):
+
+```diff
+-      "promiseIds": ["P-Eleanor", "P1", "P2", "P3", "P4", "P5"]   # arch-L1
++      "promiseIds": ["P5"]                                        # CTR-010: only P5 is planted
+-      "chronologyIds": ["er-chronology-phase-2"],                 # arch-L2-accept
++      "chronologyIds": ["er-chronology-phase-1"],                 # D6: Archaeologist era = phase-1
+-      "promiseIds": ["P12", "P14", "P33", "P40", "P41"]           # arch-L2-accept
++      "promiseIds": ["P14"]                                       # CTR-010: prune Martinez P12/P41 + Lena P33/P40
+-    "chronology": 2,
++    "chronology": 1,                                              # distinct-union {phase-1}
+-    "promisePayoffs": 11
++    "promisePayoffs": 2                                           # distinct-union {P5, P14}
+```
+
+Verification export (at `sourceCommit 6720e76`, provisional): base release **unchanged** (`contentSha256 667dd8d9…`, confirming no prose/release impact); the re-issued slice artifact yields `contentSha256 e1ecf681…`, `artifactSha256 6c47118a…`. These hashes are provisional because the artifact stamps `sourceCommit`; the **final** N re-pin uses the export produced at the owner's committed M commit.
+
+**Remaining steps (all gated on the owner pushing M):** (1) owner reviews + commits the patch to M and pushes; (2) re-run `export_vertical_slice.py --source-commit <new>`; (3) in N, replace `literary-releases/source/eternal-return-literary-slice-archaeologist-opening-accept-v1.0.0.json` with the new artifact and re-pin its `sha256`/`sourceCommit` in `literary-releases/accepted/eternal-return-vertical-slice.json`; (4) `literary:slice:validate`; (5) mark CTR-010 `resolved` in the register. _(status: prepared + verified; pending owner M-push.)_
 
 ## Gate evidence (local, Node 22, on the feature branch)
 
