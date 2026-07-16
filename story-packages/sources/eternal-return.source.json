@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.1.0",
   "storyId": "eternal-return",
-  "storyVersion": "1.1.0",
+  "storyVersion": "1.2.0",
   "title": "Eternal Return of the Digital Self",
   "sourceRoot": "../..",
   "storyFile": "src/data/stories/eternal-return/story.json",

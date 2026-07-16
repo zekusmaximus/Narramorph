@@ -15,6 +15,8 @@ import {
 
 export const LITERARY_RELEASE_SCHEMA_VERSION = '1.0.0';
 export const LITERARY_INTAKE_SCHEMA_VERSION = '1.0.0';
+export const LITERARY_CONCORDANCE_SCHEMA_VERSION = '1.1.0';
+export const CONTRADICTION_REGISTER_SCHEMA_VERSION = '1.0.0';
 export const LITERARY_SLICE_SCHEMA_VERSION = '1.0.0';
 export const LITERARY_SLICE_INTAKE_SCHEMA_VERSION = '1.0.0';
 
@@ -46,6 +48,14 @@ export interface CanonicalReference {
   contextField: 'sceneSummary';
 }
 
+export interface VariationFamilyPolicy {
+  coversAllVariations: true;
+  variationCount: number;
+  selectionAxes: string[];
+  sampledVariationIds: string[];
+  samplingNote?: string;
+}
+
 export interface ConcordanceMapping {
   passageId: string;
   passageStableKey: string;
@@ -56,6 +66,66 @@ export interface ConcordanceMapping {
   philosophicalConstraintIds: string[];
   promiseIds: string[];
   explanation: string;
+  variations: VariationFamilyPolicy;
+}
+
+export interface CoverageExemption {
+  identityClass: string;
+  count: number;
+  rule: string;
+}
+
+export interface ConcordanceCoveragePolicy {
+  description: string;
+  auditReference: string;
+  exemptions: CoverageExemption[];
+}
+
+export interface ConcordanceEndingMapping {
+  endingId: string;
+  endingStableKey: string;
+  passageId: string;
+  endingPhilosophy: string;
+  explanation: string;
+}
+
+export type ConcordanceCharacterKind = 'canonical-voice' | 'runtime-composite';
+
+export interface ConcordanceCharacterMapping {
+  characterId: string;
+  characterStableKey: string;
+  kind: ConcordanceCharacterKind;
+  canonicalCharacterId: string | null;
+  voiceIds: string[];
+  explanation: string;
+}
+
+export interface ConcordanceEdgeCoverage {
+  relationship: 'interactive-only-connective';
+  rule: string;
+  edgeStableKeys: string[];
+}
+
+export interface ConcordanceExplanationMapping {
+  explanationId: string;
+  explanationStableKey: string;
+  classification: string;
+  explanation: string;
+}
+
+export type ConcordanceThemeKind = 'primary-theme' | 'secondary-theme' | 'motif';
+
+export interface ConcordanceThemeMapping {
+  theme: string;
+  kind: ConcordanceThemeKind;
+  canonicalIds: string[];
+  explanation: string;
+}
+
+export interface RuntimeThemeDeclaration {
+  primary: string[];
+  secondary: string[];
+  motifs: string[];
 }
 
 export interface LiteraryConcordance {
@@ -64,7 +134,38 @@ export interface LiteraryConcordance {
   literaryReleaseId: string;
   literaryReleaseContentSha256: string;
   relationshipDefinitions: Record<LiteraryRelationship, string>;
+  coveragePolicy: ConcordanceCoveragePolicy;
   mappings: ConcordanceMapping[];
+  endings: ConcordanceEndingMapping[];
+  characters: ConcordanceCharacterMapping[];
+  edges: ConcordanceEdgeCoverage;
+  explanations: ConcordanceExplanationMapping[];
+  themesAndMotifs: ConcordanceThemeMapping[];
+}
+
+export type ContradictionSeverity = 'sev-1' | 'sev-2' | 'sev-3';
+export type ContradictionStatus = 'open' | 'accepted-as-is' | 'resolved';
+
+export interface ContradictionEntry {
+  id: string;
+  title: string;
+  category: string;
+  severity: ContradictionSeverity;
+  description: string;
+  evidence: string[];
+  owner: string;
+  status: ContradictionStatus;
+  decision: string | null;
+  resolvedBy: string | null;
+  recordedAt: string;
+}
+
+export interface ContradictionRegister {
+  schemaVersion: string;
+  storyId: string;
+  severityDefinitions: Record<ContradictionSeverity, string>;
+  statusDefinitions: Record<ContradictionStatus, string>;
+  entries: ContradictionEntry[];
 }
 
 export interface VerifiedLiteraryRelease {
@@ -82,6 +183,7 @@ export interface VerifiedLiteraryIntake {
   concordance: LiteraryConcordance;
   catalog: StoryPackageCatalog;
   packageManifest: StoryPackageManifest;
+  contradictions?: ContradictionRegister;
 }
 
 export interface KnownLiterarySlice {
@@ -597,13 +699,245 @@ function assertIdsExist(ids: string[], known: Set<string>, label: string): void 
   }
 }
 
+function validateVariationFamilyPolicy(
+  value: unknown,
+  passage: PassageRecord,
+  familyCount: number,
+  familyStableKeys: Set<string>,
+): VariationFamilyPolicy {
+  const record = requireRecord(value, 'Variation policy for ' + passage.stableKey);
+  if (record.coversAllVariations !== true) {
+    throw new Error(
+      'Variation policy for ' + passage.stableKey + ' must declare coversAllVariations: true.',
+    );
+  }
+  if (record.variationCount !== familyCount) {
+    throw new Error(
+      'Variation policy for ' +
+        passage.stableKey +
+        ' declares ' +
+        String(record.variationCount) +
+        ' variations but the catalog ships ' +
+        String(familyCount) +
+        '.',
+    );
+  }
+  const selectionAxes = requireStringArray(
+    record.selectionAxes,
+    'Variation selection axes for ' + passage.stableKey,
+  );
+  const sampledVariationIds = requireStringArray(
+    record.sampledVariationIds,
+    'Sampled variation IDs for ' + passage.stableKey,
+  );
+  for (const sampled of sampledVariationIds) {
+    if (!familyStableKeys.has(sampled)) {
+      throw new Error(
+        'Sampled variation ' + sampled + ' does not belong to passage ' + passage.stableKey + '.',
+      );
+    }
+  }
+  const policy: VariationFamilyPolicy = {
+    coversAllVariations: true,
+    variationCount: familyCount,
+    selectionAxes,
+    sampledVariationIds,
+  };
+  if (record.samplingNote !== undefined) {
+    policy.samplingNote = requireString(
+      record.samplingNote,
+      'Sampling note for ' + passage.stableKey,
+    );
+  }
+  return policy;
+}
+
+function validateCoveragePolicy(
+  value: unknown,
+  catalog: StoryPackageCatalog,
+  sectionCoveredClasses: ReadonlySet<string>,
+): ConcordanceCoveragePolicy {
+  const record = requireRecord(value, 'Concordance coverage policy');
+  const exemptions: CoverageExemption[] = [];
+  const exempted = new Set<string>();
+  for (const [index, raw] of requireArray(
+    record.exemptions,
+    'Concordance coverage exemptions',
+  ).entries()) {
+    const item = requireRecord(raw, 'Coverage exemption ' + index);
+    const identityClass = requireString(item.identityClass, 'Coverage exemption identity class');
+    if (sectionCoveredClasses.has(identityClass)) {
+      throw new Error(
+        'Coverage exemption ' + identityClass + ' conflicts with a mapped concordance section.',
+      );
+    }
+    if (exempted.has(identityClass)) {
+      throw new Error('Duplicate coverage exemption: ' + identityClass);
+    }
+    exempted.add(identityClass);
+    if (typeof item.count !== 'number' || !Number.isInteger(item.count) || item.count < 0) {
+      throw new Error('Coverage exemption ' + identityClass + ' has an invalid count.');
+    }
+    exemptions.push({
+      identityClass,
+      count: item.count,
+      rule: requireString(item.rule, 'Coverage exemption rule for ' + identityClass),
+    });
+  }
+  const exemptedCatalogCounts: Record<string, number> = {
+    conditions: catalog.conditions.length,
+    proseBeats: catalog.proseBeats.length,
+    resources: catalog.resources.length,
+  };
+  for (const [identityClass, expectedCount] of Object.entries(exemptedCatalogCounts)) {
+    const exemption = exemptions.find((item) => item.identityClass === identityClass);
+    if (!exemption) {
+      throw new Error(
+        'Catalog identity class ' +
+          identityClass +
+          ' is neither mapped by a concordance section nor explicitly exempted.',
+      );
+    }
+    if (exemption.count !== expectedCount) {
+      throw new Error(
+        'Coverage exemption ' +
+          identityClass +
+          ' declares ' +
+          String(exemption.count) +
+          ' identities but the catalog ships ' +
+          String(expectedCount) +
+          '.',
+      );
+    }
+  }
+  const accounted = new Set([...sectionCoveredClasses, ...exempted]);
+  for (const identityClass of Object.keys(catalog)) {
+    if (!accounted.has(identityClass)) {
+      throw new Error(
+        'Catalog identity class ' +
+          identityClass +
+          ' is neither mapped by a concordance section nor explicitly exempted.',
+      );
+    }
+  }
+  return {
+    description: requireString(record.description, 'Concordance coverage policy description'),
+    auditReference: requireString(record.auditReference, 'Concordance coverage audit reference'),
+    exemptions,
+  };
+}
+
+export function validateContradictionRegister(
+  value: unknown,
+  storyId: string,
+): ContradictionRegister {
+  const root = requireRecord(value, 'Contradiction register');
+  if (root.schemaVersion !== CONTRADICTION_REGISTER_SCHEMA_VERSION) {
+    throw new Error('Unsupported contradiction register schema: ' + String(root.schemaVersion));
+  }
+  if (root.storyId !== storyId) {
+    throw new Error('Contradiction register story ID does not match the release.');
+  }
+  const severities: ContradictionSeverity[] = ['sev-1', 'sev-2', 'sev-3'];
+  const statuses: ContradictionStatus[] = ['open', 'accepted-as-is', 'resolved'];
+  const severityDefinitions = requireRecord(
+    root.severityDefinitions,
+    'Contradiction severity definitions',
+  );
+  const statusDefinitions = requireRecord(
+    root.statusDefinitions,
+    'Contradiction status definitions',
+  );
+  for (const severity of severities) {
+    requireString(severityDefinitions[severity], 'Severity definition ' + severity);
+  }
+  for (const status of statuses) {
+    requireString(statusDefinitions[status], 'Status definition ' + status);
+  }
+  const entries: ContradictionEntry[] = [];
+  const seen = new Set<string>();
+  for (const [index, raw] of requireArray(root.entries, 'Contradiction entries').entries()) {
+    const record = requireRecord(raw, 'Contradiction entry ' + index);
+    const id = requireString(record.id, 'Contradiction entry ID');
+    if (!/^CTR-\d{3}$/.test(id)) {
+      throw new Error('Contradiction entry ID must match CTR-NNN: ' + id);
+    }
+    if (seen.has(id)) {
+      throw new Error('Duplicate contradiction entry ID: ' + id);
+    }
+    seen.add(id);
+    const severity = requireString(record.severity, id + ' severity') as ContradictionSeverity;
+    if (!severities.includes(severity)) {
+      throw new Error(id + ' has unknown severity: ' + severity);
+    }
+    const status = requireString(record.status, id + ' status') as ContradictionStatus;
+    if (!statuses.includes(status)) {
+      throw new Error(id + ' has unknown status: ' + status);
+    }
+    const evidence = requireArray(record.evidence, id + ' evidence').map((item, itemIndex) =>
+      requireString(item, id + ' evidence item ' + itemIndex),
+    );
+    if (evidence.length === 0) {
+      throw new Error(id + ' must cite at least one piece of evidence.');
+    }
+    const decision =
+      record.decision === null ? null : requireString(record.decision, id + ' decision');
+    if (status !== 'open' && decision === null) {
+      throw new Error(id + ' is ' + status + ' but records no decision.');
+    }
+    const resolvedBy =
+      record.resolvedBy === null ? null : requireString(record.resolvedBy, id + ' resolvedBy');
+    if (status === 'resolved' && resolvedBy === null) {
+      throw new Error(id + ' is resolved but records no resolvedBy reference.');
+    }
+    const recordedAt = requireString(record.recordedAt, id + ' recordedAt');
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(recordedAt)) {
+      throw new Error(id + ' recordedAt must be an ISO date (YYYY-MM-DD).');
+    }
+    entries.push({
+      id,
+      title: requireString(record.title, id + ' title'),
+      category: requireString(record.category, id + ' category'),
+      severity,
+      description: requireString(record.description, id + ' description'),
+      evidence,
+      owner: requireString(record.owner, id + ' owner'),
+      status,
+      decision,
+      resolvedBy,
+      recordedAt,
+    });
+  }
+  return {
+    schemaVersion: CONTRADICTION_REGISTER_SCHEMA_VERSION,
+    storyId,
+    severityDefinitions: severityDefinitions as Record<ContradictionSeverity, string>,
+    statusDefinitions: statusDefinitions as Record<ContradictionStatus, string>,
+    entries,
+  };
+}
+
+export function summarizeContradictions(register: ContradictionRegister): {
+  total: number;
+  open: number;
+  openSevOne: number;
+} {
+  const open = register.entries.filter((entry) => entry.status === 'open');
+  return {
+    total: register.entries.length,
+    open: open.length,
+    openSevOne: open.filter((entry) => entry.severity === 'sev-1').length,
+  };
+}
+
 export function validateLiteraryConcordance(
   value: unknown,
   release: VerifiedLiteraryRelease,
   catalog: StoryPackageCatalog,
+  runtimeThemes?: RuntimeThemeDeclaration | null,
 ): LiteraryConcordance {
   const root = requireRecord(value, 'Literary concordance');
-  if (root.schemaVersion !== LITERARY_INTAKE_SCHEMA_VERSION) {
+  if (root.schemaVersion !== LITERARY_CONCORDANCE_SCHEMA_VERSION) {
     throw new Error('Unsupported literary concordance schema: ' + String(root.schemaVersion));
   }
   if (root.storyId !== release.known.storyId) {
@@ -627,6 +961,17 @@ export function validateLiteraryConcordance(
     );
   }
   const passagesById = new Map(catalog.passages.map((passage) => [passage.id, passage]));
+  const variationCounts = new Map<string, number>();
+  const variationKeysByPassage = new Map<string, Set<string>>();
+  for (const variation of catalog.variations) {
+    variationCounts.set(variation.passageId, (variationCounts.get(variation.passageId) ?? 0) + 1);
+    let keys = variationKeysByPassage.get(variation.passageId);
+    if (!keys) {
+      keys = new Set();
+      variationKeysByPassage.set(variation.passageId, keys);
+    }
+    keys.add(variation.stableKey);
+  }
   const mappings: ConcordanceMapping[] = [];
   const mapped = new Set<string>();
   for (const [index, raw] of requireArray(
@@ -686,6 +1031,12 @@ export function validateLiteraryConcordance(
       'Concordance philosophical constraint IDs',
     );
     assertIdsExist(promiseIds, release.identifierSets.promisePayoffs!, 'Concordance promise IDs');
+    const variations = validateVariationFamilyPolicy(
+      record.variations,
+      passage,
+      variationCounts.get(passageId) ?? 0,
+      variationKeysByPassage.get(passageId) ?? new Set<string>(),
+    );
     mappings.push({
       passageId,
       passageStableKey: stableKey,
@@ -696,6 +1047,7 @@ export function validateLiteraryConcordance(
       philosophicalConstraintIds,
       promiseIds,
       explanation: requireString(record.explanation, 'Concordance explanation'),
+      variations,
     });
   }
   const missing = catalog.passages.filter((passage) => !mapped.has(passage.id));
@@ -707,13 +1059,334 @@ export function validateLiteraryConcordance(
   if (mappings.length !== catalog.passages.length) {
     throw new Error('Concordance cardinality does not match the shipped passage catalog.');
   }
+  const mappedVariationTotal = mappings.reduce(
+    (sum, mapping) => sum + mapping.variations.variationCount,
+    0,
+  );
+  if (mappedVariationTotal !== catalog.variations.length) {
+    throw new Error(
+      'Concordance variation coverage (' +
+        String(mappedVariationTotal) +
+        ') does not match the shipped variation catalog (' +
+        String(catalog.variations.length) +
+        ').',
+    );
+  }
+
+  const endingsById = new Map(catalog.endings.map((ending) => [ending.id, ending]));
+  const endings: ConcordanceEndingMapping[] = [];
+  const endingSeen = new Set<string>();
+  for (const [index, raw] of requireArray(root.endings, 'Concordance endings').entries()) {
+    const record = requireRecord(raw, 'Concordance ending ' + index);
+    const endingId = requireStableId(record.endingId, 'Concordance ending ID');
+    const ending = endingsById.get(endingId);
+    if (!ending) {
+      throw new Error('Concordance references unknown shipped ending ' + endingId + '.');
+    }
+    if (endingSeen.has(endingId)) {
+      throw new Error('Concordance maps shipped ending more than once: ' + endingId);
+    }
+    endingSeen.add(endingId);
+    const endingStableKey = requireStableId(
+      record.endingStableKey,
+      'Concordance ending stable key',
+    );
+    if (endingStableKey !== ending.stableKey) {
+      throw new Error('Concordance ending stable key mismatch for ' + endingId + '.');
+    }
+    const passageId = requireStableId(record.passageId, 'Concordance ending passage ID');
+    if (passageId !== ending.passageId) {
+      throw new Error('Concordance ending ' + endingId + ' names the wrong terminal passage.');
+    }
+    if (!mapped.has(passageId)) {
+      throw new Error('Concordance ending ' + endingId + ' targets an unmapped passage.');
+    }
+    endings.push({
+      endingId,
+      endingStableKey,
+      passageId,
+      endingPhilosophy: requireString(record.endingPhilosophy, 'Concordance ending philosophy'),
+      explanation: requireString(record.explanation, 'Concordance ending explanation'),
+    });
+  }
+  if (endings.length !== catalog.endings.length) {
+    throw new Error('Concordance ending coverage does not match the shipped ending catalog.');
+  }
+
+  const charactersById = new Map(catalog.characters.map((character) => [character.id, character]));
+  const characters: ConcordanceCharacterMapping[] = [];
+  const characterSeen = new Set<string>();
+  const claimedCanonicalCharacters = new Set<string>();
+  for (const [index, raw] of requireArray(root.characters, 'Concordance characters').entries()) {
+    const record = requireRecord(raw, 'Concordance character ' + index);
+    const characterId = requireStableId(record.characterId, 'Concordance character ID');
+    const character = charactersById.get(characterId);
+    if (!character) {
+      throw new Error('Concordance references unknown shipped character ' + characterId + '.');
+    }
+    if (characterSeen.has(characterId)) {
+      throw new Error('Concordance maps shipped character more than once: ' + characterId);
+    }
+    characterSeen.add(characterId);
+    const characterStableKey = requireStableId(
+      record.characterStableKey,
+      'Concordance character stable key',
+    );
+    if (characterStableKey !== character.stableKey) {
+      throw new Error('Concordance character stable key mismatch for ' + characterId + '.');
+    }
+    const kind = requireString(
+      record.kind,
+      'Concordance character kind',
+    ) as ConcordanceCharacterKind;
+    if (kind !== 'canonical-voice' && kind !== 'runtime-composite') {
+      throw new Error(
+        'Concordance character ' + characterStableKey + ' has unknown kind ' + kind + '.',
+      );
+    }
+    const voiceIds = requireStringArray(
+      record.voiceIds,
+      'Concordance character voice IDs for ' + characterStableKey,
+    );
+    assertIdsExist(
+      voiceIds,
+      release.identifierSets.voices!,
+      'Concordance character voice IDs for ' + characterStableKey,
+    );
+    let canonicalCharacterId: string | null = null;
+    if (kind === 'canonical-voice') {
+      canonicalCharacterId = requireStableId(
+        record.canonicalCharacterId,
+        'Concordance canonical character ID for ' + characterStableKey,
+      );
+      if (!release.identifierSets.characters!.has(canonicalCharacterId)) {
+        throw new Error(
+          'Concordance character ' +
+            characterStableKey +
+            ' references unknown canonical character ' +
+            canonicalCharacterId +
+            '.',
+        );
+      }
+      if (claimedCanonicalCharacters.has(canonicalCharacterId)) {
+        throw new Error(
+          'Canonical character ' +
+            canonicalCharacterId +
+            ' is claimed by more than one runtime character.',
+        );
+      }
+      claimedCanonicalCharacters.add(canonicalCharacterId);
+      if (voiceIds.length !== 1) {
+        throw new Error(
+          'Canonical-voice character ' + characterStableKey + ' must declare exactly one voice.',
+        );
+      }
+    } else {
+      if (record.canonicalCharacterId !== null) {
+        throw new Error(
+          'Runtime-composite character ' +
+            characterStableKey +
+            ' must declare canonicalCharacterId: null.',
+        );
+      }
+      if (voiceIds.length < 2) {
+        throw new Error(
+          'Runtime-composite character ' + characterStableKey + ' must span at least two voices.',
+        );
+      }
+    }
+    characters.push({
+      characterId,
+      characterStableKey,
+      kind,
+      canonicalCharacterId,
+      voiceIds,
+      explanation: requireString(
+        record.explanation,
+        'Concordance character explanation for ' + characterStableKey,
+      ),
+    });
+  }
+  if (characters.length !== catalog.characters.length) {
+    throw new Error('Concordance character coverage does not match the shipped character catalog.');
+  }
+  for (const canonicalCharacterId of release.identifierSets.characters!) {
+    if (!claimedCanonicalCharacters.has(canonicalCharacterId)) {
+      throw new Error(
+        'Canonical character ' + canonicalCharacterId + ' is not claimed by any runtime character.',
+      );
+    }
+  }
+
+  const edgesRecord = requireRecord(root.edges, 'Concordance edge coverage');
+  if (edgesRecord.relationship !== 'interactive-only-connective') {
+    throw new Error('Concordance edge coverage must declare interactive-only-connective.');
+  }
+  const edgeStableKeys = requireArray(
+    edgesRecord.edgeStableKeys,
+    'Concordance edge stable keys',
+  ).map((item, index) => requireString(item, 'Concordance edge stable key ' + index));
+  const declaredEdges = new Set(edgeStableKeys);
+  if (declaredEdges.size !== edgeStableKeys.length) {
+    throw new Error('Concordance edge stable keys contain duplicates.');
+  }
+  const shippedEdges = new Set(catalog.edges.map((edge) => edge.stableKey));
+  for (const stableKey of shippedEdges) {
+    if (!declaredEdges.has(stableKey)) {
+      throw new Error('Concordance edge coverage is missing shipped edge ' + stableKey + '.');
+    }
+  }
+  for (const stableKey of declaredEdges) {
+    if (!shippedEdges.has(stableKey)) {
+      throw new Error('Concordance edge coverage names unknown edge ' + stableKey + '.');
+    }
+  }
+  const edges: ConcordanceEdgeCoverage = {
+    relationship: 'interactive-only-connective',
+    rule: requireString(edgesRecord.rule, 'Concordance edge coverage rule'),
+    edgeStableKeys,
+  };
+
+  const explanationsById = new Map(
+    catalog.explanations.map((explanation) => [explanation.id, explanation]),
+  );
+  const explanations: ConcordanceExplanationMapping[] = [];
+  const explanationSeen = new Set<string>();
+  for (const [index, raw] of requireArray(
+    root.explanations,
+    'Concordance explanations',
+  ).entries()) {
+    const record = requireRecord(raw, 'Concordance explanation ' + index);
+    const explanationId = requireStableId(record.explanationId, 'Concordance explanation ID');
+    const explanation = explanationsById.get(explanationId);
+    if (!explanation) {
+      throw new Error('Concordance references unknown shipped explanation ' + explanationId + '.');
+    }
+    if (explanationSeen.has(explanationId)) {
+      throw new Error('Concordance maps shipped explanation more than once: ' + explanationId);
+    }
+    explanationSeen.add(explanationId);
+    const explanationStableKey = requireStableId(
+      record.explanationStableKey,
+      'Concordance explanation stable key',
+    );
+    if (explanationStableKey !== explanation.stableKey) {
+      throw new Error('Concordance explanation stable key mismatch for ' + explanationId + '.');
+    }
+    const classification = requireString(
+      record.classification,
+      'Concordance explanation classification',
+    );
+    if (!classification.endsWith('-no-literary-claim')) {
+      throw new Error(
+        'Concordance explanation ' +
+          explanationStableKey +
+          ' must be classified as making no literary claim.',
+      );
+    }
+    explanations.push({
+      explanationId,
+      explanationStableKey,
+      classification,
+      explanation: requireString(record.explanation, 'Concordance explanation text'),
+    });
+  }
+  if (explanations.length !== catalog.explanations.length) {
+    throw new Error(
+      'Concordance explanation coverage does not match the shipped explanation catalog.',
+    );
+  }
+
+  const themeKinds: ConcordanceThemeKind[] = ['primary-theme', 'secondary-theme', 'motif'];
+  const canonicalThemeIds = new Set([
+    ...release.identifierSets.philosophicalConstraints!,
+    ...release.identifierSets.glossary!,
+  ]);
+  const themesAndMotifs: ConcordanceThemeMapping[] = [];
+  const themeSeen = new Set<string>();
+  for (const [index, raw] of requireArray(
+    root.themesAndMotifs,
+    'Concordance themes and motifs',
+  ).entries()) {
+    const record = requireRecord(raw, 'Concordance theme ' + index);
+    const theme = requireString(record.theme, 'Concordance theme name');
+    if (themeSeen.has(theme)) {
+      throw new Error('Concordance maps theme more than once: ' + theme);
+    }
+    themeSeen.add(theme);
+    const kind = requireString(record.kind, 'Concordance theme kind') as ConcordanceThemeKind;
+    if (!themeKinds.includes(kind)) {
+      throw new Error('Concordance theme ' + theme + ' has unknown kind ' + kind + '.');
+    }
+    const canonicalIds = requireStringArray(
+      record.canonicalIds,
+      'Concordance canonical IDs for theme ' + theme,
+    );
+    for (const canonicalId of canonicalIds) {
+      if (!canonicalThemeIds.has(canonicalId)) {
+        throw new Error(
+          'Concordance theme ' + theme + ' references unknown canonical claim ' + canonicalId + '.',
+        );
+      }
+    }
+    themesAndMotifs.push({
+      theme,
+      kind,
+      canonicalIds,
+      explanation: requireString(record.explanation, 'Concordance theme explanation for ' + theme),
+    });
+  }
+  if (runtimeThemes) {
+    const declared: Array<[ConcordanceThemeKind, string[]]> = [
+      ['primary-theme', runtimeThemes.primary],
+      ['secondary-theme', runtimeThemes.secondary],
+      ['motif', runtimeThemes.motifs],
+    ];
+    for (const [kind, expected] of declared) {
+      const actual = themesAndMotifs
+        .filter((entry) => entry.kind === kind)
+        .map((entry) => entry.theme);
+      if (!sameOrderedStrings(actual, expected)) {
+        throw new Error(
+          'Concordance ' +
+            kind +
+            ' entries do not match the runtime story declaration: expected [' +
+            expected.join(', ') +
+            '], found [' +
+            actual.join(', ') +
+            '].',
+        );
+      }
+    }
+  }
+
+  const sectionCoveredClasses = new Set([
+    'passages',
+    'variations',
+    'edges',
+    'endings',
+    'characters',
+    'explanations',
+  ]);
+  const coveragePolicy = validateCoveragePolicy(
+    root.coveragePolicy,
+    catalog,
+    sectionCoveredClasses,
+  );
+
   return {
-    schemaVersion: LITERARY_INTAKE_SCHEMA_VERSION,
+    schemaVersion: LITERARY_CONCORDANCE_SCHEMA_VERSION,
     storyId: release.known.storyId,
     literaryReleaseId: release.known.releaseId,
     literaryReleaseContentSha256: release.known.contentSha256,
     relationshipDefinitions,
+    coveragePolicy,
     mappings,
+    endings,
+    characters,
+    edges,
+    explanations,
+    themesAndMotifs,
   };
 }
 
@@ -726,6 +1399,23 @@ async function loadPackage(repositoryRoot: string): Promise<{
   return { manifest: result.manifest!, catalog: result.catalog! };
 }
 
+async function loadRuntimeThemeDeclaration(
+  repositoryRoot: string,
+): Promise<RuntimeThemeDeclaration> {
+  const story = requireRecord(
+    await readJson(resolve(repositoryRoot, 'src/data/stories/eternal-return/story.json')),
+    'Runtime story declaration',
+  );
+  const themes = requireRecord(story.themes, 'Runtime story themes');
+  const readList = (value: unknown, label: string): string[] =>
+    requireArray(value, label).map((item, index) => requireString(item, label + ' item ' + index));
+  return {
+    primary: readList(themes.primary, 'Runtime primary themes'),
+    secondary: readList(themes.secondary, 'Runtime secondary themes'),
+    motifs: readList(themes.motifs, 'Runtime motifs'),
+  };
+}
+
 export async function verifyLiteraryIntake(
   repositoryRoot: string,
   releaseId: string,
@@ -736,8 +1426,18 @@ export async function verifyLiteraryIntake(
   const concordanceValue = await readJson(
     resolve(repositoryRoot, 'story-packages/concordance/eternal-return.v1.json'),
   );
-  const concordance = validateLiteraryConcordance(concordanceValue, release, catalog);
-  return { release, concordance, catalog, packageManifest: manifest };
+  const runtimeThemes = await loadRuntimeThemeDeclaration(repositoryRoot);
+  const concordance = validateLiteraryConcordance(
+    concordanceValue,
+    release,
+    catalog,
+    runtimeThemes,
+  );
+  const contradictions = validateContradictionRegister(
+    await readJson(resolve(repositoryRoot, 'story-packages/concordance/contradictions.v1.json')),
+    release.known.storyId,
+  );
+  return { release, concordance, catalog, packageManifest: manifest, contradictions };
 }
 
 function countRelationships(mappings: ConcordanceMapping[]): Record<LiteraryRelationship, number> {

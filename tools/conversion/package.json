@@ -26,6 +26,7 @@
     "convert:watch": "tsx convert-md-to-json.ts --watch",
     "aggregate": "tsx aggregate-l3-l4.ts",
     "matrix": "tsx generate-selection-matrix.ts --strict",
+    "canon:validate": "tsx canon-validate.ts",
     "matrix:enhanced": "tsx generate-selection-matrix-enhanced.ts",
     "matrix:l1": "tsx generate-selection-matrix-enhanced.ts --layers=L1 --non-strict",
     "matrix:l2": "tsx generate-selection-matrix-enhanced.ts --layers=L1,L2 --non-strict",

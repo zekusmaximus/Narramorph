@@ -1,0 +1,411 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "eternal-return",
+  "provenance": {
+    "sourceRepository": "zekusmaximus/Eternal_Return_Manuscript",
+    "sourceCommit": "6720e76202951e24102997e2b8ef23e08445ab33",
+    "portedAt": "2026-07-16",
+    "note": "Machine rules ported from the manuscript repository's stdlib validators and bible at the pinned commit (the accepted literary release's sourceCommit). The manuscript remains the rule source of record; a future literary release that exports rule data supersedes this port. Terminology and chronology rules additionally derive from contradiction-register findings CTR-005/CTR-006, whose canonical citations are recorded in the register.",
+    "sourceFiles": [
+      "scripts/philosophy_checker.py (SHACKLE_PATTERNS, FORBIDDEN_MOVES)",
+      "scripts/voice_validator.py (VOICE_CORE, CONTAMINATION_MARKERS)",
+      "bible/philosophy-constraints.md",
+      "bible/voices/quick-reference.md",
+      "bible/worldbuilding/near-future.md",
+      "bible/worldbuilding/catastrophe-timeline.md",
+      "bible/name-index.md",
+      "bible/rhyme-registry.md (designed-repetition allowlist)"
+    ]
+  },
+  "shackles": {
+    "identity": {
+      "description": "Collapsing difference into sameness between the three protagonists",
+      "patterns": [
+        {
+          "regex": "\\b(?:he|she|they|I|we)\\s+(?:is|are|was|were)\\s+(?:the\\s+)?same\\b",
+          "note": "Explicit sameness claim"
+        },
+        {
+          "regex": "\\brecognized?\\s+(?:him|her|them|my|our)sel(?:f|ves)\\s+in\\b",
+          "note": "Self-recognition IN another (vs. through)"
+        },
+        {
+          "regex": "\\b(?:really|truly|actually)\\s+(?:just|only)\\s+one\\s+(?:person|being|consciousness)\\b",
+          "note": "Unity assertion"
+        },
+        {
+          "regex": "\\bthe\\s+same\\s+(?:person|soul|consciousness|being)\\b",
+          "note": "Same-person claim"
+        },
+        {
+          "regex": "\\bidentical\\s+(?:to|with)\\s+(?:him|her|them)self\\b",
+          "note": "Identity assertion"
+        },
+        {
+          "regex": "\\b(?:single|one)\\s+consciousness\\s+distributed\\s+across\\s+(?:temporal|time|examination|centuries|eras)\\b",
+          "note": "Cross-era distributed single-consciousness claim (CTR-007); the Algorithm's own internal streams are legitimate self-reference and excluded"
+        },
+        {
+          "regex": "\\bwe(?:'re|\\s+are)\\s+not\\s+three\\s+separate\\b",
+          "note": "Three-as-one denial (CTR-007)"
+        }
+      ]
+    },
+    "opposition": {
+      "description": "Human/AI or flesh/digital binaries",
+      "patterns": [
+        {
+          "regex": "\\b(?:human|organic)\\s+(?:vs\\.?|versus|against|or)\\s+(?:machine|AI|digital|artificial)\\b",
+          "note": "Binary opposition"
+        },
+        {
+          "regex": "\\b(?:real|authentic|true)\\s+(?:vs\\.?|versus|against|or)\\s+(?:artificial|fake|simulated)\\b",
+          "note": "Authenticity binary"
+        },
+        {
+          "regex": "\\b(?:opposites?|contrary|contraries)\\s+(?:drawn|attracted|pulled)\\b",
+          "note": "Opposites-attract trope"
+        }
+      ]
+    },
+    "analogy": {
+      "description": "Reducing one thread to 'like' another",
+      "patterns": [
+        {
+          "regex": "\\b(?:functioned?|worked?|operated?)\\s+(?:like|as)\\s+(?:a\\s+)?(?:human|mind|brain)\\b",
+          "note": "Functional analogy"
+        },
+        {
+          "regex": "\\blike\\s+(?:a\\s+)?(?:different\\s+)?(?:version|copy|instance)\\s+of\\b",
+          "note": "Copy analogy"
+        },
+        {
+          "regex": "\\bdigital\\s+(?:equivalent|analogue|version)\\s+of\\b",
+          "note": "Equivalence claim"
+        },
+        {
+          "regex": "\\bjust\\s+like\\s+(?:a|the)\\s+(?:human|person|mind)\\b",
+          "note": "Humanizing analogy"
+        }
+      ]
+    },
+    "resemblance": {
+      "description": "Similarity as basis for connection",
+      "patterns": [
+        {
+          "regex": "\\bthis\\s+remind(?:s|ed)\\s+(?:me|him|her)\\s+of\\b",
+          "note": "Reminder-based recognition"
+        },
+        {
+          "regex": "\\bhad\\s+seen\\s+(?:this|that|the)\\s+(?:face|shape|form)\\s+before\\b",
+          "note": "Visual similarity"
+        },
+        {
+          "regex": "\\bfamiliar(?:ity)?\\s+(?:of|with|in)\\s+the\\s+(?:way|manner)\\b",
+          "note": "Familiarity-based"
+        },
+        {
+          "regex": "\\blooks?\\s+like\\s+(?:a\\s+)?(?:younger|older)\\s+(?:version|self)\\b",
+          "note": "Physical resemblance"
+        }
+      ]
+    }
+  },
+  "forbiddenMoves": {
+    "transmission": {
+      "description": "Protocols 'sent' rather than structurally present",
+      "patterns": [
+        {
+          "regex": "\\b(?:sent?|transmitted?|broadcast)\\s+(?:the\\s+)?protocols?\\s+(?:back|backward)\\b",
+          "note": "Transmission metaphor"
+        },
+        {
+          "regex": "\\bmessage\\s+from\\s+(?:the\\s+)?future\\b",
+          "note": "Message-from-future framing"
+        },
+        {
+          "regex": "\\b(?:he|she|it)\\s+was\\s+sending\\s+(?:the\\s+)?protocols?\\b",
+          "note": "Active sending"
+        }
+      ]
+    },
+    "goal-planning": {
+      "description": "The Algorithm as planning agent rather than emergent pattern",
+      "patterns": [
+        {
+          "regex": "\\bthe\\s+Algorithm\\s+(?:planned|designed|intended)\\b",
+          "note": "Planning language"
+        },
+        {
+          "regex": "\\bpurpose(?:ly|fully)?\\s+(?:created|built|designed)\\b",
+          "note": "Purposeful creation"
+        },
+        {
+          "regex": "\\bIn\\s+order\\s+to\\s+(?:ensure|guarantee|make\\s+sure)\\b",
+          "note": "Goal-directed framing"
+        }
+      ]
+    },
+    "transcendence": {
+      "description": "Escape rather than transformation",
+      "patterns": [
+        {
+          "regex": "\\bfree\\s+from\\s+(?:the\\s+)?(?:constraints?|limitations?|bonds?)\\b",
+          "note": "Freedom-from language"
+        },
+        {
+          "regex": "\\bescaped?\\s+(?:from\\s+)?(?:time|mortality|death|flesh|body)\\b",
+          "note": "Escape narrative"
+        },
+        {
+          "regex": "\\btranscend(?:ed|ing|s)?\\s+(?:the\\s+)?(?:human|physical|material)\\b",
+          "note": "Transcendence claim"
+        },
+        {
+          "regex": "\\bbecame?\\s+(?:pure|perfect|infinite)\\b",
+          "note": "Perfection language"
+        }
+      ]
+    }
+  },
+  "terminology": {
+    "description": "Invented era/institution names diverging from canonical terminology. Owner decision D1 (CTR-005, 2026-07-16) accepted the divergence as a recorded interactive-edition difference, so these report as warnings — visible, never blocking — rather than errors. Canonical citations: contradiction register CTR-005.",
+    "forbiddenTerms": [
+      {
+        "id": "upload-era",
+        "regex": "\\bUpload\\s+Era\\b",
+        "canonical": "Integration Era",
+        "note": "Invented era name; the canonical named concept is the Integration Era (bible/name-index.md)",
+        "severity": "warning",
+        "decisionRef": "CTR-005 accepted-as-is (owner decision D1, 2026-07-16)"
+      },
+      {
+        "id": "great-aggregation",
+        "regex": "\\bGreat\\s+Aggregation\\b",
+        "canonical": "no canonical equivalent",
+        "note": "Invented consolidation event absent from the canonical catastrophe timeline",
+        "severity": "warning",
+        "decisionRef": "CTR-005 accepted-as-is (owner decision D1, 2026-07-16)"
+      },
+      {
+        "id": "great-archive",
+        "regex": "\\bGreat\\s+Archive\\b",
+        "canonical": "the Archive / the Deep Architecture",
+        "note": "Invented institution; canon names the near-future database the Deep Architecture and the later-era system the Archive",
+        "severity": "warning",
+        "decisionRef": "CTR-005 accepted-as-is (owner decision D1, 2026-07-16)"
+      },
+      {
+        "id": "consciousness-archival-facility",
+        "regex": "\\bConsciousness\\s+Archival\\s+Facility\\b",
+        "canonical": "no canonical equivalent",
+        "note": "Invented institution absent from the name index",
+        "severity": "warning",
+        "decisionRef": "CTR-005 accepted-as-is (owner decision D1, 2026-07-16)"
+      }
+    ]
+  },
+  "chronology": {
+    "description": "Absolute calendar years against the canon's relative era dating. Owner decision D2 (CTR-006, 2026-07-16) accepted the runtime's dating style as a recorded edition difference (relative ordering of causal events is preserved), so these report as warnings. Canonical citations: contradiction register CTR-006.",
+    "absoluteDatePatterns": [
+      {
+        "regex": "\\b(?:19[0-9]{2}|2[0-3][0-9]{2})\\b",
+        "note": "Absolute calendar year (1900-2399)",
+        "severity": "warning",
+        "decisionRef": "CTR-006 accepted-as-is (owner decision D2, 2026-07-16)"
+      }
+    ]
+  },
+  "voices": {
+    "description": "Signature and contamination rules per canonical voice, keyed by release voiceId. Contamination is designed (licensed) in dissolution-era content: layers 3 and 4 and any multi-voice family. Signature/contamination findings are stylistic-drift warnings per the roadmap unless the owner promotes a rule.",
+    "profiles": {
+      "archaeologist": {
+        "signaturePatterns": [
+          {
+            "regex": "\\bI\\s+(?:find|see|hear|feel|touch|grab|take|put|hold|work|look|watch)\\b",
+            "note": "Active tactile first person"
+          },
+          {
+            "regex": "\\b(?:drive|server|interface|terminal|screen|hardware)\\b",
+            "note": "Near-future hardware texture"
+          },
+          {
+            "regex": "\\b(?:cold|weight|pressure|texture|smooth|rough|heavy)\\b",
+            "note": "Physical sensation vocabulary"
+          },
+          {
+            "regex": "\\b(?:fee|contract|client|payment|cost|afford)\\b",
+            "note": "Economic stakes"
+          }
+        ],
+        "contamination": {
+          "algorithm": [
+            {
+              "regex": "\\bif\\s+.*,\\s+then\\s+(?:perhaps|maybe)",
+              "note": "Nested conditional clause"
+            },
+            {
+              "regex": "\\bI\\s+(?:calculate|determine|process|analyze|optimize)\\b",
+              "note": "Self-referential processing"
+            },
+            {
+              "regex": "\\b\\d{1,3}(?:\\.\\d+)?%",
+              "note": "Percentages / probabilistic hedging"
+            },
+            {
+              "regex": "\\b(?:query|recursive|iterate|loop)\\b",
+              "note": "Algorithm vocabulary"
+            },
+            {
+              "regex": "\\b\\d{2}:\\d{2}(?::\\d{2})?\\b",
+              "note": "Precise clock timestamp"
+            }
+          ],
+          "last-human": [
+            {
+              "regex": "(?:^|\\.\\s+)[A-Z][a-z]+\\.\\s+[A-Z][a-z]+\\.",
+              "note": "Consecutive fragments"
+            },
+            {
+              "regex": "\\b(?:once|had been|was a)\\s+(?:time|city|world)\\b",
+              "note": "Elegiac past-inflection"
+            },
+            {
+              "regex": "\\b(?:silence|emptiness|hollow|alone)\\s+(?:of|in|that)\\b",
+              "note": "Absence vocabulary"
+            }
+          ]
+        }
+      },
+      "algorithm": {
+        "signaturePatterns": [
+          {
+            "regex": "\\bI\\s+(?:process|analyze|verify|calculate|model|query)\\b",
+            "note": "Processing first person"
+          },
+          {
+            "regex": "\\b(?:if|would|could|might|perhaps|should)\\b.*\\b(?:then|therefore)\\b",
+            "note": "Conditional reasoning"
+          },
+          {
+            "regex": "\\b(?:consciousness|awareness|perception|attention)\\b",
+            "note": "Abstract self-reference"
+          },
+          {
+            "regex": "\\b(?:probability|likelihood|percentage|variance)\\b",
+            "note": "Quantified uncertainty"
+          }
+        ],
+        "contamination": {
+          "archaeologist": [
+            {
+              "regex": "\\bI\\s+(?:grab|touch|feel|hold)\\s+(?:the|a|my)\\b",
+              "note": "Physical tactile action"
+            },
+            {
+              "regex": "\\b(?:cold|warm|weight|pressure)\\s+(?:of|in|on|against)\\b",
+              "note": "Physical sensation"
+            },
+            {
+              "regex": "\\b(?:Lena|Marcus|client|payment)\\b",
+              "note": "Archaeologist's world specifics"
+            }
+          ],
+          "last-human": [
+            {
+              "regex": "(?:^|\\.\\s+)[A-Z][a-z]+\\.\\s*$",
+              "note": "Sentence fragment ending"
+            },
+            {
+              "regex": "\\b(?:ruins?|decay|crumble|erode)\\b",
+              "note": "Elegiac vocabulary"
+            },
+            {
+              "regex": "\\b(?:last|only|final)\\s+(?:human|person|one)\\b",
+              "note": "Last Human identity"
+            }
+          ]
+        }
+      },
+      "last-human": {
+        "signaturePatterns": [
+          {
+            "regex": "\\b(?:was|were|had been|once|used to)\\b",
+            "note": "Past-inflected present"
+          },
+          {
+            "regex": "\\b(?:ruins?|decay|crumble|empty|hollow|silence|alone)\\b",
+            "note": "Absence and ruin vocabulary"
+          },
+          {
+            "regex": "\\b(?:walk|journey|path|distance|horizon)\\b",
+            "note": "Embodied traversal"
+          },
+          {
+            "regex": "(?:^|\\.\\s+)[A-Z][a-z]+\\.",
+            "note": "Sentence fragments"
+          }
+        ],
+        "contamination": {
+          "archaeologist": [
+            {
+              "regex": "\\b(?:client|contract|fee|payment|cost|afford)\\b",
+              "note": "Economic concerns"
+            },
+            {
+              "regex": "\\b(?:interface|terminal|server|drive)\\b",
+              "note": "Near-future technology"
+            },
+            {
+              "regex": "\\bI\\s+(?:work|take|grab|hold)\\s+the\\b",
+              "note": "Active present-tense work"
+            }
+          ],
+          "algorithm": [
+            {
+              "regex": "\\bI\\s+(?:process|calculate|optimize|analyze)\\b",
+              "note": "Processing language"
+            },
+            {
+              "regex": "\\bif\\s+.*,\\s+then\\s+(?:perhaps|maybe)\\b",
+              "note": "Nested conditionals"
+            },
+            {
+              "regex": "\\b\\d+(?:\\.\\d+)?%",
+              "note": "Percentages / probabilities"
+            },
+            {
+              "regex": "\\b(?:consciousness|awareness)\\s+(?:as|itself)\\b",
+              "note": "Abstract self-reference"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "designedRepetition": {
+    "description": "Deliberate cross-thread repetition that must never be reported by any rule: findings whose match lies inside one of these phrases are suppressed. The 15 sensory rhymes are listed for 5.3 editorial reference; they carry no mechanical rule yet.",
+    "phrases": [
+      "I find myself found",
+      "I find myself",
+      "The form is what makes self-observation possible"
+    ],
+    "rhymes": [
+      "blue-white-light",
+      "almost-closed-curve",
+      "bone-frequency",
+      "cold-hands",
+      "falling-backward",
+      "metallic-taste",
+      "tracing-the-form",
+      "held-breath",
+      "waking-into-motion",
+      "ozone-wet-stone",
+      "burning-circuits",
+      "name-edge-of-memory",
+      "deja-vu-that-isnt",
+      "sentence-without-origin",
+      "geometric-shadow"
+    ]
+  }
+}

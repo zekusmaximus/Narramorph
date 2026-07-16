@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "storyId": "eternal-return",
   "literaryReleaseId": "eternal-return-literary-v1.0.1",
   "literaryReleaseContentSha256": "667dd8d971352c8665fdac97fefdf258bb71489d21853a2a87e5ac236912747f",
@@ -9,109 +9,258 @@
     "interactive-only-connective": "Runtime connective tissue exists to join interactive branches and has no prose-equivalent canonical scene, while remaining constrained by mapped canonical context.",
     "independent-runtime": "Runtime prose makes no canonical literary claim beyond belonging to the shipped interactive work; no v1 passage currently requires this relationship."
   },
+  "coveragePolicy": {
+    "description": "Every identity class shipped in the story-package catalog is accounted for by exactly one of: the per-passage mappings, the per-passage variation-family policy blocks, a class-level section (endings, characters, edges, explanations), or an explicit exemption below. The literary validator enforces this accounting; an identity class absent from all of them fails validation. Prose beats and selection conditions inherit the canonical accountability of the variation family that owns them.",
+    "auditReference": "docs/consolidation/PHASE_5_CONCORDANCE_AUDIT.md",
+    "exemptions": [
+      {
+        "identityClass": "conditions",
+        "count": 3012,
+        "rule": "Mechanical selection predicates (transformationState / awareness / awarenessRange / journeyPattern / philosophyDominant / awarenessLevel / philosophy). They carry no prose, derive their identity from the variation they select, and inherit that variation family’s mapping."
+      },
+      {
+        "identityClass": "proseBeats",
+        "count": 1014,
+        "rule": "Exactly one beat per variation today; beat stable keys embed the beat ordinal and are re-minted by any re-segmentation, so beats are never mapped per-item and inherit their parent variation family’s mapping. A future multi-beat content release re-states this rule or maps its beats."
+      },
+      {
+        "identityClass": "resources",
+        "count": 0,
+        "rule": "Package file inventory (paths and digests only); technical provenance with no literary claim."
+      },
+      {
+        "identityClass": "choices",
+        "count": 0,
+        "rule": "No standalone choice identities exist in the package; reader navigation is expressed only by the edges accounted for in the edges section plus the layer-2 accept/resist/invest semantics already carried by the passage mappings."
+      },
+      {
+        "identityClass": "runtime-explanation-templates",
+        "count": 10,
+        "rule": "The reader-facing condition-category explanation strings live in application code (src/domain/variation/conditionExplanations.ts), never interpolate story content, and are not package identities; they are governed by code review, not the concordance."
+      }
+    ]
+  },
   "mappings": [
     {
       "passageId": "spv1_psg_bfae109a0932473462f0a98b",
       "passageStableKey": "algo-L1",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-006", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-007", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-011", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-006",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-007",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-011",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["algorithm"],
-      "chronologyIds": ["er-chronology-phase-1"],
+      "chronologyIds": ["er-chronology-phase-3"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-tertiary-retention-stiegler",
         "er-philosophy-key-concepts-the-pharmakon"
       ],
       "promiseIds": ["P16", "P17", "P18", "P20", "P21", "P22", "P24"],
-      "explanation": "The algorithm opening is separately authored runtime prose aligned to the first-movement algorithm scenes, mid-future chronology, retention/pharmakon constraints, and their declared promise chain."
+      "explanation": "The algorithm opening is separately authored runtime prose aligned to the first-movement algorithm scenes, mid-future chronology, retention/pharmakon constraints, and their declared promise chain.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 4,
+        "selectionAxes": ["transformationState", "awareness", "awarenessRange"],
+        "sampledVariationIds": ["algo-L1-001", "algo-L1-002", "algo-L1-003", "algo-L1-004"],
+        "samplingNote": "All layer-1 variations sampled (small family)."
+      }
     },
     {
       "passageId": "spv1_psg_b14ac382d2b23b91a0288689",
       "passageStableKey": "algo-L2-accept",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-014", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-017", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-020", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-014",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-017",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-020",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["algorithm"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-3"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-identity-dissolution-klossowski",
         "er-philosophy-key-concepts-eternal-return"
       ],
       "promiseIds": ["P24", "P35", "P36", "P42", "P43"],
-      "explanation": "The accepting branch interprets the second-movement algorithm arc through identity dissolution and eternal return; it does not reproduce a manuscript branch."
+      "explanation": "The accepting branch interprets the second-movement algorithm arc through identity dissolution and eternal return; it does not reproduce a manuscript branch.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 81,
+        "selectionAxes": ["transformationState", "awareness", "awarenessRange"],
+        "sampledVariationIds": [
+          "algo-L2-accept-001",
+          "algo-L2-accept-021",
+          "algo-L2-accept-041",
+          "algo-L2-accept-061",
+          "algo-L2-accept-081"
+        ]
+      }
     },
     {
       "passageId": "spv1_psg_d392cd8f6f44a690dc5ae556",
       "passageStableKey": "algo-L2-invest",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-014", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-017", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-020", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-014",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-017",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-020",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["algorithm"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-3"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-the-pharmakon",
         "er-philosophy-key-concepts-tertiary-retention-stiegler"
       ],
       "promiseIds": ["P20", "P24", "P36", "P43"],
-      "explanation": "The investigating branch is an interactive interpretation of the same algorithm scenes, constrained by the archive-as-pharmakon and tertiary-retention concepts."
+      "explanation": "The investigating branch is an interactive interpretation of the same algorithm scenes, constrained by the archive-as-pharmakon and tertiary-retention concepts.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 81,
+        "selectionAxes": ["transformationState", "awareness", "awarenessRange"],
+        "sampledVariationIds": [
+          "algo-L2-invest-001",
+          "algo-L2-invest-021",
+          "algo-L2-invest-041",
+          "algo-L2-invest-061",
+          "algo-L2-invest-081"
+        ]
+      }
     },
     {
       "passageId": "spv1_psg_e7f1095f21d2932d3f0f1b73",
       "passageStableKey": "algo-L2-resist",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-014", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-017", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-020", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-014",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-017",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-020",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["algorithm"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-3"],
       "philosophicalConstraintIds": [
         "er-philosophy-four-shackles-identity",
         "er-philosophy-four-shackles-opposition"
       ],
       "promiseIds": ["P24", "P35", "P42"],
-      "explanation": "The resisting branch is separately authored around the identity and opposition shackles present in the second-movement algorithm arc."
+      "explanation": "The resisting branch is separately authored around the identity and opposition shackles present in the second-movement algorithm arc.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 81,
+        "selectionAxes": ["transformationState", "awareness", "awarenessRange"],
+        "sampledVariationIds": [
+          "algo-L2-resist-001",
+          "algo-L2-resist-021",
+          "algo-L2-resist-041",
+          "algo-L2-resist-061",
+          "algo-L2-resist-081"
+        ]
+      }
     },
     {
       "passageId": "spv1_psg_9c5df1c705bad517145fa0e6",
       "passageStableKey": "algo-L3",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-022", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-023", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-024", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-026", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-022",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-023",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-024",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-026",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["algorithm"],
-      "chronologyIds": ["er-chronology-phase-3", "er-chronology-phase-4"],
+      "chronologyIds": ["er-chronology-phase-1", "er-chronology-phase-3", "er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-identity-dissolution-klossowski",
         "er-philosophy-key-concepts-eternal-return",
         "er-philosophy-key-concepts-the-pharmakon"
       ],
       "promiseIds": ["P16", "P18", "P24", "P43"],
-      "explanation": "The algorithm convergence passage derives from the merged third movement and algorithm fourth-movement resolution while retaining independent runtime wording."
+      "explanation": "The algorithm convergence passage derives from the merged third movement and algorithm fourth-movement resolution while retaining independent runtime wording.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 45,
+        "selectionAxes": ["journeyPattern", "philosophyDominant", "awarenessLevel"],
+        "sampledVariationIds": [
+          "algo-L3-001",
+          "algo-L3-012",
+          "algo-L3-023",
+          "algo-L3-034",
+          "algo-L3-045"
+        ]
+      }
     },
     {
       "passageId": "spv1_psg_6a8e3511627df7d650fb4647",
       "passageStableKey": "arch-L1",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-001", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-002", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-004", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-005", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-010", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-001",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-002",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-004",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-005",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-010",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["archaeologist"],
       "chronologyIds": ["er-chronology-phase-1"],
@@ -120,16 +269,32 @@
         "er-philosophy-four-shackles-identity"
       ],
       "promiseIds": ["P-Eleanor", "P1", "P2", "P3", "P4", "P5"],
-      "explanation": "The archaeologist opening aligns with the first-movement excavation/anomaly scene summaries and their memory/identity promises without claiming direct adaptation."
+      "explanation": "The archaeologist opening aligns with the first-movement excavation/anomaly scene summaries and their memory/identity promises without claiming direct adaptation.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 3,
+        "selectionAxes": ["transformationState", "awareness", "awarenessRange"],
+        "sampledVariationIds": ["arch-L1-001", "arch-L1-002", "arch-L1-003"],
+        "samplingNote": "All layer-1 variations sampled (small family)."
+      }
     },
     {
       "passageId": "spv1_psg_cfe8d9d443f62c608def0b1d",
       "passageStableKey": "arch-L2-accept",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-013", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-016", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-019", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-013",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-016",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-019",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["archaeologist"],
       "chronologyIds": ["er-chronology-phase-2"],
@@ -138,235 +303,700 @@
         "er-philosophy-key-concepts-eternal-return"
       ],
       "promiseIds": ["P12", "P14", "P33", "P40", "P41"],
-      "explanation": "The accepting branch interprets the second-movement archaeologist bleed/dissolution/merge arc through identity dissolution and return."
+      "explanation": "The accepting branch interprets the second-movement archaeologist bleed/dissolution/merge arc through identity dissolution and return.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 81,
+        "selectionAxes": ["transformationState", "awareness", "awarenessRange"],
+        "sampledVariationIds": [
+          "arch-L2-accept-001",
+          "arch-L2-accept-021",
+          "arch-L2-accept-041",
+          "arch-L2-accept-061",
+          "arch-L2-accept-081"
+        ]
+      }
     },
     {
       "passageId": "spv1_psg_66392d3c06cbda4b2d36b824",
       "passageStableKey": "arch-L2-invest",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-013", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-016", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-019", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-013",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-016",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-019",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["archaeologist"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-1"],
       "philosophicalConstraintIds": [
         "er-philosophy-four-shackles-analogy",
         "er-philosophy-key-concepts-tertiary-retention-stiegler"
       ],
       "promiseIds": ["P12", "P14", "P33"],
-      "explanation": "The investigating branch is interactive analysis of the archaeologist arc, bounded by analogy and tertiary-retention constraints rather than manuscript wording."
+      "explanation": "The investigating branch is interactive analysis of the archaeologist arc, bounded by analogy and tertiary-retention constraints rather than manuscript wording.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 81,
+        "selectionAxes": ["transformationState", "awareness", "awarenessRange"],
+        "sampledVariationIds": [
+          "arch-L2-invest-001",
+          "arch-L2-invest-021",
+          "arch-L2-invest-041",
+          "arch-L2-invest-061",
+          "arch-L2-invest-081"
+        ]
+      }
     },
     {
       "passageId": "spv1_psg_1a444cce5294210b25e91304",
       "passageStableKey": "arch-L2-resist",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-013", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-016", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-019", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-013",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-016",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-019",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["archaeologist"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-1"],
       "philosophicalConstraintIds": [
         "er-philosophy-four-shackles-identity",
         "er-philosophy-forbidden-moves-unified-i-after-dissolution"
       ],
       "promiseIds": ["P12", "P14", "P40", "P41"],
-      "explanation": "The resisting branch explores identity persistence against the canonical dissolution arc while explicitly preserving the no-unified-I constraint."
+      "explanation": "The resisting branch explores identity persistence against the canonical dissolution arc while explicitly preserving the no-unified-I constraint.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 81,
+        "selectionAxes": ["transformationState", "awareness", "awarenessRange"],
+        "sampledVariationIds": [
+          "arch-L2-resist-001",
+          "arch-L2-resist-021",
+          "arch-L2-resist-041",
+          "arch-L2-resist-061",
+          "arch-L2-resist-081"
+        ]
+      }
     },
     {
       "passageId": "spv1_psg_01e6fbabe7b1cd374aabb521",
       "passageStableKey": "arch-L3",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-022", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-023", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-024", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-027", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-022",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-023",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-024",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-027",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["archaeologist"],
-      "chronologyIds": ["er-chronology-phase-3", "er-chronology-phase-4"],
+      "chronologyIds": ["er-chronology-phase-1", "er-chronology-phase-3", "er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-identity-dissolution-klossowski",
         "er-philosophy-four-shackles-identity",
         "er-philosophy-key-concepts-eternal-return"
       ],
       "promiseIds": ["P2", "P3", "P6", "P14", "P41"],
-      "explanation": "The archaeologist convergence passage derives from the merged movement and archaeologist resolution, carrying the mapped promise chain into separately authored runtime prose."
+      "explanation": "The archaeologist convergence passage derives from the merged movement and archaeologist resolution, carrying the mapped promise chain into separately authored runtime prose.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 45,
+        "selectionAxes": ["journeyPattern", "philosophyDominant", "awarenessLevel"],
+        "sampledVariationIds": [
+          "arch-L3-001",
+          "arch-L3-012",
+          "arch-L3-023",
+          "arch-L3-034",
+          "arch-L3-045"
+        ]
+      }
     },
     {
       "passageId": "spv1_psg_c2a18c10ef23413086301c42",
       "passageStableKey": "conv-L3",
       "relationship": "interactive-only-connective",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-022", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-023", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-024", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-022",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-023",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-024",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["algorithm", "archaeologist", "last-human"],
-      "chronologyIds": ["er-chronology-phase-3"],
+      "chronologyIds": ["er-chronology-phase-1", "er-chronology-phase-3", "er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-eternal-return",
         "er-philosophy-key-concepts-identity-dissolution-klossowski",
         "er-philosophy-forbidden-moves-unified-i-after-dissolution"
       ],
       "promiseIds": ["P6", "P14", "P18", "P24", "P39", "P43", "P45"],
-      "explanation": "This shared passage is interactive connective tissue joining the three runtime perspectives across the canonical merged movement; it is not a manuscript scene adaptation."
+      "explanation": "This shared passage is interactive connective tissue joining the three runtime perspectives across the canonical merged movement; it is not a manuscript scene adaptation.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 135,
+        "selectionAxes": ["journeyPattern", "philosophyDominant", "awarenessLevel"],
+        "sampledVariationIds": [
+          "conv-L3-001",
+          "conv-L3-002",
+          "conv-L3-003",
+          "conv-L3-007",
+          "conv-L3-008",
+          "conv-L3-009",
+          "conv-L3-019",
+          "conv-L3-020",
+          "conv-L3-021"
+        ],
+        "samplingNote": "Three fragments sampled per philosophyDominant framing: accept (001-003), resist (007-009), invest (019-021)."
+      }
     },
     {
       "passageId": "spv1_psg_e383716f68128c978a5e6afc",
       "passageStableKey": "final-preserve",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-025", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-026", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-027", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-028", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-025",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-026",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-027",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-028",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["algorithm", "archaeologist", "last-human"],
-      "chronologyIds": ["er-chronology-phase-4"],
+      "chronologyIds": ["er-chronology-phase-1", "er-chronology-phase-3", "er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-four-shackles-identity",
         "er-philosophy-key-concepts-tertiary-retention-stiegler",
         "er-philosophy-forbidden-moves-unified-i-after-dissolution"
       ],
       "promiseIds": ["P1", "P14", "P17", "P24", "P39"],
-      "explanation": "The preserve ending is a runtime thematic resolution across all fourth-movement outcomes, constrained against restoring a unified post-dissolution self."
+      "explanation": "The preserve ending is a runtime thematic resolution across all fourth-movement outcomes, constrained against restoring a unified post-dissolution self.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 1,
+        "selectionAxes": ["philosophy"],
+        "sampledVariationIds": ["final-preserve"],
+        "samplingNote": "Single-variation ending family; the full ending is the audit sample."
+      }
     },
     {
       "passageId": "spv1_psg_24cb57ee4d0c0b8e56279abe",
       "passageStableKey": "final-release",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-025", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-026", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-027", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-028", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-025",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-026",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-027",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-028",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["algorithm", "archaeologist", "last-human"],
-      "chronologyIds": ["er-chronology-phase-4"],
+      "chronologyIds": ["er-chronology-phase-1", "er-chronology-phase-3", "er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-identity-dissolution-klossowski",
         "er-philosophy-key-concepts-eternal-return",
         "er-philosophy-forbidden-moves-transcendence-through-escape"
       ],
       "promiseIds": ["P6", "P14", "P18", "P24", "P45"],
-      "explanation": "The release ending is a separately authored thematic resolution of the fourth movement and coda, explicitly avoiding transcendence-as-escape."
+      "explanation": "The release ending is a separately authored thematic resolution of the fourth movement and coda, explicitly avoiding transcendence-as-escape.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 1,
+        "selectionAxes": ["philosophy"],
+        "sampledVariationIds": ["final-release"],
+        "samplingNote": "Single-variation ending family; the full ending is the audit sample."
+      }
     },
     {
       "passageId": "spv1_psg_47870866ef4ac23c4de6371c",
       "passageStableKey": "final-transform",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-025", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-026", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-027", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-028", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-025",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-026",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-027",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-028",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["algorithm", "archaeologist", "last-human"],
-      "chronologyIds": ["er-chronology-phase-4"],
+      "chronologyIds": ["er-chronology-phase-1", "er-chronology-phase-3", "er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-the-pharmakon",
         "er-philosophy-key-concepts-eternal-return",
         "er-philosophy-four-shackles-analogy"
       ],
       "promiseIds": ["P14", "P18", "P24", "P39", "P43", "P45"],
-      "explanation": "The transform ending reconfigures the mapped fourth-movement promises through the pharmakon and return concepts without presenting itself as canonical manuscript prose."
+      "explanation": "The transform ending reconfigures the mapped fourth-movement promises through the pharmakon and return concepts without presenting itself as canonical manuscript prose.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 1,
+        "selectionAxes": ["philosophy"],
+        "sampledVariationIds": ["final-transform"],
+        "samplingNote": "Single-variation ending family; the full ending is the audit sample."
+      }
     },
     {
       "passageId": "spv1_psg_37ba74f1d6648e108c1c6c89",
       "passageStableKey": "hum-L1",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-003", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-008", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-009", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-012", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-003",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-008",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-009",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-012",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["last-human"],
-      "chronologyIds": ["er-chronology-phase-1"],
+      "chronologyIds": ["er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-the-augenblick",
         "er-philosophy-key-concepts-eternal-return"
       ],
       "promiseIds": ["P25", "P28", "P29", "P31"],
-      "explanation": "The human opening is separately authored around the deep-future first-movement scene summaries, the moment, return, and the surviving human promise chain."
+      "explanation": "The human opening is separately authored around the deep-future first-movement scene summaries, the moment, return, and the surviving human promise chain.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 5,
+        "selectionAxes": ["transformationState", "awareness", "awarenessRange"],
+        "sampledVariationIds": [
+          "hum-L1-001",
+          "hum-L1-002",
+          "hum-L1-003",
+          "hum-L1-004",
+          "hum-L1-005"
+        ],
+        "samplingNote": "All layer-1 variations sampled (small family)."
+      }
     },
     {
       "passageId": "spv1_psg_9a646b2d8aac94810c63e46c",
       "passageStableKey": "hum-L2-accept",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-015", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-018", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-021", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-015",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-018",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-021",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["last-human"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-the-augenblick",
         "er-philosophy-key-concepts-eternal-return"
       ],
       "promiseIds": ["P25", "P39", "P45"],
-      "explanation": "The accepting human branch interprets the archive/protocol/interface sequence through the moment and return while remaining runtime-authored."
+      "explanation": "The accepting human branch interprets the archive/protocol/interface sequence through the moment and return while remaining runtime-authored.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 81,
+        "selectionAxes": ["transformationState", "awareness", "awarenessRange"],
+        "sampledVariationIds": [
+          "hum-L2-accept-001",
+          "hum-L2-accept-021",
+          "hum-L2-accept-041",
+          "hum-L2-accept-061",
+          "hum-L2-accept-081"
+        ]
+      }
     },
     {
       "passageId": "spv1_psg_6b9d2b3addcd64c9d655b18b",
       "passageStableKey": "hum-L2-invest",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-015", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-018", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-021", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-015",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-018",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-021",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["last-human"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-four-shackles-resemblance",
         "er-philosophy-four-shackles-analogy"
       ],
       "promiseIds": ["P25", "P28", "P39"],
-      "explanation": "The investigating human branch examines resemblance and analogy inside the canonical second-movement sequence without asserting textual equivalence."
+      "explanation": "The investigating human branch examines resemblance and analogy inside the canonical second-movement sequence without asserting textual equivalence.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 81,
+        "selectionAxes": ["transformationState", "awareness", "awarenessRange"],
+        "sampledVariationIds": [
+          "hum-L2-invest-001",
+          "hum-L2-invest-021",
+          "hum-L2-invest-041",
+          "hum-L2-invest-061",
+          "hum-L2-invest-081"
+        ]
+      }
     },
     {
       "passageId": "spv1_psg_3d9c83b9ac5a695a723b82a3",
       "passageStableKey": "hum-L2-resist",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-015", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-018", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-021", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-015",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-018",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-021",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["last-human"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-four-shackles-identity",
         "er-philosophy-four-shackles-opposition"
       ],
       "promiseIds": ["P25", "P39", "P45"],
-      "explanation": "The resisting human branch explores identity and opposition against the archive/interface arc as an interactive thematic derivative."
+      "explanation": "The resisting human branch explores identity and opposition against the archive/interface arc as an interactive thematic derivative.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 81,
+        "selectionAxes": ["transformationState", "awareness", "awarenessRange"],
+        "sampledVariationIds": [
+          "hum-L2-resist-001",
+          "hum-L2-resist-021",
+          "hum-L2-resist-041",
+          "hum-L2-resist-061",
+          "hum-L2-resist-081"
+        ]
+      }
     },
     {
       "passageId": "spv1_psg_29b1a23ef7390bc520ac7f8f",
       "passageStableKey": "hum-L3",
       "relationship": "thematic-derivative",
       "canonicalReferences": [
-        { "chapterId": "er-chapter-022", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-023", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-024", "contextField": "sceneSummary" },
-        { "chapterId": "er-chapter-025", "contextField": "sceneSummary" }
+        {
+          "chapterId": "er-chapter-022",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-023",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-024",
+          "contextField": "sceneSummary"
+        },
+        {
+          "chapterId": "er-chapter-025",
+          "contextField": "sceneSummary"
+        }
       ],
       "voiceIds": ["last-human"],
-      "chronologyIds": ["er-chronology-phase-3", "er-chronology-phase-4"],
+      "chronologyIds": ["er-chronology-phase-1", "er-chronology-phase-3", "er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-identity-dissolution-klossowski",
         "er-philosophy-key-concepts-the-augenblick",
         "er-philosophy-key-concepts-eternal-return"
       ],
       "promiseIds": ["P25", "P39", "P45"],
-      "explanation": "The human convergence passage derives from the merged movement and last-human resolution through the moment, dissolution, and return constraints."
+      "explanation": "The human convergence passage derives from the merged movement and last-human resolution through the moment, dissolution, and return constraints.",
+      "variations": {
+        "coversAllVariations": true,
+        "variationCount": 45,
+        "selectionAxes": ["journeyPattern", "philosophyDominant", "awarenessLevel"],
+        "sampledVariationIds": [
+          "hum-L3-001",
+          "hum-L3-012",
+          "hum-L3-023",
+          "hum-L3-034",
+          "hum-L3-045"
+        ]
+      }
+    }
+  ],
+  "endings": [
+    {
+      "endingId": "spv1_end_405d86d3ad987eb3dff6ca37",
+      "endingStableKey": "final-preserve",
+      "passageId": "spv1_psg_e383716f68128c978a5e6afc",
+      "endingPhilosophy": "preserve",
+      "explanation": "Claims the preserve ending record identity. The runtime resolution preserves continuity of the pattern without restoring a unified post-dissolution self, consistent with the mapped no-unified-I constraint and the canonical fourth-movement architecture."
+    },
+    {
+      "endingId": "spv1_end_05829643cf9b8a615d76a13f",
+      "endingStableKey": "final-release",
+      "passageId": "spv1_psg_24cb57ee4d0c0b8e56279abe",
+      "endingPhilosophy": "release",
+      "explanation": "Claims the release ending record identity. The runtime resolution releases the pattern without framing release as transcendence-through-escape; affirmation remains affirmation of this world."
+    },
+    {
+      "endingId": "spv1_end_ec899a4066c6f36b3f2621fa",
+      "endingStableKey": "final-transform",
+      "passageId": "spv1_psg_47870866ef4ac23c4de6371c",
+      "endingPhilosophy": "transform",
+      "explanation": "Claims the transform ending record identity. The runtime resolution treats transformation as differentiation through the pharmakon and the return of difference, never as becoming the same consciousness."
+    }
+  ],
+  "characters": [
+    {
+      "characterId": "spv1_chr_115de091f0f28547ea909b48",
+      "characterStableKey": "algorithm",
+      "kind": "canonical-voice",
+      "canonicalCharacterId": "er-character-algorithm",
+      "voiceIds": ["algorithm"],
+      "explanation": "Runtime narrator for the mid-future thread; joins directly to the canonical algorithm character and voice."
+    },
+    {
+      "characterId": "spv1_chr_cf98a18f0b5a58925a326466",
+      "characterStableKey": "archaeologist",
+      "kind": "canonical-voice",
+      "canonicalCharacterId": "er-character-archaeologist",
+      "voiceIds": ["archaeologist"],
+      "explanation": "Runtime narrator for the near-future thread; joins directly to the canonical archaeologist character and voice."
+    },
+    {
+      "characterId": "spv1_chr_f0e1b631dcdf6f1f585f64f8",
+      "characterStableKey": "convergence-section",
+      "kind": "runtime-composite",
+      "canonicalCharacterId": null,
+      "voiceIds": ["algorithm", "archaeologist", "last-human"],
+      "explanation": "Runtime pseudo-character owning the shared conv-L3 connective passage; interactive-only material spanning all three canonical voices."
+    },
+    {
+      "characterId": "spv1_chr_1c653b8bc98ef70c7de5660f",
+      "characterStableKey": "human",
+      "kind": "canonical-voice",
+      "canonicalCharacterId": "er-character-last-human",
+      "voiceIds": ["last-human"],
+      "explanation": "The catalog stable key \"human\" is the runtime name of the canonical last-human character; this row is the authoritative join resolving that naming difference (contradiction register CTR-003)."
+    },
+    {
+      "characterId": "spv1_chr_298d6926b405a6fb6e1639da",
+      "characterStableKey": "multi-perspective",
+      "kind": "runtime-composite",
+      "canonicalCharacterId": null,
+      "voiceIds": ["algorithm", "archaeologist", "last-human"],
+      "explanation": "Runtime composite narrator owning the three layer-4 terminal passages; dissolution-era content that speaks across all three canonical voices and has no single canonical character."
+    }
+  ],
+  "edges": {
+    "relationship": "interactive-only-connective",
+    "rule": "All shipped edges are interactive navigation records that carry no prose and have no prose-equivalent canonical scene. Any future authored edge bridge must declare its own relationship at authoring time, keyed to the parent edge stable key, and must attach to a genuinely traversed within-perspective edge rather than a fabricated cross-perspective connection.",
+    "edgeStableKeys": [
+      "algo-L1->algo-L2-accept",
+      "algo-L1->algo-L2-invest",
+      "algo-L1->algo-L2-resist",
+      "algo-L2-accept->algo-L3",
+      "algo-L2-invest->algo-L3",
+      "algo-L2-resist->algo-L3",
+      "algo-L3->final-preserve",
+      "algo-L3->final-release",
+      "algo-L3->final-transform",
+      "arch-L1->arch-L2-accept",
+      "arch-L1->arch-L2-invest",
+      "arch-L1->arch-L2-resist",
+      "arch-L2-accept->arch-L3",
+      "arch-L2-invest->arch-L3",
+      "arch-L2-resist->arch-L3",
+      "arch-L3->final-preserve",
+      "arch-L3->final-release",
+      "arch-L3->final-transform",
+      "hum-L1->hum-L2-accept",
+      "hum-L1->hum-L2-invest",
+      "hum-L1->hum-L2-resist",
+      "hum-L2-accept->hum-L3",
+      "hum-L2-invest->hum-L3",
+      "hum-L2-resist->hum-L3",
+      "hum-L3->final-preserve",
+      "hum-L3->final-release",
+      "hum-L3->final-transform"
+    ]
+  },
+  "explanations": [
+    {
+      "explanationId": "spv1_exp_78846644ec7729f5f6676a31",
+      "explanationStableKey": "literary-release-intake-v1",
+      "classification": "provenance-boundary-no-literary-claim",
+      "explanation": "Documents the literary-release intake boundary; governance text with no literary claim."
+    },
+    {
+      "explanationId": "spv1_exp_a39d20d4a744d0837c60bba7",
+      "explanationStableKey": "runtime-catalog-scope-v1",
+      "classification": "contract-scope-no-literary-claim",
+      "explanation": "Documents the runtime catalog contract scope; governance text with no literary claim."
+    }
+  ],
+  "themesAndMotifs": [
+    {
+      "theme": "digital consciousness",
+      "kind": "primary-theme",
+      "canonicalIds": [
+        "er-philosophy-key-concepts-tertiary-retention-stiegler",
+        "er-philosophy-key-concepts-identity-dissolution-klossowski"
+      ],
+      "explanation": "Consciousness carried in technical memory: tertiary retention actualized as the three differentiated digital selves."
+    },
+    {
+      "theme": "memory reconstruction",
+      "kind": "primary-theme",
+      "canonicalIds": ["er-philosophy-key-concepts-tertiary-retention-stiegler"],
+      "explanation": "Excavating and reassembling retained memory is the runtime expression of Stieglerian tertiary retention."
+    },
+    {
+      "theme": "identity fluidity",
+      "kind": "primary-theme",
+      "canonicalIds": [
+        "er-philosophy-key-concepts-identity-dissolution-klossowski",
+        "er-philosophy-four-shackles-identity"
+      ],
+      "explanation": "Identity as differentiation rather than persistence; bounded by the identity shackle so fluidity never collapses into sameness."
+    },
+    {
+      "theme": "observation vs participation",
+      "kind": "secondary-theme",
+      "canonicalIds": ["er-glossary-augenblick"],
+      "explanation": "The reader’s move from observing to participating mirrors the Augenblick as rupture rather than a point in time."
+    },
+    {
+      "theme": "temporal perception",
+      "kind": "secondary-theme",
+      "canonicalIds": [
+        "er-philosophy-key-concepts-the-augenblick",
+        "er-philosophy-key-concepts-eternal-return"
+      ],
+      "explanation": "Three eras perceived through one structure; time as return of difference rather than linear sequence."
+    },
+    {
+      "theme": "data persistence",
+      "kind": "secondary-theme",
+      "canonicalIds": [
+        "er-philosophy-key-concepts-tertiary-retention-stiegler",
+        "er-philosophy-key-concepts-the-pharmakon"
+      ],
+      "explanation": "The archive persists as both poison and cure; persistence never guarantees fidelity."
+    },
+    {
+      "theme": "fragments",
+      "kind": "motif",
+      "canonicalIds": [
+        "er-philosophy-key-concepts-tertiary-retention-stiegler",
+        "er-philosophy-key-concepts-identity-dissolution-klossowski"
+      ],
+      "explanation": "Fragmentary protocols and fragmented selves; wholeness is never restored, only differentiated."
+    },
+    {
+      "theme": "echoes",
+      "kind": "motif",
+      "canonicalIds": ["er-philosophy-key-concepts-eternal-return"],
+      "explanation": "Designed repetition across threads (sensory rhymes, phrase bleeding) performing the return of difference."
+    },
+    {
+      "theme": "layered reality",
+      "kind": "motif",
+      "canonicalIds": [
+        "er-philosophy-key-concepts-identity-dissolution-klossowski",
+        "er-philosophy-key-concepts-the-pharmakon"
+      ],
+      "explanation": "Simulacra layered over a shared phantasm; the archive’s layers are both medium and distortion."
+    },
+    {
+      "theme": "recursive loops",
+      "kind": "motif",
+      "canonicalIds": ["er-philosophy-key-concepts-eternal-return"],
+      "explanation": "The almost-closed curve: loops that return without closing, never a transmission backward in time."
     }
   ]
 }

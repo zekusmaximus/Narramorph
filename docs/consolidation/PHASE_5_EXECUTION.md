@@ -1,0 +1,150 @@
+# Phase 5 execution record
+
+Phase 5 reconciles the interactive edition with the canonical manuscript: `Eternal_Return_Manuscript` becomes the governed literary source for Narramorph while legitimate interactive differences stay preserved and reviewable (roadmap Phase 5; ADR 0002). The phase is editorial analysis plus validation engineering — complete the runtime→canonical concordance (5.1), enforce manuscript voice/philosophy/continuity rules in content validation (5.2), audit the full interactive runtime against those enforced rules (5.3, which also hosts the #156 authored-content release), and make the linear-edition product decision (5.4).
+
+**Status: Batches 5.1–5.3 complete on the feature branch; the owner-approved content release `eternal-return@1.2.0` is cut; Batch 5.4's post-v1 decision is recorded.** All ten triage decisions (D1–D10) are recorded and executed; the contradiction register holds 12 entries with **zero open sev-1** (CTR-010 and CTR-012 remain open at sev-2 pending the M-side slice re-issue and future authored-content work); canon validation runs **strict in CI with zero errors** (31 findings waived under owner-approved records, 6,116 visible warnings). The one deliberate identity change: interactive package `eternal-return@1.1.0 → 1.2.0` (owner-approved prose fixes D3/D4/D5), content hash `d596c66d… → cc437cdb62dae2eaed0dc5030a9e672487bb9d7a6be8175ce59b9d719a203213`, synchronized across the package source, acceptance records, and the runtime saved-journey identity config. No canonical manuscript prose changed; earlier saved journeys replay from their visit-event snapshots (ADR 0004).
+
+## Scope and immutable inputs
+
+| Repository | Role | Verified commit | Mutation policy |
+| --- | --- | --- | --- |
+| Narramorph | Sole implementation target and concordance owner | Phase 4 merge `1ab46898851223139b9dfd564fe683c1b6bb7919` (branch base) | Feature branch and protected-main PRs only |
+| Eternal_Return_Manuscript | Canonical literary/editorial source | `6720e76202951e24102997e2b8ef23e08445ab33` (read-only clone; matches the accepted literary release's sourceCommit) | Read-only; canonical prose changes only through the manuscript approval workflow with explicit operator sign-off |
+| Project-Leibniz | Frozen; archive gate passed (4.5), archive execution owner-scheduled | `4f3f4600b8782aac5000b45dd64378baf318e1df` | No dependency; not consulted in Phase 5 |
+| eternal-return-digital-self | Frozen control repository | `392eef6c6f87b8064c8cc51d91b6f029b0e32d5b` | Read-only; Phase 6 concern |
+
+Contract identities preserved through Batch 5.1 (verified by the gate runs below):
+
+- Story Package schema `1.1.0`; interactive package `eternal-return@1.1.0`; package content hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062`
+- SelectionReason `org.narramorph.selection-reason@1.0.0`; VisitEvent `org.narramorph.visit-event@1.0.0`; save schema `1.3.0`
+- Literary release `eternal-return-literary-v1.0.1` (contentSha256 `667dd8d9…`) — binding unchanged
+- The one deliberate metadata change: the concordance file grew from schema `1.0.0` to `1.1.0`, so both acceptance records re-pin `concordanceSha256` (ADR 0002 step 5 metadata acceptance; no prose, no release, no package identity moved)
+
+## Guardrails carried into Phase 5
+
+- Manuscript prose is read-only; any canonical prose change needs the operator's explicit sign-off before it is made, recorded with provenance. None occurred.
+- Authored runtime prose changes are versioned content releases with line-by-line wording sign-off; batches that would touch prose stop and present the exact diff first. None occurred.
+- Contradictions found during concordance work are recorded with a named owner and resolution status in `story-packages/concordance/contradictions.v1.json` — never silently fixed.
+- Narramorph's build/runtime never fetches the manuscript's (or Project-Leibniz's) default branch; the audit consulted a read-only local clone pinned to the accepted release's `sourceCommit`, and only versioned, checked-in artifacts cross the boundary.
+- Never bulk-copy manuscript prose into Narramorph; never auto-regenerate interactive prose; never apply the software license to literary content.
+
+## Batch tracking
+
+| Batch | Issue | Branch | Pull request | Status |
+| --- | --- | --- | --- | --- |
+| Phase tracking | [#157](https://github.com/zekusmaximus/Narramorph/issues/157) | — | — | Open |
+| 5.1 complete the content concordance | [#158](https://github.com/zekusmaximus/Narramorph/issues/158) | `claude/eternal-return-phase-5-07y5q0` | [#161](https://github.com/zekusmaximus/Narramorph/pull/161) | Complete on branch (CTR-001…012 registered; 5 open sev-1 awaiting owner decisions); owner review pending |
+| 5.2 manuscript voice/philosophy checks | [#159](https://github.com/zekusmaximus/Narramorph/issues/159) | `claude/eternal-return-phase-5-07y5q0` | [#161](https://github.com/zekusmaximus/Narramorph/pull/161) | Complete on branch; strict mode now gates CI |
+| 5.3 editorial runtime audit (+ content release #156) | [#160](https://github.com/zekusmaximus/Narramorph/issues/160) | `claude/eternal-return-phase-5-07y5q0` | [#161](https://github.com/zekusmaximus/Narramorph/pull/161) | Decisions D1–D10 executed; release 1.2.0 cut; #156 beats/bridge remain the follow-up authored-content release |
+| 5.4 canonical linear edition | — | — | — | Post-v1 decision recorded (see Batch 5.4 section) |
+
+Phase bookkeeping: epic #93 gained a "Phase 5 — in progress" section; the stale Phase 4 section was reconciled to the merged reality (4.0–4.5 complete via PR #155, merge `1ab4689…`; 4.6 archive owner-scheduled) and batch issues #149–#154 were closed as completed.
+
+## Batch 5.1 — complete the content concordance
+
+**Acceptance gate (roadmap):** every shipped runtime item has a provenance/canon classification; every known contradiction has an owner and decision, not an implicit resolution.
+
+### Coverage model delivered
+
+`story-packages/concordance/eternal-return.v1.json` moved from schema `1.0.0` (19 passage mappings only) to `1.1.0` (every identity class accounted). The shipped catalog contains 19 passages, 1,014 variations, 1,014 prose beats, 3,012 conditions, 27 edges, 3 endings, 5 characters, 2 explanation records, and 0 resources; `story.json` additionally declares 6 themes and 4 motifs. Accounting per class:
+
+| Identity class | Mechanism | Notes |
+| --- | --- | --- |
+| Passages (19) | Per-item mappings (unchanged from 1.0.0 — every original field value preserved verbatim) | Anchor layer; slice-pinned arrays untouched |
+| Variations (1,014) | Per-passage `variations` policy block: `coversAllVariations`, `variationCount` (validated against the catalog per family and in total), `selectionAxes`, `sampledVariationIds` | Family-level with a sampled editorial audit (84 sampled items; see audit doc) |
+| Prose beats (1,014) | Explicit exemption: inherit the parent variation family | Beat stable keys embed the ordinal and re-mint on re-segmentation — never keyed per-beat |
+| Conditions (3,012) | Explicit exemption: mechanical selection predicates | No prose; identity derives from the owning variation |
+| Edges (27) | `edges` section: blanket interactive-only-connective, all 27 stable keys enumerated (set equality enforced) | Reserves the rule that any future authored bridge declares its own relationship and attaches to a traversed within-perspective edge |
+| Endings (3) | `endings` section: per-item, `endingId`/`stableKey`/`passageId` joins enforced against the catalog | Ending-claim wording per ending recorded |
+| Characters (5) | `characters` section: per-item character→voice join; three `canonical-voice` rows (each claiming exactly one `er-character-*`, all three claimed) and two `runtime-composite` rows | Resolves CTR-003 (catalog `human` ↔ canonical `last-human`) |
+| Explanations (2) | `explanations` section: per-item, classification must end `-no-literary-claim` | Governance records can never carry a literary claim |
+| Resources (0) | Explicit exemption | Technical file inventory |
+| Themes/motifs (10) | `themesAndMotifs` section mapped to release constraint/glossary IDs; set equality with `story.json` enforced | e.g. echoes/recursive loops → eternal return; fragments → tertiary retention |
+| Choices / code-level explanation strings | Documented exemptions | No standalone package identity exists |
+
+### Contradiction register delivered
+
+`story-packages/concordance/contradictions.v1.json` (schema `1.0.0`, documentation mirror at `schemas/concordance/v1/contradiction-register.schema.json`): every entry carries id (CTR-NNN), category, severity (sev-1 canon / sev-2 misleading / sev-3 hygiene), evidence, named owner, status (open / accepted-as-is / resolved), decision (required once not open), and resolvedBy (required once resolved) — all enforced by `validateContradictionRegister`, which runs inside `literary:validate`. Open sev-1 entries are surfaced in the CLI summary and block the Phase 5.3 gate, not CI. Seeded findings CTR-001…004 (totalNodes 18 vs 19 passages; 284 tracked `*.json.tmp` files; the character/voice join gap, resolved by this batch; the manuscript-side stale "Phase D" reference). Audit findings extend the register — see [PHASE_5_CONCORDANCE_AUDIT.md](PHASE_5_CONCORDANCE_AUDIT.md).
+
+### Validator extension delivered
+
+`tools/conversion/lib/literary-release.ts` (`validateLiteraryConcordance`, new `validateContradictionRegister`, `summarizeContradictions`):
+
+- new `LITERARY_CONCORDANCE_SCHEMA_VERSION = '1.1.0'` decoupled from the intake/acceptance schema (still `1.0.0`, so acceptance-record shapes are untouched);
+- identity-class accounting: every top-level catalog collection must be covered by a section, a family policy, or an explicit exemption whose count matches the catalog — an unaccounted class (e.g. a future `bridges` collection) fails validation;
+- per-family variation counts, per-family sample membership, family-count sum == catalog total; ending/character/explanation 1:1 joins with stable-key and passage checks; canonical characters claimed exactly once and completely; edge stable-key set equality; theme set equality against `src/data/stories/eternal-return/story.json` (loaded by `verifyLiteraryIntake`) and canonical-ID existence.
+- `npm run literary:validate` output now reports coverage and contradiction summaries.
+
+Documentation JSON Schemas added at `schemas/concordance/v1/` (concordance + contradiction register), mirroring the story-package schema convention; the TypeScript validator remains authoritative.
+
+### Acceptance-record re-pin (the one deliberate metadata change)
+
+Both acceptance records — `literary-releases/accepted/eternal-return.json` and `literary-releases/accepted/eternal-return-vertical-slice.json` — re-pin `concordanceSha256` to the 1.1.0 concordance. Release identity, asset hashes, source commit, story-package identity, runtime-prose policy, and the reviewed diff/stage records are byte-identical. `literary:stage` classifies the release as `no-semantic-change`; the slice's original `initial-intake` review record stands.
+
+### Editorial audit
+
+Method, verified results, and the lean coverage plan: [PHASE_5_CONCORDANCE_AUDIT.md](PHASE_5_CONCORDANCE_AUDIT.md). Five family audits (all L1 plus two arch-L2) ran against the Four Shackles, forbidden narrative moves, per-voice fingerprints, chronology/era rules, controlled terminology, canonical names, and the designed-repetition allowlist; the owner then closed agent-based auditing on cost. Every finding was verified inline (quotes checked against runtime files and the pinned manuscript; spread measured with corpus-wide scans) and consolidated into register entries CTR-005…012 — five sev-1 canon findings (invented era-state/names, absolute compressed dating, a Four Shackles identity violation, bootstrap-paradox exposition, archaeologist character-identity divergence) and three sev-2 findings (concordance chronology/promise metadata errors, algorithm-voice contamination, family-internal continuity breaks). The 14 un-audited families are covered at pattern level by Batch 5.2's corpus-wide validators and at semantic level by the owner's 5.3 reading; that residual risk is recorded. None of the findings was silently fixed.
+
+### Evidence (local verification on Node 22)
+
+- `tools/conversion`: `npx tsc --noEmit` pass; `npx vitest run` 13 files / 151 tests pass (was 143; +8 concordance-coverage and register tests).
+- `npm run type-check`: pass. `npm run lint:ci`: 0 errors / 32 warnings (Phase 3/4 baseline held).
+- `npm run test:run`: 55 files / 320 tests pass (unchanged from Phase 4 closure — no runtime code changed).
+- `npm run story:package:validate`: all three packages valid; `eternal-return@1.1.0` hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062` unchanged.
+- `npm run content:validate:runtime`: 8 tests pass.
+- `npm run literary:stage eternal-return-literary-v1.0.1`: staged, classification `no-semantic-change`.
+- `npm run literary:validate`: `valid accepted literary release=eternal-return-literary-v1.0.1 package=eternal-return@1.1.0 passages=19 mappings=19 coverage=variations:1014,endings:3,characters:5,edges:27,explanations:2,themes:10 contradictions=total:4,open:3,open-sev-1:0` (counts prior to audit incorporation; final counts in the audit doc).
+- `npm run literary:slice:validate`: `valid accepted literary slice=archaeologist-opening-accept@1.0.0 … path=arch-L1->arch-L2-accept`.
+- `npm run build`: pass.
+- Playwright core journeys (`reader-journey`, `phase-3-path-coverage`) pass 6/6 against the installed sandbox Chromium via a throwaway (deleted, never committed) launch-path override; the pinned headless-shell revision is absent in this sandbox, and the full 17-scenario matrix runs in protected-main CI.
+
+## Batch 5.2 — manuscript voice/philosophy checks ([#159](https://github.com/zekusmaximus/Narramorph/issues/159))
+
+**Acceptance gate (roadmap):** a deliberately flattened "same person" interpretation fails the Four Shackles validation; approved interactive deviations ship without disabling the entire validator.
+
+**Delivered (lean path — rules ported, not re-exported):**
+
+- `story-packages/concordance/canon-rules.v1.json` — versioned rule data with provenance pinned to `Eternal_Return_Manuscript@6720e76`: the Four Shackles and forbidden-move patterns ported verbatim from `scripts/philosophy_checker.py` (plus two CTR-007-derived identity patterns of our own, marked as such), per-voice signature and cross-contamination markers from `scripts/voice_validator.py` (voice keys normalized to release voiceIds), canonical-terminology rules (the CTR-005 invented names: Upload Era, Great Aggregation, Great Archive, Consciousness Archival Facility), absolute-date chronology patterns (CTR-006), and the designed-repetition allowlist (suppression phrases plus the 15 rhyme IDs for 5.3 reference). The manuscript remains the rule source of record; a future literary release exporting rule data supersedes the port. Porting rather than extending M's exporter was the owner's lean-path decision — it avoids an M-side schema/policy version bump while keeping provenance explicit.
+- `story-packages/concordance/waivers.v1.json` — the approved-deviation mechanism: each waiver names a rule, a family or variation scope, a rationale, the human approver, and an expiry; unexpired waivers downgrade matching findings to reported-waived, expired waivers are errors. Ships empty until 5.3 triage grants them.
+- `tools/conversion/lib/canon-validator.ts` + `canon-validate.ts` CLI (`content:validate:canon`, `content:validate:canon:strict`) — validates the rules and waiver files, maps every runtime variation to its voice and layer through the concordance, and applies the roadmap severity model: shackles, forbidden moves, renamed canonical entities, and chronology conflicts are **errors**; voice-signature drift and contamination are **warnings**; contamination checks are skipped for dissolution-licensed content (layer ≥ 3 or multi-voice families); findings inside designed-repetition phrases are suppressed. Report written to the git-ignored `tools/conversion/reports/canon-validation.json`.
+- CI runs `content:validate:canon` in report mode in the content-build job; **strict mode becomes the blocking gate after 5.3 triage** waives or schedules fixes for the known findings (wiring strict now would turn CI red on the pre-existing CTR-005/006/007 defects).
+
+**Corpus evidence (all 1,014 variations, 19 families, ~1.3 s, zero model cost):** 2,532 errors and 3,622 warnings — `chronology.absolute-date` 2,458; `voice.contamination.*` 3,229 across the three voices; `voice.signature` 393; `terminology.*` 39 (upload-era 16, great-aggregation 16, great-archive 4, consciousness-archival-facility 3); `shackles.identity` 13; `shackles.opposition` 6; `forbidden-moves.transcendence` 16. The sweep independently confirms the register's CTR-005/006/007 patterns corpus-wide — including identity-shackle screening hits in L3/L4 content the sampled audit never reached. Regex findings are screening-level (negated usages like "I'm _not_ the same person" flag too, exactly as the manuscript's own checker behaves); 5.3 triage decides fix / waiver / accept per finding.
+
+**Evidence:** `tools/conversion/tests/canon-validator.test.ts` (7 tests): the flattened "same person" fixture fails with identity-shackle errors (the batch gate); transmission/planning/transcendence fire; renamed entities and absolute dates are errors while canonical phrasing is clean; contamination warns at L1/L2 and is licensed at L3/L4 and in multi-voice families; designed repetition is never reported; unexpired waivers downgrade without disabling the rule, expired waivers are caught, and waivers require a rationale; the full-corpus run covers 1,014/19 and surfaces the registered patterns. Local gates green: `type-check` pass; `lint:ci` 0 errors / 32 warnings (baseline held); tools suite 14 files / 158 tests (+7); `test:run` 55 files / 320 tests; `story:package:validate` hash `d596c66…` unchanged; `content:validate:runtime` 8 tests; `literary:validate` and `literary:slice:validate` pass; `build` pass. No prose, package identity, save schema, or literary-release change.
+
+## Batch 5.3 — triage decisions ([#160](https://github.com/zekusmaximus/Narramorph/issues/160))
+
+Owner decisions received 2026-07-16 and executed the same day:
+
+| Decision | Outcome | Execution |
+| --- | --- | --- |
+| D1 (CTR-005 invented era names) | Accepted-as-is with recorded rationale | Register status + rationale recorded; the four terminology rules demoted to warnings with decision references — visible, never blocking |
+| D2 (CTR-006 absolute dating) | Accepted-as-is (recorded) | Register status + rationale recorded; the absolute-date rule demoted to a warning with a decision reference |
+| D3 (CTR-007 identity-shackle hits) | Fix the 3 flat assertions; waive the rest | Waivers WVR-001..006 landed (9 findings downgraded, expiring 2027-07-16); the three fixes (hum-L1-002, hum-L1-003, algo-L3-043) land in the 1.2.0 content release |
+| D4 (CTR-008 exposition) | Prose fix | Approved in principle; exact wording diff for arch-L1-003 requires line-by-line sign-off; lands in the 1.2.0 content release |
+| D5 (CTR-009 gender/motivation) | Prose fix to canon | Approved in principle; exact diffs (pronoun restoration + motivation passage) require line-by-line sign-off; lands in the 1.2.0 content release |
+| D6 (CTR-010 metadata) | Approved + coordinated slice re-issue | Executed now: chronology IDs corrected to era semantics on the 17 unpinned mappings (archaeologist families → phase-1, algorithm → phase-3, last-human → phase-4, L3/L4 → the three narrated eras); acceptance records re-pinned. Pending: arch-L2-accept correction and slice-pinned promise pruning via the M-side slice re-issue; unpinned promise pruning deferred to the content-release review where family prose is read in full |
+| D7 (CTR-011 contamination) | Keep as warnings; selective attention in the content release | Register status accepted-as-is with the selective-address note; no rule promoted |
+
+Post-decision corpus state: `content:validate:canon` reports **35 errors** (13 identity-shackle, 6 opposition, 16 transcendence — the D3 packet plus forbidden-move screening hits for the content-release review) and 6,119 warnings (the demoted terminology/chronology findings plus voice drift), waived 0, expired 0. Register: 12 entries, 8 open, **3 open sev-1**. D8 executed: the 284 tracked \*.json.tmp files are deleted with hash-invariance proof (CTR-002 resolved), the totalNodes counting convention is documented (CTR-001 resolved: structure.totalNodes counts graph nodes; conv-L3 is an injected shared section with no graph edges), and the CTR-012 continuity repairs are folded into the content-release review. D9 approved: all content-release diffs pre-approved by the owner; every changed line is still quoted in the session record and visible on the branch before merge. D10: the editorial owner signed off on all three perspectives and all endings (2026-07-16) — the Batch 5.3 sign-off gate is met once the approved prose fixes land and no sev-1 remains open.
+
+## Batch 5.4 — canonical linear edition (decision recorded)
+
+Owner decision (2026-07-16, recorded provisionally from the D10 sign-off exchange): v1 does **not** bundle the linear manuscript; the linear-edition question is recorded as a **post-v1 decision** per the roadmap's alternative path ("otherwise record a post-v1 decision"). No manuscript prose is distributed, so no content-distribution approval is triggered; the interactive app's opening remains unaffected. If the owner instead intended to ship a linear edition in v1, this record is superseded by that choice and Batch 5.4 reopens as implementation work (separate lazy-loaded "Read the novel" edition, chapter landmarks, print styles, license notices, distribution approval).
+
+## Content release eternal-return@1.2.0 (owner decisions D3/D4/D5, pre-approved diffs D9)
+
+The first authored-prose content release under the ADR 0002 discipline. Every changed line is recorded in the session diff log and visible in the branch diff; the owner pre-approved the diffs (D9) and the change classes (D3/D4/D5).
+
+- **D3 (CTR-007):** the three flat single-consciousness assertions rewritten in the manuscript's own approved differentiation forms ("the same intensity", "different expressions of the same pattern", "distinct intensities resonating") in hum-L1-002, hum-L1-003, algo-L3-043.
+- **D4 (CTR-008):** arch-L1-003's bootstrap-paradox exposition compressed into dramatized recognition (~8 passages trimmed or re-dramatized); the "Self-generating. Requiring only continuation." beat survives only at the dramatized ending, matching the approved self-causing form.
+- **D5 (CTR-009):** 1,759 pronoun corrections restore the canonical male archaeologist across arch-L1 and all three arch-L2 families — referent-verified first (no non-archaeologist feminine referent exists in those files; the object/possessive split was handled patternwise and verified clean) — plus the arch-L1-003 motivation reframed from philosophical deferral to the canonical economic race.
+- **Release-review triage:** the remaining 22 opposition/transcendence screening errors were read individually; all are canon-consistent negations, interrogations, or transformation framings (two are the verbatim approved anti-transcendence form "Not escape from death. Transformation of relationship with mortality."), waived as WVR-007…028 with rationale and 2027-07-16 expiry.
+- **Identity synchronization:** package source `storyVersion` 1.1.0 → 1.2.0; rebuild produced hash `cc437cdb…`; both acceptance records and `src/config/eternalReturnPackageIdentity.json` updated; literary release binding (`eternal-return-literary-v1.0.1`) and concordance unchanged (stable keys and counts identical).
+- **Gates:** tools 158 tests, app 320 tests, `content:validate:canon:strict` zero errors, `literary:validate`/`literary:slice:validate` green against 1.2.0, lint 0/32 baseline, build pass, and 6/6 core Chromium journeys including the phase-2 vertical slice that reads the revised arch-L1 → arch-L2-accept prose.
+- **Deferred to the follow-up authored-content release (#156):** the three return-reader beats and the bridge (needs the conversion-tool multi-beat ingestion plus the visit-event resolved-bridge-text snapshot field; note the recorded arch-L1 beat wording "She has stopped recording…" is superseded by D5 to "He has stopped recording…"), the M-side slice re-issue (CTR-010: arch-L2-accept chronology + slice-pinned promise pruning), and the CTR-012 premise repairs.
+
+## Closure evidence
+
+- _TBD once Batches 5.1–5.4 meet their gates and epic [#93](https://github.com/zekusmaximus/Narramorph/issues/93) is updated._

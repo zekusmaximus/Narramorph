@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://narramorph.example/schemas/concordance/v1/concordance.schema.json",
+  "title": "Literary Concordance v1.1",
+  "description": "Runtime-to-canonical concordance for one interactive story package against one accepted literary release. Documentation mirror of the enforced validator in tools/conversion/lib/literary-release.ts (validateLiteraryConcordance); the TypeScript validator is authoritative.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "storyId",
+    "literaryReleaseId",
+    "literaryReleaseContentSha256",
+    "relationshipDefinitions",
+    "coveragePolicy",
+    "mappings",
+    "endings",
+    "characters",
+    "edges",
+    "explanations",
+    "themesAndMotifs"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.1.0" },
+    "storyId": { "type": "string", "minLength": 1 },
+    "literaryReleaseId": { "type": "string", "minLength": 1 },
+    "literaryReleaseContentSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "relationshipDefinitions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "direct-adaptation",
+        "thematic-derivative",
+        "interactive-only-connective",
+        "independent-runtime"
+      ],
+      "properties": {
+        "direct-adaptation": { "type": "string", "minLength": 1 },
+        "thematic-derivative": { "type": "string", "minLength": 1 },
+        "interactive-only-connective": { "type": "string", "minLength": 1 },
+        "independent-runtime": { "type": "string", "minLength": 1 }
+      }
+    },
+    "coveragePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["description", "auditReference", "exemptions"],
+      "properties": {
+        "description": { "type": "string", "minLength": 1 },
+        "auditReference": { "type": "string", "minLength": 1 },
+        "exemptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["identityClass", "count", "rule"],
+            "properties": {
+              "identityClass": { "type": "string", "minLength": 1 },
+              "count": { "type": "integer", "minimum": 0 },
+              "rule": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+    "mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "passageId",
+          "passageStableKey",
+          "relationship",
+          "canonicalReferences",
+          "voiceIds",
+          "chronologyIds",
+          "philosophicalConstraintIds",
+          "promiseIds",
+          "explanation",
+          "variations"
+        ],
+        "properties": {
+          "passageId": { "type": "string", "pattern": "^spv1_psg_[0-9a-f]{24}$" },
+          "passageStableKey": { "type": "string", "minLength": 1 },
+          "relationship": {
+            "enum": [
+              "direct-adaptation",
+              "thematic-derivative",
+              "interactive-only-connective",
+              "independent-runtime"
+            ]
+          },
+          "canonicalReferences": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["chapterId", "contextField"],
+              "properties": {
+                "chapterId": { "type": "string", "minLength": 1 },
+                "contextField": { "const": "sceneSummary" }
+              }
+            }
+          },
+          "voiceIds": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "chronologyIds": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "philosophicalConstraintIds": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "promiseIds": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "explanation": { "type": "string", "minLength": 1 },
+          "variations": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "coversAllVariations",
+              "variationCount",
+              "selectionAxes",
+              "sampledVariationIds"
+            ],
+            "properties": {
+              "coversAllVariations": { "const": true },
+              "variationCount": { "type": "integer", "minimum": 1 },
+              "selectionAxes": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "sampledVariationIds": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "samplingNote": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      }
+    },
+    "endings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["endingId", "endingStableKey", "passageId", "endingPhilosophy", "explanation"],
+        "properties": {
+          "endingId": { "type": "string", "pattern": "^spv1_end_[0-9a-f]{24}$" },
+          "endingStableKey": { "type": "string", "minLength": 1 },
+          "passageId": { "type": "string", "pattern": "^spv1_psg_[0-9a-f]{24}$" },
+          "endingPhilosophy": { "type": "string", "minLength": 1 },
+          "explanation": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "characters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "characterId",
+          "characterStableKey",
+          "kind",
+          "canonicalCharacterId",
+          "voiceIds",
+          "explanation"
+        ],
+        "properties": {
+          "characterId": { "type": "string", "pattern": "^spv1_chr_[0-9a-f]{24}$" },
+          "characterStableKey": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["canonical-voice", "runtime-composite"] },
+          "canonicalCharacterId": {
+            "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+          },
+          "voiceIds": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "explanation": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "edges": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["relationship", "rule", "edgeStableKeys"],
+      "properties": {
+        "relationship": { "const": "interactive-only-connective" },
+        "rule": { "type": "string", "minLength": 1 },
+        "edgeStableKeys": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "explanations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["explanationId", "explanationStableKey", "classification", "explanation"],
+        "properties": {
+          "explanationId": { "type": "string", "pattern": "^spv1_exp_[0-9a-f]{24}$" },
+          "explanationStableKey": { "type": "string", "minLength": 1 },
+          "classification": { "type": "string", "pattern": "-no-literary-claim$" },
+          "explanation": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "themesAndMotifs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["theme", "kind", "canonicalIds", "explanation"],
+        "properties": {
+          "theme": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["primary-theme", "secondary-theme", "motif"] },
+          "canonicalIds": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "explanation": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

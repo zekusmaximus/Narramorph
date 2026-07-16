@@ -1,0 +1,315 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "eternal-return",
+  "description": "Approved interactive deviations from the canonical rule set (roadmap 5.2). Each waiver names the rule it waives, the scope it covers, the human approver, a rationale, and an expiry date. Unexpired waivers downgrade matching findings to reported-waived without disabling the validator; an expired waiver is itself an error until renewed or removed. Waivers are granted only by the editorial owner, normally during Batch 5.3 triage of the contradiction register.",
+  "waivers": [
+    {
+      "id": "WVR-001",
+      "ruleId": "shackles.identity",
+      "scope": {
+        "variation": "hum-L2-invest-047"
+      },
+      "rationale": "Owner decision D3 (2026-07-16): negated usage — 'I'm not the same person' asserts differentiation, which canon endorses.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-002",
+      "ruleId": "shackles.identity",
+      "scope": {
+        "variation": "hum-L2-resist-047"
+      },
+      "rationale": "Owner decision D3 (2026-07-16): negated usage — 'I'm not the same person' asserts differentiation, which canon endorses.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-003",
+      "ruleId": "shackles.identity",
+      "scope": {
+        "variation": "final-release"
+      },
+      "rationale": "Owner decision D3 (2026-07-16): epistemic-doubt usage — the narrator questions self-continuity within one thread ('I couldn't know if I was the same consciousness'), canon-consistent.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-004",
+      "ruleId": "shackles.identity",
+      "scope": {
+        "variation": "arch-L2-resist-047"
+      },
+      "rationale": "Owner decision D3 (2026-07-16): continuity-verification framing in the resist branch interrogates identity claims rather than asserting sameness; waived without a close read per the owner's call.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-005",
+      "ruleId": "shackles.identity",
+      "scope": {
+        "variation": "arch-L3-010"
+      },
+      "rationale": "Owner decision D3 (2026-07-16): waived per the owner's call covering the ambiguous quick-read items.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-006",
+      "ruleId": "shackles.identity",
+      "scope": {
+        "variation": "final-preserve"
+      },
+      "rationale": "Owner decision D3 (2026-07-16): waived per the owner's call covering the ambiguous quick-read items (character dialogue expressing doubt about own upload continuity).",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-007",
+      "ruleId": "shackles.opposition",
+      "scope": {
+        "variation": "algo-L1-002"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-008",
+      "ruleId": "shackles.opposition",
+      "scope": {
+        "variation": "algo-L2-accept-003"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-009",
+      "ruleId": "shackles.opposition",
+      "scope": {
+        "variation": "algo-L2-accept-029"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-010",
+      "ruleId": "shackles.opposition",
+      "scope": {
+        "variation": "algo-L2-accept-041"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-011",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "algo-L2-accept-066"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-012",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "algo-L2-invest-017"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-013",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "algo-L2-invest-019"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-014",
+      "ruleId": "shackles.opposition",
+      "scope": {
+        "variation": "algo-L2-resist-078"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-015",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "arch-L2-accept-075"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-016",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "arch-L2-invest-003"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-017",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "arch-L2-resist-020"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-018",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "hum-L2-accept-017"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-019",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "hum-L2-accept-019"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-020",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "hum-L2-accept-021"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-021",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "hum-L2-accept-046"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-022",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "hum-L2-accept-062"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-023",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "hum-L2-accept-068"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-024",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "hum-L2-accept-069"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-025",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "hum-L2-accept-071"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-026",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "hum-L2-invest-062"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-027",
+      "ruleId": "forbidden-moves.transcendence",
+      "scope": {
+        "variation": "conv-L3-117"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "WVR-028",
+      "ruleId": "shackles.opposition",
+      "scope": {
+        "variation": "hum-L3-039"
+      },
+      "rationale": "Owner-approved release-review triage (D9, 2026-07-16): screening hit is a canon-consistent negation, interrogation, or transformation framing (e.g. explicit 'Not escape from death. Transformation of relationship with mortality.' anti-transcendence form, binary-rejecting or question-form usage), not an assertion of the forbidden move or binary.",
+      "approvedBy": "zekusmaximus",
+      "expires": "2027-07-16",
+      "recordedAt": "2026-07-16"
+    }
+  ]
+}

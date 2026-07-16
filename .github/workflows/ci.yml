@@ -63,6 +63,7 @@ jobs:
       - run: npm --prefix tools/conversion test
       - run: npm run content:validate:runtime
       - run: npm run content:validate
+      - run: npm run content:validate:canon:strict
       - run: npm run literary:stage -- eternal-return-literary-v1.0.1
       - run: npm run literary:validate
       - run: npm run literary:slice:stage -- archaeologist-opening-accept

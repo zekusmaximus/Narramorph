@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://narramorph.example/schemas/concordance/v1/contradiction-register.schema.json",
+  "title": "Canon Contradiction Register v1",
+  "description": "Recorded contradictions between the interactive runtime and the canonical manuscript context. Every entry carries a named owner and a resolution status; contradictions are decided, never silently fixed (ADR 0002). Documentation mirror of validateContradictionRegister in tools/conversion/lib/literary-release.ts; the TypeScript validator is authoritative.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "storyId", "severityDefinitions", "statusDefinitions", "entries"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "storyId": { "type": "string", "minLength": 1 },
+    "severityDefinitions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sev-1", "sev-2", "sev-3"],
+      "properties": {
+        "sev-1": { "type": "string", "minLength": 1 },
+        "sev-2": { "type": "string", "minLength": 1 },
+        "sev-3": { "type": "string", "minLength": 1 }
+      }
+    },
+    "statusDefinitions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["open", "accepted-as-is", "resolved"],
+      "properties": {
+        "open": { "type": "string", "minLength": 1 },
+        "accepted-as-is": { "type": "string", "minLength": 1 },
+        "resolved": { "type": "string", "minLength": 1 }
+      }
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "category",
+          "severity",
+          "description",
+          "evidence",
+          "owner",
+          "status",
+          "decision",
+          "resolvedBy",
+          "recordedAt"
+        ],
+        "properties": {
+          "id": { "type": "string", "pattern": "^CTR-[0-9]{3}$" },
+          "title": { "type": "string", "minLength": 1 },
+          "category": { "type": "string", "minLength": 1 },
+          "severity": { "enum": ["sev-1", "sev-2", "sev-3"] },
+          "description": { "type": "string", "minLength": 1 },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "owner": { "type": "string", "minLength": 1 },
+          "status": { "enum": ["open", "accepted-as-is", "resolved"] },
+          "decision": { "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }] },
+          "resolvedBy": { "oneOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }] },
+          "recordedAt": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "status": { "const": "open" } } },
+            "else": { "properties": { "decision": { "type": "string", "minLength": 1 } } }
+          },
+          {
+            "if": { "properties": { "status": { "const": "resolved" } } },
+            "then": { "properties": { "resolvedBy": { "type": "string", "minLength": 1 } } }
+          }
+        ]
+      }
+    }
+  }
+}

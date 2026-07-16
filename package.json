@@ -40,6 +40,8 @@
     "content:convert:watch": "npm --prefix tools/conversion run convert:watch --",
     "content:validate": "npm --prefix tools/conversion run validate --",
     "content:validate:runtime": "vitest run src/utils/validateRuntimeContent.test.ts",
+    "content:validate:canon": "npm --prefix tools/conversion run canon:validate --",
+    "content:validate:canon:strict": "npm --prefix tools/conversion run canon:validate -- --strict",
     "content:aggregate": "npm --prefix tools/conversion run aggregate --",
     "content:matrix": "npm --prefix tools/conversion run matrix --",
     "content:diff": "npm --prefix tools/conversion run diff --",

@@ -8,7 +8,9 @@
       "Bash(dir:*)",
       "Bash(findstr:*)",
       "Read(//c/**)",
-      "Bash(npm run type-check:*)"
+      "Bash(npm run type-check:*)",
+      "mcp__Claude_Code_Remote__add_repo",
+      "mcp__Claude_Code_Remote__register_repo_root"
     ],
     "deny": [],
     "ask": []
