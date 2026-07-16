@@ -7,6 +7,8 @@ export const CANON_WAIVERS_SCHEMA_VERSION = '1.0.0';
 export interface CanonPattern {
   regex: string;
   note: string;
+  severity?: CanonSeverity;
+  decisionRef?: string;
 }
 
 export interface CanonRules {
@@ -23,7 +25,14 @@ export interface CanonRules {
   forbiddenMoves: Record<string, { description: string; patterns: CanonPattern[] }>;
   terminology: {
     description: string;
-    forbiddenTerms: Array<{ id: string; regex: string; canonical: string; note: string }>;
+    forbiddenTerms: Array<{
+      id: string;
+      regex: string;
+      canonical: string;
+      note: string;
+      severity?: CanonSeverity;
+      decisionRef?: string;
+    }>;
   };
   chronology: {
     description: string;
@@ -118,7 +127,21 @@ function requirePatterns(value: unknown, label: string): CanonPattern[] {
     } catch (error) {
       throw new Error(label + ' item ' + index + ' is not a valid pattern: ' + String(error));
     }
-    return { regex, note: requireString(item.note, label + ' item ' + index + ' note') };
+    const pattern: CanonPattern = {
+      regex,
+      note: requireString(item.note, label + ' item ' + index + ' note'),
+    };
+    if (item.severity !== undefined) {
+      if (item.severity !== 'error' && item.severity !== 'warning') {
+        throw new Error(label + ' item ' + index + ' has an unknown severity.');
+      }
+      pattern.severity = item.severity;
+      pattern.decisionRef = requireString(
+        item.decisionRef,
+        label + ' item ' + index + ' decisionRef (required when overriding severity)',
+      );
+    }
+    return pattern;
   });
 }
 
@@ -139,7 +162,17 @@ export function validateCanonRules(value: unknown): CanonRules {
   }
   for (const term of rules.terminology.forbiddenTerms) {
     requireString(term.id, 'Terminology rule id');
-    requirePatterns([{ regex: term.regex, note: term.note }], 'Terminology rule ' + term.id);
+    requirePatterns(
+      [
+        {
+          regex: term.regex,
+          note: term.note,
+          severity: term.severity,
+          decisionRef: term.decisionRef,
+        },
+      ],
+      'Terminology rule ' + term.id,
+    );
   }
   requirePatterns(rules.chronology.absoluteDatePatterns, 'Chronology patterns');
   for (const [voiceId, profile] of Object.entries(rules.voices.profiles)) {
@@ -296,11 +329,20 @@ export function checkVariation(
 
   const scanLines = (patterns: CanonPattern[], severity: CanonSeverity, ruleId: string): void => {
     for (const pattern of patterns) {
+      const effectiveSeverity = pattern.severity ?? severity;
       const regex = new RegExp(pattern.regex, 'i');
       for (const [index, line] of lines.entries()) {
         const match = regex.exec(line);
         if (match) {
-          record(severity, ruleId, pattern.note, index + 1, line, match.index, match[0].length);
+          record(
+            effectiveSeverity,
+            ruleId,
+            pattern.decisionRef ? pattern.note + ' [' + pattern.decisionRef + ']' : pattern.note,
+            index + 1,
+            line,
+            match.index,
+            match[0].length,
+          );
         }
       }
     }
@@ -313,7 +355,18 @@ export function checkVariation(
     scanLines(group.patterns, 'error', 'forbidden-moves.' + name);
   }
   for (const term of rules.terminology.forbiddenTerms) {
-    scanLines([{ regex: term.regex, note: term.note }], 'error', 'terminology.' + term.id);
+    scanLines(
+      [
+        {
+          regex: term.regex,
+          note: term.note,
+          severity: term.severity,
+          decisionRef: term.decisionRef,
+        },
+      ],
+      'error',
+      'terminology.' + term.id,
+    );
   }
   scanLines(rules.chronology.absoluteDatePatterns, 'error', 'chronology.absolute-date');
 

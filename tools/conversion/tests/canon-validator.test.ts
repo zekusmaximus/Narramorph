@@ -79,17 +79,23 @@ describe('canon validator (manuscript rules ported at 6720e76)', () => {
     expect(ruleIds).toContain('forbidden-moves.transcendence');
   });
 
-  it('treats renamed canonical entities and absolute dates as errors', async () => {
+  it('reports renamed entities and absolute dates as owner-demoted warnings with decision refs', async () => {
     const rules = await loadRules();
     const findings = check(
       'Seventeen years into the Upload Era, in 2151, the Great Aggregation began.',
       rules,
     );
-    const errors = findings.filter((finding) => finding.severity === 'error');
-    const ruleIds = errors.map((finding) => finding.ruleId);
+    const demoted = findings.filter(
+      (finding) =>
+        finding.ruleId.startsWith('terminology.') || finding.ruleId === 'chronology.absolute-date',
+    );
+    const ruleIds = demoted.map((finding) => finding.ruleId);
     expect(ruleIds).toContain('terminology.upload-era');
     expect(ruleIds).toContain('terminology.great-aggregation');
     expect(ruleIds).toContain('chronology.absolute-date');
+    // Owner decisions D1/D2 (CTR-005/CTR-006 accepted-as-is) demote these to visible warnings.
+    expect(demoted.every((finding) => finding.severity === 'warning')).toBe(true);
+    expect(demoted.every((finding) => finding.note.includes('CTR-00'))).toBe(true);
 
     const clean = check('Decades from now, the Integration Era shapes every contract.', rules);
     expect(clean.filter((finding) => finding.severity === 'error')).toHaveLength(0);

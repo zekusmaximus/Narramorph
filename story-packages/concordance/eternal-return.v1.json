@@ -60,7 +60,7 @@
         }
       ],
       "voiceIds": ["algorithm"],
-      "chronologyIds": ["er-chronology-phase-1"],
+      "chronologyIds": ["er-chronology-phase-3"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-tertiary-retention-stiegler",
         "er-philosophy-key-concepts-the-pharmakon"
@@ -94,7 +94,7 @@
         }
       ],
       "voiceIds": ["algorithm"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-3"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-identity-dissolution-klossowski",
         "er-philosophy-key-concepts-eternal-return"
@@ -133,7 +133,7 @@
         }
       ],
       "voiceIds": ["algorithm"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-3"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-the-pharmakon",
         "er-philosophy-key-concepts-tertiary-retention-stiegler"
@@ -172,7 +172,7 @@
         }
       ],
       "voiceIds": ["algorithm"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-3"],
       "philosophicalConstraintIds": [
         "er-philosophy-four-shackles-identity",
         "er-philosophy-four-shackles-opposition"
@@ -215,7 +215,7 @@
         }
       ],
       "voiceIds": ["algorithm"],
-      "chronologyIds": ["er-chronology-phase-3", "er-chronology-phase-4"],
+      "chronologyIds": ["er-chronology-phase-1", "er-chronology-phase-3", "er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-identity-dissolution-klossowski",
         "er-philosophy-key-concepts-eternal-return",
@@ -336,7 +336,7 @@
         }
       ],
       "voiceIds": ["archaeologist"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-1"],
       "philosophicalConstraintIds": [
         "er-philosophy-four-shackles-analogy",
         "er-philosophy-key-concepts-tertiary-retention-stiegler"
@@ -375,7 +375,7 @@
         }
       ],
       "voiceIds": ["archaeologist"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-1"],
       "philosophicalConstraintIds": [
         "er-philosophy-four-shackles-identity",
         "er-philosophy-forbidden-moves-unified-i-after-dissolution"
@@ -418,7 +418,7 @@
         }
       ],
       "voiceIds": ["archaeologist"],
-      "chronologyIds": ["er-chronology-phase-3", "er-chronology-phase-4"],
+      "chronologyIds": ["er-chronology-phase-1", "er-chronology-phase-3", "er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-identity-dissolution-klossowski",
         "er-philosophy-four-shackles-identity",
@@ -458,7 +458,7 @@
         }
       ],
       "voiceIds": ["algorithm", "archaeologist", "last-human"],
-      "chronologyIds": ["er-chronology-phase-3"],
+      "chronologyIds": ["er-chronology-phase-1", "er-chronology-phase-3", "er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-eternal-return",
         "er-philosophy-key-concepts-identity-dissolution-klossowski",
@@ -507,7 +507,7 @@
         }
       ],
       "voiceIds": ["algorithm", "archaeologist", "last-human"],
-      "chronologyIds": ["er-chronology-phase-4"],
+      "chronologyIds": ["er-chronology-phase-1", "er-chronology-phase-3", "er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-four-shackles-identity",
         "er-philosophy-key-concepts-tertiary-retention-stiegler",
@@ -546,7 +546,7 @@
         }
       ],
       "voiceIds": ["algorithm", "archaeologist", "last-human"],
-      "chronologyIds": ["er-chronology-phase-4"],
+      "chronologyIds": ["er-chronology-phase-1", "er-chronology-phase-3", "er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-identity-dissolution-klossowski",
         "er-philosophy-key-concepts-eternal-return",
@@ -585,7 +585,7 @@
         }
       ],
       "voiceIds": ["algorithm", "archaeologist", "last-human"],
-      "chronologyIds": ["er-chronology-phase-4"],
+      "chronologyIds": ["er-chronology-phase-1", "er-chronology-phase-3", "er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-the-pharmakon",
         "er-philosophy-key-concepts-eternal-return",
@@ -624,7 +624,7 @@
         }
       ],
       "voiceIds": ["last-human"],
-      "chronologyIds": ["er-chronology-phase-1"],
+      "chronologyIds": ["er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-the-augenblick",
         "er-philosophy-key-concepts-eternal-return"
@@ -664,7 +664,7 @@
         }
       ],
       "voiceIds": ["last-human"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-the-augenblick",
         "er-philosophy-key-concepts-eternal-return"
@@ -703,7 +703,7 @@
         }
       ],
       "voiceIds": ["last-human"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-four-shackles-resemblance",
         "er-philosophy-four-shackles-analogy"
@@ -742,7 +742,7 @@
         }
       ],
       "voiceIds": ["last-human"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-four-shackles-identity",
         "er-philosophy-four-shackles-opposition"
@@ -785,7 +785,7 @@
         }
       ],
       "voiceIds": ["last-human"],
-      "chronologyIds": ["er-chronology-phase-3", "er-chronology-phase-4"],
+      "chronologyIds": ["er-chronology-phase-1", "er-chronology-phase-3", "er-chronology-phase-4"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-identity-dissolution-klossowski",
         "er-philosophy-key-concepts-the-augenblick",

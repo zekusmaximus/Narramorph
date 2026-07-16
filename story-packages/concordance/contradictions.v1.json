@@ -90,8 +90,8 @@
         "bible/name-index.md: 'Integration Era' attested 4x; 'Upload Era' 0x"
       ],
       "owner": "zekusmaximus",
-      "status": "open",
-      "decision": null,
+      "status": "accepted-as-is",
+      "decision": "Owner decision D1 (2026-07-16): accepted as an intentional interactive-edition difference. The runtime edition's era texture (its own era naming and institutional vocabulary) is a reviewed, recorded divergence under ADR 0002's edition-differences model; the canonical manuscript's terminology is unaffected and remains authoritative for the novel. The terminology rules stay in canon validation demoted to warnings (decisionRef in canon-rules.v1.json) so future drift stays visible without failing strict mode.",
       "resolvedBy": null,
       "recordedAt": "2026-07-16"
     },
@@ -108,8 +108,8 @@
         "Eternal_Return_Manuscript@6720e76 bible/worldbuilding/catastrophe-timeline.md: era spacing 'Decades from our present' / centuries / millennia (relative, never absolute)"
       ],
       "owner": "zekusmaximus",
-      "status": "open",
-      "decision": null,
+      "status": "accepted-as-is",
+      "decision": "Owner decision D2 (2026-07-16): accepted as recorded. The runtime edition's absolute dating style is a deliberate edition difference; ADR 0002's chronology requirement is read as protecting the relative ordering of material causal events, which the runtime preserves. The absolute-date rule stays in canon validation demoted to a warning (decisionRef in canon-rules.v1.json) so dating drift stays visible.",
       "resolvedBy": null,
       "recordedAt": "2026-07-16"
     },
@@ -144,7 +144,7 @@
       ],
       "owner": "zekusmaximus",
       "status": "open",
-      "decision": null,
+      "decision": "Owner decision D4 (2026-07-16): prose fix approved in principle. The exact replacement wording for arch-L1-003's expository passage requires line-by-line owner sign-off before it is applied, and lands in the versioned content release (eternal-return 1.1.0 -> 1.2.0) alongside #156. Status stays open until the fix lands.",
       "resolvedBy": null,
       "recordedAt": "2026-07-16"
     },
@@ -162,7 +162,7 @@
       ],
       "owner": "zekusmaximus",
       "status": "open",
-      "decision": null,
+      "decision": "Owner decision D5 (2026-07-16): prose fix to canon approved in principle — the archaeologist returns to the canonical male gendering across the archaeologist families and the arch-L1-003 motivation inversion is corrected. Exact wording diffs require line-by-line owner sign-off before application and land in the versioned content release (1.1.0 -> 1.2.0). Status stays open until the fix lands.",
       "resolvedBy": null,
       "recordedAt": "2026-07-16"
     },
@@ -180,7 +180,7 @@
       ],
       "owner": "zekusmaximus",
       "status": "open",
-      "decision": null,
+      "decision": "Owner decision D6 (2026-07-16): metadata correction approved, coordinated slice re-issue approved. Executed now: chronology IDs corrected to era semantics on the 17 mappings not pinned by the accepted vertical slice (algo-L1 -> phase-3; hum-L1 -> phase-4; arch-L2-invest/resist -> phase-1; algo-L2-* -> phase-3; hum-L2-* -> phase-4; the four L3 families and three endings -> phase-1+3+4 spanning the three narrated eras). Pending the M-side slice re-issue: arch-L2-accept's chronology correction (phase-2 -> phase-1) and any promise-chain pruning on the two slice-pinned mappings. Promise-chain pruning on unpinned mappings is deferred to the content-release review, where family prose is read in full before claims are dropped. Status stays open until the slice re-issue lands.",
       "resolvedBy": null,
       "recordedAt": "2026-07-16"
     },
@@ -197,8 +197,8 @@
         "Eternal_Return_Manuscript@6720e76 bible/voices/: archaeologist forbidden markers (probabilistic hedging, precise notation); last-human forbidden markers (percentages, analytical framing); M3-only bleed schedule"
       ],
       "owner": "zekusmaximus",
-      "status": "open",
-      "decision": null,
+      "status": "accepted-as-is",
+      "decision": "Owner decision D7 (2026-07-16): contamination and signature findings remain review warnings per the roadmap default; no rule is promoted to error. Specific passages get selective prose attention inside the content release rather than a blanket rewrite.",
       "resolvedBy": null,
       "recordedAt": "2026-07-16"
     },
