@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import { buildVisitEvent } from '@/domain/progress/visitEvents';
 import type { SelectionReason, SelectionRecord, StoryPackageIdentity, VisitEvent } from '@/types';
+import { isVisitEvent } from '@/types';
 
 import {
   JOURNEY_EXPORT_LICENSE_NOTICE,
@@ -111,6 +112,29 @@ describe('buildJourneyMarkdown', () => {
 
   it('is deterministic: identical inputs produce byte-identical output', () => {
     expect(buildJourneyMarkdown(events, metadata)).toBe(buildJourneyMarkdown(events, metadata));
+  });
+
+  it('re-exports a saved journey byte-identically after a save/reopen round-trip', () => {
+    const journey = [
+      event({ sequence: 0, nodeId: 'arch-L1', content: 'The archive remembers.', beatIds: ['b0'] }),
+      event({
+        sequence: 1,
+        nodeId: 'algo-L2-invest',
+        content: 'Seven processes examine.',
+        bridgeId: 'algo-L1__algo-L2-invest__from-archaeologist',
+        bridgeContent:
+          "You cross from the archaeologist's careful hands into the Algorithm's arithmetic — the same fragment, counted differently.",
+      }),
+    ];
+    const before = buildJourneyMarkdown(journey, metadata);
+
+    // Simulate persistence: the visit-event log is serialized on save and rehydrated on reopen.
+    const rehydrated = JSON.parse(JSON.stringify(journey)) as VisitEvent[];
+    expect(rehydrated.every(isVisitEvent)).toBe(true);
+    expect(rehydrated[1]?.bridgeText?.content).toBe(journey[1]?.bridgeText?.content);
+
+    // Export reads only the stored snapshots, so a reopened journey re-exports byte-for-byte.
+    expect(buildJourneyMarkdown(rehydrated, metadata)).toBe(before);
   });
 
   it('renders the resolved bridge prose as a blockquote before its passage', () => {
