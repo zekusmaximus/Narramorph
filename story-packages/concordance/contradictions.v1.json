@@ -74,6 +74,150 @@
       "decision": null,
       "resolvedBy": null,
       "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "CTR-005",
+      "title": "Invented era-state facts and era names contradict the canonical worldbuilding",
+      "category": "canon-chronology-terminology",
+      "severity": "sev-1",
+      "description": "Runtime L1/L2 prose asserts era-state facts that contradict the approved canonical worldbuilding. The era is repeatedly named 'Upload Era' (canonical named concept: Integration Era; 'Upload Era' has zero occurrences in the manuscript name index) in 3 content files. The Archive is depicted under construction with experimental preservation in the Archaeologist's era (canon: the Integration industry is already the dominant economic force and the near-future database is the Deep Architecture). The Last Human's era shows an operational, self-maintaining archive ('TOTAL CONSCIOUSNESS COUNT: 847,293', 'OPERATIONAL STATUS: NOMINAL') where canon states the database has failed and biological life has largely ended. The catastrophe is recast as a voluntary mass upload ('No apocalypse. No war. Just upload.') where canon requires a slow bleed of compounding failures. Invented institution names displace canonical terms: 'the Great Archive' (algo-L1), 'Great Aggregation' (hum-L1 plus three algo-L2 files), 'Consciousness Archival Facility 2276' (hum-L1). Found in all five audited families; spread confirmed mechanically across the corpus.",
+      "evidence": [
+        "src/data/stories/eternal-return/content/layer1/arch-L1-variations.json: 'We were seventeen years into the Upload Era. Preservation success rates had climbed from 12 percent to 67 percent.'",
+        "src/data/stories/eternal-return/content/layer2/arch-L2-accept-variations.json: 'early Upload Era when success rates hovered near 23 percent' and 'Construction on the Archive facility continued three kilometers north'",
+        "src/data/stories/eternal-return/content/layer1/hum-L1-variations.json: 'TOTAL CONSCIOUSNESS COUNT: 847,293' / 'OPERATIONAL STATUS: NOMINAL' / 'No apocalypse. No war. Just upload. One by one, everyone chose digital.' / 'Great Aggregation'",
+        "src/data/stories/eternal-return/content/layer1/algo-L1-variations.json: 'awaiting integration into the Great Archive where all human thought eventually merges'",
+        "Eternal_Return_Manuscript@6720e76 bible/worldbuilding/near-future.md: 'Integration industry now dominant economic force'; catastrophe-timeline.md: 'Millennia after the Algorithm. The database has failed. Biological life on Earth has largely ended.'",
+        "bible/name-index.md: 'Integration Era' attested 4x; 'Upload Era' 0x"
+      ],
+      "owner": "zekusmaximus",
+      "status": "open",
+      "decision": null,
+      "resolvedBy": null,
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "CTR-006",
+      "title": "Absolute compressed dating replaces the canonical relative chronology",
+      "category": "canon-chronology",
+      "severity": "sev-1",
+      "description": "Canon keeps the three eras relative and widely spaced (near future decades out; mid future centuries later; deep future millennia later). Runtime prose hard-pins absolute years and compresses the spacing: the Algorithm initializes 'in 2151' and receives a query from '2383' (centuries total where canon spans centuries then millennia); the near-future archaeologist works under 'Timestamp 2157' (15 occurrences in arch-L2-invest); the mid-future Algorithm carries 2025 ISO timestamps (4 occurrences in arch-L2-accept); hum-L1's Last Human is 'forty-seven years old ... the oldest biological human on Earth' within living memory of upload, against the canonical millennia gap. Absolute-year dating appears in 12 of the 15 L1/L2 family files (mechanical scan), so this is systemic, not local.",
+      "evidence": [
+        "src/data/stories/eternal-return/content/layer1/algo-L1-variations.json: 'A human consciousness examined Fragment 2749-A in 2047. One hundred four years before my initialization in 2151.' and 'Query timestamp: 2383.171.03:17:22'",
+        "src/data/stories/eternal-return/content/layer2/arch-L2-invest-variations.json: 'Timestamp 2157:03:15:27.0956 marks examination-moment' (15 occurrences)",
+        "src/data/stories/eternal-return/content/layer2/arch-L2-accept-variations.json: 'Seven streams coordinating temporal coherence [2025-10-19T14:23:17Z through 19Z]' (4 occurrences)",
+        "Eternal_Return_Manuscript@6720e76 bible/worldbuilding/catastrophe-timeline.md: era spacing 'Decades from our present' / centuries / millennia (relative, never absolute)"
+      ],
+      "owner": "zekusmaximus",
+      "status": "open",
+      "decision": null,
+      "resolvedBy": null,
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "CTR-007",
+      "title": "Four Shackles identity violation: the three protagonists declared a single consciousness",
+      "category": "canon-philosophy",
+      "severity": "sev-1",
+      "description": "hum-L1 prose flattens the three protagonists into one person in non-dream content: 'We're not three separate examinations. We're single consciousness distributed across temporal positions.' and 'Three substrates. Three time periods. One consciousness distributed across examination network that spans centuries.' This is the exact reading the identity shackle forbids (the three threads are differentiations, never the same person) and the exact case ADR 0002 lists first among alignment-mandatory claims. Secondary: algo-L1 brushes the analogy shackle with a cross-thread functional-equivalence framing ('The archaeologist examined Fragment 2749-A to determine ... I process Fragment 2749-A to authenticate ... We perform ...'). This finding is the concrete fixture case for Batch 5.2's flattened-reading validation gate.",
+      "evidence": [
+        "src/data/stories/eternal-return/content/layer1/hum-L1-variations.json: 'We're not three separate examinations. We're single consciousness distributed across temporal positions. Looking at ourselves from three angles simultaneously.'",
+        "src/data/stories/eternal-return/content/layer1/hum-L1-variations.json: 'Three substrates. Three time periods. One consciousness distributed across examination network that spans centuries.'",
+        "src/data/stories/eternal-return/content/layer1/algo-L1-variations.json: cross-thread functional-equivalence framing of archaeologist/algorithm work",
+        "Eternal_Return_Manuscript@6720e76 bible/philosophy-constraints.md: Four Shackles — identity ('same consciousness' constructions forbidden between threads)"
+      ],
+      "owner": "zekusmaximus",
+      "status": "open",
+      "decision": null,
+      "resolvedBy": null,
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "CTR-008",
+      "title": "Bootstrap paradox explained in extended exposition (dramatize-never-explain violated)",
+      "category": "canon-philosophy",
+      "severity": "sev-1",
+      "description": "The final third of arch-L1-003 repeatedly explains the causal-loop mechanics in expository narration: 'the techniques hadn't been discovered in 2037—they had been recovered from this fragment', 'The methodologies had been recovered from the fragment, which had been preserved using the methodologies, which had been recovered from the fragment.' Canon requires these concepts to be 'shown through action, sensation, and structure—never through exposition or philosophical monologue', and the revision plan separately forbids explaining the bootstrap paradox at all. Nuance for the owner: the passage correctly avoids the planner error ('Self-generating. Requiring only continuation.' matches the approved self-causing form) — the violation is the volume of paradox exposition, not its content.",
+      "evidence": [
+        "src/data/stories/eternal-return/content/layer1/arch-L1-variations.json: 'The methodologies had been recovered from the fragment, which had been preserved using the methodologies, which had been recovered from the fragment.'",
+        "src/data/stories/eternal-return/content/layer1/arch-L1-variations.json: 'they had been recovered from this fragment. Recovered and implemented and dated to 2037 as a discovery date when they were actually recovered knowledge from 2031.'",
+        "Eternal_Return_Manuscript@6720e76 bible/philosophy-constraints.md: 'These concepts should be shown through action, sensation, and structure—never through exposition or philosophical monologue.'"
+      ],
+      "owner": "zekusmaximus",
+      "status": "open",
+      "decision": null,
+      "resolvedBy": null,
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "CTR-009",
+      "title": "Archaeologist's character identity diverges from canon: re-gendered and motivation inverted",
+      "category": "canon-character-identity",
+      "severity": "sev-1",
+      "description": "Canon genders the Archaeologist male ('He's not fleeing imminent doom. He's racing against ...'; P28's male dream-voice) and motivates him by an economic race. Runtime prose renders the archaeologist female across the audited archaeologist families (arch-L1-001/002 'Yet here she is, loading Fragment 2749-A again.'; arch-L2-accept 'seventeen days after she had last examined Fragment 2749-A'; arch-L2-invest 'She returned to the authentication station at 09:14'), while arch-L1-003 is ungendered first person — so the divergence is also internally inconsistent. arch-L1-003 additionally inverts the canonical motivation ('I hadn't decided whether to undergo preservation. The philosophical questions troubled me more than the technical risks.' vs the canonical economic race). ADR 0002 lists character identity among claims the editions must not contradict; a deliberate gender change would need to be an approved, recorded edition difference — no such record exists.",
+      "evidence": [
+        "src/data/stories/eternal-return/content/layer1/arch-L1-variations.json: 'Yet here she is, loading Fragment 2749-A again.'",
+        "src/data/stories/eternal-return/content/layer2/arch-L2-accept-variations.json: 'The authentication request arrived seventeen days after she had last examined Fragment 2749-A.'",
+        "src/data/stories/eternal-return/content/layer2/arch-L2-invest-variations.json: 'She returned to the authentication station at 09:14'",
+        "Eternal_Return_Manuscript@6720e76 bible/worldbuilding/catastrophe-timeline.md: 'The Archaeologist's position: He's not fleeing imminent doom. He's racing against:'"
+      ],
+      "owner": "zekusmaximus",
+      "status": "open",
+      "decision": null,
+      "resolvedBy": null,
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "CTR-010",
+      "title": "Concordance metadata: chronology IDs used as movement indices and promise chains over-claimed",
+      "category": "concordance-metadata",
+      "severity": "sev-2",
+      "description": "The release's er-chronology-phase-* IDs denote catastrophe eras (phase-1 = the Archaeologist's era; phase-2 = the between-eras Exodus gap; phase-4 = the Last Human's Silence), but the 1.0.0 mappings use them as narrative-movement indices: algo-L1 and hum-L1 are tagged phase-1 (the Archaeologist's era), and all nine L2 families are tagged phase-2 (the between-eras gap) although their content sits inside the three character eras. Separately, several declared promise chains have zero presence in their fully-covered families: arch-L1 claims six promises of which only P5 is planted; algo-L1's Mildred chain (P18/P21/P24) and protocol-authorship pair (P16/P22) are absent; both audited arch-L2 families claim the Martinez (P12/P41) and Lena (P33/P40) chains with no trace in the prose. Resolution requires a concordance metadata correction; arch-L1 and arch-L2-accept mapping arrays are pinned by the accepted vertical slice, so the correction must be coordinated with a slice re-issue (M-side export) — scope and timing are the owner's call.",
+      "evidence": [
+        "story-packages/concordance/eternal-return.v1.json: algo-L1 and hum-L1 chronologyIds ['er-chronology-phase-1']; all L2 mappings ['er-chronology-phase-2']",
+        "literary-releases/source/eternal-return-literary-v1.0.1.json: er-chronology-phase-1 timelinePosition 'Decades from our present ...' (the Archaeologist's era); er-chronology-phase-2 'Roughly 50-150 years after the Archaeologist's era. The gap between eras.'",
+        "story-packages/concordance/eternal-return.v1.json: arch-L1 promiseIds [P-Eleanor,P1,P2,P3,P4,P5] vs family prose planting only P5",
+        "Eternal_Return_Manuscript@6720e76 editorial/BOOK-MAP.md: promise ledger definitions (P12 Martinez extraction, P33 Lena arc, P18/P21 Mildred chain)"
+      ],
+      "owner": "zekusmaximus",
+      "status": "open",
+      "decision": null,
+      "resolvedBy": null,
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "CTR-011",
+      "title": "Algorithm-voice texture contaminates the archaeologist and last-human voices at L1/L2",
+      "category": "voice-consistency",
+      "severity": "sev-2",
+      "description": "Percentages, precise metrics, timestamps, and probabilistic/nested-conditional framing — the Algorithm's registered voice fingerprint, forbidden in the other two voices — pervade archaeologist and last-human prose where no designed-bleed license exists (designed bleed begins in Movement 3 / L3-L4 content). The metric texture '94.7% structural coherence' appears verbatim in nine family files (hum-L1 plus eight of the nine L2 families); archaeologist prose opens on precise timestamps ('arrived at 14:47') and stacks probabilistic hedging ('probably random, probably meaningless, probably coincidental'); arch-L2-invest additionally stages the deep-future Last Human as a live co-investigator with functioning instruments inside a near-future archaeologist node. Disposition options: encode as Batch 5.2 contamination rules (error at L1/L2, licensed at L3/L4) with waivers for anything the owner deems intentional, or schedule prose revision through the content-release path.",
+      "evidence": [
+        "grep -rl '94.7% structural coherence' content/layer1 content/layer2 -> 9 family files (hum-L1 + 8 L2 families)",
+        "src/data/stories/eternal-return/content/layer1/arch-L1-variations.json: 'The authentication request arrived at 14:47 on a Tuesday afternoon' / 'probably random, probably meaningless, probably coincidental'",
+        "src/data/stories/eternal-return/content/layer2/arch-L2-invest-variations.json: deep-future Last Human 'documented embodied investigation' with functioning neural interface inside an archaeologist L2 node",
+        "Eternal_Return_Manuscript@6720e76 bible/voices/: archaeologist forbidden markers (probabilistic hedging, precise notation); last-human forbidden markers (percentages, analytical framing); M3-only bleed schedule"
+      ],
+      "owner": "zekusmaximus",
+      "status": "open",
+      "decision": null,
+      "resolvedBy": null,
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "CTR-012",
+      "title": "Family-internal continuity breaks between initial and revisit variations",
+      "category": "runtime-continuity",
+      "severity": "sev-2",
+      "description": "Initial and revisit variations within the same family were authored from divergent premises. arch-L1: the initial (003) authenticates 'Upload Candidate 17-0293' while both revisit variations return to 'Fragment 2749-A', which no initial establishes; the initial also ends at full causal-loop recognition while the revisits that follow restart at lower awareness. algo-L1: the initial names the fragment '41-0847' while all revisits process '2749-A'. Variation metadata self-contradicts (arch-L1 initial: wordCount 2712 vs word_count 6142 in the same record; algo-L1 similar). These are runtime-internal defects (no canonical claim broken) but they undermine the revisit experience the selection system is built around and should be triaged with the #156 content-release scoping.",
+      "evidence": [
+        "src/data/stories/eternal-return/content/layer1/arch-L1-variations.json: initial 'Client designation: Upload Candidate 17-0293' vs revisit 'The archaeologist returns to Fragment 2749-A six days after initial authentication.'",
+        "src/data/stories/eternal-return/content/layer1/algo-L1-variations.json: 'Fragment designation 41-0847' (initial) vs 'Fragment 2749-A: consciousness data preserved 2041.217' (revisits)",
+        "src/data/stories/eternal-return/content/layer1/arch-L1-variations.json: metadata 'wordCount': 2712 alongside 'word_count': 6142 in the same variation record"
+      ],
+      "owner": "zekusmaximus",
+      "status": "open",
+      "decision": null,
+      "resolvedBy": null,
+      "recordedAt": "2026-07-16"
     }
   ]
 }

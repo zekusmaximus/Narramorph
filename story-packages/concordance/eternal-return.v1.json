@@ -72,7 +72,7 @@
         "variationCount": 4,
         "selectionAxes": ["transformationState", "awareness", "awarenessRange"],
         "sampledVariationIds": ["algo-L1-001", "algo-L1-002", "algo-L1-003", "algo-L1-004"],
-        "samplingNote": "All layer-1 variations audited (small family)."
+        "samplingNote": "All layer-1 variations sampled (small family)."
       }
     },
     {
@@ -275,7 +275,7 @@
         "variationCount": 3,
         "selectionAxes": ["transformationState", "awareness", "awarenessRange"],
         "sampledVariationIds": ["arch-L1-001", "arch-L1-002", "arch-L1-003"],
-        "samplingNote": "All layer-1 variations audited (small family)."
+        "samplingNote": "All layer-1 variations sampled (small family)."
       }
     },
     {
@@ -520,7 +520,7 @@
         "variationCount": 1,
         "selectionAxes": ["philosophy"],
         "sampledVariationIds": ["final-preserve"],
-        "samplingNote": "Single-variation ending family; the full ending was audited."
+        "samplingNote": "Single-variation ending family; the full ending is the audit sample."
       }
     },
     {
@@ -559,7 +559,7 @@
         "variationCount": 1,
         "selectionAxes": ["philosophy"],
         "sampledVariationIds": ["final-release"],
-        "samplingNote": "Single-variation ending family; the full ending was audited."
+        "samplingNote": "Single-variation ending family; the full ending is the audit sample."
       }
     },
     {
@@ -598,7 +598,7 @@
         "variationCount": 1,
         "selectionAxes": ["philosophy"],
         "sampledVariationIds": ["final-transform"],
-        "samplingNote": "Single-variation ending family; the full ending was audited."
+        "samplingNote": "Single-variation ending family; the full ending is the audit sample."
       }
     },
     {
@@ -642,7 +642,7 @@
           "hum-L1-004",
           "hum-L1-005"
         ],
-        "samplingNote": "All layer-1 variations audited (small family)."
+        "samplingNote": "All layer-1 variations sampled (small family)."
       }
     },
     {

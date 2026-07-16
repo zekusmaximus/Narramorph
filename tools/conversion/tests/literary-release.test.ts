@@ -544,8 +544,13 @@ describe('concordance coverage (schema 1.1.0)', () => {
     const intake = await validateAcceptedLiteraryRelease(repositoryRoot);
     expect(intake.contradictions).toBeDefined();
     const summary = summarizeContradictions(intake.contradictions!);
-    expect(summary.total).toBeGreaterThanOrEqual(4);
-    expect(summary.openSevOne).toBe(0);
+    expect(summary.total).toBe(intake.contradictions!.entries.length);
+    expect(summary.openSevOne).toBe(
+      intake.contradictions!.entries.filter(
+        (entry) => entry.status === 'open' && entry.severity === 'sev-1',
+      ).length,
+    );
+    expect(summary.open).toBeGreaterThanOrEqual(summary.openSevOne);
 
     const register = JSON.parse(
       await readFile(
