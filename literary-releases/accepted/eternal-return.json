@@ -14,7 +14,7 @@
     "deploymentAuthorized": false
   },
   "concordancePath": "story-packages/concordance/eternal-return.v1.json",
-  "concordanceSha256": "2db68576f02ea5e05e6fcd0d32d6f0f989f16a874a2c334f9684ba1c2e021ef8",
+  "concordanceSha256": "83785ea9273173c54146f75dd26a168a04b597db9e6f0ab79ddf88669829a9fd",
   "storyPackage": {
     "storyId": "eternal-return",
     "storyVersion": "1.1.0",

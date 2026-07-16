@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "storyId": "eternal-return",
+  "severityDefinitions": {
+    "sev-1": "Contradicts an approved canonical claim (character identity/differentiation, chronology, philosophical constraints, controlled terminology, causal promises, or ending claims). Open sev-1 entries block the Phase 5.3 editorial-audit gate.",
+    "sev-2": "Misleading metadata or internal inconsistency that could mislead a maintainer or reader without breaking a canonical claim.",
+    "sev-3": "Hygiene or documentation debt with no canonical or behavioral impact."
+  },
+  "statusDefinitions": {
+    "open": "Recorded and awaiting the named owner's decision.",
+    "accepted-as-is": "The named owner decided the state is intentional or tolerable; the decision text records why.",
+    "resolved": "The named owner approved a resolution and it has landed; resolvedBy records where."
+  },
+  "entries": [
+    {
+      "id": "CTR-001",
+      "title": "story.json declares totalNodes 18 while the shipped package has 19 passages",
+      "category": "runtime-metadata",
+      "severity": "sev-2",
+      "description": "src/data/stories/eternal-return/story.json structure.totalNodes is 18, but the shipped story package catalogs 19 passages. The gap is conv-L3, which is injected via story-packages/sources/eternal-return-shared-sections.json, has no graph edges, and is reached by runtime convergence logic rather than graph topology. The runtime validator counts graph nodes, so both numbers are internally consistent, but the two counting conventions are undocumented and will mislead future audits. Decision needed: document the convention (totalNodes = graph nodes, excludes injected shared sections) or change the declaration to 19 alongside a matching runtime-validator update.",
+      "evidence": [
+        "src/data/stories/eternal-return/story.json (structure.totalNodes: 18, structure.totalConnections: 27)",
+        "story-packages/eternal-return/catalog.json (19 passages)",
+        "story-packages/sources/eternal-return-shared-sections.json (conv-L3 injection, connections: [])"
+      ],
+      "owner": "zekusmaximus",
+      "status": "open",
+      "decision": null,
+      "resolvedBy": null,
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "CTR-002",
+      "title": "284 *.json.tmp files are checked into src/data/stories/eternal-return/content/",
+      "category": "tooling-hygiene",
+      "severity": "sev-3",
+      "description": "284 sibling *.json.tmp files (269 in layer3/variations alone, plus layer1/2/4) are tracked in git alongside the authoritative *.json content files — debris from an earlier standardization pass. They are ignored by the conversion globs and the runtime, so nothing consumes them, but they double the apparent content tree and invite editing the wrong file. Proposed resolution: delete the tracked .tmp files in a hygiene commit after proving the package content hash and runtime validation are unaffected. Deletion touches the authored-content directory, so it is recorded here for explicit owner approval rather than done silently.",
+      "evidence": ["git ls-files src/data/stories/eternal-return | grep -c '\\.tmp$' -> 284"],
+      "owner": "zekusmaximus",
+      "status": "open",
+      "decision": null,
+      "resolvedBy": null,
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "CTR-003",
+      "title": "No declared join existed between catalog characters and canonical voices",
+      "category": "concordance",
+      "severity": "sev-2",
+      "description": "The concordance used release voice IDs (including last-human) while the catalog's character stable keys are algorithm/archaeologist/human/multi-perspective/convergence-section. Catalog 'human' had no declared link to canonical voice 'last-human' or character 'er-character-last-human', and the two runtime composites (multi-perspective, convergence-section) had no voice classification at all, leaving character identity claims unauditable. Resolution: the concordance 1.1.0 characters section is the authoritative per-character join (canonical-voice rows for the three thread narrators, runtime-composite rows for the two interactive composites), enforced by the literary validator.",
+      "evidence": [
+        "story-packages/eternal-return/catalog.json (characters: algorithm, archaeologist, convergence-section, human, multi-perspective)",
+        "literary-releases/source/eternal-return-literary-v1.0.1.json (voices: algorithm, archaeologist, last-human)",
+        "story-packages/concordance/eternal-return.v1.json (characters section, schema 1.1.0)"
+      ],
+      "owner": "zekusmaximus",
+      "status": "resolved",
+      "decision": "Add an explicit character-to-voice join table to the concordance rather than renaming either namespace; both stable keys stay unchanged so no package or release identity moves.",
+      "resolvedBy": "Phase 5.1 concordance 1.1.0 (this batch)",
+      "recordedAt": "2026-07-16"
+    },
+    {
+      "id": "CTR-004",
+      "title": "Manuscript philosophy-constraints references a Movement 3 'Phase D' that no longer exists",
+      "category": "manuscript-editorial",
+      "severity": "sev-3",
+      "description": "Eternal_Return_Manuscript bible/philosophy-constraints.md scopes the unified-I prohibition to 'Movement 3 Phase D and Movement 4', but the structure map defines only phases A/B/C after revision R-06 (2026-07-02) folded the convergence test into Phase C. Validators and audits must scope 'after dissolution' to Phase C onward and must not invent a Phase D. This is manuscript-repository documentation debt; it cannot be fixed from Narramorph and is recorded here so downstream tooling does not inherit the stale reference.",
+      "evidence": [
+        "Eternal_Return_Manuscript@6720e76: bible/philosophy-constraints.md (Forbidden Narrative Moves, unified-I scoping)",
+        "Eternal_Return_Manuscript@6720e76: bible/structure-map.md (Movement 3 phases a/b/c only; R-06)"
+      ],
+      "owner": "manuscript-editorial",
+      "status": "open",
+      "decision": null,
+      "resolvedBy": null,
+      "recordedAt": "2026-07-16"
+    }
+  ]
+}

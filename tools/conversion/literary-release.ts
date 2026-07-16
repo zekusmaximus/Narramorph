@@ -8,6 +8,7 @@ import {
   createLiterarySliceStageReport,
   explainAcceptedLiterarySlice,
   explainShippedPassage,
+  summarizeContradictions,
   validateAcceptedLiteraryRelease,
   validateAcceptedLiterarySlice,
 } from './lib/literary-release';
@@ -32,6 +33,13 @@ async function main(): Promise<void> {
   }
   if (command === 'validate-accepted') {
     const intake = await validateAcceptedLiteraryRelease(repositoryRoot);
+    const coveredVariations = intake.concordance.mappings.reduce(
+      (sum, mapping) => sum + mapping.variations.variationCount,
+      0,
+    );
+    const contradictions = intake.contradictions
+      ? summarizeContradictions(intake.contradictions)
+      : null;
     console.log(
       'valid accepted literary release=' +
         intake.release.known.releaseId +
@@ -42,7 +50,27 @@ async function main(): Promise<void> {
         ' passages=' +
         intake.catalog.passages.length +
         ' mappings=' +
-        intake.concordance.mappings.length,
+        intake.concordance.mappings.length +
+        ' coverage=variations:' +
+        coveredVariations +
+        ',endings:' +
+        intake.concordance.endings.length +
+        ',characters:' +
+        intake.concordance.characters.length +
+        ',edges:' +
+        intake.concordance.edges.edgeStableKeys.length +
+        ',explanations:' +
+        intake.concordance.explanations.length +
+        ',themes:' +
+        intake.concordance.themesAndMotifs.length +
+        (contradictions
+          ? ' contradictions=total:' +
+            contradictions.total +
+            ',open:' +
+            contradictions.open +
+            ',open-sev-1:' +
+            contradictions.openSevOne
+          : ''),
     );
     return;
   }

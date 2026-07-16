@@ -12,8 +12,10 @@ import {
   loadKnownLiteraryRelease,
   loadKnownLiterarySlice,
   renderSemanticDiff,
+  summarizeContradictions,
   validateAcceptedLiteraryRelease,
   validateAcceptedLiterarySlice,
+  validateContradictionRegister,
   validateLiteraryConcordance,
   validateLiteraryReleaseArtifact,
   validateLiterarySliceArtifact,
@@ -355,5 +357,218 @@ describe('literary release intake', () => {
 
     expect(intake.slice.known.sliceId).toBe(sliceId);
     expect(intake.packageManifest.storyVersion).toBe('1.1.0');
+  });
+});
+
+describe('concordance coverage (schema 1.1.0)', () => {
+  interface MutableConcordance {
+    schemaVersion: string;
+    coveragePolicy: { exemptions: Array<{ identityClass: string; count: number; rule: string }> };
+    mappings: Array<{
+      passageStableKey: string;
+      variations: {
+        coversAllVariations: boolean;
+        variationCount: number;
+        selectionAxes: string[];
+        sampledVariationIds: string[];
+      };
+    }>;
+    endings: Array<Record<string, unknown>>;
+    characters: Array<Record<string, unknown>>;
+    edges: { relationship: string; rule: string; edgeStableKeys: string[] };
+    explanations: Array<Record<string, unknown>>;
+    themesAndMotifs: Array<{ theme: string; kind: string; canonicalIds: string[] }>;
+  }
+
+  async function loadCoverageFixture(): Promise<{
+    concordance: MutableConcordance;
+    release: Awaited<ReturnType<typeof loadAndVerifyLiteraryRelease>>;
+    catalog: StoryPackageCatalog;
+  }> {
+    const release = await loadAndVerifyLiteraryRelease(repositoryRoot, releaseId);
+    const concordance = JSON.parse(
+      await readFile(
+        resolve(repositoryRoot, 'story-packages/concordance/eternal-return.v1.json'),
+        'utf8',
+      ),
+    ) as MutableConcordance;
+    const catalog = JSON.parse(
+      await readFile(resolve(repositoryRoot, 'story-packages/eternal-return/catalog.json'), 'utf8'),
+    ) as StoryPackageCatalog;
+    return { concordance, release, catalog };
+  }
+
+  it('accounts for every shipped identity class: sections, family policies, and exemptions', async () => {
+    const { concordance, release, catalog } = await loadCoverageFixture();
+
+    const validated = validateLiteraryConcordance(concordance, release, catalog);
+    expect(validated.schemaVersion).toBe('1.1.0');
+    expect(validated.mappings).toHaveLength(19);
+    expect(
+      validated.mappings.reduce((sum, mapping) => sum + mapping.variations.variationCount, 0),
+    ).toBe(catalog.variations.length);
+    expect(validated.endings).toHaveLength(catalog.endings.length);
+    expect(validated.characters).toHaveLength(catalog.characters.length);
+    expect(validated.edges.edgeStableKeys).toHaveLength(catalog.edges.length);
+    expect(validated.explanations).toHaveLength(catalog.explanations.length);
+    expect(validated.themesAndMotifs).toHaveLength(10);
+
+    const withoutConditionExemption = JSON.parse(JSON.stringify(concordance)) as MutableConcordance;
+    withoutConditionExemption.coveragePolicy.exemptions =
+      withoutConditionExemption.coveragePolicy.exemptions.filter(
+        (exemption) => exemption.identityClass !== 'conditions',
+      );
+    expect(() => validateLiteraryConcordance(withoutConditionExemption, release, catalog)).toThrow(
+      'neither mapped by a concordance section nor explicitly exempted',
+    );
+  });
+
+  it('rejects variation-family policies that understate or misattribute the catalog', async () => {
+    const { concordance, release, catalog } = await loadCoverageFixture();
+
+    const undercounted = JSON.parse(JSON.stringify(concordance)) as MutableConcordance;
+    const family = undercounted.mappings.find(
+      (mapping) => mapping.passageStableKey === 'arch-L2-accept',
+    )!;
+    family.variations.variationCount = 80;
+    expect(() => validateLiteraryConcordance(undercounted, release, catalog)).toThrow(
+      'declares 80 variations but the catalog ships 81',
+    );
+
+    const foreignSample = JSON.parse(JSON.stringify(concordance)) as MutableConcordance;
+    const target = foreignSample.mappings.find(
+      (mapping) => mapping.passageStableKey === 'arch-L2-accept',
+    )!;
+    target.variations.sampledVariationIds = ['algo-L2-accept-001'];
+    expect(() => validateLiteraryConcordance(foreignSample, release, catalog)).toThrow(
+      'does not belong to passage arch-L2-accept',
+    );
+  });
+
+  it('requires every shipped ending and a faithful terminal-passage join', async () => {
+    const { concordance, release, catalog } = await loadCoverageFixture();
+
+    const missingEnding = JSON.parse(JSON.stringify(concordance)) as MutableConcordance;
+    missingEnding.endings.pop();
+    expect(() => validateLiteraryConcordance(missingEnding, release, catalog)).toThrow(
+      'ending coverage does not match',
+    );
+
+    const wrongPassage = JSON.parse(JSON.stringify(concordance)) as MutableConcordance;
+    const [firstEnding, secondEnding] = wrongPassage.endings;
+    firstEnding!.passageId = secondEnding!.passageId;
+    expect(() => validateLiteraryConcordance(wrongPassage, release, catalog)).toThrow(
+      'names the wrong terminal passage',
+    );
+  });
+
+  it('enforces a complete, unambiguous character-to-voice join', async () => {
+    const { concordance, release, catalog } = await loadCoverageFixture();
+
+    const doubleClaim = JSON.parse(JSON.stringify(concordance)) as MutableConcordance;
+    const human = doubleClaim.characters.find(
+      (character) => character.characterStableKey === 'human',
+    )!;
+    human.canonicalCharacterId = 'er-character-algorithm';
+    human.voiceIds = ['algorithm'];
+    expect(() => validateLiteraryConcordance(doubleClaim, release, catalog)).toThrow(
+      'claimed by more than one runtime character',
+    );
+
+    const thinComposite = JSON.parse(JSON.stringify(concordance)) as MutableConcordance;
+    const composite = thinComposite.characters.find(
+      (character) => character.characterStableKey === 'multi-perspective',
+    )!;
+    composite.voiceIds = ['algorithm'];
+    expect(() => validateLiteraryConcordance(thinComposite, release, catalog)).toThrow(
+      'must span at least two voices',
+    );
+  });
+
+  it('rejects edge-coverage drift in both directions', async () => {
+    const { concordance, release, catalog } = await loadCoverageFixture();
+
+    const missingEdge = JSON.parse(JSON.stringify(concordance)) as MutableConcordance;
+    missingEdge.edges.edgeStableKeys = missingEdge.edges.edgeStableKeys.slice(1);
+    expect(() => validateLiteraryConcordance(missingEdge, release, catalog)).toThrow(
+      'missing shipped edge',
+    );
+
+    const phantomEdge = JSON.parse(JSON.stringify(concordance)) as MutableConcordance;
+    phantomEdge.edges.edgeStableKeys = [
+      ...phantomEdge.edges.edgeStableKeys,
+      'arch-L1->hum-L2-accept',
+    ];
+    expect(() => validateLiteraryConcordance(phantomEdge, release, catalog)).toThrow(
+      'names unknown edge',
+    );
+  });
+
+  it('keeps explanation records free of literary claims', async () => {
+    const { concordance, release, catalog } = await loadCoverageFixture();
+
+    const reclassified = JSON.parse(JSON.stringify(concordance)) as MutableConcordance;
+    reclassified.explanations[0]!.classification = 'literary-adaptation';
+    expect(() => validateLiteraryConcordance(reclassified, release, catalog)).toThrow(
+      'must be classified as making no literary claim',
+    );
+  });
+
+  it('binds themes and motifs to the runtime declaration and canonical vocabulary', async () => {
+    const { concordance, release, catalog } = await loadCoverageFixture();
+
+    const declaredThemes = {
+      primary: ['digital consciousness', 'memory reconstruction', 'identity fluidity'],
+      secondary: ['observation vs participation', 'temporal perception', 'data persistence'],
+      motifs: ['fragments', 'echoes', 'layered reality', 'recursive loops'],
+    };
+    expect(() =>
+      validateLiteraryConcordance(concordance, release, catalog, declaredThemes),
+    ).not.toThrow();
+
+    expect(() =>
+      validateLiteraryConcordance(concordance, release, catalog, {
+        ...declaredThemes,
+        motifs: [...declaredThemes.motifs, 'unmapped motif'],
+      }),
+    ).toThrow('do not match the runtime story declaration');
+
+    const unknownClaim = JSON.parse(JSON.stringify(concordance)) as MutableConcordance;
+    unknownClaim.themesAndMotifs[0]!.canonicalIds = ['er-philosophy-nonexistent'];
+    expect(() => validateLiteraryConcordance(unknownClaim, release, catalog)).toThrow(
+      'references unknown canonical claim',
+    );
+  });
+
+  it('validates the contradiction register and requires decisions once entries close', async () => {
+    const intake = await validateAcceptedLiteraryRelease(repositoryRoot);
+    expect(intake.contradictions).toBeDefined();
+    const summary = summarizeContradictions(intake.contradictions!);
+    expect(summary.total).toBeGreaterThanOrEqual(4);
+    expect(summary.openSevOne).toBe(0);
+
+    const register = JSON.parse(
+      await readFile(
+        resolve(repositoryRoot, 'story-packages/concordance/contradictions.v1.json'),
+        'utf8',
+      ),
+    ) as { entries: Array<Record<string, unknown>> };
+
+    const undecided = JSON.parse(JSON.stringify(register)) as typeof register;
+    const resolvedEntry = undecided.entries.find((entry) => entry.status === 'resolved')!;
+    resolvedEntry.decision = null;
+    expect(() => validateContradictionRegister(undecided, 'eternal-return')).toThrow(
+      'records no decision',
+    );
+
+    const ownerless = JSON.parse(JSON.stringify(register)) as typeof register;
+    ownerless.entries[0]!.owner = '';
+    expect(() => validateContradictionRegister(ownerless, 'eternal-return')).toThrow('owner');
+
+    const duplicate = JSON.parse(JSON.stringify(register)) as typeof register;
+    duplicate.entries[1]!.id = duplicate.entries[0]!.id;
+    expect(() => validateContradictionRegister(duplicate, 'eternal-return')).toThrow(
+      'Duplicate contradiction entry ID',
+    );
   });
 });
