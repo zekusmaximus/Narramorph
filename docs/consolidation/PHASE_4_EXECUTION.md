@@ -44,7 +44,7 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 | 4.2 condition-aware edge prose | [#151](https://github.com/zekusmaximus/Narramorph/issues/151) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Mechanism landed; authored prose pending approval |
 | 4.3 export-grade visit event log | [#152](https://github.com/zekusmaximus/Narramorph/issues/152) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Complete (branch) |
 | 4.4 accessible journey export (Markdown + print HTML) | [#153](https://github.com/zekusmaximus/Narramorph/issues/153) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Complete (branch) |
-| 4.5 Leibniz parity/rejection review (archive gate) | _TBD_ | _TBD_ | _TBD_ | Pending |
+| 4.5 Leibniz parity/rejection review (archive gate) | [#154](https://github.com/zekusmaximus/Narramorph/issues/154) | `claude/eternal-return-phase-4-tbrhvp` | _not opened_ | Gate 1–6 satisfied; owner acceptance (7) pending |
 | 4.6 archive Project-Leibniz | _TBD_ | _TBD_ | _TBD_ | Pending |
 
 ## Batch 4.0 — contract lock (VisitEvent record shape)
@@ -172,23 +172,28 @@ The 4.3 `VisitEvent` must carry a selected beat ID (from 4.1) and a bridge ID (f
 
 ## Batch 4.5 — Leibniz parity/rejection review (archive gate)
 
-**Explicit rejections to record:** Project-Leibniz's Mongo backend, separate React Context state architecture, singleton mutable rule engine, and current visual design (unless a product requirement says otherwise).
+**Status: gate satisfied except owner acceptance.** Conditions 1–6 are met and evidenced; condition 7 (owner acceptance) is the pending gate that blocks Batch 4.6. No archive action taken.
+
+**Explicit rejections recorded** in [ADR 0005](../adr/0005-project-leibniz-rejected-architectures.md): Project-Leibniz's Express/Mongoose/MongoDB backend, the React Context/reducer journey-state tree, the mutable module-singleton rule engine, and the D3 force-map visual — each with rationale and the Narramorph replacement.
+
+**Method:** the full [parity review](PHASE_4_LEIBNIZ_PARITY.md) re-ran the extraction-matrix inventory against Project-Leibniz (read-only clone at `4f3f4600b8782aac5000b45dd64378baf318e1df`). Each of the nine capabilities was assessed by one agent and adversarially verified by a second (18 agents); **all nine dispositions were verified CONFIRMED** — six migrated (conditions, explanations, prose beats, edge prose, journey export, adaptation ledger), three rejected (backend, Context state, D3 visual). Deliberate divergences (rejected generic flags, reader-safe single-explanation surface, bounded single-alternative edges, byte-preserving beat joins, deferred edge-prose-in-export) are recorded in the parity doc as intentional choices, not missing migrations. A behavior-named end-to-end regression `src/domain/reader/journeyPipeline.test.ts` proves the ported capabilities interoperate (condition-selected phrasing → snapshot → exact export across revisits).
 
 ### Project-Leibniz archive-gate conditions
 
 Project-Leibniz may be archived only when all seven are proven **and** the owner accepts the Narramorph implementations:
 
-1. every extraction-matrix item is migrated or rejected — _TBD_;
-2. Narramorph has no runtime/build dependency on Project-Leibniz — _TBD_;
-3. Narramorph's replacement features pass unit and browser tests — _TBD_;
-4. source attribution and licensing are complete — _TBD_;
-5. Project-Leibniz's credential has been rotated/revoked — _TBD_ (confirmed in Batch 0.2; re-verify);
-6. open issues have been migrated or closed — _TBD_;
-7. the owner has accepted the Narramorph implementations — _TBD_.
+1. every extraction-matrix item is migrated or rejected — **SATISFIED** (9/9 dispositioned and verified; [matrix](FEATURE_EXTRACTION_MATRIX.md) updated);
+2. Narramorph has no runtime/build dependency on Project-Leibniz — **SATISFIED** (no `project-leibniz`/`mongo`/`express`/`mongoose` references in `src/`/`tools/` or either `package.json`);
+3. Narramorph's replacement features pass unit and browser tests — **SATISFIED** (unit suite green; Phase 3/4 Chromium journeys pass);
+4. source attribution and licensing are complete — **SATISFIED** (clean-room reimplementations; extraction matrix, ADR 0003/0005, `docs/PROVENANCE.md`, licenses; Project-Leibniz frozen with its own license/notice);
+5. Project-Leibniz's credential has been rotated/revoked — **SATISFIED** (Batch 0.2: compromised Atlas user and both IP access-list entries deleted; no credential in-repo);
+6. open issues have been migrated or closed — **SATISFIED** (Project-Leibniz has zero open issues; authoritative backlog is in Narramorph);
+7. the owner has accepted the Narramorph implementations — **PENDING** (owner action; blocks Batch 4.6).
 
 **Evidence**
 
-- Re-run conceptual inventory, condition/ledger/beat/edge/export parity check, behavior-named regression tests, and provenance completeness: _TBD_.
+- [Phase 4 Leibniz parity review](PHASE_4_LEIBNIZ_PARITY.md), [ADR 0005](../adr/0005-project-leibniz-rejected-architectures.md), updated [extraction matrix](FEATURE_EXTRACTION_MATRIX.md), and the behavior-named regression `src/domain/reader/journeyPipeline.test.ts` (4 tests).
+- Local verification on Node `22.22.2`: `type-check` pass; `lint:ci` 0 errors / 32 warnings (baseline held); `test:run` 55 files / 320 tests passed (was 316; +4); `story:package:validate` `eternal-return@1.1.0` hash `d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062` unchanged; `build` pass. No runtime code, authored prose, Story Package, save schema, or literary release change.
 
 ## Batch 4.6 — archive Project-Leibniz
 
