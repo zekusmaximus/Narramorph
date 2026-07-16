@@ -2,7 +2,7 @@
 
 Phase 6 extracts visual/onboarding value from the frozen prototype `eternal-return-digital-self` ("P") and archives it (roadmap Phase 6, batches 6.1–6.6), **after** a focused **Track A** PR clears the Phase 5 carry-overs. This document is the running evidence record (mirrors [PHASE_5_EXECUTION.md](PHASE_5_EXECUTION.md)); it is updated as batches land and the epic [#93](https://github.com/zekusmaximus/Narramorph/issues/93) is ticked only at merge.
 
-**Status: Track A implemented on the feature branch (content release `eternal-return@1.3.0` cut); the CTR-010 M-side slice re-issue is prepared and paused for owner go-ahead; Batch 6.1 (extraction audit) is complete; 6.2–6.6 not yet started.**
+**Status: Track A complete on the feature branch — content release `eternal-return@1.3.0`, CTR-012 resolved, and CTR-010 resolved via literary release `eternal-return-literary-v1.0.2`; the 32 lint warnings are cleared (0/0); Batch 6.1 (extraction audit) is complete; 6.2–6.6 not yet started.**
 
 ## Scope and immutable inputs
 
@@ -54,11 +54,11 @@ The content loader attaches it to the real edge and fails closed on an unknown e
 
 - **Fragment identity.** `arch-L1-003`: `Fragment 17-0293` → `Fragment 2749-A` (×6), the distinct client designation `Upload Candidate 17-0293` preserved (×5). `algo-L1-004`: `41-0847` → `2749-A` (×16). Both now match the revisit variations and canon.
 - **word_count metadata.** `arch-L1-003` `6142 → 2712`; `algo-L1-004` `6089 → 2851` (reconciled to the `wordCount` convention shared by every other variation).
-- **Awareness regression — NOT attempted.** The initial variations reach deeper recognition than the revisits that follow; correcting the arc is a narrative revision requiring the editorial owner's authoring and exact-wording sign-off. Recorded in the register; CTR-012 stays open.
+- **Awareness regression — accepted as intentional (owner decision).** The initial variation reaches full causal-loop recognition and the revisits reopen lower; the owner accepted this as the designed eternal-return recursion (each cycle returns without carrying prior recognition forward), consistent with the self-generating ending preserved under CTR-008/D4. No prose change; rationale recorded in the register. **CTR-012 is resolved** (fragment/metadata fixed + awareness accepted).
 
-### A3 — CTR-010 M-side slice re-issue (prepared + verified; **paused for owner go-ahead on M**)
+### A3 — CTR-010 M-side slice re-issue (resolved via literary release v1.0.2)
 
-The exact M-side edit to `editorial/vertical-slices/archaeologist-opening-accept.json` is prepared in a read-only M clone (pinned at `6720e76…`) and **verified** by running `export_vertical_slice.py` against it (exit 0 — the corrected `expectedContextCounts` validate and a well-formed slice artifact is produced). The change is **not committed and not pushed to M** (owner-gated). Clean patch (5 insertions / 5 deletions):
+The M-side edit to `editorial/vertical-slices/archaeologist-opening-accept.json` is committed and pushed to M on branch `claude/ctr-010-slice-reissue` (commit `6870cae5`; owner-approved). Clean patch (5 insertions / 5 deletions):
 
 ```diff
 -      "promiseIds": ["P-Eleanor", "P1", "P2", "P3", "P4", "P5"]   # arch-L1
@@ -73,9 +73,9 @@ The exact M-side edit to `editorial/vertical-slices/archaeologist-opening-accept
 +    "promisePayoffs": 2                                           # distinct-union {P5, P14}
 ```
 
-Verification export (at `sourceCommit 6720e76`, provisional): base release **unchanged** (`contentSha256 667dd8d9…`, confirming no prose/release impact); the re-issued slice artifact yields `contentSha256 e1ecf681…`, `artifactSha256 6c47118a…`. These hashes are provisional because the artifact stamps `sourceCommit`; the **final** N re-pin uses the export produced at the owner's committed M commit.
+**Immutability finding + resolution (owner Option A).** Because `export_vertical_slice.py` stamps the source commit into the base-release hash, re-issuing the slice at a new commit moves the base literary-release hash — re-pinning `eternal-return-literary-v1.0.1` in place would violate ADR 0002's release immutability. So the release was re-issued as **`eternal-return-literary-v1.0.2`** (content byte-identical to v1.0.1 except the corrected slice metadata + new source commit; `contentSha256 2baf113c…`, `assetSha256 59c7af41…`). The re-issued slice re-pins to `contentSha256 ec8e0849…` / `assetSha256 30a5bccc…` against the v1.0.2 base.
 
-**Remaining steps (all gated on the owner pushing M):** (1) owner reviews + commits the patch to M and pushes; (2) re-run `export_vertical_slice.py --source-commit <new>`; (3) in N, replace `literary-releases/source/eternal-return-literary-slice-archaeologist-opening-accept-v1.0.0.json` with the new artifact and re-pin its `sha256`/`sourceCommit` in `literary-releases/accepted/eternal-return-vertical-slice.json`; (4) `literary:slice:validate`; (5) mark CTR-010 `resolved` in the register. _(status: prepared + verified; pending owner M-push.)_
+**Contained cascade (N side).** Re-pinned to v1.0.2: `known-releases.json` (added v1.0.2), `known-slices.json`, both acceptance records (release + slice), the concordance (`literaryReleaseId`, `literaryReleaseContentSha256`, and the two slice-pinned mappings — arch-L2-accept chronology → `er-chronology-phase-1`, arch-L1 promises → `[P5]`, arch-L2-accept promises → `[P14]`), new concordance sha `c779795f…`. **The runtime story package identity is deliberately preserved** (`eternal-return@1.3.0`, `80f3d5a2`): the runtime prose is unchanged, so the package keeps `editorialReleaseId v1.0.1` as its build-time provenance while the accepted release is v1.0.2 — saved journeys are unaffected. Gates green: story/runtime/canon-strict/literary/slice validation, type-check, lint 0/0, conversion 160 + app 345 tests, build. **CTR-010 resolved.** _(The M branch should be merged in M to keep commit `6870cae5` permanent; a squash-merge would require re-pinning `sourceCommit` to the merged commit.)_
 
 ## Gate evidence (local, Node 22, on the feature branch)
 

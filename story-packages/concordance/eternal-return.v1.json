@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.1.0",
   "storyId": "eternal-return",
-  "literaryReleaseId": "eternal-return-literary-v1.0.1",
-  "literaryReleaseContentSha256": "667dd8d971352c8665fdac97fefdf258bb71489d21853a2a87e5ac236912747f",
+  "literaryReleaseId": "eternal-return-literary-v1.0.2",
+  "literaryReleaseContentSha256": "2baf113cbd195f151f5f7e0c9dcba7142075dc694a6fa1f5a0a60500a18b9181",
   "relationshipDefinitions": {
     "direct-adaptation": "Runtime prose directly adapts an approved manuscript excerpt or scene; no v1 passage currently claims this relationship because the release contains no approved excerpts.",
     "thematic-derivative": "Separately authored runtime prose derives themes, voice constraints, chronology, or promise/payoff structure from canonical editorial context without copying manuscript prose.",
@@ -268,7 +268,7 @@
         "er-philosophy-key-concepts-tertiary-retention-stiegler",
         "er-philosophy-four-shackles-identity"
       ],
-      "promiseIds": ["P-Eleanor", "P1", "P2", "P3", "P4", "P5"],
+      "promiseIds": ["P5"],
       "explanation": "The archaeologist opening aligns with the first-movement excavation/anomaly scene summaries and their memory/identity promises without claiming direct adaptation.",
       "variations": {
         "coversAllVariations": true,
@@ -297,12 +297,12 @@
         }
       ],
       "voiceIds": ["archaeologist"],
-      "chronologyIds": ["er-chronology-phase-2"],
+      "chronologyIds": ["er-chronology-phase-1"],
       "philosophicalConstraintIds": [
         "er-philosophy-key-concepts-identity-dissolution-klossowski",
         "er-philosophy-key-concepts-eternal-return"
       ],
-      "promiseIds": ["P12", "P14", "P33", "P40", "P41"],
+      "promiseIds": ["P14"],
       "explanation": "The accepting branch interprets the second-movement archaeologist bleed/dissolution/merge arc through identity dissolution and return.",
       "variations": {
         "coversAllVariations": true,

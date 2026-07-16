@@ -2,17 +2,17 @@
   "schemaVersion": "1.0.0",
   "acceptedSliceId": "archaeologist-opening-accept",
   "acceptedSliceVersion": "1.0.0",
-  "acceptedContentSha256": "e1ecf6812a2246c188c940fc6646745625b577a971cbf71db5cd6f2274a4c79e",
-  "acceptedAssetSha256": "6c47118a7d5f349c071b8656f69fac94ecea68f4cee45cea4509ce618c257d79",
-  "sourceCommit": "6720e76202951e24102997e2b8ef23e08445ab33",
+  "acceptedContentSha256": "ec8e0849e48833c887848b9aab4605bbb5bb3e9e982c11ba706166fe1c4c9006",
+  "acceptedAssetSha256": "30a5bcccaa0736a03236e0ed35ddd91798da24f837c35caed18970e4457a2070",
+  "sourceCommit": "6870cae56d53c70c7b46c099c8cfa2b86eca945e",
   "sourcePath": "literary-releases/source/eternal-return-literary-slice-archaeologist-opening-accept-v1.0.0.json",
-  "sourceUrl": "https://github.com/zekusmaximus/Eternal_Return_Manuscript/releases/download/literary-release-v1.0.1/eternal-return-literary-slice-archaeologist-opening-accept-v1.0.0.json",
-  "baseReleaseId": "eternal-return-literary-v1.0.1",
-  "baseReleaseContentSha256": "667dd8d971352c8665fdac97fefdf258bb71489d21853a2a87e5ac236912747f",
+  "sourceUrl": "https://github.com/zekusmaximus/Eternal_Return_Manuscript/releases/download/literary-release-v1.0.2/eternal-return-literary-slice-archaeologist-opening-accept-v1.0.0.json",
+  "baseReleaseId": "eternal-return-literary-v1.0.2",
+  "baseReleaseContentSha256": "2baf113cbd195f151f5f7e0c9dcba7142075dc694a6fa1f5a0a60500a18b9181",
   "runtimeGraphPath": "src/data/stories/eternal-return/archaeologist.json",
   "passageStableKeys": ["arch-L1", "arch-L2-accept"],
   "concordancePath": "story-packages/concordance/eternal-return.v1.json",
-  "concordanceSha256": "b2640b4b181172ad6e34bf7661d9ec18b31b2bc85094199ed8999c4bfa489189",
+  "concordanceSha256": "c779795f006879ec13a530a4da34202a4ce16a03ef96c7a7e11993486f2c7e36",
   "storyPackage": {
     "storyId": "eternal-return",
     "storyVersion": "1.3.0",
@@ -24,7 +24,7 @@
   "runtimeProsePolicy": "metadata-only; never overwrite runtime prose",
   "reviewedStage": {
     "classification": "initial-intake",
-    "reportSha256": "43992a86f66872cc255ae15714221bce3327638ff69001ed831dc9db6c4dfffc"
+    "reportSha256": "f7626f1aa4f9431ccdd75a7d6eb972a352beb9a701e5753db7fcebf6fb93370c"
   },
   "runtimeContentProof": {
     "trackedFileCount": 577,
