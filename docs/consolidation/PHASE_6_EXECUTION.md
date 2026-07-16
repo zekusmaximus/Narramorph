@@ -2,7 +2,7 @@
 
 Phase 6 extracts visual/onboarding value from the frozen prototype `eternal-return-digital-self` ("P") and archives it (roadmap Phase 6, batches 6.1–6.6), **after** a focused **Track A** PR clears the Phase 5 carry-overs. This document is the running evidence record (mirrors [PHASE_5_EXECUTION.md](PHASE_5_EXECUTION.md)); it is updated as batches land and the epic [#93](https://github.com/zekusmaximus/Narramorph/issues/93) is ticked only at merge.
 
-**Status: Track A implemented on the feature branch (content release `eternal-return@1.3.0` cut); the CTR-010 M-side slice re-issue is prepared and paused for owner go-ahead; Phase 6.1–6.6 not yet started.**
+**Status: Track A implemented on the feature branch (content release `eternal-return@1.3.0` cut); the CTR-010 M-side slice re-issue is prepared and paused for owner go-ahead; Batch 6.1 (extraction audit) is complete; 6.2–6.6 not yet started.**
 
 ## Scope and immutable inputs
 
@@ -87,6 +87,10 @@ Verification export (at `sourceCommit 6720e76`, provisional): base release **unc
 - `build`: pass.
 - Playwright core journeys via a throwaway sandbox-Chromium override config (deleted, never committed): **8 passed, real exit code 0** — phase-2 vertical slice (×2, reading the 1.3.0 identity), phase-3 path coverage (accept/invest/resist → the three endings), reader journey L1→L4 with restore, missing-story recovery, and WebGL-loss 2D fallback. The full 17-scenario matrix runs in protected-main CI.
 
-## Phase 6.1–6.6
+## Batch 6.1 — visual/interaction extraction audit ([#164](https://github.com/zekusmaximus/Narramorph/issues/164))
 
-Not yet started. Batch issues open under [#162](https://github.com/zekusmaximus/Narramorph/issues/162) as each begins.
+**Complete (analysis; no N runtime change).** Every visual/onboarding/interaction concept in P was inventoried against N from P's source and given a disposition — full record in [PHASE_6_1_EXTRACTION_AUDIT.md](PHASE_6_1_EXTRACTION_AUDIT.md); FEATURE_EXTRACTION_MATRIX P rows re-verified. Dispositions: **6.2** ← intro overlay (clean-room), animated node demo (semantic reimplement), help entry/replay (migrate concept); **6.3** ← cosmic atmosphere (selective clean-room decorative layers) + character colors → design tokens; **6.4** ← instanced/batched 3D (defer to profiling). **Rejected:** P's lazy-load boundary and WebGL→text fallback (N already has both), the marginalia sidebar (duplicates the Phase 3 adaptation ledger; non-deterministic notes), the duplicate Redux/domain/infrastructure stacks, the reader/transform renderer, and the checked-in `dist`. **Deferred:** the mini constellation (P's is a focusable-but-inert, always-animating WebGL-only canvas — not portable; concept gated on user testing + accessibility). Reference screenshots were **attempted and found infeasible** (P's standalone `dist` boots to a blank canvas); documented from source per the no-fabrication rule. Gate met: every useful feature has a target batch or a recorded rejection/defer rationale.
+
+## Batch 6.2–6.6
+
+Not yet started. Batch issues open under [#162](https://github.com/zekusmaximus/Narramorph/issues/162) as each begins; 6.1 gives them their concrete target list.

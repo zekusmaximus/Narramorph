@@ -22,6 +22,8 @@ Project-Leibniz dispositions were re-verified in the [Batch 4.5 parity review](P
 
 ## eternal-return-digital-self
 
+eternal-return-digital-self dispositions were re-verified against P's real code in the [Batch 6.1 extraction audit](PHASE_6_1_EXTRACTION_AUDIT.md) (issue #164). Every useful item has a target batch and every rejected/deferred item a recorded rationale; two rows are refined below (minimap → defer behind a user-testing/accessibility gate; marginalia → reject as a duplicate of the Phase 3 adaptation ledger). Archive stays blocked on the full 6.5 seven-condition gate.
+
 | Capability | Source | Decision | Narramorph target | Required proof | Archive dependency |
 | --- | --- | --- | --- | --- | --- |
 | Cinematic first-run overlay | `src/components/Onboarding/IntroductionOverlay.tsx` | Clean-room reimplementation | Accessible first-run experience | Skip/replay, keyboard, focus, reduced motion, 200% text, mobile, comprehension testing | Yes |
@@ -29,8 +31,8 @@ Project-Leibniz dispositions were re-verified in the [Batch 4.5 parity review](P
 | Help entry and replayable guidance | `HelpIcon.tsx`, `Onboarding.tsx` | Migrate concept | Narramorph Help/settings | Focus and screen-reader tests | Yes |
 | Cosmic visual atmosphere | `app.css`, constellation styles/components | Selectively reimplement | Design tokens and decorative layers | Contrast, motion, prose readability, performance | Yes |
 | Instanced/batched 3D rendering | `NodesInstanced.tsx`, `ConnectionsBatched.tsx` | Defer pending profiling | Experimental 3D only | Measured improvement on representative hardware; WebGL fallback | Yes |
-| Mini constellation | `MiniConstellation.tsx` | Compare with current progress/map context | Reader context if user testing supports it | Mobile and accessibility proof | Yes |
-| Marginalia sidebar | `MarginaliaSidebar.tsx` | Defer to product/editorial decision | Optional explanation/annotation surface | Does not duplicate adaptation ledger or crowd prose | Yes |
+| Mini constellation | `MiniConstellation.tsx` | Defer — 6.1 confirmed P's impl is a focusable-but-inert, always-animating WebGL-only canvas (not portable); concept deferred behind a user-testing + accessibility gate | Reader context (rebuilt on N's accessible 2D map) if user testing supports it | Mobile and accessibility proof | Yes |
+| Marginalia sidebar | `MarginaliaSidebar.tsx` | Reject as duplicate — 6.1 found the breadcrumbs mode duplicates the Phase 3 adaptation ledger and it uses non-deterministic note timestamps; any future annotation/glossary surface is a fresh product decision | None (adaptation ledger already covers journey history) | Rejection rationale recorded | Yes |
 | Duplicate Redux/domain/infrastructure stacks | `src/store`, `src/domain`, `src/infrastructure` | Reject | None | Architecture record | Yes |
 | Current node reader/transform renderer | `src/components/NodeView`, transformation services | Reject as implementation | Existing Narramorph reader/selection architecture | The tested blank-content and first-visit/revisit defects are absent | Yes |
 | Checked-in `dist` output | `dist/` | Reject as source practice | CI-built release artifacts | Release pipeline produces artifacts without tracking build output | No |
