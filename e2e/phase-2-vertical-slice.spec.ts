@@ -59,9 +59,9 @@ for (const profile of [
     expect(journey.appVersion).toBe('0.1.0');
     expect(journey.storyPackage).toMatchObject({
       storyId: 'eternal-return',
-      storyVersion: '1.1.0',
+      storyVersion: '1.2.0',
       schemaVersion: '1.1.0',
-      contentHash: 'd596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062',
+      contentHash: 'cc437cdb62dae2eaed0dc5030a9e672487bb9d7a6be8175ce59b9d719a203213',
     });
     expect(journey.progress.readingPath.slice(0, 2)).toEqual(['arch-L1', 'arch-L2-accept']);
     expect(journey.progress.visitedNodes['arch-L1']?.visitCount).toBe(1);
