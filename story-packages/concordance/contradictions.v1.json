@@ -24,9 +24,9 @@
         "story-packages/sources/eternal-return-shared-sections.json (conv-L3 injection, connections: [])"
       ],
       "owner": "zekusmaximus",
-      "status": "open",
-      "decision": null,
-      "resolvedBy": null,
+      "status": "resolved",
+      "decision": "Owner decision D8 (2026-07-16): document the convention rather than change the declaration. structure.totalNodes counts graph nodes; conv-L3 is an injected shared section with no graph edges and is deliberately excluded, so 18 graph nodes coexist with 19 shipped passages. Documented here and in docs/consolidation/PHASE_5_EXECUTION.md; the runtime validator's graph-node semantics are unchanged.",
+      "resolvedBy": "Phase 5.3 decision record (D8)",
       "recordedAt": "2026-07-16"
     },
     {
@@ -37,9 +37,9 @@
       "description": "284 sibling *.json.tmp files (269 in layer3/variations alone, plus layer1/2/4) are tracked in git alongside the authoritative *.json content files — debris from an earlier standardization pass. They are ignored by the conversion globs and the runtime, so nothing consumes them, but they double the apparent content tree and invite editing the wrong file. Proposed resolution: delete the tracked .tmp files in a hygiene commit after proving the package content hash and runtime validation are unaffected. Deletion touches the authored-content directory, so it is recorded here for explicit owner approval rather than done silently.",
       "evidence": ["git ls-files src/data/stories/eternal-return | grep -c '\\.tmp$' -> 284"],
       "owner": "zekusmaximus",
-      "status": "open",
-      "decision": null,
-      "resolvedBy": null,
+      "status": "resolved",
+      "decision": "Owner decision D8 (2026-07-16): delete the 284 tracked *.json.tmp files. Executed with proof that the story-package content hash, runtime content validation, and build are unaffected.",
+      "resolvedBy": "Phase 5.3 hygiene commit (D8)",
       "recordedAt": "2026-07-16"
     },
     {
@@ -127,7 +127,7 @@
       ],
       "owner": "zekusmaximus",
       "status": "open",
-      "decision": null,
+      "decision": "Owner decision D3 (2026-07-16): fix the three flat single-consciousness assertions (hum-L1-002 line 29, hum-L1-003 line 33, algo-L3-043 line 36) in the 1.2.0 content release; waive the remaining ten screening hits as canon-consistent negated/epistemic/interrogative usages (waivers WVR-001..006, expiring 2027-07-16). Status stays open until the three fixes land.",
       "resolvedBy": null,
       "recordedAt": "2026-07-16"
     },
@@ -215,7 +215,7 @@
       ],
       "owner": "zekusmaximus",
       "status": "open",
-      "decision": null,
+      "decision": "Owner decision D8 (2026-07-16): fold the initial-vs-revisit continuity repairs into the 1.2.0 content-release review, where the affected families are read and revised in full. Status stays open until that release lands.",
       "resolvedBy": null,
       "recordedAt": "2026-07-16"
     }
