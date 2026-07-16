@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
+import type { ReactElement } from 'react';
 
 import { useStoryStore } from '@/stores/storyStore';
 
 /**
  * Animated data packets flowing along connection lines
  */
-export function DataStreams() {
+export function DataStreams(): ReactElement | null {
   const nodes = useStoryStore((state) => state.nodes);
   const selectedNode = useStoryStore((state) => state.selectedNode);
 

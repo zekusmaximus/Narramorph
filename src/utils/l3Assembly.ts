@@ -219,7 +219,7 @@ export function validateL3Assembly(assembly: L3Assembly): {
     name: string,
     expectedMin: number,
     expectedMax: number,
-  ) => {
+  ): void => {
     if (section.wordCount < expectedMin) {
       warnings.push(
         `${name} section word count (${section.wordCount}) below expected minimum (${expectedMin})`,

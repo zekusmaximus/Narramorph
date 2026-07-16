@@ -1,6 +1,7 @@
 import { DoubleSide } from 'three';
 
 import { Billboard, Text } from '@react-three/drei';
+import type { ReactElement } from 'react';
 
 interface PlaneGuideProps {
   zPosition: number;
@@ -17,7 +18,7 @@ export default function PlaneGuide({
   color,
   label,
   showPlane = false,
-}: PlaneGuideProps) {
+}: PlaneGuideProps): ReactElement {
   return (
     <>
       {/* Optional translucent guide plane */}

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
+import type { ReactElement } from 'react';
 
 import { useStoryStore } from '@/stores/storyStore';
 
@@ -16,7 +17,7 @@ interface Fragment {
 /**
  * Floating memory fragments from visited nodes
  */
-export function MemoryFragments() {
+export function MemoryFragments(): ReactElement {
   const progress = useStoryStore((state) => state.progress);
   const nodes = useStoryStore((state) => state.nodes);
 

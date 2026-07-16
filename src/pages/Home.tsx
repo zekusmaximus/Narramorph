@@ -44,7 +44,7 @@ function WebGLErrorFallback({
 }: {
   error: Error;
   onFallbackTo2D: () => void;
-}) {
+}): ReactElement {
   useEffect(() => {
     // Automatically switch to 2D mode
     onFallbackTo2D();
@@ -85,7 +85,7 @@ function supportsWebGL(): boolean {
 /**
  * Main home page component that displays the node map and story view
  */
-export default function Home() {
+export default function Home(): ReactElement {
   const loadStory = useStoryStore((state) => state.loadStory);
   const loadProgress = useStoryStore((state) => state.loadProgress);
   const closeStoryView = useStoryStore((state) => state.closeStoryView);
@@ -111,7 +111,7 @@ export default function Home() {
   const isPositionsLoaded = Object.keys(positions).length > 0;
 
   // Toggle 3D mode and persist to localStorage
-  const toggle3DMode = () => {
+  const toggle3DMode = (): void => {
     setUse3DMode((prev) => {
       const newValue = !prev;
       if (newValue && !supportsWebGL()) {

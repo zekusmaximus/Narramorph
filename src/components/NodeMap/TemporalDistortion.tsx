@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
+import type { ReactElement } from 'react';
 
 import { useStoryStore } from '@/stores/storyStore';
 
 /**
  * Creates temporal distortion around meta-aware nodes
  */
-export function TemporalDistortion() {
+export function TemporalDistortion(): ReactElement {
   const nodes = useStoryStore((state) => state.nodes);
   const getNodeState = useStoryStore((state) => state.getNodeState);
 

@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import type { ReactElement } from 'react';
 
 import { getCharacterLabel, getStateLabel } from '@/components/StoryView/storyPresentation';
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
@@ -12,7 +13,7 @@ interface NodeTooltipProps {
 /**
  * Shows detailed node info on hover
  */
-export function NodeTooltip({ nodeId, position }: NodeTooltipProps) {
+export function NodeTooltip({ nodeId, position }: NodeTooltipProps): ReactElement | null {
   const nodes = useStoryStore((state) => state.nodes);
   const getNodeState = useStoryStore((state) => state.getNodeState);
   const reduceMotion = useReducedMotionPreference();

@@ -105,12 +105,12 @@ export function convertToReactFlowEdges(
         label: connection.label,
         style: isUnlocked
           ? getEdgeStyle(connection.type)
-          : ({
+          : {
               stroke: '#455a64',
               strokeWidth: 1,
               strokeDasharray: '5,5',
               opacity: 0.35,
-            } as CSSProperties),
+            },
         markerEnd: {
           type: 'arrowclosed' as MarkerType,
           color: isUnlocked ? getEdgeColor(connection.type) : '#455a64',
@@ -153,12 +153,12 @@ export function convertToReactFlowEdges(
           animated: !reduceMotion && isUnlocked && connection.type === 'recursive',
           style: isUnlocked
             ? getEdgeStyle(connection.type)
-            : ({
+            : {
                 stroke: '#455a64',
                 strokeWidth: 1,
                 strokeDasharray: '5,5',
                 opacity: 0.35,
-              } as CSSProperties),
+              },
           markerEnd: {
             type: 'arrowclosed' as MarkerType,
             color: isUnlocked ? getEdgeColor(connection.type) : '#455a64',

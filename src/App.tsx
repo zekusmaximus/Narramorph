@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import Layout from '@/components/Layout';
@@ -12,7 +13,7 @@ function ErrorFallback({
 }: {
   error: Error;
   resetErrorBoundary: () => void;
-}) {
+}): ReactElement {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6 text-center">
@@ -52,7 +53,7 @@ function ErrorFallback({
 /**
  * Main application component
  */
-export default function App() {
+export default function App(): ReactElement {
   return (
     <ErrorBoundary
       FallbackComponent={ErrorFallback}
