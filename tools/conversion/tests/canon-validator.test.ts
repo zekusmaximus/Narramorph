@@ -186,7 +186,10 @@ describe('canon validator (manuscript rules ported at 6720e76)', () => {
 
     expect(report.corpus.variations).toBe(1014);
     expect(report.corpus.families).toBe(19);
-    expect(report.summary.errors).toBeGreaterThan(0);
+    // After the Phase 5.3 triage (owner decisions D1-D9) every error is fixed or waived:
+    // strict mode gates CI on zero unwaived errors.
+    expect(report.summary.errors).toBe(0);
+    expect(report.summary.waived).toBeGreaterThan(0);
     expect(report.summary.byRule['terminology.upload-era']).toBeGreaterThan(0);
     expect(report.summary.byRule['chronology.absolute-date']).toBeGreaterThan(0);
     expect(report.summary.expiredWaivers).toBe(0);

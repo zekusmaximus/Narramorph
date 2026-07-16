@@ -126,9 +126,9 @@
         "Eternal_Return_Manuscript@6720e76 bible/philosophy-constraints.md: Four Shackles — identity ('same consciousness' constructions forbidden between threads)"
       ],
       "owner": "zekusmaximus",
-      "status": "open",
-      "decision": "Owner decision D3 (2026-07-16): fix the three flat single-consciousness assertions (hum-L1-002 line 29, hum-L1-003 line 33, algo-L3-043 line 36) in the 1.2.0 content release; waive the remaining ten screening hits as canon-consistent negated/epistemic/interrogative usages (waivers WVR-001..006, expiring 2027-07-16). Status stays open until the three fixes land.",
-      "resolvedBy": null,
+      "status": "resolved",
+      "decision": "Owner decision D3 (2026-07-16): fix the three flat single-consciousness assertions (hum-L1-002 line 29, hum-L1-003 line 33, algo-L3-043 line 36) in the 1.2.0 content release; waive the remaining ten screening hits as canon-consistent negated/epistemic/interrogative usages (waivers WVR-001..006, expiring 2027-07-16). Status stays open until the three fixes land. Executed: the three flat assertions were rewritten in the approved differentiation forms and the waivers landed; canon strict validation passes with zero errors.",
+      "resolvedBy": "Content release eternal-return@1.2.0 (Phase 5.3 branch)",
       "recordedAt": "2026-07-16"
     },
     {
@@ -143,9 +143,9 @@
         "Eternal_Return_Manuscript@6720e76 bible/philosophy-constraints.md: 'These concepts should be shown through action, sensation, and structure—never through exposition or philosophical monologue.'"
       ],
       "owner": "zekusmaximus",
-      "status": "open",
-      "decision": "Owner decision D4 (2026-07-16): prose fix approved in principle. The exact replacement wording for arch-L1-003's expository passage requires line-by-line owner sign-off before it is applied, and lands in the versioned content release (eternal-return 1.1.0 -> 1.2.0) alongside #156. Status stays open until the fix lands.",
-      "resolvedBy": null,
+      "status": "resolved",
+      "decision": "Owner decision D4 (2026-07-16): prose fix approved in principle. The exact replacement wording for arch-L1-003's expository passage requires line-by-line owner sign-off before it is applied, and lands in the versioned content release (eternal-return 1.1.0 -> 1.2.0) alongside #156. Status stays open until the fix lands. Executed: the expository passages were compressed into dramatized recognition; the self-generating beat is preserved only at the dramatized ending.",
+      "resolvedBy": "Content release eternal-return@1.2.0 (Phase 5.3 branch)",
       "recordedAt": "2026-07-16"
     },
     {
@@ -161,9 +161,9 @@
         "Eternal_Return_Manuscript@6720e76 bible/worldbuilding/catastrophe-timeline.md: 'The Archaeologist's position: He's not fleeing imminent doom. He's racing against:'"
       ],
       "owner": "zekusmaximus",
-      "status": "open",
-      "decision": "Owner decision D5 (2026-07-16): prose fix to canon approved in principle — the archaeologist returns to the canonical male gendering across the archaeologist families and the arch-L1-003 motivation inversion is corrected. Exact wording diffs require line-by-line owner sign-off before application and land in the versioned content release (1.1.0 -> 1.2.0). Status stays open until the fix lands.",
-      "resolvedBy": null,
+      "status": "resolved",
+      "decision": "Owner decision D5 (2026-07-16): prose fix to canon approved in principle — the archaeologist returns to the canonical male gendering across the archaeologist families and the arch-L1-003 motivation inversion is corrected. Exact wording diffs require line-by-line owner sign-off before application and land in the versioned content release (1.1.0 -> 1.2.0). Status stays open until the fix lands. Executed: 1,759 pronoun corrections across arch-L1 and all three arch-L2 families (referent-verified: no non-archaeologist feminine referent exists in those files) and the arch-L1-003 motivation reframed to the canonical economic race.",
+      "resolvedBy": "Content release eternal-return@1.2.0 (Phase 5.3 branch)",
       "recordedAt": "2026-07-16"
     },
     {

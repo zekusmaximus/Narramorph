@@ -17,9 +17,9 @@
   "concordanceSha256": "c4cc0aaa4b21c4787767ec8394dd351c0287bb9f51b97c54db51ff749cef8ced",
   "storyPackage": {
     "storyId": "eternal-return",
-    "storyVersion": "1.1.0",
+    "storyVersion": "1.2.0",
     "schemaVersion": "1.1.0",
-    "contentHash": "d596c66da6392e145872eb3a1fff3b248e88fee5b9343d2a61109ff8815a1062",
+    "contentHash": "cc437cdb62dae2eaed0dc5030a9e672487bb9d7a6be8175ce59b9d719a203213",
     "editorialReleaseId": "eternal-return-literary-v1.0.1",
     "sourceManuscriptCommit": "6720e76202951e24102997e2b8ef23e08445ab33"
   },
