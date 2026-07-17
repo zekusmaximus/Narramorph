@@ -1,4 +1,5 @@
 import { AnimatePresence } from 'framer-motion';
+import { TriangleAlert } from 'lucide-react';
 import { lazy, Suspense, useCallback, useEffect, useRef, useState, type ReactElement } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
@@ -57,7 +58,11 @@ function WebGLErrorFallback({
       className="absolute inset-0 z-30 flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white"
     >
       <div className="max-w-md text-center">
-        <div className="text-6xl mb-4">⚠️</div>
+        <TriangleAlert
+          className="mx-auto mb-4 h-12 w-12 text-amber-300"
+          aria-hidden="true"
+          strokeWidth={1.5}
+        />
         <h2 className="mb-4 text-2xl font-bold">Three-dimensional view unavailable</h2>
         <p className="text-gray-300 mb-4">
           This browser or device could not open the experimental three-dimensional archive.

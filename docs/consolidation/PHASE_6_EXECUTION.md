@@ -2,7 +2,7 @@
 
 Phase 6 extracts visual/onboarding value from the frozen prototype `eternal-return-digital-self` ("P") and archives it (roadmap Phase 6, batches 6.1–6.6), **after** a focused **Track A** PR clears the Phase 5 carry-overs. This document is the running evidence record (mirrors [PHASE_5_EXECUTION.md](PHASE_5_EXECUTION.md)); it is updated as batches land and the epic [#93](https://github.com/zekusmaximus/Narramorph/issues/93) is ticked only at merge.
 
-**Status: Track A complete on the feature branch — content release `eternal-return@1.3.0`, CTR-012 resolved, and CTR-010 resolved via literary release `eternal-return-literary-v1.0.2`; the 32 lint warnings are cleared (0/0); Batch 6.1 (extraction audit) is complete; Batch 6.2 (first-run introduction) is complete; 6.3–6.6 not yet started.**
+**Status: Track A complete on the feature branch — content release `eternal-return@1.3.0`, CTR-012 resolved, and CTR-010 resolved via literary release `eternal-return-literary-v1.0.2`; the 32 lint warnings are cleared (0/0); Batch 6.1 (extraction audit) is complete; Batch 6.2 (first-run introduction) is complete; Batch 6.3 (design tokens + cosmic atmosphere) is complete pending the owner's visual-direction acceptance; 6.4–6.6 not yet started.**
 
 ## Scope and immutable inputs
 
@@ -118,6 +118,30 @@ The M-side edit to `editorial/vertical-slices/archaeologist-opening-accept.json`
 - `build`: pass. No package or save-schema identity moved; N has no new dependency on P.
 - Playwright via the throwaway sandbox-Chromium (1194) override config (deleted, never committed): new `e2e/first-run-intro.spec.ts` — **3 passed** (first-run auto-open covering all four concepts → skip → picker → reload does not re-show; replay from the Help entry; reduced-motion static equivalent). Existing journeys pre-seed the intro-seen key so they are not blocked; regression set (reader journey + WebGL-loss 2D fallback, phase-2 saved-journey identity, accessibility, responsive) re-run green. Full 17-scenario matrix runs in protected-main CI.
 
-## Batch 6.3–6.6
+## Batch 6.3 — Unify the visual language with design tokens + a restrained atmosphere ([#166](https://github.com/zekusmaximus/Narramorph/issues/166))
+
+**Complete on the feature branch (pending the owner's visual-direction acceptance — the 6.3 gate).** Owner-approved design (three forks resolved before code): **subtle animated drift** atmosphere (static under reduced motion), a **surgical** token refactor, and a **CI-gated** contrast validator. No M clone (no character/voice terminology authored; token names reuse N's perspective identifiers). Full reference: [DESIGN_TOKENS.md](DESIGN_TOKENS.md).
+
+**Token layer.** A canonical TS source (`src/styles/designTokens.ts`) mirrored into CSS custom properties (`src/styles/tokens.css`), with Tailwind's perspective `500` shades pointed at the CSS vars. The real colour consumers now read the tokens: `getNodeAppearance` (map/3D node fills + locked variants), `SceneContent` (3D guides), and `contentLoader` (default node colour). Groups: perspective colours (+ readable `-ink` text variants), surfaces, theme-aware focus, typography-adjacent, motion.
+
+**Contrast remediation (the gate).** Two real, measured WCAG failures fixed:
+
+- Convergence purple as small text on the dark shell was **4.18:1** (< 4.5) → added a `#b07cc9` ink variant (**6.11:1**).
+- The global cyan focus ring dropped to **~1.2:1** on the light "Paper"/sepia reader panels (`bg-white`/`bg-amber-50`) — effectively invisible. The focus ring is now a **theme-aware token** (`--focus-ring`) that flips to `#0e7490` on those surfaces via `[data-reader-surface]`, measuring **5.36:1 / 5.17:1**. Confirmed at runtime (computed `--focus-ring` on the light reader = `#0e7490`).
+
+Locked-node fills (~2.2–2.7:1) are **intentionally excluded** from the gate: a locked node is non-interactive and dimmed at render (opacity 0.3 + reduced scale), with "unavailable" conveyed by that de-emphasis, not hue. A **mechanical validator** (`designTokens.test.ts`, 21 cases) computes WCAG ratios for every meaningful pairing and fails the build on any regression, and also guards TS↔CSS drift.
+
+**Cosmic atmosphere.** A restrained, drifting starfield adopted clean-room as a decorative, `aria-hidden` layer — the shell backdrop (`.archive-shell::before`, `z-index:-1` within the shell's own stacking context) and a visible layer behind the first-view perspective picker (`.cosmic-atmosphere`). It never touches the reading surface (verified: the light reader renders clean over the shell), the archive shell stays dominant, and its drift is neutralised by the existing global reduced-motion rules. N's separate map atmosphere already gates every layer behind the reduce-motion preference.
+
+**Decoration cleanup.** The unexplained `⚠️` emoji in the WebGL fallback → a labelled, tokenised `TriangleAlert` icon (the heading carries the meaning). Functional state glyphs (`✓`/`○` read/unread) were left as-is (they convey meaningful state).
+
+### Gate evidence (local, Node 22, on the feature branch)
+
+- `type-check`: pass. `lint:ci`: **0 errors / 0 warnings** (baseline held).
+- `test:run`: **386 tests pass** (was 365; +21 contrast/drift validator). Conversion suite: **160** (unchanged).
+- `story:package:validate`: `eternal-return@1.3.0` hash `80f3d5a2…` (unchanged). `canon:strict`: **errors=0**, warnings=6116, waived=31. `literary:validate` / `literary:slice:validate`: valid against `v1.0.2`. No package/save-schema identity moved; no dependency on P.
+- `build`: pass. Playwright via the throwaway sandbox-Chromium config (deleted, never committed): the opening renders the decorative atmosphere (`aria-hidden`, off the reading surface); the focus ring flips to the dark token on the light reader (runtime-verified); and the regression set (first-run intro, accessibility/focus journey, reader journey + WebGL-loss fallback) re-run green.
+
+## Batch 6.4–6.6
 
 Not yet started. Batch issues open under [#162](https://github.com/zekusmaximus/Narramorph/issues/162) as each begins; 6.1 gives them their concrete target list.

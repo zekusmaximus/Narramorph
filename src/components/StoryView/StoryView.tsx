@@ -165,6 +165,7 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
           transition={
             reduceMotion ? { duration: 0 } : { type: 'spring', damping: 25, stiffness: 300 }
           }
+          data-reader-surface={preferences.theme}
           className={`relative flex h-[100dvh] max-h-[100dvh] w-full max-w-4xl flex-col overflow-hidden sm:h-auto sm:max-h-[92vh]
             ${preferences.theme === 'dark' ? 'bg-gray-900' : ''}
             ${preferences.theme === 'light' ? 'bg-white' : ''}

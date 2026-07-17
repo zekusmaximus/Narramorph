@@ -2,18 +2,19 @@ import { useEffect, useMemo, type ReactElement } from 'react';
 
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
 import { useSpatialStore } from '@/stores/spatialStore';
+import { PERSPECTIVE_COLOR } from '@/styles/designTokens';
 import type { StoryNode, CharacterType } from '@/types';
 
 import NodeSphere from './NodeSphere';
 import PlaneGuide from './PlaneGuide';
 
 /**
- * Character metadata for visual guides (matches tailwind config)
+ * Character metadata for visual guides — colours from the shared design tokens.
  */
 const CHARACTER_METADATA: Record<string, { color: string; label: string }> = {
-  archaeologist: { color: '#4A90E2', label: 'Past - Discovery' }, // Blue-500
-  algorithm: { color: '#50C878', label: 'Present - Processing' }, // Green-500
-  'last-human': { color: '#E74C3C', label: 'Future - Memory' }, // Red-500
+  archaeologist: { color: PERSPECTIVE_COLOR.archaeologist, label: 'Past - Discovery' },
+  algorithm: { color: PERSPECTIVE_COLOR.algorithm, label: 'Present - Processing' },
+  'last-human': { color: PERSPECTIVE_COLOR['last-human'], label: 'Future - Memory' },
 };
 
 /**

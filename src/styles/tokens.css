@@ -1,0 +1,110 @@
+/**
+ * Narramorph design tokens (CSS mirror of src/styles/designTokens.ts).
+ *
+ * designTokens.test.ts asserts these values match the TS source of truth, so the
+ * two never drift. Perspective fills are non-text graph state (>=3:1 on the shell);
+ * the -ink variants are readable text (>=4.5:1). The focus ring is theme-aware.
+ */
+
+:root {
+  /* Perspective identity — graph/node fills */
+  --perspective-archaeologist: #4a90e2;
+  --perspective-algorithm: #50c878;
+  --perspective-last-human: #e74c3c;
+  --perspective-convergence: #9b59b6;
+
+  /* Perspective readable-text variants (>=4.5:1 on the dark shell) */
+  --perspective-archaeologist-ink: #4a90e2;
+  --perspective-algorithm-ink: #50c878;
+  --perspective-last-human-ink: #e74c3c;
+  --perspective-convergence-ink: #b07cc9;
+
+  /* Surfaces */
+  --surface-shell: #080d10;
+  --surface-raised: #0b1015;
+  --surface-reader-night: #111827;
+  --surface-reader-paper: #ffffff;
+  --surface-reader-archive: #fffbeb;
+
+  /* Focus ring — default is for dark surfaces; flips on light reader panels below */
+  --focus-ring: #a5f3fc;
+  --focus-ring-on-light: #0e7490;
+
+  /* Motion */
+  --motion-fast: 150ms;
+  --motion-base: 200ms;
+  --motion-slow: 600ms;
+
+  /* Decorative cosmic atmosphere (documented decorative; AT ignores the layer) */
+  --atmosphere-opacity: 0.5;
+  --atmosphere-drift-duration: 150s;
+  --atmosphere-image:
+    radial-gradient(1px 1px at 24px 32px, rgb(219 229 231 / 55%), transparent),
+    radial-gradient(1px 1px at 140px 88px, rgb(219 229 231 / 40%), transparent),
+    radial-gradient(1.5px 1.5px at 78px 168px, rgb(165 243 252 / 35%), transparent),
+    radial-gradient(1px 1px at 208px 208px, rgb(178 219 225 / 35%), transparent),
+    radial-gradient(1px 1px at 300px 120px, rgb(219 229 231 / 30%), transparent),
+    radial-gradient(1.5px 1.5px at 260px 300px, rgb(165 243 252 / 25%), transparent);
+}
+
+/*
+ * On the light "Paper" and sepia reader surfaces the default cyan focus ring is
+ * effectively invisible (~1.2:1), so those surfaces flip to a dark, high-contrast
+ * ring (>=5:1). Custom properties inherit, so focusable controls inside the reader
+ * pick this up automatically.
+ */
+[data-reader-surface='light'],
+[data-reader-surface='sepia'] {
+  --focus-ring: var(--focus-ring-on-light);
+}
+
+/*
+ * Decorative cosmic atmosphere: a restrained, drifting starfield behind the entire
+ * archive shell. It is a pseudo-element (so assistive tech never sees it), sits
+ * behind all content (z-index: -1 within the shell's own stacking context), never
+ * touches the reading surface, and its drift is neutralised by the global
+ * reduced-motion rules in index.css (and prefers-reduced-motion). The legible
+ * archive shell stays dominant.
+ */
+.archive-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.archive-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--atmosphere-opacity);
+  background-image: var(--atmosphere-image);
+  background-size: 340px 340px;
+  background-repeat: repeat;
+  animation: atmosphere-drift var(--atmosphere-drift-duration) linear infinite;
+  will-change: background-position;
+}
+
+/*
+ * Reusable decorative atmosphere layer for prominent chrome surfaces (e.g. behind
+ * the first-view perspective picker), where opaque backgrounds would otherwise hide
+ * the shell backdrop. Apply to an aria-hidden element placed behind the content.
+ */
+.cosmic-atmosphere {
+  pointer-events: none;
+  opacity: var(--atmosphere-opacity);
+  background-image: var(--atmosphere-image);
+  background-size: 340px 340px;
+  background-repeat: repeat;
+  animation: atmosphere-drift var(--atmosphere-drift-duration) linear infinite;
+  will-change: background-position;
+}
+
+@keyframes atmosphere-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -340px;
+  }
+}

@@ -57,6 +57,7 @@ export function OpeningExperience(): ReactElement {
         className="pointer-events-none absolute inset-0 archive-intro-texture"
         aria-hidden="true"
       />
+      <div className="cosmic-atmosphere absolute inset-0" aria-hidden="true" />
       <div className="relative mx-auto grid max-w-7xl gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(36rem,1.25fr)] lg:items-end">
         <div className="min-w-0">
           <div className="mb-1.5 flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-[0.24em] text-cyan-100/60">

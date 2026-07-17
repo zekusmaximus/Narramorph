@@ -1,4 +1,5 @@
 import { validateEdgeBridges } from '@/domain/bridges/edgeBridge';
+import { PERSPECTIVE_COLOR } from '@/styles/designTokens';
 import type { EdgeBridge, StoryData, Connection } from '@/types';
 import type { StoryNode } from '@/types/Node';
 
@@ -232,10 +233,10 @@ export async function loadStoryContent(storyId: string): Promise<StoryData> {
                 characterRaw === 'archaeologist' ||
                 characterRaw === 'arch' ||
                 characterRaw === 'arc'
-                  ? '#4A90E2'
+                  ? PERSPECTIVE_COLOR.archaeologist
                   : characterRaw === 'algorithm' || characterRaw === 'algo'
-                    ? '#50C878'
-                    : '#E74C3C',
+                    ? PERSPECTIVE_COLOR.algorithm
+                    : PERSPECTIVE_COLOR['last-human'],
               size: 35,
               shape: 'circle',
             },
