@@ -1,6 +1,6 @@
 # Phase 8.2 — Security headers, privacy, and data minimization
 
-**Status: design proposed; awaiting owner decisions. No production/config code has been written.**
+**Status: owner decisions accepted (self-host Inter · repo-issue-tracker privacy contact · enforce CSP · security-headers-only); 8.2 implemented and gate-green. The security-header checklist is owner-run against the deployed/preview URL. Batch 8.3 awaits its own design + confirmation.**
 
 Batch 8.2 hardens the deployed site: security headers/CSP at the edge, a privacy policy that matches actual network behavior, a local-data inventory with data-minimization, and sanitization of the untrusted-input surface (roadmap Batch 8.2). It builds on the settled architecture from 8.1 — **client-only, no backend** (ADR 0006) — and the chosen host, **Cloudflare Pages**, on a **custom domain** (owner decisions, 8.1).
 

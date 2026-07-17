@@ -1,0 +1,21 @@
+# Cloudflare Pages security headers for Narramorph (Batch 8.2).
+# Applied to every response. Caching/redirect/404 headers are Batch 8.4.
+# The CSP is documented and verified in docs/SECURITY_HEADERS.md.
+#
+# CSP notes:
+#   script-src 'self'   — strict; the built app has no inline <script> and no eval/wasm.
+#   style-src 'unsafe-inline' — required: framer-motion / @xyflow / three inject styles at
+#                         runtime, and index.html has an inline FOUC/@font-face block. This is
+#                         not a script-execution vector; script-src is the XSS boundary.
+#   font-src 'self'     — Inter is self-hosted under /fonts (no external font origin).
+#   worker-src blob:    — the opt-in 3D view (three.js) spawns Web Workers from blob URLs.
+#   connect-src 'self'  — the app makes no network calls; extended to the Sentry ingest host in 8.3.
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), usb=(), xr-spatial-tracking=()
+  X-Frame-Options: DENY
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin

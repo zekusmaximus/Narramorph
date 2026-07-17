@@ -17,6 +17,7 @@ import {
   type JourneyExportMetadata,
 } from '@/domain/export/journeyExport';
 import { generateL3CacheKey } from '@/domain/l3/cacheKey';
+import { safeParseSaveJson } from '@/domain/progress/importSanitization';
 import {
   calculateJourneyTrackingSnapshot,
   calculateProgressAfterNodeVisit,
@@ -1021,18 +1022,19 @@ export const useStoryStore = create<StoryStore>()(
     },
 
     importProgress: (data: string): ImportProgressResult => {
-      let parsed: unknown;
-      try {
-        parsed = JSON.parse(data);
-      } catch (error) {
-        devError('Failed to parse imported save:', error);
+      // Sanitize at the trust boundary: bound the size and strip prototype-pollution
+      // keys before the value reaches migration/validation (Batch 8.2). An oversized
+      // payload is reported as a parse-level failure to the reader.
+      const parseResult = safeParseSaveJson(data);
+      if (!parseResult.ok) {
+        devError('Rejected imported save:', parseResult.reason);
         return { ok: false, reason: 'parse' };
       }
 
       // Route through the migration engine so an imported older-schema save is
       // migrated up exactly like a loaded one (the pre-7.4 path bypassed
       // migrations). On failure the current in-progress journey is left untouched.
-      const prepared = prepareSavedState(parsed, get().nodes);
+      const prepared = prepareSavedState(parseResult.value, get().nodes);
       if (!prepared) {
         return { ok: false, reason: 'invalid' };
       }
