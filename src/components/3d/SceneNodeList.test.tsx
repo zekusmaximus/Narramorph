@@ -50,7 +50,7 @@ describe('SceneNodeList', () => {
     ]);
     render(<SceneNodeList />);
 
-    const nav = screen.getByRole('navigation', { name: 'Story nodes' });
+    const nav = screen.getByRole('navigation', { name: 'Passage list' });
     expect(within(nav).getByRole('button', { name: /First Documentation/ })).not.toBeNull();
     expect(within(nav).getByRole('button', { name: /First Process/ })).not.toBeNull();
   });

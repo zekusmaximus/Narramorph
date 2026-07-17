@@ -120,8 +120,8 @@ test('390x844 reader remains usable without overflow and supports keyboard retur
   await prepare2DReader(page);
   await page.goto('/');
 
-  await expect(page.getByRole('region', { name: 'Archive passage map' })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Experimental 3D' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Story map' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Experimental 3D view' })).toBeVisible();
   await expectNoHorizontalOverflow(page);
 
   const archaeologistEntry = page.getByRole('button', {
@@ -142,7 +142,7 @@ test('390x844 reader remains usable without overflow and supports keyboard retur
   ).toHaveAttribute('aria-valuenow', '100');
   await reader.getByRole('button', { name: 'Return to map' }).click();
 
-  const map = page.getByRole('region', { name: 'Archive passage map' });
+  const map = page.getByRole('region', { name: 'Story map' });
   await map.focus();
   await page.keyboard.press('Enter');
   await expect(page.getByRole('dialog')).toBeVisible();
@@ -260,7 +260,7 @@ test('200% root text remains navigable at 390x844 without horizontal overflow', 
     .toBeGreaterThanOrEqual(40);
   await reader.getByRole('button', { name: 'Return to map' }).click();
 
-  const map = page.getByRole('region', { name: 'Archive passage map' });
+  const map = page.getByRole('region', { name: 'Story map' });
   const mapApplication = page.getByRole('application', {
     name: 'Interactive passage constellation',
   });
@@ -268,7 +268,7 @@ test('200% root text remains navigable at 390x844 without horizontal overflow', 
   await expect(map).toBeInViewport();
   await expect(mapApplication).toBeVisible();
   await expect(mapApplication).toBeInViewport();
-  await expect(page.getByTestId('archive-map-status')).toContainText(/archive passages opened/i);
+  await expect(page.getByTestId('archive-map-status')).toContainText(/passages opened/i);
   await expect(page.getByTestId('archive-map-status-visual')).toBeHidden();
   await expect(mapApplication.locator('.react-flow__controls')).toHaveClass(/horizontal/);
   await expectVisibleMapControlsWithinBounds(page, mapApplication);

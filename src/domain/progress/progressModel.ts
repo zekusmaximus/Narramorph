@@ -70,6 +70,8 @@ export function createInitialPreferences(): UserPreferences {
   return {
     textSize: 'medium',
     theme: 'light',
+    lineHeight: 'normal',
+    includeAdaptationNotesInExport: true,
     reduceMotion: false,
     showTutorial: true,
     showReadingStats: true,

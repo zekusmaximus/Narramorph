@@ -9,6 +9,7 @@ import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import { useVariationSelection } from '@/hooks/useVariationSelection';
 import { useStoryStore } from '@/stores';
 
+import { JourneyMilestone } from './JourneyMilestone';
 import { SelectionDisclosure } from './SelectionDisclosure';
 import { StoryBridge } from './StoryBridge';
 import { StoryContent } from './StoryContent';
@@ -36,6 +37,7 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
   const adapter = useMapInteractionAdapter('2d');
   const nodes = useStoryStore((state) => state.nodes);
   const preferences = useStoryStore((state) => state.preferences);
+  const resumeScroll = useStoryStore((state) => state.lastReaderOpenWasRestore);
   const reduceMotion = useReducedMotionPreference();
   const getNodeState = useStoryStore((state) => state.getNodeState);
   const canVisitNode = useStoryStore((state) => state.canVisitNode);
@@ -50,8 +52,7 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
     restoreFocus: () =>
       (selectedNode
         ? document.querySelector<HTMLElement>(`.react-flow__node[data-id="${selectedNode}"]`)
-        : null) ??
-      document.querySelector<HTMLElement>('[role="region"][aria-label="Archive passage map"]'),
+        : null) ?? document.querySelector<HTMLElement>('[role="region"][aria-label="Story map"]'),
   });
   const handleContinue = useCallback(
     (nodeId: string): void => {
@@ -218,9 +219,13 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
                 content={currentContent}
                 transformationState={nodeState.currentState}
                 textSize={preferences.textSize}
+                lineHeight={preferences.lineHeight}
                 theme={preferences.theme}
+                scrollKey={currentNode.id}
+                resumeScroll={resumeScroll}
               />
               <SelectionDisclosure reason={readerSelectionReason} theme={preferences.theme} />
+              {currentNode.layer === 4 && <JourneyMilestone theme={preferences.theme} />}
               <StoryFooter
                 theme={preferences.theme}
                 continuationNodes={continuationNodes}

@@ -1,14 +1,23 @@
 import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
-import { useEffect, useMemo, useState, type ReactElement } from 'react';
+import { useCallback, useEffect, useMemo, useState, type ReactElement } from 'react';
 
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
+import { JourneyMilestone } from '@/components/StoryView/JourneyMilestone';
 import { MarkdownContent } from '@/components/StoryView/MarkdownContent';
+import { readingSurfaceClass } from '@/components/StoryView/readingTypography';
 import { SelectionDisclosure } from '@/components/StoryView/SelectionDisclosure';
-import { getCharacterLabel } from '@/components/StoryView/storyPresentation';
+import { StoryBridge } from '@/components/StoryView/StoryBridge';
+import { StoryFooter } from '@/components/StoryView/StoryFooter';
+import {
+  formatEstimatedReadingTime,
+  getAvailableContinuationNodes,
+  getCharacterLabel,
+  getStateLabel,
+} from '@/components/StoryView/storyPresentation';
 import { compileEndingSelectionReason } from '@/domain/variation/selectionReason';
 import { useDialogFocus } from '@/hooks/useDialogFocus';
-import { useReadingTimer } from '@/hooks/useReadingTimer';
+import { useEdgeBridge } from '@/hooks/useEdgeBridge';
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import { useVariationSelection } from '@/hooks/useVariationSelection';
 import { useStoryStore } from '@/stores';
@@ -26,7 +35,7 @@ const characterThemes: Record<CharacterType, { accent: string }> = {
 
 function get3DMapReturnTarget(): HTMLElement | null {
   return document.querySelector<HTMLElement>(
-    '[role="application"][aria-label="Three-dimensional story node map"]',
+    '[role="application"][aria-label="Story map (3D view)"]',
   );
 }
 
@@ -40,9 +49,20 @@ export default function ContentPanel3D(): ReactElement | null {
   const getNodeState = useStoryStore((state) => state.getNodeState);
   const preferences = useStoryStore((state) => state.preferences);
   const recordActiveVisitSelection = useStoryStore((state) => state.recordActiveVisitSelection);
+  const canVisitNode = useStoryStore((state) => state.canVisitNode);
+  const openStoryView = useStoryStore((state) => state.openStoryView);
   const selectedNode = adapter.selectedNodeId;
   const storyViewOpen = adapter.panel.open;
   const closeStoryView = adapter.panel.close;
+  const handleContinue = useCallback(
+    (nodeId: string): void => {
+      // Finalize the current timed visit, then open the next passage — mirrors
+      // the 2D reader so a branch can be followed without leaving the 3D view.
+      closeStoryView();
+      openStoryView(nodeId);
+    },
+    [closeStoryView, openStoryView],
+  );
   const [modalPanel, setModalPanel] = useState(
     () =>
       typeof window !== 'undefined' &&
@@ -66,7 +86,6 @@ export default function ContentPanel3D(): ReactElement | null {
     restoreFocus: get3DMapReturnTarget,
   });
   const reduceMotion = useReducedMotionPreference();
-  const timeSpent = useReadingTimer(storyViewOpen, selectedNode);
 
   const currentNode: StoryNode | null = useMemo(() => {
     if (!selectedNode) {
@@ -96,9 +115,12 @@ export default function ContentPanel3D(): ReactElement | null {
     variationId,
     usedFallback,
     selectionReason,
+    selectedBeatIds,
     isLoading: variationLoading,
     error: variationError,
   } = useVariationSelection(currentNode?.id || null, fallbackContent);
+
+  const entryBridge = useEdgeBridge(currentNode?.id ?? null);
 
   const readerSelectionReason = useMemo(() => {
     if (!currentNode) {
@@ -132,13 +154,19 @@ export default function ContentPanel3D(): ReactElement | null {
         passageTitle: currentNode.title,
         content: currentContent,
         reason: readerSelectionReason,
+        selectedBeatIds: selectedBeatIds ?? [],
+        bridgeId: entryBridge?.bridgeId ?? null,
+        bridgeContent: entryBridge?.content ?? null,
+        readerChoice: currentNode.layer === 4 ? { kind: 'ending', value: currentNode.title } : null,
       });
     }
   }, [
     currentContent,
     currentNode,
+    entryBridge,
     readerSelectionReason,
     recordActiveVisitSelection,
+    selectedBeatIds,
     selectedNode,
     storyViewOpen,
     variationError,
@@ -149,6 +177,9 @@ export default function ContentPanel3D(): ReactElement | null {
   if (!storyViewOpen || !currentNode || !nodeState) {
     return null;
   }
+
+  const continuationNodes = getAvailableContinuationNodes(currentNode, nodes, canVisitNode);
+  const estimatedReadingTime = formatEstimatedReadingTime(currentContent);
 
   return (
     <motion.div
@@ -171,7 +202,7 @@ export default function ContentPanel3D(): ReactElement | null {
       }`}
     >
       <p id="content-panel-description" className="sr-only">
-        Experimental three-dimensional reading panel. Close this panel to return to the spatial map.
+        Experimental three-dimensional reading panel. Close to return to the story map.
       </p>
       {/* Header */}
       <div className={`border-b border-gray-200 bg-gradient-to-r p-4 sm:p-6 ${theme.accent}`}>
@@ -184,6 +215,9 @@ export default function ContentPanel3D(): ReactElement | null {
               {currentNode.character[0]?.toUpperCase() ?? '?'}
             </div>
             <div className="min-w-0">
+              <p className="mb-1 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-white/60">
+                Recovered passage
+              </p>
               <h2
                 id="content-panel-title"
                 tabIndex={-1}
@@ -194,7 +228,9 @@ export default function ContentPanel3D(): ReactElement | null {
               <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-white/80">
                 <span className="font-medium">{getCharacterLabel(currentNode.character)}</span>
                 <span aria-hidden="true">•</span>
-                <span>{currentNode.metadata.estimatedReadTime} min read</span>
+                <span>{estimatedReadingTime}</span>
+                <span aria-hidden="true">•</span>
+                <span>{getStateLabel(nodeState.currentState)}</span>
                 {nodeState.visited && (
                   <>
                     <span aria-hidden="true">•</span>
@@ -210,7 +246,7 @@ export default function ContentPanel3D(): ReactElement | null {
             type="button"
             onClick={closeStoryView}
             className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-lg p-2 text-white transition-colors hover:bg-white/20"
-            aria-label="Close content panel"
+            aria-label="Close"
           >
             <X size={24} />
           </button>
@@ -236,14 +272,17 @@ export default function ContentPanel3D(): ReactElement | null {
           </div>
         )}
 
+        {entryBridge && (
+          <div className="mb-4">
+            <StoryBridge bridge={entryBridge} theme={preferences.theme} />
+          </div>
+        )}
+
         <div
-          className={`max-w-none break-words font-serif [overflow-wrap:anywhere] ${
-            preferences.textSize === 'small'
-              ? 'text-base leading-[1.8]'
-              : preferences.textSize === 'large'
-                ? 'text-xl leading-[1.9]'
-                : 'text-lg leading-[1.85]'
-          }`}
+          className={`max-w-none break-words font-serif [overflow-wrap:anywhere] ${readingSurfaceClass(
+            preferences.textSize,
+            preferences.lineHeight,
+          )}`}
         >
           <MarkdownContent content={currentContent} />
         </div>
@@ -251,12 +290,19 @@ export default function ContentPanel3D(): ReactElement | null {
         <div className="-mx-4 mt-6 sm:-mx-6">
           <SelectionDisclosure reason={readerSelectionReason} theme={preferences.theme} />
         </div>
-
-        {/* Reading time tracker */}
-        <div className="mt-8 pt-4 border-t border-gray-200 text-sm text-gray-500">
-          Time spent: {Math.floor(timeSpent / 60)}:{(timeSpent % 60).toString().padStart(2, '0')}
-        </div>
+        {currentNode.layer === 4 && (
+          <div className="-mx-4 mt-4 sm:-mx-6">
+            <JourneyMilestone theme={preferences.theme} />
+          </div>
+        )}
       </div>
+
+      <StoryFooter
+        theme={preferences.theme}
+        continuationNodes={continuationNodes}
+        onContinue={handleContinue}
+        onClose={closeStoryView}
+      />
     </motion.div>
   );
 }

@@ -70,7 +70,7 @@ export function StoryHeader({
           type="button"
           onClick={onClose}
           className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full border border-white/10 p-2 text-white/70 transition-colors hover:bg-white/10 hover:text-white"
-          aria-label="Close story view"
+          aria-label="Close"
         >
           <svg
             className="w-6 h-6 text-white/80"

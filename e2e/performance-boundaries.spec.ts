@@ -159,7 +159,7 @@ for (const profile of profiles) {
     await prepareProfile(page, profile);
 
     await page.goto('/', { waitUntil: 'domcontentloaded' });
-    const map = page.getByRole('region', { name: 'Archive passage map' });
+    const map = page.getByRole('region', { name: 'Story map' });
     await expect(map).toBeVisible();
     await page.waitForTimeout(500);
 
@@ -214,7 +214,7 @@ for (const profile of profiles) {
 
     await dialog.getByRole('button', { name: 'Return to map' }).click();
     const modeToggle = page.locator('button[aria-describedby="experimental-3d-description"]');
-    await expect(modeToggle).toHaveText('Experimental 3D');
+    await expect(modeToggle).toHaveText('Experimental 3D view');
     await modeToggle.click();
     await expect(page.getByTestId('three-dimensional-loading')).toHaveRole('status');
     await expect(modeToggle).toBeFocused();
@@ -223,7 +223,7 @@ for (const profile of profiles) {
       .toBe(true);
 
     const spatialView = page
-      .getByRole('application', { name: 'Three-dimensional story node map' })
+      .getByRole('application', { name: 'Story map (3D view)' })
       .or(page.getByTestId('webgl-fallback-status'));
     await expect(spatialView).toBeVisible();
   });

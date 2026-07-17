@@ -6,6 +6,7 @@ export type {
   NodeShape,
   Theme,
   TextSize,
+  LineHeight,
   Position,
   NodeVisualState,
   ConnectionVisualProperties,
@@ -34,6 +35,7 @@ export type {
   ValidationResult,
   ValidationError,
   ValidationWarning,
+  ImportProgressResult,
   StoryStore,
 } from './Store';
 

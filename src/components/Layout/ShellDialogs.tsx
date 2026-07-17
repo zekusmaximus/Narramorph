@@ -3,7 +3,6 @@ import type { ReactElement } from 'react';
 
 import type { ReadingStats, StoryNode, UserPreferences, UserProgress } from '@/types';
 
-import type { LayoutPresentationModel } from './layoutPresentation';
 import { ProgressDialog } from './ProgressDialog';
 import { SettingsDialog } from './SettingsDialog';
 
@@ -14,7 +13,6 @@ interface ShellDialogsProps {
   progress: UserProgress;
   stats: ReadingStats;
   nodes: ReadonlyMap<string, StoryNode>;
-  shell: LayoutPresentationModel;
   preferences: UserPreferences;
   onUpdatePreferences: (preferences: Partial<UserPreferences>) => void;
   reduceMotion: boolean;
@@ -27,7 +25,6 @@ export function ShellDialogs({
   progress,
   stats,
   nodes,
-  shell,
   preferences,
   onUpdatePreferences,
   reduceMotion,
@@ -41,9 +38,6 @@ export function ShellDialogs({
         progress={progress}
         stats={stats}
         nodes={nodes}
-        visitedCount={shell.visitedCount}
-        totalNodes={shell.totalNodes}
-        progressPercent={shell.progressPercent}
         reduceMotion={reduceMotion}
       />
       <SettingsDialog

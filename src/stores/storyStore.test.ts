@@ -912,10 +912,12 @@ describe('Temporal Awareness System', () => {
         },
       };
 
-      // Mock localStorage with old save - override the global mock for this test
+      // Mock localStorage with old save - override the global mock for this test.
+      // The persistence boundary reads the raw stored string (Phase 7.4), so mock
+      // loadRawString with the serialized legacy save.
       const storageModule = await vi.importMock<typeof StorageModule>('@/utils/storage');
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      storageModule.loadFromStorage = vi.fn(() => oldSave) as any;
+      storageModule.loadRawString = vi.fn(() => JSON.stringify(oldSave)) as any;
 
       // Load progress (should trigger migration)
       store.loadProgress();

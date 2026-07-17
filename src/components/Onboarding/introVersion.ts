@@ -13,7 +13,7 @@
  * The current onboarding version. Bump this (integer, monotonic) whenever the
  * introduction changes enough that returning readers should see it again.
  */
-export const INTRO_VERSION = 1;
+export const INTRO_VERSION = 2;
 
 /** Dedicated, journey-independent storage key. */
 export const INTRO_SEEN_STORAGE_KEY = 'narramorph-intro-seen-version';

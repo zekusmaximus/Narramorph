@@ -49,7 +49,7 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   const humanEntry = page.getByRole('button', {
     name: 'Enter the story through The Last Human',
   });
-  const map = page.getByRole('region', { name: 'Archive passage map' });
+  const map = page.getByRole('region', { name: 'Story map' });
   const storyGraph = page.getByRole('application', {
     name: 'Interactive passage constellation',
   });
@@ -85,7 +85,7 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   await expect(page.getByTestId('story-passage')).toBeVisible();
 
   await page.keyboard.press('Tab');
-  await expect(page.getByRole('button', { name: 'Close story view' })).toBeFocused();
+  await expect(page.getByRole('button', { name: 'Close', exact: true })).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(page.getByTestId('story-scroll-region')).toBeFocused();
   await page.keyboard.press('Tab');
@@ -106,7 +106,7 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   await expect(page.getByTestId('story-passage')).toBeVisible();
 
   await page.keyboard.press('Tab');
-  await expect(page.getByRole('button', { name: 'Close story view' })).toBeFocused();
+  await expect(page.getByRole('button', { name: 'Close', exact: true })).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(page.getByTestId('story-scroll-region')).toBeFocused();
   await page.keyboard.press('Tab');
@@ -212,11 +212,21 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   await expect(adaptationLedgerSummary).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.getByTestId('adaptation-ledger')).toHaveAttribute('open', '');
-  // The journey-export controls sit after the ledger and remain inside the focus trap.
+  // The journey-export controls sit after the ledger and remain inside the focus trap:
+  // the include-adaptation-notes toggle (Phase 7.3), then the two export actions.
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('checkbox', { name: /include adaptation notes/i })).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(page.getByRole('button', { name: 'Export journey (Markdown)' })).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(page.getByRole('button', { name: 'Print-friendly view' })).toBeFocused();
+  // The Phase 7.4 journey controls (save file + new journey) follow, still inside the trap.
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Export save file' })).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Import save file' })).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Start a new journey' })).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(closeProgress).toBeFocused();
   await page.keyboard.press('Escape');

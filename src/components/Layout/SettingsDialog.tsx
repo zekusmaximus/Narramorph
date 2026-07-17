@@ -3,7 +3,7 @@ import { Check, Moon, Settings, Sun, X } from 'lucide-react';
 import { useCallback, useRef, type ReactElement } from 'react';
 
 import { useDialogFocus } from '@/hooks/useDialogFocus';
-import type { TextSize, Theme, UserPreferences } from '@/types';
+import type { LineHeight, TextSize, Theme, UserPreferences } from '@/types';
 
 interface SettingsDialogProps {
   open: boolean;
@@ -31,6 +31,16 @@ const THEME_OPTIONS: ReadonlyArray<{
   { value: 'light', label: 'Paper', description: 'Clear ink on a pale page' },
   { value: 'dark', label: 'Night', description: 'Low-light archive surface' },
   { value: 'sepia', label: 'Archive', description: 'Warm, weathered paper' },
+];
+
+const LINE_HEIGHT_OPTIONS: ReadonlyArray<{
+  value: LineHeight;
+  label: string;
+  sampleClass: string;
+}> = [
+  { value: 'cozy', label: 'Cozy', sampleClass: 'leading-[1.3]' },
+  { value: 'normal', label: 'Normal', sampleClass: 'leading-[1.6]' },
+  { value: 'relaxed', label: 'Airy', sampleClass: 'leading-[2]' },
 ];
 
 export function SettingsDialog({
@@ -170,6 +180,46 @@ export function SettingsDialog({
                       <span className="block text-xs text-slate-500">{option.description}</span>
                     </span>
                     {selected && <Check className="h-4 w-4 text-cyan-200" aria-hidden="true" />}
+                  </label>
+                );
+              })}
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend className="font-serif text-lg font-medium text-slate-100">Line spacing</legend>
+            <p className="mt-1 text-sm text-slate-500">
+              Loosen the leading for comfortable long reads.
+            </p>
+            <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
+              {LINE_HEIGHT_OPTIONS.map((option) => {
+                const selected = (preferences.lineHeight ?? 'normal') === option.value;
+                return (
+                  <label
+                    key={option.value}
+                    className={`flex min-h-14 cursor-pointer items-center justify-between gap-3 rounded-lg border px-3 py-2 transition-colors focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-cyan-200 ${
+                      selected
+                        ? 'border-cyan-200/50 bg-cyan-200/10 text-cyan-50'
+                        : 'border-slate-700/80 bg-slate-900/50 text-slate-300 hover:border-slate-600'
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="reader-line-height"
+                      value={option.value}
+                      checked={selected}
+                      onChange={() => onUpdatePreferences({ lineHeight: option.value })}
+                      className="sr-only"
+                    />
+                    <span className="text-sm">{option.label}</span>
+                    <span
+                      className={`${option.sampleClass} font-serif text-xs text-slate-400`}
+                      aria-hidden="true"
+                    >
+                      Aa
+                      <br />
+                      Aa
+                    </span>
                   </label>
                 );
               })}

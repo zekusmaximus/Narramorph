@@ -3,21 +3,39 @@ import { describe, expect, it, vi } from 'vitest';
 vi.unmock('@/utils/validation');
 
 import { createInitialPreferences, createInitialProgress } from '@/domain/progress/progressModel';
-import { buildSavedState } from '@/domain/progress/saveState';
-import type { UserProgress } from '@/types';
+import { buildSavedState, serializeSavedState } from '@/domain/progress/saveState';
+import type { SavedState, UserProgress } from '@/types';
 import { STORAGE_KEYS } from '@/utils/storage';
 
 import { createProgressRepository } from './progressRepository';
 import type { SavedStateStorage } from './progressRepository';
 
-function createStorage(stored: unknown | null = null, saveResult = true): SavedStateStorage {
+interface FakeStorage extends SavedStateStorage {
+  written: Record<string, string>;
+  removed: string[];
+}
+
+function createStorage(rawByKey: Record<string, string> = {}, saveResult = true): FakeStorage {
+  const written: Record<string, string> = {};
+  const removed: string[] = [];
   return {
-    load: vi.fn(() => stored),
+    written,
+    removed,
+    loadRaw: vi.fn((key: string) => rawByKey[key] ?? written[key] ?? null),
     save: vi.fn(() => saveResult),
+    writeRaw: vi.fn((key: string, value: string) => {
+      written[key] = value;
+      return true;
+    }),
+    remove: vi.fn((key: string) => {
+      removed.push(key);
+      delete rawByKey[key];
+      delete written[key];
+    }),
   };
 }
 
-function createSavedState() {
+function createSavedState(): SavedState {
   return buildSavedState(
     createInitialProgress(),
     createInitialPreferences(),
@@ -36,26 +54,36 @@ describe('progress repository', () => {
   });
 
   it('propagates storage save failures', () => {
-    const repository = createProgressRepository(createStorage(null, false));
+    const repository = createProgressRepository(createStorage({}, false));
 
     expect(repository.save(createSavedState())).toBe(false);
   });
 
-  it('distinguishes an empty storage slot from invalid saved data', () => {
-    const emptyStorage = createStorage();
-    const invalidStorage = createStorage({ version: '1.0.0' });
+  it('reports an empty storage slot', () => {
+    const storage = createStorage();
+    expect(createProgressRepository(storage).load(new Map())).toEqual({ status: 'empty' });
+    expect(storage.loadRaw).toHaveBeenCalledWith(STORAGE_KEYS.SAVED_STATE);
+  });
 
-    expect(createProgressRepository(emptyStorage).load(new Map())).toEqual({ status: 'empty' });
-    expect(createProgressRepository(invalidStorage).load(new Map())).toEqual({
-      status: 'invalid',
-    });
-    expect(emptyStorage.load).toHaveBeenCalledWith(STORAGE_KEYS.SAVED_STATE);
-    expect(invalidStorage.load).toHaveBeenCalledWith(STORAGE_KEYS.SAVED_STATE);
+  it('reports structurally invalid saved data as invalid with its raw bytes', () => {
+    const raw = JSON.stringify({ version: '1.0.0' });
+    const repository = createProgressRepository(createStorage({ [STORAGE_KEYS.SAVED_STATE]: raw }));
+
+    expect(repository.load(new Map())).toEqual({ status: 'invalid', raw });
+  });
+
+  it('reports a non-JSON (corrupt) blob as invalid with its raw bytes', () => {
+    const raw = '{ this is not json';
+    const repository = createProgressRepository(createStorage({ [STORAGE_KEYS.SAVED_STATE]: raw }));
+
+    expect(repository.load(new Map())).toEqual({ status: 'invalid', raw });
   });
 
   it('returns validated current saved state without migrations', () => {
     const savedState = createSavedState();
-    const repository = createProgressRepository(createStorage(savedState));
+    const repository = createProgressRepository(
+      createStorage({ [STORAGE_KEYS.SAVED_STATE]: serializeSavedState(savedState) }),
+    );
 
     expect(repository.load(new Map())).toEqual({
       status: 'loaded',
@@ -68,7 +96,9 @@ describe('progress repository', () => {
     const savedState = createSavedState();
     delete (savedState.progress as Partial<UserProgress>).l3ConvergenceTriggered;
     delete (savedState.progress as Partial<UserProgress>).lockedNodes;
-    const repository = createProgressRepository(createStorage(savedState));
+    const repository = createProgressRepository(
+      createStorage({ [STORAGE_KEYS.SAVED_STATE]: serializeSavedState(savedState) }),
+    );
 
     const result = repository.load(new Map());
 
@@ -78,5 +108,29 @@ describe('progress repository', () => {
       expect(result.savedState.progress.l3ConvergenceTriggered).toBe(false);
       expect(result.savedState.progress.lockedNodes).toEqual([]);
     }
+  });
+
+  it('quarantines a corrupt save and clears the primary slot', () => {
+    const raw = '{ corrupt';
+    const storage = createStorage({ [STORAGE_KEYS.SAVED_STATE]: raw });
+    const repository = createProgressRepository(storage);
+
+    repository.quarantineCorrupt(raw);
+
+    expect(storage.writeRaw).toHaveBeenCalledWith(STORAGE_KEYS.SAVED_STATE_CORRUPT, raw);
+    expect(storage.remove).toHaveBeenCalledWith(STORAGE_KEYS.SAVED_STATE);
+    expect(repository.readQuarantine()).toBe(raw);
+  });
+
+  it('clears the quarantine slot on request', () => {
+    const raw = '{ corrupt';
+    const storage = createStorage();
+    const repository = createProgressRepository(storage);
+
+    repository.quarantineCorrupt(raw);
+    repository.clearQuarantine();
+
+    expect(storage.remove).toHaveBeenCalledWith(STORAGE_KEYS.SAVED_STATE_CORRUPT);
+    expect(repository.readQuarantine()).toBeNull();
   });
 });

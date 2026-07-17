@@ -187,7 +187,7 @@ describe('NodeMap keyboard interaction', () => {
     runtime.adapter = setup.adapter;
     const { rerender } = render(<NodeMap />);
 
-    const map = screen.getByRole('region', { name: 'Archive passage map' });
+    const map = screen.getByRole('region', { name: 'Story map' });
     const alpha = screen.getByRole('button', { name: /Alpha Fragment.*selected.*available/ });
     const beta = screen.getByRole('button', { name: /Beta Fragment.*not selected.*available/ });
     expect(map.getAttribute('role')).toBe('region');

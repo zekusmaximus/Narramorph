@@ -10,6 +10,7 @@ import {
   type ReactElement,
 } from 'react';
 
+import { PassageListNav } from '@/components/map/PassageListNav';
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
 import { getCharacterLabel } from '@/components/StoryView/storyPresentation';
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
@@ -68,7 +69,7 @@ function toFlowNodes(
           : node.layer === 3
             ? 'convergence passage'
             : 'final passage',
-      state.visited ? `visited ${state.visitCount} times` : 'not yet visited',
+      state.visited ? `opened ${state.visitCount} times` : 'not yet opened',
       state.currentState === 'metaAware'
         ? 'the passage has fully awakened'
         : state.currentState === 'firstRevisit'
@@ -222,7 +223,7 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
       className={`relative w-full h-full bg-[#0a0e12] ${className}`}
       style={{ minHeight: '100%' }}
       role="region"
-      aria-label="Archive passage map"
+      aria-label="Story map"
       aria-description="Use the arrow keys to move between available passages. Press Enter or Space to open the selected passage, and Escape to close it."
       data-story-map-focus-target="true"
       tabIndex={0}
@@ -259,6 +260,23 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
         tooltipPosition={tooltipPosition}
         showTooltip={supportsPrecisePointer}
       />
+
+      {/*
+        Collapsible linear passage list — a non-spatial, keyboard/screen-reader
+        alternative to spatial graph traversal (Phase 7.5). Collapsed by default so it
+        does not clutter the visual map; expanding it activates the same passage
+        selection as clicking a node.
+      */}
+      <details className="pointer-events-auto absolute left-3 top-24 z-20 max-h-[calc(100%-1.5rem)] w-60 max-w-[calc(100%-1.5rem)] overflow-y-auto rounded-md border border-slate-500/20 bg-[#0b1016]/85 text-slate-200 shadow-lg shadow-black/20 backdrop-blur-md">
+        <summary className="cursor-pointer list-none px-3 py-2 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cyan-100/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200">
+          Passage list
+        </summary>
+        <PassageListNav
+          mode="2d"
+          description="Select a passage to open it. This list mirrors the story map."
+          className="px-3 pb-3"
+        />
+      </details>
     </div>
   );
 }

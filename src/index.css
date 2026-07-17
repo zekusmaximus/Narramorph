@@ -218,3 +218,43 @@
     }
   }
 }
+
+/*
+ * Print the open passage legibly (Phase 7.2). The reader is a fixed, clipped
+ * modal on screen; for print we drop the app chrome and let the whole passage
+ * flow across pages instead of being cut at the modal's viewport height.
+ */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  [role='dialog'][aria-labelledby='story-view-title'],
+  [role='dialog'][aria-labelledby='story-view-title'] * {
+    visibility: visible;
+  }
+
+  [role='dialog'][aria-labelledby='story-view-title'] {
+    position: static !important;
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    border: 0 !important;
+  }
+
+  [role='dialog'][aria-labelledby='story-view-title'] [data-testid='story-scroll-region'] {
+    position: static !important;
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Interactive chrome that should not appear on paper. */
+  [data-testid='back-to-top'],
+  [role='dialog'][aria-labelledby='story-view-title'] [role='progressbar'],
+  [role='dialog'][aria-labelledby='story-view-title'] footer,
+  [role='dialog'][aria-labelledby='story-view-title'] button {
+    display: none !important;
+  }
+}

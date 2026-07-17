@@ -34,7 +34,7 @@ test('first run shows an accessible intro covering how to begin, interact, path,
 
   // All four required onboarding concepts are explained in text.
   await expect(intro.getByRole('heading', { name: 'Choose a perspective to begin' })).toBeVisible();
-  await expect(intro.getByRole('heading', { name: 'Open a fragment to read it' })).toBeVisible();
+  await expect(intro.getByRole('heading', { name: 'Open a passage to read it' })).toBeVisible();
   await expect(intro.getByRole('heading', { name: 'Your path shapes the story' })).toBeVisible();
   await expect(intro.getByRole('heading', { name: 'Return and revisit' })).toBeVisible();
 

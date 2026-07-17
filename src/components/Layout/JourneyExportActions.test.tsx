@@ -68,4 +68,16 @@ describe('JourneyExportActions', () => {
     fireEvent.click(markdownButton);
     expect(downloadTextFile).not.toHaveBeenCalled();
   });
+
+  it('lets the reader toggle whether adaptation notes are included, persisting the choice', () => {
+    const updatePreferences = vi.fn();
+    setStore(true);
+    useStoryStore.setState({ updatePreferences });
+    render(<JourneyExportActions />);
+
+    const toggle = screen.getByRole('checkbox', { name: /include adaptation notes/i });
+    expect((toggle as HTMLInputElement).checked).toBe(true); // default on
+    fireEvent.click(toggle);
+    expect(updatePreferences).toHaveBeenCalledWith({ includeAdaptationNotesInExport: false });
+  });
 });

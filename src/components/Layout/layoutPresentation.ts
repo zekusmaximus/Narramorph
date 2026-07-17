@@ -28,6 +28,6 @@ export function buildLayoutPresentation(params: {
     visitedCount,
     totalNodes: params.totalNodes,
     progressPercent,
-    progressLabel: `${visitedCount} of ${params.totalNodes} fragments visited, ${progressPercent} percent complete`,
+    progressLabel: `${visitedCount} of ${params.totalNodes} passages opened, ${progressPercent} percent opened`,
   };
 }

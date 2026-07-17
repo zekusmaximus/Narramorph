@@ -109,12 +109,12 @@ export function StoryNodeLabel({
 }): ReactElement {
   const layerLabel =
     node.layer === 1
-      ? 'Opening fragment'
+      ? 'Opening passage'
       : node.layer === 2
-        ? 'Branching fragment'
+        ? 'Branching passage'
         : node.layer === 3
           ? 'Convergence'
-          : 'Final fragment';
+          : 'Final passage';
 
   return (
     <div className="pointer-events-none absolute left-1/2 top-full mt-3 w-40 -translate-x-1/2 transform text-center sm:mt-4 sm:w-48">
