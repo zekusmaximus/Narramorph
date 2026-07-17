@@ -2,7 +2,7 @@
 
 Phase 7 turns the capabilities integrated across Phases 0–6 into **one intentional end-to-end reader product** rather than a collection of imported features (roadmap Phase 7, batches 7.1–7.5). This document is the running evidence record (mirrors [PHASE_5_EXECUTION.md](PHASE_5_EXECUTION.md) and [PHASE_6_EXECUTION.md](PHASE_6_EXECUTION.md)); it is updated as batches land and the epic [#93](https://github.com/zekusmaximus/Narramorph/issues/93) is ticked only at merge.
 
-**Status: Batch 7.1 (canonical reader journey) — implemented on the feature branch; the usability gate is owner/tester-run.** The design was proposed and the owner accepted the four forks (lexicon = "passage"; four-axis progress; revisitation option B; reader architecture = history-synced modal for 7.2). The lexicon unification, four-axis progress model, 2D/3D reader parity, and the one-time revisitation hint are implemented (full record below; design in [PHASE_7_1_CANONICAL_JOURNEY.md](PHASE_7_1_CANONICAL_JOURNEY.md)). No contract identity moved (no package/save-schema change).
+**Status: Batch 7.1 — implemented (usability gate is owner/tester-run). Batch 7.2 — design proposed, awaiting owner confirmation before code.** 7.1's lexicon unification, four-axis progress model, 2D/3D reader parity, and one-time revisitation hint are implemented (design in [PHASE_7_1_CANONICAL_JOURNEY.md](PHASE_7_1_CANONICAL_JOURNEY.md); owner accepted all four forks). 7.2's long-passage design — grounded in measured content data (only the 3 L4 endings are genuinely long; 0/1,305 passages have section structure) — recommends keeping passages whole with scroll restoration + hash-addressability + a line-height preference ([PHASE_7_2_LONG_PASSAGE.md](PHASE_7_2_LONG_PASSAGE.md)). No contract identity has moved.
 
 ## Scope and immutable inputs
 
@@ -70,9 +70,19 @@ No multi-agent audit fan-outs. This record and the batch designs are produced wi
 
 ---
 
-## Batches 7.2–7.5 — not yet started
+## Batch 7.2 — Refine the long-passage reading experience ([#172](https://github.com/zekusmaximus/Narramorph/issues/172))
 
-- **7.2 — Long-passage reading.** Blocked on the reader-architecture decision surfaced in 7.1. Then: landmarks, visible progress, scroll restoration, text-size/line-height/theme prefs, continuation actions, no modal traps; preserve exact visit semantics; test print/selection/zoom/mobile/keyboard/ interrupted sessions.
+**Design proposed; awaiting owner confirmation before code.** Full proposal (grounded in measured content data): **[PHASE_7_2_LONG_PASSAGE.md](PHASE_7_2_LONG_PASSAGE.md)**. Key findings and direction:
+
+- **Measured:** 1,305 content strings — median ~1,221 words (~6 min); 935 are 5–10 min; only **7 exceed 3,000 words, all L4 endings (~43–48 min)**. L3 convergence is already segmented (`L3AssemblyView`). **0 of 1,305 passages have markdown headings** (unstructured literary prose).
+- **Segmentation fork → keep passages whole** (recommended): no authored section structure exists and the long reads are unbroken endings; artificial/authored landmarks would be a content change (ADR 0002), not 7.2 UX. Long-read comfort comes from scroll restoration + visible progress (already shipped) + line-height pref + back-to-top + hash-addressability.
+- **Reader architecture** (owner-decided in 7.1): history-synced, **hash-addressable** modal (`#/passage/:nodeId`) so browser **Back closes the reader** and passages are bookmarkable, **preserving `useDialogFocus`** containment/restoration and exact visit semantics (Back = Close = finalize visit).
+- **Scroll restoration** keyed by node + variation (device-local, off the save schema); **line-height** as an additive, defaulted `UserPreferences` field (no save-schema bump).
+
+Owner confirmations requested before code: (1) keep passages whole; (2) line-height as an additive saved preference. See design doc §8.
+
+## Batches 7.3–7.5 — not yet started
+
 - **7.3 — Explanations + export without overwhelming prose.** "Why this version?" as secondary disclosure; concise literary ledger language; export at milestones/endings; a setting to include/exclude adaptation notes; usability-test disclosure.
 - **7.4 — Persistence, recovery, reader control.** Finalize save-schema versioning; explicit "new journey", reset confirmation, export-before-reset, corrupt-save recovery, storage-quota handling, consent-respecting migration telemetry; import of a machine-readable save (extend `importProgress`/`exportProgress`, distinct from the literary Markdown export). Identity-pin checklist applies if the save schema bumps.
 - **7.5 — Manual accessibility + inclusive-design validation.** Manual AT passes (owner/external); automate what is automatable (axe/keyboard/reduced-motion e2e); validate the graph's semantic alternative (2D map + SceneNodeList); release accessibility checklist + public accessibility statement with known limitations; fix blockers before beta.
