@@ -49,7 +49,7 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   const humanEntry = page.getByRole('button', {
     name: 'Enter the story through The Last Human',
   });
-  const map = page.getByRole('region', { name: 'Archive passage map' });
+  const map = page.getByRole('region', { name: 'Story map' });
   const storyGraph = page.getByRole('application', {
     name: 'Interactive passage constellation',
   });
@@ -85,7 +85,7 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   await expect(page.getByTestId('story-passage')).toBeVisible();
 
   await page.keyboard.press('Tab');
-  await expect(page.getByRole('button', { name: 'Close story view' })).toBeFocused();
+  await expect(page.getByRole('button', { name: 'Close', exact: true })).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(page.getByTestId('story-scroll-region')).toBeFocused();
   await page.keyboard.press('Tab');
@@ -106,7 +106,7 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   await expect(page.getByTestId('story-passage')).toBeVisible();
 
   await page.keyboard.press('Tab');
-  await expect(page.getByRole('button', { name: 'Close story view' })).toBeFocused();
+  await expect(page.getByRole('button', { name: 'Close', exact: true })).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(page.getByTestId('story-scroll-region')).toBeFocused();
   await page.keyboard.press('Tab');

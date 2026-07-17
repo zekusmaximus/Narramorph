@@ -20,22 +20,22 @@ export function NodeMapHud({
   showTooltip,
 }: NodeMapHudProps): ReactElement {
   const progressPercent = totalNodes > 0 ? Math.round((visitedCount / totalNodes) * 100) : 0;
-  const veiledCount = Math.max(0, totalNodes - availableCount);
-  const openedSummary = `${visitedCount} of ${totalNodes} archive passages opened`;
-  const veiledSummary =
-    veiledCount > 0
-      ? `${veiledCount} ${veiledCount === 1 ? 'passage remains' : 'passages remain'} veiled and outside the reading order.`
-      : 'Every archive passage is now in the reading order.';
+  const lockedCount = Math.max(0, totalNodes - availableCount);
+  const openedSummary = `${visitedCount} of ${totalNodes} passages opened`;
+  const lockedSummary =
+    lockedCount > 0
+      ? `${lockedCount} ${lockedCount === 1 ? 'passage is' : 'passages are'} locked and not yet in your reading order.`
+      : 'Every passage is now available.';
 
   return (
     <>
-      <section aria-label="Archive map status" className="sr-only" data-testid="archive-map-status">
+      <section aria-label="Map reading status" className="sr-only" data-testid="archive-map-status">
         <p role="status" aria-live="polite" aria-atomic="true">
-          {openedSummary}. {availableCount} available. {veiledSummary}
+          {openedSummary}. {availableCount} available. {lockedSummary}
         </p>
         <div
           role="progressbar"
-          aria-label="Archive passages opened"
+          aria-label="Passages opened"
           aria-valuemin={0}
           aria-valuemax={100}
           aria-valuenow={progressPercent}
@@ -50,7 +50,7 @@ export function NodeMapHud({
         data-testid="archive-map-status-visual"
       >
         <div className="flex items-baseline justify-between gap-4">
-          <p className="font-serif text-sm tracking-wide text-slate-100">Archive map</p>
+          <p className="font-serif text-sm tracking-wide text-slate-100">Story map</p>
           <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-slate-400">
             {visitedCount}/{totalNodes} opened
           </p>
@@ -62,13 +62,11 @@ export function NodeMapHud({
           />
         </div>
         <p className="mt-2 text-[11px] leading-4 text-slate-400">
-          <span className="sm:hidden">Drag to explore, then choose a fragment.</span>
-          <span className="hidden sm:inline">
-            Choose an illuminated fragment to enter the story.
-          </span>
+          <span className="sm:hidden">Drag to explore, then choose a passage.</span>
+          <span className="hidden sm:inline">Choose an available passage to start reading.</span>
         </p>
-        {veiledCount > 0 && (
-          <p className="mt-1 text-[10px] leading-4 text-slate-500">{veiledSummary}</p>
+        {lockedCount > 0 && (
+          <p className="mt-1 text-[10px] leading-4 text-slate-500">{lockedSummary}</p>
         )}
       </div>
 

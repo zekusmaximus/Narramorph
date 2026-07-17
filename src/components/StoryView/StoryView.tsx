@@ -50,8 +50,7 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
     restoreFocus: () =>
       (selectedNode
         ? document.querySelector<HTMLElement>(`.react-flow__node[data-id="${selectedNode}"]`)
-        : null) ??
-      document.querySelector<HTMLElement>('[role="region"][aria-label="Archive passage map"]'),
+        : null) ?? document.querySelector<HTMLElement>('[role="region"][aria-label="Story map"]'),
   });
   const handleContinue = useCallback(
     (nodeId: string): void => {

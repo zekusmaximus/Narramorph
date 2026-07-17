@@ -81,8 +81,8 @@ export default function NarromorphCanvas(): ReactElement {
       <div
         className="absolute inset-0"
         role="application"
-        aria-label="Three-dimensional story node map"
-        aria-description="Use arrow keys to select nodes, Enter to open, and Escape to close the story panel."
+        aria-label="Story map (3D view)"
+        aria-description="Use arrow keys to select passages, Enter to open, and Escape to close the passage."
         data-story-map-focus-target="true"
         tabIndex={0}
         onKeyDown={handleKeyDown}

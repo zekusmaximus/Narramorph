@@ -51,7 +51,10 @@ export function OpeningExperience(): ReactElement {
     <section
       aria-labelledby="opening-title"
       tabIndex={-1}
-      className="relative max-h-[50dvh] flex-none overflow-x-hidden overflow-y-auto overscroll-contain border-b border-cyan-100/10 bg-[#0d151a] px-4 py-4 text-stone-100 sm:px-6 sm:py-5"
+      data-has-begun={hasBegun}
+      className={`relative flex-none overflow-x-hidden overflow-y-auto overscroll-contain border-b border-cyan-100/10 bg-[#0d151a] px-4 text-stone-100 sm:px-6 ${
+        hasBegun ? 'max-h-[34dvh] py-3 sm:py-3.5' : 'max-h-[50dvh] py-4 sm:py-5'
+      }`}
     >
       <div
         className="pointer-events-none absolute inset-0 archive-intro-texture"
@@ -60,21 +63,25 @@ export function OpeningExperience(): ReactElement {
       <div className="cosmic-atmosphere absolute inset-0" aria-hidden="true" />
       <div className="relative mx-auto grid max-w-7xl gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(36rem,1.25fr)] lg:items-end">
         <div className="min-w-0">
-          <div className="mb-1.5 flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-[0.24em] text-cyan-100/60">
-            <Archive aria-hidden="true" className="h-3.5 w-3.5" />
-            <span>Recovered archive · signal 01</span>
-          </div>
+          {!hasBegun && (
+            <div className="mb-1.5 flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-[0.24em] text-cyan-100/60">
+              <Archive aria-hidden="true" className="h-3.5 w-3.5" />
+              <span>Recovered archive · signal 01</span>
+            </div>
+          )}
           <motion.h1
             id="opening-title"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-serif text-2xl leading-tight text-stone-50 sm:text-3xl"
+            className={`font-serif leading-tight text-stone-50 ${
+              hasBegun ? 'text-xl sm:text-2xl' : 'text-2xl sm:text-3xl'
+            }`}
           >
             {storyData?.metadata.title ?? 'Eternal Return of the Digital Self'}
           </motion.h1>
           <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-slate-300 sm:text-[0.95rem]">
             {hasBegun
-              ? 'The archive remembers your passage. Choose a voice to return to the pattern.'
+              ? 'The archive remembers your path. Choose a perspective to return to the story.'
               : 'Three witnesses survived in the signal. Choose a perspective and enter the story.'}
           </p>
         </div>
@@ -118,7 +125,7 @@ export function OpeningExperience(): ReactElement {
                 role="status"
                 className="col-span-full rounded-lg border border-white/10 bg-black/20 px-4 py-5 text-center text-sm text-slate-400"
               >
-                Recovering the first voices…
+                Recovering the first passages…
               </div>
             )}
           </div>

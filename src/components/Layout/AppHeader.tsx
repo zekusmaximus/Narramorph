@@ -65,7 +65,7 @@ export function AppHeader({
             transition={{ duration: 0.3, delay: 0.05 }}
             className="relative flex h-11 w-11 items-center justify-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-300/[0.04] text-cyan-200 transition-colors hover:border-cyan-200/40 hover:bg-cyan-200/10 focus-visible:outline-cyan-200 sm:w-auto sm:rounded-md sm:px-3"
             onClick={onOpenProgress}
-            aria-label={`Open reading progress${visitedCount > 0 ? `, ${visitedCount} fragments visited` : ''}`}
+            aria-label={`Open reading progress${visitedCount > 0 ? `, ${visitedCount} passages opened` : ''}`}
             title="Reading progress"
           >
             <ChartNoAxesColumn className="h-4 w-4" aria-hidden="true" />

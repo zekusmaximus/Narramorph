@@ -110,7 +110,7 @@ export function estimateReadingMinutes(
 export function formatEstimatedReadingTime(content: string): string {
   const wordCount = countReadableWords(content);
   if (wordCount === 0) {
-    return 'Brief fragment';
+    return 'Brief passage';
   }
   if (wordCount < DEFAULT_WORDS_PER_MINUTE) {
     return 'Less than 1 min read';

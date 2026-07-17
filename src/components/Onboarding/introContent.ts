@@ -32,23 +32,23 @@ export const INTRO_STEPS: readonly IntroStep[] = [
   {
     id: 'begin',
     heading: 'Choose a perspective to begin',
-    body: 'Start by selecting one of the three voices. Each opens the story in its own era; you can return and enter through another later.',
+    body: 'Start by selecting one of the three perspectives. Each opens the story in its own era; you can return and enter through another later.',
   },
   {
     id: 'interact',
-    heading: 'Open a fragment to read it',
-    body: 'Select a node on the map to read that fragment. Nodes you can open are highlighted; connected fragments appear as you go.',
+    heading: 'Open a passage to read it',
+    body: 'Select a passage on the map to read it. Passages you can open are highlighted; connected passages appear as you go.',
     withDemo: true,
   },
   {
     id: 'path',
     heading: 'Your path shapes the story',
-    body: 'Which fragments you read, and the order you read them in, changes what the archive reveals — passages surface, and connect, in ways a different path would not.',
+    body: 'Which passages you read, and the order you read them in, changes what the archive reveals — passages surface, and connect, in ways a different path would not.',
   },
   {
     id: 'revisit',
     heading: 'Return and revisit',
-    body: 'Fragments are not fixed. Come back to one you have already read and it can render differently, carrying the memory of the journey that brought you back.',
+    body: 'Passages are not fixed. Come back to one you have already read and it can render differently, carrying the memory of the journey that brought you back.',
   },
 ];
 
@@ -58,7 +58,7 @@ export const INTRO_STEPS: readonly IntroStep[] = [
  * a reduced-motion or screen-reader user loses nothing.
  */
 export const INTRO_DEMO_CAPTION =
-  'A node pulses to invite a click. Selecting it opens that fragment to read.';
+  'A passage on the map pulses to invite a click. Selecting it opens it to read.';
 
 /** Closing line that points readers at where to reopen this guide (checklist item: find Help). */
 export const INTRO_HELP_HINT = 'You can reopen this guide any time from the “?” in the top bar.';

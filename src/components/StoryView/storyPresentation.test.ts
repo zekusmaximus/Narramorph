@@ -35,9 +35,9 @@ describe('selected-passage reading time', () => {
     expect(estimateReadingMinutes(Array.from({ length: 226 }, () => 'word').join(' '))).toBe(2);
   });
 
-  it('formats short and empty fragments without using static node metadata', () => {
+  it('formats short and empty passages without using static node metadata', () => {
     expect(formatEstimatedReadingTime('Only a few words remain.')).toBe('Less than 1 min read');
-    expect(formatEstimatedReadingTime('')).toBe('Brief fragment');
+    expect(formatEstimatedReadingTime('')).toBe('Brief passage');
   });
 });
 

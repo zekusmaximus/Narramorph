@@ -26,15 +26,15 @@ export function AppFooter({
 
         <div
           className="flex shrink-0 items-center gap-2 uppercase tracking-[0.12em]"
-          aria-label={`${visitedCount} of ${totalNodes} fragments visited, ${progressPercent} percent complete`}
+          aria-label={`${visitedCount} of ${totalNodes} passages opened, ${progressPercent} percent opened`}
         >
           <span>
-            <span className="text-cyan-200">{visitedCount}</span>/{totalNodes} fragments
+            <span className="text-cyan-200">{visitedCount}</span>/{totalNodes} passages
           </span>
           <span className="text-slate-700" aria-hidden="true">
             ·
           </span>
-          <span className="text-emerald-300/80">{progressPercent}% traced</span>
+          <span className="text-emerald-300/80">{progressPercent}% opened</span>
         </div>
       </div>
     </footer>

@@ -59,7 +59,6 @@ export default function Layout({ children }: LayoutProps): ReactElement {
             progress={layout.progress}
             stats={layout.stats}
             nodes={layout.nodes}
-            shell={layout.shell}
             preferences={layout.preferences}
             onUpdatePreferences={updatePreferences}
             reduceMotion={layout.reduceMotion}

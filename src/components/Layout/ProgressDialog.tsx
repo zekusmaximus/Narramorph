@@ -6,16 +6,13 @@ import type { ReadingStats, StoryNode, UserProgress } from '@/types';
 
 import { AdaptationLedger } from './AdaptationLedger';
 import { JourneyExportActions } from './JourneyExportActions';
-import { buildNarrativePath } from './progressPresentation';
+import { buildNarrativePath, buildProgressSummary } from './progressPresentation';
 
 interface ProgressDialogProps {
   open: boolean;
   onClose: () => void;
   progress: UserProgress;
   stats: ReadingStats;
-  visitedCount: number;
-  totalNodes: number;
-  progressPercent: number;
   nodes: ReadonlyMap<string, StoryNode>;
   reduceMotion: boolean;
 }
@@ -25,9 +22,6 @@ export function ProgressDialog({
   onClose,
   progress,
   stats,
-  visitedCount,
-  totalNodes,
-  progressPercent,
   nodes,
   reduceMotion,
 }: ProgressDialogProps): ReactElement | null {
@@ -38,6 +32,7 @@ export function ProgressDialog({
     return null;
   }
   const narrativePath = buildNarrativePath(progress.readingPath, nodes);
+  const summary = buildProgressSummary(progress, nodes);
 
   return (
     <motion.div
@@ -82,26 +77,26 @@ export function ProgressDialog({
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-4">
             {[
               {
-                label: 'Fragments encountered',
-                value: `${visitedCount}/${totalNodes}`,
+                label: 'Passages opened',
+                value: `${summary.passagesOpened}/${summary.totalPassages}`,
                 containerClass: 'bg-cyan-500/10 border-cyan-500/30',
                 valueClass: 'text-cyan-400',
               },
               {
-                label: 'Archive charted',
-                value: `${progressPercent}%`,
+                label: 'Paths explored',
+                value: `${summary.pathsExplored}`,
                 containerClass: 'bg-green-500/10 border-green-500/30',
                 valueClass: 'text-green-400',
               },
               {
-                label: 'Essential thread',
-                value: `${stats.criticalPathNodesVisited}/${stats.criticalPathNodesTotal}`,
+                label: 'Endings reached',
+                value: `${summary.endingsReached}/${summary.totalEndings}`,
                 containerClass: 'bg-purple-500/10 border-purple-500/30',
                 valueClass: 'text-purple-400',
               },
               {
-                label: 'World explored',
-                value: `${stats.percentageExplored.toFixed(0)}%`,
+                label: 'Adaptations discovered',
+                value: `${summary.adaptationsDiscovered}`,
                 containerClass: 'bg-amber-500/10 border-amber-500/30',
                 valueClass: 'text-amber-400',
               },
@@ -160,19 +155,19 @@ export function ProgressDialog({
             <div className="space-y-2">
               {[
                 {
-                  label: 'Archaeologist',
+                  label: 'The Archaeologist',
                   counts: stats.characterBreakdown.archaeologist,
                   dotClass: 'bg-cyan-400',
                   valueClass: 'text-cyan-400',
                 },
                 {
-                  label: 'Algorithm',
+                  label: 'The Algorithm',
                   counts: stats.characterBreakdown.algorithm,
                   dotClass: 'bg-green-400',
                   valueClass: 'text-green-400',
                 },
                 {
-                  label: 'Human',
+                  label: 'The Last Human',
                   counts: stats.characterBreakdown.lastHuman,
                   dotClass: 'bg-red-400',
                   valueClass: 'text-red-400',

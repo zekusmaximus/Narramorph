@@ -25,7 +25,7 @@ async function openNode(page: Page, nodeId: string): Promise<void> {
 }
 
 async function closeStory(page: Page): Promise<void> {
-  await page.getByRole('button', { name: 'Close story view' }).click();
+  await page.getByRole('button', { name: 'Close', exact: true }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0);
 }
 
@@ -40,7 +40,7 @@ test('reader completes L1 through L4, avoids repeat variations, and restores pro
   await prepare2DReader(page);
   await page.goto('/');
 
-  await expect(page.getByRole('region', { name: 'Archive passage map' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Story map' })).toBeVisible();
 
   await visitAndClose(page, 'arch-L1');
   await visitAndClose(page, 'algo-L1');
@@ -75,7 +75,7 @@ test('reader completes L1 through L4, avoids repeat variations, and restores pro
   await closeStory(page);
 
   const l3Unlock = page.getByTestId('unlock-notification-arch-L3');
-  const storyMap = page.locator('[role="region"][aria-label="Archive passage map"]');
+  const storyMap = page.locator('[role="region"][aria-label="Story map"]');
   await expect(l3Unlock).toBeVisible();
   await l3Unlock.focus();
   await expect(l3Unlock).toBeFocused();
@@ -108,7 +108,7 @@ test('reader completes L1 through L4, avoids repeat variations, and restores pro
   await expect(storyMap).not.toHaveAttribute('aria-hidden', 'true');
 
   const l3MapReturnTargets = page.locator(
-    '.react-flow__node[data-id="arch-L3"], [role="region"][aria-label="Archive passage map"]',
+    '.react-flow__node[data-id="arch-L3"], [role="region"][aria-label="Story map"]',
   );
   await expect
     .poll(() =>
@@ -174,6 +174,6 @@ test('unavailable WebGL falls back to the 2D reader', async ({ page }) => {
   await expect(page.getByTestId('webgl-fallback-status')).toContainText(
     'The 2D story map is ready instead.',
   );
-  await expect(page.getByRole('region', { name: 'Archive passage map' })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Experimental 3D' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Story map' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Experimental 3D view' })).toBeVisible();
 });

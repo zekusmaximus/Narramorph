@@ -211,9 +211,13 @@ Record the filled checklist + the session notes in the execution record. Any inc
 
 ---
 
-## 8. Summary of owner decisions requested before 7.1 code
+## 8. Owner decisions (accepted — direction for 7.1 code)
 
-1. **Canonical UI lexicon** (§2.2) — accept the recommended defaults, or override the content-unit word ("passage" vs "fragment") and any other row.
-2. **Progress model** (§4) — restructure to the four axes (passages opened / paths explored / endings reached / adaptations discovered)?
-3. **Revisitation discovery** (§5) — option A, **B (recommended)**, or C?
-4. **7.2 reader architecture** (§6) — decide before 7.2 code: keep-modal-hardened / **history-synced modal (recommended)** / route-addressable. 7.1 will reconcile the 2D/3D reader under one body in a way consistent with this choice.
+The owner reviewed the four forks and accepted the recommended options:
+
+1. **Canonical UI lexicon** (§2.2) — **"passage"** for the content unit (reserving "fragment" for the in-fiction artifact), with the recommended defaults for the rest of the lexicon.
+2. **Progress model** (§4) — **four axes as proposed** (passages opened / paths explored / endings reached / adaptations discovered).
+3. **Revisitation discovery** (§5) — **option B**: a revisit marker on opened passages plus a single, dismissible one-time hint.
+4. **7.2 reader architecture** (§6) — **history-synced modal (hash-addressable)**. 7.1 reconciles the 2D/3D reader (shared bridge + continuation footer + close/return labels) consistent with this choice; the history/hash wiring itself lands in 7.2.
+
+These decisions are implemented in the Phase 7.1 code recorded in [PHASE_7_EXECUTION.md](PHASE_7_EXECUTION.md).

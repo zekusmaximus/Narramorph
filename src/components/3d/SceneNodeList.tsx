@@ -45,20 +45,20 @@ export default function SceneNodeList(): ReactElement {
 
   return (
     <nav
-      aria-label="Story nodes"
+      aria-label="Passage list"
       data-testid="scene-node-list"
       className="pointer-events-auto absolute left-3 top-3 z-10 max-h-[calc(100%-1.5rem)] w-60 max-w-[calc(100%-1.5rem)] overflow-y-auto rounded-md border border-slate-500/20 bg-[#0b1016]/85 p-3 text-slate-200 shadow-lg shadow-black/20 backdrop-blur-md"
     >
       <p className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cyan-100/60">
-        Node index
+        Passages
       </p>
       <p className="mt-1 text-xs leading-relaxed text-slate-400">
-        Select a fragment to open it. This list mirrors the three-dimensional map.
+        Select a passage to open it. This list mirrors the 3D story map.
       </p>
 
       {groups.length === 0 && (
         <p role="status" className="mt-3 text-xs text-slate-500">
-          No fragments are open yet.
+          No passages are available yet.
         </p>
       )}
 
@@ -76,9 +76,9 @@ export default function SceneNodeList(): ReactElement {
               const status = !available
                 ? 'Locked'
                 : selected
-                  ? 'Open'
+                  ? 'Reading'
                   : visited
-                    ? 'Visited'
+                    ? 'Opened'
                     : 'Available';
               return (
                 <li key={node.id}>

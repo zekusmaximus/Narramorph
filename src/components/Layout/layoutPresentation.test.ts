@@ -13,7 +13,7 @@ describe('buildLayoutPresentation', () => {
       visitedCount: 3,
       totalNodes: 12,
       progressPercent: 25,
-      progressLabel: '3 of 12 fragments visited, 25 percent complete',
+      progressLabel: '3 of 12 passages opened, 25 percent opened',
     });
   });
 

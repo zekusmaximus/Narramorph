@@ -53,7 +53,7 @@ async function openNode(page: Page, nodeId: string): Promise<void> {
 }
 
 async function closeStory(page: Page): Promise<void> {
-  await page.getByRole('button', { name: 'Close story view' }).click();
+  await page.getByRole('button', { name: 'Close', exact: true }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0);
 }
 
@@ -120,7 +120,7 @@ for (const pathCase of PATH_CASES) {
   }) => {
     await prepareReader(page);
     await page.goto('/');
-    await expect(page.getByRole('region', { name: 'Archive passage map' })).toBeVisible();
+    await expect(page.getByRole('region', { name: 'Story map' })).toBeVisible();
 
     await buildDominantPath(page, pathCase.philosophy);
     await completeConvergence(page, pathCase.readerLabel);

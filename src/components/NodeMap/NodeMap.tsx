@@ -68,7 +68,7 @@ function toFlowNodes(
           : node.layer === 3
             ? 'convergence passage'
             : 'final passage',
-      state.visited ? `visited ${state.visitCount} times` : 'not yet visited',
+      state.visited ? `opened ${state.visitCount} times` : 'not yet opened',
       state.currentState === 'metaAware'
         ? 'the passage has fully awakened'
         : state.currentState === 'firstRevisit'
@@ -222,7 +222,7 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
       className={`relative w-full h-full bg-[#0a0e12] ${className}`}
       style={{ minHeight: '100%' }}
       role="region"
-      aria-label="Archive passage map"
+      aria-label="Story map"
       aria-description="Use the arrow keys to move between available passages. Press Enter or Space to open the selected passage, and Escape to close it."
       data-story-map-focus-target="true"
       tabIndex={0}

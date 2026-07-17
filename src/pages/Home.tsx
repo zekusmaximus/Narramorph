@@ -3,6 +3,7 @@ import { TriangleAlert } from 'lucide-react';
 import { lazy, Suspense, useCallback, useEffect, useRef, useState, type ReactElement } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { RevisitHint } from '@/components/NodeMap/RevisitHint';
 import { OpeningExperience } from '@/components/OpeningExperience';
 import { ErrorRecoveryDialog } from '@/components/UI/ErrorRecoveryDialog';
 import { UnlockNotificationSystem } from '@/components/UI/UnlockNotification';
@@ -302,9 +303,9 @@ export default function Home(): ReactElement {
               aria-pressed={use3DMode}
               aria-describedby="experimental-3d-description"
               className="absolute right-3 top-3 z-40 min-h-11 rounded-full border border-white/15 bg-[#11191e]/90 px-4 py-2 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-slate-300 shadow-lg backdrop-blur-sm transition-colors hover:border-cyan-100/35 hover:text-cyan-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-100"
-              title={`Switch to ${use3DMode ? '2D' : '3D'} mode`}
+              title={`Switch to ${use3DMode ? '2D' : '3D'} view`}
             >
-              {use3DMode ? 'Return to 2D archive' : 'Experimental 3D'}
+              {use3DMode ? 'Return to 2D map' : 'Experimental 3D view'}
             </button>
             <p id="experimental-3d-description" className="sr-only">
               An optional spatial view. If graphics support is unavailable, the story remains ready
@@ -312,6 +313,9 @@ export default function Home(): ReactElement {
             </p>
           </>
         )}
+
+        {/* One-time, dismissible invitation to revisit (never shown while reading). */}
+        <RevisitHint />
 
         {/* L3 Assembly View Modal */}
         <AnimatePresence>

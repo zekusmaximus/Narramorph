@@ -65,15 +65,15 @@ export function NodeTooltip({ nodeId, position }: NodeTooltipProps): ReactElemen
 
           <div className="space-y-1 text-gray-400">
             <div className="flex justify-between">
-              <span>Voice:</span>
+              <span>Perspective:</span>
               <span className="text-gray-300">{getCharacterLabel(node.character)}</span>
             </div>
             <div className="flex justify-between">
-              <span>Passage:</span>
+              <span>State:</span>
               <span className="text-gray-300">{getStateLabel(state.currentState)}</span>
             </div>
             <div className="flex justify-between">
-              <span>Encounters:</span>
+              <span>Visits:</span>
               <span className="text-gray-300">{state.visitCount}</span>
             </div>
             <div className="flex justify-between">

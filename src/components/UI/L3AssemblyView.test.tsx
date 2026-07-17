@@ -42,7 +42,7 @@ function Harness({ onClose }: { onClose: () => void }): ReactElement {
 
   return (
     <>
-      <div role="region" aria-label="Archive passage map" tabIndex={0}>
+      <div role="region" aria-label="Story map" tabIndex={0}>
         <div role="application" aria-label="Interactive passage constellation">
           <div className="react-flow__node" data-id="arch-L3" tabIndex={0}>
             Archaeologist convergence
@@ -72,9 +72,7 @@ describe('L3AssemblyView', () => {
 
     const dialog = screen.getByRole('dialog', { name: 'The Convergence' });
     const title = screen.getByRole('heading', { name: 'The Convergence' });
-    const map = document.querySelector<HTMLElement>(
-      '[role="region"][aria-label="Archive passage map"]',
-    );
+    const map = document.querySelector<HTMLElement>('[role="region"][aria-label="Story map"]');
     expect(document.activeElement).toBe(title);
     expect(map).not.toBeNull();
     expect(map).toHaveAttribute('inert');

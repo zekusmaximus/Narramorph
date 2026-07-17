@@ -106,9 +106,7 @@ function getSectionProgressKey(character: string): L3SectionKey {
 }
 
 function getMapReturnTarget(nodeId: string | null): HTMLElement | null {
-  const storyMap = document.querySelector<HTMLElement>(
-    '[role="region"][aria-label="Archive passage map"]',
-  );
+  const storyMap = document.querySelector<HTMLElement>('[role="region"][aria-label="Story map"]');
   const selectedNode = nodeId
     ? Array.from(storyMap?.querySelectorAll<HTMLElement>('.react-flow__node[data-id]') ?? []).find(
         (element) => element.dataset.id === nodeId,
