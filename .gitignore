@@ -89,6 +89,8 @@ bower_components/
 # build output. Ignore stray files but track committed deploy assets explicitly.
 public/*
 !public/_headers
+!public/_redirects
+!public/404.html
 !public/fonts/
 
 # Storybook build outputs
@@ -142,6 +144,7 @@ playwright-report/
 playwright/.cache/
 output/playwright/
 output/bundle/
+output/release/
 
 # Content conversion artifacts
 *.tmp

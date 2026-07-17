@@ -1,7 +1,7 @@
 {
   "name": "narramorph-fiction",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Interactive narrative platform for creating node-based story experiences",
   "author": "zekusmaximus",
@@ -24,6 +24,9 @@
     "scope:check": "node scripts/check-no-network.mjs",
     "headers:check": "node scripts/check-security-headers.mjs",
     "sourcemaps:upload": "node scripts/upload-sourcemaps.mjs",
+    "release:manifest": "node scripts/build-release-manifest.mjs",
+    "release:verify": "node scripts/verify-reproducible.mjs",
+    "release:rollback": "node scripts/rollback.mjs",
     "profile:l3": "vite-node tools/performance/profile-l3.ts",
     "prepare": "husky",
     "lint": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint . --cache",

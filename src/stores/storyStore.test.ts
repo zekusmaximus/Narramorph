@@ -320,7 +320,7 @@ describe('Journey export contract', () => {
       progress: typeof progress;
     };
 
-    expect(exported.appVersion).toBe('0.1.0');
+    expect(exported.appVersion).toBe('0.1.1');
     expect(exported.storyPackage).toEqual(CURRENT_STORY_PACKAGE);
     expect(exported.progress.readingPath).toEqual(['arch-L1', 'arch-L2-accept']);
     expect(exported.progress.visitedNodes['arch-L1']?.visitCount).toBe(1);

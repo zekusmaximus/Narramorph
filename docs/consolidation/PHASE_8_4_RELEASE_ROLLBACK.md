@@ -1,6 +1,6 @@
 # Phase 8.4 — Deployment environments, versioning, and rollback
 
-**Status: design proposed; awaiting owner decisions. No production/config code has been written.**
+**Status: owner decisions accepted (app `0.1.0` → `0.1.1` — a `0.2.0` bump would break the frozen package's `>=0.1.0 <0.2.0` range; domain narramorph.com, apex canonical); 8.4 implemented and gate-green. Host provisioning, preview/staging, and the rollback rehearsal are owner-run. Batch 8.5 awaits its own design + confirmation.**
 
 Batch 8.4 makes the app **releasable and reversible**: version the application and record app↔package compatibility in **release manifests**, configure immutable-asset caching / redirects / a custom 404, publish **release notes + checksums**, and implement a **one-command rollback** to the prior known-good app+package that never corrupts local saves (roadmap Batch 8.4). Host is **Cloudflare Pages** on a **custom domain** (8.1). This is the one batch that legitimately manages the **app version** — never the package, which stays frozen at `eternal-return@1.3.0`, and never the save schema (`1.3.0`).
 
