@@ -6,6 +6,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { RevisitHint } from '@/components/NodeMap/RevisitHint';
 import { OpeningExperience } from '@/components/OpeningExperience';
 import { ErrorRecoveryDialog } from '@/components/UI/ErrorRecoveryDialog';
+import { PersistenceNotices } from '@/components/UI/PersistenceNotices';
 import { UnlockNotificationSystem } from '@/components/UI/UnlockNotification';
 import { useReaderRoute } from '@/hooks/useReaderRoute';
 import { useStoryStore } from '@/stores';
@@ -352,6 +353,9 @@ export default function Home(): ReactElement {
 
         {/* Unlock Notification System */}
         <UnlockNotificationSystem />
+
+        {/* Persistence recovery / quota / migration notices (Phase 7.4) */}
+        <PersistenceNotices />
       </div>
     </div>
   );

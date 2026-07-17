@@ -5,6 +5,7 @@ import { useDialogFocus } from '@/hooks/useDialogFocus';
 import type { ReadingStats, StoryNode, UserProgress } from '@/types';
 
 import { AdaptationLedger } from './AdaptationLedger';
+import { JourneyControlActions } from './JourneyControlActions';
 import { JourneyExportActions } from './JourneyExportActions';
 import { buildNarrativePath, buildProgressSummary } from './progressPresentation';
 
@@ -81,31 +82,36 @@ export function ProgressDialog({
                 value: `${summary.passagesOpened}/${summary.totalPassages}`,
                 containerClass: 'bg-cyan-500/10 border-cyan-500/30',
                 valueClass: 'text-cyan-400',
+                testId: 'progress-passages-opened',
               },
               {
                 label: 'Paths explored',
                 value: `${summary.pathsExplored}`,
                 containerClass: 'bg-green-500/10 border-green-500/30',
                 valueClass: 'text-green-400',
+                testId: undefined,
               },
               {
                 label: 'Endings reached',
                 value: `${summary.endingsReached}/${summary.totalEndings}`,
                 containerClass: 'bg-purple-500/10 border-purple-500/30',
                 valueClass: 'text-purple-400',
+                testId: undefined,
               },
               {
                 label: 'Adaptations discovered',
                 value: `${summary.adaptationsDiscovered}`,
                 containerClass: 'bg-amber-500/10 border-amber-500/30',
                 valueClass: 'text-amber-400',
+                testId: undefined,
               },
-            ].map(({ label, value, containerClass, valueClass }) => (
+            ].map(({ label, value, containerClass, valueClass, testId }) => (
               <div key={label} className={`${containerClass} min-w-0 rounded-lg border p-3 sm:p-4`}>
                 <div className="mb-1 text-[0.6rem] uppercase tracking-[0.16em] text-gray-400 sm:text-xs">
                   {label}
                 </div>
                 <div
+                  data-testid={testId}
                   className={`${valueClass} break-words text-2xl font-light tabular-nums sm:text-3xl`}
                 >
                   {value}
@@ -147,6 +153,8 @@ export function ProgressDialog({
           <AdaptationLedger records={progress.selectionRecords} />
 
           <JourneyExportActions />
+
+          <JourneyControlActions />
 
           <div className="bg-gray-900/50 border border-gray-700/50 rounded-lg p-4">
             <div className="mb-3 text-[0.65rem] uppercase tracking-[0.18em] text-gray-400">

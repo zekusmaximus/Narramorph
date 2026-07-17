@@ -220,6 +220,13 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   await expect(page.getByRole('button', { name: 'Export journey (Markdown)' })).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(page.getByRole('button', { name: 'Print-friendly view' })).toBeFocused();
+  // The Phase 7.4 journey controls (save file + new journey) follow, still inside the trap.
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Export save file' })).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Import save file' })).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('button', { name: 'Start a new journey' })).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(closeProgress).toBeFocused();
   await page.keyboard.press('Escape');

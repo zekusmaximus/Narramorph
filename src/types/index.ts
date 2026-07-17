@@ -35,6 +35,7 @@ export type {
   ValidationResult,
   ValidationError,
   ValidationWarning,
+  ImportProgressResult,
   StoryStore,
 } from './Store';
 

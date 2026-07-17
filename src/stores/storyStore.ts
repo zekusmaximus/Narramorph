@@ -35,6 +35,7 @@ import {
   buildSavedState,
   CURRENT_APP_VERSION,
   CURRENT_SAVE_VERSION,
+  prepareSavedState,
   serializeSavedState,
 } from '@/domain/progress/saveState';
 import { CURRENT_STORY_PACKAGE } from '@/domain/progress/storyPackageIdentity';
@@ -56,6 +57,7 @@ import type {
   ConnectionUIState,
   StoryNode,
   ConditionContext,
+  ImportProgressResult,
   L3Assembly,
 } from '@/types';
 import type { UnlockProgress } from '@/types/Unlock';
@@ -64,7 +66,6 @@ import { buildL3Assembly, calculateSynthesisPattern } from '@/utils/l3Assembly';
 import { isL3Node, isL4Node } from '@/utils/nodeUtils';
 import { evaluateNodeUnlock } from '@/utils/unlockEvaluator';
 import { loadUnlockConfig } from '@/utils/unlockLoader';
-import { validateSavedState } from '@/utils/validation';
 
 const isDevEnv = process.env.NODE_ENV !== 'production';
 
@@ -133,6 +134,9 @@ export const useStoryStore = create<StoryStore>()(
     storyViewOpen: false,
     lastReaderOpenWasRestore: false,
     isAnimating: false,
+    lastSaveFailed: false,
+    corruptSaveQuarantined: false,
+    lastLoadMigrations: [],
     stats: createInitialStats(),
     preferences: createInitialPreferences(),
 
@@ -940,6 +944,14 @@ export const useStoryStore = create<StoryStore>()(
       );
 
       const success = progressRepository.save(savedState);
+      // Surface a failed save (e.g. storage quota exceeded) so the reader is not
+      // left reading while nothing persists. Only touch state when the flag
+      // changes — saveProgress runs on every visit and preference change.
+      if (get().lastSaveFailed !== !success) {
+        set((s) => {
+          s.lastSaveFailed = !success;
+        });
+      }
       if (!success) {
         devError('Failed to save progress to localStorage');
       }
@@ -952,7 +964,14 @@ export const useStoryStore = create<StoryStore>()(
       }
 
       if (result.status === 'invalid') {
+        // Quarantine a corrupt/invalid save (its raw bytes preserved for the reader
+        // to retrieve) rather than discarding it, and clear the primary slot so the
+        // app starts clean instead of re-failing this parse on every future load.
         devError('Invalid saved state format');
+        progressRepository.quarantineCorrupt(result.raw);
+        set((state) => {
+          state.corruptSaveQuarantined = true;
+        });
         return;
       }
 
@@ -963,6 +982,7 @@ export const useStoryStore = create<StoryStore>()(
       set((state) => {
         state.progress = result.savedState.progress;
         state.preferences = result.savedState.preferences;
+        state.lastLoadMigrations = [...result.migrations];
       });
     },
 
@@ -1000,27 +1020,38 @@ export const useStoryStore = create<StoryStore>()(
       );
     },
 
-    importProgress: (data: string) => {
+    importProgress: (data: string): ImportProgressResult => {
+      let parsed: unknown;
       try {
-        const parsed = JSON.parse(data);
-        if (!validateSavedState(parsed)) {
-          return false;
-        }
-
-        set((state) => {
-          state.progress = parsed.progress;
-          state.preferences = parsed.preferences;
-        });
-
-        get().saveProgress();
-        return true;
+        parsed = JSON.parse(data);
       } catch (error) {
-        devError('Failed to import progress:', error);
-        return false;
+        devError('Failed to parse imported save:', error);
+        return { ok: false, reason: 'parse' };
       }
+
+      // Route through the migration engine so an imported older-schema save is
+      // migrated up exactly like a loaded one (the pre-7.4 path bypassed
+      // migrations). On failure the current in-progress journey is left untouched.
+      const prepared = prepareSavedState(parsed, get().nodes);
+      if (!prepared) {
+        return { ok: false, reason: 'invalid' };
+      }
+
+      set((state) => {
+        state.progress = prepared.savedState.progress;
+        state.preferences = prepared.savedState.preferences;
+        state.selectedNode = null;
+        state.hoveredNode = null;
+        state.storyViewOpen = false;
+      });
+
+      get().saveProgress();
+      return { ok: true, migrations: [...prepared.migrations] };
     },
 
     clearProgress: () => {
+      // "New journey": resets reading progress but keeps reading preferences
+      // (theme, text size, line height, reduce-motion, export options).
       set((state) => {
         state.progress = createInitialProgress();
         state.selectedNode = null;
@@ -1028,6 +1059,27 @@ export const useStoryStore = create<StoryStore>()(
         state.storyViewOpen = false;
       });
       get().saveProgress();
+    },
+
+    readQuarantinedSave: () => progressRepository.readQuarantine(),
+
+    dismissCorruptSaveNotice: () => {
+      progressRepository.clearQuarantine();
+      set((state) => {
+        state.corruptSaveQuarantined = false;
+      });
+    },
+
+    dismissSaveFailureNotice: () => {
+      set((state) => {
+        state.lastSaveFailed = false;
+      });
+    },
+
+    dismissMigrationNotice: () => {
+      set((state) => {
+        state.lastLoadMigrations = [];
+      });
     },
 
     updatePreferences: (prefs: Partial<UserPreferences>) => {

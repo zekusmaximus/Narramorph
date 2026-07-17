@@ -118,7 +118,7 @@ function shortHash(hash: string): string {
 export function journeyExportFilename(
   storyTitle: string,
   exportedAt: string,
-  extension: 'md' | 'html' = 'md',
+  extension: 'md' | 'html' | 'json' = 'md',
 ): string {
   const slug =
     storyTitle

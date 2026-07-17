@@ -119,4 +119,9 @@ When a load applies migrations (`result.migrations.length > 0`), surface a one-t
 
 ## 7. Confirmed decisions
 
-_Pending owner confirmation of §6._
+Owner-confirmed (all recommended options accepted):
+
+- **A — Save schema: keep `1.3.0`.** No bump. 7.4 adds no required persisted field; import migrates through the existing engine. Package identity untouched; no identity-pin checklist triggered. The `phase-2-vertical-slice.spec.ts` save-identity assertions are left unchanged.
+- **B — New journey: reset progress, keep reading preferences.** Theme, text size, line height, reduce-motion, and export-notes survive a new journey (today's `clearProgress` behaviour, now guarded).
+- **C — Corrupt + migration surfacing: quarantine + dismissible non-blocking notices.** A corrupt save is moved to a device-local quarantine key (raw blob downloadable; nothing uploaded), the reader starts clean and is told; a migrated load shows a brief local notice. No blocking modal.
+- **D — Import overwrite guard: confirm + offer "export first".** Import is migration-aware (`prepareSavedState`) and, because it overwrites the in-progress journey, offers an export first — symmetric with the reset guard.

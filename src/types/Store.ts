@@ -208,6 +208,17 @@ export interface ValidationWarning {
 }
 
 /**
+ * Outcome of importing a machine-readable save file (Phase 7.4). Import routes
+ * through the migration engine, so a successful import reports any migrations
+ * that were applied to an older-schema file. Failure distinguishes an
+ * unparseable file from a structurally invalid one so the reader can be told
+ * what went wrong without the current journey being touched.
+ */
+export type ImportProgressResult =
+  | { ok: true; migrations: string[] }
+  | { ok: false; reason: 'parse' | 'invalid' };
+
+/**
  * Main Zustand store interface for the application
  */
 export interface StoryStore {
@@ -238,6 +249,15 @@ export interface StoryStore {
    */
   lastReaderOpenWasRestore: boolean;
   isAnimating: boolean; // Camera animation in progress
+
+  // Persistence status (Phase 7.4) — drives honest, dismissible reader notices.
+  // All transient (never persisted); the quarantine bytes live in device-local storage.
+  /** True when the most recent save attempt failed (e.g. storage quota exceeded). */
+  lastSaveFailed: boolean;
+  /** True when a corrupt save was quarantined on load and the reader should be told. */
+  corruptSaveQuarantined: boolean;
+  /** Migrations applied to the save on the most recent load (empty when none/unmigrated). */
+  lastLoadMigrations: string[];
 
   // L3 Assembly State
   l3AssemblyCache: Map<string, L3Assembly>;
@@ -293,8 +313,16 @@ export interface StoryStore {
   exportProgress: () => string;
   exportJourneyMarkdown: (exportedAt: string) => string;
   exportJourneyPrintHtml: (exportedAt: string) => string;
-  importProgress: (data: string) => boolean;
+  importProgress: (data: string) => ImportProgressResult;
   clearProgress: () => void;
+  /** Reads the quarantined corrupt save (raw bytes), or null when none. */
+  readQuarantinedSave: () => string | null;
+  /** Dismisses the corrupt-save notice and clears the quarantine slot. */
+  dismissCorruptSaveNotice: () => void;
+  /** Dismisses the storage-quota (save-failed) notice. */
+  dismissSaveFailureNotice: () => void;
+  /** Dismisses the save-migration notice. */
+  dismissMigrationNotice: () => void;
 
   // Preferences
   preferences: UserPreferences;
