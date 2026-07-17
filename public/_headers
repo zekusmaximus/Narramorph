@@ -9,9 +9,10 @@
 #                         not a script-execution vector; script-src is the XSS boundary.
 #   font-src 'self'     — Inter is self-hosted under /fonts (no external font origin).
 #   worker-src blob:    — the opt-in 3D view (three.js) spawns Web Workers from blob URLs.
-#   connect-src 'self'  — the app makes no network calls; extended to the Sentry ingest host in 8.3.
+#   connect-src         — the app makes no network calls of its own; the Sentry ingest hosts are the one
+#                         deliberate egress, used only after opt-in error-reporting consent (Batch 8.3).
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.ingest.sentry.io https://*.ingest.us.sentry.io; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin

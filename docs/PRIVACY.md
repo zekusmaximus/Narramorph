@@ -28,9 +28,11 @@ The app keeps your progress and preferences in your browser's local storage on *
 
 There are **no cookies** and **no third-party trackers**. Exports (Markdown, print, or a machine-readable save file) are **downloads to your device** that you initiate; nothing is uploaded.
 
-## Optional error reporting (not enabled in this release)
+## Optional error reporting (opt-in, off by default)
 
-This release sends **no** error or usage reports. A future update may add **opt-in** error reporting to help fix crashes. If it is added, it will be **off by default**, you will be asked before anything is sent, you will be able to see what a report contains, and reports will be **redacted** so that story prose, your journey history, your saved data, browser storage, and any personal information are **never** transmitted. This section will be updated when that feature ships.
+The app includes an **opt-in** crash-reporting option to help fix problems. It is **off by default** and sends **nothing** unless you turn it on in **Settings → "Send anonymous crash reports"** (and it is fully inactive unless the site has been configured with a monitoring service — if none is configured, no reports are ever sent regardless of the setting).
+
+When you turn it on, a crash report is **redacted on your device before it is sent**, so that story prose, your reading history and journey, your saved data, your browser storage, personal information, and the part of the address that shows which passage you're reading are **never** transmitted. A report contains only the error type and message, a stack trace, and coarse environment facts (like your browser name). You can preview a representative report under the same setting ("See exactly what a report would contain") before opting in, and you can turn it off at any time. See [`docs/OBSERVABILITY.md`](OBSERVABILITY.md) for the full detail of what is and isn't captured.
 
 ## Deleting your data
 

@@ -2,6 +2,12 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 
+// The opt-in error-monitoring SDK (Batch 8.3) is bundled only when a DSN is set at
+// build time; without it the dynamic import is dead-code-eliminated. We isolate the
+// SDK in its own lazily-loaded chunk only in that DSN build, so default/gate builds
+// produce no empty orphan chunk.
+const monitoringConfigured = Boolean(process.env.VITE_SENTRY_DSN);
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
@@ -13,9 +19,12 @@ export default defineConfig({
     target: 'es2020',
     outDir: 'dist',
     manifest: true,
-    // Public releases omit maps. A future monitoring integration must upload
-    // private maps during CI and remove them before publishing dist.
-    sourcemap: false,
+    // Public releases omit maps (bundle:check enforces publicSourceMapCount: 0).
+    // For error monitoring (Batch 8.3), CI sets SENTRY_UPLOAD=true to emit HIDDEN
+    // maps (not referenced by the JS), then scripts/upload-sourcemaps.mjs uploads
+    // them privately to Sentry and DELETES them from dist before publishing. The
+    // default (no flag) stays false so local builds never ship or measure maps.
+    sourcemap: process.env.SENTRY_UPLOAD === 'true' ? 'hidden' : false,
     rollupOptions: {
       output: {
         manualChunks(id) {
@@ -35,6 +44,11 @@ export default defineConfig({
             modulePath.includes('/node_modules/immer/')
           ) {
             return 'state-vendor';
+          }
+          if (monitoringConfigured && modulePath.includes('/node_modules/@sentry/')) {
+            // Isolate the opt-in error-monitoring SDK so it is lazily loaded (only
+            // after consent) and never merged into the initial bundle.
+            return 'sentry-vendor';
           }
           if (modulePath.includes('/node_modules/framer-motion/')) {
             return 'animation-vendor';

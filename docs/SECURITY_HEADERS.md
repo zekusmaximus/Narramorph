@@ -19,15 +19,16 @@ Narramorph is a static, client-side app (ADR 0006) served from **Cloudflare Page
 
 ```
 default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;
-font-src 'self'; connect-src 'self'; worker-src 'self' blob:; frame-src 'none'; object-src 'none';
-base-uri 'self'; frame-ancestors 'none'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests
+font-src 'self'; connect-src 'self' https://*.ingest.sentry.io https://*.ingest.us.sentry.io;
+worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';
+form-action 'self'; manifest-src 'self'; upgrade-insecure-requests
 ```
 
 - **`script-src 'self'`** — strict, with **no** `'unsafe-inline'` / `'unsafe-eval'`. Verified feasible: the built `index.html` has no inline `<script>` (only Vite's external hashed module), and no `eval`/ `new Function`/`WebAssembly` appears in the bundle. This is the XSS boundary.
 - **`style-src 'self' 'unsafe-inline'`** — a documented, necessary relaxation: framer-motion, `@xyflow/react`, and three/react-three-fiber inject styles at runtime, and `index.html` carries an inline FOUC/`@font-face` block. Static hosting cannot nonce per request, and runtime-injected styles cannot be hashed. Inline **style** is not script execution.
 - **`font-src 'self'`** — Inter is self-hosted under `/fonts` (SIL OFL; see `public/fonts/OFL.txt`); there is no external font origin.
 - **`worker-src 'self' blob:`** — the opt-in 3D view (three.js) spawns Web Workers from blob URLs. The 2D reader (the default and the accessible path) uses no workers.
-- **`connect-src 'self'`** — the app makes no network calls of its own (the scope-gate guard enforces this). When opt-in error reporting lands (Batch 8.3), the monitoring ingest host is added here explicitly.
+- **`connect-src 'self' https://*.ingest.sentry.io https://*.ingest.us.sentry.io`** — the app makes no network calls of its own (the scope-gate guard enforces first-party `src/`); the Sentry ingest hosts are the one deliberate egress, reached only after opt-in error-reporting consent (Batch 8.3).
 - **`object-src 'none'`, `base-uri 'self'`, `frame-ancestors 'none'`, `form-action 'self'`, `upgrade-insecure-requests`** — standard hardening.
 
 ## HSTS preload (owner-gated)

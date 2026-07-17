@@ -1,6 +1,6 @@
 # Phase 8.3 — Error monitoring and privacy-respecting observability
 
-**Status: design proposed; awaiting owner decisions. No production/config code has been written.**
+**Status: owner decisions accepted (toggle + contextual report · errors-only · build-now-no-op-without-DSN); 8.3 implemented and gate-green. The injected-error observability test is owner-run against the real Sentry project. Batch 8.4 awaits its own design + confirmation.**
 
 Batch 8.3 adds **release-tagged error reporting** with source maps stored privately, a **redaction layer** that guarantees story prose, journey history, saves, browser storage, and user-bearing URLs are never transmitted, an **opt-in consent + inspect flow**, and alert-threshold/ownership docs (roadmap Batch 8.3). The vendor and consent model were settled in 8.1: **Sentry, private (CI-uploaded, never-published) source maps, opt-in (default off), hard redaction.**
 
