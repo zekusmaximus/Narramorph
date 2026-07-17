@@ -80,4 +80,9 @@ A protocol section in `docs/ACCESSIBILITY.md` (or a dedicated results doc) with:
 
 ## 7. Confirmed decisions
 
-_Pending owner confirmation of §6._
+Owner-confirmed (all recommended options accepted):
+
+- **A — Add `@axe-core/playwright`** (dev-only) for automated WCAG rule scans on the key surfaces; serious/critical violations fail the suite, with any accepted exception documented in the checklist.
+- **B — Add a 2D linear passage-list alternative.** Reuse the `SceneNodeList` pattern via the 2D interaction adapter so the default map has a non-spatial, list-navigable path (parity with 3D).
+- **C — WCAG 2.1 AA**, statement as `docs/ACCESSIBILITY.md` with a discreet in-app footer link; feedback via the public repo issue tracker; known limitations named plainly. 2.2 AA deferred to Phase 8.
+- **D — Full manual AT matrix** (NVDA + Firefox/Chrome on Windows; VoiceOver + Safari on macOS + iOS; TalkBack + Chrome on Android; plus forced-colours, 200% zoom, text-spacing) — owner/tester-run, with an empty results table to fill; results recorded only when actually run.

@@ -22,6 +22,14 @@ export function AppFooter({
           <span className="hidden uppercase tracking-[0.18em] text-slate-600 sm:inline">
             Archive active
           </span>
+          <a
+            href="https://github.com/zekusmaximus/Narramorph/blob/main/docs/ACCESSIBILITY.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 rounded uppercase tracking-[0.14em] text-slate-500 underline decoration-dotted underline-offset-2 transition-colors hover:text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+          >
+            Accessibility
+          </a>
         </div>
 
         <div
