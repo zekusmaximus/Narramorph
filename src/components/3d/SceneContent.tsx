@@ -2,18 +2,19 @@ import { useEffect, useMemo, type ReactElement } from 'react';
 
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
 import { useSpatialStore } from '@/stores/spatialStore';
-import type { StoryNode, CharacterType } from '@/types';
+import { PERSPECTIVE_COLOR } from '@/styles/designTokens';
 
 import NodeSphere from './NodeSphere';
 import PlaneGuide from './PlaneGuide';
+import { selectSceneNodeGroups } from './sceneNodes';
 
 /**
- * Character metadata for visual guides (matches tailwind config)
+ * Character metadata for visual guides — colours from the shared design tokens.
  */
 const CHARACTER_METADATA: Record<string, { color: string; label: string }> = {
-  archaeologist: { color: '#4A90E2', label: 'Past - Discovery' }, // Blue-500
-  algorithm: { color: '#50C878', label: 'Present - Processing' }, // Green-500
-  'last-human': { color: '#E74C3C', label: 'Future - Memory' }, // Red-500
+  archaeologist: { color: PERSPECTIVE_COLOR.archaeologist, label: 'Past - Discovery' },
+  algorithm: { color: PERSPECTIVE_COLOR.algorithm, label: 'Present - Processing' },
+  'last-human': { color: PERSPECTIVE_COLOR['last-human'], label: 'Future - Memory' },
 };
 
 /**
@@ -26,76 +27,12 @@ export default function SceneContent(): ReactElement {
   const computeLayout = useSpatialStore((state) => state.computeLayout);
   const positions = useSpatialStore((state) => state.positions);
 
-  // Group nodes by character in consistent order
-  const characters = useMemo(() => {
-    const charOrder: CharacterType[] = ['archaeologist', 'algorithm', 'last-human'];
-    const charMap = new Map<string, StoryNode[]>();
-
-    accessibleNodes.forEach((node) => {
-      // Nodes already filtered to exclude multi-perspective entries, but double-check to be safe
-      if (node.character === 'multi-perspective') {
-        return;
-      }
-
-      const char = node.character;
-      const existing = charMap.get(char);
-      if (existing) {
-        existing.push(node);
-      } else {
-        charMap.set(char, [node]);
-      }
-    });
-
-    // Convert to array in consistent order
-    return charOrder
-      .filter((char) => charMap.has(char))
-      .map((char) => {
-        const nodes = charMap.get(char);
-        if (!nodes) {
-          // This should never happen due to the filter above, but TypeScript can't infer this
-          throw new Error(`Unexpected: character ${char} missing from charMap`);
-        }
-        return {
-          type: char,
-          nodes,
-        };
-      });
-  }, [accessibleNodes]);
-
-  // Ensure predictable ordering, limit to spec maximum of 19 nodes total
-  const visibleCharacters = useMemo(() => {
-    let remaining = 19;
-    const result: { type: CharacterType; nodes: StoryNode[] }[] = [];
-
-    for (const character of characters) {
-      if (remaining <= 0) {
-        break;
-      }
-
-      const sortedNodes = [...character.nodes].sort((a, b) => {
-        if (a.layer !== b.layer) {
-          return a.layer - b.layer;
-        }
-
-        const titleA = a.metadata?.chapterTitle ?? a.title ?? a.id;
-        const titleB = b.metadata?.chapterTitle ?? b.title ?? b.id;
-        return titleA.localeCompare(titleB);
-      });
-
-      const limitedNodes = sortedNodes.slice(0, remaining);
-      if (limitedNodes.length === 0) {
-        continue;
-      }
-
-      result.push({
-        type: character.type,
-        nodes: limitedNodes,
-      });
-      remaining -= limitedNodes.length;
-    }
-
-    return result;
-  }, [characters]);
+  // Shared scene-node selection (same source the accessible companion list uses,
+  // so the canvas and the list can never drift).
+  const visibleCharacters = useMemo(
+    () => selectSceneNodeGroups(accessibleNodes),
+    [accessibleNodes],
+  );
 
   // Compute layout when characters change
   useEffect(() => {

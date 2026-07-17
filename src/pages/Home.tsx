@@ -1,4 +1,5 @@
 import { AnimatePresence } from 'framer-motion';
+import { TriangleAlert } from 'lucide-react';
 import { lazy, Suspense, useCallback, useEffect, useRef, useState, type ReactElement } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
@@ -44,7 +45,7 @@ function WebGLErrorFallback({
 }: {
   error: Error;
   onFallbackTo2D: () => void;
-}) {
+}): ReactElement {
   useEffect(() => {
     // Automatically switch to 2D mode
     onFallbackTo2D();
@@ -57,7 +58,11 @@ function WebGLErrorFallback({
       className="absolute inset-0 z-30 flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white"
     >
       <div className="max-w-md text-center">
-        <div className="text-6xl mb-4">⚠️</div>
+        <TriangleAlert
+          className="mx-auto mb-4 h-12 w-12 text-amber-300"
+          aria-hidden="true"
+          strokeWidth={1.5}
+        />
         <h2 className="mb-4 text-2xl font-bold">Three-dimensional view unavailable</h2>
         <p className="text-gray-300 mb-4">
           This browser or device could not open the experimental three-dimensional archive.
@@ -85,7 +90,7 @@ function supportsWebGL(): boolean {
 /**
  * Main home page component that displays the node map and story view
  */
-export default function Home() {
+export default function Home(): ReactElement {
   const loadStory = useStoryStore((state) => state.loadStory);
   const loadProgress = useStoryStore((state) => state.loadProgress);
   const closeStoryView = useStoryStore((state) => state.closeStoryView);
@@ -111,7 +116,7 @@ export default function Home() {
   const isPositionsLoaded = Object.keys(positions).length > 0;
 
   // Toggle 3D mode and persist to localStorage
-  const toggle3DMode = () => {
+  const toggle3DMode = (): void => {
     setUse3DMode((prev) => {
       const newValue = !prev;
       if (newValue && !supportsWebGL()) {

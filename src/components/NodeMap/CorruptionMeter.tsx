@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
 import { useMemo } from 'react';
+import type { ReactElement } from 'react';
 
 import { useStoryStore } from '@/stores/storyStore';
 
 /**
  * Visual indicator of story recursion/corruption level
  */
-export function CorruptionMeter() {
+export function CorruptionMeter(): ReactElement {
   const stats = useStoryStore((state) => state.getReadingStats());
 
   // Calculate corruption based on transformations experienced

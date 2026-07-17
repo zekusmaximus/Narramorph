@@ -151,6 +151,9 @@ module.exports = {
       rules: {
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
+        // Test scaffolding (render/setup/factory helpers) returns complex inferred shapes;
+        // explicit return types add noise without production value.
+        '@typescript-eslint/explicit-function-return-type': 'off',
       },
     },
   ],

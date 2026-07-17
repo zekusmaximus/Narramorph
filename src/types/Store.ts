@@ -79,6 +79,8 @@ export interface ActiveVisitSelection {
   selectedBeatIds?: string[];
   /** ID of the edge bridge shown on entry (Phase 4.2); null when no bridge was shown. */
   bridgeId?: string | null;
+  /** Resolved bridge prose shown on entry (#156); null when no bridge was shown. Snapshotted for export. */
+  bridgeContent?: string | null;
   /** An explicit reader decision at this passage (e.g. the ending reached), if any. */
   readerChoice?: ReaderChoice | null;
 }

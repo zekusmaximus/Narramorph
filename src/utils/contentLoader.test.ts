@@ -21,6 +21,29 @@ describe('loadStoryContent', () => {
     }
   });
 
+  it('attaches the authored edge bridge to its real within-perspective edge only', async () => {
+    const story = await loadStoryContent('eternal-return');
+    const connections = story.connections ?? [];
+
+    const bridged = connections.find(
+      (connection) => connection.sourceId === 'algo-L1' && connection.targetId === 'algo-L2-invest',
+    );
+    expect(bridged?.bridge).toBeDefined();
+    expect(bridged?.bridge?.omitWhenUnmatched).toBe(true);
+    expect(bridged?.bridge?.alternatives).toHaveLength(1);
+    expect(bridged?.bridge?.alternatives[0]?.id).toBe(
+      'algo-L1__algo-L2-invest__from-archaeologist',
+    );
+    expect(bridged?.bridge?.alternatives[0]?.condition).toEqual({
+      kind: 'orderSeen',
+      passageIds: ['arch-L1', 'algo-L1'],
+    });
+
+    // No other edge carries a bridge yet.
+    const bridgedCount = connections.filter((connection) => connection.bridge).length;
+    expect(bridgedCount).toBe(1);
+  });
+
   it('keeps L1, L2, and ending prose out of the topology shell', async () => {
     const story = await loadStoryContent('eternal-return');
 

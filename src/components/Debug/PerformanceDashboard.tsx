@@ -6,6 +6,7 @@
  */
 
 import { useState, useEffect } from 'react';
+import type { ReactElement } from 'react';
 
 import { performanceMonitor } from '@/utils/performanceMonitor';
 
@@ -17,13 +18,13 @@ type OperationStats = {
   p95: number;
 };
 
-export function PerformanceDashboard() {
+export function PerformanceDashboard(): ReactElement | null {
   const [stats, setStats] = useState<Record<string, OperationStats | null>>({});
   const [isVisible, setIsVisible] = useState(false);
 
   // Toggle with Shift+P
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: KeyboardEvent): void => {
       if (e.shiftKey && e.key === 'P') {
         setIsVisible((prev) => !prev);
       }

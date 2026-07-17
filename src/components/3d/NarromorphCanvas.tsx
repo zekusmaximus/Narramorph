@@ -9,6 +9,7 @@ import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import CameraController from './CameraController';
 import { DEFAULT_CAMERA_POSITION } from './cameraDefaults';
 import SceneContent from './SceneContent';
+import SceneNodeList from './SceneNodeList';
 
 /**
  * Main 3D canvas component for Narramorph visualization
@@ -74,47 +75,51 @@ export default function NarromorphCanvas(): ReactElement {
   };
 
   return (
-    <div
-      className="absolute inset-0"
-      role="application"
-      aria-label="Three-dimensional story node map"
-      aria-description="Use arrow keys to select nodes, Enter to open, and Escape to close the story panel."
-      data-story-map-focus-target="true"
-      tabIndex={0}
-      onKeyDown={handleKeyDown}
-    >
-      <Canvas
-        className="h-full w-full"
-        camera={{
-          position: DEFAULT_CAMERA_POSITION,
-          fov: 50,
-          near: 0.1,
-          far: 500,
-        }}
-        dpr={[1, 2]}
+    <>
+      {/* Accessible companion navigation: the canvas is never the only way in. */}
+      <SceneNodeList />
+      <div
+        className="absolute inset-0"
+        role="application"
+        aria-label="Three-dimensional story node map"
+        aria-description="Use arrow keys to select nodes, Enter to open, and Escape to close the story panel."
+        data-story-map-focus-target="true"
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
       >
-        {/* Atmospheric fog for depth perception */}
-        <fog attach="fog" args={['#1a1a1a', 50, 200]} />
+        <Canvas
+          className="h-full w-full"
+          camera={{
+            position: DEFAULT_CAMERA_POSITION,
+            fov: 50,
+            near: 0.1,
+            far: 500,
+          }}
+          dpr={[1, 2]}
+        >
+          {/* Atmospheric fog for depth perception */}
+          <fog attach="fog" args={['#1a1a1a', 50, 200]} />
 
-        <ambientLight intensity={0.3} />
-        <pointLight position={[10, 10, 10]} />
+          <ambientLight intensity={0.3} />
+          <pointLight position={[10, 10, 10]} />
 
-        <SceneContent />
-        <CameraController controlsRef={controlsRef} />
-        <OrbitControls
-          ref={controlsRef}
-          enableDamping={!reduceMotion}
-          dampingFactor={0.08}
-          enablePan={false}
-          enableZoom
-          minDistance={35}
-          maxDistance={140}
-          minPolarAngle={Math.PI / 6}
-          maxPolarAngle={Math.PI / 2}
-          rotateSpeed={0.6}
-          zoomSpeed={0.8}
-        />
-      </Canvas>
-    </div>
+          <SceneContent />
+          <CameraController controlsRef={controlsRef} />
+          <OrbitControls
+            ref={controlsRef}
+            enableDamping={!reduceMotion}
+            dampingFactor={0.08}
+            enablePan={false}
+            enableZoom
+            minDistance={35}
+            maxDistance={140}
+            minPolarAngle={Math.PI / 6}
+            maxPolarAngle={Math.PI / 2}
+            rotateSpeed={0.6}
+            zoomSpeed={0.8}
+          />
+        </Canvas>
+      </div>
+    </>
   );
 }

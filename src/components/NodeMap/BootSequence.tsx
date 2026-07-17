@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import type { ReactElement } from 'react';
 
 interface BootSequenceProps {
   onComplete: () => void;
@@ -8,7 +9,7 @@ interface BootSequenceProps {
 /**
  * System boot animation when first loading story
  */
-export function BootSequence({ onComplete }: BootSequenceProps) {
+export function BootSequence({ onComplete }: BootSequenceProps): ReactElement {
   const [show, setShow] = useState(true);
   const [currentLine, setCurrentLine] = useState(0);
 

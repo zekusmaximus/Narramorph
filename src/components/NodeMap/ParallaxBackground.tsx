@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { useEffect } from 'react';
+import type { ReactElement } from 'react';
 
 interface ParallaxBackgroundProps {
   mouseX: number;
@@ -9,7 +10,7 @@ interface ParallaxBackgroundProps {
 /**
  * Multi-layered parallax background that responds to mouse movement
  */
-export function ParallaxBackground({ mouseX, mouseY }: ParallaxBackgroundProps) {
+export function ParallaxBackground({ mouseX, mouseY }: ParallaxBackgroundProps): ReactElement {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 

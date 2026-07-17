@@ -1,3 +1,4 @@
+import { PERSPECTIVE_COLOR, PERSPECTIVE_COLOR_LOCKED } from '@/styles/designTokens';
 import type { CharacterType } from '@/types';
 
 export interface NodeAppearance {
@@ -17,24 +18,15 @@ export interface GetNodeAppearanceParams {
 }
 
 /**
- * Character color palette (matches tailwind config)
+ * Character color palette — sourced from the shared design tokens so the map,
+ * 3D scene, and Tailwind all render the same perspective identity colours.
  */
-const CHARACTER_COLORS: Record<string, string> = {
-  archaeologist: '#4A90E2', // Blue-500
-  algorithm: '#50C878', // Green-500
-  'last-human': '#E74C3C', // Red-500
-  'multi-perspective': '#9B59B6', // Purple-500
-};
+const CHARACTER_COLORS: Record<string, string> = PERSPECTIVE_COLOR;
 
 /**
- * Darker color palette for locked nodes (using 800 variants for better contrast)
+ * Dimmer palette for locked nodes (design-token locked variants).
  */
-const LOCKED_COLORS: Record<string, string> = {
-  archaeologist: '#1e40af', // Blue-800
-  algorithm: '#166534', // Green-800
-  'last-human': '#991b1b', // Red-800
-  'multi-perspective': '#6b21a8', // Purple-800
-};
+const LOCKED_COLORS: Record<string, string> = PERSPECTIVE_COLOR_LOCKED;
 
 /**
  * Get visual appearance for a node based on its state

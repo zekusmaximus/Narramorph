@@ -14,6 +14,7 @@ interface LayoutShellProps {
   shell: LayoutPresentationModel;
   onOpenProgress: () => void;
   onOpenSettings: () => void;
+  onOpenHelp: () => void;
   dialogs: ReactNode;
 }
 
@@ -24,6 +25,7 @@ export function LayoutShell({
   shell,
   onOpenProgress,
   onOpenSettings,
+  onOpenHelp,
   dialogs,
 }: LayoutShellProps): ReactElement {
   return (
@@ -38,6 +40,7 @@ export function LayoutShell({
           visitedCount={shell.visitedCount}
           onOpenProgress={onOpenProgress}
           onOpenSettings={onOpenSettings}
+          onOpenHelp={onOpenHelp}
         />
         {dialogs}
         <main

@@ -26,7 +26,12 @@ import {
 import { sha256, type StoryPackageCatalog } from '../lib/story-package';
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
-const releaseId = 'eternal-return-literary-v1.0.1';
+const releaseId = 'eternal-return-literary-v1.0.2';
+// The runtime story package was authored against v1.0.1; CTR-010 re-issued the accepted literary
+// release + slice + concordance to v1.0.2 (identical content, corrected slice metadata, new source
+// commit) without re-deriving the runtime, so the package's editorialReleaseId deliberately stays
+// v1.0.1 while the accepted release is v1.0.2.
+const packageEditorialReleaseId = 'eternal-return-literary-v1.0.1';
 const sliceId = 'archaeologist-opening-accept';
 
 async function loadArtifactFixture(): Promise<{
@@ -92,7 +97,7 @@ describe('literary release intake', () => {
     const release = await loadAndVerifyLiteraryRelease(repositoryRoot, releaseId);
 
     expect(release.known.assetSha256).toBe(
-      '19ffeffc1cf0de6440b16f1e9335d7c738edbf178e1a71f8e875d8960cb8d58e',
+      '59c7af4121b3e50903be7f1e800bf754d0cf0c887bbf54fa8e43b48120899c96',
     );
     expect(release.context.chapters).toHaveLength(28);
     expect(release.context.voices).toHaveLength(3);
@@ -232,8 +237,8 @@ describe('literary release intake', () => {
   it('validates the accepted release, package identity, and full concordance together', async () => {
     const intake = await validateAcceptedLiteraryRelease(repositoryRoot);
 
-    expect(intake.packageManifest.storyVersion).toBe('1.2.0');
-    expect(intake.packageManifest.editorialReleaseId).toBe(releaseId);
+    expect(intake.packageManifest.storyVersion).toBe('1.3.0');
+    expect(intake.packageManifest.editorialReleaseId).toBe(packageEditorialReleaseId);
     expect(intake.concordance.mappings).toHaveLength(intake.catalog.passages.length);
   });
 
@@ -241,7 +246,7 @@ describe('literary release intake', () => {
     const intake = await loadAndVerifyLiterarySlice(repositoryRoot, sliceId);
 
     expect(intake.slice.known.assetSha256).toBe(
-      '6c47118a7d5f349c071b8656f69fac94ecea68f4cee45cea4509ce618c257d79',
+      '30a5bcccaa0736a03236e0ed35ddd91798da24f837c35caed18970e4457a2070',
     );
     expect(intake.slice.runtimeTargets.map((target) => target.passageStableKey)).toEqual([
       'arch-L1',
@@ -356,7 +361,7 @@ describe('literary release intake', () => {
     const intake = await validateAcceptedLiterarySlice(repositoryRoot);
 
     expect(intake.slice.known.sliceId).toBe(sliceId);
-    expect(intake.packageManifest.storyVersion).toBe('1.2.0');
+    expect(intake.packageManifest.storyVersion).toBe('1.3.0');
   });
 });
 

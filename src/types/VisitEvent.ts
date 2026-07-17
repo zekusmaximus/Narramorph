@@ -62,6 +62,14 @@ export interface VisitEvent {
   selection: VisitEventSelection;
   /** Edge/bridge prose shown on entry (Batch 4.2). Null until edge prose exists. */
   bridgeId: string | null;
+  /**
+   * Resolved bridge prose the reader actually saw at entry — the export source of truth for the
+   * edge bridge, mirroring `resolvedText` (content release #156; additive extension documented in
+   * the ADR 0004 addendum). Optional and backward-compatible: it is `null` when no bridge showed
+   * and absent on legacy events persisted before the field existed (all of which had no bridge),
+   * so the `org.narramorph.visit-event@1.0.0` contract identity is preserved without a migration.
+   */
+  bridgeText?: ResolvedText | null;
   resolvedText: ResolvedText;
   /** Phase 3 reason contract, reused unchanged. Null when the encounter carried no adaptive reason. */
   reason: SelectionReason | null;
@@ -76,6 +84,20 @@ const RESOLVED_TEXT_HASH_PATTERN = /^[a-z0-9-]+:[0-9a-f]+$/;
 
 export function isResolvedTextHash(value: unknown): value is string {
   return typeof value === 'string' && RESOLVED_TEXT_HASH_PATTERN.test(value);
+}
+
+/** Structural guard for a `ResolvedText` snapshot (used for both passage and bridge prose). */
+export function isResolvedText(value: unknown): value is ResolvedText {
+  if (typeof value !== 'object' || value === null) {
+    return false;
+  }
+  const resolved = value as Record<string, unknown>;
+  return (
+    resolved.format === 'markdown' &&
+    typeof resolved.content === 'string' &&
+    typeof resolved.byteLength === 'number' &&
+    isResolvedTextHash(resolved.hash)
+  );
 }
 
 /**
@@ -136,14 +158,16 @@ export function isVisitEvent(value: unknown): value is VisitEvent {
     return false;
   }
 
-  const resolvedText = event.resolvedText as Record<string, unknown> | null;
+  if (!isResolvedText(event.resolvedText)) {
+    return false;
+  }
+
+  // `bridgeText` is an optional, backward-compatible extension: absent or null means no bridge
+  // prose was shown; when present it must be a well-formed resolved snapshot.
   if (
-    typeof resolvedText !== 'object' ||
-    resolvedText === null ||
-    resolvedText.format !== 'markdown' ||
-    typeof resolvedText.content !== 'string' ||
-    typeof resolvedText.byteLength !== 'number' ||
-    !isResolvedTextHash(resolvedText.hash)
+    event.bridgeText !== undefined &&
+    event.bridgeText !== null &&
+    !isResolvedText(event.bridgeText)
   ) {
     return false;
   }

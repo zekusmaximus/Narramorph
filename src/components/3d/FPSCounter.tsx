@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import type { ReactElement } from 'react';
 
 /**
  * FPS counter component for development mode only
  * Displays current frames per second in the top-right corner
  */
-export default function FPSCounter() {
+export default function FPSCounter(): ReactElement | null {
   const [fps, setFps] = useState(0);
 
   useEffect(() => {
@@ -17,7 +18,7 @@ export default function FPSCounter() {
     let lastTime = performance.now();
     let animationFrameId: number;
 
-    const updateFPS = () => {
+    const updateFPS = (): void => {
       frameCount++;
       const currentTime = performance.now();
       const delta = currentTime - lastTime;

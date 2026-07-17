@@ -24,9 +24,11 @@
     @apply h-full;
   }
 
-  /* Focus styles for accessibility */
+  /* Focus styles for accessibility. The colour is a token so it can stay legible
+     on light reader surfaces (see --focus-ring in tokens.css). */
   *:focus-visible {
-    @apply outline-2 outline-offset-2 outline-cyan-200;
+    @apply outline-2 outline-offset-2;
+    outline-color: var(--focus-ring);
   }
 
   /* Smooth scrolling */

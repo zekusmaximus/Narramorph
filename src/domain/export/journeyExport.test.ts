@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import { buildVisitEvent } from '@/domain/progress/visitEvents';
 import type { SelectionReason, SelectionRecord, StoryPackageIdentity, VisitEvent } from '@/types';
+import { isVisitEvent } from '@/types';
 
 import {
   JOURNEY_EXPORT_LICENSE_NOTICE,
@@ -52,6 +53,7 @@ function event(overrides: {
   variationId?: string | null;
   beatIds?: string[];
   bridgeId?: string | null;
+  bridgeContent?: string | null;
   fragmentLabel?: string;
   readerChoice?: VisitEvent['readerChoice'];
   withReason?: boolean;
@@ -65,6 +67,7 @@ function event(overrides: {
     selectedBeatIds: overrides.beatIds ?? [],
     ...(overrides.fragmentLabel ? { fragmentLabel: overrides.fragmentLabel } : {}),
     bridgeId: overrides.bridgeId ?? null,
+    bridgeContent: overrides.bridgeContent ?? null,
     content: overrides.content,
     reason: overrides.withReason === false ? null : reason(),
     readerChoice: overrides.readerChoice ?? null,
@@ -109,6 +112,54 @@ describe('buildJourneyMarkdown', () => {
 
   it('is deterministic: identical inputs produce byte-identical output', () => {
     expect(buildJourneyMarkdown(events, metadata)).toBe(buildJourneyMarkdown(events, metadata));
+  });
+
+  it('re-exports a saved journey byte-identically after a save/reopen round-trip', () => {
+    const journey = [
+      event({ sequence: 0, nodeId: 'arch-L1', content: 'The archive remembers.', beatIds: ['b0'] }),
+      event({
+        sequence: 1,
+        nodeId: 'algo-L2-invest',
+        content: 'Seven processes examine.',
+        bridgeId: 'algo-L1__algo-L2-invest__from-archaeologist',
+        bridgeContent:
+          "You cross from the archaeologist's careful hands into the Algorithm's arithmetic — the same fragment, counted differently.",
+      }),
+    ];
+    const before = buildJourneyMarkdown(journey, metadata);
+
+    // Simulate persistence: the visit-event log is serialized on save and rehydrated on reopen.
+    const rehydrated = JSON.parse(JSON.stringify(journey)) as VisitEvent[];
+    expect(rehydrated.every(isVisitEvent)).toBe(true);
+    expect(rehydrated[1]?.bridgeText?.content).toBe(journey[1]?.bridgeText?.content);
+
+    // Export reads only the stored snapshots, so a reopened journey re-exports byte-for-byte.
+    expect(buildJourneyMarkdown(rehydrated, metadata)).toBe(before);
+  });
+
+  it('renders the resolved bridge prose as a blockquote before its passage', () => {
+    const withBridge = [
+      event({ sequence: 0, nodeId: 'arch-L1', content: 'The archive remembers.' }),
+      event({
+        sequence: 1,
+        nodeId: 'algo-L2-invest',
+        content: 'Seven processes examine.',
+        bridgeId: 'edge-1',
+        bridgeContent: 'You cross into the Algorithm’s arithmetic.',
+      }),
+    ];
+    const md = buildJourneyMarkdown(withBridge, metadata);
+    expect(md).toContain('> You cross into the Algorithm’s arithmetic.');
+    // The bridge precedes the passage prose it introduced.
+    expect(md.indexOf('> You cross into the Algorithm')).toBeLessThan(
+      md.indexOf('Seven processes examine.'),
+    );
+
+    const html = buildJourneyPrintHtml(withBridge, metadata);
+    expect(html).toContain(
+      '<blockquote class="passage-transition" role="note" aria-label="Passage transition">',
+    );
+    expect(html).toContain('You cross into the Algorithm');
   });
 
   it('emits ordinal passage labels and no internal IDs by default', () => {

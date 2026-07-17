@@ -1,10 +1,12 @@
+import type { ReactElement } from 'react';
+
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 
 /**
  * Loading state component for 3D visualization
  * Displays while spatial positions are being computed
  */
-export default function LoadingState() {
+export default function LoadingState(): ReactElement {
   const reduceMotion = useReducedMotionPreference();
 
   return (

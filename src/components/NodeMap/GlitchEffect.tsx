@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import type { ReactElement } from 'react';
 
 interface GlitchEffectProps {
   active: boolean;
@@ -10,7 +11,11 @@ interface GlitchEffectProps {
 /**
  * RGB split glitch effect for transformation transitions
  */
-export function GlitchEffect({ active, color, onComplete }: GlitchEffectProps) {
+export function GlitchEffect({
+  active,
+  color,
+  onComplete,
+}: GlitchEffectProps): ReactElement | null {
   const [show, setShow] = useState(false);
 
   useEffect(() => {

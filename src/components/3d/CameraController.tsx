@@ -56,8 +56,8 @@ export default function CameraController({
 
   // Animate camera position and target
   const [spring, api] = useSpring(() => ({
-    position: DEFAULT_CAMERA_POSITION as Vec3,
-    target: DEFAULT_CAMERA_TARGET as Vec3,
+    position: DEFAULT_CAMERA_POSITION,
+    target: DEFAULT_CAMERA_TARGET,
     config: { tension: 280, friction: 60 },
   }));
 

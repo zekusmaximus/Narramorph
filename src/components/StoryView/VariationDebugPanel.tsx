@@ -4,6 +4,7 @@
  */
 
 import { useEffect, useState } from 'react';
+import type { ReactElement } from 'react';
 
 import { useStoryStore } from '@/stores/storyStore';
 import type { VariationMetadata } from '@/types';
@@ -24,13 +25,13 @@ export function VariationDebugPanel({
   variationId,
   variationMetadata,
   usedFallback,
-}: VariationDebugPanelProps) {
+}: VariationDebugPanelProps): ReactElement | null {
   const [isVisible, setIsVisible] = useState(false);
   const getConditionContext = useStoryStore((state) => state.getConditionContext);
 
   // Toggle visibility with Shift+D
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: KeyboardEvent): void => {
       if (e.shiftKey && e.key === 'D') {
         e.preventDefault();
         setIsVisible((prev) => !prev);
@@ -48,7 +49,7 @@ export function VariationDebugPanel({
   const context = getConditionContext(nodeId);
   const awarenessLevel = getAwarenessLevel(context.awareness);
 
-  const handleCopy = () => {
+  const handleCopy = (): void => {
     const debugInfo = JSON.stringify({ nodeId, variationId, context, variationMetadata }, null, 2);
     void navigator.clipboard.writeText(debugInfo).catch((err) => {
       console.error('[VariationDebugPanel] Failed to copy to clipboard:', err);

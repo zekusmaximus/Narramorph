@@ -33,7 +33,7 @@ export class ErrorBoundary extends Component<Props, State> {
     handleError(error, { componentStack: errorInfo.componentStack });
   }
 
-  render() {
+  render(): ReactNode {
     if (this.state.hasError) {
       return (
         this.props.fallback || (

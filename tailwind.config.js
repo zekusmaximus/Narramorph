@@ -5,13 +5,16 @@ export default {
     extend: {
       colors: {
         // Character-based color scheme
+        // Primary (500) shades resolve to the shared design tokens (tokens.css /
+        // designTokens.ts) so utilities render the same perspective identity
+        // colours as the map, 3D scene, and content loader.
         archaeologist: {
           50: '#eff6ff',
           100: '#dbeafe',
           200: '#bfdbfe',
           300: '#93c5fd',
           400: '#60a5fa',
-          500: '#4A90E2', // Primary archaeologist blue
+          500: 'var(--perspective-archaeologist, #4A90E2)', // Primary archaeologist blue
           600: '#2563eb',
           700: '#1d4ed8',
           800: '#1e40af',
@@ -23,7 +26,7 @@ export default {
           200: '#bbf7d0',
           300: '#86efac',
           400: '#4ade80',
-          500: '#50C878', // Primary algorithm green
+          500: 'var(--perspective-algorithm, #50C878)', // Primary algorithm green
           600: '#16a34a',
           700: '#15803d',
           800: '#166534',
@@ -35,7 +38,7 @@ export default {
           200: '#fecaca',
           300: '#fca5a5',
           400: '#f87171',
-          500: '#E74C3C', // Primary human red
+          500: 'var(--perspective-last-human, #E74C3C)', // Primary human red
           600: '#dc2626',
           700: '#b91c1c',
           800: '#991b1b',
@@ -47,7 +50,7 @@ export default {
           200: '#e9d5ff',
           300: '#d8b4fe',
           400: '#c084fc',
-          500: '#9B59B6', // Primary multi-perspective purple
+          500: 'var(--perspective-convergence, #9B59B6)', // Primary multi-perspective purple
           600: '#9333ea',
           700: '#7e22ce',
           800: '#6b21a8',

@@ -75,6 +75,23 @@ describe('buildVisitEvent', () => {
     const b = buildVisitEvent(makeInput({ content: 'second' }));
     expect(a.resolvedText.hash).not.toBe(b.resolvedText.hash);
   });
+
+  it('snapshots resolved bridge prose into bridgeText, or null when no bridge showed', () => {
+    const withBridge = buildVisitEvent(
+      makeInput({ bridgeId: 'edge-1', bridgeContent: 'You cross into the Algorithm.' }),
+    );
+    expect(withBridge.bridgeText).toEqual({
+      format: 'markdown',
+      content: 'You cross into the Algorithm.',
+      hash: expect.stringMatching(/^sha256:[0-9a-f]{64}$/),
+      byteLength: 29,
+    });
+    expect(isVisitEvent(withBridge)).toBe(true);
+
+    const withoutBridge = buildVisitEvent(makeInput());
+    expect(withoutBridge.bridgeText).toBeNull();
+    expect(isVisitEvent(withoutBridge)).toBe(true);
+  });
 });
 
 describe('appendVisitEvent', () => {

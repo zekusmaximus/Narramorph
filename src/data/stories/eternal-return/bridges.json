@@ -1,0 +1,22 @@
+{
+  "storyId": "eternal-return",
+  "edges": [
+    {
+      "sourceId": "algo-L1",
+      "targetId": "algo-L2-invest",
+      "bridge": {
+        "omitWhenUnmatched": true,
+        "alternatives": [
+          {
+            "id": "algo-L1__algo-L2-invest__from-archaeologist",
+            "content": "You cross from the archaeologist's careful hands into the Algorithm's arithmetic — the same fragment, counted differently.",
+            "condition": {
+              "kind": "orderSeen",
+              "passageIds": ["arch-L1", "algo-L1"]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

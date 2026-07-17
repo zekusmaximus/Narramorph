@@ -8,6 +8,8 @@ async function prepare2DReader(page: Page): Promise<void> {
       localStorage.setItem('narramorph-accessibility-e2e-initialized', 'true');
     }
     localStorage.setItem('narramorph-3d-mode', 'false');
+    // Onboarding already seen so first-run journeys aren't blocked (>= INTRO_VERSION).
+    localStorage.setItem('narramorph-intro-seen-version', '999');
   });
 }
 
@@ -35,6 +37,7 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   await page.goto('/');
 
   const skipLink = page.getByRole('link', { name: 'Skip to story' });
+  const guideButton = page.getByRole('button', { name: /reader.s guide/i });
   const progressButton = page.getByRole('button', { name: /Open reading progress/ });
   const settingsButton = page.getByRole('button', { name: 'Open reader settings' });
   const archaeologistEntry = page.getByRole('button', {
@@ -65,6 +68,8 @@ test('reader completes the primary journey with keyboard focus kept visible and 
 
   await page.keyboard.press('Tab');
   await expect(skipLink).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(guideButton).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(progressButton).toBeFocused();
   await page.keyboard.press('Tab');
