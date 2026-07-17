@@ -6,8 +6,6 @@ import { useDialogFocus } from '@/hooks/useDialogFocus';
 import type { LineHeight, TextSize, Theme, UserPreferences } from '@/types';
 import { buildSampleRedactedEvent } from '@/utils/errorRedaction';
 
-const PRIVACY_POLICY_URL = 'https://github.com/zekusmaximus/Narramorph/blob/main/docs/PRIVACY.md';
-
 interface SettingsDialogProps {
   open: boolean;
   onClose: () => void;
@@ -280,18 +278,6 @@ export function SettingsDialog({
               <pre className="mt-2 overflow-auto rounded bg-black/40 p-2 text-xs text-slate-300">
                 {sampleReport}
               </pre>
-              <p className="mt-2">
-                See the{' '}
-                <a
-                  href={PRIVACY_POLICY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-cyan-200/70 underline decoration-dotted underline-offset-2 hover:text-cyan-100"
-                >
-                  privacy policy
-                </a>
-                .
-              </p>
             </details>
           </div>
         </div>

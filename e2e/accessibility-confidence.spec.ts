@@ -181,9 +181,21 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   await expect(mainContent).toHaveAttribute('inert', '');
   await expect(mainContent).toHaveAttribute('aria-hidden', 'true');
 
+  // The settings focus trap now ends with the Phase 8.3 error-reporting controls:
+  // after Reduce motion come the consent checkbox and the "what's sent" disclosure.
+  const whatsSentDisclosure = page
+    .getByRole('dialog', { name: 'Shape the reading room' })
+    .locator('summary', { hasText: 'See exactly what a report would contain' });
   await page.keyboard.press('Shift+Tab');
-  const reduceMotion = page.getByRole('checkbox', { name: /Reduce motion/ });
-  await expect(reduceMotion).toBeFocused();
+  await expect(whatsSentDisclosure).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(page.getByRole('checkbox', { name: /Send anonymous crash reports/ })).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(page.getByRole('checkbox', { name: /Reduce motion/ })).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('checkbox', { name: /Send anonymous crash reports/ })).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(whatsSentDisclosure).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(page.getByRole('button', { name: 'Close settings' })).toBeFocused();
   await page.keyboard.press('Escape');
