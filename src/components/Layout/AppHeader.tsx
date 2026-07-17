@@ -1,17 +1,19 @@
 import { motion } from 'framer-motion';
-import { Archive, ChartNoAxesColumn, Settings } from 'lucide-react';
+import { Archive, ChartNoAxesColumn, HelpCircle, Settings } from 'lucide-react';
 import type { ReactElement } from 'react';
 
 interface AppHeaderProps {
   visitedCount: number;
   onOpenProgress: () => void;
   onOpenSettings: () => void;
+  onOpenHelp: () => void;
 }
 
 export function AppHeader({
   visitedCount,
   onOpenProgress,
   onOpenSettings,
+  onOpenHelp,
 }: AppHeaderProps): ReactElement {
   return (
     <header className="relative z-50 shrink-0 border-b border-cyan-300/15 bg-[#090d11]/95 shadow-[0_8px_30px_rgba(0,0,0,0.28)] backdrop-blur-md">
@@ -42,6 +44,20 @@ export function AppHeader({
         </div>
 
         <nav className="flex shrink-0 items-center gap-2" aria-label="Reader tools">
+          <motion.button
+            type="button"
+            initial={{ opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="flex h-11 w-11 items-center justify-center gap-2 rounded-full border border-slate-700/80 bg-slate-900/60 text-slate-300 transition-colors hover:border-cyan-200/40 hover:bg-cyan-200/10 hover:text-cyan-100 focus-visible:outline-cyan-200 sm:w-auto sm:rounded-md sm:px-3"
+            onClick={onOpenHelp}
+            aria-label="Open the reader’s guide"
+            title="Reader’s guide"
+          >
+            <HelpCircle className="h-4 w-4" aria-hidden="true" />
+            <span className="hidden text-xs uppercase tracking-[0.16em] sm:inline">Guide</span>
+          </motion.button>
+
           <motion.button
             type="button"
             initial={{ opacity: 0, y: -6 }}

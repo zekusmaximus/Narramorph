@@ -2,7 +2,7 @@
 
 Phase 6 extracts visual/onboarding value from the frozen prototype `eternal-return-digital-self` ("P") and archives it (roadmap Phase 6, batches 6.1–6.6), **after** a focused **Track A** PR clears the Phase 5 carry-overs. This document is the running evidence record (mirrors [PHASE_5_EXECUTION.md](PHASE_5_EXECUTION.md)); it is updated as batches land and the epic [#93](https://github.com/zekusmaximus/Narramorph/issues/93) is ticked only at merge.
 
-**Status: Track A complete on the feature branch — content release `eternal-return@1.3.0`, CTR-012 resolved, and CTR-010 resolved via literary release `eternal-return-literary-v1.0.2`; the 32 lint warnings are cleared (0/0); Batch 6.1 (extraction audit) is complete; 6.2–6.6 not yet started.**
+**Status: Track A complete on the feature branch — content release `eternal-return@1.3.0`, CTR-012 resolved, and CTR-010 resolved via literary release `eternal-return-literary-v1.0.2`; the 32 lint warnings are cleared (0/0); Batch 6.1 (extraction audit) is complete; Batch 6.2 (first-run introduction) is complete; 6.3–6.6 not yet started.**
 
 ## Scope and immutable inputs
 
@@ -91,6 +91,33 @@ The M-side edit to `editorial/vertical-slices/archaeologist-opening-accept.json`
 
 **Complete (analysis; no N runtime change).** Every visual/onboarding/interaction concept in P was inventoried against N from P's source and given a disposition — full record in [PHASE_6_1_EXTRACTION_AUDIT.md](PHASE_6_1_EXTRACTION_AUDIT.md); FEATURE_EXTRACTION_MATRIX P rows re-verified. Dispositions: **6.2** ← intro overlay (clean-room), animated node demo (semantic reimplement), help entry/replay (migrate concept); **6.3** ← cosmic atmosphere (selective clean-room decorative layers) + character colors → design tokens; **6.4** ← instanced/batched 3D (defer to profiling). **Rejected:** P's lazy-load boundary and WebGL→text fallback (N already has both), the marginalia sidebar (duplicates the Phase 3 adaptation ledger; non-deterministic notes), the duplicate Redux/domain/infrastructure stacks, the reader/transform renderer, and the checked-in `dist`. **Deferred:** the mini constellation (P's is a focusable-but-inert, always-animating WebGL-only canvas — not portable; concept gated on user testing + accessibility). Reference screenshots were **attempted and found infeasible** (P's standalone `dist` boots to a blank canvas); documented from source per the no-fabrication rule. Gate met: every useful feature has a target batch or a recorded rejection/defer rationale.
 
-## Batch 6.2–6.6
+## Batch 6.2 — Cinematic but accessible first-run introduction ([#165](https://github.com/zekusmaximus/Narramorph/issues/165))
+
+**Complete on the feature branch.** A first-run introduction was built as a clean-room rebuild of the frozen prototype's concept (`IntroductionOverlay`/`HelpIcon`/`Onboarding` at `392eef6c…`) in N's own architecture — **nothing imported from P** (ADR 0001). P's source was re-read for reference only: its overlay is a single un-labelled `<div>` with no dialog role, no focus trap/restoration, no skip, no reduced-motion (confirmed: zero `prefers-reduced-motion` anywhere in P), persisting a bare `localStorage.hasSeenIntro='true'`; its `HelpIcon` copy describes P's 3D drag/zoom, not N's map.
+
+**Owner-approved design (three product forks resolved before code):** blocking first-run modal (over N's current direct opening, the A/B baseline); a single accessible panel (not a multi-step wizard); and a persistent header **Guide ("?")** entry. The intro is one `IntroDialog` opened two ways — automatically on first run and on demand from Help — sharing one content source.
+
+**What shipped (all under `src/components/Onboarding/`):**
+
+- `introVersion.ts` — minimal, versioned, device-local persistence. `INTRO_VERSION` (integer) is compared against a dedicated key `narramorph-intro-seen-version` (mirrors the existing `narramorph-3d-mode` pattern). **Not a bare boolean** and deliberately **off the save schema (1.3.0) and out of exported journeys** — a materially changed intro re-shows by bumping the constant. Fails open when storage is unavailable.
+- `introContent.ts` — single source of truth for the copy (instructional chrome in `OpeningExperience`'s register; quotes no canon verbatim, ADR 0002). Covers premise → choose a perspective → open a fragment → path sensitivity → return/revisit, plus a line pointing at the Help entry.
+- `AnimatedNodeDemo.tsx` — the animated-node demonstration reimagined as **semantic SVG** (pulse + click-ripple), `aria-hidden` decorative, with an always-present `<figcaption>` text alternative and a **static reduced-motion equivalent** gated on `useReducedMotionPreference` (OS + in-app setting). Never animation- or canvas-only.
+- `IntroDialog.tsx` — a labelled `role="dialog"` `aria-modal` panel built on N's existing `useDialogFocus` (focus containment + restoration + Escape + background inerting). First-run shows skip + "Begin reading"; Help shows a "Close guide" + "Back to the archive" framing.
+- Shell wiring: a persistent **Guide "?"** button in `AppHeader` (threaded through `LayoutShell`); `Layout` auto-opens the intro when `shouldShowIntro()` and records `markIntroSeen()` on any dismissal (begin / skip / close).
+
+**Accessibility coverage (proven by tests, not asserted):** keyboard completion (Escape + focusable begin/skip), focus containment/restoration (via `useDialogFocus`, shared with `SettingsDialog`), screen-reader reading order (labelled dialog, ordered concept list, decorative SVG hidden), reduced motion (static demo + identical text), 200% text / small screens (scrolling panel, `max-h`/`overflow` identical to `SettingsDialog`), and the minimal versioned persistence. No canvas-only path exists.
+
+**Owner comprehension checklist (proposed — owner runs the usability/A-B pass; results not fabricated).** After one onboarding pass an unaided new reader can: (1) state the premise; (2) say how to **begin** — pick a perspective and enter; (3) explain **node interaction** — select a fragment to read it; (4) explain **path sensitivity** — order/path changes what the archive shows; (5) explain **revisiting** — returning renders differently; (6) find **Help** — reopen the guide from the "?"; (7) a reduced-motion reader received the same explanation without relying on motion. The intro is measured against N's current direct opening (`OpeningExperience.tsx`); more animation is not assumed better.
+
+### Gate evidence (local, Node 22, on the feature branch)
+
+- `type-check`: pass. `lint:ci`: **0 errors / 0 warnings** (baseline held; new files auto-formatted).
+- `test:run`: **365 tests pass** (was 345; +20 — `introVersion` 9, `AnimatedNodeDemo` 3, `IntroDialog` 7, `AppHeader` +1). Conversion suite: **160 tests** (unchanged; no conversion code touched).
+- `story:package:validate`: `eternal-return@1.3.0` hash `80f3d5a2…` (identity unchanged).
+- `content:validate:runtime`: 8 tests. `content:validate:canon:strict`: **errors=0**, warnings=6116, waived=31, expired=0 (baseline exact). `literary:validate` / `literary:slice:validate`: valid against `eternal-return@1.3.0` / `eternal-return-literary-v1.0.2`.
+- `build`: pass. No package or save-schema identity moved; N has no new dependency on P.
+- Playwright via the throwaway sandbox-Chromium (1194) override config (deleted, never committed): new `e2e/first-run-intro.spec.ts` — **3 passed** (first-run auto-open covering all four concepts → skip → picker → reload does not re-show; replay from the Help entry; reduced-motion static equivalent). Existing journeys pre-seed the intro-seen key so they are not blocked; regression set (reader journey + WebGL-loss 2D fallback, phase-2 saved-journey identity, accessibility, responsive) re-run green. Full 17-scenario matrix runs in protected-main CI.
+
+## Batch 6.3–6.6
 
 Not yet started. Batch issues open under [#162](https://github.com/zekusmaximus/Narramorph/issues/162) as each begins; 6.1 gives them their concrete target list.

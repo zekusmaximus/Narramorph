@@ -10,6 +10,9 @@ async function prepare2DReader(page: Page): Promise<void> {
       localStorage.setItem('narramorph-e2e-initialized', 'true');
     }
     localStorage.setItem('narramorph-3d-mode', 'false');
+    // Treat onboarding as already seen so first-run journeys aren't blocked by
+    // the intro modal (any value >= INTRO_VERSION suppresses the auto-open).
+    localStorage.setItem('narramorph-intro-seen-version', '999');
   });
 }
 
@@ -153,6 +156,7 @@ test('unavailable WebGL falls back to the 2D reader', async ({ page }) => {
   await page.addInitScript(() => {
     localStorage.clear();
     localStorage.setItem('narramorph-3d-mode', 'true');
+    localStorage.setItem('narramorph-intro-seen-version', '999');
     const original = HTMLCanvasElement.prototype.getContext;
     HTMLCanvasElement.prototype.getContext = function (
       this: HTMLCanvasElement,

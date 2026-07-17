@@ -10,6 +10,8 @@ async function prepareReader(page: Page): Promise<void> {
       localStorage.setItem('narramorph-phase-2-e2e-initialized', 'true');
     }
     localStorage.setItem('narramorph-3d-mode', 'false');
+    // Onboarding already seen so first-run journeys aren't blocked (>= INTRO_VERSION).
+    localStorage.setItem('narramorph-intro-seen-version', '999');
   });
 }
 

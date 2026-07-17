@@ -53,6 +53,8 @@ async function prepareProfile(page: Page, profile: (typeof profiles)[number]): P
   await page.addInitScript(() => {
     localStorage.clear();
     localStorage.setItem('narramorph-3d-mode', 'false');
+    // Onboarding already seen so first-run journeys aren't blocked (>= INTRO_VERSION).
+    localStorage.setItem('narramorph-intro-seen-version', '999');
 
     const metrics: BrowserPerformanceMetrics = {
       lcpMs: 0,
