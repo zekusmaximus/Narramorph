@@ -212,7 +212,10 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   await expect(adaptationLedgerSummary).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.getByTestId('adaptation-ledger')).toHaveAttribute('open', '');
-  // The journey-export controls sit after the ledger and remain inside the focus trap.
+  // The journey-export controls sit after the ledger and remain inside the focus trap:
+  // the include-adaptation-notes toggle (Phase 7.3), then the two export actions.
+  await page.keyboard.press('Tab');
+  await expect(page.getByRole('checkbox', { name: /include adaptation notes/i })).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(page.getByRole('button', { name: 'Export journey (Markdown)' })).toBeFocused();
   await page.keyboard.press('Tab');

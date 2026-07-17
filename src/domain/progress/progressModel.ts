@@ -71,6 +71,7 @@ export function createInitialPreferences(): UserPreferences {
     textSize: 'medium',
     theme: 'light',
     lineHeight: 'normal',
+    includeAdaptationNotesInExport: true,
     reduceMotion: false,
     showTutorial: true,
     showReadingStats: true,

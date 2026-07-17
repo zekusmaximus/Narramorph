@@ -3,6 +3,7 @@ import { X } from 'lucide-react';
 import { useCallback, useEffect, useMemo, useState, type ReactElement } from 'react';
 
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
+import { JourneyMilestone } from '@/components/StoryView/JourneyMilestone';
 import { MarkdownContent } from '@/components/StoryView/MarkdownContent';
 import { readingSurfaceClass } from '@/components/StoryView/readingTypography';
 import { SelectionDisclosure } from '@/components/StoryView/SelectionDisclosure';
@@ -289,6 +290,11 @@ export default function ContentPanel3D(): ReactElement | null {
         <div className="-mx-4 mt-6 sm:-mx-6">
           <SelectionDisclosure reason={readerSelectionReason} theme={preferences.theme} />
         </div>
+        {currentNode.layer === 4 && (
+          <div className="-mx-4 mt-4 sm:-mx-6">
+            <JourneyMilestone theme={preferences.theme} />
+          </div>
+        )}
       </div>
 
       <StoryFooter

@@ -136,6 +136,12 @@ export interface UserPreferences {
    * treats an absent value as 'normal'. Additive; no save-schema version bump.
    */
   lineHeight?: LineHeight;
+  /**
+   * Whether a journey export includes the reader-safe adaptation note under each
+   * passage (Phase 7.3). Optional and defaulted (true) so saves written before it
+   * existed remain valid without a migration. Additive; no save-schema bump.
+   */
+  includeAdaptationNotesInExport?: boolean;
   reduceMotion: boolean; // Respect prefers-reduced-motion
   showTutorial: boolean; // Show onboarding on next visit
   showReadingStats: boolean; // Display reading statistics

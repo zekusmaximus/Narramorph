@@ -981,7 +981,10 @@ export const useStoryStore = create<StoryStore>()(
       return buildJourneyMarkdown(
         state.progress.visitEvents,
         buildJourneyExportMetadata(state.storyData, exportedAt),
-        { titles: buildJourneyTitleMap(state.progress.selectionRecords) },
+        {
+          titles: buildJourneyTitleMap(state.progress.selectionRecords),
+          includeAdaptationNotes: state.preferences.includeAdaptationNotesInExport ?? true,
+        },
       );
     },
 
@@ -990,7 +993,10 @@ export const useStoryStore = create<StoryStore>()(
       return buildJourneyPrintHtml(
         state.progress.visitEvents,
         buildJourneyExportMetadata(state.storyData, exportedAt),
-        { titles: buildJourneyTitleMap(state.progress.selectionRecords) },
+        {
+          titles: buildJourneyTitleMap(state.progress.selectionRecords),
+          includeAdaptationNotes: state.preferences.includeAdaptationNotesInExport ?? true,
+        },
       );
     },
 

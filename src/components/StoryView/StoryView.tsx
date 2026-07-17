@@ -9,6 +9,7 @@ import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
 import { useVariationSelection } from '@/hooks/useVariationSelection';
 import { useStoryStore } from '@/stores';
 
+import { JourneyMilestone } from './JourneyMilestone';
 import { SelectionDisclosure } from './SelectionDisclosure';
 import { StoryBridge } from './StoryBridge';
 import { StoryContent } from './StoryContent';
@@ -224,6 +225,7 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
                 resumeScroll={resumeScroll}
               />
               <SelectionDisclosure reason={readerSelectionReason} theme={preferences.theme} />
+              {currentNode.layer === 4 && <JourneyMilestone theme={preferences.theme} />}
               <StoryFooter
                 theme={preferences.theme}
                 continuationNodes={continuationNodes}
