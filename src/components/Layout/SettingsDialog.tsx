@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import { Check, Moon, Settings, Sun, X } from 'lucide-react';
-import { useCallback, useRef, type ReactElement } from 'react';
+import { useCallback, useMemo, useRef, type ReactElement } from 'react';
 
 import { useDialogFocus } from '@/hooks/useDialogFocus';
 import type { LineHeight, TextSize, Theme, UserPreferences } from '@/types';
+import { buildSampleRedactedEvent } from '@/utils/errorRedaction';
 
 interface SettingsDialogProps {
   open: boolean;
@@ -56,6 +57,8 @@ export function SettingsDialog({
   const dialogRef = useDialogFocus(open, handleClose, {
     initialFocusSelector: '#settings-title',
   });
+
+  const sampleReport = useMemo(() => JSON.stringify(buildSampleRedactedEvent(), null, 2), []);
 
   if (!open) {
     return null;
@@ -241,6 +244,41 @@ export function SettingsDialog({
                 </span>
               </span>
             </label>
+          </div>
+
+          <div className="border-t border-slate-800 pt-5">
+            <label className="flex cursor-pointer items-start gap-3 rounded-lg px-1 py-1 focus-within:outline focus-within:outline-2 focus-within:outline-offset-4 focus-within:outline-cyan-200">
+              <input
+                type="checkbox"
+                checked={Boolean(preferences.errorReportingConsent)}
+                onChange={(event) =>
+                  onUpdatePreferences({ errorReportingConsent: event.target.checked })
+                }
+                className="mt-1 h-4 w-4 shrink-0 accent-cyan-200"
+              />
+              <span className="min-w-0">
+                <span className="block font-serif text-lg text-slate-100">
+                  Send anonymous crash reports
+                </span>
+                <span className="mt-0.5 block text-sm leading-5 text-slate-500">
+                  Help fix problems by sending redacted, anonymous error reports. Off by default.
+                  Your reading history, saved journeys, and passage text are never included.
+                </span>
+              </span>
+            </label>
+            <details className="mt-2 pl-3 text-sm text-slate-500">
+              <summary className="cursor-pointer text-cyan-200/70 hover:text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200">
+                See exactly what a report would contain
+              </summary>
+              <p className="mt-2">
+                A crash report is scrubbed on your device before sending — the URL is stripped to
+                the page (no passage), and no console log, saved data, or prose is included. A
+                representative report:
+              </p>
+              <pre className="mt-2 overflow-auto rounded bg-black/40 p-2 text-xs text-slate-300">
+                {sampleReport}
+              </pre>
+            </details>
           </div>
         </div>
       </motion.div>

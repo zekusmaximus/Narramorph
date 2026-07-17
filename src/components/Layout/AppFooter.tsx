@@ -30,6 +30,14 @@ export function AppFooter({
           >
             Accessibility
           </a>
+          <a
+            href="https://github.com/zekusmaximus/Narramorph/blob/main/docs/PRIVACY.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 rounded uppercase tracking-[0.14em] text-slate-500 underline decoration-dotted underline-offset-2 transition-colors hover:text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+          >
+            Privacy
+          </a>
         </div>
 
         <div

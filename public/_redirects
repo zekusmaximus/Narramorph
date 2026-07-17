@@ -1,0 +1,9 @@
+# Cloudflare Pages redirects for Narramorph (Batch 8.4).
+#
+# Canonical host: narramorph.com (apex). www redirects to apex, preserving the path
+# (301). If you prefer www as canonical, swap the two hostnames below.
+#
+# The app is hash-routed (#/passage/:id), so all real navigation is under "/",
+# which serves index.html. Genuinely unknown paths fall through to the branded
+# 404.html — no SPA rewrite is needed.
+https://www.narramorph.com/* https://narramorph.com/:splat 301!

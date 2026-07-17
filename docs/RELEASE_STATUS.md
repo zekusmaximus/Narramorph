@@ -1,6 +1,6 @@
 # Release status
 
-Updated: July 14, 2026
+Updated: July 17, 2026
 
 ## Current state: alpha
 
@@ -29,7 +29,7 @@ Product readiness is based on release gates, not a percentage of authored story 
 | Performance | Baseline build has an 11.29 MB minified main chunk (2.47 MB gzip) and public source maps. | Establish lazy boundaries, representative measurements, and enforced budgets in Batch 1.4. |
 | Browsers | Playwright-pinned Chromium is the supported alpha target; JavaScript compiles to ES2020 and CSS uses the documented Browserslist policy. | Prove the [cross-browser/mobile matrix](BROWSER_SUPPORT.md) before beta. |
 | Accessibility | Automated keyboard, focus, reduced-motion, responsive, and 200% text checks pass in Chromium. | Complete manual screen-reader, forced-colors, high-contrast, touch, and Apple-platform validation before release candidate. |
-| Deployment/operations | Local static build only; no production deployment is declared. | Define preview/staging/production, monitoring, privacy, incident ownership, release artifacts, and rollback in later roadmap phases. |
+| Deployment/operations | **No production deployment is declared yet**, but the in-repo release engineering is complete (Phase 8.1–8.4): client-only architecture ([ADR 0006](adr/0006-v1-client-only-no-backend.md)) + scope-gate guard; Cloudflare-Pages security headers/CSP + self-hosted fonts + import sanitization + privacy policy (8.2); opt-in redacted error monitoring (8.3); and versioning (app **0.1.1**) + release manifests/checksums + caching/redirects/404 + one-command rollback + save-safety test + deploy runbook (8.4). Host: **Cloudflare Pages** at **narramorph.com** (ready to link). | Owner-run: link/provision the host, enable preview/staging, submit HSTS preload, set monitoring secrets + run the injected-error test, and rehearse rollback ([RELEASE_ROLLBACK.md](RELEASE_ROLLBACK.md)); then the Phase 8.5 performance/resilience pass. |
 | Repository controls | Protected `main` requires a pull request, all seven stable product checks, conversation resolution, and linear history; force-pushes and deletion are blocked. | Add one required approval and stale-review dismissal when a second trusted maintainer joins. |
 
 ## Supported alpha development matrix

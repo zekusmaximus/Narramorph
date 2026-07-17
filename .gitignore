@@ -85,7 +85,13 @@ bower_components/
 
 # Gatsby files
 .cache/
-public/
+# NOTE: in this Vite app, public/ is the static SOURCE dir (copied to dist), not a
+# build output. Ignore stray files but track committed deploy assets explicitly.
+public/*
+!public/_headers
+!public/_redirects
+!public/404.html
+!public/fonts/
 
 # Storybook build outputs
 .out/
@@ -138,6 +144,7 @@ playwright-report/
 playwright/.cache/
 output/playwright/
 output/bundle/
+output/release/
 
 # Content conversion artifacts
 *.tmp

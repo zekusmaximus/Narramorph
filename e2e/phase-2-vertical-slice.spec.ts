@@ -58,7 +58,7 @@ for (const profile of [
         visitedNodes: Record<string, { visitCount: number }>;
       };
     };
-    expect(journey.appVersion).toBe('0.1.0');
+    expect(journey.appVersion).toBe('0.1.1');
     expect(journey.storyPackage).toMatchObject({
       storyId: 'eternal-return',
       storyVersion: '1.3.0',

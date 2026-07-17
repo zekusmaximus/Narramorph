@@ -1,3 +1,4 @@
+import { safeParseSaveJson } from '@/domain/progress/importSanitization';
 import { prepareSavedState } from '@/domain/progress/saveState';
 import type { PreparedSavedState } from '@/domain/progress/saveState';
 import type { SavedState, StoryNode } from '@/types';
@@ -55,14 +56,14 @@ export function createProgressRepository(storage: SavedStateStorage): ProgressRe
         return { status: 'empty' };
       }
 
-      let parsed: unknown;
-      try {
-        parsed = JSON.parse(raw);
-      } catch {
+      const parseResult = safeParseSaveJson(raw);
+      if (!parseResult.ok) {
+        // Oversized or unparseable stored bytes are treated as corrupt so the
+        // Phase 7.4 quarantine/recovery path handles them (never a silent reset).
         return { status: 'invalid', raw };
       }
 
-      const prepared = prepareSavedState(parsed, nodes);
+      const prepared = prepareSavedState(parseResult.value, nodes);
       if (!prepared) {
         return { status: 'invalid', raw };
       }

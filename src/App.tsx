@@ -1,8 +1,14 @@
-import type { ReactElement } from 'react';
+import { useState, type ReactElement } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import Layout from '@/components/Layout';
 import { Home } from '@/pages';
+import {
+  enableErrorReporting,
+  isErrorReportingConfigured,
+  isErrorReportingEnabled,
+  reportError,
+} from '@/utils/errorReporting';
 
 /**
  * Error fallback component for the error boundary
@@ -14,6 +20,14 @@ function ErrorFallback({
   error: Error;
   resetErrorBoundary: () => void;
 }): ReactElement {
+  // If the reader already opted in, onError has reported this crash; otherwise offer a
+  // one-tap, redacted report. The action only appears once a Sentry DSN is configured.
+  const [reported, setReported] = useState(isErrorReportingEnabled());
+  const handleReport = (): void => {
+    void enableErrorReporting().then(() => reportError(error));
+    setReported(true);
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4">
       <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6 text-center">
@@ -45,6 +59,20 @@ function ErrorFallback({
         <button type="button" onClick={resetErrorBoundary} className="btn-primary w-full">
           Try again
         </button>
+        {isErrorReportingConfigured() &&
+          (reported ? (
+            <p className="mt-3 text-xs text-gray-500">
+              Thank you — this problem was reported anonymously.
+            </p>
+          ) : (
+            <button
+              type="button"
+              onClick={handleReport}
+              className="mt-3 text-xs text-gray-500 underline decoration-dotted underline-offset-2 hover:text-gray-700"
+            >
+              Report this problem (sends a redacted, anonymous report)
+            </button>
+          ))}
       </div>
     </div>
   );
@@ -58,11 +86,9 @@ export default function App(): ReactElement {
     <ErrorBoundary
       FallbackComponent={ErrorFallback}
       onError={(error, errorInfo) => {
-        // Log error to console in development
         console.error('Application error:', error, errorInfo);
-
-        // In production, you might want to send this to an error reporting service
-        // Example: sendErrorToService(error, errorInfo);
+        // Forward to the opt-in, redacted reporter (no-op unless consented + configured).
+        reportError(error);
       }}
       onReset={() => {
         // Optionally clear any state or reload the page

@@ -1,0 +1,36 @@
+# Cloudflare Pages headers for Narramorph.
+# The /* block is the Batch 8.2 security set (applied to every response); the
+# path-specific blocks below are the Batch 8.4 caching layer. Redirects are in
+# _redirects and the branded miss page is 404.html.
+# The CSP is documented and verified in docs/SECURITY_HEADERS.md.
+#
+# CSP notes:
+#   script-src 'self'   — strict; the built app has no inline <script> and no eval/wasm.
+#   style-src 'unsafe-inline' — required: framer-motion / @xyflow / three inject styles at
+#                         runtime, and index.html has an inline FOUC/@font-face block. This is
+#                         not a script-execution vector; script-src is the XSS boundary.
+#   font-src 'self'     — Inter is self-hosted under /fonts (no external font origin).
+#   worker-src blob:    — the opt-in 3D view (three.js) spawns Web Workers from blob URLs.
+#   connect-src         — the app makes no network calls of its own; the Sentry ingest hosts are the one
+#                         deliberate egress, used only after opt-in error-reporting consent (Batch 8.3).
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.ingest.sentry.io https://*.ingest.us.sentry.io; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), usb=(), xr-spatial-tracking=()
+  X-Frame-Options: DENY
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+
+# Caching (Batch 8.4): content-hashed assets are immutable for a year; HTML always
+# revalidates so a new release is picked up immediately. Self-hosted fonts have
+# stable names and change only on a deliberate release, so they cache long too.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/index.html
+  Cache-Control: no-cache
+/
+  Cache-Control: no-cache

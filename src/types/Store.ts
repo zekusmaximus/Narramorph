@@ -142,6 +142,12 @@ export interface UserPreferences {
    * existed remain valid without a migration. Additive; no save-schema bump.
    */
   includeAdaptationNotesInExport?: boolean;
+  /**
+   * Opt-in consent for anonymous, redacted error reporting (Phase 8.3). Optional and
+   * defaulted (absent → false / off) so saves written before it existed remain valid
+   * without a migration. Additive; no save-schema version bump.
+   */
+  errorReportingConsent?: boolean;
   reduceMotion: boolean; // Respect prefers-reduced-motion
   showTutorial: boolean; // Show onboarding on next visit
   showReadingStats: boolean; // Display reading statistics

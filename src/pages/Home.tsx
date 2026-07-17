@@ -8,6 +8,7 @@ import { OpeningExperience } from '@/components/OpeningExperience';
 import { ErrorRecoveryDialog } from '@/components/UI/ErrorRecoveryDialog';
 import { PersistenceNotices } from '@/components/UI/PersistenceNotices';
 import { UnlockNotificationSystem } from '@/components/UI/UnlockNotification';
+import { useErrorReportingConsent } from '@/hooks/useErrorReportingConsent';
 import { useReaderRoute } from '@/hooks/useReaderRoute';
 import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';
@@ -101,6 +102,7 @@ export default function Home(): ReactElement {
   const l3AssemblyViewOpen = useStoryStore((state) => state.l3AssemblyViewOpen);
   const currentL3Assembly = useStoryStore((state) => state.currentL3Assembly);
   const closeL3AssemblyView = useStoryStore((state) => state.closeL3AssemblyView);
+  const errorReportingConsent = useStoryStore((state) => state.preferences.errorReportingConsent);
   const positions = useSpatialStore((state) => state.positions);
   const [storyId] = useState(
     () => new URLSearchParams(window.location.search).get('story') || 'eternal-return',
@@ -121,6 +123,9 @@ export default function Home(): ReactElement {
   // Keep the open passage in the URL hash so the reader is not a modal trap:
   // browser Back closes it and passages are bookmarkable (Phase 7.2).
   useReaderRoute();
+
+  // Sync opt-in, redacted error reporting with the persisted consent (Phase 8.3).
+  useErrorReportingConsent(errorReportingConsent);
 
   // Toggle 3D mode and persist to localStorage
   const toggle3DMode = (): void => {

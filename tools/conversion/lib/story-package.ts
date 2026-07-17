@@ -6,7 +6,7 @@ import { glob } from 'glob';
 
 export const STORY_PACKAGE_CONTRACT = 'org.narramorph.story-package';
 export const STORY_PACKAGE_SCHEMA_VERSION = '1.1.0';
-export const CURRENT_APP_VERSION = '0.1.0';
+export const CURRENT_APP_VERSION = '0.1.1';
 
 type JsonPrimitive = boolean | number | string | null;
 export type JsonValue = JsonPrimitive | JsonValue[] | { [key: string]: JsonValue };

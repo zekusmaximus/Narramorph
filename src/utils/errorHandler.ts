@@ -2,6 +2,8 @@
  * Error handling utilities for the narrative engine
  */
 
+import { reportError } from './errorReporting';
+
 export class NarrativeEngineError extends Error {
   constructor(
     message: string,
@@ -23,10 +25,12 @@ export function handleError(error: Error, context?: Record<string, unknown>): vo
     console.error(error);
   }
 
-  // In production, send to error tracking service
-  // TODO: Integrate with Sentry, LogRocket, etc.
+  // In production, forward to the opt-in, redacted error reporter (Batch 8.3).
+  // reportError is a no-op unless the reader consented and a DSN is configured; it
+  // never receives `context` (which may carry app detail) — only the error itself,
+  // and even that is scrubbed by the redaction layer before send.
   if (process.env.NODE_ENV === 'production') {
-    // Example: Sentry.captureException(error, { extra: context });
     console.error('[Error]', error.message);
+    reportError(error);
   }
 }
