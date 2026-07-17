@@ -2,7 +2,7 @@
 
 Phase 6 extracts visual/onboarding value from the frozen prototype `eternal-return-digital-self` ("P") and archives it (roadmap Phase 6, batches 6.1–6.6), **after** a focused **Track A** PR clears the Phase 5 carry-overs. This document is the running evidence record (mirrors [PHASE_5_EXECUTION.md](PHASE_5_EXECUTION.md)); it is updated as batches land and the epic [#93](https://github.com/zekusmaximus/Narramorph/issues/93) is ticked only at merge.
 
-**Status: Track A complete on the feature branch — content release `eternal-return@1.3.0`, CTR-012 resolved, and CTR-010 resolved via literary release `eternal-return-literary-v1.0.2`; the 32 lint warnings are cleared (0/0); Batch 6.1 (extraction audit) is complete; Batch 6.2 (first-run introduction) is complete; Batch 6.3 (design tokens + cosmic atmosphere) is complete pending the owner's visual-direction acceptance; 6.4–6.6 not yet started.**
+**Status: Track A complete on the feature branch — content release `eternal-return@1.3.0`, CTR-012 resolved, and CTR-010 resolved via literary release `eternal-return-literary-v1.0.2`; the 32 lint warnings are cleared (0/0); Batch 6.1 (extraction audit) is complete; Batch 6.2 (first-run introduction) is complete; Batch 6.3 (design tokens + cosmic atmosphere) is complete pending the owner's visual-direction acceptance; Batch 6.4 (3D profiling + semantic node list) is complete; 6.5–6.6 not yet started.**
 
 ## Scope and immutable inputs
 
@@ -142,6 +142,23 @@ Locked-node fills (~2.2–2.7:1) are **intentionally excluded** from the gate: a
 - `story:package:validate`: `eternal-return@1.3.0` hash `80f3d5a2…` (unchanged). `canon:strict`: **errors=0**, warnings=6116, waived=31. `literary:validate` / `literary:slice:validate`: valid against `v1.0.2`. No package/save-schema identity moved; no dependency on P.
 - `build`: pass. Playwright via the throwaway sandbox-Chromium config (deleted, never committed): the opening renders the decorative atmosphere (`aria-hidden`, off the reading surface); the focus ring flips to the dark token on the light reader (runtime-verified); and the regression set (first-run intro, accessibility/focus journey, reader journey + WebGL-loss fallback) re-run green.
 
-## Batch 6.4–6.6
+## Batch 6.4 — Profile experimental 3D; add a semantic node list ([#167](https://github.com/zekusmaximus/Narramorph/issues/167))
+
+**Complete on the feature branch.** Owner-approved design (two forks): **structural + stop-early** profiling (don't build a P-style instanced prototype), and a **visible companion list**. Full record: [PROFILING_3D.md](PROFILING_3D.md).
+
+**Profiling → stop early (don't port instancing).** N's constellation is capped at **≤19 nodes** (`SCENE_NODE_LIMIT`). Structural comparison (computed from the scene composition, not fabricated FPS): per-node rendering is ~22 draw calls / ~37.7k triangles; P's instancing would collapse that to ~4 draw calls — but at this scale the ~18 draw calls it removes were never a cost (instancing pays off at hundreds-to-thousands of instances). Porting P's 844-line `InstancedMesh` + `ShaderMaterial` + LOD path would add complexity to the primary path for **no measurable reader benefit** and would **regress** accessibility (P's `frameloop="always"` has no reduced-motion guard, which N deliberately avoids). Per the roadmap's "stop early if profiling shows little value", **instancing is not ported**; N's per-node 3D stays and remains clearly experimental. Frame-rate/GPU-memory on representative hardware is the owner's device step; a repeatable method is documented (no fabricated device numbers).
+
+**The portable win — a semantic, visible companion node list.** `SceneNodeList` lists exactly the nodes the canvas renders (via a shared, pure `selectSceneNodeGroups` selector now used by both `SceneContent` and the list, so they can never drift) and activates the same node selection through the interaction adapter — so the WebGL canvas is **never the only navigation mechanism**. It is plain DOM (keyboard + screen-reader accessible, no motion), groups nodes by perspective, disables locked nodes, and marks the open node as current — working under reduced motion and when WebGL is unavailable.
+
+**Guards confirmed.** 3D stays optional + lazy (`Home` lazy-loads the canvas), reduced-motion aware (`enableDamping` gated; the list has no motion), and WebGL-loss → 2D is proven green in `e2e/reader-journey.spec.ts`.
+
+### Gate evidence (local, Node 22, on the feature branch)
+
+- `type-check`: pass. `lint:ci`: **0 errors / 0 warnings** (baseline held).
+- `test:run`: **395 tests pass** (was 386; +9 — `sceneNodes` 5, `SceneNodeList` 4). Conversion suite: **160** (unchanged).
+- `story:package:validate` / `canon:strict` (errors=0) / `literary` / `slice`: unchanged; identity pins intact (`eternal-return@1.3.0` `80f3d5a2…`, `v1.0.2`). No package/save-schema identity moved; no P dependency.
+- `build`: pass. Playwright via the throwaway sandbox-Chromium config (deleted, never committed): the 2D reader journey and the **WebGL-loss → 2D fallback** stay green; the 3D companion list is exercised where software WebGL renders it.
+
+## Batch 6.5–6.6
 
 Not yet started. Batch issues open under [#162](https://github.com/zekusmaximus/Narramorph/issues/162) as each begins; 6.1 gives them their concrete target list.
