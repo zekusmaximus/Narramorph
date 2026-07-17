@@ -2,7 +2,7 @@
 
 Phase 6 extracts visual/onboarding value from the frozen prototype `eternal-return-digital-self` ("P") and archives it (roadmap Phase 6, batches 6.1–6.6), **after** a focused **Track A** PR clears the Phase 5 carry-overs. This document is the running evidence record (mirrors [PHASE_5_EXECUTION.md](PHASE_5_EXECUTION.md)); it is updated as batches land and the epic [#93](https://github.com/zekusmaximus/Narramorph/issues/93) is ticked only at merge.
 
-**Status: Track A complete on the feature branch — content release `eternal-return@1.3.0`, CTR-012 resolved, and CTR-010 resolved via literary release `eternal-return-literary-v1.0.2`; the 32 lint warnings are cleared (0/0); Batch 6.1 (extraction audit) is complete; Batch 6.2 (first-run introduction) is complete; Batch 6.3 (design tokens + cosmic atmosphere) is complete pending the owner's visual-direction acceptance; Batch 6.4 (3D profiling + semantic node list) is complete; 6.5–6.6 not yet started.**
+**Status: Track A complete on the feature branch — content release `eternal-return@1.3.0`, CTR-012 resolved, and CTR-010 resolved via literary release `eternal-return-literary-v1.0.2`; the 32 lint warnings are cleared (0/0); Batch 6.1 (extraction audit) is complete; Batch 6.2 (first-run introduction) is complete; Batch 6.3 (design tokens + cosmic atmosphere) is complete pending the owner's visual-direction acceptance; Batch 6.4 (3D profiling + semantic node list) is complete; Batch 6.5 (archive-gate review) is complete with conditions 1–6 met (conditions 5 and 7 owner-gated); 6.6 (archive P) is prepped and awaits the owner's go-ahead.**
 
 ## Scope and immutable inputs
 
@@ -159,6 +159,18 @@ Locked-node fills (~2.2–2.7:1) are **intentionally excluded** from the gate: a
 - `story:package:validate` / `canon:strict` (errors=0) / `literary` / `slice`: unchanged; identity pins intact (`eternal-return@1.3.0` `80f3d5a2…`, `v1.0.2`). No package/save-schema identity moved; no P dependency.
 - `build`: pass. Playwright via the throwaway sandbox-Chromium config (deleted, never committed): the 2D reader journey and the **WebGL-loss → 2D fallback** stay green; the 3D companion list is exercised where software WebGL renders it.
 
-## Batch 6.5–6.6
+## Batch 6.5 — Prototype parity/rejection review (seven-condition archive gate) ([#168](https://github.com/zekusmaximus/Narramorph/issues/168))
 
-Not yet started. Batch issues open under [#162](https://github.com/zekusmaximus/Narramorph/issues/162) as each begins; 6.1 gives them their concrete target list.
+**Complete on the feature branch — conditions 1–6 met; conditions 5 and 7 owner-gated.** Full record: [PHASE_6_5_ARCHIVE_GATE.md](PHASE_6_5_ARCHIVE_GATE.md). The extraction matrix was re-run: every P item has a terminal disposition — **migrated** (intro overlay, animated node demo, help/replay in 6.2; cosmic atmosphere, character-colour tokens in 6.3), **rejected after profiling** (instanced 3D in 6.4, with the semantic node list added instead), **rejected** (lazy-load, WebGL fallback, marginalia, duplicate stacks, reader renderer, checked-in `dist`), or **deferred** (mini constellation). Seven-condition gate:
+
+1. All extraction items migrated/rejected/deferred — ✅.
+2. No N→P build/runtime dependency — ✅ (source sweep finds only a story-title slug in a test, not a P reference).
+3. First-run + fallback browser tests pass — ✅ (`first-run-intro` 3/3; `reader-journey` WebGL-loss fallback).
+4. Accessibility + reduced-motion parity proven — ✅ (6.2 focus/keyboard/reduced-motion; 6.3 theme-aware focus + CI WCAG validator + aria-hidden reduced-motion-gated decoration; 6.4 accessible node list).
+5. P's open issues migrated/closed — ✅ (P's tracker holds **0 issues**; nothing to act on) — **owner-gated confirmation** of the (empty) disposition.
+6. Provenance + licenses recorded — ✅ (P pinned `392eef6c`, MIT + reserved content, same owner; no P source copied — clean-room concepts only).
+7. Owner accepts the visual direction — ⏳ **owner-gated** (6.3 screenshots delivered; owner accepted the 6.3 direction in-batch).
+
+## Batch 6.6 — Archive `eternal-return-digital-self` (prepared; admin-gated)
+
+**Prepared; executes only on the owner's go-ahead** (P-W/A; admin access). Once conditions 5 and 7 are signed off, the archive steps are: create the final `reference-final` tag on `392eef6c`; add an archive notice to P linking to N and summarising what was transferred/rejected (from the 6.5 matrix); disable P's deployments and remove unused secrets; migrate/close any remaining issues (currently none); and use GitHub's archive toggle — preserving history and the final screenshots, never deleting the repo. These are outward-facing/admin actions on P and are held for the owner.
