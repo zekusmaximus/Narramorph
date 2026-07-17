@@ -171,6 +171,15 @@ Locked-node fills (~2.2–2.7:1) are **intentionally excluded** from the gate: a
 6. Provenance + licenses recorded — ✅ (P pinned `392eef6c`, MIT + reserved content, same owner; no P source copied — clean-room concepts only).
 7. Owner accepts the visual direction — ⏳ **owner-gated** (6.3 screenshots delivered; owner accepted the 6.3 direction in-batch).
 
+## Merge integration (PR [#170](https://github.com/zekusmaximus/Narramorph/pull/170))
+
+Opening the Phase 6 PR surfaced two protected-main CI gaps that local batch gates had not exercised; both were fixed on the branch so the merge lands green:
+
+- **`literary:stage` staged the wrong release (Track A gap).** `.github/workflows/ci.yml` staged `eternal-return-literary-v1.0.1`, but Track A's CTR-010 re-issue re-pinned the concordance to `v1.0.2`, so intake failed with "concordance release ID does not match the release." Updated the workflow to stage `v1.0.2` (the accepted release the concordance matches); `literary:stage` / `literary:slice:stage` now pass (classification `no-semantic-change`). The runtime package's `editorialReleaseId v1.0.1` build-time provenance is intentionally unchanged.
+- **CSS bundle budget (Phase 6 features).** The 6.2–6.4 visual/onboarding work grew CSS ~1.3 KiB gzip over the 2026-07-14 baseline. After de-duplicating the shared atmosphere declarations, the CSS budget in `config/bundle-budgets.json` was re-baselined to `72,500` bytes / `13,700` gzip (measured 69,985 / 13,238 + modest headroom) — immaterial for a reader whose JS story chunks are ~3 MB gzip.
+
+The M-side CTR-010 branch was also completed and merged: its commit `6870cae5` corrected the slice but left `test_export_vertical_slice.py` asserting the old counts; the test was aligned to the corrected counts (chronology 1 / promisePayoffs 2), CI went green, and the PR merged with a **merge commit** so `6870cae5` stays reachable and `eternal-return-literary-v1.0.2`'s `sourceCommit` pin holds.
+
 ## Batch 6.6 — Archive `eternal-return-digital-self` (prepared; admin-gated) ([#169](https://github.com/zekusmaximus/Narramorph/issues/169))
 
 **Prepared; executes only on the owner's go-ahead** (P-W/A; admin access). Nothing on P has been modified. The archive-notice text and the owner execution checklist are drafted in N at [P_ARCHIVE_NOTICE_DRAFT.md](P_ARCHIVE_NOTICE_DRAFT.md). Once conditions 5 and 7 are signed off, the archive steps are: create the final `reference-final` tag on `392eef6c`; prepend the archive notice to P's README (links to N; summarises what was transferred/rejected from the 6.5 matrix); disable P's deployments and remove unused secrets; migrate/close any remaining issues (currently none — P's tracker is empty); and use GitHub's archive toggle — preserving history and the final screenshots, never deleting the repo. These are outward-facing/admin actions on P and are held for the owner.

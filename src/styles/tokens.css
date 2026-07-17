@@ -71,11 +71,13 @@
   isolation: isolate;
 }
 
-.archive-shell::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
+/*
+ * The shell backdrop and the reusable `.cosmic-atmosphere` layer (for prominent
+ * chrome surfaces like the first-view picker, where opaque backgrounds would hide
+ * the shell backdrop) share one decorative starfield definition.
+ */
+.archive-shell::before,
+.cosmic-atmosphere {
   pointer-events: none;
   opacity: var(--atmosphere-opacity);
   background-image: var(--atmosphere-image);
@@ -85,19 +87,11 @@
   will-change: background-position;
 }
 
-/*
- * Reusable decorative atmosphere layer for prominent chrome surfaces (e.g. behind
- * the first-view perspective picker), where opaque backgrounds would otherwise hide
- * the shell backdrop. Apply to an aria-hidden element placed behind the content.
- */
-.cosmic-atmosphere {
-  pointer-events: none;
-  opacity: var(--atmosphere-opacity);
-  background-image: var(--atmosphere-image);
-  background-size: 340px 340px;
-  background-repeat: repeat;
-  animation: atmosphere-drift var(--atmosphere-drift-duration) linear infinite;
-  will-change: background-position;
+.archive-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
 }
 
 @keyframes atmosphere-drift {
