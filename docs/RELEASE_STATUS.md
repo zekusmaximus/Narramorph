@@ -1,6 +1,6 @@
 # Release status
 
-Updated: July 14, 2026
+Updated: July 17, 2026
 
 ## Current state: alpha
 
@@ -29,7 +29,7 @@ Product readiness is based on release gates, not a percentage of authored story 
 | Performance | Baseline build has an 11.29 MB minified main chunk (2.47 MB gzip) and public source maps. | Establish lazy boundaries, representative measurements, and enforced budgets in Batch 1.4. |
 | Browsers | Playwright-pinned Chromium is the supported alpha target; JavaScript compiles to ES2020 and CSS uses the documented Browserslist policy. | Prove the [cross-browser/mobile matrix](BROWSER_SUPPORT.md) before beta. |
 | Accessibility | Automated keyboard, focus, reduced-motion, responsive, and 200% text checks pass in Chromium. | Complete manual screen-reader, forced-colors, high-contrast, touch, and Apple-platform validation before release candidate. |
-| Deployment/operations | Local static build only; no production deployment is declared. | Define preview/staging/production, monitoring, privacy, incident ownership, release artifacts, and rollback in later roadmap phases. |
+| Deployment/operations | Local static build only; **no production deployment is declared yet**. Phase 8.1 settled the architecture: **v1 ships client-only, no backend** ([ADR 0006](adr/0006-v1-client-only-no-backend.md)), enforced by a scope-gate guard (`npm run scope:check`). Chosen production host: **Cloudflare Pages** (not yet provisioned). | Provision the host and define preview/staging/production, security headers/CSP (8.2), monitoring + privacy (8.3), versioning + release artifacts + rollback (8.4), and the performance/resilience pass (8.5). |
 | Repository controls | Protected `main` requires a pull request, all seven stable product checks, conversation resolution, and linear history; force-pushes and deletion are blocked. | Add one required approval and stale-review dismissal when a second trusted maintainer joins. |
 
 ## Supported alpha development matrix

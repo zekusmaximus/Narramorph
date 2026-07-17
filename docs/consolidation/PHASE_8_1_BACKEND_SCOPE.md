@@ -1,6 +1,6 @@
 # Phase 8.1 — Backend decision, scope gate, and the up-front Phase-8 decisions
 
-**Status: design proposed; awaiting owner decisions. No production/config code has been written.**
+**Status: owner decisions accepted (2026-07-17); 8.1 in-repo piece implemented and gate-green. Batch 8.2 awaits its own design + confirmation.**
 
 Batch 8.1's own job is small and decisive: **make the backend decision and close the scope gate** so the rest of Phase 8 builds on a settled architecture (roadmap Batch 8.1; acceptance gate: _there is no ambiguous half-backend in the release architecture_). But Phase 8 is different in kind from Phase 7 — much of it is **infrastructure- and owner-gated** — and three later decisions (host, monitoring, service worker) **cascade** into how 8.2–8.5 are even scoped. This doc therefore does two things:
 
@@ -119,13 +119,15 @@ Small, in-repo, gate-clean:
 
 ---
 
-## 5. Owner forks — decision summary
+## 5. Owner forks — decision summary (accepted)
 
-| # | Decision | Recommendation | Blocks |
-| --- | --- | --- | --- |
-| 1 | Backend for v1 | **Client-only, no backend** | 8.1 gate; everything downstream |
-| 2 | Deployment host (+ custom domain?) | **Cloudflare Pages** (Netlify 2nd) | 8.2 headers, 8.4 deploy/rollback |
-| 3 | Error-monitoring vendor + consent | **Sentry, private maps, opt-in, redacted** (or B: local-only) | 8.3 scope |
-| 4 | Service worker / offline | **No SW for v1** | 8.5 resilience scope |
+The owner accepted all four recommendations on 2026-07-17.
 
-Once these are answered I will implement **8.1's in-repo piece only** (§4), run the full gate battery, commit, and **stop for confirmation before Batch 8.2** — matching the Phase 7 per-batch rhythm.
+| # | Decision | Recommendation | Owner decision | Blocks |
+| --- | --- | --- | --- | --- |
+| 1 | Backend for v1 | **Client-only, no backend** | **Accepted** (ADR 0006) | 8.1 gate; everything downstream |
+| 2 | Deployment host (+ custom domain?) | **Cloudflare Pages** (Netlify 2nd) | **Accepted** — Cloudflare Pages; custom-domain sub-decision still open (carried into 8.2) | 8.2 headers, 8.4 deploy/rollback |
+| 3 | Error-monitoring vendor + consent | **Sentry, private maps, opt-in, redacted** (or B: local-only) | **Accepted** — Sentry, private maps, opt-in, hard redaction | 8.3 scope |
+| 4 | Service worker / offline | **No SW for v1** | **Accepted** — no SW for v1 | 8.5 resilience scope |
+
+**8.1 implemented (in-repo piece only, §4):** ADR 0006 records the client-only decision; the scope-gate guard (`scripts/check-no-network.mjs` + `src/scope/noBackendNetwork.test.ts` + `npm run scope:check`) keeps it closed; `RELEASE_STATUS.md` reflects the settled architecture. The full gate battery is green and the evidence is recorded in [`PHASE_8_EXECUTION.md`](PHASE_8_EXECUTION.md) (Batch 8.1). Per the Phase 7 rhythm, Batch 8.2 (security headers + privacy, Cloudflare-Pages-specific) is **proposed and confirmed before any 8.2 code** — this program stops here for owner confirmation before proceeding.

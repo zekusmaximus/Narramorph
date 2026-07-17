@@ -2,7 +2,7 @@
 
 Phase 8 converts a strong application into an **operable production service** — deployment host, security headers/CSP, error monitoring and privacy-respecting observability, a privacy policy, release versioning/manifests, a rollback procedure, and a final performance/resilience pass (roadmap Phase 8, batches 8.1–8.5). This document is the running evidence record (mirrors [PHASE_7_EXECUTION.md](PHASE_7_EXECUTION.md) and the earlier phase records); it is updated as batches land and the epic [#93](https://github.com/zekusmaximus/Narramorph/issues/93) is ticked only at merge.
 
-**Status: Batch 8.1 — design proposed on the feature branch; awaiting owner decisions before any production/config code.** Phase 8 differs from Phase 7 in kind: much of it is **infrastructure- and owner-gated** (a deployment host, DNS/HSTS at the edge, a monitoring vendor + secrets, actual deploys) that an agent cannot self-provision. So every batch is split into **in-repo, agent-doable now** work and **owner/host-gated** decisions, and the gating decisions are surfaced _up front_ (8.1) because they cascade into 8.2–8.5. No production/config code is written until the owner answers the 8.1 forks.
+**Status: Batch 8.1 — complete on the feature branch (owner decisions accepted; client-only recorded as ADR 0006 and enforced by a scope-gate guard). Batches 8.2–8.5 not started.** Phase 8 differs from Phase 7 in kind: much of it is **infrastructure- and owner-gated** (a deployment host, DNS/HSTS at the edge, a monitoring vendor + secrets, actual deploys) that an agent cannot self-provision. So every batch is split into **in-repo, agent-doable now** work and **owner/host-gated** decisions, and the gating decisions were surfaced _up front_ (8.1) because they cascade into 8.2–8.5. The owner accepted all four 8.1 recommendations: client-only (no backend), Cloudflare Pages, Sentry (opt-in, private maps, redacted), and no service worker for v1. No production/config code for a downstream batch is written until that batch's design is proposed and confirmed.
 
 ## How Phase 8 is worked (the in-repo vs. owner-gated split)
 
@@ -58,16 +58,32 @@ Every batch must keep the full gate battery green (run locally, capture real res
 
 ## Batch 8.1 — Make the backend decision and close the scope gate ([#177](https://github.com/zekusmaximus/Narramorph/issues/177))
 
-**Design proposed on the feature branch; awaiting owner decisions.** The design and the up-front Phase-8 decision forks are in **[PHASE_8_1_BACKEND_SCOPE.md](PHASE_8_1_BACKEND_SCOPE.md)**: a grounded current-state audit (the app makes **zero network calls** — no `fetch`/`axios`/`XHR`/`sendBeacon`/ WebSocket/`EventSource` anywhere in `src/`, no API base URL, no auth), the recommendation to **ship v1 client-only with no backend**, and the four cascading decisions the owner must make now because they cascade into 8.2–8.5:
+**Complete on the feature branch.** The design was proposed before any code (**[PHASE_8_1_BACKEND_SCOPE.md](PHASE_8_1_BACKEND_SCOPE.md)**): a grounded current-state audit (the app makes **zero network calls** — no `fetch`/`axios`/`XHR`/`sendBeacon`/WebSocket/`EventSource` anywhere in `src/`, no API base URL, no auth), the recommendation to **ship v1 client-only with no backend**, and the four cascading up-front decisions. All four were surfaced to the owner with recommendations before any production/config code.
 
-1. **Backend (8.1):** recommended **client-only, no backend** for v1.
-2. **Deployment host (8.4, decided early):** recommended **Cloudflare Pages** (with the trade-offs vs. Netlify / Vercel / GitHub Pages laid out) — CSP/headers, preview deploys, and rollback all depend on it.
-3. **Error monitoring vendor + consent model (8.3):** recommended **Sentry, self-hosted-maps, opt-in consent**, with strict redaction (prose, journey history, saves, user-bearing URLs must never be transmitted) — or **no vendor** (local-only diagnostics) if the owner prefers.
-4. **Service worker / offline (8.5):** recommended **do not add one for v1** (value vs. update-complexity); revisit post-v1.
+**Owner decisions (accepted):**
 
-**Acceptance gate (8.1):** there is no ambiguous half-backend in the release architecture.
+1. **Backend (8.1 gate):** **client-only, no backend** for v1 — recorded as **ADR 0006**.
+2. **Deployment host (8.4, decided early):** **Cloudflare Pages** (committed `_headers`/`_redirects`, PR previews, instant rollback). _Open sub-decision:_ custom domain vs. the host default subdomain (affects HSTS-preload/DNS in 8.2/8.4) — carried into 8.2.
+3. **Error monitoring + consent (8.3):** **Sentry, private (CI-uploaded, never-published) source maps, opt-in consent, hard redaction** — reader prose, journey history, saves, storage, and user-bearing URLs never transmitted.
+4. **Service worker / offline (8.5):** **do not add one for v1**; 8.5 re-confirms against measured caching.
 
-Implementation of 8.1's _in-repo_ piece (record the client-only decision; remove any dormant API assumptions; a small scope-gate test/CI check that fails if a network primitive is introduced) proceeds only after the owner confirms. Gate evidence recorded here when it lands.
+**Acceptance gate (8.1):** there is no ambiguous half-backend in the release architecture — **met**: the client-only decision is recorded (ADR 0006) and enforced by the scope-gate guard below; the audit found no half-backend to remove.
+
+**What shipped (in-repo only; no runtime/UI/bundle change):**
+
+- **ADR 0006 — "V1 ships client-only (no backend)."** Records the decision, the audit evidence, the "backend = separate post-v1 program with its own ADR" boundary (does not revive P's Express/Mongo server — ADR 0001 §7, ADR 0005), and that a third-party transmitting SDK (the 8.3 monitor) is not a backend and is governed by 8.3's consent/redaction rules.
+- **Scope-gate guard.** `scripts/check-no-network.mjs` (`npm run scope:check`) scans first-party `src/` for network primitives (`fetch(`/`axios`/`XMLHttpRequest`/`WebSocket`/`sendBeacon`/`EventSource`), excluding tests/`.d.ts`/mocks, with a centralized **empty** `ALLOWLIST` for a future deliberate, reviewed egress. Enforced in the gate battery via `src/scope/noBackendNetwork.test.ts` (runs the same scanner, asserting a clean scan) so the decision cannot re-open silently.
+- **Doc updates.** `RELEASE_STATUS.md` Deployment/operations row reflects the settled client-only architecture + the chosen host; this record captures the evidence.
+
+**Not in 8.1** (wait on the accepted decisions): headers/CSP (8.2), the Sentry SDK + redaction layer (8.3), host config + versioning/rollback (8.4), the performance/SW pass (8.5).
+
+### Gate evidence (local, Node 22, on the feature branch)
+
+- `scope:check` (new): **OK — 153 first-party `src/` files scanned, 0 network primitives, exit 0**. `type-check`: pass. `lint:ci`: **0 errors / 0 warnings** (baseline held). `format:check`: clean.
+- `test:run`: **444 app tests pass** (was 443; +1 — the `noBackendNetwork` scope-gate test). Conversion/tools suite: **160** (unchanged; no `tools/conversion` code touched).
+- `story:package:validate`: `eternal-return@1.3.0` hash `80f3d5a2…` (identity unchanged; fixtures valid). `content:validate:runtime`: **8**. `content:validate:canon:strict`: **errors=0, warnings=6116, waived=31, expired=0** (baseline exact). `literary:validate` / `literary:slice:validate`: valid against `eternal-return-literary-v1.0.2` / `eternal-return@1.3.0` (classification `no-semantic-change`).
+- `build`: pass. `bundle:check`: **all budgets pass** — CSS **70.73 KiB / 13.37 KiB gzip** (under 72,500 / 13,700), initial JS **630.64 KiB / 200.25 KiB gzip** (under budget), `publicSourceMapCount` **0**. The bundle is effectively unchanged: the scope-gate test file is not bundled, and no app code was touched.
+- Playwright via the throwaway sandbox-Chromium (1194) override config (deleted, never committed): **4/4 representative specs passed, real exit code 0** — the canonical L1→L4 reader journey (with repeat-variation avoidance + progress restore), missing-story recovery, WebGL→2D fallback, and the WebGL-free linear-passage-list journey. 8.1 introduces **no runtime/UI/bundle change** (test-only + dev tooling + docs), so the full 17-scenario matrix is left to protected-main CI on the PR rather than re-run in full here (token discipline); the representative run confirms the current build still boots and reads end-to-end. No package/save/content identity moved; no dependency on P.
 
 ## Batch 8.2 — Security headers, privacy, and data minimization
 

@@ -21,6 +21,7 @@
     "pretest:performance": "npm run build",
     "test:performance": "playwright test e2e/performance-boundaries.spec.ts",
     "bundle:check": "node scripts/check-bundle-budgets.mjs",
+    "scope:check": "node scripts/check-no-network.mjs",
     "profile:l3": "vite-node tools/performance/profile-l3.ts",
     "prepare": "husky",
     "lint": "cross-env ESLINT_USE_FLAT_CONFIG=false eslint . --cache",
