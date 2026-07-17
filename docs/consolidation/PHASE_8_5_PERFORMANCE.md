@@ -1,6 +1,6 @@
 # Phase 8.5 — Production performance and resilience pass
 
-**Status: design proposed; awaiting owner confirmation. No code has been written.**
+**Status: owner confirmed no service worker for v1; 8.5 implemented and gate-green. The real throttled/device performance numbers + the budget pass/waiver are owner/CI-run on real hardware (results table in [PHASE_8_EXECUTION.md](PHASE_8_EXECUTION.md), Batch 8.5). This completes Phase 8's in-repo work.**
 
 Batch 8.5 is the final Phase 8 batch: re-measure against the Phase 1 budgets on throttled networks / mid- range devices, verify lazy loading, caching, offline-failure states and the WebGL fallback, test large histories / every ending / backgrounding / long sessions, optimize **only measured** bottlenecks, and resolve the service-worker question (roadmap Batch 8.5).
 
