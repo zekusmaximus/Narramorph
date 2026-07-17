@@ -2,7 +2,7 @@
 
 Phase 7 turns the capabilities integrated across Phases 0–6 into **one intentional end-to-end reader product** rather than a collection of imported features (roadmap Phase 7, batches 7.1–7.5). This document is the running evidence record (mirrors [PHASE_5_EXECUTION.md](PHASE_5_EXECUTION.md) and [PHASE_6_EXECUTION.md](PHASE_6_EXECUTION.md)); it is updated as batches land and the epic [#93](https://github.com/zekusmaximus/Narramorph/issues/93) is ticked only at merge.
 
-**Status: Batch 7.1 — implemented (usability gate is owner/tester-run). Batch 7.2 — design proposed, awaiting owner confirmation before code.** 7.1's lexicon unification, four-axis progress model, 2D/3D reader parity, and one-time revisitation hint are implemented (design in [PHASE_7_1_CANONICAL_JOURNEY.md](PHASE_7_1_CANONICAL_JOURNEY.md); owner accepted all four forks). 7.2's long-passage design — grounded in measured content data (only the 3 L4 endings are genuinely long; 0/1,305 passages have section structure) — recommends keeping passages whole with scroll restoration + hash-addressability + a line-height preference ([PHASE_7_2_LONG_PASSAGE.md](PHASE_7_2_LONG_PASSAGE.md)). No contract identity has moved.
+**Status: Batches 7.1 and 7.2 — implemented on the feature branch (7.1's usability gate and the 7.5 manual-AT passes remain owner/tester-run).** 7.1 unified the lexicon, the four-axis progress model, 2D/3D reader parity, and the one-time revisitation hint. 7.2 made the reader **hash-addressable** (browser Back closes it; passages bookmarkable) while preserving `useDialogFocus` and exact visit semantics (a `restoreStoryView` path that never records a spurious visit), added reliable scroll restoration for interrupted reads, a line-height preference, back-to-top, and a print stylesheet — keeping passages whole per the measured evidence. No contract identity has moved (line-height is additive/defaulted; no package/save-schema change).
 
 ## Scope and immutable inputs
 
@@ -72,14 +72,27 @@ No multi-agent audit fan-outs. This record and the batch designs are produced wi
 
 ## Batch 7.2 — Refine the long-passage reading experience ([#172](https://github.com/zekusmaximus/Narramorph/issues/172))
 
-**Design proposed; awaiting owner confirmation before code.** Full proposal (grounded in measured content data): **[PHASE_7_2_LONG_PASSAGE.md](PHASE_7_2_LONG_PASSAGE.md)**. Key findings and direction:
+**Complete on the feature branch.** Design proposed before code (grounded in measured content data) and both owner confirmations received: **[PHASE_7_2_LONG_PASSAGE.md](PHASE_7_2_LONG_PASSAGE.md)**.
 
 - **Measured:** 1,305 content strings — median ~1,221 words (~6 min); 935 are 5–10 min; only **7 exceed 3,000 words, all L4 endings (~43–48 min)**. L3 convergence is already segmented (`L3AssemblyView`). **0 of 1,305 passages have markdown headings** (unstructured literary prose).
-- **Segmentation fork → keep passages whole** (recommended): no authored section structure exists and the long reads are unbroken endings; artificial/authored landmarks would be a content change (ADR 0002), not 7.2 UX. Long-read comfort comes from scroll restoration + visible progress (already shipped) + line-height pref + back-to-top + hash-addressability.
-- **Reader architecture** (owner-decided in 7.1): history-synced, **hash-addressable** modal (`#/passage/:nodeId`) so browser **Back closes the reader** and passages are bookmarkable, **preserving `useDialogFocus`** containment/restoration and exact visit semantics (Back = Close = finalize visit).
-- **Scroll restoration** keyed by node + variation (device-local, off the save schema); **line-height** as an additive, defaulted `UserPreferences` field (no save-schema bump).
+- **Segmentation → keep passages whole** (owner-confirmed): no authored section structure exists and the long reads are unbroken endings; artificial/authored landmarks would be a content change (ADR 0002).
 
-Owner confirmations requested before code: (1) keep passages whole; (2) line-height as an additive saved preference. See design doc §8.
+**What shipped (interface chrome only; no authored runtime prose; no package identity change):**
+
+- **Hash-addressable reader (`useReaderRoute`, `#/passage/:nodeId`).** The open passage is reflected in the URL hash so **browser Back closes the reader** (no modal trap) and a passage is bookmarkable. A thin History-API sync — no router — that **preserves `useDialogFocus`** containment/restoration. Deep links open an available passage (a base map entry first, so Back returns to the map) and land on the map for unknown/locked/L3 targets. Mounted once in `Home`.
+- **Exact visit semantics preserved via `restoreStoryView`.** Browser-history navigation (Back/Forward/reload/deep-link) **restores** the reader without recording a new visit — no `visitNode`, no `activeVisit`, so no new `selectionRecord`/`VisitEvent` and no variation-dedup mutation. Only a deliberate click/continuation (`openStoryView`) records a visit. Saved-journey identity is unchanged.
+- **Reliable scroll restoration (`scrollMemory`, device-local `sessionStorage`, off the save schema).** Scroll is remembered per node and **restored only on a URL restore** (via the store's `lastReaderOpenWasRestore` flag); a deliberate open starts at the top. An interrupted long read (reload mid-passage) resumes the same passage and offset. Keyed by node (not variation) so a restore that re-selects a different variation still resumes near the reader's place.
+- **Line-height preference.** `lineHeight` (`cozy`/`normal`/`relaxed`) added to `UserPreferences` — **additive and defaulted** (absent → `normal`; no save-schema version bump) — plus a Settings control (Cozy/Normal/Airy). A shared `readingSurfaceClass` decouples font size (text size) from leading (line height) across the 2D and 3D readers. Text-size ordering (small < medium < large) is retained.
+- **Back-to-top + visible progress.** A keyboard-reachable, reduced-motion-safe "Back to top" control appears once a passage is scrolled down; the shipped passage-progress bar stays.
+- **Print stylesheet.** `@media print` drops the app chrome and lets the whole passage flow across pages (the on-screen reader is a fixed, clipped modal).
+
+### Gate evidence (local, Node 22, on the feature branch)
+
+- `type-check`: pass. `lint:ci`: **0 errors / 0 warnings** (baseline held).
+- `test:run`: **415 tests pass** (7.2 added `readingTypography` 3, `scrollMemory` 3, `parseReaderHash` 2; net +8 over 7.1's 407, minus one consolidated scroll test). Conversion/tools suite: **160** (unchanged).
+- `story:package:validate`: `eternal-return@1.3.0` hash `80f3d5a2…` (unchanged). `content:validate:runtime`: 8. `content:validate:canon:strict`: **errors=0**, warnings=6116, waived=31 (baseline exact). `literary:validate` / `literary:slice:validate`: valid against `v1.0.2`.
+- `build`: pass. `bundle:check`: pass — CSS **69.58 KiB / 13.17 KiB gzip**, under the 72,500 / 13,700 budget (the print block + line-height + back-to-top classes; no budget change needed). **No package or save-schema identity moved** (line-height is additive/defaulted; scroll + reader-route state are device-local/transient).
+- Playwright via the throwaway sandbox-Chromium (1194) override config (deleted, never committed): **functional suite 21/21 passed, real exit code 0**, including the new `reader-longpassage` spec — hash-addressable open + **browser Back closes the reader**, deep-link/bookmark (available opens; unknown/locked land on the map), and **interrupted-session resume** (reload mid-read restores the same passage + scroll + back-to-top). `performance-boundaries` remains sandbox-CPU-limited and runs on real hardware in protected-main CI.
 
 ## Batches 7.3–7.5 — not yet started
 

@@ -46,11 +46,11 @@ The roadmap's three options — stay whole / internal section landmarks / resuma
 
 ## 4. Reliable scroll restoration
 
-`StoryContent` currently resets `scrollTop = 0` whenever content changes. Proposed:
+`StoryContent` reset `scrollTop = 0` on every content change. Implemented:
 
-- Remember the scroll position **keyed by `nodeId` + the resolved `variationId`** (or a content hash), in a **device-local, in-memory/`sessionStorage`** store — **off the save schema and out of exported journeys** (a UI convenience, not journey content).
-- On open/resume: if the same `(nodeId, variationId)` content is shown again, **restore** the saved position; if a revisit renders **different** prose, **reset to top** (restoring a stale offset into new text would land mid-sentence). This makes an interrupted long ending resume exactly where it was, while a changed revisit starts clean.
-- Reload mid-read (interrupted session): the hash reopens the passage and scroll restoration returns to the saved offset.
+- Remember the scroll position **by `nodeId`** in a **device-local `sessionStorage`** store — **off the save schema and out of exported journeys** (a UI convenience, not journey content). Save is continuous on scroll; it survives an in-tab reload.
+- **Restore only when the open is a URL restore** (reload / Back / Forward / deep-link, flagged by the store's `lastReaderOpenWasRestore`). A deliberate click/continuation starts at the **top**. This is the key correctness point: restore resumes an interrupted read, while a fresh revisit begins cleanly.
+- **Keyed by node, not variation** (the initial proposal keyed by variation). Because a restored read does **not** record a new visit, and the variation resolver avoids repeating a previously-shown variation (`recentVariationIds`), a restore can legitimately re-select a _different_ variation than was first shown; a node key resumes near the reader's place regardless, and the browser clamps the offset if the resumed variation is shorter.
 
 ## 5. Reading comfort — line-height preference
 
@@ -78,9 +78,15 @@ Automated where possible; the rest is a device checklist the owner runs.
 | Selection / copy | selection works in the scroll region; copy excludes chrome. |
 | Zoom / mobile orientation / virtual keyboard | manual device checklist (owner); no horizontal overflow, no obscured controls. |
 
-## 8. Owner decisions requested before 7.2 code
+## 8. Owner decisions (confirmed — direction for 7.2 code)
 
-1. **Segmentation (§2)** — confirm **keep passages whole** (scroll restoration + hash-addressability + line-height + back-to-top), declining artificial/authored section landmarks for now (they'd be a separate content release). Recommended.
-2. **Line-height as a saved preference (§5)** — accept adding `lineHeight` to `UserPreferences` as an additive, defaulted field (no save-schema bump), consistent with text-size/theme. Recommended. (The alternative — a device-local-only setting off the save schema — is possible but inconsistent with the other reading prefs.)
+Both confirmed by the owner:
 
-Everything else (hash-sync wiring, scroll restoration, back-to-top, robustness tests) is implementation of the already-decided architecture and needs no separate sign-off.
+1. **Segmentation (§2)** — **keep passages whole**; long-read comfort comes from scroll restoration + hash-addressability + line-height + back-to-top. Artificial/authored section landmarks are declined for now (they would be a separate content release with editorial review).
+2. **Line-height as a saved preference (§5)** — `lineHeight` added to `UserPreferences` as an additive, defaulted field (no save-schema bump), consistent with text-size/theme.
+
+Implemented in the Phase 7.2 code recorded in [PHASE_7_EXECUTION.md](PHASE_7_EXECUTION.md).
+
+### Visit-semantics note (resolved during implementation)
+
+Reopening a passage from the URL (Back/Forward/reload/deep-link) uses a **`restoreStoryView`** action that sets the reader state **without** recording a new visit — no `visitNode`, no `activeVisit`, so no new `selectionRecord`/`VisitEvent` and no variation-dedup mutation. Only a deliberate click or continuation (`openStoryView`) records a visit. This keeps exact visit semantics on reopen **and** makes an interrupted read resume the _same_ variation (so the saved scroll offset lands correctly instead of mid-sentence in a different revisit).

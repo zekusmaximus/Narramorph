@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState, type ReactElement } from 're
 
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
 import { MarkdownContent } from '@/components/StoryView/MarkdownContent';
+import { readingSurfaceClass } from '@/components/StoryView/readingTypography';
 import { SelectionDisclosure } from '@/components/StoryView/SelectionDisclosure';
 import { StoryBridge } from '@/components/StoryView/StoryBridge';
 import { StoryFooter } from '@/components/StoryView/StoryFooter';
@@ -277,13 +278,10 @@ export default function ContentPanel3D(): ReactElement | null {
         )}
 
         <div
-          className={`max-w-none break-words font-serif [overflow-wrap:anywhere] ${
-            preferences.textSize === 'small'
-              ? 'text-base leading-[1.8]'
-              : preferences.textSize === 'large'
-                ? 'text-xl leading-[1.9]'
-                : 'text-lg leading-[1.85]'
-          }`}
+          className={`max-w-none break-words font-serif [overflow-wrap:anywhere] ${readingSurfaceClass(
+            preferences.textSize,
+            preferences.lineHeight,
+          )}`}
         >
           <MarkdownContent content={currentContent} />
         </div>

@@ -38,6 +38,12 @@ export type Theme = 'light' | 'dark' | 'sepia';
 export type TextSize = 'small' | 'medium' | 'large';
 
 /**
+ * Line-height (leading) options for the reading surface. Decoupled from text
+ * size so long passages can be tuned for comfort independently.
+ */
+export type LineHeight = 'cozy' | 'normal' | 'relaxed';
+
+/**
  * 2D position on the node map
  */
 export interface Position {

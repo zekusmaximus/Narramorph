@@ -7,6 +7,7 @@ import { RevisitHint } from '@/components/NodeMap/RevisitHint';
 import { OpeningExperience } from '@/components/OpeningExperience';
 import { ErrorRecoveryDialog } from '@/components/UI/ErrorRecoveryDialog';
 import { UnlockNotificationSystem } from '@/components/UI/UnlockNotification';
+import { useReaderRoute } from '@/hooks/useReaderRoute';
 import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';
 
@@ -115,6 +116,10 @@ export default function Home(): ReactElement {
   // previous preference may explain a fallback, but never downloads 3D at boot.
   const [use3DMode, setUse3DMode] = useState(false);
   const isPositionsLoaded = Object.keys(positions).length > 0;
+
+  // Keep the open passage in the URL hash so the reader is not a modal trap:
+  // browser Back closes it and passages are bookmarkable (Phase 7.2).
+  useReaderRoute();
 
   // Toggle 3D mode and persist to localStorage
   const toggle3DMode = (): void => {

@@ -3,6 +3,7 @@ import type {
   TransformationState,
   Theme,
   TextSize,
+  LineHeight,
   MapViewport,
   NodeUIState,
   ConnectionUIState,
@@ -129,6 +130,12 @@ export interface UserProgress {
 export interface UserPreferences {
   textSize: TextSize;
   theme: Theme;
+  /**
+   * Reading-surface line height. Optional and defaulted ('normal') so saves
+   * written before it existed remain valid without a migration — the reader
+   * treats an absent value as 'normal'. Additive; no save-schema version bump.
+   */
+  lineHeight?: LineHeight;
   reduceMotion: boolean; // Respect prefers-reduced-motion
   showTutorial: boolean; // Show onboarding on next visit
   showReadingStats: boolean; // Display reading statistics
@@ -217,6 +224,13 @@ export interface StoryStore {
   selectedNode: string | null;
   hoveredNode: string | null;
   storyViewOpen: boolean;
+  /**
+   * True when the reader was last opened by restoring a URL (Back/Forward/reload/
+   * deep-link) rather than by a deliberate click/continuation. The reader uses it
+   * to resume the saved scroll offset on an interrupted read, while a fresh open
+   * starts at the top. Phase 7.2; transient (never persisted).
+   */
+  lastReaderOpenWasRestore: boolean;
   isAnimating: boolean; // Camera animation in progress
 
   // L3 Assembly State
@@ -259,6 +273,14 @@ export interface StoryStore {
   setHoveredNode: (nodeId: string | null) => void;
   setIsAnimating: (value: boolean) => void;
   openStoryView: (nodeId: string, opts?: { variationId?: string }) => void;
+  /**
+   * Re-show a passage from a URL hash (Back/Forward/reload/deep-link) WITHOUT
+   * recording a new visit (Phase 7.2). Browser-history navigation restores the
+   * reader; it never inflates visit counts, selection records, or visit events —
+   * only a deliberate click/continuation (openStoryView) does. This keeps exact
+   * visit semantics on reopen and lets an interrupted read resume its variation.
+   */
+  restoreStoryView: (nodeId: string) => void;
   closeStoryView: () => void;
   saveProgress: () => void;
   loadProgress: () => void;

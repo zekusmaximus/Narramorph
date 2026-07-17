@@ -131,6 +131,7 @@ export const useStoryStore = create<StoryStore>()(
     selectedNode: null,
     hoveredNode: null,
     storyViewOpen: false,
+    lastReaderOpenWasRestore: false,
     isAnimating: false,
     stats: createInitialStats(),
     preferences: createInitialPreferences(),
@@ -882,6 +883,8 @@ export const useStoryStore = create<StoryStore>()(
         state.selectedNode = nodeId;
         state.l3AssemblyViewOpen = false;
         state.storyViewOpen = true;
+        // A deliberate open starts at the top of the passage.
+        state.lastReaderOpenWasRestore = false;
       });
 
       devLog(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
@@ -889,6 +892,31 @@ export const useStoryStore = create<StoryStore>()(
       devLog(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
 
       // CameraController will clear the animation flag when the spring settles
+    },
+
+    restoreStoryView: (nodeId: string) => {
+      // Re-show a passage from the URL (Back/Forward/reload/deep-link) without
+      // recording a new visit: no visitNode, no activeVisit, no state advance.
+      // The reader renders the variation for the already-recorded visit count,
+      // so an interrupted read resumes the same prose (and scroll). L3 and
+      // locked nodes are never restored here (callers gate on reachability).
+      const state = get();
+      if (state.progress.lockedNodes?.includes(nodeId) || isL3Node(nodeId)) {
+        return;
+      }
+      if (state.storyViewOpen && state.selectedNode === nodeId) {
+        return;
+      }
+      if (state.activeVisit) {
+        state.finalizeActiveVisit();
+      }
+      set((draft) => {
+        draft.selectedNode = nodeId;
+        draft.l3AssemblyViewOpen = false;
+        draft.storyViewOpen = true;
+        // A restore resumes the saved scroll offset for this passage.
+        draft.lastReaderOpenWasRestore = true;
+      });
     },
 
     closeStoryView: () => {

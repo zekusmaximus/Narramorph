@@ -36,6 +36,7 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
   const adapter = useMapInteractionAdapter('2d');
   const nodes = useStoryStore((state) => state.nodes);
   const preferences = useStoryStore((state) => state.preferences);
+  const resumeScroll = useStoryStore((state) => state.lastReaderOpenWasRestore);
   const reduceMotion = useReducedMotionPreference();
   const getNodeState = useStoryStore((state) => state.getNodeState);
   const canVisitNode = useStoryStore((state) => state.canVisitNode);
@@ -217,7 +218,10 @@ export default function StoryView({ className = '' }: StoryViewProps): ReactElem
                 content={currentContent}
                 transformationState={nodeState.currentState}
                 textSize={preferences.textSize}
+                lineHeight={preferences.lineHeight}
                 theme={preferences.theme}
+                scrollKey={currentNode.id}
+                resumeScroll={resumeScroll}
               />
               <SelectionDisclosure reason={readerSelectionReason} theme={preferences.theme} />
               <StoryFooter

@@ -6,6 +6,7 @@ export type {
   NodeShape,
   Theme,
   TextSize,
+  LineHeight,
   Position,
   NodeVisualState,
   ConnectionVisualProperties,
