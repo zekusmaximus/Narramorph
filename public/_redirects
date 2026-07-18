@@ -1,13 +1,11 @@
 # Cloudflare redirects for Narramorph.
 #
-# This site is served via Cloudflare Workers Static Assets, whose _redirects file
-# accepts ONLY relative, same-host URLs. Cross-host canonicalization
-# (www.narramorph.com -> narramorph.com, 301) is therefore configured as a
-# zone-level Redirect Rule in the Cloudflare dashboard (Rules -> Redirect Rules),
-# not here — see docs/RELEASE_ROLLBACK.md section 1. A cross-host rule in this file
-# fails the deploy with "Only relative URLs are allowed" [code 100324].
+# The canonical-host redirect (www.narramorph.com -> narramorph.com, 301) is
+# configured as a zone-level Redirect Rule in the Cloudflare dashboard
+# (Rules -> Redirect Rules), not here: it runs at the edge before asset serving,
+# is host-agnostic, and avoids platform-specific _redirects cross-host / force-flag
+# quirks. See docs/RELEASE_ROLLBACK.md section 1.
 #
 # The app is hash-routed (#/passage/:id), so all real navigation is under "/", which
 # serves index.html; genuinely unknown paths fall through to the branded 404.html.
-# No SPA rewrite or same-host redirect is needed, so this file is intentionally
-# comment-only.
+# No same-host redirect is needed, so this file is intentionally comment-only.
