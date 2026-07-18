@@ -4,13 +4,15 @@ Narramorph v1 is a static, client-side app (ADR 0006) deployed on **Cloudflare P
 
 ## 1. Cloudflare Pages setup (owner-run — link the repo)
 
-| Setting                | Value                                 |
-| ---------------------- | ------------------------------------- |
-| Framework preset       | None (Vite)                           |
-| Build command          | `npm run build`                       |
-| Build output directory | `dist`                                |
-| Node version           | `22` (matches CI; engines `>=22 <25`) |
-| Root directory         | repository root                       |
+| Setting | Value |
+| --- | --- |
+| Framework preset | None (Vite) |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Node version | pinned to `22` by [`.nvmrc`](../.nvmrc) (matches CI; engines `>=22 <25`) |
+| Root directory | repository root |
+
+Cloudflare Pages reads [`.nvmrc`](../.nvmrc) automatically, so no `NODE_VERSION` env var is needed; set one only to override the pin.
 
 **Environment variables / secrets** (Production; add only what you use):
 
