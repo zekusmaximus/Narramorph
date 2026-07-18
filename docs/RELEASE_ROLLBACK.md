@@ -22,7 +22,9 @@ Narramorph v1 is a static, client-side app (ADR 0006) deployed on **Cloudflare P
 | `SENTRY_AUTH_TOKEN`, `SENTRY_ORG`, `SENTRY_PROJECT` | Secrets for `npm run sourcemaps:upload`. |
 | `GIT_SHA` | Recorded in the release manifest (Cloudflare provides `CF_PAGES_COMMIT_SHA`). |
 
-**Custom domain & TLS:** add `narramorph.com` (apex) as the custom domain; `_redirects` sends `www.narramorph.com → narramorph.com` (301). HSTS (from `_headers`) is preload-eligible — submit to <https://hstspreload.org/> only after HTTPS is confirmed across the apex and all subdomains (8.2).
+**Custom domain & TLS:** add `narramorph.com` (apex) as the custom domain, and add `www.narramorph.com` too so the canonical redirect has a hostname to catch. HSTS (from `_headers`) is preload-eligible — submit to <https://hstspreload.org/> only after HTTPS is confirmed across the apex and all subdomains (8.2).
+
+**Canonical host (www → apex):** this site deploys as **Cloudflare Workers Static Assets**, whose [`_redirects`](../public/_redirects) accepts **only relative, same-host URLs** — a cross-host rule there fails the build with `Only relative URLs are allowed [code 100324]`. So the `www.narramorph.com → narramorph.com` (301) redirect is a **zone-level Redirect Rule**, not a line in `_redirects`. In the Cloudflare dashboard: **narramorph.com zone → Rules → Redirect Rules → Create rule** — When incoming requests match `Hostname equals www.narramorph.com`, Then **Dynamic** redirect to `concat("https://narramorph.com", http.request.uri.path)`, status **301**, "Preserve query string" on. (If you'd rather keep the redirect inside `_redirects`, recreate the project as classic **Cloudflare Pages** instead of Workers Static Assets, which permits absolute-URL redirects; the Redirect-Rule approach is preferred because it runs at the edge before asset serving and is host-agnostic.)
 
 **Environments:** production builds from the default branch; **PR preview deployments** and a **protected staging** environment are Cloudflare Pages features to enable when linking (owner-run).
 
