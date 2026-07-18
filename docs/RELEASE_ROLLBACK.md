@@ -4,13 +4,15 @@ Narramorph v1 is a static, client-side app (ADR 0006) deployed on **Cloudflare P
 
 ## 1. Cloudflare Pages setup (owner-run — link the repo)
 
-| Setting                | Value                                 |
-| ---------------------- | ------------------------------------- |
-| Framework preset       | None (Vite)                           |
-| Build command          | `npm run build`                       |
-| Build output directory | `dist`                                |
-| Node version           | `22` (matches CI; engines `>=22 <25`) |
-| Root directory         | repository root                       |
+| Setting | Value |
+| --- | --- |
+| Framework preset | None (Vite) |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Node version | pinned to `22` by [`.nvmrc`](../.nvmrc) (matches CI; engines `>=22 <25`) |
+| Root directory | repository root |
+
+Cloudflare Pages reads [`.nvmrc`](../.nvmrc) automatically, so no `NODE_VERSION` env var is needed; set one only to override the pin.
 
 **Environment variables / secrets** (Production; add only what you use):
 
@@ -22,7 +24,11 @@ Narramorph v1 is a static, client-side app (ADR 0006) deployed on **Cloudflare P
 | `SENTRY_AUTH_TOKEN`, `SENTRY_ORG`, `SENTRY_PROJECT` | Secrets for `npm run sourcemaps:upload`. |
 | `GIT_SHA` | Recorded in the release manifest (Cloudflare provides `CF_PAGES_COMMIT_SHA`). |
 
-**Custom domain & TLS:** add `narramorph.com` (apex) as the custom domain; `_redirects` sends `www.narramorph.com → narramorph.com` (301). HSTS (from `_headers`) is preload-eligible — submit to <https://hstspreload.org/> only after HTTPS is confirmed across the apex and all subdomains (8.2).
+**Custom domain & TLS:** add `narramorph.com` (apex) as the custom domain, and add `www.narramorph.com` too so the canonical redirect has a hostname to catch. HSTS (from `_headers`) is preload-eligible — submit to <https://hstspreload.org/> only after HTTPS is confirmed across the apex and all subdomains (8.2).
+
+**Canonical host (www → apex):** configure the `www.narramorph.com → narramorph.com` (301) redirect as a **zone-level Redirect Rule**, not in [`_redirects`](../public/_redirects). It runs at the edge before asset serving, is host-agnostic, and avoids platform-specific `_redirects` cross-host / force-flag quirks (a cross-host rule in `_redirects` is rejected on a Workers Static Assets deploy with `Only relative URLs are allowed [code 100324]`; Pages is more permissive, but the Redirect Rule is the robust, platform-independent choice either way). In the Cloudflare dashboard: **narramorph.com zone → Rules → Redirect Rules → Create rule** — When incoming requests match `Hostname equals www.narramorph.com`, Then **Dynamic** redirect to `concat("https://narramorph.com", http.request.uri.path)`, status **301**, "Preserve query string" on. This is a canonicalization nicety, not a launch blocker — the site is reachable at the apex without it.
+
+**Project type:** deploy as a **Cloudflare Pages** project (Workers & Pages → Create → Pages → Connect to Git; build command `npm run build`, output directory `dist`). Pages natively serves the Vite `dist/` output with no `wrangler` config in the repo. A **Workers** project instead expects a Worker entry-point or a `wrangler` assets binding (`assets.directory = "./dist"`), which this static-only app does not otherwise need.
 
 **Environments:** production builds from the default branch; **PR preview deployments** and a **protected staging** environment are Cloudflare Pages features to enable when linking (owner-run).
 
