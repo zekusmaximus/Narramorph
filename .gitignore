@@ -91,6 +91,7 @@ public/*
 !public/_headers
 !public/_redirects
 !public/404.html
+!public/favicon.svg
 !public/fonts/
 
 # Storybook build outputs

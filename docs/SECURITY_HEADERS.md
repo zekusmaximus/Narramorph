@@ -31,6 +31,13 @@ form-action 'self'; manifest-src 'self'; upgrade-insecure-requests
 - **`connect-src 'self' https://*.ingest.sentry.io https://*.ingest.us.sentry.io`** — the app makes no network calls of its own (the scope-gate guard enforces first-party `src/`); the Sentry ingest hosts are the one deliberate egress, reached only after opt-in error-reporting consent (Batch 8.3).
 - **`object-src 'none'`, `base-uri 'self'`, `frame-ancestors 'none'`, `form-action 'self'`, `upgrade-insecure-requests`** — standard hardening.
 
+### Headers Cloudflare adds at the edge (not from `_headers`)
+
+A scan of the deployed site shows a few response headers injected by Cloudflare, not by this repo:
+
+- **`access-control-allow-origin: *`** — Cloudflare Pages serves static assets with permissive CORS. securityheaders.com flags it "very lax," but it is **benign here**: the content is entirely public, the app has no cookies/credentials/auth, and `*` cannot be combined with credentialed CORS by spec, so there is no data-leak vector (it did not affect the A+ grade). To remove it for a spotless report, add a zone **Transform Rule → Modify Response Header → Remove `Access-Control-Allow-Origin`** (or set it to `https://narramorph.com`) — `_headers` cannot reliably unset a header injected by Cloudflare's own layer.
+- **`report-to` / `nel`** — Cloudflare Network Error Logging (reports to `a.nel.cloudflare.com`). Browser reporting endpoints are exempt from CSP `connect-src`, so this does not conflict with the policy. Harmless; leave as-is.
+
 ## HSTS preload (owner-gated)
 
 The `preload` directive is a **commitment**: the apex domain and all subdomains must be HTTPS-only, and removal from the preload list is slow. Ship the header now, but submit the domain to <https://hstspreload.org/> **only after** the custom domain is verified HTTPS-everywhere at deploy (Batch 8.4). If any subdomain cannot be HTTPS-only, drop `includeSubDomains` and `preload`.
@@ -44,13 +51,15 @@ The `_headers` file is applied by the edge, so headers can only be checked again
    - <https://securityheaders.com/> — target grade A/A+.
    - <https://observatory.mozilla.org/> — target grade A+.
    - <https://hstspreload.org/> — confirm preload eligibility before submitting.
-3. **App-compat spot check:** open the deployed site with DevTools → Console and confirm there are **no CSP violation reports** on the landing page, an open passage, the settings/progress dialogs, and — if used — the 3D view.
+3. **App-compat spot check:** open the deployed site with DevTools → Console and confirm there are **no CSP violation reports** on the landing page, an open passage, the settings/progress dialogs, and — if used — the 3D view. (Test in an Incognito window so browser-extension content scripts don't clutter the console.)
+
+**Note — Cloudflare Web Analytics:** leave Cloudflare's Web Analytics **automatic setup OFF** for narramorph.com. When enabled, Cloudflare injects `static.cloudflareinsights.com/beacon.min.js` into the HTML at the edge, which `script-src 'self'` then blocks — a console CSP violation that is the CSP working as intended, not a bug. Keeping automatic injection off preserves the strict `script-src 'self'` XSS boundary and the no-third-party-scripts posture (Cloudflare's **server-side** zone analytics — requests, bandwidth, referrers — still work without the beacon). Enabling the client-side beacon would require adding its host to `script-src`/`connect-src` here and disclosing the analytics in [PRIVACY.md](PRIVACY.md) — a deliberate posture change, not a default.
 
 ## Results (owner-run — filled in after deploy; not fabricated)
 
 | Date | URL (preview/prod) | `headers:check` | securityheaders.com | Mozilla Observatory | HSTS preload | CSP violations in console | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| _pending_ |  |  |  |  |  |  |  |
+| 2026-07-19 | https://narramorph.com (prod) | **pass — 8/8, HTTP 200** | **A+** | **A+ (120/100, 10/10)** | not yet submitted | RUM beacon disabled by owner 2026-07-19; re-confirm clean in an Incognito console | Full strict CSP incl. `script-src 'self'`; HSTS `max-age=63072000; includeSubDomains; preload`. `access-control-allow-origin: *` is Cloudflare-injected (benign for a public, credential-less static site; not from `_headers`). Observatory's only CSP note is the **documented, necessary** `style-src 'unsafe-inline'` (runtime style injection, not a script vector) — still A+; SRI is an optional bonus (all scripts are same-origin self-hosted). HSTS-preload submission still to run. |
 
 ## Content-sanitization (verified in the gate battery)
 
