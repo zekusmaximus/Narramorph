@@ -3,7 +3,7 @@ import { useState, type ReactElement } from 'react';
 
 import { useStoryStore } from '@/stores';
 
-import { hasSeenRevisitHint, markRevisitHintSeen } from './revisitHint';
+import { hasSeenRevisitHint, markRevisitHintSeen } from './revisitHintStorage';
 
 /**
  * A single, dismissible hint that reopening a passage may change it (Phase 7.1,

@@ -5,7 +5,7 @@ import {
   hasSeenRevisitHint,
   markRevisitHintSeen,
   resetRevisitHint,
-} from './revisitHint';
+} from './revisitHintStorage';
 
 describe('revisitHint persistence', () => {
   beforeEach(() => {

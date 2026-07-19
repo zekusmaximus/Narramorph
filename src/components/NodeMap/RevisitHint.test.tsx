@@ -5,7 +5,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { useStoryStore } from '@/stores';
 
 import { RevisitHint } from './RevisitHint';
-import { REVISIT_HINT_STORAGE_KEY } from './revisitHint';
+import { REVISIT_HINT_STORAGE_KEY } from './revisitHintStorage';
 
 vi.mock('@/stores', () => ({
   useStoryStore: vi.fn(),
