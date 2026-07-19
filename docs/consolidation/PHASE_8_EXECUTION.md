@@ -192,5 +192,5 @@ Every batch must keep the full gate battery green (run locally, capture real res
 
 | Date | Profile | LCP (ms) | CLS | Story interaction (ms) | Map interaction (ms) | Budget met? | Waiver / notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| _pending_ | desktop (1440×900, 1× CPU) |  |  |  |  |  |  |
-| _pending_ | mid-range mobile (412×915, 4× CPU, Slow 4G) |  |  |  |  |  |  |
+| 2026-07-19 | desktop (1440×900, 1× CPU) | ≤ 3000 ✅ | ≤ 0.1 ✅ | ≤ 750 ✅ | ≤ 300 ✅ | ✅ yes | Real Windows hardware; `npm run test:performance` **2/2 passed** (both profiles). The spec asserts each metric ≤ its budget but does not print raw values, so thresholds-cleared are recorded (not exact numbers). Lazy-loading verified: the opening graph pulls no 3D/story/variation chunks; the story chunk loads only on open; the 3D chunk only on toggle. |
+| 2026-07-19 | mid-range mobile (412×915, 4× CPU, Slow 4G) | ≤ 8000 ✅ | ≤ 0.1 ✅ | ≤ 1500 ✅ | ≤ 600 ✅ | ✅ yes | Same run; 4× CPU throttle + Slow-4G emulation via CDP. Budget met — no waiver needed. |
