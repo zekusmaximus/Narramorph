@@ -44,7 +44,9 @@ The `_headers` file is applied by the edge, so headers can only be checked again
    - <https://securityheaders.com/> — target grade A/A+.
    - <https://observatory.mozilla.org/> — target grade A+.
    - <https://hstspreload.org/> — confirm preload eligibility before submitting.
-3. **App-compat spot check:** open the deployed site with DevTools → Console and confirm there are **no CSP violation reports** on the landing page, an open passage, the settings/progress dialogs, and — if used — the 3D view.
+3. **App-compat spot check:** open the deployed site with DevTools → Console and confirm there are **no CSP violation reports** on the landing page, an open passage, the settings/progress dialogs, and — if used — the 3D view. (Test in an Incognito window so browser-extension content scripts don't clutter the console.)
+
+**Note — Cloudflare Web Analytics:** leave Cloudflare's Web Analytics **automatic setup OFF** for narramorph.com. When enabled, Cloudflare injects `static.cloudflareinsights.com/beacon.min.js` into the HTML at the edge, which `script-src 'self'` then blocks — a console CSP violation that is the CSP working as intended, not a bug. Keeping automatic injection off preserves the strict `script-src 'self'` XSS boundary and the no-third-party-scripts posture (Cloudflare's **server-side** zone analytics — requests, bandwidth, referrers — still work without the beacon). Enabling the client-side beacon would require adding its host to `script-src`/`connect-src` here and disclosing the analytics in [PRIVACY.md](PRIVACY.md) — a deliberate posture change, not a default.
 
 ## Results (owner-run — filled in after deploy; not fabricated)
 
