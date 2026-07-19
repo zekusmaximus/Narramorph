@@ -31,6 +31,13 @@ form-action 'self'; manifest-src 'self'; upgrade-insecure-requests
 - **`connect-src 'self' https://*.ingest.sentry.io https://*.ingest.us.sentry.io`** — the app makes no network calls of its own (the scope-gate guard enforces first-party `src/`); the Sentry ingest hosts are the one deliberate egress, reached only after opt-in error-reporting consent (Batch 8.3).
 - **`object-src 'none'`, `base-uri 'self'`, `frame-ancestors 'none'`, `form-action 'self'`, `upgrade-insecure-requests`** — standard hardening.
 
+### Headers Cloudflare adds at the edge (not from `_headers`)
+
+A scan of the deployed site shows a few response headers injected by Cloudflare, not by this repo:
+
+- **`access-control-allow-origin: *`** — Cloudflare Pages serves static assets with permissive CORS. securityheaders.com flags it "very lax," but it is **benign here**: the content is entirely public, the app has no cookies/credentials/auth, and `*` cannot be combined with credentialed CORS by spec, so there is no data-leak vector (it did not affect the A+ grade). To remove it for a spotless report, add a zone **Transform Rule → Modify Response Header → Remove `Access-Control-Allow-Origin`** (or set it to `https://narramorph.com`) — `_headers` cannot reliably unset a header injected by Cloudflare's own layer.
+- **`report-to` / `nel`** — Cloudflare Network Error Logging (reports to `a.nel.cloudflare.com`). Browser reporting endpoints are exempt from CSP `connect-src`, so this does not conflict with the policy. Harmless; leave as-is.
+
 ## HSTS preload (owner-gated)
 
 The `preload` directive is a **commitment**: the apex domain and all subdomains must be HTTPS-only, and removal from the preload list is slow. Ship the header now, but submit the domain to <https://hstspreload.org/> **only after** the custom domain is verified HTTPS-everywhere at deploy (Batch 8.4). If any subdomain cannot be HTTPS-only, drop `includeSubDomains` and `preload`.
@@ -52,7 +59,7 @@ The `_headers` file is applied by the edge, so headers can only be checked again
 
 | Date | URL (preview/prod) | `headers:check` | securityheaders.com | Mozilla Observatory | HSTS preload | CSP violations in console | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2026-07-19 | https://narramorph.com (prod) | **pass — 8/8, HTTP 200** | _pending_ | _pending_ | not yet submitted | RUM beacon disabled by owner 2026-07-19; re-confirm clean in an Incognito console | Full strict CSP incl. `script-src 'self'` served at the edge; HSTS `max-age=63072000; includeSubDomains; preload`. External scanners + HSTS-preload submission still to run. |
+| 2026-07-19 | https://narramorph.com (prod) | **pass — 8/8, HTTP 200** | **A+** | _pending_ | not yet submitted | RUM beacon disabled by owner 2026-07-19; re-confirm clean in an Incognito console | Full strict CSP incl. `script-src 'self'`; HSTS `max-age=63072000; includeSubDomains; preload`. `access-control-allow-origin: *` is Cloudflare-injected (benign for a public, credential-less static site; not from `_headers`). Mozilla Observatory + HSTS-preload submission still to run. |
 
 ## Content-sanitization (verified in the gate battery)
 
