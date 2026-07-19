@@ -52,7 +52,7 @@ The `_headers` file is applied by the edge, so headers can only be checked again
 
 | Date | URL (preview/prod) | `headers:check` | securityheaders.com | Mozilla Observatory | HSTS preload | CSP violations in console | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| _pending_ |  |  |  |  |  |  |  |
+| 2026-07-19 | https://narramorph.com (prod) | **pass — 8/8, HTTP 200** | _pending_ | _pending_ | not yet submitted | RUM beacon disabled by owner 2026-07-19; re-confirm clean in an Incognito console | Full strict CSP incl. `script-src 'self'` served at the edge; HSTS `max-age=63072000; includeSubDomains; preload`. External scanners + HSTS-preload submission still to run. |
 
 ## Content-sanitization (verified in the gate battery)
 
