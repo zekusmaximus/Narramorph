@@ -1,13 +1,12 @@
-import { motion } from 'framer-motion';
 import type { ReactElement } from 'react';
 
-import { useDialogFocus } from '@/hooks/useDialogFocus';
-import type { ReadingStats, StoryNode, UserProgress } from '@/types';
+import type { CharacterType, ReadingStats, StoryNode, UserProgress } from '@/types';
 
 import { AdaptationLedger } from './AdaptationLedger';
 import { JourneyControlActions } from './JourneyControlActions';
 import { JourneyExportActions } from './JourneyExportActions';
 import { buildNarrativePath, buildProgressSummary } from './progressPresentation';
+import { RecordSheetDialog } from './RecordSheetDialog';
 
 interface ProgressDialogProps {
   open: boolean;
@@ -18,6 +17,16 @@ interface ProgressDialogProps {
   reduceMotion: boolean;
 }
 
+/** Perspective ink (readable text) and short tag code, keyed by character. */
+const PERSPECTIVE: Record<CharacterType, { ink: string; fill: string; code: string }> = {
+  archaeologist: { ink: '#7db2ec', fill: '#4a90e2', code: 'ARCH' },
+  algorithm: { ink: '#50C878', fill: '#50c878', code: 'ALGO' },
+  'last-human': { ink: '#E74C3C', fill: '#e74c3c', code: 'HUMAN' },
+  'multi-perspective': { ink: '#b07cc9', fill: '#9b59b6', code: 'CONV' },
+};
+
+const NEUTRAL_INK = '#b7c6ce';
+
 export function ProgressDialog({
   open,
   onClose,
@@ -26,177 +35,161 @@ export function ProgressDialog({
   nodes,
   reduceMotion,
 }: ProgressDialogProps): ReactElement | null {
-  const dialogRef = useDialogFocus(open, onClose, {
-    initialFocusSelector: '#reading-progress-title',
-  });
   if (!open) {
     return null;
   }
   const narrativePath = buildNarrativePath(progress.readingPath, nodes);
   const summary = buildProgressSummary(progress, nodes);
 
+  const ledger: ReadonlyArray<{
+    label: string;
+    value: number;
+    denominator?: number;
+    testId?: string;
+  }> = [
+    {
+      label: 'PASSAGES',
+      value: summary.passagesOpened,
+      denominator: summary.totalPassages,
+      testId: 'progress-passages-opened',
+    },
+    { label: 'PATHS', value: summary.pathsExplored },
+    { label: 'ENDINGS', value: summary.endingsReached, denominator: summary.totalEndings },
+    { label: 'ADAPTATIONS', value: summary.adaptationsDiscovered },
+  ];
+
+  const perspectiveRows = [
+    {
+      label: 'The Archaeologist',
+      character: 'archaeologist' as const,
+      counts: stats.characterBreakdown.archaeologist,
+    },
+    {
+      label: 'The Algorithm',
+      character: 'algorithm' as const,
+      counts: stats.characterBreakdown.algorithm,
+    },
+    {
+      label: 'The Last Human',
+      character: 'last-human' as const,
+      counts: stats.characterBreakdown.lastHuman,
+    },
+  ];
+
   return (
-    <motion.div
-      initial={reduceMotion ? false : { opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={reduceMotion ? undefined : { opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-0 backdrop-blur-sm sm:p-4"
-      onClick={onClose}
+    <RecordSheetDialog
+      open={open}
+      onClose={onClose}
+      reduceMotion={reduceMotion}
+      classification="READER RECORD · FORM P-1"
+      title="Your path through the archive"
+      titleId="reading-progress-title"
+      closeLabel="Close reading progress"
+      maxWidth={560}
     >
-      <motion.div
-        ref={dialogRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="reading-progress-title"
-        tabIndex={-1}
-        initial={reduceMotion ? false : { scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={reduceMotion ? undefined : { scale: 0.9, opacity: 0 }}
-        transition={{ duration: reduceMotion ? 0 : 0.2 }}
-        className="max-h-[100dvh] w-full max-w-2xl min-w-0 overflow-x-hidden overflow-y-auto rounded-none border border-cyan-900/50 bg-[#090e13] p-5 shadow-2xl shadow-cyan-950/40 sm:max-h-[90vh] sm:rounded-lg sm:p-7"
-        onClick={(event) => event.stopPropagation()}
-      >
-        <div className="mb-5 flex min-w-0 items-start justify-between gap-3">
-          <h2
-            id="reading-progress-title"
-            tabIndex={-1}
-            className="min-w-0 break-words font-serif text-2xl text-cyan-100 [overflow-wrap:anywhere] sm:text-3xl"
-          >
-            Your path through the archive
-          </h2>
-          <button
-            onClick={onClose}
-            type="button"
-            className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-full border border-white/10 px-2.5 py-1.5 text-xl text-gray-400 transition-colors hover:bg-white/5 hover:text-cyan-300"
-            aria-label="Close reading progress"
-          >
-            ✕
-          </button>
+      <div className="space-y-5">
+        {/* One ruled ledger row — neutral ink, no colored tiles. */}
+        <div className="grid grid-cols-2 border border-[#2b3b44] sm:grid-cols-4">
+          {ledger.map(({ label, value, denominator, testId }) => (
+            <div
+              key={label}
+              className="border-r border-b border-[#1d2b33] px-3 py-3 sm:border-b-0 sm:last:border-r-0"
+            >
+              <div className="font-mono text-[10px] font-medium tracking-[0.12em] text-[#93a5ae]">
+                {label}
+              </div>
+              <div
+                data-testid={testId}
+                className="mt-1 font-mono text-[22px] font-semibold text-[#eef4f6] tabular-nums"
+              >
+                {value}
+                {typeof denominator === 'number' && (
+                  <span className="text-[14px] text-[#8fa3ad]">/{denominator}</span>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
 
-        <div className="space-y-4">
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-4">
-            {[
-              {
-                label: 'Passages opened',
-                value: `${summary.passagesOpened}/${summary.totalPassages}`,
-                containerClass: 'bg-cyan-500/10 border-cyan-500/30',
-                valueClass: 'text-cyan-400',
-                testId: 'progress-passages-opened',
-              },
-              {
-                label: 'Paths explored',
-                value: `${summary.pathsExplored}`,
-                containerClass: 'bg-green-500/10 border-green-500/30',
-                valueClass: 'text-green-400',
-                testId: undefined,
-              },
-              {
-                label: 'Endings reached',
-                value: `${summary.endingsReached}/${summary.totalEndings}`,
-                containerClass: 'bg-purple-500/10 border-purple-500/30',
-                valueClass: 'text-purple-400',
-                testId: undefined,
-              },
-              {
-                label: 'Adaptations discovered',
-                value: `${summary.adaptationsDiscovered}`,
-                containerClass: 'bg-amber-500/10 border-amber-500/30',
-                valueClass: 'text-amber-400',
-                testId: undefined,
-              },
-            ].map(({ label, value, containerClass, valueClass, testId }) => (
-              <div key={label} className={`${containerClass} min-w-0 rounded-lg border p-3 sm:p-4`}>
-                <div className="mb-1 text-[0.6rem] uppercase tracking-[0.16em] text-gray-400 sm:text-xs">
-                  {label}
-                </div>
-                <div
-                  data-testid={testId}
-                  className={`${valueClass} break-words text-2xl font-light tabular-nums sm:text-3xl`}
-                >
-                  {value}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {narrativePath.length > 0 && (
-            <section className="rounded-lg border border-gray-700/50 bg-gray-900/50 p-4">
-              <h3 className="mb-3 text-[0.65rem] uppercase tracking-[0.18em] text-gray-400">
-                The path you left behind
-              </h3>
-              <ol className="space-y-2">
-                {narrativePath.map((entry, index) => (
+        {narrativePath.length > 0 && (
+          <section className="border border-[#1d2b33]">
+            <h3 className="border-b border-[#1d2b33] px-4 py-2.5 font-mono text-[11px] tracking-[0.14em] text-[#8fa3ad] uppercase">
+              The path you left behind
+            </h3>
+            <ol>
+              {narrativePath.map((entry, index) => {
+                const perspective = entry.character ? PERSPECTIVE[entry.character] : null;
+                const tag = perspective
+                  ? `${perspective.code}${entry.occurrence > 1 ? ` · ×${entry.occurrence}` : ''}`
+                  : '';
+                return (
                   <li
                     key={`${progress.readingPath.length - narrativePath.length + index}`}
-                    className="border-l border-cyan-900/80 py-1 pl-3"
+                    className="flex items-baseline justify-between gap-3 border-b border-[#1d2b33] px-4 py-2 last:border-b-0"
                   >
-                    <p className="font-serif text-sm text-slate-200 sm:text-base">
-                      <span className="text-slate-400">{entry.action}</span>{' '}
-                      <cite className="not-italic text-cyan-200">“{entry.title}”</cite>
+                    <p className="min-w-0 text-[13px] text-[#b7c6ce]">
+                      <span className="text-[#93a5ae]">{entry.action}</span>{' '}
+                      <cite
+                        className="font-serif font-semibold not-italic"
+                        style={{ color: perspective ? perspective.ink : NEUTRAL_INK }}
+                      >
+                        {entry.title}
+                      </cite>
                     </p>
-                    <p className="mt-0.5 text-xs text-slate-500">
-                      {entry.characterLabel}
-                      {entry.occurrence > 1 && ` · encounter ${entry.occurrence}`}
-                    </p>
+                    {tag && (
+                      <span className="shrink-0 font-mono text-[11px] whitespace-nowrap text-[#93a5ae]">
+                        {tag}
+                      </span>
+                    )}
                   </li>
-                ))}
-              </ol>
-              {progress.readingPath.length > 10 && (
-                <p className="mt-3 text-xs text-gray-500">
-                  Showing the latest 10 of {progress.readingPath.length} encounters
-                </p>
-              )}
-            </section>
-          )}
-
-          <AdaptationLedger records={progress.selectionRecords} />
-
-          <JourneyExportActions />
-
-          <JourneyControlActions />
-
-          <div className="bg-gray-900/50 border border-gray-700/50 rounded-lg p-4">
-            <div className="mb-3 text-[0.65rem] uppercase tracking-[0.18em] text-gray-400">
-              By perspective
-            </div>
-            <div className="space-y-2">
-              {[
-                {
-                  label: 'The Archaeologist',
-                  counts: stats.characterBreakdown.archaeologist,
-                  dotClass: 'bg-cyan-400',
-                  valueClass: 'text-cyan-400',
-                },
-                {
-                  label: 'The Algorithm',
-                  counts: stats.characterBreakdown.algorithm,
-                  dotClass: 'bg-green-400',
-                  valueClass: 'text-green-400',
-                },
-                {
-                  label: 'The Last Human',
-                  counts: stats.characterBreakdown.lastHuman,
-                  dotClass: 'bg-red-400',
-                  valueClass: 'text-red-400',
-                },
-              ].map(({ label, counts, dotClass, valueClass }) => {
-                return (
-                  <div key={label} className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <div className={`${dotClass} w-3 h-3 rounded-full`} />
-                      <span className="text-sm text-gray-300">{label}</span>
-                    </div>
-                    <span className={`${valueClass} text-sm tabular-nums`}>
-                      {counts.visited}/{counts.total}
-                    </span>
-                  </div>
                 );
               })}
-            </div>
+            </ol>
+            {progress.readingPath.length > 10 && (
+              <p className="border-t border-[#1d2b33] px-4 py-2 font-mono text-[10px] tracking-[0.12em] text-[#93a5ae] uppercase">
+                Showing the latest 10 of {progress.readingPath.length} encounters
+              </p>
+            )}
+          </section>
+        )}
+
+        <AdaptationLedger records={progress.selectionRecords} />
+
+        <JourneyExportActions />
+
+        <JourneyControlActions />
+
+        <section className="border border-[#1d2b33]">
+          <h3 className="border-b border-[#1d2b33] px-4 py-2.5 font-mono text-[11px] tracking-[0.14em] text-[#8fa3ad] uppercase">
+            By perspective
+          </h3>
+          <div>
+            {perspectiveRows.map(({ label, character, counts }) => {
+              const perspective = PERSPECTIVE[character];
+              return (
+                <div
+                  key={label}
+                  className="flex items-center justify-between gap-3 border-b border-[#1d2b33] px-4 py-2 last:border-b-0"
+                >
+                  <div className="flex items-center gap-2">
+                    <span
+                      aria-hidden="true"
+                      className="h-[14px] w-[14px] shrink-0 border border-[#38505b]"
+                      style={{ backgroundColor: perspective.fill }}
+                    />
+                    <span className="text-[13px]" style={{ color: perspective.ink }}>
+                      {label}
+                    </span>
+                  </div>
+                  <span className="font-mono text-[12px] text-[#93a5ae] tabular-nums">
+                    {counts.visited}/{counts.total}
+                  </span>
+                </div>
+              );
+            })}
           </div>
-        </div>
-      </motion.div>
-    </motion.div>
+        </section>
+      </div>
+    </RecordSheetDialog>
   );
 }

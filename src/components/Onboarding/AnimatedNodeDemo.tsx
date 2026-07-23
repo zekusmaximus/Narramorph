@@ -1,74 +1,47 @@
-import { motion } from 'framer-motion';
 import type { ReactElement } from 'react';
 
 import { INTRO_DEMO_CAPTION } from './introContent';
 
 interface AnimatedNodeDemoProps {
   /**
-   * When true, no looping motion runs: a static node-and-ring is shown instead.
-   * The caller passes the resolved preference (OS `prefers-reduced-motion` OR the
-   * in-app "Reduce motion" setting) so this honours both.
+   * Retained for API compatibility and honoured by the record-sheet redesign:
+   * the demo is now a static sample (no pulsing), so reduced motion changes
+   * nothing visually. The resolved preference (OS `prefers-reduced-motion` OR the
+   * in-app "Reduce motion" setting) is still recorded on the figure for tests and
+   * to guarantee no motion ever runs here.
    */
   reduceMotion: boolean;
 }
 
 /**
- * A semantic, accessible reimagining of the older prototype's animation-only
- * node demo (`.example-node` pulse + `.click-indicator` ripple). The SVG is
- * decorative (`aria-hidden`); the always-present `<figcaption>` carries the
- * explanation, so nothing lives only in motion. Under reduced motion the same
- * shapes render statically.
+ * A static Accession sample of a map passage: a real perspective-filled node
+ * circle beside a label plaque, captioned so a reader can recognise the pieces on
+ * the map. The graphic is decorative (`aria-hidden`); the always-present
+ * `<figcaption>` carries the meaning, so nothing lives only in visuals and there
+ * is no motion to suppress.
  */
 export function AnimatedNodeDemo({ reduceMotion }: AnimatedNodeDemoProps): ReactElement {
-  // Scale animations on SVG shapes must pivot on the shape's own box.
-  const centerOrigin = { transformBox: 'fill-box' as const, transformOrigin: 'center' };
-
   return (
     <figure
-      className="my-1 flex flex-col items-center gap-3 rounded-lg border border-cyan-200/15 bg-black/20 px-4 py-4"
+      className="my-2 flex flex-col items-center gap-3 border border-[#1d2b33] bg-[#080d10] px-4 py-5"
       data-testid="intro-node-demo"
       data-reduced-motion={reduceMotion}
     >
-      <svg
-        viewBox="0 0 120 120"
-        role="img"
-        aria-hidden="true"
-        className="h-24 w-24 shrink-0 overflow-visible"
-      >
-        {/* Expanding "click" ripple — the invitation to select. */}
-        <motion.circle
-          cx={60}
-          cy={60}
-          r={20}
-          fill="none"
-          stroke="#a5f3fc"
-          strokeWidth={2}
-          style={centerOrigin}
-          initial={false}
-          animate={
-            reduceMotion
-              ? { scale: 1.4, opacity: 0.35 }
-              : { scale: [0.85, 1.7], opacity: [0.55, 0] }
-          }
-          transition={
-            reduceMotion ? { duration: 0 } : { duration: 2, repeat: Infinity, ease: 'easeOut' }
-          }
+      <div className="flex items-center gap-3" aria-hidden="true">
+        {/* A real node circle, filled with the archaeologist perspective gradient. */}
+        <span
+          className="h-10 w-10 shrink-0 rounded-full"
+          style={{
+            background: 'radial-gradient(circle at 38% 32%, #6fa9ea, #4A90E2 60%, #2c5f9e)',
+          }}
         />
-        {/* The node itself — a fragment waiting to be opened. */}
-        <motion.circle
-          cx={60}
-          cy={60}
-          r={16}
-          fill="#22d3ee"
-          style={{ ...centerOrigin, filter: 'drop-shadow(0 0 10px rgba(34,211,238,0.55))' }}
-          initial={false}
-          animate={reduceMotion ? { scale: 1 } : { scale: [1, 1.12, 1] }}
-          transition={
-            reduceMotion ? { duration: 0 } : { duration: 2, repeat: Infinity, ease: 'easeInOut' }
-          }
-        />
-      </svg>
-      <figcaption className="max-w-xs text-center text-sm leading-relaxed text-slate-300">
+        {/* A sample label plaque, as it appears beside a passage on the map. */}
+        <span className="border border-[rgba(74,144,226,0.35)] bg-[#0b1015]/92 px-2.5 py-1 font-serif text-[12px] text-[#7db2ec]">
+          First Documentation
+        </span>
+        <span className="font-mono text-[10px] tracking-[0.14em] text-[#8fa3ad]">← A PASSAGE</span>
+      </div>
+      <figcaption className="max-w-xs text-center text-[13px] leading-relaxed text-[#93a5ae]">
         {INTRO_DEMO_CAPTION}
       </figcaption>
     </figure>

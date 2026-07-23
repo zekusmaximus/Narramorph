@@ -14,7 +14,7 @@
   --perspective-convergence: #9b59b6;
 
   /* Perspective readable-text variants (>=4.5:1 on the dark shell) */
-  --perspective-archaeologist-ink: #4a90e2;
+  --perspective-archaeologist-ink: #7db2ec;
   --perspective-algorithm-ink: #50c878;
   --perspective-last-human-ink: #e74c3c;
   --perspective-convergence-ink: #b07cc9;
@@ -22,9 +22,19 @@
   /* Surfaces */
   --surface-shell: #080d10;
   --surface-raised: #0b1015;
+  --surface-slip: #0d1318; /* catalog slip / map panels / notice slips / dialog panels */
+  --surface-outline: #2b3b44; /* primary hairline (decorative panel boundary) */
+  --surface-outline-soft: #1d2b33; /* interior rules, non-meaningful */
   --surface-reader-night: #111827;
   --surface-reader-paper: #ffffff;
   --surface-reader-archive: #fffbeb;
+
+  /* Accession chrome inks (neutral record-sheet language) */
+  --ink-primary: #eef4f6; /* 16.9:1 on shell */
+  --ink-secondary: #b7c6ce; /* 10.5:1 on shell */
+  --ink-tertiary: #93a5ae; /* 7.1:1 on shell — the text floor */
+  --ink-meta: #8fa3ad; /* 7.9:1 — mono machine metadata */
+  --accent-thread: #e8d9b8; /* essential-thread stamp, 11.6:1 on shell */
 
   /* Focus ring — default is for dark surfaces; flips on light reader panels below */
   --focus-ring: #a5f3fc;

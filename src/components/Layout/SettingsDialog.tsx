@@ -1,10 +1,9 @@
-import { motion } from 'framer-motion';
-import { Check, Moon, Settings, Sun, X } from 'lucide-react';
-import { useCallback, useMemo, useRef, type ReactElement } from 'react';
+import { useMemo, type ReactElement } from 'react';
 
-import { useDialogFocus } from '@/hooks/useDialogFocus';
 import type { LineHeight, TextSize, Theme, UserPreferences } from '@/types';
 import { buildSampleRedactedEvent } from '@/utils/errorRedaction';
+
+import { RecordSheetDialog, SectionHeading, Stamp } from './RecordSheetDialog';
 
 interface SettingsDialogProps {
   open: boolean;
@@ -14,35 +13,68 @@ interface SettingsDialogProps {
   reduceMotion: boolean;
 }
 
-const TEXT_SIZE_OPTIONS: ReadonlyArray<{
-  value: TextSize;
-  label: string;
-  sampleClass: string;
-}> = [
-  { value: 'small', label: 'Compact', sampleClass: 'text-sm' },
-  { value: 'medium', label: 'Comfortable', sampleClass: 'text-base' },
-  { value: 'large', label: 'Large', sampleClass: 'text-lg' },
+const TEXT_SIZE_OPTIONS: ReadonlyArray<{ value: TextSize; label: string }> = [
+  { value: 'small', label: 'Compact' },
+  { value: 'medium', label: 'Comfortable' },
+  { value: 'large', label: 'Large' },
 ];
 
 const THEME_OPTIONS: ReadonlyArray<{
   value: Theme;
   label: string;
   description: string;
+  swatch: string;
 }> = [
-  { value: 'light', label: 'Paper', description: 'Clear ink on a pale page' },
-  { value: 'dark', label: 'Night', description: 'Low-light archive surface' },
-  { value: 'sepia', label: 'Archive', description: 'Warm, weathered paper' },
+  { value: 'light', label: 'Paper', description: 'Clear ink on a pale page', swatch: '#ffffff' },
+  { value: 'dark', label: 'Night', description: 'Low-light archive surface', swatch: '#111827' },
+  { value: 'sepia', label: 'Archive', description: 'Warm, weathered paper', swatch: '#fffbeb' },
 ];
 
-const LINE_HEIGHT_OPTIONS: ReadonlyArray<{
-  value: LineHeight;
-  label: string;
-  sampleClass: string;
-}> = [
-  { value: 'cozy', label: 'Cozy', sampleClass: 'leading-[1.3]' },
-  { value: 'normal', label: 'Normal', sampleClass: 'leading-[1.6]' },
-  { value: 'relaxed', label: 'Airy', sampleClass: 'leading-[2]' },
+const LINE_HEIGHT_OPTIONS: ReadonlyArray<{ value: LineHeight; label: string }> = [
+  { value: 'cozy', label: 'Cozy' },
+  { value: 'normal', label: 'Normal' },
+  { value: 'relaxed', label: 'Airy' },
 ];
+
+/** A hairline-ruled segmented row of radio cells; the selected cell is stamped. */
+function SegmentedRow<T extends string>({
+  name,
+  value,
+  options,
+  onChange,
+}: {
+  name: string;
+  value: T;
+  options: ReadonlyArray<{ value: T; label: string }>;
+  onChange: (value: T) => void;
+}): ReactElement {
+  return (
+    <div className="grid grid-cols-3 border border-[#2b3b44]">
+      {options.map((option) => {
+        const selected = value === option.value;
+        return (
+          <label
+            key={option.value}
+            className={`relative flex min-h-11 cursor-pointer items-center justify-between gap-2 border-r border-[#2b3b44] px-3 text-[13px] transition-colors last:border-r-0 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#a5f3fc] ${
+              selected ? 'bg-[#132027] text-[#eef4f6]' : 'text-[#b7c6ce] hover:bg-white/[0.03]'
+            }`}
+          >
+            <input
+              type="radio"
+              name={name}
+              value={option.value}
+              checked={selected}
+              onChange={() => onChange(option.value)}
+              className="sr-only"
+            />
+            <span>{option.label}</span>
+            {selected && <Stamp checked />}
+          </label>
+        );
+      })}
+    </div>
+  );
+}
 
 export function SettingsDialog({
   open,
@@ -51,237 +83,166 @@ export function SettingsDialog({
   onUpdatePreferences,
   reduceMotion,
 }: SettingsDialogProps): ReactElement | null {
-  const onCloseRef = useRef(onClose);
-  onCloseRef.current = onClose;
-  const handleClose = useCallback(() => onCloseRef.current(), []);
-  const dialogRef = useDialogFocus(open, handleClose, {
-    initialFocusSelector: '#settings-title',
-  });
-
   const sampleReport = useMemo(() => JSON.stringify(buildSampleRedactedEvent(), null, 2), []);
 
   if (!open) {
     return null;
   }
 
+  const reduceMotionOn = Boolean(preferences.reduceMotion);
+  const crashReportsOn = Boolean(preferences.errorReportingConsent);
+
   return (
-    <motion.div
-      initial={reduceMotion ? false : { opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={reduceMotion ? undefined : { opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/85 p-3 backdrop-blur-sm sm:items-center sm:p-6"
-      onClick={handleClose}
+    <RecordSheetDialog
+      open={open}
+      onClose={onClose}
+      reduceMotion={reduceMotion}
+      classification="READER PREFERENCES · FORM R-3"
+      title="Shape the reading room"
+      titleId="settings-title"
+      closeLabel="Close settings"
     >
-      <motion.div
-        ref={dialogRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="settings-title"
-        tabIndex={-1}
-        initial={reduceMotion ? false : { scale: 0.97, opacity: 0, y: 10 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={reduceMotion ? undefined : { scale: 0.97, opacity: 0, y: 8 }}
-        transition={{ duration: reduceMotion ? 0 : 0.2 }}
-        className="my-auto max-h-[calc(100dvh-1.5rem)] w-full max-w-lg min-w-0 overflow-x-hidden overflow-y-auto rounded-xl border border-cyan-200/20 bg-[#0b1015] p-4 text-slate-200 shadow-2xl shadow-black/60 sm:max-h-[calc(100dvh-3rem)] sm:p-6"
-        onClick={(event) => event.stopPropagation()}
-      >
-        <div className="mb-6 grid min-w-0 grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
-          <div className="flex min-w-0 items-center gap-3">
-            <div className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cyan-200/20 bg-cyan-200/[0.05] text-cyan-200 sm:flex">
-              <Settings className="h-4 w-4" aria-hidden="true" />
-            </div>
-            <div className="min-w-0">
-              <p className="break-words text-[0.65rem] uppercase tracking-[0.22em] text-cyan-200/60 [overflow-wrap:anywhere]">
-                Reader preferences
-              </p>
-              <h2
-                id="settings-title"
-                tabIndex={-1}
-                className="break-words font-serif text-2xl font-semibold text-slate-100 [overflow-wrap:anywhere]"
+      <div className="space-y-6">
+        <fieldset className="min-w-0">
+          <legend className="mb-2 w-full p-0">
+            <SectionHeading index="01">Text size</SectionHeading>
+          </legend>
+          <SegmentedRow
+            name="reader-text-size"
+            value={preferences.textSize}
+            options={TEXT_SIZE_OPTIONS}
+            onChange={(textSize) => onUpdatePreferences({ textSize })}
+          />
+        </fieldset>
+
+        <fieldset className="min-w-0">
+          <legend className="mb-2 w-full p-0">
+            <SectionHeading index="02">Reading surface</SectionHeading>
+          </legend>
+          <div className="border border-[#2b3b44]">
+            {THEME_OPTIONS.map((option) => {
+              const selected = preferences.theme === option.value;
+              return (
+                <label
+                  key={option.value}
+                  className={`flex min-h-11 cursor-pointer items-center gap-3 border-b border-[#1d2b33] px-3 py-2 transition-colors last:border-b-0 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#a5f3fc] ${
+                    selected ? 'bg-[#132027]' : 'hover:bg-white/[0.03]'
+                  }`}
+                >
+                  <input
+                    type="radio"
+                    name="reader-theme"
+                    value={option.value}
+                    checked={selected}
+                    onChange={() => onUpdatePreferences({ theme: option.value })}
+                    className="sr-only"
+                  />
+                  <span className="min-w-0 flex-1 text-[13px]">
+                    <span className={selected ? 'text-[#eef4f6]' : 'text-[#b7c6ce]'}>
+                      {option.label}
+                    </span>{' '}
+                    <span className="text-[#7e929c]">— {option.description}</span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="h-[14px] w-[14px] shrink-0 border border-[#38505b]"
+                    style={{ backgroundColor: option.swatch }}
+                  />
+                  {selected && <Stamp checked />}
+                </label>
+              );
+            })}
+          </div>
+        </fieldset>
+
+        <fieldset className="min-w-0">
+          <legend className="mb-2 w-full p-0">
+            <SectionHeading index="03">Line spacing</SectionHeading>
+          </legend>
+          <SegmentedRow
+            name="reader-line-height"
+            value={preferences.lineHeight ?? 'normal'}
+            options={LINE_HEIGHT_OPTIONS}
+            onChange={(lineHeight) => onUpdatePreferences({ lineHeight })}
+          />
+        </fieldset>
+
+        <div className="min-w-0">
+          <SectionHeading index="04">Reduce motion</SectionHeading>
+          <label className="flex min-h-11 cursor-pointer items-center gap-3 border border-[#2b3b44] px-3 py-2 transition-colors hover:bg-white/[0.03] focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#a5f3fc]">
+            <input
+              type="checkbox"
+              checked={reduceMotionOn}
+              onChange={(event) => onUpdatePreferences({ reduceMotion: event.target.checked })}
+              className="sr-only"
+            />
+            <span className="min-w-0 flex-1 text-[13px]">
+              <span className="block text-[#dfe8ec]">Reduce motion</span>
+              <span className="mt-0.5 block text-[12px] leading-5 text-[#7e929c]">
+                Soften transitions and pause nonessential atmospheric movement.
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              className="flex h-5 w-5 shrink-0 items-center justify-center border border-[#2b3b44]"
+            >
+              <span
+                className={`font-mono text-[11px] leading-none ${
+                  reduceMotionOn ? 'text-[#a5f3fc]' : 'text-[#7e929c]'
+                }`}
               >
-                Shape the reading room
-              </h2>
-            </div>
-          </div>
-          <button
-            type="button"
-            onClick={handleClose}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-slate-400 transition-colors hover:bg-slate-800 hover:text-cyan-100 focus-visible:outline-cyan-200"
-            aria-label="Close settings"
-          >
-            <X className="h-5 w-5" aria-hidden="true" />
-          </button>
+                {reduceMotionOn ? '[×]' : '[ ]'}
+              </span>
+            </span>
+          </label>
         </div>
 
-        <div className="space-y-6">
-          <fieldset>
-            <legend className="font-serif text-lg font-medium text-slate-100">Text size</legend>
-            <p className="mt-1 text-sm text-slate-500">
-              Choose a comfortable scale for long passages.
-            </p>
-            <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
-              {TEXT_SIZE_OPTIONS.map((option) => {
-                const selected = preferences.textSize === option.value;
-                return (
-                  <label
-                    key={option.value}
-                    className={`flex min-h-14 cursor-pointer items-center justify-between gap-3 rounded-lg border px-3 py-2 transition-colors focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-cyan-200 ${
-                      selected
-                        ? 'border-cyan-200/50 bg-cyan-200/10 text-cyan-50'
-                        : 'border-slate-700/80 bg-slate-900/50 text-slate-300 hover:border-slate-600'
-                    }`}
-                  >
-                    <input
-                      type="radio"
-                      name="reader-text-size"
-                      value={option.value}
-                      checked={selected}
-                      onChange={() => onUpdatePreferences({ textSize: option.value })}
-                      className="sr-only"
-                    />
-                    <span className="text-sm">{option.label}</span>
-                    <span className={`${option.sampleClass} font-serif`} aria-hidden="true">
-                      Aa
-                    </span>
-                  </label>
-                );
-              })}
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend className="font-serif text-lg font-medium text-slate-100">
-              Reading surface
-            </legend>
-            <p className="mt-1 text-sm text-slate-500">Change the page behind the story text.</p>
-            <div className="mt-3 space-y-2">
-              {THEME_OPTIONS.map((option) => {
-                const selected = preferences.theme === option.value;
-                const ThemeIcon = option.value === 'dark' ? Moon : Sun;
-                return (
-                  <label
-                    key={option.value}
-                    className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-lg border px-3 py-2 transition-colors focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-cyan-200 ${
-                      selected
-                        ? 'border-cyan-200/50 bg-cyan-200/10'
-                        : 'border-slate-700/80 bg-slate-900/50 hover:border-slate-600'
-                    }`}
-                  >
-                    <input
-                      type="radio"
-                      name="reader-theme"
-                      value={option.value}
-                      checked={selected}
-                      onChange={() => onUpdatePreferences({ theme: option.value })}
-                      className="sr-only"
-                    />
-                    <ThemeIcon className="h-4 w-4 shrink-0 text-cyan-200/70" aria-hidden="true" />
-                    <span className="min-w-0 flex-1">
-                      <span className="block text-sm font-medium text-slate-200">
-                        {option.label}
-                      </span>
-                      <span className="block text-xs text-slate-500">{option.description}</span>
-                    </span>
-                    {selected && <Check className="h-4 w-4 text-cyan-200" aria-hidden="true" />}
-                  </label>
-                );
-              })}
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend className="font-serif text-lg font-medium text-slate-100">Line spacing</legend>
-            <p className="mt-1 text-sm text-slate-500">
-              Loosen the leading for comfortable long reads.
-            </p>
-            <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
-              {LINE_HEIGHT_OPTIONS.map((option) => {
-                const selected = (preferences.lineHeight ?? 'normal') === option.value;
-                return (
-                  <label
-                    key={option.value}
-                    className={`flex min-h-14 cursor-pointer items-center justify-between gap-3 rounded-lg border px-3 py-2 transition-colors focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-cyan-200 ${
-                      selected
-                        ? 'border-cyan-200/50 bg-cyan-200/10 text-cyan-50'
-                        : 'border-slate-700/80 bg-slate-900/50 text-slate-300 hover:border-slate-600'
-                    }`}
-                  >
-                    <input
-                      type="radio"
-                      name="reader-line-height"
-                      value={option.value}
-                      checked={selected}
-                      onChange={() => onUpdatePreferences({ lineHeight: option.value })}
-                      className="sr-only"
-                    />
-                    <span className="text-sm">{option.label}</span>
-                    <span
-                      className={`${option.sampleClass} font-serif text-xs text-slate-400`}
-                      aria-hidden="true"
-                    >
-                      Aa
-                      <br />
-                      Aa
-                    </span>
-                  </label>
-                );
-              })}
-            </div>
-          </fieldset>
-
-          <div className="border-t border-slate-800 pt-5">
-            <label className="flex cursor-pointer items-start gap-3 rounded-lg px-1 py-1 focus-within:outline focus-within:outline-2 focus-within:outline-offset-4 focus-within:outline-cyan-200">
-              <input
-                type="checkbox"
-                checked={preferences.reduceMotion}
-                onChange={(event) => onUpdatePreferences({ reduceMotion: event.target.checked })}
-                className="mt-1 h-4 w-4 shrink-0 accent-cyan-200"
-              />
-              <span className="min-w-0">
-                <span className="block font-serif text-lg text-slate-100">Reduce motion</span>
-                <span className="mt-0.5 block text-sm leading-5 text-slate-500">
-                  Soften transitions and pause nonessential atmospheric movement.
-                </span>
+        <div className="min-w-0 border-t border-[#1d2b33] pt-5">
+          <SectionHeading index="05">Anonymous crash reports</SectionHeading>
+          <label className="flex min-h-11 cursor-pointer items-start gap-3 border border-[#2b3b44] px-3 py-2 transition-colors hover:bg-white/[0.03] focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-[#a5f3fc]">
+            <input
+              type="checkbox"
+              checked={crashReportsOn}
+              onChange={(event) =>
+                onUpdatePreferences({ errorReportingConsent: event.target.checked })
+              }
+              className="sr-only"
+            />
+            <span className="min-w-0 flex-1 text-[13px]">
+              <span className="block text-[#dfe8ec]">Send anonymous crash reports</span>
+              <span className="mt-0.5 block text-[12px] leading-5 text-[#7e929c]">
+                Help fix problems by sending redacted, anonymous error reports. Off by default. Your
+                reading history, saved journeys, and passage text are never included.
               </span>
-            </label>
-          </div>
-
-          <div className="border-t border-slate-800 pt-5">
-            <label className="flex cursor-pointer items-start gap-3 rounded-lg px-1 py-1 focus-within:outline focus-within:outline-2 focus-within:outline-offset-4 focus-within:outline-cyan-200">
-              <input
-                type="checkbox"
-                checked={Boolean(preferences.errorReportingConsent)}
-                onChange={(event) =>
-                  onUpdatePreferences({ errorReportingConsent: event.target.checked })
-                }
-                className="mt-1 h-4 w-4 shrink-0 accent-cyan-200"
-              />
-              <span className="min-w-0">
-                <span className="block font-serif text-lg text-slate-100">
-                  Send anonymous crash reports
-                </span>
-                <span className="mt-0.5 block text-sm leading-5 text-slate-500">
-                  Help fix problems by sending redacted, anonymous error reports. Off by default.
-                  Your reading history, saved journeys, and passage text are never included.
-                </span>
+            </span>
+            <span
+              aria-hidden="true"
+              className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-[#2b3b44]"
+            >
+              <span
+                className={`font-mono text-[11px] leading-none ${
+                  crashReportsOn ? 'text-[#a5f3fc]' : 'text-[#7e929c]'
+                }`}
+              >
+                {crashReportsOn ? '[×]' : '[ ]'}
               </span>
-            </label>
-            <details className="mt-2 pl-3 text-sm text-slate-500">
-              <summary className="cursor-pointer text-cyan-200/70 hover:text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200">
-                See exactly what a report would contain
-              </summary>
-              <p className="mt-2">
-                A crash report is scrubbed on your device before sending — the URL is stripped to
-                the page (no passage), and no console log, saved data, or prose is included. A
-                representative report:
-              </p>
-              <pre className="mt-2 overflow-auto rounded bg-black/40 p-2 text-xs text-slate-300">
-                {sampleReport}
-              </pre>
-            </details>
-          </div>
+            </span>
+          </label>
+          <details className="mt-2 pl-1 text-[12px] text-[#7e929c]">
+            <summary className="cursor-pointer text-[#8fa3ad] transition-colors hover:text-[#b7c6ce] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a5f3fc]">
+              See exactly what a report would contain
+            </summary>
+            <p className="mt-2 leading-5">
+              A crash report is scrubbed on your device before sending — the URL is stripped to the
+              page (no passage), and no console log, saved data, or prose is included. A
+              representative report:
+            </p>
+            <pre className="mt-2 overflow-auto border border-[#1d2b33] bg-[#080d10] p-2 font-mono text-[11px] text-[#93a5ae]">
+              {sampleReport}
+            </pre>
+          </details>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </RecordSheetDialog>
   );
 }

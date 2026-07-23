@@ -34,7 +34,7 @@ export function NeuralNetwork({
               <motion.path
                 d={path}
                 fill="none"
-                stroke="#39ff14"
+                stroke="#50C878"
                 strokeWidth="1"
                 opacity="0.2"
                 filter="url(#glow)"
@@ -43,7 +43,7 @@ export function NeuralNetwork({
                 transition={{ duration: 2, delay: j * 0.2 }}
               />
               {!reduceMotion && (
-                <circle r="3" fill="#39ff14" filter="url(#glow)">
+                <circle r="3" fill="#50C878" filter="url(#glow)">
                   <animateMotion dur={`${3 + j}s`} repeatCount="indefinite" path={path} />
                 </circle>
               )}
@@ -57,12 +57,12 @@ export function NeuralNetwork({
           cx={node.x}
           cy={node.y}
           r={4}
-          fill="#39ff14"
+          fill="#50C878"
           opacity={0.4}
           filter="url(#glow)"
           initial={{ r: 4, opacity: 0.4 }}
           animate={
-            reduceMotion ? { r: 4, opacity: 0.4 } : { r: [4, 6, 4], opacity: [0.4, 0.7, 0.4] }
+            reduceMotion ? { r: 4, opacity: 0.4 } : { r: [4, 6, 4], opacity: [0.3, 0.35, 0.3] }
           }
           transition={{
             duration: reduceMotion ? 0 : 2,

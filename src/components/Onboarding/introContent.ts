@@ -58,7 +58,7 @@ export const INTRO_STEPS: readonly IntroStep[] = [
  * a reduced-motion or screen-reader user loses nothing.
  */
 export const INTRO_DEMO_CAPTION =
-  'A passage on the map pulses to invite a click. Selecting it opens it to read.';
+  'A passage sits on the map, waiting. Selecting it opens it to read.';
 
 /** Closing line that points readers at where to reopen this guide (checklist item: find Help). */
 export const INTRO_HELP_HINT = 'You can reopen this guide any time from the “?” in the top bar.';

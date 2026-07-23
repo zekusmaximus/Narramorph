@@ -1,12 +1,7 @@
 import { AnimatePresence } from 'framer-motion';
-import { useCallback, useState, type ReactElement, type ReactNode } from 'react';
+import { useCallback, useEffect, useState, type ReactElement, type ReactNode } from 'react';
 
-import {
-  IntroDialog,
-  markIntroSeen,
-  shouldShowIntro,
-  type IntroOrigin,
-} from '@/components/Onboarding';
+import { IntroDialog, markIntroSeen, type IntroOrigin } from '@/components/Onboarding';
 import { useStoryStore } from '@/stores/storyStore';
 
 import { LayoutShell } from './LayoutShell';
@@ -21,14 +16,20 @@ type UtilityDialog = 'progress' | 'settings' | null;
 
 export default function Layout({ children }: LayoutProps): ReactElement {
   const [activeDialog, setActiveDialog] = useState<UtilityDialog>(null);
-  // The introduction auto-opens the first time this browser reaches an
-  // onboarding version it has not completed; otherwise it opens only on demand
-  // from the Help entry. Reading storage once at mount avoids a flash.
-  const [introOrigin, setIntroOrigin] = useState<IntroOrigin | null>(() =>
-    shouldShowIntro() ? 'first-run' : null,
-  );
+  // The orientation guide never auto-opens: the opening picker
+  // (OpeningExperience) is the onboarding, so the intro would be a second one.
+  // It opens only on demand from the Help entry, but arriving at the map still
+  // marks the current intro version as seen (below) to keep the version gate
+  // consistent for any code that reads it.
+  const [introOrigin, setIntroOrigin] = useState<IntroOrigin | null>(null);
   const layout = useLayoutStateAdapter();
   const updatePreferences = useStoryStore((state) => state.updatePreferences);
+
+  // "Seen = true on first map arrival." Record the current intro version once on
+  // mount so the version gate stays satisfied without ever auto-opening the guide.
+  useEffect(() => {
+    markIntroSeen();
+  }, []);
 
   const openProgress = useCallback(() => setActiveDialog('progress'), []);
   const closeProgress = useCallback(() => setActiveDialog(null), []);
@@ -47,6 +48,7 @@ export default function Layout({ children }: LayoutProps): ReactElement {
       preferences={layout.preferences}
       reduceMotion={layout.reduceMotion}
       shell={layout.shell}
+      activePanel={introOrigin !== null ? 'guide' : activeDialog}
       onOpenProgress={openProgress}
       onOpenSettings={openSettings}
       onOpenHelp={openHelp}

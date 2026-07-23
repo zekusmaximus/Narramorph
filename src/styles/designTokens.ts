@@ -37,24 +37,46 @@ export const PERSPECTIVE_COLOR_LOCKED: Record<PerspectiveKey, string> = {
 };
 
 /**
- * Readable text variants (≥ 4.5:1 on the dark shell). Only the convergence purple
- * needed lifting (#9B59B6 is 4.18:1 as text); the other three already pass as text
- * and are kept identical so the mapping is complete for any future text use.
+ * Readable text variants (≥ 4.5:1 on the dark shell). The convergence purple needed
+ * lifting (#9B59B6 is 4.18:1 as text). The archaeologist fill #4A90E2 is only 5.4:1
+ * and reads thin at the 12px label size, so its text variant is lifted to #7db2ec
+ * (7.4:1) — the Accession "archaeologist ink" for small text. The fill (#4A90E2)
+ * is unchanged for node bodies. Algorithm/last-human already pass as text.
  */
 export const PERSPECTIVE_INK: Record<PerspectiveKey, string> = {
-  archaeologist: '#4A90E2',
+  archaeologist: '#7db2ec',
   algorithm: '#50C878',
   'last-human': '#E74C3C',
   'multi-perspective': '#b07cc9',
 };
 
-/** Surfaces the reader and chrome sit on. */
+/**
+ * Surfaces the reader and chrome sit on. The Accession chrome adds the catalog-slip
+ * surface (map panels, notice slips, dialog panels) and its hairline outlines.
+ */
 export const SURFACE = {
   shell: '#080d10',
   raised: '#0b1015',
+  slip: '#0d1318',
+  outline: '#2b3b44',
+  outlineSoft: '#1d2b33',
   readerNight: '#111827',
   readerPaper: '#ffffff',
   readerArchive: '#fffbeb',
+} as const;
+
+/**
+ * Neutral chrome inks for the Accession record-sheet language, on the dark shell /
+ * slip surfaces. Ratios on the shell: primary 16.9:1, secondary 10.5:1, tertiary
+ * 7.1:1 (the text floor), meta 7.9:1 (mono machine metadata). `thread` is the
+ * essential-thread stamp accent (11.6:1).
+ */
+export const INK = {
+  primary: '#eef4f6',
+  secondary: '#b7c6ce',
+  tertiary: '#93a5ae',
+  meta: '#8fa3ad',
+  thread: '#e8d9b8',
 } as const;
 
 /** Reader prose ink per surface luminance. */
@@ -98,6 +120,35 @@ export interface ContrastRequirement {
  * exactly what "contrast passes for text, controls, focus, and graph state" means.
  */
 export const CONTRAST_REQUIREMENTS: readonly ContrastRequirement[] = [
+  // Accession chrome inks (text, ≥ 4.5:1) on both dark surfaces they render on:
+  // the shell and the catalog-slip surface. The slip is the tighter of the two,
+  // so gating on it guarantees the shell.
+  ...(['primary', 'secondary', 'tertiary', 'meta', 'thread'] as const).flatMap((key) => [
+    {
+      label: `ink ${key} on shell`,
+      foreground: INK[key],
+      background: SURFACE.shell,
+      minRatio: 4.5,
+    },
+    {
+      label: `ink ${key} on slip`,
+      foreground: INK[key],
+      background: SURFACE.slip,
+      minRatio: 4.5,
+    },
+  ]),
+  // The slip hairline outline (#2b3b44) and interior soft rules are decorative panel
+  // boundaries, not components identified by their edge — the slip is identified by
+  // its darker fill against the map/shell. They are exempt from non-text contrast
+  // (WCAG 1.4.11) and intentionally excluded, like PERSPECTIVE_COLOR_LOCKED.
+  //
+  // Perspective inks also render as text on the slip (map labels, notice titles).
+  ...(Object.keys(PERSPECTIVE_INK) as PerspectiveKey[]).map((key) => ({
+    label: `perspective ink ${key} as text on slip`,
+    foreground: PERSPECTIVE_INK[key],
+    background: SURFACE.slip,
+    minRatio: 4.5,
+  })),
   // Meaningful graph state: available/visited/active perspective fills on the dark
   // shell (non-text, ≥ 3:1). Locked fills are intentionally recessive and excluded
   // (see PERSPECTIVE_COLOR_LOCKED).

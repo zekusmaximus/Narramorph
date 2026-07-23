@@ -3,11 +3,9 @@ import { TriangleAlert } from 'lucide-react';
 import { lazy, Suspense, useCallback, useEffect, useRef, useState, type ReactElement } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { RevisitHint } from '@/components/NodeMap/RevisitHint';
 import { OpeningExperience } from '@/components/OpeningExperience';
 import { ErrorRecoveryDialog } from '@/components/UI/ErrorRecoveryDialog';
-import { PersistenceNotices } from '@/components/UI/PersistenceNotices';
-import { UnlockNotificationSystem } from '@/components/UI/UnlockNotification';
+import { NoticeTray } from '@/components/UI/NoticeTray';
 import { useErrorReportingConsent } from '@/hooks/useErrorReportingConsent';
 import { useReaderRoute } from '@/hooks/useReaderRoute';
 import { useStoryStore } from '@/stores';
@@ -325,9 +323,6 @@ export default function Home(): ReactElement {
           </>
         )}
 
-        {/* One-time, dismissible invitation to revisit (never shown while reading). */}
-        <RevisitHint />
-
         {/* L3 Assembly View Modal */}
         <AnimatePresence>
           {l3AssemblyViewOpen && currentL3Assembly && (
@@ -356,11 +351,12 @@ export default function Home(): ReactElement {
           )}
         </AnimatePresence>
 
-        {/* Unlock Notification System */}
-        <UnlockNotificationSystem />
-
-        {/* Persistence recovery / quota / migration notices (Phase 7.4) */}
-        <PersistenceNotices />
+        {/*
+          One filing tray for every transient reader signal: unlock toasts,
+          persistence recovery/quota/migration notices, and the revisit hint.
+          One slip visible at a time + a "+N FILED" queue counter.
+        */}
+        <NoticeTray />
       </div>
     </div>
   );

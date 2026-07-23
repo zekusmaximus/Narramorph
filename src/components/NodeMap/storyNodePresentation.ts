@@ -1,5 +1,19 @@
 import type { NodeUIState, StoryNode } from '@/types';
 
+/**
+ * Centralised z-index scale for the map chrome so the layers cannot drift apart.
+ * atmosphere/parallax 0 · edges 5 · edge labels 10 · nodes + labels 20 ·
+ * catalog slip + zoom controls 30. Notices (40) and dialogs (50) are owned elsewhere;
+ * nothing in the map may claim ≥ 30 except the slip and the controls.
+ */
+export const MAP_Z = {
+  atmosphere: 0,
+  edges: 5,
+  edgeLabels: 10,
+  nodes: 20,
+  chrome: 30,
+} as const;
+
 export interface StoryNodePresentation {
   size: number;
   canVisit: boolean;

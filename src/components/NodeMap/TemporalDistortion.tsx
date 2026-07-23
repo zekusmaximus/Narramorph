@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import type { ReactElement } from 'react';
 
 import { useStoryStore } from '@/stores/storyStore';
+import { PERSPECTIVE_COLOR } from '@/styles/designTokens';
 
 /**
  * Creates temporal distortion around meta-aware nodes
@@ -24,13 +25,7 @@ export function TemporalDistortion(): ReactElement {
   return (
     <div className="absolute inset-0 pointer-events-none">
       {metaAwareNodes.map(({ node }) => {
-        const colors = {
-          archaeologist: '#00e5ff',
-          algorithm: '#39ff14',
-          'last-human': '#d32f2f',
-          'multi-perspective': '#9c27b0',
-        };
-        const color = colors[node.character];
+        const color = PERSPECTIVE_COLOR[node.character];
 
         return (
           <div

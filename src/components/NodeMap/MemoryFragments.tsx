@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import type { ReactElement } from 'react';
 
 import { useStoryStore } from '@/stores/storyStore';
+import { PERSPECTIVE_COLOR } from '@/styles/designTokens';
 
 interface Fragment {
   id: string;
@@ -42,14 +43,6 @@ export function MemoryFragments(): ReactElement {
         const randomWord =
           words[Math.floor(Math.random() * Math.min(words.length, 20))] || 'memory';
 
-        // Character-specific colors
-        const colors = {
-          archaeologist: '#00e5ff',
-          algorithm: '#39ff14',
-          'last-human': '#d32f2f',
-          'multi-perspective': '#9c27b0',
-        };
-
         return {
           id: `${nodeId}-${i}`,
           text: randomWord.substring(0, 15),
@@ -57,7 +50,7 @@ export function MemoryFragments(): ReactElement {
           y: Math.random() * 80 + 10, // 10-90% down screen
           delay: i * 2,
           duration: 20 + Math.random() * 10,
-          color: colors[node.character] || '#00e5ff',
+          color: PERSPECTIVE_COLOR[node.character] ?? '#3b4a54',
         };
       })
       .filter(Boolean) as Fragment[];
@@ -71,7 +64,6 @@ export function MemoryFragments(): ReactElement {
           className="absolute text-xs font-mono opacity-20"
           style={{
             color: fragment.color,
-            textShadow: `0 0 10px ${fragment.color}`,
             left: `${fragment.x}%`,
             top: `${fragment.y}%`,
           }}
