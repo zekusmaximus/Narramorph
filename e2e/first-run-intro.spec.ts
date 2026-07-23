@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 
 const INTRO_TITLE = 'How to read Narramorph';
+const HELP_BUTTON = /reader.s guide/i;
 
 /** A genuinely first-run browser: storage cleared, onboarding NOT pre-seen. */
 async function prepareFirstRun(
@@ -18,16 +19,25 @@ async function prepareFirstRun(
       localStorage.setItem('narramorph-first-run-e2e-initialized', 'true');
     }
     localStorage.setItem('narramorph-3d-mode', 'false');
-    // Deliberately leave the intro-seen key unset so the first-run intro shows.
+    // Deliberately leave the intro-seen key unset to prove the guide never auto-opens.
   });
 }
 
-test('first run shows an accessible intro covering how to begin, interact, path, and revisit', async ({
+test('first run shows the perspective picker; the guide is on demand and covers begin, interact, path, and revisit', async ({
   page,
 }) => {
   await prepareFirstRun(page);
   await page.goto('/');
 
+  // The opening picker IS the onboarding (Accession): the guide never auto-opens,
+  // even on a genuinely first-run browser.
+  await expect(
+    page.getByRole('button', { name: 'Enter the story through The Archaeologist' }),
+  ).toBeVisible();
+  await expect(page.getByRole('dialog', { name: INTRO_TITLE })).toHaveCount(0);
+
+  // The guide opens on demand from the persistent Help "?" in the header.
+  await page.getByRole('button', { name: HELP_BUTTON }).click();
   const intro = page.getByRole('dialog', { name: INTRO_TITLE });
   await expect(intro).toBeVisible();
   await expect(intro).toHaveAttribute('aria-modal', 'true');
@@ -41,14 +51,15 @@ test('first run shows an accessible intro covering how to begin, interact, path,
   // The animated node demo carries its meaning in text, not only motion.
   await expect(intro.getByTestId('intro-node-demo')).toBeVisible();
 
-  // Skip dismisses the intro and reveals the perspective picker underneath.
-  await intro.getByRole('button', { name: 'Skip introduction' }).click();
+  // Closing the guide returns to the perspective picker underneath.
+  await intro.getByTestId('intro-primary-action').click();
   await expect(page.getByRole('dialog', { name: INTRO_TITLE })).toHaveCount(0);
   await expect(
     page.getByRole('button', { name: 'Enter the story through The Archaeologist' }),
   ).toBeVisible();
 
-  // A minimal seen-version was persisted; the intro does not re-show on reload.
+  // Arriving at the archive records the current intro version as seen, keeping the
+  // version gate consistent; the guide still does not open on reload.
   const seen = await page.evaluate(() => localStorage.getItem('narramorph-intro-seen-version'));
   expect(seen).not.toBeNull();
   expect(Number.parseInt(seen ?? '', 10)).toBeGreaterThanOrEqual(1);
@@ -63,28 +74,27 @@ test('first run shows an accessible intro covering how to begin, interact, path,
 test('the guide can be replayed on demand from the Help entry', async ({ page }) => {
   await prepareFirstRun(page);
   await page.goto('/');
-
-  const intro = page.getByRole('dialog', { name: INTRO_TITLE });
-  await expect(intro).toBeVisible();
-  await intro.getByTestId('intro-primary-action').click();
   await expect(page.getByRole('dialog', { name: INTRO_TITLE })).toHaveCount(0);
 
-  // Reopen from the persistent Help "?" in the header.
-  await page.getByRole('button', { name: /reader.s guide/i }).click();
+  // Open from the persistent Help "?" in the header.
+  await page.getByRole('button', { name: HELP_BUTTON }).click();
   const replay = page.getByRole('dialog', { name: INTRO_TITLE });
   await expect(replay).toBeVisible();
   await expect(replay).toHaveAttribute('data-intro-origin', 'help');
   await expect(replay.getByTestId('intro-primary-action')).toHaveText('Back to the archive');
 
-  // Escape closes it (keyboard completion path).
+  // Escape closes it (keyboard completion path), and it can be reopened.
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog', { name: INTRO_TITLE })).toHaveCount(0);
+  await page.getByRole('button', { name: HELP_BUTTON }).click();
+  await expect(page.getByRole('dialog', { name: INTRO_TITLE })).toBeVisible();
 });
 
 test('reduced-motion readers receive the same static explanation', async ({ page }) => {
   await prepareFirstRun(page, { reducedMotion: true });
   await page.goto('/');
 
+  await page.getByRole('button', { name: HELP_BUTTON }).click();
   const intro = page.getByRole('dialog', { name: INTRO_TITLE });
   await expect(intro).toBeVisible();
 

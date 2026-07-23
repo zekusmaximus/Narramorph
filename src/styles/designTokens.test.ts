@@ -4,6 +4,7 @@ import {
   ATMOSPHERE,
   CONTRAST_REQUIREMENTS,
   FOCUS,
+  INK,
   MOTION,
   PERSPECTIVE_COLOR,
   PERSPECTIVE_COLOR_LOCKED,
@@ -79,8 +80,28 @@ describe('design tokens — TS/CSS drift guard', () => {
   it('mirrors surfaces and the focus ring into tokens.css', () => {
     expect(cssVar('surface-shell')).toBe(SURFACE.shell.toLowerCase());
     expect(cssVar('surface-raised')).toBe(SURFACE.raised.toLowerCase());
+    expect(cssVar('surface-slip')).toBe(SURFACE.slip.toLowerCase());
+    expect(cssVar('surface-outline')).toBe(SURFACE.outline.toLowerCase());
+    expect(cssVar('surface-outline-soft')).toBe(SURFACE.outlineSoft.toLowerCase());
     expect(cssVar('focus-ring')).toBe(FOCUS.onDark.toLowerCase());
     expect(cssVar('focus-ring-on-light')).toBe(FOCUS.onLight.toLowerCase());
+  });
+
+  it('mirrors the Accession chrome inks into tokens.css', () => {
+    expect(cssVar('ink-primary')).toBe(INK.primary.toLowerCase());
+    expect(cssVar('ink-secondary')).toBe(INK.secondary.toLowerCase());
+    expect(cssVar('ink-tertiary')).toBe(INK.tertiary.toLowerCase());
+    expect(cssVar('ink-meta')).toBe(INK.meta.toLowerCase());
+    expect(cssVar('accent-thread')).toBe(INK.thread.toLowerCase());
+  });
+
+  it('lifts the archaeologist text ink above the thin fill value', () => {
+    // The #4A90E2 fill is only 5.4:1 as text; the lifted ink #7db2ec must pass and
+    // must differ from the fill so 12px labels stay legible.
+    expect(cssVar('perspective-archaeologist-ink')).toBe(
+      PERSPECTIVE_INK.archaeologist.toLowerCase(),
+    );
+    expect(PERSPECTIVE_INK.archaeologist).not.toBe(PERSPECTIVE_COLOR.archaeologist);
   });
 
   it('mirrors motion durations and atmosphere opacity into tokens.css', () => {

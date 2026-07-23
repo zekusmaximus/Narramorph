@@ -13,6 +13,9 @@ async function prepare2DReader(page: Page): Promise<void> {
     // Treat onboarding as already seen so first-run journeys aren't blocked by
     // the intro modal (any value >= INTRO_VERSION suppresses the auto-open).
     localStorage.setItem('narramorph-intro-seen-version', '999');
+    // Mark the one-time revisit hint as seen so the notice tray carries only the
+    // unlock slips this journey asserts on.
+    localStorage.setItem('narramorph-revisit-hint-seen', 'true');
   });
 }
 
@@ -74,20 +77,29 @@ test('reader completes L1 through L4, avoids repeat variations, and restores pro
   await expect(page.getByRole('dialog')).toContainText('Meta-Aware');
   await closeStory(page);
 
-  const l3Unlock = page.getByTestId('unlock-notification-arch-L3');
+  // The batched unlocks along the journey coalesce into one notice-tray slip
+  // (Accession): no per-node testid while more than one passage is filed.
+  const tray = page.getByTestId('notice-tray');
   const storyMap = page.locator('[role="region"][aria-label="Story map"]');
-  await expect(l3Unlock).toBeVisible();
-  await l3Unlock.focus();
-  await expect(l3Unlock).toBeFocused();
-  await page.keyboard.press('Enter');
+  await expect(tray).toBeVisible();
+  await expect(tray).toContainText(/PASSAGES? SURFACED/);
 
+  // Dismiss the slip by keyboard; clearing it empties the filed unlock batch so
+  // the post-convergence ending unlock arrives as a single, addressable slip.
+  const dismiss = tray.getByRole('button', { name: 'Dismiss notice' }).first();
+  await dismiss.focus();
+  await expect(dismiss).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.getByTestId('notice-tray')).toHaveCount(0);
+
+  // The surfaced convergence is opened from the map itself.
+  await openNode(page, 'arch-L3');
   const convergenceDialog = page.getByRole('dialog', { name: 'The Convergence' });
   await expect(convergenceDialog).toHaveCount(1);
   await expect(page.getByRole('dialog')).toHaveCount(1);
   await expect(page.getByRole('heading', { name: 'The Convergence' })).toBeFocused();
   await expect(storyMap).toHaveAttribute('inert', '');
   await expect(storyMap).toHaveAttribute('aria-hidden', 'true');
-  await expect(l3Unlock).toBeHidden();
   await expect(page.locator('[data-testid^="unlock-notification-"]:visible')).toHaveCount(0);
 
   for (let section = 2; section <= 4; section += 1) {
@@ -118,9 +130,12 @@ test('reader completes L1 through L4, avoids repeat variations, and restores pro
     )
     .toBe(true);
 
-  const endingUnlock = page.getByTestId('unlock-notification-final-preserve');
-  await expect(endingUnlock).toBeVisible();
-  await endingUnlock.click();
+  // Completing the convergence surfaces the ending; the store re-files the other
+  // still-unvisited convergences alongside it, so the tray shows a coalesced slip
+  // and the ending itself is opened from the map.
+  await expect(tray).toBeVisible();
+  await expect(tray).toContainText(/PASSAGES? SURFACED/);
+  await openNode(page, 'final-preserve');
   await expect(page.getByRole('dialog')).toContainText('Preserve the Pattern');
   await expect(page.getByRole('dialog')).toContainText('[END]');
   await closeStory(page);

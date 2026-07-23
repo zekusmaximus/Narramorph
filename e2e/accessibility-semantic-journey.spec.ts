@@ -34,9 +34,10 @@ test('a reader completes a journey through the linear passage list, without the 
   await expect(page.getByRole('application', { name: 'Story map (3D view)' })).toHaveCount(0);
 
   // Expand the linear passage list by keyboard (a non-spatial alternative to graph traversal).
-  const summary = page.locator('summary').filter({ hasText: 'Passage list' });
-  await summary.focus();
+  const indexToggle = page.getByRole('button', { name: 'INDEX' });
+  await indexToggle.focus();
   await page.keyboard.press('Enter');
+  await expect(indexToggle).toHaveAttribute('aria-pressed', 'true');
 
   const list = page.getByRole('navigation', { name: 'Passage list' });
   await expect(list).toBeVisible();
@@ -62,9 +63,8 @@ test('a reader completes a journey through the linear passage list, without the 
   await expect(page.getByRole('dialog')).toHaveCount(0);
   // The list was expanded earlier and stays open across the reader round-trip; only
   // expand again if something collapsed it, so we never toggle an open list shut.
-  const details = page.locator('details').filter({ has: summary });
-  if (!(await details.evaluate((node) => (node as HTMLDetailsElement).open))) {
-    await summary.focus();
+  if ((await indexToggle.getAttribute('aria-pressed')) !== 'true') {
+    await indexToggle.focus();
     await page.keyboard.press('Enter');
   }
   await expect(list.getByRole('button', { name: /First Documentation/ })).toContainText('Opened');

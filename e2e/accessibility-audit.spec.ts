@@ -66,7 +66,7 @@ test('the expanded passage list has no serious accessibility violations', async 
   await page.goto('/');
   await expect(page.getByRole('region', { name: 'Story map' })).toBeVisible();
   // Expand by keyboard (a keyboard/SR reader's path), avoiding any pointer-overlap flakiness.
-  await page.locator('summary').filter({ hasText: 'Passage list' }).focus();
+  await page.getByRole('button', { name: 'INDEX' }).focus();
   await page.keyboard.press('Enter');
   await expect(page.getByRole('navigation', { name: 'Passage list' })).toBeVisible();
   await expectNoSeriousViolations(page);

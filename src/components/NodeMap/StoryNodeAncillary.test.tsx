@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 
 import type { StoryNode } from '@/types';
 
-import { STORY_NODE_THEMES } from './nodeTheme';
+import { getNodeColors } from './nodeTheme';
 import { StoryNodeParticles } from './StoryNodeAncillary';
 
 const algorithmNode = { character: 'algorithm' } as StoryNode;
@@ -17,7 +17,7 @@ describe('StoryNodeParticles', () => {
     render(
       <StoryNodeParticles
         node={algorithmNode}
-        theme={STORY_NODE_THEMES.algorithm}
+        colors={getNodeColors('algorithm')}
         size={80}
         reduceMotion={false}
       />,
@@ -30,7 +30,7 @@ describe('StoryNodeParticles', () => {
     render(
       <StoryNodeParticles
         node={algorithmNode}
-        theme={STORY_NODE_THEMES.algorithm}
+        colors={getNodeColors('algorithm')}
         size={80}
         reduceMotion
       />,

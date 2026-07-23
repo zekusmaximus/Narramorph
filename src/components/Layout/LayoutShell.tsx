@@ -4,7 +4,7 @@ import type { ReactElement, ReactNode } from 'react';
 import type { UserPreferences } from '@/types';
 
 import { AppFooter } from './AppFooter';
-import { AppHeader } from './AppHeader';
+import { AppHeader, type HeaderPanel } from './AppHeader';
 import type { LayoutPresentationModel } from './layoutPresentation';
 
 interface LayoutShellProps {
@@ -12,6 +12,7 @@ interface LayoutShellProps {
   preferences: UserPreferences;
   reduceMotion: boolean;
   shell: LayoutPresentationModel;
+  activePanel?: HeaderPanel | null;
   onOpenProgress: () => void;
   onOpenSettings: () => void;
   onOpenHelp: () => void;
@@ -23,6 +24,7 @@ export function LayoutShell({
   preferences,
   reduceMotion,
   shell,
+  activePanel = null,
   onOpenProgress,
   onOpenSettings,
   onOpenHelp,
@@ -38,6 +40,7 @@ export function LayoutShell({
       >
         <AppHeader
           visitedCount={shell.visitedCount}
+          activePanel={activePanel}
           onOpenProgress={onOpenProgress}
           onOpenSettings={onOpenSettings}
           onOpenHelp={onOpenHelp}

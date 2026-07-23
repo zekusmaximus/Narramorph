@@ -5,12 +5,12 @@ import {
   useEffect,
   useMemo,
   useState,
+  type FocusEvent,
   type KeyboardEvent,
   type MouseEvent as ReactMouseEvent,
   type ReactElement,
 } from 'react';
 
-import { PassageListNav } from '@/components/map/PassageListNav';
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
 import { getCharacterLabel } from '@/components/StoryView/storyPresentation';
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
@@ -28,13 +28,6 @@ import { useNodeActivationEffects } from './useNodeActivationEffects';
 interface NodeMapProps {
   className?: string;
 }
-
-const MINI_MAP_COLORS = {
-  archaeologist: '#3b82f6',
-  algorithm: '#10b981',
-  'last-human': '#ef4444',
-  'multi-perspective': '#9c27b0',
-} as const;
 
 function toFlowNodes(
   adapter: ReturnType<typeof useMapInteractionAdapter>,
@@ -112,8 +105,8 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
   const reduceMotion = useReducedMotionPreference();
   const activationEffects = useNodeActivationEffects();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
   const [supportsPrecisePointer, setSupportsPrecisePointer] = useState(false);
+  const [focusedNodeId, setFocusedNodeId] = useState<string | null>(null);
   const [viewport, setViewport] = useState<Viewport>({ zoom: 1, x: 0, y: 0 });
 
   const connectionTargetIds = useMemo(
@@ -158,10 +151,8 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
     }
 
     const handleMouseMove = (event: globalThis.MouseEvent): void => {
-      const position = { x: event.clientX, y: event.clientY };
-      setTooltipPosition(position);
       if (!reduceMotion) {
-        setMousePosition(position);
+        setMousePosition({ x: event.clientX, y: event.clientY });
       }
     };
 
@@ -207,20 +198,21 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
     }
   };
 
-  const getNodeColor = useCallback(
-    (flowNode: Node): string => {
-      const node = adapter.getNode(flowNode.id);
-      return node ? MINI_MAP_COLORS[node.node.character] : '#9ca3af';
-    },
-    [adapter],
-  );
+  const handleFocusCapture = (event: FocusEvent<HTMLDivElement>): void => {
+    const nodeElement = getKeyboardNodeElement(event.currentTarget, event.target);
+    setFocusedNodeId(nodeElement?.dataset.id ?? null);
+  };
+
+  const handleBlurCapture = (): void => {
+    setFocusedNodeId(null);
+  };
 
   const totalNodes = storyNodes.size;
   const visitedCount = Object.keys(visitedNodes).length;
 
   return (
     <div
-      className={`relative w-full h-full bg-[#0a0e12] ${className}`}
+      className={`relative w-full h-full bg-[#080d10] ${className}`}
       style={{ minHeight: '100%' }}
       role="region"
       aria-label="Story map"
@@ -228,6 +220,8 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
       data-story-map-focus-target="true"
       tabIndex={0}
       onKeyDownCapture={handleKeyDown}
+      onFocusCapture={handleFocusCapture}
+      onBlurCapture={handleBlurCapture}
     >
       <NodeMapAtmosphere
         model={atmosphereModel}
@@ -248,7 +242,6 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
         onNodeMouseEnter={(node) => adapter.hover(node.id)}
         onNodeMouseLeave={() => adapter.hover(null)}
         onViewportChange={setViewport}
-        getNodeColor={getNodeColor}
         reduceMotion={reduceMotion}
       />
 
@@ -256,27 +249,9 @@ export default function NodeMap({ className = '' }: NodeMapProps): ReactElement 
         totalNodes={totalNodes}
         visitedCount={visitedCount}
         availableCount={adapter.nodes.filter((node) => node.available).length}
-        hoveredNodeId={adapter.hoveredNodeId}
-        tooltipPosition={tooltipPosition}
-        showTooltip={supportsPrecisePointer}
+        inspectNodeId={adapter.hoveredNodeId ?? focusedNodeId}
+        reduceMotion={reduceMotion}
       />
-
-      {/*
-        Collapsible linear passage list — a non-spatial, keyboard/screen-reader
-        alternative to spatial graph traversal (Phase 7.5). Collapsed by default so it
-        does not clutter the visual map; expanding it activates the same passage
-        selection as clicking a node.
-      */}
-      <details className="pointer-events-auto absolute left-3 top-24 z-20 max-h-[calc(100%-1.5rem)] w-60 max-w-[calc(100%-1.5rem)] overflow-y-auto rounded-md border border-slate-500/20 bg-[#0b1016]/85 text-slate-200 shadow-lg shadow-black/20 backdrop-blur-md">
-        <summary className="cursor-pointer list-none px-3 py-2 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-cyan-100/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200">
-          Passage list
-        </summary>
-        <PassageListNav
-          mode="2d"
-          description="Select a passage to open it. This list mirrors the story map."
-          className="px-3 pb-3"
-        />
-      </details>
     </div>
   );
 }

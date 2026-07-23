@@ -42,6 +42,9 @@ async function prepareReader(page: Page): Promise<void> {
     localStorage.setItem('narramorph-3d-mode', 'false');
     // Onboarding already seen so first-run journeys aren't blocked (>= INTRO_VERSION).
     localStorage.setItem('narramorph-intro-seen-version', '999');
+    // Mark the one-time revisit hint as seen so the notice tray carries only the
+    // unlock slips these journeys assert on.
+    localStorage.setItem('narramorph-revisit-hint-seen', 'true');
   });
 }
 
@@ -87,9 +90,15 @@ async function buildDominantPath(page: Page, philosophy: Philosophy): Promise<vo
 }
 
 async function completeConvergence(page: Page, readerLabel: string): Promise<void> {
-  const l3Unlock = page.getByTestId('unlock-notification-arch-L3');
-  await expect(l3Unlock).toBeVisible();
-  await l3Unlock.click();
+  // The journey's batched unlocks coalesce into one notice-tray slip (Accession).
+  // Dismissing it clears the filed batch so the ending unlock later arrives as a
+  // single, addressable slip; the surfaced convergence is opened from the map.
+  const tray = page.getByTestId('notice-tray');
+  await expect(tray).toBeVisible();
+  await expect(tray).toContainText(/PASSAGES? SURFACED/);
+  await tray.getByRole('button', { name: 'Dismiss notice' }).first().click();
+  await expect(page.getByTestId('notice-tray')).toHaveCount(0);
+  await openNode(page, 'arch-L3');
 
   const convergence = page.getByRole('dialog', { name: 'The Convergence' });
   const disclosure = convergence.getByTestId('selection-disclosure');
@@ -125,9 +134,13 @@ for (const pathCase of PATH_CASES) {
     await buildDominantPath(page, pathCase.philosophy);
     await completeConvergence(page, pathCase.readerLabel);
 
-    const endingUnlock = page.getByTestId(`unlock-notification-${pathCase.endingId}`);
-    await expect(endingUnlock).toBeVisible();
-    await endingUnlock.click();
+    // Completing the convergence surfaces the ending; the store re-files the other
+    // still-unvisited convergences alongside it, so the tray shows a coalesced slip
+    // and the ending itself is opened from the map.
+    const endingTray = page.getByTestId('notice-tray');
+    await expect(endingTray).toBeVisible();
+    await expect(endingTray).toContainText(/PASSAGES? SURFACED/);
+    await openNode(page, pathCase.endingId);
 
     const ending = page.getByRole('dialog', { name: pathCase.endingTitle });
     await expect(ending.getByRole('heading', { name: pathCase.endingTitle })).toBeVisible();

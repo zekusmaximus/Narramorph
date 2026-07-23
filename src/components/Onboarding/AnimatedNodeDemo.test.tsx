@@ -15,10 +15,12 @@ describe('AnimatedNodeDemo', () => {
     expect(screen.getByText(INTRO_DEMO_CAPTION)).not.toBeNull();
   });
 
-  it('marks the decorative SVG as hidden from assistive technology', () => {
-    const { container } = render(<AnimatedNodeDemo reduceMotion={false} />);
-    const svg = container.querySelector('svg');
-    expect(svg?.getAttribute('aria-hidden')).toBe('true');
+  it('marks the decorative sample graphic as hidden from assistive technology', () => {
+    render(<AnimatedNodeDemo reduceMotion={false} />);
+    const figure = screen.getByTestId('intro-node-demo');
+    // The node/plaque graphic is decorative; only the caption carries meaning.
+    const decorative = figure.querySelector('[aria-hidden="true"]');
+    expect(decorative).not.toBeNull();
   });
 
   it('renders a static equivalent under reduced motion (caption unchanged)', () => {

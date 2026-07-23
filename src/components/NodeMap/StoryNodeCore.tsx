@@ -1,174 +1,104 @@
-import { motion } from 'framer-motion';
 import type { ReactElement } from 'react';
 
+import { FOCUS } from '@/styles/designTokens';
 import type { NodeUIState, StoryNode } from '@/types';
 
-import { getTransformationBadge, type StoryNodeTheme } from './nodeTheme';
+import { getTransformationBadge, type NodeColors } from './nodeTheme';
 
 interface StoryNodeCoreProps {
   node: StoryNode;
   nodeState: NodeUIState;
-  theme: StoryNodeTheme;
+  colors: NodeColors;
   size: number;
   canVisit: boolean;
   isVisited: boolean;
   isSelected: boolean;
-  isMetaAware: boolean;
   isCritical: boolean;
-  reduceMotion: boolean;
 }
 
+const characterGlyph: Record<StoryNode['character'], string> = {
+  archaeologist: 'A',
+  algorithm: 'Σ',
+  'last-human': 'H',
+  'multi-perspective': '∴',
+};
+
+/**
+ * The node body. Flat perspective fill, hairline border, square selection stamp in the
+ * focus colour — no neon glow, no gradient. Meaningful states surface as square metadata
+ * stamps at the node's 1–2 o'clock (max two; further detail lives in the catalog slip).
+ */
 export function StoryNodeCore({
   node,
   nodeState,
-  theme,
+  colors,
   size,
   canVisit,
   isVisited,
   isSelected,
-  isMetaAware,
   isCritical,
-  reduceMotion,
 }: StoryNodeCoreProps): ReactElement {
   const transformationBadge = getTransformationBadge(nodeState.currentState);
+
+  // At most two stamps at 1–2 o'clock; visit count first, then adaptation, then warning.
+  const stamps: string[] = [];
+  if (isVisited) {
+    stamps.push(`×${nodeState.visitCount}`);
+  }
+  if (nodeState.currentState !== 'initial' && transformationBadge) {
+    stamps.push(transformationBadge);
+  }
+  if (stamps.length < 2 && isCritical) {
+    stamps.push('!');
+  }
+  const visibleStamps = stamps.slice(0, 2);
+
   return (
     <div
-      className={`relative rounded-full flex items-center justify-center bg-gradient-to-br ${theme.gradient} border-2 transition-all duration-300 ${canVisit ? 'cursor-pointer' : 'cursor-not-allowed'} ${!isVisited ? 'opacity-40' : !canVisit ? 'opacity-40' : 'opacity-100'}`}
+      className={`relative flex items-center justify-center rounded-full transition-opacity duration-200 ${
+        canVisit ? 'cursor-pointer' : 'cursor-not-allowed'
+      } ${isVisited && canVisit ? 'opacity-100' : 'opacity-40'}`}
       style={{
         width: size,
         height: size,
-        borderColor: isVisited ? theme.primary : theme.accent,
-        boxShadow:
-          (isSelected || isMetaAware) && canVisit
-            ? theme.pulseGlow
-            : canVisit
-              ? theme.glow
-              : 'none',
+        backgroundColor: colors.fill,
+        border: `1px solid ${isSelected ? FOCUS.onDark : colors.ink}`,
       }}
     >
       <div
-        className="absolute inset-0 rounded-full"
-        style={{
-          background: `radial-gradient(circle at 30% 30%, ${theme.accent}40 0%, transparent 70%)`,
-        }}
-      />
-      {node.character === 'archaeologist' && (
-        <motion.div
-          className="absolute inset-0 rounded-full overflow-hidden opacity-30"
-          style={{
-            background: `repeating-linear-gradient(0deg, transparent, transparent 2px, ${theme.accent} 2px, ${theme.accent} 4px)`,
-          }}
-          animate={reduceMotion ? { y: 0 } : { y: [0, -8, 0] }}
-          transition={{
-            duration: reduceMotion ? 0 : 2,
-            repeat: reduceMotion ? 0 : Infinity,
-            ease: 'linear',
-          }}
-        />
-      )}
-      {node.character === 'algorithm' && (
-        <motion.div
-          className="absolute inset-0 rounded-full"
-          style={{ background: theme.tertiary, mixBlendMode: 'overlay', opacity: 0.2 }}
-          animate={reduceMotion ? { opacity: 0.2 } : { opacity: [0.1, 0.3, 0.1] }}
-          transition={{
-            duration: reduceMotion ? 0 : 0.15,
-            repeat: reduceMotion ? 0 : Infinity,
-            ease: 'linear',
-          }}
-        />
-      )}
-      {node.character === 'last-human' && (
-        <motion.div
-          className="absolute inset-0 rounded-full"
-          style={{
-            background: `radial-gradient(circle, ${theme.glowSecondary}20 0%, transparent 70%)`,
-          }}
-          animate={
-            reduceMotion
-              ? { scale: 1, opacity: 0.65 }
-              : { scale: [0.95, 1.05, 0.95], opacity: [0.5, 0.8, 0.5] }
-          }
-          transition={{
-            duration: reduceMotion ? 0 : 3,
-            repeat: reduceMotion ? 0 : Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-      )}
-      <div
-        className="relative z-10 font-bold"
-        style={{ fontSize: size / 4, color: theme.accent, textShadow: `0 0 10px ${theme.primary}` }}
+        className="relative z-10 font-serif font-semibold"
+        style={{ fontSize: size / 3, color: '#080d10' }}
       >
-        {node.character === 'archaeologist'
-          ? 'A'
-          : node.character === 'algorithm'
-            ? 'Σ'
-            : node.character === 'last-human'
-              ? 'H'
-              : '∴'}
+        {characterGlyph[node.character]}
       </div>
-      {isVisited && (
-        <motion.div
-          className="absolute -top-2 -right-2 rounded-full border-2 px-2 py-1 font-mono text-xs font-bold"
-          style={{
-            backgroundColor: '#0a0e12',
-            borderColor: theme.primary,
-            color: theme.primary,
-            boxShadow: `0 0 10px ${theme.primary}, inset 0 0 10px ${theme.primary}40`,
-          }}
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: 'spring', delay: 0.2 }}
-        >
-          {nodeState.visitCount}
-        </motion.div>
-      )}
-      {nodeState.currentState !== 'initial' && transformationBadge && (
-        <motion.div
-          className="absolute -bottom-2 -right-2 rounded-full border-2 w-6 h-6 flex items-center justify-center font-mono text-xs"
-          style={{
-            backgroundColor: '#0a0e12',
-            borderColor: nodeState.currentState === 'metaAware' ? '#7c4dff' : '#ffa726',
-            color: nodeState.currentState === 'metaAware' ? '#7c4dff' : '#ffa726',
-            boxShadow:
-              nodeState.currentState === 'metaAware' ? '0 0 10px #7c4dff' : '0 0 10px #ffa726',
-          }}
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-        >
-          {transformationBadge}
-        </motion.div>
-      )}
-      {isCritical && (
-        <motion.div
-          className="absolute -top-2 -left-2 rounded-full w-6 h-6 flex items-center justify-center border-2 font-bold"
-          style={{
-            backgroundColor: '#0a0e12',
-            borderColor: '#ffa726',
-            color: '#ffa726',
-            boxShadow: '0 0 10px #ffa726',
-          }}
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ type: 'spring', delay: 0.3 }}
-        >
-          ⚠
-        </motion.div>
-      )}
+
       {isSelected && canVisit && (
-        <motion.div
-          className="absolute inset-0 rounded-full border-4"
-          style={{ borderColor: theme.primary }}
-          animate={
-            reduceMotion ? { scale: 1, opacity: 1 } : { scale: [1, 1.2, 1], opacity: [1, 0, 1] }
-          }
-          transition={{
-            duration: reduceMotion ? 0 : 1.5,
-            repeat: reduceMotion ? 0 : Infinity,
-            ease: 'easeInOut',
-          }}
+        <div
+          className="pointer-events-none absolute -inset-1 rounded-full"
+          style={{ border: `2px solid ${FOCUS.onDark}` }}
+          data-testid="story-node-selected"
         />
+      )}
+
+      {visibleStamps.length > 0 && (
+        <div
+          className="pointer-events-none absolute -right-2 -top-2 flex flex-col items-end gap-0.5"
+          data-testid="story-node-stamps"
+        >
+          {visibleStamps.map((stamp, index) => (
+            <span
+              key={index}
+              className="flex items-center justify-center rounded-none px-1 py-0.5 font-mono text-[10px] font-semibold leading-none"
+              style={{
+                backgroundColor: '#0b1015',
+                border: `1px solid ${colors.ink}80`,
+                color: colors.ink,
+              }}
+            >
+              {stamp}
+            </span>
+          ))}
+        </div>
       )}
     </div>
   );
