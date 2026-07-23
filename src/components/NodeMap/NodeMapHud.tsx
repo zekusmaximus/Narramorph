@@ -84,14 +84,10 @@ function InspectorBody({ nodeId }: { nodeId: string }): ReactElement | null {
 }
 
 function RestBody({
-  visitedCount,
-  totalNodes,
   progressPercent,
   lockedCount,
   integrityPercent,
 }: {
-  visitedCount: number;
-  totalNodes: number;
   progressPercent: number;
   lockedCount: number;
   integrityPercent: number;
@@ -113,9 +109,6 @@ function RestBody({
           SYS INTEGRITY {integrityPercent}%
         </p>
       </div>
-      <p className="sr-only">
-        {visitedCount} of {totalNodes} passages opened.
-      </p>
     </div>
   );
 }
@@ -184,6 +177,9 @@ export function NodeMapHud({
   return (
     <>
       <section aria-label="Map reading status" className="sr-only" data-testid="archive-map-status">
+        <p>
+          {visitedCount} of {totalNodes} passages opened.
+        </p>
         <div
           role="progressbar"
           aria-label="Passages opened"
@@ -214,8 +210,6 @@ export function NodeMapHud({
               <InspectorBody nodeId={activeNodeId} />
             ) : (
               <RestBody
-                visitedCount={visitedCount}
-                totalNodes={totalNodes}
                 progressPercent={progressPercent}
                 lockedCount={lockedCount}
                 integrityPercent={integrityPercent}

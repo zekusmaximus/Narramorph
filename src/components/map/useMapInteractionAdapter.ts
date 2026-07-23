@@ -14,8 +14,11 @@ export function useMapInteractionAdapter(mode: MapMode): MapInteractionAdapter {
   const hoveredNodeId = useStoryStore((state) => state.hoveredNode);
   const panelOpen = useStoryStore((state) => state.storyViewOpen);
   const isAnimating = useStoryStore((state) => state.isAnimating);
-  const awarenessLevel = useStoryStore((state) => state.progress.temporalAwarenessLevel);
-  const visitedNodes = useStoryStore((state) => state.progress.visitedNodes);
+  // Subscribe to the whole progress object: node availability can change on any
+  // progress advance (e.g. completing a convergence unlocks an ending without
+  // touching visitedNodes), and canVisitNode reads live state, so the adapter
+  // must recompute whenever progress moves at all.
+  const progress = useStoryStore((state) => state.progress);
   const canVisitNode = useStoryStore((state) => state.canVisitNode);
   const getNodeState = useStoryStore((state) => state.getNodeState);
   const selectNode = useStoryStore((state) => state.selectNode);
@@ -32,8 +35,8 @@ export function useMapInteractionAdapter(mode: MapMode): MapInteractionAdapter {
         hoveredNodeId,
         panelOpen,
         isAnimating,
-        awarenessLevel,
-        visitedNodes,
+        awarenessLevel: progress.temporalAwarenessLevel,
+        visitedNodes: progress.visitedNodes,
         canVisitNode,
         getNodeState,
         actions: {
@@ -53,8 +56,7 @@ export function useMapInteractionAdapter(mode: MapMode): MapInteractionAdapter {
       nodes,
       openPanel,
       panelOpen,
-      awarenessLevel,
-      visitedNodes,
+      progress,
       selectNode,
       selectedNodeId,
       setHoveredNode,

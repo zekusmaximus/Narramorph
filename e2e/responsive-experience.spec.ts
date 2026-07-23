@@ -92,7 +92,9 @@ test('opening, continuation, preferences, and narrative progress form one reader
   const settings = page.getByRole('dialog');
   await settings.getByText('Large', { exact: true }).click();
   await settings.getByText('Archive', { exact: true }).click();
-  await settings.getByRole('checkbox', { name: /Reduce motion/ }).check();
+  // The checkbox input is sr-only; toggle it the way a reader does, via its label.
+  await settings.locator('label').filter({ hasText: 'Reduce motion' }).click();
+  await expect(settings.getByRole('checkbox', { name: /Reduce motion/ })).toBeChecked();
   await expect(page.locator('.archive-shell')).toHaveAttribute('data-reduced-motion', 'true');
   await page.keyboard.press('Escape');
   await expect(settings).toHaveCount(0);
@@ -301,7 +303,9 @@ test('app reduced motion takes effect without relying on the system preference',
 
   await page.getByRole('button', { name: 'Open reader settings' }).click();
   const settings = page.getByRole('dialog');
-  await settings.getByRole('checkbox', { name: /Reduce motion/ }).check();
+  // The checkbox input is sr-only; toggle it the way a reader does, via its label.
+  await settings.locator('label').filter({ hasText: 'Reduce motion' }).click();
+  await expect(settings.getByRole('checkbox', { name: /Reduce motion/ })).toBeChecked();
   await expect(shell).toHaveAttribute('data-reduced-motion', 'true');
   await expect(particles).toHaveCount(0);
   await expectNoHorizontalOverflow(page, settings);
