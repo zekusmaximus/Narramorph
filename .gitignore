@@ -153,3 +153,8 @@ output/release/
 metadata-backups/
 tools/conversion/reports/*
 !tools/conversion/reports/.gitkeep
+
+# UI review capture artifacts (produced by browser-automation sessions in the repo root)
+narramorph-ui-screenshots/
+narramorph-ui-screenshots.zip
+_to_delete/
