@@ -30,7 +30,7 @@ export function StoryHeader({
 }: StoryHeaderProps): ReactElement {
   return (
     <header
-      className={`min-w-0 overflow-x-hidden border-b border-white/10 bg-gradient-to-r ${theme.accent}`}
+      className={`min-w-0 shrink-0 overflow-x-hidden border-b border-white/10 bg-gradient-to-r ${theme.accent}`}
     >
       <div className="flex min-w-0 items-start justify-between gap-3 px-4 pb-4 pt-5 sm:gap-6 sm:px-7 sm:pb-5 sm:pt-6">
         <div className="flex min-w-0 flex-1 items-start gap-3 sm:gap-4">

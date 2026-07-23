@@ -18,7 +18,7 @@ export function StoryFooter({
   const hasChoices = continuationNodes.length > 1;
   return (
     <footer
-      className={`min-w-0 overflow-x-hidden border-t px-4 py-4 sm:px-7 ${
+      className={`min-w-0 shrink-0 overflow-x-hidden border-t px-4 py-4 sm:px-7 ${
         theme === 'dark' ? 'border-white/10 bg-[#080c10]' : 'border-black/10 bg-white/85'
       }`}
     >
