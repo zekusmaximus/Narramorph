@@ -119,14 +119,14 @@ function canReceiveRestoredFocus(element: HTMLElement | null): element is HTMLEl
   const style = element ? window.getComputedStyle(element) : null;
   return Boolean(
     element?.isConnected &&
-      element !== document.body &&
-      element !== document.documentElement &&
-      !element.hasAttribute('disabled') &&
-      element.getAttribute('aria-disabled') !== 'true' &&
-      !element.closest('[aria-hidden="true"]') &&
-      !element.closest('[inert]') &&
-      style?.display !== 'none' &&
-      style?.visibility !== 'hidden',
+    element !== document.body &&
+    element !== document.documentElement &&
+    !element.hasAttribute('disabled') &&
+    element.getAttribute('aria-disabled') !== 'true' &&
+    !element.closest('[aria-hidden="true"]') &&
+    !element.closest('[inert]') &&
+    style?.display !== 'none' &&
+    style?.visibility !== 'hidden',
   );
 }
 
