@@ -4,6 +4,8 @@ import type { ReactElement } from 'react';
 
 import { useStoryStore } from '@/stores/storyStore';
 
+import { getEdgeColor } from './edgeUtils';
+
 /**
  * Animated data packets flowing along connection lines
  */
@@ -59,13 +61,7 @@ export function DataStreams(): ReactElement | null {
           return null;
         }
 
-        const colors = {
-          temporal: '#00e5ff',
-          consciousness: '#7c4dff',
-          recursive: '#39ff14',
-          hidden: '#455a64',
-        };
-        const color = colors[conn.type] || '#00e5ff';
+        const color = getEdgeColor(conn.type);
 
         return (
           <g key={i}>

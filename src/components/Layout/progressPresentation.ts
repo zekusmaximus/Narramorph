@@ -2,6 +2,8 @@ import type { CharacterType, StoryNode, UserProgress } from '@/types';
 
 export interface NarrativePathEntry {
   action: 'Encountered' | 'Returned to' | 'Returned again to';
+  /** Perspective of the passage, used to pick its record-sheet ink and tag. */
+  character: CharacterType | null;
   characterLabel: string;
   occurrence: number;
   title: string;
@@ -42,6 +44,7 @@ export function buildNarrativePath(
     return {
       action:
         occurrence === 1 ? 'Encountered' : occurrence === 2 ? 'Returned to' : 'Returned again to',
+      character: node ? node.character : null,
       characterLabel: node ? getCharacterLabel(node.character) : 'Origin unavailable',
       occurrence,
       title: node?.title ?? 'An unindexed passage',

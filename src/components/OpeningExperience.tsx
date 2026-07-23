@@ -13,25 +13,25 @@ const PERSPECTIVE_PRESENTATION: Record<
   archaeologist: {
     label: 'The Archaeologist',
     era: '2047',
-    accent: 'border-sky-300/35 hover:border-sky-200/70 hover:bg-sky-200/10',
+    accent: 'border-[#4A90E2]/40 hover:border-[#7db2ec] hover:bg-[#4A90E2]/10',
     marker: 'A',
   },
   algorithm: {
     label: 'The Algorithm',
     era: '2151',
-    accent: 'border-emerald-300/35 hover:border-emerald-200/70 hover:bg-emerald-200/10',
+    accent: 'border-[#50C878]/40 hover:border-[#50C878] hover:bg-[#50C878]/10',
     marker: 'Σ',
   },
   'last-human': {
     label: 'The Last Human',
     era: '2383',
-    accent: 'border-rose-300/35 hover:border-rose-200/70 hover:bg-rose-200/10',
+    accent: 'border-[#E74C3C]/40 hover:border-[#E74C3C] hover:bg-[#E74C3C]/10',
     marker: 'H',
   },
   'multi-perspective': {
     label: 'The Convergence',
     era: 'beyond',
-    accent: 'border-violet-300/35 hover:border-violet-200/70 hover:bg-violet-200/10',
+    accent: 'border-[#b07cc9]/40 hover:border-[#b07cc9] hover:bg-[#9B59B6]/10',
     marker: '∴',
   },
 };

@@ -1,14 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
+import { PERSPECTIVE_COLOR } from '@/styles/designTokens';
 import type { CharacterType } from '@/types';
 
-const GLITCH_COLORS: Record<CharacterType, string> = {
-  archaeologist: '#00e5ff',
-  algorithm: '#39ff14',
-  'last-human': '#d32f2f',
-  'multi-perspective': '#9c27b0',
-};
+/** Activation glitch tint per perspective — drawn from the unified fills, no neon. */
+const GLITCH_COLORS: Record<CharacterType, string> = PERSPECTIVE_COLOR;
 
 export interface NodeActivationEffects {
   glitchActive: boolean;
@@ -20,7 +17,7 @@ export interface NodeActivationEffects {
 export function useNodeActivationEffects(): NodeActivationEffects {
   const reduceMotion = useReducedMotionPreference();
   const [glitchActive, setGlitchActive] = useState(false);
-  const [glitchColor, setGlitchColor] = useState('#00e5ff');
+  const [glitchColor, setGlitchColor] = useState(PERSPECTIVE_COLOR.archaeologist);
   const [screenShake, setScreenShake] = useState(false);
   const timers = useRef<number[]>([]);
 

@@ -1,14 +1,11 @@
 import { motion } from 'framer-motion';
 import type { ReactElement } from 'react';
 
+import { PERSPECTIVE_COLOR } from '@/styles/designTokens';
+
 import type { ReadingPathPoint } from './atmospherePresentation';
 
-const COLORS = {
-  archaeologist: '#00e5ff',
-  algorithm: '#39ff14',
-  'last-human': '#d32f2f',
-  'multi-perspective': '#9c27b0',
-} as const;
+const COLORS = PERSPECTIVE_COLOR;
 
 export function ReadingPathTrail({ points }: { points: ReadingPathPoint[] }): ReactElement | null {
   if (points.length === 0) {

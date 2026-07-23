@@ -70,7 +70,7 @@ export function ParallaxBackground({ mouseX, mouseY }: ParallaxBackgroundProps):
               <polygon
                 points="50 5, 95 27.5, 95 72.5, 50 95, 5 72.5, 5 27.5"
                 fill="none"
-                stroke="#00e5ff"
+                stroke="#3b4a54"
                 strokeWidth="1"
                 opacity="0.15"
               />

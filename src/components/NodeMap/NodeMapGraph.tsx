@@ -1,8 +1,8 @@
 import {
   Background,
   BackgroundVariant,
+  ControlButton,
   Controls,
-  MiniMap,
   ReactFlow,
   type Edge,
   type AriaLabelConfig,
@@ -73,7 +73,6 @@ interface NodeMapGraphProps {
   onNodeMouseEnter: (node: Node) => void;
   onNodeMouseLeave: () => void;
   onViewportChange: (viewport: Viewport) => void;
-  getNodeColor: (node: Node) => string;
   reduceMotion: boolean;
 }
 
@@ -87,7 +86,6 @@ export function NodeMapGraph({
   onNodeMouseEnter,
   onNodeMouseLeave,
   onViewportChange,
-  getNodeColor,
   reduceMotion,
 }: NodeMapGraphProps): ReactElement {
   const [instance, setInstance] = useState<ReactFlowInstance | null>(null);
@@ -163,25 +161,41 @@ export function NodeMapGraph({
         preventScrolling
       >
         <Background
-          color="#1a2332"
+          color="#1d2b33"
           gap={32}
           size={1}
           variant={BackgroundVariant.Lines}
           style={{ opacity: 0.15 }}
         />
         <Controls
-          className="!bottom-3 !left-3 rounded border border-slate-600/30 bg-[#0b1016]/85 shadow-lg shadow-black/20 backdrop-blur-md [&>button]:!h-11 [&>button]:!w-11"
+          className="!z-30 !bottom-3 !left-3 gap-0 overflow-hidden rounded-none border border-[#2b3b44] bg-[#0d1318] !shadow-none [&_button]:relative [&_button]:!h-[38px] [&_button]:!w-[38px] [&_button]:!rounded-none [&_button]:!border-0 [&_button]:!border-t [&_button]:!border-[#1d2b33] [&_button]:!bg-transparent [&_button]:font-mono [&_button]:text-[16px] [&_button]:leading-none [&_button]:!text-[#b7c6ce] [&_button]:before:absolute [&_button]:before:-inset-[3px] [&_button]:before:content-[''] [&_button:first-child]:!border-t-0 [&_button:hover]:!bg-white/5 [&_button:hover]:!text-[#eef4f6] [&_button_svg]:hidden"
           orientation={compactViewport ? 'horizontal' : 'vertical'}
+          showZoom={false}
+          showFitView={false}
           showInteractive={false}
-        />
-        <MiniMap
-          className="hidden rounded border border-slate-600/30 bg-[#0b1016]/85 shadow-lg shadow-black/20 backdrop-blur-md md:block"
-          style={{ width: 168, height: 112, backgroundColor: '#0a0e12' }}
-          nodeColor={getNodeColor}
-          maskColor="rgba(10, 14, 18, 0.8)"
-          pannable
-          zoomable
-        />
+        >
+          <ControlButton
+            onClick={() => void instance?.zoomIn()}
+            title="Zoom in"
+            aria-label="Zoom in"
+          >
+            +
+          </ControlButton>
+          <ControlButton
+            onClick={() => void instance?.zoomOut()}
+            title="Zoom out"
+            aria-label="Zoom out"
+          >
+            −
+          </ControlButton>
+          <ControlButton
+            onClick={() => void instance?.fitView(fitViewOptions)}
+            title="Fit view"
+            aria-label="Fit view"
+          >
+            ⤢
+          </ControlButton>
+        </Controls>
       </ReactFlow>
     </motion.div>
   );

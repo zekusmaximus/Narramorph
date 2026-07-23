@@ -16,21 +16,28 @@ export function getEdgeType(connectionType: ConnectionType): string {
   return types[connectionType] || 'smoothstep';
 }
 
+/** Neutral hairline for locked / hidden edges (Accession). */
+const EDGE_HIDDEN = '#3b4a54';
+
 /**
- * Get edge color based on connection type - Cyberpunk palette
+ * Edge colour by connection type, drawn from the unified perspective / neutral
+ * tokens (the neon "cyberpunk" palette is gone). Kept as literals here because
+ * React Flow styles are plain CSS, not Tailwind classes; values mirror
+ * `--perspective-*` and `--surface-*`.
  */
 export function getEdgeColor(connectionType: ConnectionType): string {
   const colors: Record<ConnectionType, string> = {
-    temporal: '#00e5ff', // Cyan - time flow
-    consciousness: '#7c4dff', // Purple - neural bridge
-    recursive: '#39ff14', // Green - loop
-    hidden: '#455a64', // Dark gray - locked
+    temporal: '#4A90E2', // archaeologist / time flow
+    consciousness: '#B07CC9', // convergence ink / neural bridge
+    recursive: '#50C878', // algorithm / loop
+    hidden: EDGE_HIDDEN, // neutral hairline - locked
   };
-  return colors[connectionType] || '#455a64';
+  return colors[connectionType] || EDGE_HIDDEN;
 }
 
 /**
- * Get edge style based on connection type
+ * Edge style by connection type. Flat 2px strokes, no drop-shadow glows — hierarchy
+ * comes from colour, dash, and opacity, not bloom.
  */
 export function getEdgeStyle(connectionType: ConnectionType): CSSProperties {
   const baseColor = getEdgeColor(connectionType);
@@ -38,23 +45,12 @@ export function getEdgeStyle(connectionType: ConnectionType): CSSProperties {
   const baseStyle: CSSProperties = {
     strokeWidth: 2,
     stroke: baseColor,
-    filter: `drop-shadow(0 0 4px ${baseColor})`,
   };
 
   if (connectionType === 'recursive') {
     return {
       ...baseStyle,
       strokeDasharray: '8,4',
-      strokeWidth: 2.5,
-      filter: `drop-shadow(0 0 6px ${baseColor})`,
-    };
-  }
-
-  if (connectionType === 'consciousness') {
-    return {
-      ...baseStyle,
-      strokeWidth: 3,
-      filter: `drop-shadow(0 0 8px ${baseColor}) drop-shadow(0 0 12px ${baseColor}40)`,
     };
   }
 
@@ -63,7 +59,7 @@ export function getEdgeStyle(connectionType: ConnectionType): CSSProperties {
       ...baseStyle,
       strokeDasharray: '2,6',
       strokeWidth: 1,
-      opacity: 0.3,
+      opacity: 0.35,
     };
   }
 
@@ -106,14 +102,14 @@ export function convertToReactFlowEdges(
         style: isUnlocked
           ? getEdgeStyle(connection.type)
           : {
-              stroke: '#455a64',
+              stroke: '#3b4a54',
               strokeWidth: 1,
               strokeDasharray: '5,5',
               opacity: 0.35,
             },
         markerEnd: {
           type: 'arrowclosed' as MarkerType,
-          color: isUnlocked ? getEdgeColor(connection.type) : '#455a64',
+          color: isUnlocked ? getEdgeColor(connection.type) : '#3b4a54',
         },
         labelStyle: {
           fill: '#e0e0e0',
@@ -126,7 +122,7 @@ export function convertToReactFlowEdges(
         labelBgStyle: {
           fill: '#0a0e12',
           fillOpacity: 0.95,
-          stroke: '#455a64',
+          stroke: '#3b4a54',
           strokeWidth: 1,
         },
         labelBgPadding: [8, 6] as [number, number],
@@ -154,14 +150,14 @@ export function convertToReactFlowEdges(
           style: isUnlocked
             ? getEdgeStyle(connection.type)
             : {
-                stroke: '#455a64',
+                stroke: '#3b4a54',
                 strokeWidth: 1,
                 strokeDasharray: '5,5',
                 opacity: 0.35,
               },
           markerEnd: {
             type: 'arrowclosed' as MarkerType,
-            color: isUnlocked ? getEdgeColor(connection.type) : '#455a64',
+            color: isUnlocked ? getEdgeColor(connection.type) : '#3b4a54',
           },
         });
       }
