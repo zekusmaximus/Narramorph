@@ -2,6 +2,8 @@
 
 This directory contains the Three.js-based 3D visualization system for Narramorph, providing an immersive spatial representation of the narrative structure.
 
+The staged stabilization, accessibility, performance, and enhancement work is tracked in [`docs/3D_VIEW_PLAN.md`](../../../docs/3D_VIEW_PLAN.md).
+
 ## Overview
 
 The 3D visualization renders story nodes as interactive spheres positioned in 3D space, with character perspectives arranged along the z-axis. Users can navigate between nodes with smooth camera transitions and explore the narrative structure spatially.
