@@ -30,12 +30,14 @@ const CHECKS = [
     ok: (v) =>
       /(^|;)\s*default-src\s+'self'/.test(v) &&
       /(^|;)\s*script-src\s+'self'/.test(v) &&
+      /script-src[^;]*\bblob:/.test(v) &&
+      /worker-src[^;]*\bblob:/.test(v) &&
       !/script-src[^;]*'unsafe-inline'/.test(v) &&
       !/script-src[^;]*'unsafe-eval'/.test(v) &&
       /(^|;)\s*object-src\s+'none'/.test(v) &&
       /(^|;)\s*frame-ancestors\s+'none'/.test(v),
     describe:
-      "default-src 'self'; strict script-src 'self'; object-src 'none'; frame-ancestors 'none'",
+      "default-src 'self'; script/worker blob support without unsafe-inline/eval; object-src 'none'; frame-ancestors 'none'",
   },
   {
     name: 'strict-transport-security',

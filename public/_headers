@@ -5,7 +5,8 @@
 # The CSP is documented and verified in docs/SECURITY_HEADERS.md.
 #
 # CSP notes:
-#   script-src 'self'   — strict; the built app has no inline <script> and no eval/wasm.
+#   script-src 'self' blob: — no inline/eval scripts; blob: is narrowly required by
+#                         troika's nested 3D text-worker modules (see SECURITY_HEADERS.md).
 #   style-src 'unsafe-inline' — required: framer-motion / @xyflow / three inject styles at
 #                         runtime, and index.html has an inline FOUC/@font-face block. This is
 #                         not a script-execution vector; script-src is the XSS boundary.
@@ -14,7 +15,7 @@
 #   connect-src         — the app makes no network calls of its own; the Sentry ingest hosts are the one
 #                         deliberate egress, used only after opt-in error-reporting consent (Batch 8.3).
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.ingest.sentry.io https://*.ingest.us.sentry.io; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.ingest.sentry.io https://*.ingest.us.sentry.io; worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; manifest-src 'self'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
