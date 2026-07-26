@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "vite",
     "dev:test": "cross-env PLAYWRIGHT_TEST=1 vite --host 127.0.0.1 --port 4174 --strictPort",
-    "preview:test": "vite preview --host 127.0.0.1 --port 4174 --strictPort",
+    "preview:test": "node scripts/serve-production-csp.mjs",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",

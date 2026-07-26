@@ -1,5 +1,5 @@
-import { OrbitControls } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei/core/OrbitControls.js';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef, type KeyboardEvent, type ReactElement } from 'react';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
@@ -62,8 +62,26 @@ import SceneNodeList from './SceneNodeList';
  * [ ] Safari (WebKit)
  * [ ] Fallback to 2D on unsupported browsers
  */
-export default function NarromorphCanvas(): ReactElement {
+interface NarromorphCanvasProps {
+  onRuntimeFailure?: (reason: 'context-lost') => void;
+}
+
+function SceneReadySignal({ onReady }: { onReady: () => void }): null {
+  const signalled = useRef(false);
+  useFrame(() => {
+    if (!signalled.current) {
+      signalled.current = true;
+      onReady();
+    }
+  });
+  return null;
+}
+
+export default function NarromorphCanvas({
+  onRuntimeFailure,
+}: NarromorphCanvasProps): ReactElement {
   const controlsRef = useRef<OrbitControlsImpl>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const adapter = useMapInteractionAdapter('3d');
   const reduceMotion = useReducedMotionPreference();
 
@@ -79,11 +97,14 @@ export default function NarromorphCanvas(): ReactElement {
       {/* Accessible companion navigation: the canvas is never the only way in. */}
       <SceneNodeList />
       <div
+        ref={containerRef}
         className="absolute inset-0"
         role="application"
         aria-label="Story map (3D view)"
         aria-description="Use arrow keys to select passages, Enter to open, and Escape to close the passage."
         data-story-map-focus-target="true"
+        data-testid="three-dimensional-scene"
+        data-scene-ready="false"
         tabIndex={0}
         onKeyDown={handleKeyDown}
       >
@@ -96,6 +117,16 @@ export default function NarromorphCanvas(): ReactElement {
             far: 500,
           }}
           dpr={[1, 2]}
+          onCreated={({ gl }) => {
+            gl.domElement.addEventListener(
+              'webglcontextlost',
+              (event) => {
+                event.preventDefault();
+                onRuntimeFailure?.('context-lost');
+              },
+              { once: true },
+            );
+          }}
         >
           {/* Atmospheric fog for depth perception */}
           <fog attach="fog" args={['#1a1a1a', 50, 200]} />
@@ -104,6 +135,9 @@ export default function NarromorphCanvas(): ReactElement {
           <pointLight position={[10, 10, 10]} />
 
           <SceneContent />
+          <SceneReadySignal
+            onReady={() => containerRef.current?.setAttribute('data-scene-ready', 'true')}
+          />
           <CameraController controlsRef={controlsRef} />
           <OrbitControls
             ref={controlsRef}
