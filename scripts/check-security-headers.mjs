@@ -29,13 +29,15 @@ const CHECKS = [
     name: 'content-security-policy',
     ok: (v) =>
       /(^|;)\s*default-src\s+'self'/.test(v) &&
-      /(^|;)\s*script-src\s+'self'/.test(v) &&
+      /(^|;)\s*script-src\s+'self'\s*(;|$)/.test(v) &&
+      /(^|;)\s*worker-src\s+'self'\s*(;|$)/.test(v) &&
+      !/script-src[^;]*\b(blob:|data:)/.test(v) &&
       !/script-src[^;]*'unsafe-inline'/.test(v) &&
       !/script-src[^;]*'unsafe-eval'/.test(v) &&
       /(^|;)\s*object-src\s+'none'/.test(v) &&
       /(^|;)\s*frame-ancestors\s+'none'/.test(v),
     describe:
-      "default-src 'self'; strict script-src 'self'; object-src 'none'; frame-ancestors 'none'",
+      "default/script/worker-src 'self' without blob/data/unsafe-inline/eval scripts; object-src 'none'; frame-ancestors 'none'",
   },
   {
     name: 'strict-transport-security',

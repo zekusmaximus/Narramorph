@@ -20,14 +20,14 @@ Narramorph is a static, client-side app (ADR 0006) served from **Cloudflare Page
 ```
 default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;
 font-src 'self'; connect-src 'self' https://*.ingest.sentry.io https://*.ingest.us.sentry.io;
-worker-src 'self' blob:; frame-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';
+worker-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';
 form-action 'self'; manifest-src 'self'; upgrade-insecure-requests
 ```
 
-- **`script-src 'self'`** — strict, with **no** `'unsafe-inline'` / `'unsafe-eval'`. Verified feasible: the built `index.html` has no inline `<script>` (only Vite's external hashed module), and no `eval`/ `new Function`/`WebAssembly` appears in the bundle. This is the XSS boundary.
+- **`script-src 'self'`** — contains no blob/data source, `'unsafe-inline'`, `'unsafe-eval'`, or remote script origin. Phase 1 replaced Drei/Troika text in the 3D guide with local canvas sprite textures after verifying that Troika rehydrated worker modules through `importScripts(blob:)`. The narrower policy is now enforced by the repository checker and exercised by the production-CSP browser fixture.
 - **`style-src 'self' 'unsafe-inline'`** — a documented, necessary relaxation: framer-motion, `@xyflow/react`, and three/react-three-fiber inject styles at runtime, and `index.html` carries an inline FOUC/`@font-face` block. Static hosting cannot nonce per request, and runtime-injected styles cannot be hashed. Inline **style** is not script execution.
 - **`font-src 'self'`** — Inter is self-hosted under `/fonts` (SIL OFL; see `public/fonts/OFL.txt`); there is no external font origin.
-- **`worker-src 'self' blob:`** — the opt-in 3D view (three.js) spawns Web Workers from blob URLs. The 2D reader (the default and the accessible path) uses no workers.
+- **`worker-src 'self'`** — explicit self-only worker policy. The opt-in 3D view no longer creates the Troika blob worker; the default 2D reader also uses no workers.
 - **`connect-src 'self' https://*.ingest.sentry.io https://*.ingest.us.sentry.io`** — the app makes no network calls of its own (the scope-gate guard enforces first-party `src/`); the Sentry ingest hosts are the one deliberate egress, reached only after opt-in error-reporting consent (Batch 8.3).
 - **`object-src 'none'`, `base-uri 'self'`, `frame-ancestors 'none'`, `form-action 'self'`, `upgrade-insecure-requests`** — standard hardening.
 
@@ -53,13 +53,15 @@ The `_headers` file is applied by the edge, so headers can only be checked again
    - <https://hstspreload.org/> — confirm preload eligibility before submitting.
 3. **App-compat spot check:** open the deployed site with DevTools → Console and confirm there are **no CSP violation reports** on the landing page, an open passage, the settings/progress dialogs, and — if used — the 3D view. (Test in an Incognito window so browser-extension content scripts don't clutter the console.)
 
-**Note — Cloudflare Web Analytics:** leave Cloudflare's Web Analytics **automatic setup OFF** for narramorph.com. When enabled, Cloudflare injects `static.cloudflareinsights.com/beacon.min.js` into the HTML at the edge, which `script-src 'self'` then blocks — a console CSP violation that is the CSP working as intended, not a bug. Keeping automatic injection off preserves the strict `script-src 'self'` XSS boundary and the no-third-party-scripts posture (Cloudflare's **server-side** zone analytics — requests, bandwidth, referrers — still work without the beacon). Enabling the client-side beacon would require adding its host to `script-src`/`connect-src` here and disclosing the analytics in [PRIVACY.md](PRIVACY.md) — a deliberate posture change, not a default.
+**Note — Cloudflare Web Analytics:** leave Cloudflare's Web Analytics **automatic setup OFF** for narramorph.com. When enabled, Cloudflare injects `static.cloudflareinsights.com/beacon.min.js` into the HTML at the edge, which the same-origin-only `script-src` blocks — a console CSP violation that is the CSP working as intended, not a bug. Keeping automatic injection off preserves the no-third-party-scripts posture (Cloudflare's **server-side** zone analytics — requests, bandwidth, referrers — still work without the beacon). Enabling the client-side beacon would require adding its host to `script-src`/`connect-src` here and disclosing the analytics in [PRIVACY.md](PRIVACY.md) — a deliberate posture change, not a default.
 
 ## Results (owner-run — filled in after deploy; not fabricated)
 
 | Date | URL (preview/prod) | `headers:check` | securityheaders.com | Mozilla Observatory | HSTS preload | CSP violations in console | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2026-07-19 | https://narramorph.com (prod) | **pass — 8/8, HTTP 200** | **A+** | **A+ (120/100, 10/10)** | **submitted 2026-07-19 — pending inclusion** | none — confirmed 2026-07-19 (RUM beacon disabled; the CSP-blocked beacon is gone; remaining console lines are browser extensions, not the app) | Full strict CSP incl. `script-src 'self'`; HSTS `max-age=63072000; includeSubDomains; preload`. **SSL Labs A+** on all endpoints (IPv4 + IPv6). `access-control-allow-origin: *` is Cloudflare-injected (benign for a public, credential-less static site; not from `_headers`). Observatory's only CSP note is the **documented, necessary** `style-src 'unsafe-inline'` (runtime style injection, not a script vector) — still A+; SRI is an optional bonus (all scripts are same-origin self-hosted). |
+| 2026-07-19 | https://narramorph.com (prod) | **pass — 8/8, HTTP 200** | **A+** | **A+ (120/100, 10/10)** | **submitted 2026-07-19 — pending inclusion** | none — confirmed 2026-07-19 (RUM beacon disabled; the CSP-blocked beacon is gone; remaining console lines are browser extensions, not the app) | Historical result before the 3D worker compatibility changes; rerun after deploying Phase 1's self-only script policy. HSTS `max-age=63072000; includeSubDomains; preload`. **SSL Labs A+** on all endpoints (IPv4 + IPv6). `access-control-allow-origin: *` is Cloudflare-injected (benign for a public, credential-less static site; not from `_headers`). Observatory's only CSP note was the documented `style-src 'unsafe-inline'`. |
+
+The 2026-07-19 result predates Phase 1's restored self-only script policy. Rerun every owner check after deployment. Local automated evidence uses `scripts/serve-production-csp.mjs`, which reads the exact repository policy and serves `dist`; it does not claim Cloudflare edge behavior or real-device GPU compatibility.
 
 ## Content-sanitization (verified in the gate battery)
 

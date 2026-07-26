@@ -126,6 +126,26 @@ if (forbiddenInitialEntries.length > 0) {
   failures.push(`opening graph contains deferred entries: ${forbiddenInitialEntries.join(', ')}`);
 }
 
+const threeDimensionalEntry = manifest['src/components/3d/NarromorphCanvas.tsx'];
+if (!threeDimensionalEntry) {
+  failures.push('3D entry is missing from the production manifest');
+} else {
+  const threeDimensionalBundle = await readFile(
+    path.join(root, 'dist', threeDimensionalEntry.file),
+  );
+  const forbiddenWorkerSignatures = [
+    'worker module init function failed to rehydrate',
+    'Worker module function was called but `init` did not return a callable function',
+    'troika-three-text',
+  ];
+  const includedSignatures = forbiddenWorkerSignatures.filter((signature) =>
+    threeDimensionalBundle.includes(signature),
+  );
+  if (includedSignatures.length > 0) {
+    failures.push(`3D bundle contains blob-text-worker code: ${includedSignatures.join(', ')}`);
+  }
+}
+
 const formatBytes = (value) => `${(value / 1024).toFixed(2)} KiB`;
 const rows = Object.entries(configuration.budgets).map(([name, limit]) => {
   const actual = measurements[name];

@@ -226,7 +226,7 @@ export default function Home(): ReactElement {
                 />
               }
             >
-              <LazyNarromorphCanvas />
+              <LazyNarromorphCanvas onRuntimeFailure={handleFallbackTo2D} />
               {!isPositionsLoaded && (
                 <AsyncSurfaceStatus
                   label="Arranging the three-dimensional archive…"
