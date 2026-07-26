@@ -87,6 +87,7 @@ NarromorphCanvas (Canvas setup, lighting, fog)
 - **Responsibilities**:
   - Renders semi-transparent planes at character z-positions
   - Displays character labels and temporal context
+- **Security**: Fixed labels use local canvas-backed sprite textures rather than Drei/Troika `Text`, so opening 3D does not require blob workers or nested blob script imports.
 - **Styling**:
   - Plane opacity: 0.05 (subtle)
   - Character-specific colors from tailwind config
