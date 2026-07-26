@@ -29,6 +29,14 @@ The 3D browser regression is served from the production build by a deterministic
 
 The bundle-budget gate also fails if the generated 3D entry contains Troika's two reported worker-error signatures or its package marker. This catches an accidental reintroduction even where CI cannot launch a trustworthy WebGL browser.
 
+The browser regression now reads a passage through the shared list before recovery, reasserts that no unexpected runtime failures occurred after the intentional context loss, and attaches successful scene/recovery screenshots. A separate deterministic case allows the capability probe to succeed but denies the renderer's canvas context, verifying initialization-error fallback, the cleared 3D preference, and a still-readable passage in 2D.
+
+### Recorded automated results
+
+| Date | Environment | Build | Production-CSP 3D journey | Bundle gate | Notes |
+| --- | --- | --- | --- | --- | --- |
+| 2026-07-26 | Windows, Playwright-pinned Chromium (owner run) | pass, 2,891 modules, 9.03s | pass, 1 test, 5.2s | pass, all budgets and worker-signature gate | Result covered the original scene/list/context-loss journey. Rerun the expanded two-test spec to capture passage activation, recovery-phase assertions, initialization failure, and attached screenshots. |
+
 Headless Chromium's software WebGL path validates integration and deterministic recovery, not real GPU/driver behavior. Owner verification remains required on current Chrome/Edge, Firefox, and Safari across representative desktop/mobile hardware. Record browser, OS, GPU, driver, context-loss behavior, and console output; do not infer those results from CI.
 
 ## Delivery sequence
