@@ -36,8 +36,31 @@ The browser regression now reads a passage through the shared list before recove
 | Date | Environment | Build | Production-CSP 3D journey | Bundle gate | Notes |
 | --- | --- | --- | --- | --- | --- |
 | 2026-07-26 | Windows, Playwright-pinned Chromium (owner run) | pass, 2,891 modules, 9.03s | pass, 1 test, 5.2s | pass, all budgets and worker-signature gate | Result covered the original scene/list/context-loss journey. Rerun the expanded two-test spec to capture passage activation, recovery-phase assertions, initialization failure, and attached screenshots. |
+| 2026-07-27 | Windows 11, Playwright-pinned Chromium (owner run) | pass, 8.05s | pass, 2 tests, 6.8s | pass, all budgets and worker-signature gate | Expanded two-test spec: passage activation through the shared list, recovery-phase console assertions, renderer-initialization-failure fallback with cleared 3D preference, and scene/recovery screenshots attached to the report. |
 
 Headless Chromium's software WebGL path validates integration and deterministic recovery, not real GPU/driver behavior. Owner verification remains required on current Chrome/Edge, Firefox, and Safari across representative desktop/mobile hardware. Record browser, OS, GPU, driver, context-loss behavior, and console output; do not infer those results from CI.
+
+### Recorded hardware results
+
+Runs drive the full production-CSP journey (fixture serving `dist/` with the `public/_headers` policy) on headed, branded browsers using the machine's real GPU: open 3D via the toggle, wait for the first-frame `data-scene-ready` signal, read First Documentation through the shared passage list, dispatch `webglcontextlost`, and verify recovery to a usable 2D map with the 3D preference cleared.
+
+| Date | Browser | OS / GPU / driver | Result | Console |
+| --- | --- | --- | --- | --- |
+| 2026-07-27 | Chrome 150.0.7871.182 (branded, headed) | Windows 11 Pro 26200; Intel(R) Graphics (0x7D45), driver 32.0.101.8724; ANGLE D3D11, WebGL2 | pass — full journey incl. context-loss recovery | Only the expected `THREE.WebGLRenderer: Context Lost.` during the intentional loss phase; no CSP, worker, or page errors |
+| 2026-07-27 | Edge 150.0.4078.83 (branded, headed) | Windows 11 Pro 26200; Intel(R) Graphics (0x7D45), driver 32.0.101.8724; ANGLE D3D11, WebGL2 | pass — full journey incl. context-loss recovery | Only the expected `THREE.WebGLRenderer: Context Lost.` during the intentional loss phase; no CSP, worker, or page errors |
+
+Outstanding release caveats: Firefox (not installed on the verification machine), Safari (requires Apple hardware), and a representative mobile device have not been hardware-verified. These remain caveats, not inferred passes.
+
+### Baseline metrics (2026-07-27, pre-optimization)
+
+Captured during the hardware runs above (1440×900 viewport, default motion, no other load). These are the stage 1 baselines that stage 3 optimization must be measured against.
+
+| Metric                                                  | Chrome 150 | Edge 150 |
+| ------------------------------------------------------- | ---------: | -------: |
+| Time to first scene (toggle click → `data-scene-ready`) |     906 ms | 1,579 ms |
+| Steady-state FPS (5 s rAF sample, idle scene)           |       60.0 |     60.3 |
+| JS heap after first scene                               |    14.4 MB |  14.1 MB |
+| Context-loss → 2D fallback status visible               |      52 ms |    38 ms |
 
 ## Delivery sequence
 
