@@ -50,9 +50,8 @@
     "literary:test": "vitest run tests/literary-release.test.ts"
   },
   "dependencies": {
-    "yaml": "2.9.0",
     "glob": "13.0.6",
-    "chalk": "^5.3.0"
+    "yaml": "2.9.0"
   },
   "devDependencies": {
     "@types/node": "22.20.1",

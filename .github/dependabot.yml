@@ -25,6 +25,20 @@ updates:
         dependency-type: production
         update-types:
           - patch
+    ignore:
+      # React 19 is a deliberate migration, not a Dependabot bump (see closed #206).
+      - dependency-name: react
+        update-types: ['version-update:semver-major']
+      - dependency-name: react-dom
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@types/react'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@types/react-dom'
+        update-types: ['version-update:semver-major']
+      # v7 ships the React Compiler rules; adopting them is a migration alongside
+      # eslint 9/flat config (see closed #205).
+      - dependency-name: eslint-plugin-react-hooks
+        update-types: ['version-update:semver-major']
 
   - package-ecosystem: npm
     directory: /tools/conversion
