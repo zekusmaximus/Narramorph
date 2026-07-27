@@ -39,6 +39,12 @@ updates:
       # eslint 9/flat config (see closed #205).
       - dependency-name: eslint-plugin-react-hooks
         update-types: ['version-update:semver-major']
+      # drei 10 / fiber 9 require React 19; bump these with the React 19
+      # migration, not piecemeal (see closed #210).
+      - dependency-name: '@react-three/drei'
+        update-types: ['version-update:semver-major']
+      - dependency-name: '@react-three/fiber'
+        update-types: ['version-update:semver-major']
 
   - package-ecosystem: npm
     directory: /tools/conversion

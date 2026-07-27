@@ -45,7 +45,7 @@ function WebGLErrorFallback({
   error: _error,
   onFallbackTo2D,
 }: {
-  error: Error;
+  error: unknown;
   onFallbackTo2D: () => void;
 }): ReactElement {
   useEffect(() => {

@@ -17,7 +17,7 @@ function ErrorFallback({
   error,
   resetErrorBoundary,
 }: {
-  error: Error;
+  error: unknown;
   resetErrorBoundary: () => void;
 }): ReactElement {
   // If the reader already opted in, onError has reported this crash; otherwise offer a
@@ -54,7 +54,9 @@ function ErrorFallback({
           <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">
             Error details
           </summary>
-          <pre className="mt-2 text-xs bg-gray-100 p-2 rounded overflow-auto">{error.message}</pre>
+          <pre className="mt-2 text-xs bg-gray-100 p-2 rounded overflow-auto">
+            {error instanceof Error ? error.message : String(error)}
+          </pre>
         </details>
         <button type="button" onClick={resetErrorBoundary} className="btn-primary w-full">
           Try again
