@@ -2,6 +2,8 @@
 
 This records the Phase 6.4 comparison of N's experimental 3D node rendering against the frozen prototype's instanced/batched technique ("P", `392eef6c…`), and the resulting decision. It supports roadmap Phase 6.4 (issue [#167](https://github.com/zekusmaximus/Narramorph/issues/167)); parent epic #93. No N build/runtime dependency on P is introduced (ADR 0001).
 
+> **Current-status note (2026-07-28):** The comparison and stop-early decision below are historical context. Phase 2 subsequently added story connections, locked cages, selection rings, and navigation controls. `NarromorphCanvas` does not set `frameloop`; with the installed R3F version its default is `always`. The new production profiler in `docs/3D_VIEW_PLAN.md` is the current measurement source.
+
 ## The scenario that actually ships
 
 N's constellation is intentionally small: `SCENE_NODE_LIMIT = 19` (`src/components/3d/sceneNodes.ts`), matching the story's L1–L4 spine. This is the scenario to profile — not a synthetic thousand-node scene.
@@ -10,13 +12,13 @@ N's constellation is intentionally small: `SCENE_NODE_LIMIT = 19` (`src/componen
 
 |  | N (ships) | P (reference) |
 | --- | --- | --- |
-| Node rendering | per-node `NodeSphere` mesh, `sphereGeometry(1.5, 32, 32)` each | one `InstancedMesh` + custom `ShaderMaterial` + LOD (`NodesInstanced.tsx`, 844 lines) |
-| Render loop | react-spring transitions (demand-driven) + OrbitControls damping **gated on reduced motion** | `frameloop="always"` + per-frame noise, **no reduced-motion guard** |
-| Connections | — | `ConnectionsBatched.tsx` (124 lines) |
+| Node rendering | per-node `NodeSphere` mesh, `sphereGeometry(1.5, 32, 32)` each, plus state-dependent cages/rings | one `InstancedMesh` + custom `ShaderMaterial` + LOD (`NodesInstanced.tsx`, 844 lines) |
+| Render loop | R3F default `frameloop="always"`; reduced motion makes node springs immediate and disables OrbitControls damping, but does not pause the loop | `frameloop="always"` + per-frame noise, **no reduced-motion guard** |
+| Connections | `SceneConnection`: directional arrowheads, solid available routes, segmented locked routes, selected-route emphasis | `ConnectionsBatched.tsx` (124 lines) |
 
-## Structural comparison (computed from the scene composition; confirm live on device)
+## Historical structural comparison (pre-Phase-2)
 
-These are deterministic structural counts derived from the code, independent of GPU speed — not measured FPS.
+These counts were derived from the earlier node-and-guide composition, independent of GPU speed. They preserve the basis for the original port decision but no longer describe the whole shipping scene: connections and non-colour state geometry were added later.
 
 | Metric          | N (per-node, 19 nodes)           | P-style (instanced)   | Delta          |
 | --------------- | -------------------------------- | --------------------- | -------------- |
@@ -25,11 +27,17 @@ These are deterministic structural counts derived from the code, independent of 
 | Node materials  | 19 standard materials            | 1 shader material     | −18            |
 | Node triangles  | 19 × ~1,984 ≈ **~37.7k**         | ~37.7k (shared)       | ~0             |
 
-**Reading of the numbers.** Instancing's benefit is collapsing many draw calls into one — it pays off at **hundreds-to-thousands** of instances. At ~22 total draw calls and ~38k triangles, the scene is far below any draw-call, geometry, or fill bottleneck on modern or even software GPUs; the ~18 draw calls instancing would remove were never a cost. Porting P's 844-line instanced shader + LOD path would add significant complexity to the primary path for **no measurable reader benefit at this node count**, and would **regress** N's accessibility posture (P's `frameloop="always"` has no reduced-motion guard, which N deliberately avoids).
+**Historical reading of the numbers.** The original decision reasoned that collapsing 19 node draws did not justify porting P's 844-line instanced shader/LOD path. The statement that the complete scene was about 22 calls, demand-driven, and comfortably below a software-GPU bottleneck is no longer current. It predated Phase 2 and was not backed by a repeatable production measurement.
+
+### Current automated structural/runtime snapshot
+
+`npm run profile:3d` now builds production, enters through the real toggle under the production CSP, samples after settling, and writes raw JSON plus Markdown to ignored `output/profile-3d/`.
+
+The final 2026-07-28 headless Chromium 151 software-WebGL run measured 174 calls, 33,078 triangles, 9,504 lines, 172 geometries, and 4 textures; its five-second rAF window averaged 11.6 FPS. A preceding same-host run averaged 7.2 FPS. These figures describe the current Phase 2 scene on one variable software renderer. They do not identify node draw calls as the bottleneck, do not establish a real-device budget, and are not evidence to port instancing.
 
 ## Decision — stop early; do not port instancing
 
-Per the roadmap's "stop early if profiling shows little reader value", **P's instancing is not ported.** N keeps its per-node 3D, which is comfortably within budget at ≤19 nodes and is reduced-motion correct. 3D stays **clearly experimental**: opt-in, lazy-loaded, reduced-motion aware, and recoverable after WebGL context loss, with 2D fully functional when WebGL is unavailable. This satisfies the 6.4 gate ("3D meets its budget **or** remains clearly experimental/disabled for v1; 2D fully functional without WebGL").
+Per the roadmap's "stop early if profiling shows little reader value", **P's instancing was not ported.** That remains the decision unless measurements isolate node draw calls as a meaningful cost on representative hardware. N keeps its per-node 3D for now; 3D stays **clearly experimental**: opt-in, lazy-loaded, reduced-motion aware, and recoverable after WebGL context loss, with 2D fully functional when WebGL is unavailable. No current real-device performance budget is claimed as passed.
 
 ## What 6.4 did build — the portable win
 
@@ -38,8 +46,10 @@ Per the roadmap's "stop early if profiling shows little reader value", **P's ins
 
 ## Device measurement (owner, on representative hardware)
 
-Structural counts above are deterministic; **frame-rate and GPU-memory behaviour are device-dependent and are the owner's to measure** (agent access for 6.4 notes device access). Repeatable method:
+Frame rate, GPU/JS memory, thermals, and device behavior remain hardware-dependent. Repeatable method:
 
-1. `npm run dev`, enable **Experimental 3D**; the DEV `FPSCounter` overlay is already present.
-2. On each target device (including a low-power one), record FPS and — via the browser Performance panel or `renderer.info` (React Three DevTools / a console read) — draw calls and GPU memory across the roadmap scenarios: **GPU memory, resize, suspend/resume, repeated open/close, low-power**.
-3. Acceptance: if 3D holds interactive FPS on representative hardware it may graduate from experimental; otherwise it stays experimental/disabled for v1. Either way, 2D remains the fully-functional path.
+1. Run `npm run profile:3d` for the production-CSP automated baseline. Preserve `output/profile-3d/latest.json` with the run record when comparing changes.
+2. Repeat on each target device/browser (including a low-power and representative mobile device) and supplement the automated fields with GPU memory, thermals, resize/orientation, suspend/resume, repeated open/close, and pointer/touch observations.
+3. Agree budgets by device tier before creating gates or selecting an optimization. Firefox, Safari, and representative mobile hardware results remain unrecorded; Phase 2 comprehension and label-readability gates also remain open.
+
+The development `FPSCounter` remains useful for interactive investigation, but it is not the reproducible production baseline. Neither the automated software-WebGL result nor a missing browser/device run is an inferred pass.

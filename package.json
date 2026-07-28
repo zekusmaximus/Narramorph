@@ -20,6 +20,8 @@
     "test:e2e": "playwright test",
     "pretest:performance": "npm run build",
     "test:performance": "playwright test e2e/performance-boundaries.spec.ts",
+    "preprofile:3d": "npm run build",
+    "profile:3d": "node scripts/profile-3d.mjs",
     "bundle:check": "node scripts/check-bundle-budgets.mjs",
     "scope:check": "node scripts/check-no-network.mjs",
     "headers:check": "node scripts/check-security-headers.mjs",

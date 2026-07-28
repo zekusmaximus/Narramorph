@@ -145,6 +145,7 @@ playwright-report/
 playwright/.cache/
 output/playwright/
 output/bundle/
+output/profile-3d/
 output/release/
 
 # Content conversion artifacts

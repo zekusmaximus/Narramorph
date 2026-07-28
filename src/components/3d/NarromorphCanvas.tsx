@@ -10,6 +10,7 @@ import CameraController, { type CameraRequest } from './CameraController';
 import { DEFAULT_CAMERA_POSITION } from './cameraDefaults';
 import { SCENE_CONFIG } from './sceneConfig';
 import SceneContent from './SceneContent';
+import SceneDiagnostics from './SceneDiagnostics';
 import SceneNavigationControls from './SceneNavigationControls';
 import SceneNodeList from './SceneNodeList';
 
@@ -112,6 +113,7 @@ export default function NarromorphCanvas({
           <pointLight position={SCENE_CONFIG.lighting.pointPosition} />
 
           <SceneContent />
+          <SceneDiagnostics />
           <SceneReadySignal
             onReady={() => containerRef.current?.setAttribute('data-scene-ready', 'true')}
           />

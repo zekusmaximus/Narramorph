@@ -92,6 +92,49 @@ The final headed Chrome-for-Testing 151.0.7922.34 inspection at 1036×686 showed
 
 Phase 2's exit remains open for two deliberately manual claims: representative users must confirm that spatial grouping and arrow direction are understandable, and layer-label readability must be checked across the supported zoom range on the real-device/browser matrix. Firefox, Safari, and representative mobile hardware also remain compatibility caveats from Phase 1.
 
+## Phase 3 automated performance-harness record (2026-07-28)
+
+This slice establishes a reproducible post-Phase-2 baseline; it does not optimize the scene or close Phase 3's device gates.
+
+### Harness design and command
+
+Run:
+
+```sh
+npm run profile:3d
+```
+
+The npm pre-script creates a production build. The profiler then starts the existing production-CSP fixture on `127.0.0.1:4175`, launches the repository-pinned Chromium with a fixed 1440×900 viewport and DPR 1, clears the saved session state, and enters 3D by clicking the real `Experimental 3D view` control. It records the click-to-`data-scene-ready` interval, settles for 1.5 seconds, samples `requestAnimationFrame` for five seconds, snapshots renderer counters, reads Chromium's JS heap counter when available, and measures the existing context-loss-to-visible-2D recovery path.
+
+The renderer snapshot is the only new production interface. It is enabled only by `?profile3d=1`, is read-only, and returns copied draw-call, primitive, geometry, and texture counters. It exposes no renderer, scene, camera, story state, persistent state, telemetry, or network behavior.
+
+Each successful run writes machine-readable JSON and a concise Markdown report to ignored `output/profile-3d/` files (`latest.json`, `latest.md`, and timestamped copies). The JSON includes browser/version, host and browser platform, viewport, DPR, reduced-motion setting, requested and actual sample durations, raw byte counts, and per-asset bundle graphs.
+
+The command fails on missing scene readiness, invalid/empty metrics, unexpected console errors or page errors, non-self production script/worker CSP, Troika worker signatures in the deferred graph, eager 3D loading, an unavailable renderer snapshot, or a broken context-loss fallback/preference reset. It intentionally has no FPS, latency, heap, or renderer-count thresholds: those values remain diagnostic until representative hardware budgets are agreed.
+
+### Recorded local result
+
+| Date | Environment | Build | Result |
+| --- | --- | --- | --- |
+| 2026-07-28 | Windows 11 build 26200, Playwright Chromium 151.0.7922.34, headless software WebGL, 1440×900, DPR 1, default motion | pass — 3,113 modules; 3D asset 927.19 kB / 254.32 kB gzip in Vite output | pass — production CSP, lazy boundary, scene readiness, metrics, and context-loss recovery; no unexpected runtime failures |
+
+| Diagnostic | Local result |
+| --- | --: |
+| Toggle → first `data-scene-ready` frame | 360.0 ms |
+| Steady-state rAF sample | 11.6 FPS average; 86.2 ms mean / 100.1 ms p95; 5,083.1 ms actual, 59 intervals |
+| Renderer calls / triangles / lines | 174 / 33,078 / 9,504 |
+| Renderer geometries / textures | 172 / 4 |
+| Chromium JS heap used | 17.78 MiB |
+| Context loss → fallback status and 2D map visible | 43.8 ms |
+| Initial 2D JavaScript graph | 635.10 KiB / 204.32 KiB gzip, 8 assets |
+| Incremental deferred 3D JavaScript graph | 905.46 KiB / 247.65 KiB gzip, 1 asset |
+
+Vite labels its decimal build display as `kB`; the harness reports bundle graphs in binary KiB from the raw byte counts. Thus the same new 3D asset is 927.19 kB in Vite's output and 905.46 KiB in the harness, not two different payloads. The earlier 926.51 “KiB” record copied Vite's decimal display with a binary unit label.
+
+The 11.6 FPS software-WebGL result is not a real-GPU regression verdict and is not comparable to the pre-Phase-2 headed Chrome/Edge measurements. A preceding run of the same harness on the same host averaged 7.2 FPS, demonstrating why these single-machine diagnostics are not gates. The earlier scene did not include connections, locked cages, selection rings, or the current controls, and the environments differ. The current renderer has `174` draw calls rather than the historical structural estimate of about `22`, so device profiling—not that old estimate—must guide any optimization. In particular, this run does not attribute cost to node meshes and is not evidence to implement instancing; the prior “do not port instancing without measurement evidence” decision remains in force.
+
+Phase 2's comprehension and supported-zoom label checks remain open. Phase 1/2 compatibility checks on Firefox, Safari, and representative mobile hardware also remain open, as do Phase 3 real-device FPS, memory, thermals, resize/orientation, suspend/resume, and pointer/touch checks. The `Experimental` label remains.
+
 ## Delivery sequence
 
 ### 1. Stabilize and observe
@@ -112,6 +155,7 @@ Phase 2's exit remains open for two deliberately manual claims: representative u
 
 ### 3. Harden performance and device behavior
 
+- Maintain the production profiling harness and use its post-Phase-2 reports as diagnostic baselines; agree real-device budgets before adding numeric gates.
 - Use measurements to choose among instancing, lower sphere segments, label distance culling, and adaptive DPR; do not add effects until the baseline budgets pass.
 - Pause animation when hidden, honor reduced motion throughout, handle resize/orientation changes, and test pointer/touch gestures without trapping page navigation.
 - Define budgets by device tier for first-scene latency, steady-state FPS, memory, and bundle size.
