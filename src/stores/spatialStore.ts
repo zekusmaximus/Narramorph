@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
+import { SCENE_CONFIG } from '@/components/3d/sceneConfig';
 import type { StoryNode } from '@/types';
 
 type Vec3 = [number, number, number];
@@ -58,9 +59,9 @@ export const useSpatialStore = create<SpatialState>()(
         const newPositions: Record<string, Vec3> = {};
 
         characters.forEach((character, characterIndex) => {
-          const z = characterIndex * 25;
+          const z = characterIndex * SCENE_CONFIG.layout.perspectiveSpacing;
           const totalNodes = character.nodes.length;
-          const radius = 15;
+          const radius = SCENE_CONFIG.layout.ringRadius;
 
           if (totalNodes === 0) {
             return;

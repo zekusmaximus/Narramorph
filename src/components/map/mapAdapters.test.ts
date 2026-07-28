@@ -146,7 +146,7 @@ describe.each<MapMode>(['2d', '3d'])('%s map interaction adapter', (mode) => {
 });
 
 describe('mode-specific visibility', () => {
-  it('keeps visited-but-now-locked nodes in 3D while 2D preserves its available-only view', () => {
+  it('keeps the complete locked structure in 3D while 2D preserves its available-only view', () => {
     const visit: VisitRecord = {
       visitCount: 1,
       visitTimestamps: [],
@@ -163,6 +163,11 @@ describe('mode-specific visibility', () => {
     expect(buildAdapter('2d', actions, options).getNode('locked')).toBeUndefined();
     expect(buildAdapter('3d', actions, options).getNode('locked')).toBeDefined();
     expect(buildAdapter('3d', actions, options).getNode('multi')).toBeUndefined();
+
+    const neverVisited = buildAdapter('3d', actions, {
+      available: new Set(['alpha', 'beta']),
+    }).getNode('locked');
+    expect(neverVisited).toMatchObject({ available: false, visited: false });
   });
 
   it('derives the same appearance in both modes for the same node state', () => {

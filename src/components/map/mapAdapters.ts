@@ -79,7 +79,9 @@ function isVisibleInMode(mode: MapMode, node: MapNodeAdapter): boolean {
   if (mode === '2d') {
     return node.available;
   }
-  return node.node.character !== 'multi-perspective' && (node.available || node.visited);
+  // The 3D constellation communicates future structure as well as current
+  // choices. Locked nodes remain non-interactive and receive a wireframe cue.
+  return node.node.character !== 'multi-perspective';
 }
 
 export function createMapInteractionAdapter(input: MapAdapterInput): MapInteractionAdapter {

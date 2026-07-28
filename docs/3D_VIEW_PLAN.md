@@ -62,6 +62,36 @@ Captured during the hardware runs above (1440×900 viewport, default motion, no 
 | JS heap after first scene                               |    14.4 MB |  14.1 MB |
 | Context-loss → 2D fallback status visible               |      52 ms |    38 ms |
 
+## Phase 2 navigation vertical slice record (2026-07-28)
+
+This slice establishes the complete Phase 2 interaction vocabulary without removing the `Experimental` label or claiming the human-comprehension exit gate.
+
+### Legible structure and state
+
+- The bounded 3D constellation now includes locked non-convergence passages as visible, non-interactive structure instead of hiding every passage until it becomes available. The shared passage list exposes the same set and labels each item `Available`, `Opened`, `Reading`, or `Locked`.
+- Story connections whose endpoints are in the constellation render directly from the story graph. Arrowheads communicate direction; available routes are continuous, locked routes are segmented, and routes touching the selected passage receive a thicker emphasis. Direction and lock state therefore do not depend on colour.
+- Node states also have non-colour geometry: available is a solid sphere, opened adds one ring, selected adds two crossing rings and scale, and locked adds a neutral wireframe cage around the dim perspective-coloured sphere.
+- A plain-DOM control cluster provides `Reset 3D view` and `Focus selected passage`, announces the result, and includes a collapsible orientation/state/route legend. Past, present, and future are described as successive depth layers. The existing arrow-key/Enter/Escape map adapter remains the single keyboard behavior for both map modes.
+- Dialog focus restoration was verified rather than replaced: a passage opened from the list returns to its invoking list button, while a passage opened from the focused canvas returns to the canvas.
+
+### Named configuration and visual review
+
+`sceneConfig.ts` is now the source of the primary layout, camera, fog, lighting, DPR, orbit, focus-spring, node, guide, and connection values. The spatial store consumes the named ring radius and perspective spacing. A headed review of the production build increased the layer-label scale, strengthened the neutral locked cage, reduced the maximum orbit distance from 140 to 120, and made the collapsed legend compact before the final verification run.
+
+The final headed Chrome-for-Testing 151.0.7922.34 inspection at 1036×686 showed the complete locked structure, directional routes, compact controls, and expanded legend with zero console errors. There was one non-failing dependency deprecation warning: `THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.` It is not a CSP, worker, WebGL, or application error, but should be revisited with the Three/R3F dependency line.
+
+### Automated results
+
+| Date | Gate | Result |
+| --- | --- | --- |
+| 2026-07-28 | Focused unit suite: scene selection/connections, state cues, controls, layout, shared adapter | pass — 8 files, 25 tests |
+| 2026-07-28 | TypeScript / ESLint | pass — type-check clean; lint 0 errors with one pre-existing warning in `storyStore.test.ts` |
+| 2026-07-28 | Production build | pass — 3,111 modules, 14.90s; deferred 3D asset 926.51 KiB / 254.01 KiB gzip |
+| 2026-07-28 | Production-CSP 3D journey | pass — 2 tests, 18.3s; list-origin and canvas-origin keyboard/focus flow, reset/focus/legend controls, context-loss recovery, and renderer-initialization fallback |
+| 2026-07-28 | Bundle gate | pass — all budgets and the Troika/worker-signature gate; initial JS 635.10 KiB / 204.32 KiB gzip |
+
+Phase 2's exit remains open for two deliberately manual claims: representative users must confirm that spatial grouping and arrow direction are understandable, and layer-label readability must be checked across the supported zoom range on the real-device/browser matrix. Firefox, Safari, and representative mobile hardware also remain compatibility caveats from Phase 1.
+
 ## Delivery sequence
 
 ### 1. Stabilize and observe

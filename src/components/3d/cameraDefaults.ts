@@ -1,10 +1,8 @@
+import { SCENE_CONFIG } from './sceneConfig';
+
 /**
- * Default camera position and target constants
- * Separated to support React Fast Refresh requirements
+ * Compatibility exports for camera consumers. The source of truth now lives in
+ * sceneConfig with the rest of the supported scene framing.
  */
-
-type Vec3 = [number, number, number];
-
-// Default framing keeps the camera high enough to reveal complete rings instead of clipped half-spheres
-export const DEFAULT_CAMERA_TARGET: Vec3 = [0, 0, 25];
-export const DEFAULT_CAMERA_POSITION: Vec3 = [0, 35, 90];
+export const DEFAULT_CAMERA_TARGET = SCENE_CONFIG.camera.target;
+export const DEFAULT_CAMERA_POSITION = SCENE_CONFIG.camera.position;

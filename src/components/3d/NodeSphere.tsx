@@ -1,8 +1,12 @@
+/* eslint-disable react/no-unknown-property -- R3F mesh/material props are not DOM attributes. */
 import { animated, useSpring } from '@react-spring/three';
 import { useEffect, type ReactElement } from 'react';
 
 import { useMapInteractionAdapter } from '@/components/map/useMapInteractionAdapter';
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
+
+import { resolveNodeStateCue } from './nodeStateCues';
+import { SCENE_CONFIG } from './sceneConfig';
 
 interface NodeSphereProps {
   nodeId: string;
@@ -23,9 +27,18 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps): React
   const isSelected = adaptedNode?.selected ?? false;
   const isHovered = adaptedNode?.hovered ?? false;
   const isAvailable = adaptedNode?.available ?? false;
+  const cue = resolveNodeStateCue({
+    available: isAvailable,
+    selected: isSelected,
+    visited: adaptedNode?.visited ?? false,
+  });
   const baseScale = appearance.scale;
   const { scale, emissiveIntensity, opacity } = useSpring({
-    scale: isSelected ? baseScale * 1.3 : isHovered && isAvailable ? baseScale * 1.05 : baseScale,
+    scale: isSelected
+      ? baseScale * SCENE_CONFIG.node.selectedScale
+      : isHovered && isAvailable
+        ? baseScale * SCENE_CONFIG.node.hoverScale
+        : baseScale,
     emissiveIntensity: isSelected
       ? appearance.emissiveIntensity
       : isHovered && isAvailable
@@ -33,7 +46,7 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps): React
         : appearance.emissiveIntensity,
     opacity: appearance.opacity,
     immediate: reduceMotion,
-    config: { tension: 300, friction: 20 },
+    config: SCENE_CONFIG.node.spring,
   });
 
   useEffect(
@@ -51,6 +64,7 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps): React
     <animated.mesh
       position={position}
       scale={scale}
+      userData={{ stateCue: cue }}
       onClick={() => adapter.activate(nodeId)}
       onPointerOver={() => {
         if (adapter.hover(nodeId)) {
@@ -62,7 +76,13 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps): React
         document.body.style.cursor = 'auto';
       }}
     >
-      <sphereGeometry args={[1.5, 32, 32]} />
+      <sphereGeometry
+        args={[
+          SCENE_CONFIG.node.radius,
+          SCENE_CONFIG.node.widthSegments,
+          SCENE_CONFIG.node.heightSegments,
+        ]}
+      />
       <animated.meshStandardMaterial
         color={appearance.color}
         emissive={appearance.emissiveColor}
@@ -70,6 +90,53 @@ export default function NodeSphere({ nodeId, position }: NodeSphereProps): React
         opacity={opacity}
         transparent
       />
+
+      {cue === 'locked' && (
+        <mesh scale={1.08}>
+          <sphereGeometry
+            args={[
+              SCENE_CONFIG.node.radius,
+              SCENE_CONFIG.node.lockedCageSegments,
+              SCENE_CONFIG.node.lockedCageSegments,
+            ]}
+          />
+          <meshBasicMaterial
+            color={SCENE_CONFIG.node.lockedCageColor}
+            opacity={SCENE_CONFIG.node.lockedCageOpacity}
+            transparent
+            wireframe
+            depthWrite={false}
+            toneMapped={false}
+          />
+        </mesh>
+      )}
+
+      {(cue === 'opened' || cue === 'selected') && (
+        <mesh rotation={[Math.PI / 2, 0, 0]}>
+          <torusGeometry
+            args={[SCENE_CONFIG.node.cueRingRadius, SCENE_CONFIG.node.cueRingTube, 8, 40]}
+          />
+          <meshBasicMaterial
+            color={appearance.color}
+            transparent
+            opacity={0.9}
+            toneMapped={false}
+          />
+        </mesh>
+      )}
+      {cue === 'selected' && (
+        <mesh rotation={[0, Math.PI / 2, 0]}>
+          <torusGeometry
+            args={[SCENE_CONFIG.node.cueRingRadius, SCENE_CONFIG.node.cueRingTube, 8, 40]}
+          />
+          <meshBasicMaterial
+            color={appearance.color}
+            transparent
+            opacity={0.9}
+            toneMapped={false}
+          />
+        </mesh>
+      )}
     </animated.mesh>
   );
 }

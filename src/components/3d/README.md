@@ -14,8 +14,11 @@ The 3D visualization renders story nodes as interactive spheres positioned in 3D
 
 ```
 NarromorphCanvas (Canvas setup, lighting, fog)
+├── SceneNavigationControls (DOM camera controls and legend)
+├── SceneNodeList (DOM passage navigation)
 ├── SceneContent (Layout computation, scene management)
 │   ├── PlaneGuide (Visual layer indicators)
+│   ├── SceneConnection (Directional solid/segmented routes)
 │   └── NodeSphere (Interactive node representations)
 ├── CameraController (Smooth transitions)
 └── OrbitControls (User camera control)
@@ -31,8 +34,9 @@ NarromorphCanvas (Canvas setup, lighting, fog)
   - Global lighting (ambient + point lights)
   - Atmospheric fog for depth perception
   - OrbitControls setup
+  - Plain-DOM reset/focus controls and an orientation/state legend
 - **Configuration**:
-  - Camera: `position: [0, 0, 60]`, `fov: 50`
+  - Named in `sceneConfig.ts`; camera starts at `position: [0, 35, 90]`, `fov: 50`
   - Fog: `color: #1a1a1a`, `near: 50`, `far: 200`
 
 #### SceneContent.tsx
@@ -42,6 +46,7 @@ NarromorphCanvas (Canvas setup, lighting, fog)
   - Groups nodes by character type
   - Triggers spatial layout computation
   - Renders PlaneGuide components for each character layer
+  - Renders directional story connections whose endpoints are in the bounded scene
   - Renders NodeSphere components for each node
 - **Data Flow**:
   1. Reads nodes from `useStoryStore`
@@ -58,11 +63,11 @@ NarromorphCanvas (Canvas setup, lighting, fog)
   - Hover and click interactions
   - Smooth animations with `@react-spring/three`
   - Conditional interactivity based on availability
-- **State-Based Appearance**:
-  - **Active**: Large scale (1.3x), bright emissive (2.0)
-  - **Visited**: Normal scale, medium emissive (0.5)
-  - **Unvisited**: Normal scale, subtle emissive (0.2)
-  - **Locked**: Small scale (0.8x), dim (0.1), transparent (0.3 opacity)
+- **State-Based Appearance** (structural as well as colour):
+  - **Selected**: Large scale with two crossing rings
+  - **Opened**: Solid sphere with one ring
+  - **Available**: Solid sphere
+  - **Locked**: Small, dim sphere inside a neutral wireframe cage
 - **Interactions**:
   - Available nodes: Hover effects (5% scale increase, pointer cursor)
   - Locked nodes: No hover effects, no cursor change
@@ -208,25 +213,19 @@ Checks:
    - Represent temporal artifacts or narrative threads
    - Use `@react-three/drei` `<Points>` or custom shaders
 
-2. **Bezier Curve Connections**
-   - Add to SceneContent.tsx between connected nodes
-   - Read node connections from story data
-   - Use `QuadraticBezierLine` from `@react-three/drei`
-   - Animate flow direction to show narrative paths
-
-3. **Custom Shaders**
+2. **Custom Shaders**
    - Enhance NodeSphere material with custom fragment shaders
    - Add time-based effects (pulsing, warping)
    - Implement awareness-level visual effects
    - Use `shaderMaterial` from `@react-three/drei`
 
-4. **Post-Processing Effects**
+3. **Post-Processing Effects**
    - Add `<EffectComposer>` to NarromorphCanvas
    - Bloom effect for active nodes
    - Film grain for vintage aesthetic
    - Vignette for focus
 
-5. **Advanced Camera Behaviors**
+4. **Advanced Camera Behaviors**
    - Cinematic transitions for first-time visits
    - Dynamic camera paths based on narrative structure
    - "Flythrough" tour mode
@@ -260,9 +259,8 @@ Checks:
 
 4. **Accessibility**
    - Requires WebGL support (fallback to 2D)
-   - Mouse/pointer-centric interactions
-   - Limited keyboard navigation in 3D space
-   - Screen reader support minimal
+   - The synchronized passage list remains the screen-reader and non-spatial path
+   - Manual screen-reader, forced-colours, and cross-device verification remains required
 
 5. **Mobile Support**
    - Touch controls via OrbitControls (basic)
@@ -271,10 +269,8 @@ Checks:
 
 ### Technical Debt
 
-- **Hardcoded Values**: Camera positions, fog distances, radii
-- **Magic Numbers**: Scale factors, spring tensions, opacities
-- **Type Safety**: Some `any` types in event handlers
-- **Testing**: Limited coverage of 3D components
+- **Configuration evolution**: Primary camera, layout, node, guide, connection, and orbit values are centralized in `sceneConfig.ts`; new scene behavior should extend that configuration.
+- **Testing**: WebGL scene behavior still depends on production-browser and hardware coverage.
 
 ## Development
 
@@ -336,9 +332,9 @@ FPSCounter automatically appears in development mode:
 
 ### Core
 
-- `three@^0.159.0`: 3D graphics library
+- `three@^0.185.1`: 3D graphics library
 - `@react-three/fiber@^8.15.0`: React renderer for Three.js
-- `@react-three/drei@^9.92.0`: Helper components (OrbitControls, Text)
+- `@react-three/drei@^9.92.0`: Helper components (OrbitControls)
 - `@react-spring/three@^9.7.3`: Spring physics animations
 
 ### Peer

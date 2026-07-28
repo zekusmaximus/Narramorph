@@ -6,6 +6,9 @@ import { PERSPECTIVE_COLOR } from '@/styles/designTokens';
 
 import NodeSphere from './NodeSphere';
 import PlaneGuide from './PlaneGuide';
+import { SCENE_CONFIG } from './sceneConfig';
+import SceneConnection from './SceneConnection';
+import { selectSceneConnections } from './sceneConnections';
 import { selectSceneNodeGroups } from './sceneNodes';
 
 /**
@@ -48,6 +51,15 @@ export default function SceneContent(): ReactElement {
   const allNodes = useMemo(() => {
     return visibleCharacters.flatMap((character) => character.nodes);
   }, [visibleCharacters]);
+  const sceneNodeIds = useMemo(() => new Set(allNodes.map((node) => node.id)), [allNodes]);
+  const sceneAdapterNodes = useMemo(
+    () => adapter.nodes.filter((entry) => sceneNodeIds.has(entry.node.id)),
+    [adapter.nodes, sceneNodeIds],
+  );
+  const sceneConnections = useMemo(
+    () => selectSceneConnections(sceneAdapterNodes, positions),
+    [positions, sceneAdapterNodes],
+  );
 
   // Render plane guides and node spheres
   return (
@@ -62,12 +74,17 @@ export default function SceneContent(): ReactElement {
         return (
           <PlaneGuide
             key={`guide-${character.type}`}
-            zPosition={index * 25}
+            zPosition={index * SCENE_CONFIG.layout.perspectiveSpacing}
             color={metadata.color}
             label={metadata.label}
           />
         );
       })}
+
+      {/* Direction is encoded with arrowheads; locked routes use segmented lines. */}
+      {sceneConnections.map((connection) => (
+        <SceneConnection key={connection.id} connection={connection} />
+      ))}
 
       {/* Node spheres */}
       {allNodes.map((node) => {

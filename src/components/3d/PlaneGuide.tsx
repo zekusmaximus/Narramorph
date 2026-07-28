@@ -2,6 +2,8 @@ import { CanvasTexture, DoubleSide, LinearFilter, SRGBColorSpace } from 'three';
 
 import { useEffect, useMemo, type ReactElement } from 'react';
 
+import { SCENE_CONFIG } from './sceneConfig';
+
 interface PlaneGuideProps {
   zPosition: number;
   color: string;
@@ -36,7 +38,7 @@ function PlaneLabel({ color, label }: Pick<PlaneGuideProps, 'color' | 'label'>):
   useEffect(() => () => texture.dispose(), [texture]);
 
   return (
-    <sprite scale={[18, 2.25, 1]}>
+    <sprite scale={SCENE_CONFIG.guide.labelScale}>
       {/* R3F maps this Three.js material property; it is not a DOM attribute. */}
       {/* eslint-disable-next-line react/no-unknown-property */}
       <spriteMaterial map={texture} transparent depthWrite={false} />
@@ -58,7 +60,7 @@ export default function PlaneGuide({
       {/* Optional translucent guide plane */}
       {showPlane && (
         <mesh position={[0, 0, zPosition]}>
-          <planeGeometry args={[80, 80]} />
+          <planeGeometry args={[SCENE_CONFIG.guide.planeSize, SCENE_CONFIG.guide.planeSize]} />
           <meshBasicMaterial
             color={color}
             opacity={0.02}
@@ -70,7 +72,7 @@ export default function PlaneGuide({
       )}
 
       {/* Label text below the plane */}
-      <group position={[0, -20, zPosition]}>
+      <group position={[0, SCENE_CONFIG.guide.labelPositionY, zPosition]}>
         <PlaneLabel color={color} label={label} />
       </group>
     </>

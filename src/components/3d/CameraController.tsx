@@ -1,7 +1,7 @@
 import { useSpring } from '@react-spring/three';
 import { useThree, useFrame } from '@react-three/fiber';
 import type { ReactElement, RefObject } from 'react';
-import { useEffect, useMemo, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 
 import { useReducedMotionPreference } from '@/hooks/useReducedMotionPreference';
@@ -9,9 +9,16 @@ import { useStoryStore } from '@/stores';
 import { useSpatialStore } from '@/stores/spatialStore';
 
 import { DEFAULT_CAMERA_TARGET, DEFAULT_CAMERA_POSITION } from './cameraDefaults';
+import { SCENE_CONFIG } from './sceneConfig';
+
+export interface CameraRequest {
+  id: number;
+  type: 'reset' | 'focus-selected';
+}
 
 interface CameraControllerProps {
   controlsRef: RefObject<OrbitControlsImpl>;
+  request: CameraRequest;
 }
 
 type Vec3 = [number, number, number];
@@ -26,6 +33,7 @@ function vec3Equals(a: Vec3, b: Vec3): boolean {
  */
 export default function CameraController({
   controlsRef,
+  request,
 }: CameraControllerProps): ReactElement | null {
   const { camera } = useThree();
   const selectedNode = useStoryStore((state) => state.selectedNode);
@@ -49,7 +57,7 @@ export default function CameraController({
   const cameraTargetPos: Vec3 = useMemo(() => {
     if (activeNodeId && positions[activeNodeId]) {
       const [x, y, z] = positions[activeNodeId];
-      return [x, y + 5, z + 15];
+      return [x, y + SCENE_CONFIG.focus.verticalOffset, z + SCENE_CONFIG.focus.depthOffset];
     }
     return DEFAULT_CAMERA_POSITION;
   }, [activeNodeId, positions]);
@@ -58,8 +66,43 @@ export default function CameraController({
   const [spring, api] = useSpring(() => ({
     position: DEFAULT_CAMERA_POSITION,
     target: DEFAULT_CAMERA_TARGET,
-    config: { tension: 280, friction: 60 },
+    config: SCENE_CONFIG.focus.spring,
   }));
+
+  const moveCamera = useCallback(
+    (nextPosition: Vec3, nextTarget: Vec3): void => {
+      if (reduceMotion) {
+        api.set({ position: nextPosition, target: nextTarget });
+        camera.position.set(nextPosition[0], nextPosition[1], nextPosition[2]);
+        if (controlsRef.current) {
+          controlsRef.current.target.set(nextTarget[0], nextTarget[1], nextTarget[2]);
+          controlsRef.current.update();
+        }
+        animationActiveRef.current = false;
+        setIsAnimating(false);
+        return;
+      }
+
+      void api.start({
+        position: nextPosition,
+        target: nextTarget,
+        onStart: () => {
+          animationActiveRef.current = true;
+          setIsAnimating(true);
+        },
+        onRest: () => {
+          animationActiveRef.current = false;
+          setIsAnimating(false);
+          camera.position.set(nextPosition[0], nextPosition[1], nextPosition[2]);
+          if (controlsRef.current) {
+            controlsRef.current.target.set(nextTarget[0], nextTarget[1], nextTarget[2]);
+            controlsRef.current.update();
+          }
+        },
+      });
+    },
+    [api, camera, controlsRef, reduceMotion, setIsAnimating],
+  );
 
   // Ensure controls start with the same framing as our default camera target
   useEffect(() => {
@@ -95,38 +138,21 @@ export default function CameraController({
 
     previousTargetRef.current = target;
     previousPositionRef.current = cameraTargetPos;
+    moveCamera(cameraTargetPos, target);
+  }, [cameraTargetPos, moveCamera, target]);
 
-    if (reduceMotion) {
-      camera.position.set(cameraTargetPos[0], cameraTargetPos[1], cameraTargetPos[2]);
-      if (controlsRef.current) {
-        controlsRef.current.target.set(target[0], target[1], target[2]);
-        controlsRef.current.update();
-      }
-      animationActiveRef.current = false;
-      setIsAnimating(false);
+  // DOM controls can explicitly replay focus or return to the overview even
+  // when the selected node itself has not changed.
+  useEffect(() => {
+    if (request.id === 0) {
       return;
     }
-
-    void api.start({
-      position: cameraTargetPos,
-      target,
-      onStart: () => {
-        animationActiveRef.current = true;
-        setIsAnimating(true);
-      },
-      onRest: () => {
-        animationActiveRef.current = false;
-        setIsAnimating(false);
-
-        // Ensure camera + controls are perfectly in sync after animation completes
-        camera.position.set(cameraTargetPos[0], cameraTargetPos[1], cameraTargetPos[2]);
-        if (controlsRef.current) {
-          controlsRef.current.target.set(target[0], target[1], target[2]);
-          controlsRef.current.update();
-        }
-      },
-    });
-  }, [api, camera, cameraTargetPos, controlsRef, reduceMotion, setIsAnimating, target]);
+    if (request.type === 'reset') {
+      moveCamera(DEFAULT_CAMERA_POSITION, DEFAULT_CAMERA_TARGET);
+      return;
+    }
+    moveCamera(cameraTargetPos, target);
+  }, [cameraTargetPos, moveCamera, request, target]);
 
   // Update camera and controls on each frame
   useFrame(() => {

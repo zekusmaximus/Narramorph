@@ -60,13 +60,48 @@ test('3D opens under the production CSP and recovers from context loss', async (
   await expect(passageList).toBeVisible();
   const openingPassage = passageList.getByRole('button', { name: /First Documentation/ });
   await expect(openingPassage).toBeEnabled();
-  await openingPassage.click();
+  await openingPassage.focus();
+  await page.keyboard.press('Enter');
 
   const reader = page.getByRole('dialog', { name: 'First Documentation' });
   await expect(reader).toBeVisible();
   await expect(reader.getByRole('region', { name: 'Story passage' })).not.toBeEmpty();
-  await reader.getByRole('button', { name: 'Close' }).click();
+  await page.keyboard.press('Escape');
   await expect(reader).toHaveCount(0);
+  await expect(openingPassage).toBeFocused();
+
+  // The canvas shares the same adapter: arrows select, Enter opens, and Escape
+  // returns focus to the canvas rather than stranding it in the removed dialog.
+  await scene.focus();
+  await page.keyboard.press('ArrowRight');
+  const keyboardTarget = passageList.locator('button[aria-current="true"]');
+  await expect(keyboardTarget).toHaveCount(1);
+  await expect(keyboardTarget).toBeEnabled();
+  await page.keyboard.press('Enter');
+  const keyboardReader = page.getByRole('dialog');
+  await expect(keyboardReader).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(keyboardReader).toHaveCount(0);
+  await expect(scene).toBeFocused();
+
+  const navigationControls = page.getByRole('complementary', {
+    name: '3D navigation controls',
+  });
+  const focusControl = navigationControls.getByRole('button', {
+    name: 'Focus selected passage',
+  });
+  await expect(focusControl).toBeEnabled();
+  await focusControl.click();
+  await expect(navigationControls.getByRole('status')).toContainText(
+    'Focused the three-dimensional view',
+  );
+  await navigationControls.getByRole('button', { name: 'Reset 3D view' }).click();
+  await expect(navigationControls.getByRole('status')).toContainText(
+    'Three-dimensional view reset to the overview.',
+  );
+  await navigationControls.getByText('3D legend').click();
+  await expect(navigationControls.getByLabel('3D map legend')).toContainText('Arrowheads point');
+
   await expect(scene).toHaveAttribute('data-scene-ready', 'true');
   expect(runtime.failures).toEqual([]);
 
