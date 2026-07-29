@@ -27,34 +27,17 @@ async function prepare(page: Page): Promise<RuntimeFailure[]> {
 }
 
 async function waitForProxyOutcome(page: Page): Promise<ProxyOutcome> {
-  await expect
-    .poll(async () => {
-      const sceneReady =
-        (await page
-          .getByTestId('three-dimensional-scene')
-          .getAttribute('data-scene-ready')
-          .catch(() => null)) === 'true';
-      if (sceneReady) {
-        return 'rendered';
-      }
-      if (
-        await page
-          .getByTestId('webgl-fallback-status')
-          .isVisible()
-          .catch(() => false)
-      ) {
-        return 'fallback';
-      }
-      return 'pending';
-    })
-    .toMatch(/rendered|fallback/);
+  const readyScene = page.locator(
+    '[data-testid="three-dimensional-scene"][data-scene-ready="true"]',
+  );
+  const fallbackStatus = page.getByTestId('webgl-fallback-status');
 
-  return (await page
-    .getByTestId('three-dimensional-scene')
-    .isVisible()
-    .catch(() => false))
-    ? 'rendered'
-    : 'fallback';
+  // Linux Firefox can spend close to 30 seconds deciding that software WebGL
+  // is unavailable. Wait on the two valid product outcomes directly so a
+  // fallback that appears at the old polling deadline is still observed.
+  await expect(readyScene.or(fallbackStatus).first()).toBeVisible({ timeout: 60_000 });
+
+  return (await readyScene.isVisible()) ? 'rendered' : 'fallback';
 }
 
 async function activate(locator: Locator, page: Page, hasTouch: boolean): Promise<void> {
