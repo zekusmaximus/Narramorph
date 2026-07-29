@@ -38,7 +38,7 @@ The browser regression now reads a passage through the shared list before recove
 | 2026-07-26 | Windows, Playwright-pinned Chromium (owner run) | pass, 2,891 modules, 9.03s | pass, 1 test, 5.2s | pass, all budgets and worker-signature gate | Result covered the original scene/list/context-loss journey. Rerun the expanded two-test spec to capture passage activation, recovery-phase assertions, initialization failure, and attached screenshots. |
 | 2026-07-27 | Windows 11, Playwright-pinned Chromium (owner run) | pass, 8.05s | pass, 2 tests, 6.8s | pass, all budgets and worker-signature gate | Expanded two-test spec: passage activation through the shared list, recovery-phase console assertions, renderer-initialization-failure fallback with cleared 3D preference, and scene/recovery screenshots attached to the report. |
 
-Headless Chromium's software WebGL path validates integration and deterministic recovery, not real GPU/driver behavior. Owner verification remains required on current Chrome/Edge, Firefox, and Safari across representative desktop/mobile hardware. Record browser, OS, GPU, driver, context-loss behavior, and console output; do not infer those results from CI.
+Headless Chromium's software WebGL path validates integration and deterministic recovery, not real GPU/driver behavior. The original plan required owner verification on current Chrome/Edge, Firefox, and Safari across representative desktop/mobile hardware. The constrained verification policy below supersedes that requirement where the necessary hardware is unavailable; missing physical-device results remain explicit caveats rather than inferred passes.
 
 ### Recorded hardware results
 
@@ -49,7 +49,7 @@ Runs drive the full production-CSP journey (fixture serving `dist/` with the `pu
 | 2026-07-27 | Chrome 150.0.7871.182 (branded, headed) | Windows 11 Pro 26200; Intel(R) Graphics (0x7D45), driver 32.0.101.8724; ANGLE D3D11, WebGL2 | pass — full journey incl. context-loss recovery | Only the expected `THREE.WebGLRenderer: Context Lost.` during the intentional loss phase; no CSP, worker, or page errors |
 | 2026-07-27 | Edge 150.0.4078.83 (branded, headed) | Windows 11 Pro 26200; Intel(R) Graphics (0x7D45), driver 32.0.101.8724; ANGLE D3D11, WebGL2 | pass — full journey incl. context-loss recovery | Only the expected `THREE.WebGLRenderer: Context Lost.` during the intentional loss phase; no CSP, worker, or page errors |
 
-Outstanding release caveats: Firefox (not installed on the verification machine), Safari (requires Apple hardware), and a representative mobile device have not been hardware-verified. These remain caveats, not inferred passes.
+Outstanding release caveats: branded Firefox on a real GPU, Safari on Apple hardware, and a representative physical mobile device have not been hardware-verified. These remain caveats, not inferred passes.
 
 ### Baseline metrics (2026-07-27, pre-optimization)
 
@@ -90,7 +90,7 @@ The final headed Chrome-for-Testing 151.0.7922.34 inspection at 1036×686 showed
 | 2026-07-28 | Production-CSP 3D journey | pass — 2 tests, 18.3s; list-origin and canvas-origin keyboard/focus flow, reset/focus/legend controls, context-loss recovery, and renderer-initialization fallback |
 | 2026-07-28 | Bundle gate | pass — all budgets and the Troika/worker-signature gate; initial JS 635.10 KiB / 204.32 KiB gzip |
 
-Phase 2's exit remains open for two deliberately manual claims: representative users must confirm that spatial grouping and arrow direction are understandable, and layer-label readability must be checked across the supported zoom range on the real-device/browser matrix. Firefox, Safari, and representative mobile hardware also remain compatibility caveats from Phase 1.
+Phase 2's exit remains open for two deliberately manual claims: representative users must confirm that spatial grouping and arrow direction are understandable, and layer-label readability must be checked across the supported zoom range on available Chrome/Edge hardware plus the automated viewport proxies. Branded Firefox, Safari, and representative physical mobile hardware remain compatibility caveats rather than blocking gates.
 
 ## Phase 3 automated performance-harness record (2026-07-28)
 
@@ -133,17 +133,54 @@ Vite labels its decimal build display as `kB`; the harness reports bundle graphs
 
 The 11.6 FPS software-WebGL result is not a real-GPU regression verdict and is not comparable to the pre-Phase-2 headed Chrome/Edge measurements. A preceding run of the same harness on the same host averaged 7.2 FPS, demonstrating why these single-machine diagnostics are not gates. The earlier scene did not include connections, locked cages, selection rings, or the current controls, and the environments differ. The current renderer has `174` draw calls rather than the historical structural estimate of about `22`, so device profiling—not that old estimate—must guide any optimization. In particular, this run does not attribute cost to node meshes and is not evidence to implement instancing; the prior “do not port instancing without measurement evidence” decision remains in force.
 
-Phase 2's comprehension and supported-zoom label checks remain open. Phase 1/2 compatibility checks on Firefox, Safari, and representative mobile hardware also remain open, as do Phase 3 real-device FPS, memory, thermals, resize/orientation, suspend/resume, and pointer/touch checks. The `Experimental` label remains.
+Phase 2's comprehension and supported-zoom label checks remain open. Physical Firefox, Safari, and mobile compatibility and performance remain unverified caveats. Phase 3A below covers resize/orientation, suspend/resume, and pointer/touch contracts through automated proxies; real-device FPS, memory, and thermals remain unavailable. The `Experimental` label remains.
+
+## Constrained verification policy (2026-07-29)
+
+The project owner does not have access to Apple hardware, a representative physical mobile device, or a branded Firefox real-GPU environment. Those results are therefore no longer unfinishable release gates for this optional view.
+
+Evidence is separated into three levels:
+
+1. **Available real GPU:** retain the headed Windows Chrome and Edge results above.
+2. **Automated engine/device proxies:** run pinned Chromium, Firefox, and WebKit engines in desktop viewports plus touch-enabled Chromium and WebKit mobile viewports. These verify application boot, CSP script/worker boundaries, viewport/orientation response, reduced motion, visibility pause/resume, pointer/touch input, accessible passage activation, and the return to 2D.
+3. **Unavailable physical hardware:** branded Safari, branded Firefox GPU/driver combinations, mobile GPU performance, memory, and thermals remain explicitly unverified. Playwright WebKit is not Safari, and a touch viewport is not a physical phone.
+
+The proxy product contract is intentionally fallback-aware: an engine must either complete the 3D journey or return cleanly to the usable 2D map with the 3D preference cleared. Each project prints and annotates which outcome occurred; a fallback is not recorded as a 3D-rendering pass.
+
+The proxy fixture reads the production CSP from `public/_headers` but removes `upgrade-insecure-requests` only for its loopback HTTP server because Playwright WebKit otherwise upgrades local assets to a nonexistent TLS endpoint. The production-CSP regression and profiler continue to serve the complete policy. The proxy still asserts self-only `script-src`, rejects `blob:` script policy, and retains the production worker policy.
+
+Without representative hardware, FPS, first-scene latency, GPU memory, and thermals remain diagnostic rather than release thresholds. Deterministic gates remain authoritative: the initial 2D graph must not acquire 3D code, the deferred bundle and CSP/worker checks must pass, renderer structural counters must not grow without an explicit reviewed reason, and every initialization/runtime failure must preserve the 2D reader.
+
+## Phase 3A lifecycle and proxy-matrix record (2026-07-29)
+
+The scene render lifecycle now has three explicit states: normal motion uses R3F's continuous loop, reduced motion uses demand rendering after making springs immediate and disabling orbit damping, and a hidden document uses `frameloop="never"`. A visibility change restores the appropriate normal or reduced-motion mode.
+
+`npm run test:e2e:3d-proxy` builds production and runs a dedicated five-project matrix:
+
+- Chromium desktop proxy, 1280×800
+- Firefox desktop proxy, 1280×800
+- WebKit desktop proxy, 1280×800
+- Chromium touch/mobile proxy, 390×844
+- WebKit touch/mobile proxy, 390×844
+
+The narrow journey records whether 3D rendered or the clean fallback was used. When rendered, it verifies demand rendering under reduced motion, hidden/resume lifecycle changes, an orientation-sized viewport flip, canvas-to-map-region sizing, DOM passage activation and reading, native mouse/touch canvas input, and a still-reachable return to the 2D map. It runs in a separate CI job and retains failure traces, screenshots, and video.
+
+| Date | Environment | Build | Proxy matrix |
+| --- | --- | --- | --- |
+| 2026-07-29 | Windows 11; Playwright-pinned Chromium, Firefox 153.0, and WebKit 26.5 software/headless environments | pass — 3,114 modules; deferred 3D asset 927.58 kB / 254.44 kB gzip in Vite output | pass — five projects; desktop Chromium/Firefox/WebKit and touch/mobile Chromium/WebKit completed the rendered 3D lifecycle journey |
+
+The production profiler also passed after the lifecycle change: normal-motion Chromium retained 174 calls, 33,078 triangles, 172 geometries, and 4 textures; the software-WebGL timing sample averaged 19.1 FPS and remains diagnostic.
 
 ## Delivery sequence
 
 ### 1. Stabilize and observe
 
 - Maintain the production-CSP browser regression and extend browser coverage where CI WebGL is trustworthy.
-- Exercise Chromium, Firefox, and WebKit plus one representative mobile device on a real GPU; retain the current error boundary and one-click return to 2D.
-- Record time-to-first-scene, frame rate, memory, and context-loss recovery before optimizing.
+- Exercise the pinned Chromium, Firefox, WebKit, and touch/mobile proxy matrix; retain the current error boundary and one-click return to 2D.
+- Preserve available Chrome/Edge real-GPU evidence. Record other real hardware opportunistically, but treat unavailable branded Safari/Firefox and physical-mobile results as caveats.
+- Record time-to-first-scene, frame rate, memory, and context-loss recovery where measurable before optimizing; do not convert software-renderer timing into a hardware claim.
 
-**Exit:** the view opens without console errors, its passage list remains usable, and an induced WebGL context loss returns the reader to a useful recovery path.
+**Exit:** on the available real-GPU baseline and automated proxies, the view either opens without unexpected errors with its passage list usable or returns cleanly to 2D; an induced WebGL context loss returns the reader to a useful recovery path.
 
 ### 2. Make navigation legible
 
@@ -151,16 +188,16 @@ Phase 2's comprehension and supported-zoom label checks remain open. Phase 1/2 c
 - Add reset/focus controls and a small orientation legend; preserve keyboard selection through the shared map adapter and synchronize canvas focus with the passage list.
 - Replace remaining magic camera/layout values with named, tested configuration and ensure every label remains readable at supported zoom levels.
 
-**Exit:** a keyboard-only user can locate, focus, and open any available passage, and user testing confirms that the spatial grouping and connection direction are understandable.
+**Exit:** a keyboard-only user can locate, focus, and open any available passage; user testing on available hardware confirms that the spatial grouping and connection direction are understandable; supported-zoom labels remain readable in the available real browser and viewport proxies.
 
 ### 3. Harden performance and device behavior
 
-- Maintain the production profiling harness and use its post-Phase-2 reports as diagnostic baselines; agree real-device budgets before adding numeric gates.
+- Maintain the production profiling harness and use its post-Phase-2 reports as diagnostic baselines. Keep environment-sensitive timing/memory values non-gating while representative hardware is unavailable.
 - Use measurements to choose among instancing, lower sphere segments, label distance culling, and adaptive DPR; do not add effects until the baseline budgets pass.
-- Pause animation when hidden, honor reduced motion throughout, handle resize/orientation changes, and test pointer/touch gestures without trapping page navigation.
-- Define budgets by device tier for first-scene latency, steady-state FPS, memory, and bundle size.
+- Maintain hidden-document pause, demand rendering for reduced motion, resize/orientation response, and pointer/touch gestures without trapping the DOM navigation paths.
+- Gate deterministic bundle/lazy-boundary/CSP behavior and review renderer structural-count growth. Define hardware timing, FPS, memory, and thermal budgets only if representative devices become available.
 
-**Exit:** agreed budgets pass on the real-device matrix with no regression to the lazy-loaded 2D startup bundle.
+**Exit:** the Chrome/Edge real-GPU baseline and automated proxy contract pass, deterministic bundle and structural gates show no unexplained regression, and the lazy-loaded 2D startup graph remains free of 3D code. Missing physical-device results remain documented caveats.
 
 ### 4. Enhance deliberately
 
@@ -174,7 +211,7 @@ Phase 2's comprehension and supported-zoom label checks remain open. Phase 1/2 c
 | Security | Header checker requires self-only script/worker policies and rejects blob/data/inline/eval scripts; production-CSP 3D journey | Production console has no CSP violations |
 | Function | 3D smoke journey, keyboard navigation, fallback/context-loss tests | Orbit, zoom, focus, open, close, return to 2D |
 | Accessibility | Semantic-list tests and automated WCAG scan | Screen reader, keyboard-only, reduced motion, forced colors |
-| Performance | Bundle boundary and deterministic scene metrics | FPS, memory, thermals on desktop and mobile GPUs |
-| Compatibility | Chromium, Firefox, WebKit CI smoke tests where GPU support is trustworthy | Current Chrome/Edge, Firefox, and Safari on real hardware |
+| Performance | Bundle boundary, renderer structural counters, and deterministic scene metrics; environment-sensitive timing remains diagnostic | Available Chrome/Edge GPU observations; unavailable mobile/other-browser GPU results remain caveats |
+| Compatibility | Chromium, Firefox, WebKit desktop proxies plus Chromium/WebKit touch-mobile proxies; rendered or clean-fallback outcome recorded separately | Current Chrome/Edge real hardware; branded Firefox, Safari, and physical mobile when access becomes available |
 
-Results should be recorded with browser/device versions and dates. A missing hardware result is a release caveat, not a result to infer from headless CI.
+Results should be recorded with browser/device versions and dates. Proxy results must be labeled as proxies, and rendered versus fallback outcomes must remain distinct. A missing hardware result is a release caveat, not a result to infer from headless CI.

@@ -180,7 +180,7 @@ export function formatProfileMarkdown(result) {
     `| Initial 2D JavaScript graph | ${formatKiB(measurements.bundle.initial2d.bytes)} / ${formatKiB(measurements.bundle.initial2d.gzipBytes)} gzip (${measurements.bundle.initial2d.assetCount} assets) |`,
     `| Deferred 3D JavaScript graph | ${formatKiB(measurements.bundle.deferred3d.bytes)} / ${formatKiB(measurements.bundle.deferred3d.gzipBytes)} gzip (${measurements.bundle.deferred3d.assetCount} assets) |`,
     '',
-    '> FPS, latency, memory, and renderer counters are diagnostic baselines, not CI budgets. Headless software WebGL does not substitute for the manual real-device/browser matrix.',
+    '> FPS, latency, memory, and renderer counters are diagnostic baselines, not CI budgets. Headless software WebGL does not create physical-device performance evidence; see the constrained verification policy in docs/3D_VIEW_PLAN.md.',
     '',
   ].join('\n');
 }

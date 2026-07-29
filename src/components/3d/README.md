@@ -34,6 +34,7 @@ NarromorphCanvas (Canvas setup, lighting, fog)
   - Global lighting (ambient + point lights)
   - Atmospheric fog for depth perception
   - OrbitControls setup
+  - Visibility-aware render lifecycle: continuous normally, demand-driven for reduced motion, paused while the document is hidden
   - Plain-DOM reset/focus controls and an orientation/state legend
 - **Configuration**:
   - Named in `sceneConfig.ts`; camera starts at `position: [0, 35, 90]`, `fov: 50`
@@ -295,6 +296,20 @@ FPSCounter automatically appears in development mode:
 - **Green (≥55 FPS)**: Optimal performance
 - **Yellow (30-54 FPS)**: Acceptable performance
 - **Red (<30 FPS)**: Performance issues
+
+The production profiling harness remains the diagnostic baseline:
+
+```bash
+npm run profile:3d
+```
+
+The dedicated browser-engine and touch/viewport proxy matrix runs with:
+
+```bash
+npm run test:e2e:3d-proxy
+```
+
+Proxy results do not substitute for physical-device GPU, memory, or thermal measurements. The current evidence policy and caveats are recorded in `docs/3D_VIEW_PLAN.md`.
 
 ### Debugging Tips
 

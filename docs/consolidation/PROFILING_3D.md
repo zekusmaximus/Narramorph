@@ -37,19 +37,20 @@ The final 2026-07-28 headless Chromium 151 software-WebGL run measured 174 calls
 
 ## Decision — stop early; do not port instancing
 
-Per the roadmap's "stop early if profiling shows little reader value", **P's instancing was not ported.** That remains the decision unless measurements isolate node draw calls as a meaningful cost on representative hardware. N keeps its per-node 3D for now; 3D stays **clearly experimental**: opt-in, lazy-loaded, reduced-motion aware, and recoverable after WebGL context loss, with 2D fully functional when WebGL is unavailable. No current real-device performance budget is claimed as passed.
+Per the roadmap's "stop early if profiling shows little reader value", **P's instancing was not ported.** That remains the decision unless deterministic structural evidence or available real-GPU measurements isolate node draw calls as a meaningful cost. N keeps its per-node 3D for now; 3D stays **clearly experimental**: opt-in, lazy-loaded, reduced-motion aware, and recoverable after WebGL context loss, with 2D fully functional when WebGL is unavailable. No unavailable-device performance budget is claimed as passed.
 
 ## What 6.4 did build — the portable win
 
 - **A semantic, visible companion node list** (`SceneNodeList`) synchronized with the 3D nodes through the shared `selectSceneNodeGroups` selector and the same interaction adapter, so the WebGL canvas is **never the only navigation mechanism**. It is plain DOM (keyboard + screen-reader accessible, no motion), lists the same ≤19 nodes in the same order the canvas renders, activates the same node selection, disables locked nodes, and marks the open node as current — working under reduced motion and when WebGL is unavailable.
 - Confirmed guards: 3D is optional + lazy (`Home` lazy-loads the canvas), reduced-motion aware (`enableDamping` gated; the list has no motion), and WebGL-loss → 2D is proven green in `e2e/reader-journey.spec.ts`.
 
-## Device measurement (owner, on representative hardware)
+## Available and proxy evidence
 
-Frame rate, GPU/JS memory, thermals, and device behavior remain hardware-dependent. Repeatable method:
+Frame rate, GPU/JS memory, and thermals remain hardware-dependent. The owner cannot access branded Firefox GPU coverage, Apple hardware, or a representative physical mobile device, so the constrained verification policy in `docs/3D_VIEW_PLAN.md` supersedes the earlier mandatory device matrix. Repeatable method:
 
 1. Run `npm run profile:3d` for the production-CSP automated baseline. Preserve `output/profile-3d/latest.json` with the run record when comparing changes.
-2. Repeat on each target device/browser (including a low-power and representative mobile device) and supplement the automated fields with GPU memory, thermals, resize/orientation, suspend/resume, repeated open/close, and pointer/touch observations.
-3. Agree budgets by device tier before creating gates or selecting an optimization. Firefox, Safari, and representative mobile hardware results remain unrecorded; Phase 2 comprehension and label-readability gates also remain open.
+2. Run `npm run test:e2e:3d-proxy` for the pinned Chromium/Firefox/WebKit desktop and Chromium/WebKit touch-mobile contracts. Record rendered versus clean-fallback outcomes separately.
+3. Preserve the available headed Chrome/Edge real-GPU results. Add other physical-device evidence opportunistically rather than treating unavailable hardware as an unfinishable gate.
+4. Keep timing, FPS, memory, and thermals diagnostic. Gate the lazy bundle boundary, CSP/worker policy, fallback behavior, and reviewed renderer structural-count growth; select an optimization only when those measurements identify a concrete cost.
 
 The development `FPSCounter` remains useful for interactive investigation, but it is not the reproducible production baseline. Neither the automated software-WebGL result nor a missing browser/device run is an inferred pass.

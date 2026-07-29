@@ -11,6 +11,7 @@ import { DEFAULT_CAMERA_POSITION } from './cameraDefaults';
 import { SCENE_CONFIG } from './sceneConfig';
 import SceneContent from './SceneContent';
 import SceneDiagnostics from './SceneDiagnostics';
+import { useSceneFrameloop } from './sceneFrameloop';
 import SceneNavigationControls from './SceneNavigationControls';
 import SceneNodeList from './SceneNodeList';
 
@@ -41,6 +42,7 @@ export default function NarromorphCanvas({
   const containerRef = useRef<HTMLDivElement>(null);
   const adapter = useMapInteractionAdapter('3d');
   const reduceMotion = useReducedMotionPreference();
+  const frameloop = useSceneFrameloop(reduceMotion);
   const [cameraRequest, setCameraRequest] = useState<CameraRequest>({
     id: 0,
     type: 'reset',
@@ -80,6 +82,7 @@ export default function NarromorphCanvas({
         data-story-map-focus-target="true"
         data-testid="three-dimensional-scene"
         data-scene-ready="false"
+        data-frameloop={frameloop}
         tabIndex={0}
         onKeyDown={handleKeyDown}
       >
@@ -92,6 +95,7 @@ export default function NarromorphCanvas({
             far: SCENE_CONFIG.camera.far,
           }}
           dpr={SCENE_CONFIG.renderer.dpr}
+          frameloop={frameloop}
           onCreated={({ gl }) => {
             gl.domElement.addEventListener(
               'webglcontextlost',

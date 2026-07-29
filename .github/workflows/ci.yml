@@ -111,6 +111,30 @@ jobs:
           if-no-files-found: ignore
           retention-days: 5
 
+  browser-3d-proxy:
+    name: Compatibility / 3D proxy matrix
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Install pinned browser-engine proxies
+        run: npx playwright install --with-deps chromium firefox webkit
+      - run: npm run test:e2e:3d-proxy
+      - name: Upload failed 3D proxy diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-3d-proxy-failure
+          path: |
+            output/playwright/3d-proxy-report/
+            output/playwright/3d-proxy-results/
+          if-no-files-found: ignore
+          retention-days: 5
+
   node-24:
     name: Compatibility / node-24
     runs-on: ubuntu-latest

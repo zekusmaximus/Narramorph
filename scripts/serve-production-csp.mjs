@@ -13,6 +13,15 @@ if (!csp) {
   throw new Error('Content-Security-Policy was not found in public/_headers.');
 }
 
+// WebKit upgrades even loopback HTTP asset requests when this production
+// directive is present. The cross-engine proxy fixture has no TLS endpoint, so
+// it removes only the transport-upgrade directive; script/worker execution
+// policy and every other production directive remain sourced from _headers.
+const responseCsp =
+  process.env.PLAYWRIGHT_PROXY_HTTP === '1'
+    ? csp.replace(/;\s*upgrade-insecure-requests(?=;|$)/, '')
+    : csp;
+
 const mimeTypes = {
   '.css': 'text/css; charset=utf-8',
   '.html': 'text/html; charset=utf-8',
@@ -38,11 +47,12 @@ createServer((request, response) => {
   }
 
   response.writeHead(200, {
-    'Content-Security-Policy': csp,
+    'Content-Security-Policy': responseCsp,
     'Content-Type': mimeTypes[extname(filePath)] || 'application/octet-stream',
     'X-Content-Type-Options': 'nosniff',
   });
   createReadStream(filePath).pipe(response);
 }).listen(port, '127.0.0.1', () => {
-  process.stdout.write(`Production CSP fixture listening on http://127.0.0.1:${port}\n`);
+  const fixtureKind = process.env.PLAYWRIGHT_PROXY_HTTP === '1' ? '3D proxy CSP' : 'Production CSP';
+  process.stdout.write(`${fixtureKind} fixture listening on http://127.0.0.1:${port}\n`);
 });
