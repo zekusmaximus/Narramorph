@@ -1,0 +1,1446 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewedAt": "2026-10-03",
+  "repository": "zekusmaximus/Narramorph",
+  "reviewedCommit": "096a0ac46fd0ab27f5366de64d4e0fd42ffb2a09",
+  "environment": {
+    "node": "24.19.0",
+    "npm": "11.9.0",
+    "cleanLockfileInstall": true,
+    "reviewKind": "Source/CI-history review with fresh non-browser execution"
+  },
+  "github": {
+    "mainCommit": "096a0ac46fd0ab27f5366de64d4e0fd42ffb2a09",
+    "mainTree": "41ee352d4da53d41ace6382bb48e9c85b62b9966",
+    "mainProtected": true,
+    "visibleProtection": {
+      "enabled": true,
+      "required_status_checks": {
+        "enforcement_level": "non_admins",
+        "contexts": [
+          "PR / fast",
+          "Quality / coverage",
+          "Release / content-build",
+          "Release / browser",
+          "Compatibility / node-24",
+          "Security / dependency-review",
+          "Security / secret-scan"
+        ],
+        "checks": [
+          {
+            "context": "PR / fast",
+            "app_id": 15368
+          },
+          {
+            "context": "Quality / coverage",
+            "app_id": 15368
+          },
+          {
+            "context": "Release / content-build",
+            "app_id": 15368
+          },
+          {
+            "context": "Release / browser",
+            "app_id": 15368
+          },
+          {
+            "context": "Compatibility / node-24",
+            "app_id": 15368
+          },
+          {
+            "context": "Security / dependency-review",
+            "app_id": 15368
+          },
+          {
+            "context": "Security / secret-scan",
+            "app_id": 15368
+          }
+        ]
+      }
+    },
+    "detailedProtectionReadable": false,
+    "mainRun": {
+      "id": 30497985339,
+      "event": "push",
+      "headSha": "096a0ac46fd0ab27f5366de64d4e0fd42ffb2a09",
+      "conclusion": "success",
+      "createdAt": "2026-07-29T22:58:44Z",
+      "url": "https://github.com/zekusmaximus/Narramorph/actions/runs/30497985339"
+    },
+    "mainJobs": [
+      {
+        "id": 90731129335,
+        "name": "Release / browser",
+        "conclusion": "success"
+      },
+      {
+        "id": 90731129359,
+        "name": "Compatibility / node-24",
+        "conclusion": "success"
+      },
+      {
+        "id": 90731129361,
+        "name": "Compatibility / 3D proxy matrix",
+        "conclusion": "success"
+      },
+      {
+        "id": 90731129395,
+        "name": "Release / content-build",
+        "conclusion": "success"
+      },
+      {
+        "id": 90731129401,
+        "name": "Security / dependency-review",
+        "conclusion": "success"
+      },
+      {
+        "id": 90731129402,
+        "name": "Security / secret-scan",
+        "conclusion": "success"
+      },
+      {
+        "id": 90731129448,
+        "name": "PR / fast",
+        "conclusion": "success"
+      },
+      {
+        "id": 90731129476,
+        "name": "Quality / coverage",
+        "conclusion": "success"
+      }
+    ],
+    "mainCoverageExcerpt": "2026-07-29T22:59:29.9525733Z All files          |   72.78 |     62.7 |   77.29 |   72.59 |                   ",
+    "mainBrowserSummary": ["2026-07-29T23:02:00.9466438Z   38 passed (2.1m)"],
+    "openProductIssues": [
+      {
+        "number": 181,
+        "title": "Phase 8.5: Production performance and resilience pass",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/181"
+      },
+      {
+        "number": 180,
+        "title": "Phase 8.4: Deployment environments, versioning, and rollback",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/180"
+      },
+      {
+        "number": 179,
+        "title": "Phase 8.3: Error monitoring and privacy-respecting observability",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/179"
+      },
+      {
+        "number": 178,
+        "title": "Phase 8.2: Security headers, privacy, and data minimization",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/178"
+      },
+      {
+        "number": 177,
+        "title": "Phase 8.1: Make the backend decision and close the scope gate",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/177"
+      },
+      {
+        "number": 175,
+        "title": "Phase 7.5: Manual accessibility and inclusive-design validation",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/175"
+      },
+      {
+        "number": 174,
+        "title": "Phase 7.4: Persistence, recovery, and reader control",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/174"
+      },
+      {
+        "number": 173,
+        "title": "Phase 7.3: Integrate explanations and export without overwhelming the prose",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/173"
+      },
+      {
+        "number": 172,
+        "title": "Phase 7.2: Refine the long-passage reading experience",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/172"
+      },
+      {
+        "number": 171,
+        "title": "Phase 7.1: Define and implement the canonical reader journey",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/171"
+      },
+      {
+        "number": 169,
+        "title": "Phase 6.6: Archive eternal-return-digital-self (prepared; admin-gated on owner go-ahead)",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/169"
+      },
+      {
+        "number": 168,
+        "title": "Phase 6.5: Prototype parity/rejection review — the seven-condition archive gate",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/168"
+      },
+      {
+        "number": 167,
+        "title": "Phase 6.4: Profile experimental 3D vs the prototype's instancing; add a semantic node list",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/167"
+      },
+      {
+        "number": 166,
+        "title": "Phase 6.3: Unify the visual language with design tokens and a restrained cosmic atmosphere",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/166"
+      },
+      {
+        "number": 165,
+        "title": "Phase 6.2: Build a cinematic but accessible first-run introduction",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/165"
+      },
+      {
+        "number": 164,
+        "title": "Phase 6.1: Audit the older prototype's visual/interaction value and decide each item's disposition",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/164"
+      },
+      {
+        "number": 163,
+        "title": "Track A: clear the Phase 5 carry-overs — #156 content release 1.3.0, CTR-010 slice re-issue, CTR-012 repairs",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/163"
+      },
+      {
+        "number": 162,
+        "title": "Phase 6: Extract visual/onboarding value from the older prototype; archive it",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/162"
+      },
+      {
+        "number": 156,
+        "title": "Content release: top-down prose-beat + edge-bridge authoring against the canonical manuscript",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/156"
+      },
+      {
+        "number": 93,
+        "title": "Epic: ship the Eternal Return consolidated product",
+        "url": "https://github.com/zekusmaximus/Narramorph/issues/93"
+      }
+    ],
+    "openPullRequests": [
+      {
+        "number": 224,
+        "title": "chore(deps): bump yaml from 2.9.0 to 2.9.1 in /tools/conversion in the conversion-runtime-minor group",
+        "headSha": "fd3f2150c188b0bdd10bffaca6848d806fdfdba8",
+        "baseSha": "096a0ac46fd0ab27f5366de64d4e0fd42ffb2a09",
+        "url": "https://github.com/zekusmaximus/Narramorph/pull/224"
+      },
+      {
+        "number": 223,
+        "title": "chore(deps): bump js-yaml from 4.3.0 to 4.3.2 in /tools in the legacy-tools-security group across 1 directory",
+        "headSha": "6810f96064afc200ce9285f79067ef1ed62827e0",
+        "baseSha": "096a0ac46fd0ab27f5366de64d4e0fd42ffb2a09",
+        "url": "https://github.com/zekusmaximus/Narramorph/pull/223"
+      },
+      {
+        "number": 222,
+        "title": "chore(deps): bump js-yaml from 4.3.0 to 4.3.1 in /tools in the legacy-tools-runtime-minor group",
+        "headSha": "bf20131b927c09bdfb656d58477fbf751d544db0",
+        "baseSha": "096a0ac46fd0ab27f5366de64d4e0fd42ffb2a09",
+        "url": "https://github.com/zekusmaximus/Narramorph/pull/222"
+      },
+      {
+        "number": 221,
+        "title": "chore(deps-dev): bump tsx from 4.23.1 to 4.23.11 in /tools/conversion in the conversion-development-minor group",
+        "headSha": "67ad75c79db60c0ba1921b52b6d9d6425a5704c0",
+        "baseSha": "096a0ac46fd0ab27f5366de64d4e0fd42ffb2a09",
+        "url": "https://github.com/zekusmaximus/Narramorph/pull/221"
+      },
+      {
+        "number": 219,
+        "title": "chore(deps): bump brace-expansion from 5.0.8 to 5.0.9 in /tools/conversion in the conversion-security group across 1 directory",
+        "headSha": "84a98d7a99317b77b3d051b8f2bdadb8d41bfeb4",
+        "baseSha": "096a0ac46fd0ab27f5366de64d4e0fd42ffb2a09",
+        "url": "https://github.com/zekusmaximus/Narramorph/pull/219"
+      },
+      {
+        "number": 217,
+        "title": "chore(deps): bump tailwindcss from 3.4.17 to 4.3.3",
+        "headSha": "580f002f03e5a44e11aeb5136db3f2ae0cc72fae",
+        "baseSha": "2018bd8788e2d39ebd160dbe6150f879083ce006",
+        "url": "https://github.com/zekusmaximus/Narramorph/pull/217"
+      },
+      {
+        "number": 216,
+        "title": "chore(deps): bump framer-motion from 11.18.2 to 12.43.0",
+        "headSha": "38551f0cfd41ffda009b8331d9d0c229c2519dd1",
+        "baseSha": "2018bd8788e2d39ebd160dbe6150f879083ce006",
+        "url": "https://github.com/zekusmaximus/Narramorph/pull/216"
+      },
+      {
+        "number": 215,
+        "title": "chore(deps-dev): bump cross-env from 7.0.3 to 10.1.0",
+        "headSha": "2e6df7d186ab8e81f4b5a2541cced440f349f04e",
+        "baseSha": "2018bd8788e2d39ebd160dbe6150f879083ce006",
+        "url": "https://github.com/zekusmaximus/Narramorph/pull/215"
+      },
+      {
+        "number": 214,
+        "title": "chore(deps-dev): bump eslint-config-prettier from 9.1.2 to 10.1.8",
+        "headSha": "7fcc81260b384d76f2795d0abe8487f7507575b7",
+        "baseSha": "2018bd8788e2d39ebd160dbe6150f879083ce006",
+        "url": "https://github.com/zekusmaximus/Narramorph/pull/214"
+      },
+      {
+        "number": 213,
+        "title": "chore(deps-dev): bump jsdom from 23.2.0 to 30.0.1",
+        "headSha": "bf507d5eee3b19e824c42a7dcea1fc33e7d100ff",
+        "baseSha": "2018bd8788e2d39ebd160dbe6150f879083ce006",
+        "url": "https://github.com/zekusmaximus/Narramorph/pull/213"
+      }
+    ],
+    "releasesReturned": 0,
+    "rootSecurityUpdater": {
+      "runId": 36426830366,
+      "jobId": 108942747567,
+      "conclusion": "failure",
+      "date": "2026-09-28",
+      "url": "https://github.com/zekusmaximus/Narramorph/actions/runs/36426830366"
+    }
+  },
+  "frozenIdentities": {
+    "appVersion": "0.1.1",
+    "storyPackage": {
+      "storyId": "eternal-return",
+      "storyVersion": "1.3.0",
+      "schemaVersion": "1.1.0",
+      "contentHash": "80f3d5a210c5d2814b224c86ec6d47fe8b418408f7133ee337b66b8d535efb50",
+      "editorialReleaseId": "eternal-return-literary-v1.0.1",
+      "sourceManuscriptCommit": "6720e76202951e24102997e2b8ef23e08445ab33"
+    },
+    "acceptedLiteraryRelease": "eternal-return-literary-v1.0.2",
+    "acceptedConcordanceSha256": "c779795f006879ec13a530a4da34202a4ce16a03ef96c7a7e11993486f2c7e36",
+    "saveSchema": "1.3.0",
+    "supportedAppRange": ">=0.1.0 <0.2.0"
+  },
+  "verification": {
+    "checks": [
+      {
+        "name": "type-check",
+        "exit_code": 0,
+        "seconds": 4.8,
+        "evidenceLog": "type-check.log",
+        "command": "npm run type-check"
+      },
+      {
+        "name": "lint",
+        "exit_code": 0,
+        "seconds": 15.7,
+        "evidenceLog": "lint.log",
+        "command": "npm run lint:ci"
+      },
+      {
+        "name": "format",
+        "exit_code": 0,
+        "seconds": 10.0,
+        "evidenceLog": "format.log",
+        "command": "npm run format:check"
+      },
+      {
+        "name": "coverage",
+        "exit_code": 0,
+        "seconds": 10.3,
+        "evidenceLog": "coverage.log",
+        "command": "npm run test:coverage"
+      },
+      {
+        "name": "build",
+        "exit_code": 0,
+        "seconds": 11.1,
+        "evidenceLog": "build.log",
+        "command": "npm run build"
+      },
+      {
+        "name": "bundle",
+        "exit_code": 0,
+        "seconds": 0.6,
+        "evidenceLog": "bundle.log",
+        "command": "npm run bundle:check"
+      },
+      {
+        "name": "scope",
+        "exit_code": 0,
+        "seconds": 0.2,
+        "evidenceLog": "scope.log",
+        "command": "npm run scope:check"
+      },
+      {
+        "name": "manifest",
+        "exit_code": 0,
+        "seconds": 0.2,
+        "evidenceLog": "manifest.log",
+        "command": "npm run release:manifest"
+      },
+      {
+        "name": "conversion-types",
+        "exit_code": 0,
+        "seconds": 1.9,
+        "evidenceLog": "conversion-types.log",
+        "command": "npm --prefix tools/conversion run type-check"
+      },
+      {
+        "name": "conversion-tests",
+        "exit_code": 0,
+        "seconds": 2.2,
+        "evidenceLog": "conversion-tests.log",
+        "command": "npm --prefix tools/conversion test"
+      },
+      {
+        "name": "runtime-content",
+        "exit_code": 0,
+        "seconds": 1.7,
+        "evidenceLog": "runtime-content.log",
+        "command": "npm run content:validate:runtime"
+      },
+      {
+        "name": "authored-content",
+        "exit_code": 1,
+        "seconds": 0.3,
+        "evidenceLog": "authored-content.log",
+        "command": "npm run content:validate",
+        "resultNote": "EPERM creating tsx IPC socket; corresponding loader result follows."
+      },
+      {
+        "name": "canon",
+        "exit_code": 1,
+        "seconds": 0.3,
+        "evidenceLog": "canon.log",
+        "command": "npm run content:validate:canon:strict",
+        "resultNote": "EPERM creating tsx IPC socket; corresponding loader result follows."
+      },
+      {
+        "name": "package",
+        "exit_code": 1,
+        "seconds": 0.3,
+        "evidenceLog": "package.log",
+        "command": "npm run story:package:validate",
+        "resultNote": "EPERM creating tsx IPC socket; corresponding loader result follows."
+      },
+      {
+        "name": "literary-stage",
+        "exit_code": 1,
+        "seconds": 0.3,
+        "evidenceLog": "literary-stage.log",
+        "command": "npm run literary:stage -- eternal-return-literary-v1.0.2",
+        "resultNote": "EPERM creating tsx IPC socket; corresponding loader result follows."
+      },
+      {
+        "name": "literary-validate",
+        "exit_code": 1,
+        "seconds": 0.3,
+        "evidenceLog": "literary-validate.log",
+        "command": "npm run literary:validate",
+        "resultNote": "EPERM creating tsx IPC socket; corresponding loader result follows."
+      },
+      {
+        "name": "slice-stage",
+        "exit_code": 1,
+        "seconds": 0.3,
+        "evidenceLog": "slice-stage.log",
+        "command": "npm run literary:slice:stage -- archaeologist-opening-accept",
+        "resultNote": "EPERM creating tsx IPC socket; corresponding loader result follows."
+      },
+      {
+        "name": "slice-validate",
+        "exit_code": 1,
+        "seconds": 0.3,
+        "evidenceLog": "slice-validate.log",
+        "command": "npm run literary:slice:validate",
+        "resultNote": "EPERM creating tsx IPC socket; corresponding loader result follows."
+      },
+      {
+        "name": "authored-content-loader",
+        "exit_code": 0,
+        "seconds": 0.5,
+        "evidenceLog": "authored-content-loader.log",
+        "command": "node --import tsx validate-content.ts --strict",
+        "workingDirectory": "tools/conversion",
+        "resultNote": "Passed equivalent entry point using loader; original tsx CLI failed on environment IPC permissions before application logic."
+      },
+      {
+        "name": "canon-loader",
+        "exit_code": 0,
+        "seconds": 1.6,
+        "evidenceLog": "canon-loader.log",
+        "command": "node --import tsx canon-validate.ts --strict",
+        "workingDirectory": "tools/conversion",
+        "resultNote": "Passed equivalent entry point using loader; original tsx CLI failed on environment IPC permissions before application logic."
+      },
+      {
+        "name": "package-loader",
+        "exit_code": 0,
+        "seconds": 0.4,
+        "evidenceLog": "package-loader.log",
+        "command": "node --import tsx story-package.ts validate-all",
+        "workingDirectory": "tools/conversion",
+        "resultNote": "Passed equivalent entry point using loader; original tsx CLI failed on environment IPC permissions before application logic."
+      },
+      {
+        "name": "literary-stage-loader",
+        "exit_code": 0,
+        "seconds": 0.5,
+        "evidenceLog": "literary-stage-loader.log",
+        "command": "node --import tsx literary-release.ts stage eternal-return-literary-v1.0.2",
+        "workingDirectory": "tools/conversion",
+        "resultNote": "Passed equivalent entry point using loader; original tsx CLI failed on environment IPC permissions before application logic."
+      },
+      {
+        "name": "literary-validate-loader",
+        "exit_code": 0,
+        "seconds": 0.4,
+        "evidenceLog": "literary-validate-loader.log",
+        "command": "node --import tsx literary-release.ts validate-accepted",
+        "workingDirectory": "tools/conversion",
+        "resultNote": "Passed equivalent entry point using loader; original tsx CLI failed on environment IPC permissions before application logic."
+      },
+      {
+        "name": "slice-stage-loader",
+        "exit_code": 0,
+        "seconds": 0.4,
+        "evidenceLog": "slice-stage-loader.log",
+        "command": "node --import tsx literary-release.ts stage-slice archaeologist-opening-accept",
+        "workingDirectory": "tools/conversion",
+        "resultNote": "Passed equivalent entry point using loader; original tsx CLI failed on environment IPC permissions before application logic."
+      },
+      {
+        "name": "slice-validate-loader",
+        "exit_code": 0,
+        "seconds": 0.4,
+        "evidenceLog": "slice-validate-loader.log",
+        "command": "node --import tsx literary-release.ts validate-slice",
+        "workingDirectory": "tools/conversion",
+        "resultNote": "Passed equivalent entry point using loader; original tsx CLI failed on environment IPC permissions before application logic."
+      },
+      {
+        "name": "monitoring-build",
+        "exit_code": 0,
+        "evidenceLog": "monitoring-build.log",
+        "command": "npm run build (synthetic non-delivering DSN, SENTRY_UPLOAD=true, fixed synthetic release)"
+      },
+      {
+        "name": "monitoring-map-cleanup",
+        "exit_code": 0,
+        "evidenceLog": "monitoring-map-cleanup.log",
+        "command": "npm run sourcemaps:upload (upload credentials deliberately absent)"
+      },
+      {
+        "name": "monitoring-bundle",
+        "exit_code": 0,
+        "evidenceLog": "monitoring-bundle.log",
+        "command": "npm run bundle:check"
+      }
+    ],
+    "applicationTests": {
+      "files": 81,
+      "tests": 486,
+      "assertionsPassed": true
+    },
+    "conversionTests": {
+      "files": 14,
+      "tests": 160,
+      "assertionsPassed": true
+    },
+    "coverage": {
+      "statementsPercent": 72.78,
+      "branchesPercent": 62.7,
+      "functionsPercent": 77.29,
+      "linesPercent": 72.59,
+      "configuredBranchFloorPercent": 70,
+      "ordinaryCommandExitCode": 0,
+      "enforcedCommand": "npm run test:coverage -- --coverage.thresholds.branches=70",
+      "enforcedCommandExitCode": 1,
+      "enforcedError": "Coverage for branches (62.7%) does not meet global threshold (70%)",
+      "configDefect": "Floors nested under thresholds.global instead of thresholds; global treated as a glob key."
+    },
+    "authoredValidation": {
+      "files": 288,
+      "valid": 288,
+      "blockers": 0,
+      "errors": 0,
+      "warnings": 0,
+      "execution": "loader workaround"
+    },
+    "canonValidation": {
+      "variations": 1014,
+      "families": 19,
+      "errors": 0,
+      "warnings": 6116,
+      "waivers": 31,
+      "expiredWaivers": 0,
+      "execution": "loader workaround"
+    },
+    "literaryValidation": {
+      "passages": 19,
+      "mappings": 19,
+      "variations": 1014,
+      "endings": 3,
+      "contradictionsTotal": 12,
+      "contradictionsOpen": 1,
+      "contradictionsOpenSev1": 0,
+      "openContradiction": {
+        "id": "CTR-004",
+        "severity": "sev-3",
+        "scope": "Manuscript repository documentation"
+      },
+      "execution": "loader workaround"
+    },
+    "reproducibility": {
+      "command": "npm run release:verify",
+      "exitCode": 0,
+      "identicalFiles": 47,
+      "variant": "ordinary no-DSN",
+      "limitation": "Existing script rebuilds twice in one directory; not an immutable artifact publishing pipeline."
+    },
+    "manifest": {
+      "command": "npm run release:manifest",
+      "exitCode": 0,
+      "buildCommit": "unknown",
+      "saveSchema": "1.3.0",
+      "appSatisfiesRange": true,
+      "limitation": "No provenance env supplied; unknown SHA accepted by current generator."
+    },
+    "ordinaryBundle": {
+      "measurements": {
+        "initialJsBytes": 650344,
+        "initialJsGzipBytes": 209231,
+        "largestStoryChunkBytes": 2226544,
+        "largestStoryChunkGzipBytes": 313609,
+        "storyPackageBytes": 13848473,
+        "storyPackageGzipBytes": 2644898,
+        "publicSourceMapCount": 0,
+        "totalJsBytes": 15458067,
+        "totalJsGzipBytes": 3120817,
+        "largestJsBytes": 2226544,
+        "largestJsGzipBytes": 313609,
+        "totalCssBytes": 75143,
+        "totalCssGzipBytes": 14371
+      },
+      "budgets": {
+        "initialJsBytes": 700000,
+        "initialJsGzipBytes": 220000,
+        "largestStoryChunkBytes": 2350000,
+        "largestStoryChunkGzipBytes": 335000,
+        "storyPackageBytes": 15000000,
+        "storyPackageGzipBytes": 2800000,
+        "publicSourceMapCount": 0,
+        "totalJsBytes": 16250000,
+        "totalJsGzipBytes": 3320000,
+        "largestJsBytes": 2350000,
+        "largestJsGzipBytes": 335000,
+        "totalCssBytes": 76300,
+        "totalCssGzipBytes": 14700
+      },
+      "failures": []
+    },
+    "monitoringBundle": {
+      "measurements": {
+        "initialJsBytes": 651037,
+        "initialJsGzipBytes": 209477,
+        "largestStoryChunkBytes": 2226544,
+        "largestStoryChunkGzipBytes": 313609,
+        "storyPackageBytes": 13848473,
+        "storyPackageGzipBytes": 2644898,
+        "publicSourceMapCount": 0,
+        "totalJsBytes": 15913529,
+        "totalJsGzipBytes": 3271833,
+        "largestJsBytes": 2226544,
+        "largestJsGzipBytes": 313609,
+        "totalCssBytes": 75143,
+        "totalCssGzipBytes": 14371
+      },
+      "budgets": {
+        "initialJsBytes": 700000,
+        "initialJsGzipBytes": 220000,
+        "largestStoryChunkBytes": 2350000,
+        "largestStoryChunkGzipBytes": 335000,
+        "storyPackageBytes": 15000000,
+        "storyPackageGzipBytes": 2800000,
+        "publicSourceMapCount": 0,
+        "totalJsBytes": 16250000,
+        "totalJsGzipBytes": 3320000,
+        "largestJsBytes": 2350000,
+        "largestJsGzipBytes": 335000,
+        "totalCssBytes": 76300,
+        "totalCssGzipBytes": 14700
+      },
+      "failures": [],
+      "configuration": "Synthetic non-delivering DSN; no actual org/project/token configured",
+      "mapsRemoved": 34,
+      "privateUploadAttempted": false,
+      "symbolicationVerified": false
+    },
+    "redactionProbe": {
+      "data": "Synthetic marker only",
+      "retainedChannels": [
+        "message",
+        "exception.values[].value",
+        "tags",
+        "ui.click breadcrumb message/data"
+      ],
+      "transmittedExternally": false
+    },
+    "browser": {
+      "discoveredTests": 38,
+      "freshRun": false,
+      "reason": "Pinned Chrome-for-Testing 151.0.7922.34 / Playwright v1234 download returned invalid/truncated ZIP",
+      "ciEvidence": "38 passed in current main commit run 30497985339"
+    }
+  },
+  "audits": [
+    {
+      "workspace": "root",
+      "lockfile": "package-lock.json",
+      "lockfileSha256": "7098aecd0a729ccf626b0387d92a9d9b988d43ca51e1ccd3f53494b6d95749b5",
+      "command": "npm audit --prefix . --package-lock-only --json",
+      "exitCode": 1,
+      "counts": {
+        "info": 0,
+        "low": 1,
+        "moderate": 5,
+        "high": 9,
+        "critical": 0,
+        "total": 15
+      },
+      "entries": [
+        {
+          "package": "@vitest/coverage-v8",
+          "severity": "moderate",
+          "direct": true,
+          "affectedRange": "2.1.0-beta.1 - 4.1.10",
+          "installedPaths": [
+            {
+              "path": "node_modules/@vitest/coverage-v8",
+              "version": "4.1.10",
+              "dev": true
+            }
+          ],
+          "advisories": [],
+          "propagatedVia": ["vitest"],
+          "fixAvailable": true
+        },
+        {
+          "package": "@vitest/mocker",
+          "severity": "moderate",
+          "direct": false,
+          "affectedRange": "2.1.0 - 4.1.10",
+          "installedPaths": [
+            {
+              "path": "node_modules/@vitest/mocker",
+              "version": "4.1.10",
+              "dev": true
+            }
+          ],
+          "advisories": [
+            {
+              "id": "GHSA-82fw-gwwq-j7x9",
+              "title": "Vitest: Path Traversal / Arbitrary File Read via @vitest/mocker Redirect Mock",
+              "url": "https://github.com/advisories/GHSA-82fw-gwwq-j7x9",
+              "severity": "moderate",
+              "range": ">=2.1.0 <4.1.11",
+              "cwe": ["CWE-22"]
+            }
+          ],
+          "propagatedVia": [],
+          "fixAvailable": true
+        },
+        {
+          "package": "@vitest/ui",
+          "severity": "moderate",
+          "direct": true,
+          "affectedRange": "2.1.0-beta.1 - 4.1.10",
+          "installedPaths": [
+            {
+              "path": "node_modules/@vitest/ui",
+              "version": "4.1.10",
+              "dev": true
+            }
+          ],
+          "advisories": [],
+          "propagatedVia": ["vitest"],
+          "fixAvailable": true
+        },
+        {
+          "package": "brace-expansion",
+          "severity": "high",
+          "direct": false,
+          "affectedRange": "<=1.1.20 || 2.0.0 - 2.1.6 || 4.0.0 - 5.0.11",
+          "installedPaths": [
+            {
+              "path": "node_modules/@eslint/eslintrc/node_modules/brace-expansion",
+              "version": "1.1.16",
+              "dev": true
+            },
+            {
+              "path": "node_modules/@humanwhocodes/config-array/node_modules/brace-expansion",
+              "version": "1.1.16",
+              "dev": true
+            },
+            {
+              "path": "node_modules/brace-expansion",
+              "version": "2.1.2",
+              "dev": false
+            },
+            {
+              "path": "node_modules/eslint-plugin-import/node_modules/brace-expansion",
+              "version": "1.1.16",
+              "dev": true
+            },
+            {
+              "path": "node_modules/eslint-plugin-react/node_modules/brace-expansion",
+              "version": "1.1.16",
+              "dev": true
+            },
+            {
+              "path": "node_modules/eslint/node_modules/brace-expansion",
+              "version": "1.1.16",
+              "dev": true
+            },
+            {
+              "path": "node_modules/glob/node_modules/brace-expansion",
+              "version": "1.1.16",
+              "dev": true
+            },
+            {
+              "path": "node_modules/minimatch/node_modules/brace-expansion",
+              "version": "5.0.8",
+              "dev": true
+            }
+          ],
+          "advisories": [
+            {
+              "id": "GHSA-mh99-v99m-4gvg",
+              "title": "brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash",
+              "url": "https://github.com/advisories/GHSA-mh99-v99m-4gvg",
+              "severity": "high",
+              "range": "<1.1.17",
+              "cwe": ["CWE-400", "CWE-770"]
+            },
+            {
+              "id": "GHSA-mh99-v99m-4gvg",
+              "title": "brace-expansion: DoS via unbounded expansion length causing an out-of-memory process crash",
+              "url": "https://github.com/advisories/GHSA-mh99-v99m-4gvg",
+              "severity": "high",
+              "range": ">=2.0.0 <2.1.3",
+              "cwe": ["CWE-400", "CWE-770"]
+            },
+            {
+              "id": "GHSA-rgw5-rvv9-x895",
+              "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+              "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895",
+              "severity": "high",
+              "range": ">=4.0.0 <5.0.9",
+              "cwe": ["CWE-400", "CWE-770"]
+            },
+            {
+              "id": "GHSA-rgw5-rvv9-x895",
+              "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+              "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895",
+              "severity": "high",
+              "range": ">=2.0.0 <2.1.4",
+              "cwe": ["CWE-400", "CWE-770"]
+            },
+            {
+              "id": "GHSA-rgw5-rvv9-x895",
+              "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+              "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895",
+              "severity": "high",
+              "range": "<1.1.18",
+              "cwe": ["CWE-400", "CWE-770"]
+            },
+            {
+              "id": "GHSA-q2hr-2g5m-vwhr",
+              "title": "brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service",
+              "url": "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr",
+              "severity": "moderate",
+              "range": "<1.1.21",
+              "cwe": ["CWE-400", "CWE-407"]
+            },
+            {
+              "id": "GHSA-q2hr-2g5m-vwhr",
+              "title": "brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service",
+              "url": "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr",
+              "severity": "moderate",
+              "range": ">=2.0.0 <2.1.7",
+              "cwe": ["CWE-400", "CWE-407"]
+            },
+            {
+              "id": "GHSA-q2hr-2g5m-vwhr",
+              "title": "brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service",
+              "url": "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr",
+              "severity": "moderate",
+              "range": ">=4.0.0 <5.0.12",
+              "cwe": ["CWE-400", "CWE-407"]
+            },
+            {
+              "id": "GHSA-qhr7-859c-m2p7",
+              "title": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+              "url": "https://github.com/advisories/GHSA-qhr7-859c-m2p7",
+              "severity": "high",
+              "range": "<1.1.20",
+              "cwe": ["CWE-400", "CWE-674"]
+            },
+            {
+              "id": "GHSA-qhr7-859c-m2p7",
+              "title": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+              "url": "https://github.com/advisories/GHSA-qhr7-859c-m2p7",
+              "severity": "high",
+              "range": ">=2.0.0 <2.1.6",
+              "cwe": ["CWE-400", "CWE-674"]
+            },
+            {
+              "id": "GHSA-qhr7-859c-m2p7",
+              "title": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+              "url": "https://github.com/advisories/GHSA-qhr7-859c-m2p7",
+              "severity": "high",
+              "range": ">=4.0.0 <5.0.11",
+              "cwe": ["CWE-400", "CWE-674"]
+            },
+            {
+              "id": "GHSA-6j4f-fj2g-mc7p",
+              "title": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+              "url": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+              "severity": "high",
+              "range": "<1.1.19",
+              "cwe": ["CWE-400", "CWE-674"]
+            },
+            {
+              "id": "GHSA-6j4f-fj2g-mc7p",
+              "title": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+              "url": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+              "severity": "high",
+              "range": ">=2.0.0 <2.1.5",
+              "cwe": ["CWE-400", "CWE-674"]
+            },
+            {
+              "id": "GHSA-6j4f-fj2g-mc7p",
+              "title": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+              "url": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+              "severity": "high",
+              "range": ">=4.0.0 <5.0.10",
+              "cwe": ["CWE-400", "CWE-674"]
+            }
+          ],
+          "propagatedVia": [],
+          "fixAvailable": true
+        },
+        {
+          "package": "braces",
+          "severity": "high",
+          "direct": false,
+          "affectedRange": "*",
+          "installedPaths": [
+            {
+              "path": "node_modules/braces",
+              "version": "3.0.3",
+              "dev": false
+            }
+          ],
+          "advisories": [
+            {
+              "id": "GHSA-vfj7-8cjw-p6xm",
+              "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+              "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
+              "severity": "high",
+              "range": "<=3.0.3",
+              "cwe": ["CWE-674"]
+            }
+          ],
+          "propagatedVia": [],
+          "fixAvailable": {
+            "name": "tailwindcss",
+            "version": "4.3.3",
+            "isSemVerMajor": true
+          }
+        },
+        {
+          "package": "chokidar",
+          "severity": "high",
+          "direct": false,
+          "affectedRange": "2.0.0 - 3.6.0",
+          "installedPaths": [
+            {
+              "path": "node_modules/chokidar",
+              "version": "3.6.0",
+              "dev": false
+            }
+          ],
+          "advisories": [],
+          "propagatedVia": ["braces"],
+          "fixAvailable": {
+            "name": "tailwindcss",
+            "version": "4.3.3",
+            "isSemVerMajor": true
+          }
+        },
+        {
+          "package": "fast-glob",
+          "severity": "high",
+          "direct": false,
+          "affectedRange": "*",
+          "installedPaths": [
+            {
+              "path": "node_modules/fast-glob",
+              "version": "3.3.3",
+              "dev": false
+            }
+          ],
+          "advisories": [],
+          "propagatedVia": ["micromatch"],
+          "fixAvailable": true
+        },
+        {
+          "package": "fflate",
+          "severity": "moderate",
+          "direct": false,
+          "affectedRange": "0.6.0 - 0.6.10 || 0.8.0 - 0.8.2",
+          "installedPaths": [
+            {
+              "path": "node_modules/fflate",
+              "version": "0.8.2",
+              "dev": false
+            },
+            {
+              "path": "node_modules/three-stdlib/node_modules/fflate",
+              "version": "0.6.10",
+              "dev": false
+            }
+          ],
+          "advisories": [
+            {
+              "id": "GHSA-px8p-9vwx-vf98",
+              "title": "fflate unzipSync can enter an infinite loop when parsing malformed ZIP64 archives",
+              "url": "https://github.com/advisories/GHSA-px8p-9vwx-vf98",
+              "severity": "moderate",
+              "range": ">=0.8.0 <0.8.3",
+              "cwe": ["CWE-400"]
+            },
+            {
+              "id": "GHSA-px8p-9vwx-vf98",
+              "title": "fflate unzipSync can enter an infinite loop when parsing malformed ZIP64 archives",
+              "url": "https://github.com/advisories/GHSA-px8p-9vwx-vf98",
+              "severity": "moderate",
+              "range": ">=0.6.0 <0.6.11",
+              "cwe": ["CWE-400"]
+            }
+          ],
+          "propagatedVia": [],
+          "fixAvailable": true
+        },
+        {
+          "package": "js-yaml",
+          "severity": "high",
+          "direct": false,
+          "affectedRange": "4.0.0 - 4.3.1",
+          "installedPaths": [
+            {
+              "path": "node_modules/js-yaml",
+              "version": "4.3.0",
+              "dev": true
+            }
+          ],
+          "advisories": [
+            {
+              "id": "GHSA-5p4m-2wfm-xmqj",
+              "title": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported",
+              "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj",
+              "severity": "high",
+              "range": ">=4.0.0 <4.3.1",
+              "cwe": ["CWE-407"]
+            },
+            {
+              "id": "GHSA-2883-xcg3-v3hh",
+              "title": "js-yaml: maxTotalMergeKeys does not limit CPU use for empty merge sources",
+              "url": "https://github.com/advisories/GHSA-2883-xcg3-v3hh",
+              "severity": "high",
+              "range": ">=4.0.0 <4.3.2",
+              "cwe": ["CWE-400", "CWE-407"]
+            }
+          ],
+          "propagatedVia": [],
+          "fixAvailable": true
+        },
+        {
+          "package": "lint-staged",
+          "severity": "high",
+          "direct": true,
+          "affectedRange": "7.0.0 - 16.3.4",
+          "installedPaths": [
+            {
+              "path": "node_modules/lint-staged",
+              "version": "15.5.2",
+              "dev": true
+            }
+          ],
+          "advisories": [],
+          "propagatedVia": ["micromatch"],
+          "fixAvailable": {
+            "name": "lint-staged",
+            "version": "17.6.0",
+            "isSemVerMajor": true
+          }
+        },
+        {
+          "package": "micromatch",
+          "severity": "high",
+          "direct": false,
+          "affectedRange": ">=0.2.0",
+          "installedPaths": [
+            {
+              "path": "node_modules/micromatch",
+              "version": "4.0.8",
+              "dev": false
+            }
+          ],
+          "advisories": [],
+          "propagatedVia": ["braces"],
+          "fixAvailable": {
+            "name": "tailwindcss",
+            "version": "4.3.3",
+            "isSemVerMajor": true
+          }
+        },
+        {
+          "package": "nanoid",
+          "severity": "high",
+          "direct": false,
+          "affectedRange": "<3.3.18",
+          "installedPaths": [
+            {
+              "path": "node_modules/nanoid",
+              "version": "3.3.16",
+              "dev": false
+            }
+          ],
+          "advisories": [
+            {
+              "id": "GHSA-2v37-7h3g-55p8",
+              "title": "nanoid: custom generators can loop indefinitely when size is zero",
+              "url": "https://github.com/advisories/GHSA-2v37-7h3g-55p8",
+              "severity": "high",
+              "range": "<3.3.18",
+              "cwe": ["CWE-835"]
+            }
+          ],
+          "propagatedVia": [],
+          "fixAvailable": true
+        },
+        {
+          "package": "postcss-selector-parser",
+          "severity": "low",
+          "direct": false,
+          "affectedRange": "6.1.0 - 6.1.2",
+          "installedPaths": [
+            {
+              "path": "node_modules/postcss-selector-parser",
+              "version": "6.1.2",
+              "dev": false
+            }
+          ],
+          "advisories": [
+            {
+              "id": "GHSA-w9m9-85wc-3x92",
+              "title": "postcss-selector-parser allows denial of service through uncontrolled AST recursion",
+              "url": "https://github.com/advisories/GHSA-w9m9-85wc-3x92",
+              "severity": "low",
+              "range": ">=6.1.0 <6.1.3",
+              "cwe": ["CWE-404"]
+            }
+          ],
+          "propagatedVia": [],
+          "fixAvailable": true
+        },
+        {
+          "package": "tailwindcss",
+          "severity": "high",
+          "direct": true,
+          "affectedRange": "<=0.0.0-oxide-insiders.ff2c25f || 2.1.0-canary.1 - 3.4.19",
+          "installedPaths": [
+            {
+              "path": "node_modules/tailwindcss",
+              "version": "3.4.17",
+              "dev": false
+            }
+          ],
+          "advisories": [],
+          "propagatedVia": ["chokidar", "fast-glob", "micromatch"],
+          "fixAvailable": {
+            "name": "tailwindcss",
+            "version": "4.3.3",
+            "isSemVerMajor": true
+          }
+        },
+        {
+          "package": "vitest",
+          "severity": "moderate",
+          "direct": true,
+          "affectedRange": "2.1.0-beta.1 - 4.1.10",
+          "installedPaths": [
+            {
+              "path": "node_modules/vitest",
+              "version": "4.1.10",
+              "dev": true
+            }
+          ],
+          "advisories": [
+            {
+              "id": "GHSA-82fw-gwwq-j7x9",
+              "title": "Vitest: Path Traversal / Arbitrary File Read via @vitest/mocker Redirect Mock",
+              "url": "https://github.com/advisories/GHSA-82fw-gwwq-j7x9",
+              "severity": "moderate",
+              "range": ">=2.1.0 <4.1.11",
+              "cwe": ["CWE-22"]
+            }
+          ],
+          "propagatedVia": ["@vitest/coverage-v8", "@vitest/mocker", "@vitest/ui"],
+          "fixAvailable": true
+        }
+      ],
+      "omitDevCounts": {
+        "info": 0,
+        "low": 1,
+        "moderate": 1,
+        "high": 7,
+        "critical": 0,
+        "total": 9
+      }
+    },
+    {
+      "workspace": "conversion",
+      "lockfile": "tools/conversion/package-lock.json",
+      "lockfileSha256": "91b18b2a48a11ff81685fd65a668fbfd7455494910d22cb0bcf48c16cc3aaf6a",
+      "command": "npm audit --prefix tools/conversion --package-lock-only --json",
+      "exitCode": 1,
+      "counts": {
+        "info": 0,
+        "low": 0,
+        "moderate": 3,
+        "high": 2,
+        "critical": 0,
+        "total": 5
+      },
+      "entries": [
+        {
+          "package": "@vitest/mocker",
+          "severity": "moderate",
+          "direct": false,
+          "affectedRange": "2.1.0 - 4.1.10",
+          "installedPaths": [
+            {
+              "path": "node_modules/@vitest/mocker",
+              "version": "3.2.7",
+              "dev": true
+            }
+          ],
+          "advisories": [
+            {
+              "id": "GHSA-82fw-gwwq-j7x9",
+              "title": "Vitest: Path Traversal / Arbitrary File Read via @vitest/mocker Redirect Mock",
+              "url": "https://github.com/advisories/GHSA-82fw-gwwq-j7x9",
+              "severity": "moderate",
+              "range": ">=2.1.0 <4.1.11",
+              "cwe": ["CWE-22"]
+            }
+          ],
+          "propagatedVia": [],
+          "fixAvailable": {
+            "name": "vitest",
+            "version": "5.0.3",
+            "isSemVerMajor": true
+          }
+        },
+        {
+          "package": "brace-expansion",
+          "severity": "high",
+          "direct": false,
+          "affectedRange": "4.0.0 - 5.0.11",
+          "installedPaths": [
+            {
+              "path": "node_modules/brace-expansion",
+              "version": "5.0.8",
+              "dev": false
+            }
+          ],
+          "advisories": [
+            {
+              "id": "GHSA-rgw5-rvv9-x895",
+              "title": "brace-expansion: DoS via unbounded intermediate arrays, bypassing the CVE-2026-14257 mitigation",
+              "url": "https://github.com/advisories/GHSA-rgw5-rvv9-x895",
+              "severity": "high",
+              "range": ">=4.0.0 <5.0.9",
+              "cwe": ["CWE-400", "CWE-770"]
+            },
+            {
+              "id": "GHSA-q2hr-2g5m-vwhr",
+              "title": "brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU denial of service",
+              "url": "https://github.com/advisories/GHSA-q2hr-2g5m-vwhr",
+              "severity": "moderate",
+              "range": ">=4.0.0 <5.0.12",
+              "cwe": ["CWE-400", "CWE-407"]
+            },
+            {
+              "id": "GHSA-qhr7-859c-m2p7",
+              "title": "brace-expansion: DoS via uncontrolled recursion on nested brace groups causing stack exhaustion",
+              "url": "https://github.com/advisories/GHSA-qhr7-859c-m2p7",
+              "severity": "high",
+              "range": ">=4.0.0 <5.0.11",
+              "cwe": ["CWE-400", "CWE-674"]
+            },
+            {
+              "id": "GHSA-6j4f-fj2g-mc7p",
+              "title": "brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack exhaustion",
+              "url": "https://github.com/advisories/GHSA-6j4f-fj2g-mc7p",
+              "severity": "high",
+              "range": ">=4.0.0 <5.0.10",
+              "cwe": ["CWE-400", "CWE-674"]
+            }
+          ],
+          "propagatedVia": [],
+          "fixAvailable": true
+        },
+        {
+          "package": "nanoid",
+          "severity": "high",
+          "direct": false,
+          "affectedRange": "<3.3.18",
+          "installedPaths": [
+            {
+              "path": "node_modules/nanoid",
+              "version": "3.3.16",
+              "dev": true
+            }
+          ],
+          "advisories": [
+            {
+              "id": "GHSA-2v37-7h3g-55p8",
+              "title": "nanoid: custom generators can loop indefinitely when size is zero",
+              "url": "https://github.com/advisories/GHSA-2v37-7h3g-55p8",
+              "severity": "high",
+              "range": "<3.3.18",
+              "cwe": ["CWE-835"]
+            }
+          ],
+          "propagatedVia": [],
+          "fixAvailable": true
+        },
+        {
+          "package": "postcss",
+          "severity": "moderate",
+          "direct": false,
+          "affectedRange": "<=8.5.22",
+          "installedPaths": [
+            {
+              "path": "node_modules/postcss",
+              "version": "8.5.19",
+              "dev": true
+            }
+          ],
+          "advisories": [
+            {
+              "id": "GHSA-fxqj-rqcc-2cmp",
+              "title": "PostCSS: incomplete fix of GHSA-6g55-p6wh-862q — attacker-controlled sourceMappingURL reads arbitrary .map files when `from` is unset",
+              "url": "https://github.com/advisories/GHSA-fxqj-rqcc-2cmp",
+              "severity": "moderate",
+              "range": "<=8.5.22",
+              "cwe": ["CWE-22", "CWE-200"]
+            }
+          ],
+          "propagatedVia": [],
+          "fixAvailable": true
+        },
+        {
+          "package": "vitest",
+          "severity": "moderate",
+          "direct": true,
+          "affectedRange": "2.1.0-beta.1 - 4.1.10",
+          "installedPaths": [
+            {
+              "path": "node_modules/vitest",
+              "version": "3.2.7",
+              "dev": true
+            }
+          ],
+          "advisories": [
+            {
+              "id": "GHSA-82fw-gwwq-j7x9",
+              "title": "Vitest: Path Traversal / Arbitrary File Read via @vitest/mocker Redirect Mock",
+              "url": "https://github.com/advisories/GHSA-82fw-gwwq-j7x9",
+              "severity": "moderate",
+              "range": ">=2.1.0 <4.1.11",
+              "cwe": ["CWE-22"]
+            }
+          ],
+          "propagatedVia": ["@vitest/mocker"],
+          "fixAvailable": {
+            "name": "vitest",
+            "version": "5.0.3",
+            "isSemVerMajor": true
+          }
+        }
+      ],
+      "omitDevCounts": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 1,
+        "critical": 0,
+        "total": 1
+      }
+    },
+    {
+      "workspace": "legacy-tools",
+      "lockfile": "tools/package-lock.json",
+      "lockfileSha256": "91affd4f6d2de809bcd9b2ac74f89ee157a4880595e9d897bec7f47c42d4f0b0",
+      "command": "npm audit --prefix tools --package-lock-only --json",
+      "exitCode": 1,
+      "counts": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 1,
+        "critical": 0,
+        "total": 1
+      },
+      "entries": [
+        {
+          "package": "js-yaml",
+          "severity": "high",
+          "direct": true,
+          "affectedRange": "4.0.0 - 4.3.1",
+          "installedPaths": [
+            {
+              "path": "node_modules/js-yaml",
+              "version": "4.3.0",
+              "dev": false
+            }
+          ],
+          "advisories": [
+            {
+              "id": "GHSA-5p4m-2wfm-xmqj",
+              "title": "JS-YAML: Quadratic CPU consumption in !!omap resolution (3.x and 4.x) — CVE-2026-59870 fix not backported",
+              "url": "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj",
+              "severity": "high",
+              "range": ">=4.0.0 <4.3.1",
+              "cwe": ["CWE-407"]
+            },
+            {
+              "id": "GHSA-2883-xcg3-v3hh",
+              "title": "js-yaml: maxTotalMergeKeys does not limit CPU use for empty merge sources",
+              "url": "https://github.com/advisories/GHSA-2883-xcg3-v3hh",
+              "severity": "high",
+              "range": ">=4.0.0 <4.3.2",
+              "cwe": ["CWE-400", "CWE-407"]
+            }
+          ],
+          "propagatedVia": [],
+          "fixAvailable": true
+        }
+      ]
+    }
+  ],
+  "auditInterpretation": "Counts are vulnerable-package entries including propagated chains, not independent exploits. Omit-dev counts do not establish deployed-code reachability. Advisories may change after review.",
+  "limitations": [
+    "No fresh browser execution; current commit GitHub logs inspected instead.",
+    "Full branch-protection administration endpoint denied; seven contexts visible in branch snapshot.",
+    "Cloudflare and Sentry account settings, operational secrets, real private map upload and production rollback not inspected or executed.",
+    "Live origin access from runner returned apex HTTP 403 and www HTTP 502; this cannot establish outage or deployed identity.",
+    "Manual assistive-technology, real-device/GPU, live header/privacy and owner sign-off evidence remain incomplete.",
+    "Original tsx CLI content checks failed before logic due to IPC EPERM; equivalent loader entry points passed."
+  ],
+  "changesInThisReview": "Documentation and plans only; no runtime, content, dependencies, host configuration, releases, issue closures, or merges changed."
+}

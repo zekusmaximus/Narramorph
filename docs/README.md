@@ -11,6 +11,7 @@ This directory separates current project guidance from historical planning recor
 - [Product charter](PRODUCT_CHARTER.md): v1 audience, scope, non-goals, and repository roles.
 - [Product consolidation roadmap](eternal-return-product-consolidation-roadmap.md): ordered cross-repository implementation and archive gates.
 - [Consolidation program](consolidation/README.md): live execution status, baselines, and feature extraction.
+- [October 3 release-readiness review](release-readiness/2026-10-03/README.md): dated findings, verification evidence, and detailed completion plans for CI, dependencies, performance, observability, deployment, and manual QA.
 - [Contributing](../CONTRIBUTING.md): development workflow and review expectations.
 
 ## Durable references
