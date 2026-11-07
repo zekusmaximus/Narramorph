@@ -277,17 +277,7 @@ Checks:
 
 ### Running in 3D Mode
 
-Set environment variable:
-
-```bash
-VITE_ENABLE_3D=true npm run dev
-```
-
-Or create `.env.local`:
-
-```
-VITE_ENABLE_3D=true
-```
+Start the app with `npm run dev` and choose **Experimental 3D view** on the map. There is no environment flag: every browser session starts on the 2D map, and the 3D chunk downloads only when the reader asks for it. The `narramorph-3d-mode` `localStorage` key records the last choice so a reader who previously opened 3D in a browser without WebGL sees an explanation; it never reopens 3D at startup.
 
 ### Performance Monitoring
 

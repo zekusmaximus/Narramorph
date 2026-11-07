@@ -76,8 +76,7 @@ function WebGLErrorFallback({
 }
 
 function was3DPreviouslyRequested(): boolean {
-  const stored = localStorage.getItem('narramorph-3d-mode');
-  return stored !== null ? stored === 'true' : import.meta.env.VITE_ENABLE_3D === 'true';
+  return localStorage.getItem('narramorph-3d-mode') === 'true';
 }
 
 function supportsWebGL(): boolean {
