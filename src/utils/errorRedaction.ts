@@ -63,12 +63,23 @@ export function redactUrl(url: string | undefined): string | undefined {
 
 /**
  * Drops console/network breadcrumbs (which can carry prose, node IDs, or request
- * detail) and strips reading-position URLs from navigation breadcrumbs.
+ * detail), strips reading-position URLs from navigation breadcrumbs, and reduces UI
+ * breadcrumbs to the fact that an interaction happened.
  */
 export function redactBreadcrumb(breadcrumb: RedactableBreadcrumb): RedactableBreadcrumb | null {
   const category = breadcrumb.category ?? '';
   if (category === 'console' || category === 'xhr' || category === 'fetch') {
     return null;
+  }
+  if (category.startsWith('ui.')) {
+    // The SDK describes the target element as a DOM path that includes its
+    // aria-label, title, name, and alt values. Map passages and reader controls carry
+    // passage titles in those attributes, so the description would reveal the reading
+    // position. Keep only the category, type, level, and timestamp.
+    const scrubbed: RedactableBreadcrumb = { ...breadcrumb };
+    delete scrubbed.message;
+    delete scrubbed.data;
+    return scrubbed;
   }
   if (category === 'navigation' && breadcrumb.data) {
     return {
@@ -146,7 +157,10 @@ export function buildSampleRedactedEvent(): RedactableEvent {
     breadcrumbs: [
       { category: 'console', level: 'log', message: 'would-be-removed console line' },
       { category: 'navigation', data: { from: '/#/passage/algo-L1', to: '/#/passage/algo-L2' } },
-      { category: 'ui.click', message: 'button.settings' },
+      {
+        category: 'ui.click',
+        message: 'button.passage[aria-label="would-be-removed passage title"]',
+      },
     ],
     extra: { save: '{would-be-removed local save blob}', prose: 'would-be-removed passage text' },
     contexts: {

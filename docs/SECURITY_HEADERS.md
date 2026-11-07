@@ -36,7 +36,7 @@ form-action 'self'; manifest-src 'self'; upgrade-insecure-requests
 A scan of the deployed site shows a few response headers injected by Cloudflare, not by this repo:
 
 - **`access-control-allow-origin: *`** — Cloudflare Pages serves static assets with permissive CORS. securityheaders.com flags it "very lax," but it is **benign here**: the content is entirely public, the app has no cookies/credentials/auth, and `*` cannot be combined with credentialed CORS by spec, so there is no data-leak vector (it did not affect the A+ grade). To remove it for a spotless report, add a zone **Transform Rule → Modify Response Header → Remove `Access-Control-Allow-Origin`** (or set it to `https://narramorph.com`) — `_headers` cannot reliably unset a header injected by Cloudflare's own layer.
-- **`report-to` / `nel`** — Cloudflare Network Error Logging (reports to `a.nel.cloudflare.com`). Browser reporting endpoints are exempt from CSP `connect-src`, so this does not conflict with the policy. Harmless; leave as-is.
+- **`report-to` / `nel`** — Cloudflare Network Error Logging (reports to `a.nel.cloudflare.com`). Browser reporting endpoints are exempt from CSP `connect-src`, so this does not conflict with the policy. Harmless for security; because supporting browsers send failed-request reports to Cloudflare, it is disclosed as a data flow in [PRIVACY.md](PRIVACY.md).
 
 ## HSTS preload (owner-gated)
 
@@ -60,6 +60,7 @@ The `_headers` file is applied by the edge, so headers can only be checked again
 | Date | URL (preview/prod) | `headers:check` | securityheaders.com | Mozilla Observatory | HSTS preload | CSP violations in console | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2026-07-19 | https://narramorph.com (prod) | **pass — 8/8, HTTP 200** | **A+** | **A+ (120/100, 10/10)** | **submitted 2026-07-19 — pending inclusion** | none — confirmed 2026-07-19 (RUM beacon disabled; the CSP-blocked beacon is gone; remaining console lines are browser extensions, not the app) | Historical result before the 3D worker compatibility changes; rerun after deploying Phase 1's self-only script policy. HSTS `max-age=63072000; includeSubDomains; preload`. **SSL Labs A+** on all endpoints (IPv4 + IPv6). `access-control-allow-origin: *` is Cloudflare-injected (benign for a public, credential-less static site; not from `_headers`). Observatory's only CSP note was the documented `style-src 'unsafe-inline'`. |
+| 2026-11-07 | https://narramorph.com (prod) | **pass — 8/8, HTTP 200** (current policy: self-only `worker-src`, no `blob:`) | not rerun | not rerun | **preloaded** (hstspreload.org status API) | not rechecked | Rerun of `npm run headers:check` after the 3D worker CSP changes, so the self-only script/worker policy is now verified in production. External scanner grades above are from 2026-07-19. |
 
 The 2026-07-19 result predates Phase 1's restored self-only script policy. Rerun every owner check after deployment. Local automated evidence uses `scripts/serve-production-csp.mjs`, which reads the exact repository policy and serves `dist`; it does not claim Cloudflare edge behavior or real-device GPU compatibility.
 
