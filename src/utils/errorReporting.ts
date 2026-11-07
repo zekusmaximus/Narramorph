@@ -8,9 +8,12 @@
  * third-party client SDK is not a backend; its ingest host is an explicit
  * `connect-src` entry).
  *
- * All outgoing events pass through the pure redaction layer (errorRedaction.ts), and a
- * `consented` kill-switch in `beforeSend` guarantees nothing is transmitted while
- * consent is off — even if the SDK is already loaded.
+ * The SDK is configured for error reports only: session tracking (which would send a
+ * session envelope on every route change, outside `beforeSend`) and client reports are
+ * off. All outgoing events pass through the pure redaction layer (errorRedaction.ts),
+ * and the transport itself is gated on consent, so no envelope of any type leaves the
+ * device while consent is off — even if the SDK is already loaded or has queued work.
+ * Envelopes sent before consent was withdrawn cannot be recalled.
  */
 
 import { CURRENT_APP_VERSION } from '@/domain/progress/saveState';
@@ -32,6 +35,26 @@ let capture: ((error: unknown) => unknown) | null = null;
 let consented = false;
 let initializing: Promise<void> | null = null;
 
+/** Structural subset of the SDK transport, so this module holds no SDK type reference. */
+export interface GatedTransport<Envelope> {
+  send(envelope: Envelope): PromiseLike<{ statusCode?: number }>;
+  flush(timeout?: number): PromiseLike<boolean>;
+}
+
+/**
+ * Wraps a transport so every envelope (errors, sessions, client reports, anything the
+ * SDK queues) is dropped unless `isConsented()` is true at the moment it would be sent.
+ */
+export function gateTransportOnConsent<Envelope>(
+  transport: GatedTransport<Envelope>,
+  isConsented: () => boolean,
+): GatedTransport<Envelope> {
+  return {
+    send: (envelope) => (isConsented() ? transport.send(envelope) : Promise.resolve({})),
+    flush: (timeout) => transport.flush(timeout),
+  };
+}
+
 /** True only when a build-time DSN is present; otherwise reporting is fully inert. */
 export function isErrorReportingConfigured(): boolean {
   return typeof DSN === 'string' && DSN.length > 0;
@@ -48,6 +71,14 @@ async function ensureInitialized(): Promise<void> {
         release: RELEASE,
         sendDefaultPii: false,
         maxBreadcrumbs: 20,
+        // Error reports only. BrowserSession sends a session envelope on load and on
+        // every history change (each passage open), bypassing beforeSend.
+        integrations: (defaults) =>
+          defaults.filter((integration) => integration.name !== 'BrowserSession'),
+        sendClientReports: false,
+        // Final consent gate covering every envelope type, including queued ones.
+        transport: (options) =>
+          gateTransportOnConsent(Sentry.makeFetchTransport(options), () => consented),
         // Kill-switch: while consent is off, drop every event before it is sent.
         // The redaction layer uses local structural types (so it carries no SDK
         // reference); adapt to the SDK's signatures with a structural cast.
@@ -60,20 +91,31 @@ async function ensureInitialized(): Promise<void> {
       });
       capture = Sentry.captureException;
     });
+    // A failed SDK download must not wedge reporting: clear it so a later opt-in retries.
+    initializing.catch(() => {
+      initializing = null;
+    });
   }
   await initializing;
 }
 
-/** Turns on reporting (loading + initialising the SDK on first opt-in). */
+/**
+ * Turns on reporting (loading + initialising the SDK on first opt-in). Never rejects:
+ * if the SDK cannot load, reading continues and a later call retries.
+ */
 export async function enableErrorReporting(): Promise<void> {
   consented = true;
-  await ensureInitialized();
+  try {
+    await ensureInitialized();
+  } catch {
+    // Reporting stays unavailable for now; the reader is unaffected.
+  }
 }
 
 /**
- * Turns off reporting. The SDK (if already loaded) stays resident but inert: the
- * `beforeSend` kill-switch drops everything while consent is off, so nothing is
- * transmitted.
+ * Turns off reporting synchronously. The SDK (if already loaded) stays resident but
+ * inert: the transport gate and the `beforeSend` kill-switch drop everything while
+ * consent is off, including anything already queued, so nothing more is transmitted.
  */
 export function disableErrorReporting(): void {
   consented = false;

@@ -38,7 +38,25 @@ export interface RedactableEvent {
   extra?: unknown;
   breadcrumbs?: RedactableBreadcrumb[];
   contexts?: Record<string, unknown>;
+  message?: unknown;
+  exception?: {
+    values?: { value?: unknown; [key: string]: unknown }[];
+    [key: string]: unknown;
+  };
   [key: string]: unknown;
+}
+
+/**
+ * Passage, variation, and ending identifiers (`arch-L2-accept`, `algo-L3-001`,
+ * `hum-L1-001-b0-return`, `final-release`). Some app errors interpolate the node being
+ * loaded, which would reveal the reading position.
+ */
+const STORY_IDENTIFIER_PATTERN =
+  /\b(?:(?:arch|algo|hum|conv)-L[1-4]|final-(?:preserve|transform|release))(?:-[A-Za-z0-9]+)*\b/g;
+
+/** Replaces story identifiers in error text with a fixed placeholder. */
+export function redactStoryIdentifiers(text: string): string {
+  return text.replace(STORY_IDENTIFIER_PATTERN, '[passage]');
 }
 
 /** Contexts safe to keep (environment/runtime facts, never reading data). */
@@ -103,6 +121,20 @@ export function redactBreadcrumb(breadcrumb: RedactableBreadcrumb): RedactableBr
  */
 export function redactEvent(event: RedactableEvent): RedactableEvent {
   const redacted: RedactableEvent = { ...event };
+
+  if (typeof redacted.message === 'string') {
+    redacted.message = redactStoryIdentifiers(redacted.message);
+  }
+  if (redacted.exception && Array.isArray(redacted.exception.values)) {
+    redacted.exception = {
+      ...redacted.exception,
+      values: redacted.exception.values.map((entry) =>
+        typeof entry.value === 'string'
+          ? { ...entry, value: redactStoryIdentifiers(entry.value) }
+          : entry,
+      ),
+    };
+  }
 
   if (redacted.request) {
     const request = { ...redacted.request };

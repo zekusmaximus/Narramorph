@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   buildSampleRedactedEvent,
+  redactStoryIdentifiers,
   redactBreadcrumb,
   redactEvent,
   redactUrl,
@@ -68,7 +69,44 @@ describe('redactBreadcrumb', () => {
   });
 });
 
+describe('redactStoryIdentifiers', () => {
+  it('replaces passage, variation, and ending identifiers', () => {
+    expect(redactStoryIdentifiers('No variation file found for node: arch-L2-accept')).toBe(
+      'No variation file found for node: [passage]',
+    );
+    expect(redactStoryIdentifiers('Invalid L3 metadata for algo-L3-001 in layer3')).toBe(
+      'Invalid L3 metadata for [passage] in layer3',
+    );
+    expect(redactStoryIdentifiers('hum-L1-001-b0-return then final-release')).toBe(
+      '[passage] then [passage]',
+    );
+  });
+
+  it('leaves ordinary error text alone', () => {
+    const text = "Cannot read properties of undefined (reading 'L2') in eternal-return";
+    expect(redactStoryIdentifiers(text)).toBe(text);
+  });
+});
+
 describe('redactEvent — acceptance: no sensitive reading content leaves the device', () => {
+  it('removes story identifiers from the event message and exception values', () => {
+    const redacted = redactEvent({
+      message: 'Condition context unavailable for node: final-preserve',
+      exception: {
+        values: [
+          { type: 'Error', value: 'No variation file found for node: conv-L3' },
+          { type: 'TypeError' },
+        ],
+      },
+    });
+
+    expect(redacted.message).toBe('Condition context unavailable for node: [passage]');
+    expect(redacted.exception?.values).toEqual([
+      { type: 'Error', value: 'No variation file found for node: [passage]' },
+      { type: 'TypeError' },
+    ]);
+  });
+
   it('strips URL hash, identity, extra, console breadcrumbs, and non-allowlisted contexts', () => {
     const event = {
       release: 'narramorph@0.1.0',
