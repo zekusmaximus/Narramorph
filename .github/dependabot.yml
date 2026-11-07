@@ -25,6 +25,15 @@ updates:
         dependency-type: production
         update-types:
           - patch
+      # @vitest/coverage-v8 and @vitest/ui pin an exact vitest peer, so a lone major bump
+      # of any one of them cannot install (closed #241). Move the family together.
+      root-vitest-major:
+        applies-to: version-updates
+        patterns:
+          - 'vitest'
+          - '@vitest/*'
+        update-types:
+          - major
     ignore:
       # React 19 is a deliberate migration, not a Dependabot bump (see closed #206).
       - dependency-name: react
@@ -54,6 +63,14 @@ updates:
       # package with LazyMotion, which can shrink the bundle instead.
       - dependency-name: framer-motion
         update-types: ['version-update:semver-major']
+      # typescript-eslint 8 supports TypeScript >=4.8.4 <6.1.0, and 7.0 is the new native
+      # compiler (closed #239). A 6.0.x upgrade stays allowed; revisit when
+      # typescript-eslint widens its range.
+      - dependency-name: typescript
+        versions: ['>=6.1.0']
+      # Node types should match the supported runtimes (22 and 24), not newer releases.
+      - dependency-name: '@types/node'
+        versions: ['>=25.0.0']
 
   - package-ecosystem: npm
     directory: /tools/conversion
@@ -80,6 +97,14 @@ updates:
         update-types:
           - minor
           - patch
+    ignore:
+      # TypeScript 7 is the new native compiler; adopt it as a deliberate migration.
+      - dependency-name: typescript
+        versions: ['>=7.0.0']
+      # Node types should match the supported runtimes (22 and 24), not newer releases
+      # (closed #236).
+      - dependency-name: '@types/node'
+        versions: ['>=25.0.0']
 
   - package-ecosystem: npm
     directory: /tools
