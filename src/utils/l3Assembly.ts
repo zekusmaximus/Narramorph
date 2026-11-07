@@ -3,7 +3,7 @@
  */
 
 import { assembleL3Selection, selectL3Sections } from '@/domain/l3/assembly';
-import type { L3Assembly, L3AssemblySection, ConditionContext, SynthesisPattern } from '@/types';
+import type { ConditionContext, L3Assembly, SynthesisPattern } from '@/types';
 
 import { performanceMonitor } from './performanceMonitor';
 import { loadL3Variations } from './variationLoader';
@@ -138,21 +138,8 @@ export async function buildL3Assembly(
 }
 
 /**
- * Get L3 assembly content as a single combined string
- */
-export function getL3AssemblyContent(assembly: L3Assembly): string {
-  const sections = [
-    `# Archaeologist Perspective\n\n${assembly.arch.content}`,
-    `\n\n---\n\n# Algorithm Perspective\n\n${assembly.algo.content}`,
-    `\n\n---\n\n# Last Human Perspective\n\n${assembly.hum.content}`,
-    `\n\n---\n\n# Convergence\n\n${assembly.conv.content}`,
-  ];
-
-  return sections.join('');
-}
-
-/**
- * Get L3 assembly content as separate sections for rendering
+ * Get L3 assembly content as separate sections for rendering, in reading order. The
+ * `character` values are the keys L3AssemblyView maps to the store's section-read progress.
  */
 export function getL3AssemblySections(assembly: L3Assembly): {
   title: string;
@@ -186,77 +173,4 @@ export function getL3AssemblySections(assembly: L3Assembly): {
       wordCount: assembly.conv.wordCount,
     },
   ];
-}
-
-/**
- * Validate L3 assembly for completeness and expected word counts
- */
-export function validateL3Assembly(assembly: L3Assembly): {
-  valid: boolean;
-  errors: string[];
-  warnings: string[];
-} {
-  const errors: string[] = [];
-  const warnings: string[] = [];
-
-  // Check section presence
-  if (!assembly.arch) {
-    errors.push('Missing archaeologist section');
-  }
-  if (!assembly.algo) {
-    errors.push('Missing algorithm section');
-  }
-  if (!assembly.hum) {
-    errors.push('Missing human section');
-  }
-  if (!assembly.conv) {
-    errors.push('Missing convergence section');
-  }
-
-  // Check word counts (approximate expected ranges)
-  const checkWordCount = (
-    section: L3AssemblySection,
-    name: string,
-    expectedMin: number,
-    expectedMax: number,
-  ): void => {
-    if (section.wordCount < expectedMin) {
-      warnings.push(
-        `${name} section word count (${section.wordCount}) below expected minimum (${expectedMin})`,
-      );
-    }
-    if (section.wordCount > expectedMax) {
-      warnings.push(
-        `${name} section word count (${section.wordCount}) above expected maximum (${expectedMax})`,
-      );
-    }
-  };
-
-  if (assembly.arch) {
-    checkWordCount(assembly.arch, 'Archaeologist', 800, 1000);
-  }
-  if (assembly.algo) {
-    checkWordCount(assembly.algo, 'Algorithm', 800, 1000);
-  }
-  if (assembly.hum) {
-    checkWordCount(assembly.hum, 'Human', 800, 1000);
-  }
-  if (assembly.conv) {
-    checkWordCount(assembly.conv, 'Convergence', 1600, 2000);
-  }
-
-  // Check total word count
-  const expectedTotal = 4200; // Approximate expected total
-  const tolerance = 500;
-  if (Math.abs(assembly.totalWordCount - expectedTotal) > tolerance) {
-    warnings.push(
-      `Total word count (${assembly.totalWordCount}) differs from expected (~${expectedTotal})`,
-    );
-  }
-
-  return {
-    valid: errors.length === 0,
-    errors,
-    warnings,
-  };
 }
