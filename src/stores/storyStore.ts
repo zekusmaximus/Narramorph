@@ -42,7 +42,11 @@ import {
 import { CURRENT_STORY_PACKAGE } from '@/domain/progress/storyPackageIdentity';
 import { appendVisitEvent, buildVisitEvent } from '@/domain/progress/visitEvents';
 import { loadStoryState } from '@/domain/story/loading';
-import { findNewlyUnlockedNodes, getNodeUnlockProgress } from '@/domain/unlocks/unlockProgress';
+import {
+  findNewlyUnlockedNodes,
+  findUnlockedNodes,
+  getNodeUnlockProgress,
+} from '@/domain/unlocks/unlockProgress';
 import { buildConditionContext } from '@/domain/variation/conditionContext';
 import { recordVariationSelection } from '@/domain/variation/selection';
 import { renderSelectionReason } from '@/domain/variation/selectionReason';
@@ -108,6 +112,10 @@ const devError = (...args: unknown[]): void => {
 
 type DraftStoryNode = WritableDraft<StoryNode>;
 
+function sameNodeIds(a: readonly string[], b: readonly string[]): boolean {
+  return a.length === b.length && a.every((nodeId, index) => nodeId === b[index]);
+}
+
 function isLayeredStoryNode(
   node: DraftStoryNode | StoryNode | undefined,
 ): node is DraftStoryNode & Pick<StoryNode, 'layer'> {
@@ -149,6 +157,7 @@ export const useStoryStore = create<StoryStore>()(
 
     // Unlock System State
     unlockConfigs: new Map(),
+    currentlyUnlockedNodes: [],
     recentlyUnlockedNodes: [],
 
     // Actions
@@ -165,12 +174,15 @@ export const useStoryStore = create<StoryStore>()(
       }
 
       const loaded = result.state;
+      const currentlyUnlockedNodes = findUnlockedNodes(loaded.unlockConfigs, loaded.progress);
       set((state) => {
         state.storyData = loaded.storyData;
         state.nodes = loaded.nodes;
         state.connections = loaded.connections;
         state.progress = loaded.progress;
         state.unlockConfigs = loaded.unlockConfigs;
+        state.currentlyUnlockedNodes = currentlyUnlockedNodes;
+        state.recentlyUnlockedNodes = [];
         if (loaded.viewport) {
           state.viewport.bounds = loaded.viewport.bounds;
           state.viewport.center = loaded.viewport.center;
@@ -663,26 +675,36 @@ export const useStoryStore = create<StoryStore>()(
     },
 
     /**
-     * Evaluate all unlock conditions
-     * Called after each node visit to check for newly unlocked nodes
+     * Evaluate all unlock conditions after an action that advances progress (a visit, an
+     * L3 section read). Only locked-to-unlocked transitions since the previous evaluation
+     * join the notice queue, so a dismissed notice is never re-announced.
      */
     evaluateUnlocks: () => {
       const state = get();
-      const { newlyUnlockedNodeIds } = findNewlyUnlockedNodes(
+      const { unlockedNodeIds, newlyUnlockedNodeIds } = findNewlyUnlockedNodes(
         state.unlockConfigs,
         state.progress,
-        state.recentlyUnlockedNodes,
+        state.currentlyUnlockedNodes,
       );
 
       for (const nodeId of newlyUnlockedNodeIds) {
         devLog(`[Unlock] Node unlocked: ${nodeId}`);
       }
 
-      if (newlyUnlockedNodeIds.length > 0) {
-        set((state) => {
-          state.recentlyUnlockedNodes = [...state.recentlyUnlockedNodes, ...newlyUnlockedNodeIds];
-        });
+      if (sameNodeIds(unlockedNodeIds, state.currentlyUnlockedNodes)) {
+        return;
       }
+
+      set((state) => {
+        state.currentlyUnlockedNodes = unlockedNodeIds;
+        // A node that re-locked and unlocked again while its notice is still showing is
+        // already queued; announce it once.
+        const queued = new Set(state.recentlyUnlockedNodes);
+        const toQueue = newlyUnlockedNodeIds.filter((nodeId) => !queued.has(nodeId));
+        if (toQueue.length > 0) {
+          state.recentlyUnlockedNodes = [...state.recentlyUnlockedNodes, ...toQueue];
+        }
+      });
     },
 
     /**
@@ -695,8 +717,8 @@ export const useStoryStore = create<StoryStore>()(
     },
 
     /**
-     * Clear unlock notification queue
-     * Called after showing notifications to user
+     * Clear the unlock notice's display queue (the reader dismissed it, or it timed out).
+     * The derived unlock baseline is left alone, so the cleared nodes stay announced.
      */
     clearUnlockNotifications: () => {
       set((state) => {
@@ -984,10 +1006,18 @@ export const useStoryStore = create<StoryStore>()(
         devLog(`Applied saved-state migration: ${migration}`);
       }
 
+      // Unlocks already earned in the restored journey were announced in the session that
+      // earned them; adopt them as the baseline silently instead of re-announcing them.
+      const currentlyUnlockedNodes = findUnlockedNodes(
+        get().unlockConfigs,
+        result.savedState.progress,
+      );
       set((state) => {
         state.progress = result.savedState.progress;
         state.preferences = result.savedState.preferences;
         state.lastLoadMigrations = [...result.migrations];
+        state.currentlyUnlockedNodes = currentlyUnlockedNodes;
+        state.recentlyUnlockedNodes = [];
       });
     },
 
@@ -1043,12 +1073,20 @@ export const useStoryStore = create<StoryStore>()(
         return { ok: false, reason: 'invalid' };
       }
 
+      // The imported journey replaces the current one wholesale: its unlocks become the
+      // baseline unannounced, and notices queued for the replaced journey are dropped.
+      const currentlyUnlockedNodes = findUnlockedNodes(
+        get().unlockConfigs,
+        prepared.savedState.progress,
+      );
       set((state) => {
         state.progress = prepared.savedState.progress;
         state.preferences = prepared.savedState.preferences;
         state.selectedNode = null;
         state.hoveredNode = null;
         state.storyViewOpen = false;
+        state.currentlyUnlockedNodes = currentlyUnlockedNodes;
+        state.recentlyUnlockedNodes = [];
       });
 
       get().saveProgress();
@@ -1057,12 +1095,18 @@ export const useStoryStore = create<StoryStore>()(
 
     clearProgress: () => {
       // "New journey": resets reading progress but keeps reading preferences
-      // (theme, text size, line height, reduce-motion, export options).
+      // (theme, text size, line height, reduce-motion, export options). Unlock notices
+      // from the abandoned journey are dropped, and its unlocks can be earned and
+      // announced again.
+      const progress = createInitialProgress();
+      const currentlyUnlockedNodes = findUnlockedNodes(get().unlockConfigs, progress);
       set((state) => {
-        state.progress = createInitialProgress();
+        state.progress = progress;
         state.selectedNode = null;
         state.hoveredNode = null;
         state.storyViewOpen = false;
+        state.currentlyUnlockedNodes = currentlyUnlockedNodes;
+        state.recentlyUnlockedNodes = [];
       });
       get().saveProgress();
     },

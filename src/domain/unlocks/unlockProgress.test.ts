@@ -1,9 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
 import { createInitialProgress } from '@/domain/progress/progressModel';
+import type { UserProgress } from '@/types';
 import type { NodeUnlockConfig } from '@/types/Unlock';
 
-import { findNewlyUnlockedNodes, getNodeUnlockProgress } from './unlockProgress';
+import { findNewlyUnlockedNodes, findUnlockedNodes, getNodeUnlockProgress } from './unlockProgress';
 
 const createVisitConfig = (
   nodeId: string,
@@ -25,53 +26,89 @@ const createVisitConfig = (
   ],
 });
 
+function progressWithOneVisit(): UserProgress {
+  const progress = createInitialProgress('2026-01-01T00:00:00Z');
+  progress.visitedNodes = {
+    'arch-L1': {
+      visitCount: 1,
+      visitTimestamps: ['2026-01-01T00:00:00Z'],
+      currentState: 'initial',
+      timeSpent: 0,
+      lastVisited: '2026-01-01T00:00:00Z',
+    },
+  };
+  return progress;
+}
+
+describe('findUnlockedNodes', () => {
+  it('lists default-locked nodes whose conditions are met, in config order', () => {
+    const configs = new Map([
+      ['second-ready', createVisitConfig('second-ready', 1)],
+      ['blocked-node', createVisitConfig('blocked-node', 2)],
+      ['default-open', createVisitConfig('default-open', 1, false)],
+      ['first-ready', createVisitConfig('first-ready', 0)],
+    ]);
+
+    expect(findUnlockedNodes(configs, progressWithOneVisit())).toEqual([
+      'second-ready',
+      'first-ready',
+    ]);
+    expect(findUnlockedNodes(configs, createInitialProgress('2026-01-01T00:00:00Z'))).toEqual([
+      'first-ready',
+    ]);
+  });
+});
+
 describe('findNewlyUnlockedNodes', () => {
   it('returns locked configured nodes whose conditions are now met', () => {
-    const progress = createInitialProgress('2026-01-01T00:00:00Z');
-    progress.visitedNodes = {
-      'arch-L1': {
-        visitCount: 1,
-        visitTimestamps: ['2026-01-01T00:00:00Z'],
-        currentState: 'initial',
-        timeSpent: 0,
-        lastVisited: '2026-01-01T00:00:00Z',
-      },
-    };
-
     const result = findNewlyUnlockedNodes(
       new Map([
         ['ready-node', createVisitConfig('ready-node', 1)],
         ['blocked-node', createVisitConfig('blocked-node', 2)],
       ]),
-      progress,
+      progressWithOneVisit(),
       [],
     );
 
-    expect(result.newlyUnlockedNodeIds).toEqual(['ready-node']);
+    expect(result).toEqual({
+      unlockedNodeIds: ['ready-node'],
+      newlyUnlockedNodeIds: ['ready-node'],
+    });
   });
 
-  it('skips nodes already queued for notification and nodes that are unlocked by default', () => {
-    const progress = createInitialProgress('2026-01-01T00:00:00Z');
-    progress.visitedNodes = {
-      'arch-L1': {
-        visitCount: 1,
-        visitTimestamps: ['2026-01-01T00:00:00Z'],
-        currentState: 'initial',
-        timeSpent: 0,
-        lastVisited: '2026-01-01T00:00:00Z',
-      },
-    };
-
+  it('reports only transitions: nodes unlocked at the previous evaluation are not new', () => {
     const result = findNewlyUnlockedNodes(
       new Map([
-        ['already-notified', createVisitConfig('already-notified', 1)],
+        ['already-unlocked', createVisitConfig('already-unlocked', 1)],
+        ['just-unlocked', createVisitConfig('just-unlocked', 1)],
         ['default-open', createVisitConfig('default-open', 1, false)],
       ]),
-      progress,
-      ['already-notified'],
+      progressWithOneVisit(),
+      ['already-unlocked'],
     );
 
-    expect(result.newlyUnlockedNodeIds).toEqual([]);
+    expect(result).toEqual({
+      unlockedNodeIds: ['already-unlocked', 'just-unlocked'],
+      newlyUnlockedNodeIds: ['just-unlocked'],
+    });
+  });
+
+  it('drops a node that locked again from the baseline, so its next unlock is new', () => {
+    const configs = new Map([['relocking', createVisitConfig('relocking', 1)]]);
+
+    const relocked = findNewlyUnlockedNodes(
+      configs,
+      createInitialProgress('2026-01-01T00:00:00Z'),
+      ['relocking'],
+    );
+    expect(relocked).toEqual({ unlockedNodeIds: [], newlyUnlockedNodeIds: [] });
+
+    const reopened = findNewlyUnlockedNodes(
+      configs,
+      progressWithOneVisit(),
+      relocked.unlockedNodeIds,
+    );
+    expect(reopened.newlyUnlockedNodeIds).toEqual(['relocking']);
   });
 });
 

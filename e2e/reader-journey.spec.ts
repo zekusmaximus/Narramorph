@@ -84,8 +84,8 @@ test('reader completes L1 through L4, avoids repeat variations, and restores pro
   await expect(tray).toBeVisible();
   await expect(tray).toContainText(/PASSAGES? SURFACED/);
 
-  // Dismiss the slip by keyboard; clearing it empties the filed unlock batch so
-  // the post-convergence ending unlock arrives as a single, addressable slip.
+  // Dismiss the slip by keyboard. Dismissal only hides it: the convergences stay
+  // announced, so opening one and reading on does not file them again.
   const dismiss = tray.getByRole('button', { name: 'Dismiss notice' }).first();
   await dismiss.focus();
   await expect(dismiss).toBeFocused();
@@ -130,11 +130,12 @@ test('reader completes L1 through L4, avoids repeat variations, and restores pro
     )
     .toBe(true);
 
-  // Completing the convergence surfaces the ending; the store re-files the other
-  // still-unvisited convergences alongside it, so the tray shows a coalesced slip
-  // and the ending itself is opened from the map.
+  // Completing the convergence surfaces the three endings, and only them: the
+  // already-announced convergences are not re-filed, so the tray shows one
+  // coalesced L4 slip and the ending itself is opened from the map.
   await expect(tray).toBeVisible();
-  await expect(tray).toContainText(/PASSAGES? SURFACED/);
+  await expect(tray).toContainText('PASSAGES SURFACED · L4');
+  await expect(tray).toContainText('3 convergences unlocked');
   await openNode(page, 'final-preserve');
   await expect(page.getByRole('dialog')).toContainText('Preserve the Pattern');
   await expect(page.getByRole('dialog')).toContainText('[END]');
