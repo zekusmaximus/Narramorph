@@ -26,7 +26,7 @@ npm run content:validate
 
 Narramorph supports the maintained Node.js LTS lines selected for the Phase 1 CI matrix:
 
-- Node.js `>=22 <25` (Node 22 or Node 24)
+- Node.js 22.22.2 or later on the 22 line, or 24.15.0 or later on the 24 line (`^22.22.2 || ^24.15.0`). These are the minimums of the locked test environment (jsdom 30); the production build alone needs only 22.12.
 - npm `>=10 <12`
 - Windows 10/11 with PowerShell 7, macOS, or Linux
 

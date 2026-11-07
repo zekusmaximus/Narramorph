@@ -490,7 +490,7 @@ Blockchain/NFT features
 Development Environment
 Required Tools
 
-Node.js 18+
+Node.js 22.22.2+ or 24.15.0+ (see README.md)
 npm or yarn
 Git
 VS Code (recommended) with extensions:
