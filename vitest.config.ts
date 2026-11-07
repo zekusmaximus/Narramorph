@@ -48,10 +48,10 @@ export default defineConfig({
       // Vitest reads these keys directly; a nested Jest-style `global` key is treated as a
       // file glob, matches nothing, and silently disables enforcement.
       thresholds: {
-        branches: 70,
-        functions: 25,
-        lines: 60,
-        statements: 60,
+        branches: 75,
+        functions: 85,
+        lines: 85,
+        statements: 85,
       },
     },
     // Mock browser APIs that might be used in tests
