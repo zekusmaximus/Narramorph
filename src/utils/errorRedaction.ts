@@ -7,8 +7,9 @@
  *
  * What must never be transmitted (roadmap Batch 8.3): story prose, journey history,
  * local-save data, URLs containing user data (the `#/passage/:nodeId` reading
- * position), and browser storage. The app attaches none of these to reports; these
- * functions are defense-in-depth over whatever the SDK collects by default.
+ * position), and browser storage. The app attaches none of these to reports. The
+ * outgoing event is rebuilt from an allowlist of reviewed fields, so anything else the
+ * SDK collects, now or in a future version, is dropped by default.
  */
 
 /**
@@ -59,8 +60,24 @@ export function redactStoryIdentifiers(text: string): string {
   return text.replace(STORY_IDENTIFIER_PATTERN, '[passage]');
 }
 
-/** Contexts safe to keep (environment/runtime facts, never reading data). */
-const ALLOWED_CONTEXT_KEYS = new Set(['app', 'browser', 'os', 'device', 'runtime', 'trace']);
+/** Longest error message kept; anything longer is truncated. */
+const MAX_MESSAGE_LENGTH = 300;
+
+/**
+ * Scrubs free-form error text: story identifiers become `[passage]`, URLs are cut to
+ * origin + path, and everything from the first to the last double quote becomes
+ * `"[…]"`. `JSON.parse` and similar errors quote fragments of their input, such as an
+ * imported save, and those fragments can contain quotes of their own, so pairing
+ * quotes would leak the text between pairs. The result is truncated to a fixed length.
+ */
+export function redactMessage(text: string): string {
+  const scrubbed = redactStoryIdentifiers(text)
+    .replace(/[a-z][a-z0-9+.-]*:\/\/[^\s"'<>()]+/gi, (url) => redactUrl(url) ?? '')
+    .replace(/"[\s\S]*"/, '"[…]"');
+  return scrubbed.length > MAX_MESSAGE_LENGTH
+    ? `${scrubbed.slice(0, MAX_MESSAGE_LENGTH)}…`
+    : scrubbed;
+}
 
 /**
  * Strips a URL to origin + pathname — dropping the hash (which carries the reader's
@@ -79,101 +96,208 @@ export function redactUrl(url: string | undefined): string | undefined {
   }
 }
 
+type Scalar = string | number | boolean;
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+/** Copies only the named fields whose values are strings, numbers, or booleans. */
+function pickScalars(value: unknown, keys: readonly string[]): Record<string, Scalar> | undefined {
+  if (!isRecord(value)) {
+    return undefined;
+  }
+  const picked: Record<string, Scalar> = {};
+  for (const key of keys) {
+    const field = value[key];
+    if (typeof field === 'string' || typeof field === 'number' || typeof field === 'boolean') {
+      picked[key] = field;
+    }
+  }
+  return Object.keys(picked).length > 0 ? picked : undefined;
+}
+
+/** Top-level event fields kept verbatim: identity, timing, and release labels only. */
+const EVENT_FIELDS = [
+  'event_id',
+  'timestamp',
+  'platform',
+  'level',
+  'environment',
+  'release',
+  'dist',
+] as const;
+
+/** Environment contexts and the fields kept inside each (coarse facts only). */
+const CONTEXT_FIELDS: Readonly<Record<string, readonly string[]>> = {
+  browser: ['name', 'version'],
+  os: ['name', 'version'],
+  device: ['family'],
+  runtime: ['name', 'version'],
+  trace: ['trace_id', 'span_id'],
+};
+
+/** Stack-frame fields needed to resolve a frame against private source maps. */
+const FRAME_SCALARS = ['function', 'lineno', 'colno', 'in_app'] as const;
+const FRAME_URLS = ['filename', 'abs_path'] as const;
+
+function redactFrames(stacktrace: unknown): { frames: Record<string, Scalar>[] } | undefined {
+  if (!isRecord(stacktrace) || !Array.isArray(stacktrace.frames)) {
+    return undefined;
+  }
+  const frames = stacktrace.frames.filter(isRecord).map((frame) => {
+    const kept: Record<string, Scalar> = pickScalars(frame, FRAME_SCALARS) ?? {};
+    for (const key of FRAME_URLS) {
+      const url = frame[key];
+      if (typeof url === 'string') {
+        kept[key] = redactUrl(url) ?? '';
+      }
+    }
+    return kept;
+  });
+  return { frames };
+}
+
+function redactException(exception: unknown): RedactableEvent['exception'] {
+  if (!isRecord(exception) || !Array.isArray(exception.values)) {
+    return undefined;
+  }
+  const values = exception.values.filter(isRecord).map((entry) => {
+    const kept: Record<string, unknown> = {};
+    if (typeof entry.type === 'string') {
+      kept.type = redactMessage(entry.type);
+    }
+    if (typeof entry.value === 'string') {
+      kept.value = redactMessage(entry.value);
+    }
+    const mechanism = pickScalars(entry.mechanism, ['type', 'handled']);
+    if (mechanism) {
+      kept.mechanism = mechanism;
+    }
+    const stacktrace = redactFrames(entry.stacktrace);
+    if (stacktrace) {
+      kept.stacktrace = stacktrace;
+    }
+    return kept;
+  });
+  return values.length > 0 ? { values } : undefined;
+}
+
+function redactContexts(contexts: unknown): Record<string, unknown> | undefined {
+  if (!isRecord(contexts)) {
+    return undefined;
+  }
+  const kept: Record<string, unknown> = {};
+  for (const [name, fields] of Object.entries(CONTEXT_FIELDS)) {
+    const picked = pickScalars(contexts[name], fields);
+    if (picked) {
+      kept[name] = picked;
+    }
+  }
+  return Object.keys(kept).length > 0 ? kept : undefined;
+}
+
+/** Debug-ID images, which tie minified frames to privately uploaded source maps. */
+function redactDebugMeta(debugMeta: unknown): Record<string, unknown> | undefined {
+  if (!isRecord(debugMeta) || !Array.isArray(debugMeta.images)) {
+    return undefined;
+  }
+  const images = debugMeta.images.filter(isRecord).map((image) => {
+    const kept: Record<string, Scalar> = pickScalars(image, ['type', 'debug_id']) ?? {};
+    if (typeof image.code_file === 'string') {
+      kept.code_file = redactUrl(image.code_file) ?? '';
+    }
+    return kept;
+  });
+  return images.length > 0 ? { images } : undefined;
+}
+
+/** Breadcrumb categories that may be sent, each reduced to fields that carry no content. */
+const UI_BREADCRUMB_CATEGORIES = new Set(['ui.click', 'ui.input']);
+const BREADCRUMB_SCALARS = ['type', 'level', 'timestamp'] as const;
+
 /**
- * Drops console/network breadcrumbs (which can carry prose, node IDs, or request
- * detail), strips reading-position URLs from navigation breadcrumbs, and reduces UI
- * breadcrumbs to the fact that an interaction happened.
+ * Keeps only interface and navigation breadcrumbs, rebuilt from content-free fields.
+ * UI breadcrumbs lose the SDK's element description (a DOM path that includes
+ * aria-label, title, name, and alt values; map passages and reader controls carry
+ * passage titles there). Navigation breadcrumbs keep URLs cut to origin + path, which
+ * drops the passage fragment. Every other category is dropped: console and network
+ * breadcrumbs can carry prose or node IDs, and `sentry.*` breadcrumbs repeat earlier
+ * error messages.
  */
 export function redactBreadcrumb(breadcrumb: RedactableBreadcrumb): RedactableBreadcrumb | null {
-  const category = breadcrumb.category ?? '';
-  if (category === 'console' || category === 'xhr' || category === 'fetch') {
+  const category = typeof breadcrumb.category === 'string' ? breadcrumb.category : '';
+  const isUi = UI_BREADCRUMB_CATEGORIES.has(category);
+  if (!isUi && category !== 'navigation') {
     return null;
   }
-  if (category.startsWith('ui.')) {
-    // The SDK describes the target element as a DOM path that includes its
-    // aria-label, title, name, and alt values. Map passages and reader controls carry
-    // passage titles in those attributes, so the description would reveal the reading
-    // position. Keep only the category, type, level, and timestamp.
-    const scrubbed: RedactableBreadcrumb = { ...breadcrumb };
-    delete scrubbed.message;
-    delete scrubbed.data;
-    return scrubbed;
+  const kept: RedactableBreadcrumb = { category, ...pickScalars(breadcrumb, BREADCRUMB_SCALARS) };
+  if (category === 'navigation' && isRecord(breadcrumb.data)) {
+    const data: Record<string, unknown> = {};
+    for (const key of ['from', 'to'] as const) {
+      const url = breadcrumb.data[key];
+      if (typeof url === 'string') {
+        data[key] = redactUrl(url);
+      }
+    }
+    if (Object.keys(data).length > 0) {
+      kept.data = data;
+    }
   }
-  if (category === 'navigation' && breadcrumb.data) {
-    return {
-      ...breadcrumb,
-      data: {
-        ...breadcrumb.data,
-        from: redactUrl(breadcrumb.data.from as string | undefined),
-        to: redactUrl(breadcrumb.data.to as string | undefined),
-      },
-    };
-  }
-  return breadcrumb;
+  return kept;
 }
 
 /**
- * Scrubs an outgoing error event: strips user-bearing URLs, request bodies/cookies/
- * headers, user/server identity, any `extra` (the app attaches none, so nothing app
- * state could ride in), and all but an allowlist of environment contexts; redacts
- * breadcrumbs. The error type, message, stack, and release survive so the report is
- * still actionable.
+ * Builds the outgoing error event from an allowlist of reviewed fields rather than
+ * deleting known-sensitive ones, so a field the SDK adds later (tags, fingerprints,
+ * frame source context, nested context values, user or request detail) is dropped by
+ * default. What survives is enough to act on: the error type and scrubbed message, the
+ * stack (file, function, line, column), release and environment labels, coarse
+ * browser/OS facts, the page URL cut to origin + path, debug-ID images for private
+ * source maps, and content-free interface breadcrumbs.
  */
 export function redactEvent(event: RedactableEvent): RedactableEvent {
-  const redacted: RedactableEvent = { ...event };
+  const redacted: RedactableEvent = { ...pickScalars(event, EVENT_FIELDS) };
 
-  if (typeof redacted.message === 'string') {
-    redacted.message = redactStoryIdentifiers(redacted.message);
+  if (typeof event.message === 'string') {
+    redacted.message = redactMessage(event.message);
   }
-  if (redacted.exception && Array.isArray(redacted.exception.values)) {
-    redacted.exception = {
-      ...redacted.exception,
-      values: redacted.exception.values.map((entry) =>
-        typeof entry.value === 'string'
-          ? { ...entry, value: redactStoryIdentifiers(entry.value) }
-          : entry,
-      ),
-    };
+  const exception = redactException(event.exception);
+  if (exception) {
+    redacted.exception = exception;
   }
-
-  if (redacted.request) {
-    const request = { ...redacted.request };
-    request.url = redactUrl(request.url);
-    delete request.cookies;
-    delete request.data;
-    delete request.headers;
-    delete request.query_string;
-    redacted.request = request;
+  const url = isRecord(event.request) ? event.request.url : undefined;
+  if (typeof url === 'string') {
+    redacted.request = { url: redactUrl(url) };
   }
-
-  delete redacted.user;
-  delete redacted.server_name;
-  delete redacted.extra;
-
-  if (Array.isArray(redacted.breadcrumbs)) {
-    redacted.breadcrumbs = redacted.breadcrumbs
+  if (Array.isArray(event.breadcrumbs)) {
+    redacted.breadcrumbs = event.breadcrumbs
+      .filter(isRecord)
       .map(redactBreadcrumb)
       .filter((crumb): crumb is RedactableBreadcrumb => crumb !== null);
   }
-
-  if (redacted.contexts) {
-    const filtered: Record<string, unknown> = {};
-    for (const [key, value] of Object.entries(redacted.contexts)) {
-      if (ALLOWED_CONTEXT_KEYS.has(key)) {
-        filtered[key] = value;
-      }
-    }
-    redacted.contexts = filtered;
+  const contexts = redactContexts(event.contexts);
+  if (contexts) {
+    redacted.contexts = contexts;
+  }
+  const sdk = pickScalars(event.sdk, ['name', 'version']);
+  if (sdk) {
+    redacted.sdk = sdk;
+  }
+  const debugMeta = redactDebugMeta(event.debug_meta);
+  if (debugMeta) {
+    redacted.debug_meta = debugMeta;
   }
 
   return redacted;
 }
 
 /**
- * Builds a representative **redacted** report for the reader-facing "see what would
- * be sent" view. It starts from a payload that deliberately contains a reading-
- * position URL, a console breadcrumb, an `extra`, and a fake save blob, then runs
- * the same redaction the SDK uses — so the reader sees exactly what survives.
+ * Builds an example **redacted** report for the reader-facing preview in Settings. It
+ * starts from a payload that deliberately contains a reading-position URL, passage
+ * identifiers, a quoted save fragment, tags, frame source context, console and
+ * `sentry.event` breadcrumbs, a fake save blob, and locale data, then runs the same
+ * redaction as a real report, so the reader sees which kinds of fields survive.
  */
 export function buildSampleRedactedEvent(): RedactableEvent {
   const sample: RedactableEvent = {
@@ -182,12 +306,38 @@ export function buildSampleRedactedEvent(): RedactableEvent {
     release: 'narramorph@<app-version>',
     environment: 'production',
     exception: {
-      values: [{ type: 'TypeError', value: 'Example: an interface error (never story prose).' }],
+      values: [
+        {
+          type: 'Error',
+          value:
+            'No variation file found for node: arch-L2-accept while reading "would-be-removed save fragment"',
+          mechanism: { type: 'onerror', handled: false, data: { note: 'would-be-removed' } },
+          stacktrace: {
+            frames: [
+              {
+                filename: 'https://example.invalid/assets/index.js?v=would-be-removed',
+                function: 'openPassage',
+                lineno: 1,
+                colno: 4821,
+                in_app: true,
+                context_line: 'would-be-removed source line',
+                vars: { passage: 'would-be-removed' },
+              },
+            ],
+          },
+        },
+      ],
     },
-    request: { url: 'https://example.invalid/reader#/passage/arch-L4?visit=3' },
+    request: {
+      url: 'https://example.invalid/reader#/passage/arch-L4?visit=3',
+      headers: { Referer: 'would-be-removed referrer' },
+    },
     user: { id: 'would-be-removed', ip_address: '{{auto}}' },
+    tags: { passage: 'would-be-removed' },
+    fingerprint: ['would-be-removed'],
     breadcrumbs: [
       { category: 'console', level: 'log', message: 'would-be-removed console line' },
+      { category: 'sentry.event', message: 'would-be-removed earlier error message' },
       { category: 'navigation', data: { from: '/#/passage/algo-L1', to: '/#/passage/algo-L2' } },
       {
         category: 'ui.click',
@@ -196,7 +346,8 @@ export function buildSampleRedactedEvent(): RedactableEvent {
     ],
     extra: { save: '{would-be-removed local save blob}', prose: 'would-be-removed passage text' },
     contexts: {
-      browser: { name: 'Firefox', version: '140' },
+      browser: { name: 'Firefox', version: '140', extensions: 'would-be-removed' },
+      culture: { locale: 'would-be-removed', timezone: 'would-be-removed' },
       state: { progress: 'would-be-removed' },
     },
   };
