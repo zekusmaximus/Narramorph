@@ -1,3 +1,4 @@
+import type * as SentryBrowser from '@sentry/browser';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { gateTransportOnConsent, type GatedTransport } from './errorReporting';
@@ -106,5 +107,70 @@ describe('Sentry initialization', () => {
     vi.resetModules();
     await reporting.enableErrorReporting();
     expect(init).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('real SDK: complete outgoing envelopes', () => {
+  const SENTINEL = 'SENTINEL-must-not-leave-device';
+
+  beforeEach(() => {
+    vi.resetModules();
+    vi.stubEnv('VITE_SENTRY_DSN', 'https://public@o1.ingest.us.sentry.io/1');
+  });
+
+  afterEach(() => {
+    vi.doUnmock('@sentry/browser');
+    vi.unstubAllEnvs();
+    window.history.replaceState({}, '', '/');
+  });
+
+  it('sends only redacted error envelopes, and nothing after consent is withdrawn', async () => {
+    const sent: unknown[] = [];
+    vi.doMock('@sentry/browser', async (importOriginal) => {
+      const actual = await importOriginal<typeof SentryBrowser>();
+      return {
+        ...actual,
+        makeFetchTransport: () => ({
+          send: (envelope: unknown) => {
+            sent.push(envelope);
+            return Promise.resolve({ statusCode: 200 });
+          },
+          flush: () => Promise.resolve(true),
+        }),
+      };
+    });
+    const Sentry = await import('@sentry/browser');
+    const reporting = await import('./errorReporting');
+    await reporting.enableErrorReporting();
+
+    // Everything the SDK or app state could attach to a report, each carrying the sentinel.
+    Sentry.setTag('passage', SENTINEL);
+    Sentry.setUser({ id: SENTINEL, email: SENTINEL });
+    Sentry.setExtra('save', SENTINEL);
+    Sentry.setContext('state', { progress: SENTINEL });
+    Sentry.addBreadcrumb({ category: 'console', message: SENTINEL });
+    Sentry.addBreadcrumb({ category: 'ui.click', message: `button[aria-label="${SENTINEL}"]` });
+    window.history.pushState({}, '', `/#/passage/${SENTINEL}`);
+
+    reporting.reportError(new Error(`Render failed for "${SENTINEL}" at arch-L2-accept`));
+    await Sentry.flush(2000);
+
+    const serialized = JSON.stringify(sent);
+    expect(sent.length).toBeGreaterThan(0);
+    expect(serialized).toContain('Render failed for');
+    expect(serialized).not.toContain(SENTINEL);
+    expect(serialized).not.toContain('arch-L2-accept');
+    expect(serialized).not.toContain('"type":"session"');
+    expect(serialized).not.toContain('"type":"client_report"');
+
+    // After revocation nothing leaves, even an error captured straight through the SDK.
+    sent.length = 0;
+    reporting.disableErrorReporting();
+    Sentry.captureException(new Error('captured after revocation'));
+    window.history.pushState({}, '', '/#/passage/another');
+    await Sentry.flush(2000);
+    expect(sent).toEqual([]);
+
+    await Sentry.close();
   });
 });
