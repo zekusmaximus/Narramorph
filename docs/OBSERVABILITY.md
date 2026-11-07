@@ -9,7 +9,7 @@ Narramorph is a static, client-side app (ADR 0006). Its only telemetry is **opt-
 | Error type, message, and stack trace | Story prose / passage text |
 | Release identity (`narramorph@<version>+<sha>`) | Journey history, progress, or the visit-event log |
 | Coarse environment (browser/OS) | Saved-journey data or any `localStorage` |
-| Benign UI breadcrumbs (e.g. a click category) | The reading-position URL hash (`#/passage/:nodeId`) — stripped to origin + path |
+| UI breadcrumbs reduced to their category (e.g. `ui.click`); the element description, which can carry passage titles in `aria-label`/`title`, is removed | The reading-position URL hash (`#/passage/:nodeId`) — stripped to origin + path |
 | — | Console/network breadcrumbs, cookies, request bodies, IP/user identity (`sendDefaultPii: false`) |
 
 Redaction is enforced by the pure, unit-tested layer in [`src/utils/errorRedaction.ts`](../src/utils/errorRedaction.ts) (`errorRedaction.test.ts` — the "no sensitive reading content" acceptance) and applied in the SDK's `beforeSend`/`beforeBreadcrumb` hooks. A `consented` kill-switch drops every event while consent is off, even if the SDK is already loaded.

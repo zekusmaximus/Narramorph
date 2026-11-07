@@ -1,6 +1,6 @@
 # Privacy policy
 
-Last updated: July 17, 2026 · Applies to: Narramorph (the _Eternal Return of the Digital Self_ interactive edition), v1.
+Last updated: November 7, 2026 · Applies to: Narramorph (the _Eternal Return of the Digital Self_ interactive edition), v1.
 
 ## Summary
 
@@ -8,11 +8,13 @@ Last updated: July 17, 2026 · Applies to: Narramorph (the _Eternal Return of th
 
 ## What is transmitted
 
-**Nothing about your reading.** In this release the app makes **no network requests of its own** — no analytics, no tracking, no error reporting, no third-party fonts or scripts. After the initial download of the application's files from the hosting provider, the app runs entirely in your browser. (Fonts are served from the same site as the app; there is no request to Google Fonts or any other third party.)
+**Nothing about your reading.** The app has **no analytics, tracking, or advertising**, and it loads **no third-party fonts or externally hosted scripts**. After the initial download of the application's files from the hosting provider, the app runs entirely in your browser. (Fonts are served from the same site as the app; there is no request to Google Fonts or any other third party.) The only request the app itself can make is an **opt-in crash report**, which is off unless you turn it on (see [below](#optional-error-reporting-opt-in-off-by-default)).
 
-The only network activity is:
+The complete list of network activity is:
 
 - **Loading the app** — your browser downloads the application's files (HTML, JavaScript, CSS, fonts, story content) from the hosting provider (Cloudflare Pages), exactly as it would for any website. The host may keep standard server logs (such as IP addresses) as part of delivering the site; that is the host's processing, not the app's, and no reading data is included.
+- **Network error reports to the host** — Cloudflare adds Network Error Logging headers to the site's responses. Browsers that support this standard (mainly Chromium-based browsers such as Chrome and Edge) may send Cloudflare a short technical report when a request to the site **fails** — for example, a dropped connection. Successful requests are not reported. A report describes the failed request (its address without the in-page passage fragment, the type of network error, the server address, protocol, and timing) and, like any request, reaches Cloudflare from your IP address. It contains no reading data. This is Cloudflare's processing at the hosting layer, not something the app sends.
+- **Crash reports, only if you opt in** — sent to Sentry, the error-monitoring service, as described below.
 - **Links you choose to open** — e.g. the "Accessibility" and "Privacy" links go to this project's public GitHub repository. Following a link is your action and takes you to that third-party site under its own policies.
 
 ## What is stored on your device
@@ -30,9 +32,14 @@ There are **no cookies** and **no third-party trackers**. Exports (Markdown, pri
 
 ## Optional error reporting (opt-in, off by default)
 
-The app includes an **opt-in** crash-reporting option to help fix problems. It is **off by default** and sends **nothing** unless you turn it on in **Settings → "Send anonymous crash reports"** (and it is fully inactive unless the site has been configured with a monitoring service — if none is configured, no reports are ever sent regardless of the setting).
+The app includes an **opt-in** crash-reporting option to help fix problems. The public site at narramorph.com is configured to use [Sentry](https://sentry.io) (its US data region) for these reports. Reporting is **off by default** and sends **nothing** unless you either:
 
-When you turn it on, a crash report is **redacted on your device before it is sent**, so that story prose, your reading history and journey, your saved data, your browser storage, personal information, and the part of the address that shows which passage you're reading are **never** transmitted. A report contains only the error type and message, a stack trace, and coarse environment facts (like your browser name). You can preview a representative report under the same setting ("See exactly what a report would contain") before opting in, and you can turn it off at any time. See [`docs/OBSERVABILITY.md`](OBSERVABILITY.md) for the full detail of what is and isn't captured.
+- turn on **Settings → "Send anonymous crash reports"**, after which crashes are reported automatically until you turn it off; or
+- choose **"Report this problem"** on the error screen after a crash, which sends that report and keeps reporting on for the rest of that browser session without changing your saved setting.
+
+A copy of the app built without a monitoring service (for example, a local development build) never sends reports, whatever the setting.
+
+Every crash report is **redacted on your device before it is sent**, so that story prose, your reading history and journey, your saved data, your browser storage, personal information, and the part of the address that shows which passage you're reading are **never** transmitted. A report contains only the error type and message, a stack trace, the app's release version, coarse environment facts (like your browser and operating system), the site address without the passage fragment, and a short trail of interface events that records only that an interaction happened (for example, "a click"), never which control or passage it was. Like any web request, a report reaches Sentry from your IP address; the app does not add your IP address or any identity to the report (`sendDefaultPii: false`). You can preview a representative report under the same setting ("See exactly what a report would contain") before opting in, and you can turn it off at any time. See [`docs/OBSERVABILITY.md`](OBSERVABILITY.md) for the full detail of what is and isn't captured.
 
 ## Deleting your data
 
@@ -43,11 +50,11 @@ Because everything is local, you are always in control:
 
 ## Children's privacy
 
-The app collects no personal information from anyone, including children, because it transmits no data.
+The app collects no personal information from anyone, including children. It transmits no reading data, and the opt-in crash reports are redacted to exclude personal information.
 
 ## Changes to this policy
 
-If the app's data behavior changes (for example, if opt-in error reporting is enabled), this policy will be updated and the "Last updated" date above will change. The policy is versioned in the project's public repository, so its history is auditable.
+If the app's data behavior changes (for example, if a new kind of request is added or crash-report contents change), this policy will be updated and the "Last updated" date above will change. The policy is versioned in the project's public repository, so its history is auditable.
 
 ## Contact
 

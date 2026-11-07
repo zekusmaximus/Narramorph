@@ -40,8 +40,31 @@ describe('redactBreadcrumb', () => {
     expect(crumb?.data).toEqual({ from: '/', to: '/' });
   });
 
-  it('keeps benign UI breadcrumbs', () => {
-    expect(redactBreadcrumb({ category: 'ui.click', message: 'settings' })).not.toBeNull();
+  it('keeps UI breadcrumbs but drops the element description', () => {
+    const crumb = redactBreadcrumb({
+      category: 'ui.click',
+      type: 'default',
+      level: 'info',
+      timestamp: 1_700_000_000,
+      message: 'div.map > button.passage[aria-label="First Documentation"][title="Open passage"]',
+      data: { componentName: 'CustomStoryNode' },
+    });
+
+    expect(crumb).toEqual({
+      category: 'ui.click',
+      type: 'default',
+      level: 'info',
+      timestamp: 1_700_000_000,
+    });
+  });
+
+  it('drops the element description from every UI breadcrumb category', () => {
+    const crumb = redactBreadcrumb({
+      category: 'ui.input',
+      message: 'input[name="journey-title"]',
+    });
+
+    expect(crumb).toEqual({ category: 'ui.input' });
   });
 });
 
@@ -105,6 +128,7 @@ describe('redactEvent — acceptance: no sensitive reading content leaves the de
     const serialized = JSON.stringify(sample);
     expect(serialized).not.toContain('would-be-removed');
     expect(serialized).not.toContain('passage/arch-L4');
+    expect(sample.breadcrumbs).toContainEqual({ category: 'ui.click' });
     expect(sample.user).toBeUndefined();
     expect(sample.extra).toBeUndefined();
     expect(sample.request?.url).toBe('https://example.invalid/reader');
