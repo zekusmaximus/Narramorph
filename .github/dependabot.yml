@@ -45,6 +45,10 @@ updates:
         update-types: ['version-update:semver-major']
       - dependency-name: '@react-three/fiber'
         update-types: ['version-update:semver-major']
+      # Tailwind 4 replaces the PostCSS plugin and the JS config; adopt it as a
+      # deliberate migration with visual and CSS-budget review (see closed #217).
+      - dependency-name: tailwindcss
+        update-types: ['version-update:semver-major']
 
   - package-ecosystem: npm
     directory: /tools/conversion
