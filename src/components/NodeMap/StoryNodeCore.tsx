@@ -65,12 +65,16 @@ export function StoryNodeCore({
         border: `1px solid ${isSelected ? FOCUS.onDark : colors.ink}`,
       }}
     >
+      {/* The glyph and stamps are decorative repeats of what the node's aria-label says
+          (perspective, visit count, transformation). They render as CSS generated content,
+          not DOM text, so the passage title stays the node's only visible label and remains
+          part of its accessible name (WCAG 2.5.3 Label in Name). */}
       <div
-        className="relative z-10 font-serif font-semibold"
+        aria-hidden="true"
+        data-glyph={characterGlyph[node.character]}
+        className="relative z-10 font-serif font-semibold before:content-[attr(data-glyph)]"
         style={{ fontSize: size / 3, color: '#080d10' }}
-      >
-        {characterGlyph[node.character]}
-      </div>
+      />
 
       {isSelected && canVisit && (
         <div
@@ -82,21 +86,21 @@ export function StoryNodeCore({
 
       {visibleStamps.length > 0 && (
         <div
+          aria-hidden="true"
           className="pointer-events-none absolute -right-2 -top-2 flex flex-col items-end gap-0.5"
           data-testid="story-node-stamps"
         >
           {visibleStamps.map((stamp, index) => (
             <span
               key={index}
-              className="flex items-center justify-center rounded-none px-1 py-0.5 font-mono text-[10px] font-semibold leading-none"
+              data-stamp={stamp}
+              className="flex items-center justify-center rounded-none px-1 py-0.5 font-mono text-[10px] font-semibold leading-none before:content-[attr(data-stamp)]"
               style={{
                 backgroundColor: '#0b1015',
                 border: `1px solid ${colors.ink}80`,
                 color: colors.ink,
               }}
-            >
-              {stamp}
-            </span>
+            />
           ))}
         </div>
       )}
