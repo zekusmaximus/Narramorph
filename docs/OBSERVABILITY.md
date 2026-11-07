@@ -11,8 +11,12 @@ Narramorph is a static, client-side app (ADR 0006). Its only telemetry is **opt-
 | Coarse environment (browser/OS) | Saved-journey data or any `localStorage` |
 | UI breadcrumbs reduced to their category (e.g. `ui.click`); the element description, which can carry passage titles in `aria-label`/`title`, is removed | The reading-position URL hash (`#/passage/:nodeId`) — stripped to origin + path |
 | — | Console/network breadcrumbs, cookies, request bodies, IP/user identity (`sendDefaultPii: false`) |
+| — | Passage, variation, and ending identifiers in error messages (replaced with `[passage]`) |
+| — | Sessions/release health (the `BrowserSession` integration is removed) and client reports (`sendClientReports: false`) |
 
-Redaction is enforced by the pure, unit-tested layer in [`src/utils/errorRedaction.ts`](../src/utils/errorRedaction.ts) (`errorRedaction.test.ts` — the "no sensitive reading content" acceptance) and applied in the SDK's `beforeSend`/`beforeBreadcrumb` hooks. A `consented` kill-switch drops every event while consent is off, even if the SDK is already loaded.
+Redaction is enforced by the pure, unit-tested layer in [`src/utils/errorRedaction.ts`](../src/utils/errorRedaction.ts) (`errorRedaction.test.ts` — the "no sensitive reading content" acceptance) and applied in the SDK's `beforeSend`/`beforeBreadcrumb` hooks. Consent is enforced twice: a `consented` kill-switch in `beforeSend` drops error events, and a consent-gated transport (`gateTransportOnConsent` in [`src/utils/errorReporting.ts`](../src/utils/errorReporting.ts)) drops every envelope type while consent is off, including anything the SDK already queued. The SDK's default `BrowserSession` integration is removed because it sends a session envelope on load and on every history change (each passage open) without passing through `beforeSend`.
+
+**Known gap (follow-up):** redaction removes known-sensitive fields rather than building the report from an allowlist of reviewed fields. Exception messages pass through apart from the story-identifier scrub. An allowlist-based event builder is the planned replacement.
 
 ## Consent model
 
@@ -50,7 +54,7 @@ Proves the end-to-end half of the gate (_a deliberately injected production-like
 2. Open the app, opt in via **Settings → Send anonymous crash reports**.
 3. Trigger a deliberate error (e.g. a throwaway button that throws, or `throw` from the console).
 4. In Sentry, confirm the event shows the **correct release** and a resolved stack (private maps), and verify the payload contains **no** prose, journey/save data, `localStorage`, or a `#/passage/...` URL — only origin + path.
-5. Toggle consent **off** and repeat step 3; confirm **no** event is sent.
+5. Toggle consent **off** and repeat step 3; confirm in the browser's network panel that **no** request of any kind goes to the Sentry ingest host (errors, sessions, or client reports), including after navigating between passages.
 
 ### Results (owner-run — filled in when run; not fabricated)
 
