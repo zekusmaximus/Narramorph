@@ -273,6 +273,17 @@ export interface StoryStore {
 
   // Unlock System State
   unlockConfigs: Map<string, NodeUnlockConfig>;
+  /**
+   * Default-locked nodes unlocked as of the last unlock evaluation. Derived from progress
+   * and never persisted: rebuilt silently whenever progress is replaced (story load, save
+   * load, import, new journey), so it is the baseline an unlock is announced against.
+   */
+  currentlyUnlockedNodes: string[];
+  /**
+   * The unlock notice's display queue: nodes that moved from locked to unlocked since the
+   * notice was last cleared. Clearing it only hides the notice; it never re-arms an
+   * announcement.
+   */
   recentlyUnlockedNodes: string[];
 
   // Reading statistics (computed)
@@ -299,6 +310,7 @@ export interface StoryStore {
   markL3SectionRead: (section: 'arch' | 'algo' | 'hum' | 'conv') => void;
   evaluateUnlocks: () => void;
   getUnlockProgress: (nodeId: string) => UnlockProgress | null;
+  /** Empties the unlock notice's display queue; the derived unlock baseline is untouched. */
   clearUnlockNotifications: () => void;
   updateViewport: (viewport: Partial<MapViewport>) => void;
   selectNode: (nodeId: string | null) => void;

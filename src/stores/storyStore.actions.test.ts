@@ -59,6 +59,7 @@ function resetStore(): void {
     isGeneratingL3: false,
     currentL3Assembly: null,
     unlockConfigs: new Map(),
+    currentlyUnlockedNodes: [],
     recentlyUnlockedNodes: [],
   });
 }
@@ -69,6 +70,13 @@ const store = () => useStoryStore.getState();
 function read(nodeId: string): void {
   store().openStoryView(nodeId);
   store().closeStoryView();
+}
+
+/** Reads all four sections of the current L3 assembly, which unlocks the endings. */
+function readAllL3Sections(): void {
+  for (const section of L3_SECTIONS) {
+    store().markL3SectionRead(section);
+  }
 }
 
 /** Every L1 and L2 passage once: all three perspectives, 12 visits, awareness 100. */
@@ -489,9 +497,7 @@ describe('L3 convergence', () => {
       conditionsNotMet: ['l3-completion'],
     });
 
-    for (const section of L3_SECTIONS) {
-      store().markL3SectionRead(section);
-    }
+    readAllL3Sections();
 
     // The endings join the L3 unlocks already queued; nothing is announced twice.
     expect(store().recentlyUnlockedNodes).toEqual([...L3_NODES, ...ENDINGS]);
@@ -503,6 +509,131 @@ describe('L3 convergence', () => {
     });
     expect(store().getUnlockProgress('final-preserve')?.locked).toBe(false);
     expect(store().canVisitNode('final-transform')).toBe(true);
+  });
+
+  it('announces each unlock once: a dismissed notice does not return on later visits', async () => {
+    readToConvergence();
+    expect(store().recentlyUnlockedNodes).toEqual(L3_NODES);
+
+    // The notice closes (dismissed, or its 8 s timer ran out) and the reader keeps going.
+    store().clearUnlockNotifications();
+    read('hum-L1');
+    read('arch-L2-accept');
+
+    // The convergences are still open; they are just not announced again.
+    expect(store().recentlyUnlockedNodes).toEqual([]);
+    expect(store().currentlyUnlockedNodes).toEqual(L3_NODES);
+    expect(store().canVisitNode('arch-L3')).toBe(true);
+
+    await store().openL3AssemblyView('arch-L3');
+    expect(store().recentlyUnlockedNodes).toEqual([]);
+
+    // The next genuine unlock announces only what is new.
+    readAllL3Sections();
+    expect(store().recentlyUnlockedNodes).toEqual(ENDINGS);
+
+    store().clearUnlockNotifications();
+    store().closeL3AssemblyView();
+    read('final-preserve');
+    expect(store().recentlyUnlockedNodes).toEqual([]);
+    expect(store().currentlyUnlockedNodes).toEqual([...L3_NODES, ...ENDINGS]);
+  });
+
+  it('does not re-announce unlocks restored from a save after a reload', async () => {
+    readToConvergence();
+    expect(store().recentlyUnlockedNodes).toEqual(L3_NODES);
+
+    // Reload: a fresh store loads the story and then the save, as Home does. The reader
+    // never dismissed the notice, but the queue is transient and is not restored.
+    resetStore();
+    await store().loadStory(STORY_ID);
+    store().loadProgress();
+
+    expect(store().canVisitNode('arch-L3')).toBe(true);
+    expect(store().currentlyUnlockedNodes).toEqual(L3_NODES);
+    expect(store().recentlyUnlockedNodes).toEqual([]);
+
+    read('hum-L1');
+    expect(store().recentlyUnlockedNodes).toEqual([]);
+
+    // An unlock earned after the reload is still announced, and only it.
+    await store().openL3AssemblyView('arch-L3');
+    readAllL3Sections();
+    expect(store().recentlyUnlockedNodes).toEqual(ENDINGS);
+
+    resetStore();
+    await store().loadStory(STORY_ID);
+    store().loadProgress();
+    read('final-preserve');
+    expect(store().currentlyUnlockedNodes).toEqual([...L3_NODES, ...ENDINGS]);
+    expect(store().recentlyUnlockedNodes).toEqual([]);
+  });
+
+  it('adopts an imported journey’s unlocks silently and drops a replaced journey’s notices', () => {
+    readToConvergence();
+    const save = store().exportProgress();
+    expect(store().recentlyUnlockedNodes).toEqual(L3_NODES);
+
+    // A new journey drops the abandoned journey's notice along with its unlocks.
+    store().clearProgress();
+    expect(store().recentlyUnlockedNodes).toEqual([]);
+    expect(store().currentlyUnlockedNodes).toEqual([]);
+    expect(store().canVisitNode('arch-L3')).toBe(false);
+
+    expect(store().importProgress(save)).toMatchObject({ ok: true });
+    expect(store().currentlyUnlockedNodes).toEqual(L3_NODES);
+    expect(store().recentlyUnlockedNodes).toEqual([]);
+
+    read('hum-L1');
+    expect(store().recentlyUnlockedNodes).toEqual([]);
+  });
+
+  it('announces the same unlocks again when a new journey earns them again', () => {
+    readToConvergence();
+    store().clearUnlockNotifications();
+
+    store().clearProgress();
+    readToConvergence();
+
+    expect(store().recentlyUnlockedNodes).toEqual(L3_NODES);
+  });
+
+  it('re-announces endings that lock again and resurface, without queuing them twice', async () => {
+    readToConvergence();
+    await store().openL3AssemblyView('arch-L3');
+    readAllL3Sections();
+    store().clearUnlockNotifications();
+    const assembly = store().currentL3Assembly;
+    const [firstPattern, secondPattern] = (
+      ['single-dominant', 'balanced-dual', 'true-triad'] as const
+    ).filter((pattern) => pattern !== assembly?.metadata.synthesisPattern);
+    if (!assembly || !firstPattern || !secondPattern) {
+      throw new Error('expected an L3 assembly and two other synthesis patterns');
+    }
+    const viewVariant = (synthesisPattern: typeof assembly.metadata.synthesisPattern): void => {
+      store().trackL3AssemblyView({
+        ...assembly,
+        metadata: { ...assembly.metadata, synthesisPattern },
+      });
+    };
+
+    // A differently patterned assembly starts a new view record with unread sections, and
+    // the endings' completion condition reads only the latest record: they lock again.
+    viewVariant(firstPattern);
+    store().evaluateUnlocks();
+    expect(store().currentlyUnlockedNodes).toEqual(L3_NODES);
+    expect(store().canVisitNode('final-preserve')).toBe(false);
+
+    // Finishing that assembly resurfaces them: a real transition, so announced again.
+    readAllL3Sections();
+    expect(store().recentlyUnlockedNodes).toEqual(ENDINGS);
+
+    // Locking and resurfacing again while that notice is still showing queues nothing twice.
+    viewVariant(secondPattern);
+    store().evaluateUnlocks();
+    readAllL3Sections();
+    expect(store().recentlyUnlockedNodes).toEqual(ENDINGS);
+    expect(store().currentlyUnlockedNodes).toEqual([...L3_NODES, ...ENDINGS]);
   });
 
   it('ignores re-reading a section and reading before any assembly was viewed', async () => {

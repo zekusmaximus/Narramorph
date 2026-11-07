@@ -6,28 +6,48 @@ import {
 } from '@/utils/unlockEvaluator';
 
 export interface UnlockEvaluationResult {
+  /** Every default-locked configured node whose conditions are met now, in config order. */
+  unlockedNodeIds: string[];
+  /** The subset of `unlockedNodeIds` that was locked at the previous evaluation. */
   newlyUnlockedNodeIds: string[];
 }
 
-export function findNewlyUnlockedNodes(
+/**
+ * Lists the default-locked configured nodes whose unlock conditions `progress` meets.
+ * Nodes that are open by default are never "unlocked", so they are never listed.
+ */
+export function findUnlockedNodes(
   unlockConfigs: Map<string, NodeUnlockConfig>,
   progress: UserProgress,
-  alreadyNotifiedNodeIds: readonly string[],
-): UnlockEvaluationResult {
-  const alreadyNotified = new Set(alreadyNotifiedNodeIds);
-  const newlyUnlockedNodeIds: string[] = [];
+): string[] {
+  const unlockedNodeIds: string[] = [];
 
   for (const [nodeId, config] of unlockConfigs) {
-    if (alreadyNotified.has(nodeId) || !config.defaultLocked) {
-      continue;
-    }
-
-    if (evaluateNodeUnlock(config, progress)) {
-      newlyUnlockedNodeIds.push(nodeId);
+    if (config.defaultLocked && evaluateNodeUnlock(config, progress)) {
+      unlockedNodeIds.push(nodeId);
     }
   }
 
-  return { newlyUnlockedNodeIds };
+  return unlockedNodeIds;
+}
+
+/**
+ * Compares the nodes unlocked now against the nodes unlocked at the previous evaluation
+ * and reports only the locked-to-unlocked transitions. The baseline is the derived unlock
+ * state, not the notice queue, so dismissing a notice can never re-arm its announcement.
+ */
+export function findNewlyUnlockedNodes(
+  unlockConfigs: Map<string, NodeUnlockConfig>,
+  progress: UserProgress,
+  previouslyUnlockedNodeIds: readonly string[],
+): UnlockEvaluationResult {
+  const previouslyUnlocked = new Set(previouslyUnlockedNodeIds);
+  const unlockedNodeIds = findUnlockedNodes(unlockConfigs, progress);
+
+  return {
+    unlockedNodeIds,
+    newlyUnlockedNodeIds: unlockedNodeIds.filter((nodeId) => !previouslyUnlocked.has(nodeId)),
+  };
 }
 
 export function getNodeUnlockProgress(

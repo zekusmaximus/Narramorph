@@ -91,8 +91,8 @@ async function buildDominantPath(page: Page, philosophy: Philosophy): Promise<vo
 
 async function completeConvergence(page: Page, readerLabel: string): Promise<void> {
   // The journey's batched unlocks coalesce into one notice-tray slip (Accession).
-  // Dismissing it clears the filed batch so the ending unlock later arrives as a
-  // single, addressable slip; the surfaced convergence is opened from the map.
+  // Dismissing it only hides it: the convergences stay announced, so the ending
+  // unlock later arrives on its own. The surfaced convergence is opened from the map.
   const tray = page.getByTestId('notice-tray');
   await expect(tray).toBeVisible();
   await expect(tray).toContainText(/PASSAGES? SURFACED/);
@@ -134,12 +134,13 @@ for (const pathCase of PATH_CASES) {
     await buildDominantPath(page, pathCase.philosophy);
     await completeConvergence(page, pathCase.readerLabel);
 
-    // Completing the convergence surfaces the ending; the store re-files the other
-    // still-unvisited convergences alongside it, so the tray shows a coalesced slip
-    // and the ending itself is opened from the map.
+    // Completing the convergence surfaces the three endings, and only them: the
+    // already-announced convergences are not re-filed, so the tray shows one
+    // coalesced L4 slip and the ending itself is opened from the map.
     const endingTray = page.getByTestId('notice-tray');
     await expect(endingTray).toBeVisible();
-    await expect(endingTray).toContainText(/PASSAGES? SURFACED/);
+    await expect(endingTray).toContainText('PASSAGES SURFACED · L4');
+    await expect(endingTray).toContainText('3 convergences unlocked');
     await openNode(page, pathCase.endingId);
 
     const ending = page.getByRole('dialog', { name: pathCase.endingTitle });
