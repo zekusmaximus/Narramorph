@@ -67,7 +67,7 @@ npm run type-check                # TypeScript without emitting files
 npm run lint:ci                   # CI lint policy
 npm run format:check              # Prettier verification
 npm run test:run                  # Unit and component tests (single run)
-npm run test:coverage             # Unit tests with a V8 coverage report
+npm run test:coverage             # Unit tests with enforced V8 coverage floors
 npm run test:e2e                  # Production build, then Playwright journeys in Chromium
 npm run test:e2e:3d-proxy         # Production build, then the 3D view on engine proxies
 npm run bundle:check              # Bundle budgets and no public source maps (run after build)

@@ -13,11 +13,6 @@ export default defineConfig({
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     // Pool configuration - use threads for better compatibility
     pool: 'threads',
-    poolOptions: {
-      threads: {
-        singleThread: true,
-      },
-    },
     // Server configuration
     server: {
       deps: {
@@ -50,13 +45,13 @@ export default defineConfig({
         'src/components/StoryView/storyPresentation.ts',
         'src/components/NodeMap/{atmospherePresentation,edgeUtils,storyNodePresentation}.ts',
       ],
+      // Vitest reads these keys directly; a nested Jest-style `global` key is treated as a
+      // file glob, matches nothing, and silently disables enforcement.
       thresholds: {
-        global: {
-          branches: 70,
-          functions: 25,
-          lines: 60,
-          statements: 60,
-        },
+        branches: 70,
+        functions: 25,
+        lines: 60,
+        statements: 60,
       },
     },
     // Mock browser APIs that might be used in tests
