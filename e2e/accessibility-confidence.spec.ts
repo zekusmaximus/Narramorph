@@ -185,7 +185,7 @@ test('reader completes the primary journey with keyboard focus kept visible and 
   // after Reduce motion come the consent checkbox and the "what's sent" disclosure.
   const whatsSentDisclosure = page
     .getByRole('dialog', { name: 'Shape the reading room' })
-    .locator('summary', { hasText: 'See exactly what a report would contain' });
+    .locator('summary', { hasText: 'See an example crash report' });
   await page.keyboard.press('Shift+Tab');
   await expect(whatsSentDisclosure).toBeFocused();
   await page.keyboard.press('Shift+Tab');

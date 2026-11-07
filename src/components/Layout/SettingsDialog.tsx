@@ -230,12 +230,13 @@ export function SettingsDialog({
           </label>
           <details className="mt-2 pl-1 text-[12px] text-[#7e929c]">
             <summary className="cursor-pointer text-[#8fa3ad] transition-colors hover:text-[#b7c6ce] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#a5f3fc]">
-              See exactly what a report would contain
+              See an example crash report
             </summary>
             <p className="mt-2 leading-5">
-              A crash report is scrubbed on your device before sending — the URL is stripped to the
-              page (no passage), and no console log, saved data, or prose is included. A
-              representative report:
+              A crash report is built on your device from a short list of fields: the error, where
+              in the code it happened, the app version, and your browser and operating system. The
+              address is cut to the page (no passage), passage names are replaced, and no console
+              log, saved data, or prose is included. An example:
             </p>
             <pre className="mt-2 overflow-auto border border-[#1d2b33] bg-[#080d10] p-2 font-mono text-[11px] text-[#93a5ae]">
               {sampleReport}

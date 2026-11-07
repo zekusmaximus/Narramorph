@@ -5,9 +5,13 @@ import {
   redactStoryIdentifiers,
   redactBreadcrumb,
   redactEvent,
+  redactMessage,
   redactUrl,
   type RedactableEvent,
 } from './errorRedaction';
+
+/** Marks every value that must not survive redaction. */
+const SENTINEL = 'SENTINEL-must-not-leave-device';
 
 describe('redactUrl', () => {
   it('strips the passage hash and query to origin + path', () => {
@@ -170,5 +174,226 @@ describe('redactEvent — acceptance: no sensitive reading content leaves the de
     expect(sample.user).toBeUndefined();
     expect(sample.extra).toBeUndefined();
     expect(sample.request?.url).toBe('https://example.invalid/reader');
+  });
+});
+
+describe('redactMessage', () => {
+  it('replaces quoted fragments, which JSON and similar errors copy from their input', () => {
+    expect(redactMessage(`Unexpected token 'x', "{\\"journey\\": 1" is not valid JSON`)).toBe(
+      `Unexpected token 'x', "[…]" is not valid JSON`,
+    );
+    expect(redactMessage(`Unexpected token 'j', "{"journey": 1}" is not valid JSON`)).toBe(
+      `Unexpected token 'j', "[…]" is not valid JSON`,
+    );
+    expect(redactMessage('Cannot parse "my saved journey" at position 4')).toBe(
+      'Cannot parse "[…]" at position 4',
+    );
+  });
+
+  it('cuts URLs to origin and path and replaces story identifiers', () => {
+    expect(
+      redactMessage(
+        'Failed to load https://site.example/reader#/passage/hum-L2-resist?x=1 (arch-L1)',
+      ),
+    ).toBe('Failed to load https://site.example/reader ([passage])');
+  });
+
+  it('truncates long messages', () => {
+    const redacted = redactMessage('a'.repeat(1000));
+    expect(redacted).toHaveLength(301);
+    expect(redacted.endsWith('…')).toBe(true);
+  });
+
+  it('leaves ordinary error text alone', () => {
+    const text = "Cannot read properties of undefined (reading 'title')";
+    expect(redactMessage(text)).toBe(text);
+  });
+});
+
+describe('redactBreadcrumb allowlist', () => {
+  it('drops every category except interface and navigation breadcrumbs', () => {
+    for (const category of ['sentry.event', 'sentry.transaction', 'history', 'custom', '']) {
+      expect(redactBreadcrumb({ category, message: SENTINEL })).toBeNull();
+    }
+    expect(redactBreadcrumb({ message: SENTINEL })).toBeNull();
+  });
+
+  it('keeps only content-free fields on a navigation breadcrumb', () => {
+    expect(
+      redactBreadcrumb({
+        category: 'navigation',
+        level: 'info',
+        timestamp: 1,
+        message: SENTINEL,
+        data: { from: '/#/passage/a', to: '/#/passage/b', extra: SENTINEL },
+      }),
+    ).toEqual({
+      category: 'navigation',
+      level: 'info',
+      timestamp: 1,
+      data: { from: '/', to: '/' },
+    });
+  });
+});
+
+describe('redactEvent allowlist — a complete SDK-shaped event', () => {
+  const fullEvent = {
+    event_id: 'abc123',
+    timestamp: 1_700_000_000,
+    platform: 'javascript',
+    level: 'error',
+    environment: 'production',
+    release: 'narramorph@0.1.1',
+    dist: '1',
+    server_name: SENTINEL,
+    logger: SENTINEL,
+    transaction: `/reader#/passage/${SENTINEL}`,
+    fingerprint: [SENTINEL],
+    tags: { passage: SENTINEL },
+    extra: { save: SENTINEL },
+    user: { id: SENTINEL, ip_address: SENTINEL, email: SENTINEL },
+    modules: { [SENTINEL]: '1.0.0' },
+    logentry: { message: SENTINEL, params: [SENTINEL] },
+    message: `Render failed for "${SENTINEL}" at arch-L3`,
+    customField: SENTINEL,
+    sdk: {
+      name: 'sentry.javascript.browser',
+      version: '10.68.0',
+      integrations: [SENTINEL],
+      packages: [{ name: SENTINEL, version: '1' }],
+    },
+    sdkProcessingMetadata: { normalizedRequest: { url: SENTINEL } },
+    request: {
+      url: `https://narramorph.com/#/passage/${SENTINEL}`,
+      headers: { Referer: SENTINEL, 'User-Agent': SENTINEL },
+      cookies: SENTINEL,
+      data: SENTINEL,
+      query_string: SENTINEL,
+    },
+    exception: {
+      values: [
+        {
+          type: 'TypeError',
+          value: `Cannot read "${SENTINEL}" of undefined`,
+          module: SENTINEL,
+          mechanism: { type: 'onerror', handled: false, data: { element: SENTINEL } },
+          stacktrace: {
+            frames: [
+              {
+                filename: `https://narramorph.com/assets/index-abc.js?${SENTINEL}`,
+                abs_path: `https://narramorph.com/assets/index-abc.js#${SENTINEL}`,
+                function: 'renderPassage',
+                lineno: 1,
+                colno: 4821,
+                in_app: true,
+                module: SENTINEL,
+                context_line: SENTINEL,
+                pre_context: [SENTINEL],
+                post_context: [SENTINEL],
+                vars: { prose: SENTINEL },
+              },
+            ],
+            frames_omitted: [SENTINEL],
+          },
+        },
+      ],
+    },
+    breadcrumbs: [
+      { category: 'console', message: SENTINEL },
+      { category: 'fetch', data: { url: SENTINEL } },
+      { category: 'sentry.event', message: SENTINEL, event_id: SENTINEL },
+      { category: 'ui.click', message: `button[aria-label="${SENTINEL}"]`, data: { x: SENTINEL } },
+    ],
+    contexts: {
+      browser: { name: 'Chrome', version: '150', [SENTINEL]: SENTINEL },
+      os: { name: 'macOS', version: '26', build: SENTINEL },
+      device: { family: 'Desktop', model: SENTINEL },
+      runtime: { name: 'browser', version: SENTINEL.length },
+      trace: { trace_id: 'trace-1', span_id: 'span-1', data: { route: SENTINEL } },
+      culture: { locale: SENTINEL, timezone: SENTINEL },
+      state: { progress: SENTINEL },
+    },
+    debug_meta: {
+      images: [
+        {
+          type: 'sourcemap',
+          debug_id: 'debug-1',
+          code_file: `https://narramorph.com/assets/index-abc.js?${SENTINEL}`,
+          [SENTINEL]: SENTINEL,
+        },
+      ],
+    },
+  } as unknown as RedactableEvent;
+
+  it('transmits no field outside the allowlist', () => {
+    expect(JSON.stringify(redactEvent(fullEvent))).not.toContain(SENTINEL);
+  });
+
+  it('keeps the fields needed to act on the report', () => {
+    expect(redactEvent(fullEvent)).toEqual({
+      event_id: 'abc123',
+      timestamp: 1_700_000_000,
+      platform: 'javascript',
+      level: 'error',
+      environment: 'production',
+      release: 'narramorph@0.1.1',
+      dist: '1',
+      message: 'Render failed for "[…]" at [passage]',
+      sdk: { name: 'sentry.javascript.browser', version: '10.68.0' },
+      request: { url: 'https://narramorph.com/' },
+      exception: {
+        values: [
+          {
+            type: 'TypeError',
+            value: 'Cannot read "[…]" of undefined',
+            mechanism: { type: 'onerror', handled: false },
+            stacktrace: {
+              frames: [
+                {
+                  filename: 'https://narramorph.com/assets/index-abc.js',
+                  abs_path: 'https://narramorph.com/assets/index-abc.js',
+                  function: 'renderPassage',
+                  lineno: 1,
+                  colno: 4821,
+                  in_app: true,
+                },
+              ],
+            },
+          },
+        ],
+      },
+      breadcrumbs: [{ category: 'ui.click' }],
+      contexts: {
+        browser: { name: 'Chrome', version: '150' },
+        os: { name: 'macOS', version: '26' },
+        device: { family: 'Desktop' },
+        runtime: { name: 'browser', version: SENTINEL.length },
+        trace: { trace_id: 'trace-1', span_id: 'span-1' },
+      },
+      debug_meta: {
+        images: [
+          {
+            type: 'sourcemap',
+            debug_id: 'debug-1',
+            code_file: 'https://narramorph.com/assets/index-abc.js',
+          },
+        ],
+      },
+    });
+  });
+
+  it('ignores malformed nested values instead of copying them', () => {
+    const redacted = redactEvent({
+      exception: {
+        values: [SENTINEL, null, { type: 'Error', stacktrace: { frames: [SENTINEL] } }],
+      },
+      breadcrumbs: [SENTINEL, null],
+      contexts: { browser: SENTINEL },
+      request: { url: 42 },
+      debug_meta: { images: [SENTINEL] },
+    } as unknown as RedactableEvent);
+
+    expect(JSON.stringify(redacted)).not.toContain(SENTINEL);
+    expect(redacted.exception?.values).toEqual([{ type: 'Error', stacktrace: { frames: [] } }]);
   });
 });

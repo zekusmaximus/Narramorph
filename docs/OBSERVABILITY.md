@@ -6,22 +6,24 @@ Narramorph is a static, client-side app (ADR 0006). Its only telemetry is **opt-
 
 | Captured (only after opt-in) | Never captured / transmitted |
 | --- | --- |
-| Error type, message, and stack trace | Story prose / passage text |
+| Error type and message, scrubbed: story identifiers become `[passage]`, everything between the first and last double quote becomes `"[…]"`, URLs are cut to origin + path, and the message is capped at 300 characters | Story prose / passage text |
 | Release identity (`narramorph@<version>+<sha>`) | Journey history, progress, or the visit-event log |
-| Coarse environment (browser/OS) | Saved-journey data or any `localStorage` |
-| UI breadcrumbs reduced to their category (e.g. `ui.click`); the element description, which can carry passage titles in `aria-label`/`title`, is removed | The reading-position URL hash (`#/passage/:nodeId`) — stripped to origin + path |
-| — | Console/network breadcrumbs, cookies, request bodies, IP/user identity (`sendDefaultPii: false`) |
+| Stack frames: file (origin + path), function, line, column, and whether the frame is app code | Saved-journey data or any `localStorage` |
+| Coarse environment: browser and OS name and version, device family, and trace IDs | Locale, time zone, and every other context field |
+| UI and navigation breadcrumbs reduced to category, type, level, and timestamp; navigation keeps its URLs cut to origin + path. The UI element description, which can carry passage titles in `aria-label`/`title`, is removed | The reading-position URL hash (`#/passage/:nodeId`) — stripped to origin + path |
+| Debug-ID images that tie frames to privately uploaded source maps | Tags, fingerprints, `extra`, modules, `logentry`, frame source context (`context_line`, `vars`), and any field not on the allowlist |
+| — | Console, network, and `sentry.*` breadcrumbs; cookies, request headers and bodies; IP/user identity (`sendDefaultPii: false`) |
 | — | Passage, variation, and ending identifiers in error messages (replaced with `[passage]`) |
 | — | Sessions/release health (the `BrowserSession` integration is removed) and client reports (`sendClientReports: false`) |
 
-Redaction is enforced by the pure, unit-tested layer in [`src/utils/errorRedaction.ts`](../src/utils/errorRedaction.ts) (`errorRedaction.test.ts` — the "no sensitive reading content" acceptance) and applied in the SDK's `beforeSend`/`beforeBreadcrumb` hooks. Consent is enforced twice: a `consented` kill-switch in `beforeSend` drops error events, and a consent-gated transport (`gateTransportOnConsent` in [`src/utils/errorReporting.ts`](../src/utils/errorReporting.ts)) drops every envelope type while consent is off, including anything the SDK already queued. The SDK's default `BrowserSession` integration is removed because it sends a session envelope on load and on every history change (each passage open) without passing through `beforeSend`.
+Redaction is enforced by the pure layer in [`src/utils/errorRedaction.ts`](../src/utils/errorRedaction.ts), applied in the SDK's `beforeSend`/`beforeBreadcrumb` hooks. It **builds the outgoing event from an allowlist** of reviewed fields rather than deleting known-sensitive ones, so anything the SDK adds that is not on the list (now or in a future SDK version) is dropped by default. `errorRedaction.test.ts` puts a sentinel in every field of a complete SDK-shaped event and asserts none survives. `errorReporting.test.ts` runs the real SDK with only the network transport stubbed, attaches tags, user, extra, context, and breadcrumbs carrying the sentinel, and asserts that no sent envelope contains it, that no session or client-report envelope is sent, and that nothing at all is sent after consent is withdrawn. Consent is enforced twice: a `consented` kill-switch in `beforeSend` drops error events, and a consent-gated transport (`gateTransportOnConsent` in [`src/utils/errorReporting.ts`](../src/utils/errorReporting.ts)) drops every envelope type while consent is off, including anything the SDK already queued. The SDK's default `BrowserSession` integration is removed because it sends a session envelope on load and on every history change (each passage open) without passing through `beforeSend`.
 
-**Known gap (follow-up):** redaction removes known-sensitive fields rather than building the report from an allowlist of reviewed fields. Exception messages pass through apart from the story-identifier scrub. An allowlist-based event builder is the planned replacement.
+**Why messages are kept, scrubbed:** an error's message is usually what makes a report actionable, so it is not dropped. App errors interpolate node IDs (scrubbed), and browser parse errors quote fragments of their input (removed from the first to the last double quote). A future error that embeds reader data some other way would still be cut to 300 characters; replacing messages with fixed error codes remains the stricter option if reports show such a case.
 
 ## Consent model
 
 - **Off by default.** `errorReportingConsent` is an additive, defaulted preference (absent → off; no save-schema change).
-- **Settings toggle** — "Send anonymous crash reports", with an inline **"See exactly what a report would contain"** view rendering a representative _redacted_ payload, and a link to [`PRIVACY.md`](PRIVACY.md).
+- **Settings toggle** — "Send anonymous crash reports", with an inline **"See an example crash report"** view rendering an example payload after the same redaction a real report receives, and a link to [`PRIVACY.md`](PRIVACY.md).
 - **Error-recovery report action** — the top-level error screen offers a one-tap "Report this problem" (redacted) when a DSN is configured; consented readers' crashes are reported automatically.
 - The Sentry SDK is **lazy-loaded only after opt-in**, so it never rides in the initial bundle and never loads for readers who don't consent.
 
