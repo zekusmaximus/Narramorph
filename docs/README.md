@@ -5,13 +5,23 @@ This directory separates current project guidance from historical planning recor
 ## Start here
 
 - [Project overview](PROJECT_OVERVIEW.md): product vision, system shape, and scope.
-- [Current status](STATUS.md): the verified technical baseline as of July 12, 2026.
+- [Current status](STATUS.md): the verified technical baseline (dated in the file).
 - [Release status](RELEASE_STATUS.md): alpha/beta/RC/GA gates and the currently tested support matrix.
 - [Roadmap](ROADMAP.md): prioritized work from the current baseline.
 - [Product charter](PRODUCT_CHARTER.md): v1 audience, scope, non-goals, and repository roles.
 - [Product consolidation roadmap](eternal-return-product-consolidation-roadmap.md): ordered cross-repository implementation and archive gates.
 - [Consolidation program](consolidation/README.md): live execution status, baselines, and feature extraction.
 - [Contributing](../CONTRIBUTING.md): development workflow and review expectations.
+
+## Operations, privacy, and support
+
+- [Privacy policy](PRIVACY.md)
+- [Observability and error monitoring](OBSERVABILITY.md)
+- [Security headers](SECURITY_HEADERS.md)
+- [Release and rollback runbook](RELEASE_ROLLBACK.md)
+- [Browser support policy](BROWSER_SUPPORT.md)
+- [Accessibility](ACCESSIBILITY.md)
+- [Experimental 3D view plan](3D_VIEW_PLAN.md)
 
 ## Durable references
 

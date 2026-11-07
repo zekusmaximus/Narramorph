@@ -1,6 +1,6 @@
 # Narramorph roadmap
 
-Updated: July 13, 2026
+Updated: November 7, 2026
 
 This roadmap starts from the merged state of `main`. It favors small, independently reviewable changes and does not assume a rewrite or a server backend.
 
@@ -71,17 +71,23 @@ This milestone is complete for the primary reader journey: available map passage
 - Introduce lazy story/content boundaries before adding more stories.
 - Reconsider a Web Worker for L3 only if new profiling shows meaningful main-thread blocking.
 
+Largely complete: story content and the optional 3D view load as separate lazy chunks, `npm run bundle:check` enforces `config/bundle-budgets.json` in required CI, and the `config/performance-budgets.json` LCP/CLS budgets passed on real Windows hardware on July 19, 2026. The broad-subscription profiling and the L3 Web Worker question remain open.
+
 ### 7. Prepare for additional stories
 
 - Remove remaining hard-coded `eternal-return` discovery assumptions.
 - Define story package/version compatibility and migration policy.
 - Test two small story fixtures before advertising multi-story support.
 
+In progress: [Story Package Contract v1](contracts/story-package-v1.md) is implemented, and the same generic builder and validator process Eternal Return and two synthetic fixtures (`clockwork-garden`, `tidal-signals`) with deterministic content hashes. The reader still defaults to `eternal-return`, so multi-story support is not advertised.
+
 ### 8. Operational readiness
 
 - Choose a deployment target and document preview/production release steps.
 - Add privacy-respecting error and performance monitoring if the product is publicly hosted.
 - Define beta feedback, release criteria, and rollback procedures.
+
+Largely complete: Cloudflare Pages serves the alpha at narramorph.com from `main`; the deploy and rollback runbook is [RELEASE_ROLLBACK.md](RELEASE_ROLLBACK.md); opt-in, redacted Sentry error reporting is configured ([OBSERVABILITY.md](OBSERVABILITY.md)); and release criteria live in [RELEASE_STATUS.md](RELEASE_STATUS.md). Still open and owner-run: preview and staging environments, the rollback rehearsal, monitoring alerts and the injected-error test, and beta feedback.
 
 ## Not planned now
 

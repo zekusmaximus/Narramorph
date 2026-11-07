@@ -1,9 +1,16 @@
 # Narramorph status
 
-Updated: July 13, 2026
+Updated: November 7, 2026
 
 ## Current baseline
 
+- App version 0.1.1 ships as a static, client-only build ([ADR 0006](adr/0006-v1-client-only-no-backend.md)); `npm run scope:check` confirms first-party `src/` contains no network primitives.
+- The alpha is publicly hosted at [narramorph.com](https://narramorph.com) on Cloudflare Pages, built from `main`, with security headers and CSP from `public/_headers`. Production passed all eight required header checks on November 7, 2026, and the domain is on the HSTS preload list.
+- Opt-in, redacted error reporting (Sentry, lazy-loaded, DSN-gated) is configured in the production build. Redaction removes prose, journey and save data, storage, the passage fragment, and UI element descriptions before a report leaves the device.
+- Readers can bookmark passages (`#/passage/:nodeId`), open a "Why this version?" explanation for visited passages, and export a journey as Markdown, print, or a machine-readable save file.
+- Story Package Contract v1 is implemented: one generic builder and validator process Eternal Return and two synthetic fixture stories, each with a deterministic content hash. Literary-release intake validates the accepted `eternal-return-literary-v1.0.2` release and its approved slice.
+- CI enforces bundle budgets with zero public source maps (`bundle:check`) and V8 coverage floors (`test:coverage`).
+- The optional 3D view downloads only on request and is exercised in CI by a Chromium/Firefox/WebKit engine proxy matrix in desktop and touch/mobile viewports.
 - The application builds on React 18, TypeScript, Vite, Zustand, React Flow, and React Three Fiber.
 - _Eternal Return of the Digital Self_ is present as the complete checked-in runtime story across L1-L4.
 - CI-oriented runtime validation checks raw L1/L2 variations, the assembled story graph, L3 aggregate loading, and the selection matrix without relying on migration normalization.
@@ -22,22 +29,16 @@ Updated: July 13, 2026
 
 ## Recently completed
 
-- Conversion-package TypeScript cleanup.
-- Shared 2D/3D map interaction groundwork.
-- L3 profiling and targeted assembly optimization.
-- Unlock, journey-progress, progress-model, and L2 progression extraction from the central store.
-- Strict runtime content validation suitable for CI.
-- Accessible navigation and interaction confidence across the complete primary reader path.
-- Store-free active 2D map node and mounted atmospheric presentation boundaries for milestone 4.
-- Store-free application-shell and journey-tracker presentation boundaries for milestone 4.
-- Removal of the deprecated TypeScript `baseUrl` option.
-- Consolidation of current documentation and archival of superseded assessments and plans.
+- Phase 8 production hardening ([#182](https://github.com/zekusmaximus/Narramorph/pull/182)) and the production launch on narramorph.com ([#183](https://github.com/zekusmaximus/Narramorph/pull/183), [#184](https://github.com/zekusmaximus/Narramorph/pull/184), [#186](https://github.com/zekusmaximus/Narramorph/pull/186)).
+- Accession chrome redesign of the map stack, header and footer, dialogs, and notice tray ([#196](https://github.com/zekusmaximus/Narramorph/pull/196)).
+- Experimental 3D CSP, recovery, spatial mapping, profiling harness, and engine proxy matrix ([#198](https://github.com/zekusmaximus/Narramorph/pull/198), [#199](https://github.com/zekusmaximus/Narramorph/pull/199), [#201](https://github.com/zekusmaximus/Narramorph/pull/201), [#218](https://github.com/zekusmaximus/Narramorph/pull/218); see the [3D view plan](3D_VIEW_PLAN.md)).
+- Enforced coverage floors (previously configured under a key Vitest ignores), dependency-advisory remediation, and UI-breadcrumb redaction for error reports (November 7, 2026).
 
 ## Known constraints
 
 - `storyStore.ts` remains the central coordinator and still owns visit, L3 assembly, unlock, and UI orchestration concerns.
 - Some remaining visual components outside the active 2D node, mounted atmospheric presentation boundary, shell, settings dialog, and journey-tracker panel still subscribe directly to broad store state.
-- Package-level checksums remain deferred until a second story can establish a timestamp-independent, cross-package checksum contract.
+- The reader still defaults to the `eternal-return` story; the story-package contract and fixtures exist, but multi-story reading is not advertised.
 - Eager content imports are acceptable for the current single-story scope but will not scale cleanly to a larger catalog.
 - Cross-screen-reader, device-specific contrast, and assistive-technology combinations remain release-QA checks rather than a fully automated matrix.
 
