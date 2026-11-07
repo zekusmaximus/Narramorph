@@ -49,6 +49,11 @@ updates:
       # deliberate migration with visual and CSS-budget review (see closed #217).
       - dependency-name: tailwindcss
         update-types: ['version-update:semver-major']
+      # framer-motion 12-14 adds ~9.3 KiB gzip to the initial bundle for no feature the
+      # app uses (closed #232). Take the next major as a migration to the `motion`
+      # package with LazyMotion, which can shrink the bundle instead.
+      - dependency-name: framer-motion
+        update-types: ['version-update:semver-major']
 
   - package-ecosystem: npm
     directory: /tools/conversion
