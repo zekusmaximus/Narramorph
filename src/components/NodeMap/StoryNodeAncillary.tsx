@@ -161,7 +161,11 @@ export function StoryNodeLockedGhost({
         backgroundColor: `${colors.fill}1a`,
       }}
     >
-      <span className="font-mono text-[11px] font-medium" style={{ color: '#93a5ae' }}>
+      <span
+        aria-hidden="true"
+        className="font-mono text-[11px] font-medium"
+        style={{ color: '#93a5ae' }}
+      >
         L{node.layer}
       </span>
     </div>

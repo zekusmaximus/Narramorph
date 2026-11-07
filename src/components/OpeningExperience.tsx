@@ -100,12 +100,17 @@ export function OpeningExperience(): ReactElement {
                   data-testid={`perspective-entry-${node.id}`}
                   onClick={() => adapter.activate(node.id)}
                   className={`group min-w-0 rounded-lg border bg-black/20 px-2.5 py-2.5 text-left shadow-sm transition-colors sm:px-3.5 ${presentation.accent}`}
-                  aria-label={`Enter the story through ${presentation.label}`}
+                  // The accessible name contains every visible word, in order (WCAG 2.5.3
+                  // Label in Name), so a voice-control reader can activate the card by saying
+                  // what it shows. The monogram is decorative CSS content, not label text.
+                  aria-label={`Enter the story through ${presentation.label}, transmission ${presentation.era}`}
                 >
                   <span className="flex items-start justify-between gap-1">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current/30 font-serif text-sm text-stone-100">
-                      {presentation.marker}
-                    </span>
+                    <span
+                      aria-hidden="true"
+                      data-marker={presentation.marker}
+                      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-current/30 font-serif text-sm text-stone-100 before:content-[attr(data-marker)]"
+                    />
                     <ChevronRight
                       aria-hidden="true"
                       className="mt-1 h-4 w-4 shrink-0 text-stone-400 transition-transform group-hover:translate-x-0.5 group-hover:text-stone-100"
@@ -113,7 +118,7 @@ export function OpeningExperience(): ReactElement {
                   </span>
                   <span className="mt-2 block min-h-9 font-serif text-sm leading-tight text-stone-100 sm:min-h-0 sm:text-base">
                     {presentation.label}
-                  </span>
+                  </span>{' '}
                   <span className="mt-0.5 block break-words font-mono text-[0.6rem] uppercase tracking-[0.18em] text-stone-400 [overflow-wrap:anywhere]">
                     transmission {presentation.era}
                   </span>
