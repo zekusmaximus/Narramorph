@@ -97,8 +97,8 @@
     "@typescript-eslint/eslint-plugin": "8.65.0",
     "@typescript-eslint/parser": "8.65.0",
     "@vitejs/plugin-react": "5.2.0",
-    "@vitest/coverage-v8": "^4.1.10",
-    "@vitest/ui": "^4.1.10",
+    "@vitest/coverage-v8": "^4.1.12",
+    "@vitest/ui": "^4.1.12",
     "autoprefixer": "^10.5.4",
     "cross-env": "^7.0.3",
     "eslint": "^8.55.0",
@@ -116,8 +116,8 @@
     "postcss": "8.5.23",
     "prettier": "^3.8.5",
     "typescript": "^5.3.3",
-    "vite": "7.3.6",
-    "vitest": "^4.1.10"
+    "vite": "7.3.7",
+    "vitest": "^4.1.12"
   },
   "engines": {
     "node": ">=22.0.0 <25.0.0",

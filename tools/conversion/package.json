@@ -50,13 +50,13 @@
     "literary:test": "vitest run tests/literary-release.test.ts"
   },
   "dependencies": {
-    "glob": "13.0.6",
+    "glob": "14.0.4",
     "yaml": "2.9.0"
   },
   "devDependencies": {
     "@types/node": "22.20.1",
     "tsx": "4.23.1",
     "typescript": "6.0.3",
-    "vitest": "3.2.7"
+    "vitest": "4.1.12"
   }
 }
