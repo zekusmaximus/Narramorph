@@ -60,6 +60,7 @@ function resetStore(): void {
     currentL3Assembly: null,
     unlockConfigs: new Map(),
     recentlyUnlockedNodes: [],
+    announcedUnlockNodes: [],
   });
 }
 
@@ -503,6 +504,68 @@ describe('L3 convergence', () => {
     });
     expect(store().getUnlockProgress('final-preserve')?.locked).toBe(false);
     expect(store().canVisitNode('final-transform')).toBe(true);
+  });
+
+  it('announces each unlock once, even after the notice is dismissed', async () => {
+    readToConvergence();
+    expect(store().recentlyUnlockedNodes).toEqual(L3_NODES);
+
+    store().clearUnlockNotifications(); // the notice closed, or dismissed itself after 8 s
+    read('hum-L1');
+    read('hum-L2-accept');
+    expect(store().recentlyUnlockedNodes).toEqual([]);
+
+    await store().openL3AssemblyView('arch-L3');
+    for (const section of L3_SECTIONS) {
+      store().markL3SectionRead(section);
+    }
+    expect(store().recentlyUnlockedNodes).toEqual(ENDINGS);
+  });
+
+  it('does not re-announce unlocks after a reload, but still announces new ones', async () => {
+    readToConvergence(); // every visit saves to localStorage
+
+    // Reload: in-memory state is gone, the save remains, and Home runs loadStory then loadProgress.
+    resetStore();
+    await store().loadStory(STORY_ID);
+    store().loadProgress();
+
+    expect(store().progress.readingPath).toHaveLength(16);
+    expect(store().canVisitNode('arch-L3')).toBe(true);
+    expect(store().recentlyUnlockedNodes).toEqual([]);
+
+    read('hum-L1');
+    expect(store().recentlyUnlockedNodes).toEqual([]);
+
+    await store().openL3AssemblyView('arch-L3');
+    for (const section of L3_SECTIONS) {
+      store().markL3SectionRead(section);
+    }
+    expect(store().recentlyUnlockedNodes).toEqual(ENDINGS);
+  });
+
+  it('does not announce the unlocks an imported save already has', () => {
+    readToConvergence();
+    const save = store().exportProgress();
+    store().clearProgress();
+    expect(store().canVisitNode('arch-L3')).toBe(false);
+
+    expect(store().importProgress(save)).toMatchObject({ ok: true });
+    read('hum-L1');
+
+    expect(store().canVisitNode('arch-L3')).toBe(true);
+    expect(store().recentlyUnlockedNodes).toEqual([]);
+  });
+
+  it('announces the unlocks again on a new journey', () => {
+    readToConvergence();
+    store().clearUnlockNotifications();
+
+    store().clearProgress();
+    expect(store().recentlyUnlockedNodes).toEqual([]);
+    readToConvergence();
+
+    expect(store().recentlyUnlockedNodes).toEqual(L3_NODES);
   });
 
   it('ignores re-reading a section and reading before any assembly was viewed', async () => {

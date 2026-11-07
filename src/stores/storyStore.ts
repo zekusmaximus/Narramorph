@@ -60,8 +60,9 @@ import type {
   ConditionContext,
   ImportProgressResult,
   L3Assembly,
+  UserProgress,
 } from '@/types';
-import type { UnlockProgress } from '@/types/Unlock';
+import type { NodeUnlockConfig, UnlockProgress } from '@/types/Unlock';
 import { loadStoryContent } from '@/utils/contentLoader';
 import { buildL3Assembly, calculateSynthesisPattern } from '@/utils/l3Assembly';
 import { isL3Node, isL4Node } from '@/utils/nodeUtils';
@@ -105,6 +106,14 @@ const devError = (...args: unknown[]): void => {
   }
   console.error('[StoryStore:error]', ...args);
 };
+
+/** Every default-locked node this journey has already unlocked, announced or not. */
+function unlockedNodeIds(
+  unlockConfigs: Map<string, NodeUnlockConfig>,
+  progress: UserProgress,
+): string[] {
+  return findNewlyUnlockedNodes(unlockConfigs, progress, []).newlyUnlockedNodeIds;
+}
 
 type DraftStoryNode = WritableDraft<StoryNode>;
 
@@ -150,6 +159,7 @@ export const useStoryStore = create<StoryStore>()(
     // Unlock System State
     unlockConfigs: new Map(),
     recentlyUnlockedNodes: [],
+    announcedUnlockNodes: [],
 
     // Actions
     loadStory: async (storyId: string) => {
@@ -171,6 +181,8 @@ export const useStoryStore = create<StoryStore>()(
         state.connections = loaded.connections;
         state.progress = loaded.progress;
         state.unlockConfigs = loaded.unlockConfigs;
+        state.announcedUnlockNodes = unlockedNodeIds(loaded.unlockConfigs, loaded.progress);
+        state.recentlyUnlockedNodes = [];
         if (loaded.viewport) {
           state.viewport.bounds = loaded.viewport.bounds;
           state.viewport.center = loaded.viewport.center;
@@ -668,10 +680,12 @@ export const useStoryStore = create<StoryStore>()(
      */
     evaluateUnlocks: () => {
       const state = get();
+      // Compare against everything already announced, not the notice queue: the notice clears
+      // its queue when it closes, and the same unlocks must not be announced again.
       const { newlyUnlockedNodeIds } = findNewlyUnlockedNodes(
         state.unlockConfigs,
         state.progress,
-        state.recentlyUnlockedNodes,
+        state.announcedUnlockNodes,
       );
 
       for (const nodeId of newlyUnlockedNodeIds) {
@@ -681,6 +695,7 @@ export const useStoryStore = create<StoryStore>()(
       if (newlyUnlockedNodeIds.length > 0) {
         set((state) => {
           state.recentlyUnlockedNodes = [...state.recentlyUnlockedNodes, ...newlyUnlockedNodeIds];
+          state.announcedUnlockNodes = [...state.announcedUnlockNodes, ...newlyUnlockedNodeIds];
         });
       }
     },
@@ -695,8 +710,8 @@ export const useStoryStore = create<StoryStore>()(
     },
 
     /**
-     * Clear unlock notification queue
-     * Called after showing notifications to user
+     * Clear the on-screen unlock notice queue. Called when the notice closes; the unlocks stay
+     * in announcedUnlockNodes, so they are not announced again.
      */
     clearUnlockNotifications: () => {
       set((state) => {
@@ -984,10 +999,14 @@ export const useStoryStore = create<StoryStore>()(
         devLog(`Applied saved-state migration: ${migration}`);
       }
 
+      // Unlocks earned before the reload were already announced in that session.
+      const announced = unlockedNodeIds(get().unlockConfigs, result.savedState.progress);
       set((state) => {
         state.progress = result.savedState.progress;
         state.preferences = result.savedState.preferences;
         state.lastLoadMigrations = [...result.migrations];
+        state.announcedUnlockNodes = announced;
+        state.recentlyUnlockedNodes = [];
       });
     },
 
@@ -1043,12 +1062,16 @@ export const useStoryStore = create<StoryStore>()(
         return { ok: false, reason: 'invalid' };
       }
 
+      // An imported journey's existing unlocks are treated like a reload's: not news.
+      const announced = unlockedNodeIds(get().unlockConfigs, prepared.savedState.progress);
       set((state) => {
         state.progress = prepared.savedState.progress;
         state.preferences = prepared.savedState.preferences;
         state.selectedNode = null;
         state.hoveredNode = null;
         state.storyViewOpen = false;
+        state.announcedUnlockNodes = announced;
+        state.recentlyUnlockedNodes = [];
       });
 
       get().saveProgress();
@@ -1058,11 +1081,16 @@ export const useStoryStore = create<StoryStore>()(
     clearProgress: () => {
       // "New journey": resets reading progress but keeps reading preferences
       // (theme, text size, line height, reduce-motion, export options).
+      const freshProgress = createInitialProgress();
+      const announced = unlockedNodeIds(get().unlockConfigs, freshProgress);
       set((state) => {
-        state.progress = createInitialProgress();
+        state.progress = freshProgress;
         state.selectedNode = null;
         state.hoveredNode = null;
         state.storyViewOpen = false;
+        // A new journey earns its unlocks again, so they are announced again.
+        state.announcedUnlockNodes = announced;
+        state.recentlyUnlockedNodes = [];
       });
       get().saveProgress();
     },

@@ -273,7 +273,14 @@ export interface StoryStore {
 
   // Unlock System State
   unlockConfigs: Map<string, NodeUnlockConfig>;
+  /** On-screen unlock notice queue; the notice clears it when it closes. */
   recentlyUnlockedNodes: string[];
+  /**
+   * Every unlock already announced, kept apart from the notice queue so a dismissed notice is
+   * never announced again. Seeded from the loaded or imported journey, so a reload announces
+   * nothing that was already unlocked. Not persisted.
+   */
+  announcedUnlockNodes: string[];
 
   // Reading statistics (computed)
   stats: ReadingStats;
