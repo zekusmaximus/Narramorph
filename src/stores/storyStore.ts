@@ -453,14 +453,15 @@ export const useStoryStore = create<StoryStore>()(
         // Cache the assembly
         set((state) => {
           state.l3AssemblyCache.set(cacheKey, assembly);
-          state.isGeneratingL3 = false;
         });
 
         return assembly;
       } catch (error) {
         devError('[L3Assembly] Error building assembly', error);
-        set({ isGeneratingL3: false });
         return null;
+      } finally {
+        // Every exit clears the flag; a null result used to leave it set.
+        set({ isGeneratingL3: false });
       }
     },
 
@@ -479,16 +480,19 @@ export const useStoryStore = create<StoryStore>()(
      */
     openL3AssemblyView: async (nodeId?: string) => {
       const state = get();
+      // Decide idempotency before finalizing, as openStoryView does: re-opening the L3 node
+      // already on screen must keep its running visit, not end it and start none.
+      const alreadyViewing = nodeId !== undefined && state.activeVisit?.nodeId === nodeId;
 
       // Finalize any existing active visit before starting a new one
-      if (state.activeVisit) {
+      if (state.activeVisit && !alreadyViewing) {
         state.finalizeActiveVisit();
       }
 
       // If nodeId provided, record visit for L3 node
       if (nodeId) {
         // Idempotency check
-        if (state.activeVisit && state.activeVisit.nodeId === nodeId) {
+        if (alreadyViewing) {
           devLog('[L3Assembly] Already viewing', nodeId, '- skipping visit recording');
         } else {
           // Record visit for L3 node
