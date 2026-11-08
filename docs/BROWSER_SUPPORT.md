@@ -12,7 +12,7 @@ The gate covers the L1–L4 reader journey, save and restore, recovery, keyboard
 
 ## Optional 3D view: engine proxy matrix
 
-The `Compatibility / 3D proxy matrix` job (`npm run test:e2e:3d-proxy`, configured in `playwright.3d.config.ts`) exercises only the optional 3D view on Playwright-pinned engines: Chromium, Firefox, and WebKit at 1280×800, plus touch-enabled Chromium and WebKit at 390×844. Each project must either complete the 3D journey or return cleanly to the usable 2D map, and the two outcomes are recorded separately.
+The `Compatibility / 3D proxy matrix` job (`npm run test:e2e:3d-proxy`, configured in `playwright.3d.config.ts`), a required check on `main` since November 8, 2026, exercises only the optional 3D view on Playwright-pinned engines: Chromium, Firefox, and WebKit at 1280×800, plus touch-enabled Chromium and WebKit at 390×844. Each project must either complete the 3D journey or return cleanly to the usable 2D map, and the two outcomes are recorded separately.
 
 These are engine proxies. Playwright WebKit is not Safari, a touch viewport is not a physical phone, and headless software WebGL says nothing about real GPU drivers. A proxy pass does not make any of those browsers a supported alpha environment for the reader; see the [3D view plan](3D_VIEW_PLAN.md) for the hardware caveats.
 
