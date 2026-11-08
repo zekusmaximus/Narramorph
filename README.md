@@ -85,7 +85,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for code and pull-request conventions.
 
 The required `Release / browser` GitHub Actions job runs the Playwright suite on the Playwright-pinned Chromium build; the same suite runs locally. It covers the complete L1-L4 reader journey, save and restore, recovery, keyboard focus, automated axe accessibility checks, reduced motion, WebGL fallback, 390×844 layout, reader text sizes, and 200% root text.
 
-A separate `Compatibility / 3D proxy matrix` job exercises only the optional 3D view on pinned Chromium, Firefox, and WebKit engines in desktop and touch/mobile viewports. These are engine proxies, not branded-browser evidence: Playwright WebKit is not Safari, and a touch viewport is not a physical phone.
+A separate required `Compatibility / 3D proxy matrix` job exercises only the optional 3D view on pinned Chromium, Firefox, and WebKit engines in desktop and touch/mobile viewports. These are engine proxies, not branded-browser evidence: Playwright WebKit is not Safari, and a touch viewport is not a physical phone.
 
 Branded Firefox, Safari, iOS Safari, Android browsers, and manual screen-reader combinations remain release-QA targets, not supported alpha browsers. See the [browser support policy](docs/BROWSER_SUPPORT.md), the [3D view plan](docs/3D_VIEW_PLAN.md), and the [release gates](docs/RELEASE_STATUS.md).
 
