@@ -50,7 +50,7 @@
     "literary:test": "vitest run tests/literary-release.test.ts"
   },
   "dependencies": {
-    "glob": "14.0.4",
+    "glob": "14.0.6",
     "yaml": "2.9.1"
   },
   "devDependencies": {
